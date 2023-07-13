@@ -16,4 +16,14 @@ public class CustomerController {
 		log.info("자주 묻는 질문으로 갑니다.");
 	}
 	
+	@GetMapping(value="/notice")
+	public void notice() {
+		log.info("공지사항으로 갑니다.");
+	}
+	
+	@GetMapping(value="/qna")
+	public void qna() {
+		log.info("문의 사항으로 갑니다.");
+	}
+	
 }
