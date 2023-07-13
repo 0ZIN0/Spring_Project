@@ -1,3 +1,29 @@
 #footer {
+	background-color: #131c27;	
+}
+
+#footer-main {
 	margin: auto;
+	width: 1120px;
+}
+
+#footer-main > div:first-child {
+	display: flex;
+	flex-direction: row;
+}
+
+.footer-a {
+	margin-right: 10px;	
+	color: white;
+}
+.footer-a > a {
+	text-decoration: none;	
+}
+.footer-a > a:visited {
+	text-decoration: none;
+	color: white;
+}
+.footer-a:nth-child(3) > a:visited {
+	text-decoration: none;
+	color: #67c1f5;
 }
