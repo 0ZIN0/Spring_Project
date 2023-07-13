@@ -11,7 +11,8 @@
 <body>
 	
 	<h2>Main Page 입니다.</h2>
-	 
+	
+	<a href="./detail?id=1">게임1로 가기</a>
 	
 </body>
 </html>
