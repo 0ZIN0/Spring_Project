@@ -5,8 +5,8 @@
 		<div id="header-top">
 			<div>
 				<ul>
-					<li><a id="logo-btn" href="./home">로고</a></li>
-					<li><a id="game-btn" href="./home">게임</a></li>
+					<li><a id="logo-btn" href="./">로고</a></li>
+					<li><a id="game-btn" href="./">게임</a></li>
 					<li><a id="notices-btn" href="./customer/notice">공지 사항</a></li>
 				</ul>
 			</div>

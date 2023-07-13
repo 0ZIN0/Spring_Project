@@ -9,10 +9,13 @@ import lombok.extern.log4j.Log4j;
 @Controller
 public class HeaderController {
 	
-	@GetMapping("/customer/faq")
-	public String faq() {
-		log.info("자주 묻는 질문으로 들어갑니다.");
-		return "customer/faq";
+	@GetMapping(value="/member/login")
+	public void login() {
+		log.info("로그인 화면입니다.");
 	}
 	
+	@GetMapping(value="/games")
+	public void games() {
+		log.info("모든 게임을 보는 화면입니다.");
+	}
 }
