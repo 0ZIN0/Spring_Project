@@ -17,4 +17,10 @@ public class FooterController {
 	@GetMapping("/private")
 	void toPrivate() {}
 	
+	@GetMapping("/refund_policy")
+	void toRefund_policy() {}
+	
+	@GetMapping("/youth_protection_act")
+	void toYouth_protection_act() {}
+	
 }
