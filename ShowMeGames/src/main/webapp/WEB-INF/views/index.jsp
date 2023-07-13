@@ -35,7 +35,7 @@
 				<ul>
 					<li><a id="category-btn">카테고리</a></li>
 					<li><a id="genre-btn">장르</a></li>
-					<li><a id="all-game-btn">모든 게임 보기</a></li>
+					<li><a id="all-game-btn" href="./games">모든 게임 보기</a></li>
 				</ul>
 			</div>
 			<div>
