@@ -1,10 +1,23 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0
+}
+
 #footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
 	background-color: #131c27;	
+	width: 100%;
+	border: 1px solid #2b333d;
 }
 
 #footer-main {
 	margin: auto;
-	width: 1120px;
+	width: 800px;
 }
 
 #footer-main > div:first-child {
@@ -13,17 +26,25 @@
 }
 
 .footer-a {
-	margin-right: 10px;	
+	margin: 10px 20px 10px 0;
 	color: white;
 }
 .footer-a > a {
 	text-decoration: none;	
+	color: white;
 }
 .footer-a > a:visited {
 	text-decoration: none;
 	color: white;
 }
+.footer-a:nth-child(3) > a {
+	text-decoration: none;
+	color: #67c1f5;
+}
 .footer-a:nth-child(3) > a:visited {
 	text-decoration: none;
+	color: #67c1f5;
+}
+.footer-a > a:hover {
 	color: #67c1f5;
 }

@@ -4,19 +4,16 @@
 	<div id="footer-main">
 		<div>
 			<div class="footer-a">
-				<a href="">회사소개</a>
+				<a href="./footer/about">회사소개</a>
 			</div>
 			<div class="footer-a">
-				<a href="">이용약관</a>
+				<a href="./footer/agreement">이용약관</a>
 			</div>
 			<div class="footer-a">
-				<a href="">개인정보처리방침</a>
+				<a href="./footer/private">개인정보처리방침</a>
 			</div>
 			<div class="footer-a">
 				<a href="">환불정책</a>
-			</div>
-			<div class="footer-a">
-				<a href="">사업자정보확인</a>
 			</div>
 			<div class="footer-a">
 				<a href="">청소년보호정책</a>
