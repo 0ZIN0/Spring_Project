@@ -8,9 +8,11 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Controller
 public class HeaderController {
-
-    @GetMapping("/home")
-    public String homePage() {
-        return "home"; // 실제 홈 페이지의 경로로 수정하세요.
-    }
+	
+	@GetMapping("/customer/faq")
+	public String faq() {
+		log.info("자주 묻는 질문으로 들어갑니다.");
+		return "customer/faq";
+	}
+	
 }
