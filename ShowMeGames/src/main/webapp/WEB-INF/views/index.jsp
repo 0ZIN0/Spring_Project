@@ -10,9 +10,9 @@
 	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
 </head>
 <body>
-	<header>
-		<%@ include file="./header.jsp" %>
-	</header>
+	<%@ include file="./header.jsp" %>
+	
+	<h2>Main Page 입니다.</h2>
 	
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
 </body>

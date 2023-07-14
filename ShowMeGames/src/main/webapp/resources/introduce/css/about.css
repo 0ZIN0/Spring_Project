@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #1b2838;
+    height: 100%;
+}
+
+#main {
+    margin: 20px 0 40px 0;
+}
+
+#main > div {
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+}
+
+#main > div > div {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0 20px 0;
+    background-color: white;
+}
+
+.about-img {
+    width: 55%;
+    padding: 20px;
+}
+
+.about-img > img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-text {
+    width: 45%;
+    padding: 100px 50px 100px 50px;
+}
+.about-text > h2 {
+    text-align: center;
+    background-color: black;
+    color: white;
+    white-space: nowrap;
+    font-size: 1.2em;
+}
+.about-text > span {
+    font-size: 0.8em;
+}

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-		<h2>Main Page 입니다.</h2>
+    <header>
 		<div id="header-top">
 			<div>
 				<ul>
@@ -39,3 +38,4 @@
 				<a id="cart-btn" href="./cart">장바구니</a>
 			</div>
 		</div>
+	</header>
