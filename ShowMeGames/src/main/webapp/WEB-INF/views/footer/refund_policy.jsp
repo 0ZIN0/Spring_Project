@@ -15,11 +15,11 @@
 </head>
 <body>
  	<div id="main">
-		<div class="page-header">
-				<h1 id="example-colors">쇼미게임즈 환불정책</h1>
+		<div >
+				<h1 >쇼미게임즈 환불정책</h1>
 		</div>
 		<div id="content">
-			<div class="row example-row example-type">
+			<div>
 				<div class="col-lg-12">
 					<p class="lead">
 						쇼미게임즈에서는 다음과 같은 방법과 정책에 따라 취소/환불 요청을 하실 수 있습니다.<br />취소/환불에
