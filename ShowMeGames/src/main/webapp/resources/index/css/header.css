@@ -2,11 +2,6 @@
     box-sizing: border-box;
 }
 
-a {
-	text-decoration: none;
-	color: black;
-}
-
 #header-top > a:not('#logo-btn'):hover {
 	color: red;
 }
@@ -16,23 +11,44 @@ header {
     height: 150px;
     display: grid;
     grid-template-rows: 50px 100px;
+    position: relative;
+	left: 0;
+	bottom: 0;
 }
 
-#header-ul {
+#header-top {
+	background-color: #131c27;	
+	border: 1px solid #2b333d;
+}
+
+#header-top-ul {
     display: grid;
     list-style-type: none;
     grid-template-columns: repeat(5, 1fr);
-    
+}
+
+#header-top-ul > * > a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 14px;
 }
 
 #customer-ul {
+	position: relative;
+	z-index: 1;
+	background: fuchsia;
 	display: none;
 	list-style-type: none;
 }
 
-header > * {
-	border: 2px solid blue;
+#header-bottom {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr;
 }
-header > * > * {
-    border: 1px solid red;
+
+#header-bottom-ul {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	list-style-type: none;
 }
