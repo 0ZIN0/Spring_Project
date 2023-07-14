@@ -1,6 +1,11 @@
 * {
     box-sizing: border-box; 
 }
+
+html, body {
+	height: 100%;
+}
+
 body {
     margin: 0;
     background-color: #1b2838;
@@ -18,7 +23,7 @@ body {
 
 #title {
     border-bottom: 1px solid gray;
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 #title > h1 {
@@ -32,5 +37,5 @@ body {
 
 #content {
     border-bottom: 1px solid gray;
-    padding: 15px;
+    padding: 20px;
 }

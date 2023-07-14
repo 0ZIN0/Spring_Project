@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<title>환불정책</title>
 	<jsp:include page="/WEB-INF/views/include/link/common.jsp"/>
+	<jsp:include page="/WEB-INF/views/include/link/footer_css.jsp"/>
 </head>
 <body>
 
