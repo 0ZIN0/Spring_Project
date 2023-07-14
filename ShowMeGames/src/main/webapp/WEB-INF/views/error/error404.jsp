@@ -1,15 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>존재하지 않는 페이지</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <%@ include file="/WEB-INF/views/include/link/common.jsp" %>
+    <style>
+        #main {
+            width: 50%;
+            border: 1px solid black;
+            border-radius: 5px;
+            text-align: center;
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            padding: 200px 10px 200px 10px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	
-	<h3>존재하지 않는 페이지입니다.</h3>
-	<h3>ErrorCode: 404</h3>
-	
+    <div id="main">
+        <h2>존재하지 않는 페이지입니다.</h2>
+        <h3>ErrorCode: 404</h3>
+        <button onclick="location.href='${pageContext.request.contextPath}/';">홈으로</button>
+    </div>
+    
+    <%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
+    
+    	<!-- js -->
+	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>    
 </body>
 </html>
