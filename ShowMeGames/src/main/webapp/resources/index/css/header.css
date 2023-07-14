@@ -6,6 +6,11 @@
 	color: red;
 }
 
+ul {
+	list-style-type: none;	
+	padding-left: 0;
+}
+
 header {
     width: 100%;
     height: 150px;
@@ -24,31 +29,57 @@ header {
 #header-top-ul {
     display: grid;
     list-style-type: none;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 30% repeat(4, 1fr);
+    padding-left: 0;
 }
 
 #header-top-ul > * > a {
 	color: white;
 	text-decoration: none;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 1rem;
 }
 
-#customer-ul {
+#customer-ul, .sub-ul {
 	position: relative;
 	z-index: 1;
-	background: fuchsia;
+	background: white;
 	display: none;
 	list-style-type: none;
 }
 
 #header-bottom {
+	width: 1600px;
+	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 2fr 1fr 1fr;
+	grid-template-columns: 4fr 3fr 1fr;
 }
 
 #header-bottom-ul {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	list-style-type: none;
+	padding-left: 0;
+}
+
+#header-bottom > * {
+	border: 1px solid red;
+}
+
+#category-btn, #genre-btn, #editor-pick, #all-game-btn, #cart-btn {
+	color: black;
+	font-weight: bold;
+	font-size: 1.2rem;
+	text-decoration: none;	
+}
+
+.sub-ul > * {
+	text-decoration: none;
+	font-size: 1rem;
+	color: black;
+	margin-top: 5%;
+}
+
+#header-bottom > * > * {
+	border: 1px solid red;
 }
