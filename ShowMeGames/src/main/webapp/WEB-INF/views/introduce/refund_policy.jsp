@@ -7,15 +7,20 @@
 	<title>환불정책</title>
 	<jsp:include page="/WEB-INF/views/include/link/common.jsp"/>
 	<jsp:include page="/WEB-INF/views/include/link/footer_css.jsp"/>
+	<style>
+		th, td {
+			border:solid 1px white;
+		}
+	</style>
 </head>
 <body>
  	<div id="main">
-		<div class="page-header">
-				<h1 id="example-colors">쇼미게임즈 환불정책</h1>
+		<div id="title">
+				<h1>쇼미게임즈 환불정책</h1>
 		</div>
 		<div id="content">
-			<div class="row example-row example-type">
-				<div class="col-lg-12">
+			<div>
+				<div>
 					<p class="lead">
 						쇼미게임즈에서는 다음과 같은 방법과 정책에 따라 취소/환불 요청을 하실 수 있습니다.<br />취소/환불에
 						대한 궁금한 사항에 대해서는 고객지원 - 문의하기를 이용해주시기 바랍니다.
