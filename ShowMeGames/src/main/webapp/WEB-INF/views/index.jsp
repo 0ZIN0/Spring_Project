@@ -12,5 +12,8 @@
 <body>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
+	
+	<!-- js -->
+	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
 </body>
 </html>
