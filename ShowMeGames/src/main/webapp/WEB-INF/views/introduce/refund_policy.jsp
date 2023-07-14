@@ -14,6 +14,7 @@
 	</style>
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
  	<div id="main">
 		<div id="title">
 				<h1>쇼미게임즈 환불정책</h1>
