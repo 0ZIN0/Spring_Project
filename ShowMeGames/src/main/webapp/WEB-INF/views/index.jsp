@@ -10,10 +10,7 @@
 	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
 </head>
 <body>
-	<header>
-		<%@ include file="./header.jsp" %>
-	</header>
-	
+	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
 </body>
 </html>
