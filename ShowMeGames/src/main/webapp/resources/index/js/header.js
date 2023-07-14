@@ -1,16 +1,6 @@
-document.querySelector("#customer-dl").style.display = "none";
-
-var customerDlVisible = false; 
-
-document.querySelector("a[href='']").addEventListener("click", function (event) {
-    event.preventDefault();
+$("#customer-btn").on("click", (e) => {
+    e.preventDefault();
     
-    if (customerDlVisible) { 
-        document.querySelector("#customer-dl").style.display = "none";
-        customerDlVisible = false;
-    } else {
-        document.querySelector("#customer-dl").style.display = "block";
-        customerDlVisible = true;
-    }
+    $("#customer-ul").toggle();
 });
 

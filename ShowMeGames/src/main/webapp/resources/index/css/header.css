@@ -2,6 +2,15 @@
     box-sizing: border-box;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
+#header-top > a:not('#logo-btn'):hover {
+	color: red;
+}
+
 header {
     width: 100%;
     height: 150px;
@@ -9,27 +18,21 @@ header {
     grid-template-rows: 50px 100px;
 }
 
-#header-top {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-#header-top > ul {
+#header-ul {
     display: grid;
     list-style-type: none;
-    grid-template-columns: 2fr repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     
 }
 
 #customer-ul {
-   display: none;
-}
-
-#header-bottom {
-    display: grid;
-    grid-template-columns: repeat(3, 249px);
+	display: none;
+	list-style-type: none;
 }
 
 header > * {
+	border: 2px solid blue;
+}
+header > * > * {
     border: 1px solid red;
 }
