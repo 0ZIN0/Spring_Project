@@ -3,24 +3,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header>
 	<div id="header-top">
-		<ul>
-			<li><a id="logo-btn" href="./">로고</a></li>
-			<li><a id="game-btn" href="./">게임</a></li>
-			<li><a id="notices-btn" href="./customer/notice">공지 사항</a></li>
-		</ul>
 		<div>
-			<a href="">고객 지원</a>
-			<ul id="customer-dl">
+			<ul id="header-ul">
+				<li><a id="logo-btn" href="./">로고</a></li>
+				<li><a id="game-btn" href="./">게임</a></li>
+				<li><a id="notices-btn" href="./customer/notice">공지 사항</a></li>
 				<li>
-					<a id="faq-btn" href="./customer/faq">자주 묻는 질문</a>
+					<a id="customer-btn" href="">고객 지원</a>
+					<ul id="customer-ul">
+						<li><a id="faq-btn" href="./customer/faq">자주 묻는 질문</a></li>
+						<li><a id="qna-btn" href="./customer/qna">문의하기</a></li>
+					</ul>
 				</li>
-				<li>
-					<a id="qna-btn" href="./customer/qna">문의하기</a>
-				</li>
+				<li><a id="login-btn" href="./member/login">로그인</a></li>
 			</ul>
-		</div>
-		<div id="login-div">
-			<a id="login-btn" href="./member/login">로그인</a>
 		</div>
 	</div>
 	<!-- <div id="header-bottom">
