@@ -3,12 +3,12 @@
 }
 
 body {
-	position:relative;
-	margin: 0
+	position: relative;
+	margin: 0;
 }
 
 footer {
-	position:relative;
+	position: relative;
 	left: 0;
 	bottom: 0;
 	background-color: #131c27;	
