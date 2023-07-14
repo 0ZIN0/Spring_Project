@@ -7,7 +7,10 @@
 	<jsp:include page="/WEB-INF/views/include/link/common.jsp"/>
 </head>
 <body>
-	회사소개
+	<div></div>
+	
+	<div></div>
+	
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
 </body>
 </html>
