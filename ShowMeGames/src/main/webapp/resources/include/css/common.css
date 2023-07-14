@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box; 
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	position:relative;
+    margin: 0;
+    background-color: #1b2838;
+    
+}
+
+#main {
+	
+    color: white;
+    margin: 70px 0 70px 0;
+}
+#main > div {
+    border: 1px solid gray;
+    margin: auto;
+    width: 60%;
+}
+
+#title {
+    border-bottom: 1px solid gray;
+    padding-left: 20px;
+}
+
+#title > h1 {
+	border-top: 1px solid #67c1f5;
+	display: inline-block;
+	padding: 15px 0 15px 0;
+	margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 1.2em;
+}
+
+#content {
+    border-bottom: 1px solid gray;
+    padding: 20px;
+}
+
