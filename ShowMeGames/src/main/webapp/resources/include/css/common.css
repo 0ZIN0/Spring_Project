@@ -1,12 +1,20 @@
 * {
     box-sizing: border-box; 
 }
+
+html, body {
+	height:100%;
+}
+
 body {
+	position:relative;
     margin: 0;
     background-color: #1b2838;
+    
 }
 
 #main {
+	
     color: white;
     margin: 70px 0 70px 0;
 }
@@ -34,3 +42,4 @@ body {
     border-bottom: 1px solid gray;
     padding: 15px;
 }
+

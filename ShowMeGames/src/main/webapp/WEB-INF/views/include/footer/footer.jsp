@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/footer/" var="footer" />
-<div id="footer">
+
+<footer>
 	<div id="footer-main">
 		<div>
 			<div class="footer-a">
@@ -33,5 +34,6 @@
 			</p>
 		</div>
 	</div>
-</div>
+</footer>
+
     
