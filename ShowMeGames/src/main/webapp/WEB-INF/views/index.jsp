@@ -10,10 +10,13 @@
 	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
 </head>
 <body>
-	<%@ include file="./header.jsp" %>
+	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	
 	<h2>Main Page 입니다.</h2>
 	
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
+	
+	<!-- js -->
+	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
 </body>
 </html>

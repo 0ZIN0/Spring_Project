@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    height: 150px;
+    display: grid;
+    grid-template-rows: 50px 100px;
+}
+
+#header-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#header-top > ul {
+    display: grid;
+    list-style-type: none;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    
+}
+
+#customer-ul {
+   display: none;
+}
+
+#header-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 249px);
+}
+
+header > * {
+    border: 1px solid red;
+}

@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="${css1}">
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/header.jsp" %>
+	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	
     <div id="main">
         <div>
