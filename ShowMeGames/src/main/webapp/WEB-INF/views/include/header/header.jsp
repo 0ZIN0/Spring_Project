@@ -10,7 +10,7 @@
 		</ul>
 		<div>
 			<a href="">고객 지원</a>
-			<ul id="customer-ul">
+			<ul id="customer-dl">
 				<li>
 					<a id="faq-btn" href="./customer/faq">자주 묻는 질문</a>
 				</li>
