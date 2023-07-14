@@ -8,7 +8,9 @@
 	<jsp:include page="/WEB-INF/views/include/link/common.jsp"/>
 	<jsp:include page="/WEB-INF/views/include/link/footer_css.jsp"/>
 	<style>
-		
+		th, td {
+			border:solid 1px white;
+		}
 	</style>
 </head>
 <body>
