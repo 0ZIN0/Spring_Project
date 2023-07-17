@@ -2,37 +2,98 @@
     box-sizing: border-box;
 }
 
-a {
-	text-decoration: none;
-	color: black;
-}
-
 #header-top > a:not('#logo-btn'):hover {
 	color: red;
 }
+
+ul {
+	list-style-type: none;	
+	padding-left: 0;
+}
+
+ul,li {margin:0; padding:0;}
 
 header {
     width: 100%;
     height: 150px;
     display: grid;
     grid-template-rows: 50px 100px;
+    position: relative;
+	left: 0;
+	bottom: 0;
 }
 
-#header-ul {
+#header-top {
+	background-color: #131c27;	
+	border: 1px solid #2b333d;
+}
+
+#header-top-ul {
     display: grid;
     list-style-type: none;
-    grid-template-columns: repeat(5, 1fr);
+<<<<<<< HEAD
+    grid-template-columns: 30% repeat(4, 1fr);
+    padding-left: 0;
+=======
+    grid-template-columns: 0.6fr 0.3fr 0.43fr 5fr 1fr;
     
+>>>>>>> e8caa19490f6dc74205c01fdf7aee8dc5bf52c10
+}
+
+#header-top-ul > * > a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1rem;
+}
+
+<<<<<<< HEAD
+#customer-ul, .sub-ul {
+=======
+#logo-btn:hover {
+ color: #67c1f5;
+}
+
+#game-btn:hover {
+ color: #67c1f5;
+}
+
+#notices-btn:hover {
+ color: #67c1f5;
+}
+
+#customer-btn:hover {
+ color: #67c1f5;
+}
+
+#login-btn:hover {
+ color: #67c1f5;
 }
 
 #customer-ul {
+	position: relative;
+	z-index: 1;
+	background: white;
 	display: none;
 	list-style-type: none;
 }
 
-header > * {
-	border: 2px solid blue;
+/*************** header-bottom *******************/
+
+#header-bottom {
+	width: 1600px;
+	height: 50px;
+	display: grid;
+	grid-template-columns: 520px 385px 115px;
+	border: 1px solid red;
+	margin: auto 0;
 }
-header > * > * {
-    border: 1px solid red;
+
+#header-bottom > * {
+	border: 1px solid blue;
+}
+
+#header-bottom-ul {
+	display: grid;
+	grid-template-columns: repeat(4, 115px);
 }
