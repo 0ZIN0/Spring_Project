@@ -11,6 +11,8 @@ ul {
 	padding-left: 0;
 }
 
+ul,li {margin:0; padding:0;}
+
 header {
     width: 100%;
     height: 150px;
@@ -48,38 +50,22 @@ header {
 	list-style-type: none;
 }
 
+/*************** header-bottom *******************/
+
 #header-bottom {
 	width: 1600px;
-	margin: 0 auto;
+	height: 50px;
 	display: grid;
-	grid-template-columns: 4fr 3fr 1fr;
+	grid-template-columns: 520px 385px 115px;
+	border: 1px solid red;
+	margin: auto 0;
+}
+
+#header-bottom > * {
+	border: 1px solid blue;
 }
 
 #header-bottom-ul {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	list-style-type: none;
-	padding-left: 0;
-}
-
-#header-bottom > * {
-	border: 1px solid red;
-}
-
-#category-btn, #genre-btn, #editor-pick, #all-game-btn, #cart-btn {
-	color: black;
-	font-weight: bold;
-	font-size: 1.2rem;
-	text-decoration: none;	
-}
-
-.sub-ul > * {
-	text-decoration: none;
-	font-size: 1rem;
-	color: black;
-	margin-top: 5%;
-}
-
-#header-bottom > * > * {
-	border: 1px solid red;
+	grid-template-columns: repeat(4, 115px);
 }
