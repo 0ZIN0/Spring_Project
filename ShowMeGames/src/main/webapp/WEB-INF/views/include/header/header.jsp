@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="https://kit.fontawesome.com/c48a5ad62b.js" crossorigin="anonymous"></script>
 <header>
+
    <div id="header-top">
       <div>
          <ul class="header-top-menu" id="header-top-ul">
@@ -32,62 +33,66 @@
    		</ul>
    		<ul id="header-top-ul-underline2"></ul>
    	</div>
-   
-   
-   <!-- <div>
-   		<div><a id="faq-btn" href="./customer/faq">자주 묻는 질문</a></div>
-   		<div><a id="qna-btn" href="./customer/qna">문의하기</a></div>
-   </div> -->
-   
-   
-   
-   
-   <div id="header-bottom">
-      <div>
-         <ul id="header-bottom-ul">
-            <li>
-               <a id="category-btn">카테고리</a>
-               <ul>
-                  <li>베스트 셀러</li>
-                  <li>최신 출시작</li>
-                  <li>무료 게임</li>
-                  <li>할인중인 게임</li>
-                  <li>Chanwoo Pick</li>
-                  <li>Gicheol Pick</li>
-                  <li>Jaehun Pick</li>
-                  <li>Roa Pick</li>
-                  <li>Yeoungmin Pick</li>
-                  <li>Gitae Pick</li>
-               </ul>
-            </li>
-            <li>
-               <a id="genre-btn">장르</a>
-               <ul>
-                  <li>액션/어드벤처</li>
-                  <li>캐주얼</li>
-                  <li>협동</li>
-                  <li>Indies</li>
-                  <li>멀티플레이어</li>
-                  <li>레이싱</li>
-                  <li>슈팅</li>
-                  <li>시뮬레이션</li>
-                  <li>전략</li>
-               </ul>
-            </li>
-            <li><a id="editor-pick">Editor Pick</a></li>
-            <li><a id="all-game-btn" href="./games">모든 게임 보기</a></li>
-         </ul>
-      </div>
-      <div>
-         <form action="./search">
-            검색 <input type="text" id="search" name="search"></input> <input
-               id="submit-btn" type="submit" value="검색하기">
-         </form>
-      </div>
-      <div>
-         <a id="cart-btn" href="./cart">장바구니</a>
-      </div>
-   </div>
+   	
+	<div id="header-bottom">
+		<div>
+			<ul id="header-bottom-ul">
+				<li>
+					<a id="category-btn" href="">카테고리</a>
+					<ul class="sub-ul">
+						<li><a>베스트 셀러</a></li>
+						<li><a>최신 출시작</a></li>
+						<li><a>무료 게임</a></li>
+						<li><a>할인중인 게임</a></li>
+						<li><a>Chanwoo Pick</a></li>
+						<li><a>Gicheol Pick</a></li>
+						<li><a>Jaehun Pick</a></li>
+						<li><a>Roa Pick</a></li>
+						<li><a>Yeoungmin Pick</a></li>
+						<li><a>Gitae Pick</a></li>
+					</ul>
+				</li>
+				<li>
+					<a id="genre-btn" href="">장르</a>
+					<ul class="sub-ul">
+						<li><a>RPG</a></li>
+						<li><a>액션 / 어드벤처</a></li>
+						<li><a>캐주얼</a></li>
+						<li><a>슈팅 / FPS</a></li>
+						<li><a>전략 / 시뮬</a></li>
+						<li><a>퍼즐</a></li>
+						<li><a>멀티 / 협동</a></li>
+						<li><a>레이싱</a></li>
+						<li><a>스포츠</a></li>
+					</ul>
+				</li>
+				<li>
+					<a id="editor-pick" href="">Editor Pick</a>
+					<ul class="sub-ul">
+						<li><a>젤다의 전설</a></li>
+						<li><a>슬레이 서 스파이어</a></li>
+						<li><a>마리오 카트</a></li>
+						<li><a>포탈</a></li>
+						<li><a>하프라이프</a></li>
+						<li><a>카운터스트라이크</a></li>
+						<li><a>레인보우6</a></li>
+						<li><a>에이펙스</a></li>
+					</ul>
+				</li>
+				<li><a id="all-game-btn" href="./games">모든 게임 보기</a></li>
+			</ul>
+		</div>
+		<div>
+			<form action="./search">
+				검색 <input type="text" id="search" name="search"></input> <input
+					id="submit-btn" type="submit" value="검색하기">
+			</form>
+		</div>
+		<div>
+			<a id="cart-btn" href="./cart">장바구니</a>
+		</div>
+	</div>
+
 </header>
 
 <script>

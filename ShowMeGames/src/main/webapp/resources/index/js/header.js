@@ -6,6 +6,7 @@ $("#customer-btn").on("click", (e) => {
     $("#customer-ul").toggle();
 });
 
+
 <!-- 상단바 게임버튼, 공지사항버튼 호버기능 -->
 $("#notices-btn").on("mouseover", () => {
     $("#notices-btn-underline").css("backgroundColor", "white");
@@ -26,3 +27,23 @@ $("#customer-btn").on("mouseout", () => {
     $("#customer-btn-underline").css("backgroundColor", "");
     $("#customer-btn-underline").css("transition", "background-color 0.4s ease");
 });
+
+
+$("#category-btn").on("click", (e) => {
+    e.preventDefault();
+    
+    $('.sub-ul').toggle();
+});
+
+$("#genre-btn").on("click", (e) => {
+    e.preventDefault();
+    
+    $('.sub-ul').toggle();
+});
+
+$("#editor-pick").on("click", (e) => {
+    e.preventDefault();
+    
+    $('.sub-ul').toggle();
+});
+

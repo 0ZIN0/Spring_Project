@@ -8,6 +8,7 @@
 	<jsp:include page="/WEB-INF/views/include/link/footer_css.jsp"/>
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
     <div id="main">
 		<div>
 			<div id="title">

@@ -6,6 +6,13 @@
 	color: black;
 }
 
+ul {
+	list-style-type: none;	
+	padding-left: 0;
+}
+
+ul,li {margin:0; padding:0;}
+
 header {
 	width: 100%;
 	height: 150px;
@@ -27,22 +34,29 @@ header {
 }
 
 #header-top-ul {
+
 	display: grid;
 	list-style-type: none;
 	grid-template-columns: 0.8fr 0.5fr 0.5fr 0.5fr 3fr 1fr;
 	text-align: center;
 	positon: relative;
+
 }
 
 #header-top-ul>*>a {
 	color: white;
 	text-decoration: none;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 1rem;
 }
+
 
 .fa-solid.fa-circle-user {
 	margin-right: 10px;
+}
+#logo-btn:hover {
+ color: #67c1f5;
+
 }
 
 .fa-solid.fa-circle-user:hover {
@@ -100,13 +114,23 @@ header {
 	font-color: white;
 }
 
+
+/*************** header-bottom *******************/
+
 #header-bottom {
+	width: 1600px;
+	height: 50px;
 	display: grid;
-	grid-template-columns: 2fr 1fr 1fr;
+	grid-template-columns: 520px 385px 115px;
+	border: 1px solid red;
+	margin: auto 0;
+}
+
+#header-bottom > * {
+	border: 1px solid blue;
 }
 
 #header-bottom-ul {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	list-style-type: none;
+	grid-template-columns: repeat(4, 115px);
 }
