@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class Images {
-	private int image_id;
-	private int game_id;
+	private Integer image_id;
+	private Integer game_id;
 	private String image_name;
 	private String image_url;
 	
