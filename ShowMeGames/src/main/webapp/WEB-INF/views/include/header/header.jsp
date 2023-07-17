@@ -3,25 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="https://kit.fontawesome.com/c48a5ad62b.js" crossorigin="anonymous"></script>
 <header>
-<<<<<<< HEAD
-	<script src="https://kit.fontawesome.com/e49f385ff0.js" crossorigin="anonymous"></script>
-	<div id="header-top">
-		<div>
-			<ul id="header-top-ul">
-				<li><a id="logo-btn" href="./">로고</a></li>
-				<li><a id="game-btn" href="./">게임</a></li>
-				<li><a id="notices-btn" href="./customer/notice">공지 사항</a></li>
-				<li><a id="customer-btn" href="">고객 지원</a>
-					<ul id="customer-ul">
-						<li><a id="faq-btn" href="./customer/faq">자주 묻는 질문</a></li>
-						<li><a id="qna-btn" href="./customer/qna">문의하기</a></li>
-					</ul></li>
-				<li><a id="login-btn" href="./member/login">로그인</a></li>
-			</ul>
-		</div>
-	</div>
-=======
-
    <div id="header-top">
       <div>
          <ul class="header-top-menu" id="header-top-ul">
@@ -52,7 +33,6 @@
    		<ul id="header-top-ul-underline2"></ul>
    	</div>
    	
->>>>>>> 7c8ebd84c17aa7bd5b68d35714b428cf4540c69f
 	<div id="header-bottom">
 		<div>
 			<ul id="header-bottom-ul">
@@ -85,7 +65,7 @@
 						<li><a>스포츠</a></li>
 					</ul></li>
 				<li id="editor"><a class="bottom-title" id="editor-pick"
-					href="">Editor Pick</a>
+					href="">큐레이터 추천</a>
 					<ul id="editor-pink-li" class="sub-ul">
 						<li><a>젤다의 전설</a></li>
 						<li><a>슬레이 서 스파이어</a></li>
@@ -102,7 +82,7 @@
 		</div>
 		<div id="blank"></div>
 		<form id="search-form" action="./search">
-			<input type="text" id="search" name="search"></input>
+			<input type="text" id="search" name="search" placeholder="게임을 검색하세요!"></input>
 			<button type="submit" id="submit-btn"><i class="fa-solid fa-magnifying-glass" style="color: #008aa4; font-size: 25px;"></i></button>
 		</form>
 		<div>
@@ -111,7 +91,3 @@
 	</div>
 
 </header>
-
-<script>
-   
-</script>
