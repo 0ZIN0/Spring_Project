@@ -3,6 +3,14 @@ button {
     border: none;
 }
 
+/* 전체 이미지 */
+img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    object-fit: cover;
+}
+
 body {
     min-height: 100vh;
     position: relative;
@@ -12,7 +20,7 @@ body {
     padding-bottom: 300px;
 }
 
-#banner {
+#mainBanner {
     height: 540px;
     width: 100%;
     overflow: hidden;
@@ -37,11 +45,6 @@ body {
     width: 500px;
     height: 600px;
     border-radius: 20px;
-}
-#bestGame > .best_games > img {
-    width: 100%;
-    height: 100%;
-    object-fit:cover;
 }
 #bestGame > .best_games > .bottom-right1 {
     position: absolute;
@@ -124,13 +127,51 @@ body {
     letter-spacing: -4.8px;
 }
 
+
 .recmd {
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+    row-gap: 20px;
     width: 100%;
     height: 600px;
-    padding: 180px;
+    padding-left: 180px;
     margin-bottom: 120px;
-    border: 1px red solid;
 }
+.recmd > .recmd-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+.recmd-container > .recmd-items {
+    width: 420px;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.recmd-items > .recmd-next-btn {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-color: gray;
+    color: white;
+    top: 0;
+    left: 50%;
+    height:100%;
+    width: 100%;
+}
+.recmd-next-btn > button {
+    width: 140px;
+    height: 160px;
+    color: #000;
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 
 #genre {
     display: grid;

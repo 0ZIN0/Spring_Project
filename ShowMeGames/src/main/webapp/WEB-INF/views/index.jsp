@@ -17,7 +17,7 @@
 	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	
 	<div id="main">
-	    <div id="banner">
+	    <div id="mainBanner" class="banner">
 	        <img src="${img}/HomeHero_SummerSale-June23_desk 1.png" alt="배너사진">
 	    </div>
 	    <div id="bestGame">
@@ -44,17 +44,51 @@
 	        </div>
 	    </div>
 	
-	    <div id="subBanner">
+	    <div id="subBanner" class="banner">
 	        <img src="${img}/SubBanner1.png" alt="서브배너사진">
 	    </div>
 	
-	    <div class="recmd">
-	
-	    </div>
-	
-	    <div class="recmd">
-	
-	    </div>
+        <div class="recmd">
+            <div><span class="title">에디터 추천.</span> <span class="sub-title">이런 장르 게임은 어떤가요?</span></div>
+            <div class="recmd-container">
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                    <div class="recmd-next-btn"> 
+                        <button>Btn</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recmd">
+            <div><span class="title">출시 예정 게임.</span> <span class="sub-title">곧 다가올 게임들을 만나봅니다.</span></div>
+            <div class="recmd-container">
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                    <div class="recmd-next-btn">
+                        <button>Btn</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 	
 	    <div id="genre">
 	        <div class="blank"></div>
