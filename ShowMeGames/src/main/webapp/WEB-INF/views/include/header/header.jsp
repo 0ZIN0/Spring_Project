@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="https://kit.fontawesome.com/c48a5ad62b.js" crossorigin="anonymous"></script>
 <header>
+<<<<<<< HEAD
 	<script src="https://kit.fontawesome.com/e49f385ff0.js" crossorigin="anonymous"></script>
 	<div id="header-top">
 		<div>
@@ -18,6 +20,39 @@
 			</ul>
 		</div>
 	</div>
+=======
+
+   <div id="header-top">
+      <div>
+         <ul class="header-top-menu" id="header-top-ul">
+            <li><a id="logo-btn" href="./">로고</a></li>
+            <li><a id="game-btn" href="./">게임</a></li>
+            <li><a id="notices-btn" href="./customer/notice">공지 사항</a></li>
+            <li>
+               <a id="customer-btn" href="">고객 지원</a>
+             		<ul id="customer-ul">
+                  <li><a id="faq-btn" href="./customer/faq">자주 묻는 질문</a></li>
+                  <li><a id="qna-btn" href="./customer/qna">문의하기</a></li>
+               </ul> 
+            </li>
+            <li></li>
+            <li><i class="fa-solid fa-circle-user fa-lg" style="color: #a1a1a1;"></i><a id="login-btn" href="./member/login">로그인</a></li>
+         </ul>
+      </div>
+   </div>   
+    <div id="header-top-underline">
+   		<ul id="header-top-ul-underline">
+   			<li></li>
+	   		<li id="game-btn-underline"></li>
+	   		<li id="notices-btn-underline"></li>
+	   		<li id="customer-btn-underline"></li>
+	   		<li></li>
+	   		<li></li>
+   		</ul>
+   		<ul id="header-top-ul-underline2"></ul>
+   	</div>
+   	
+>>>>>>> 7c8ebd84c17aa7bd5b68d35714b428cf4540c69f
 	<div id="header-bottom">
 		<div>
 			<ul id="header-bottom-ul">
@@ -74,5 +109,9 @@
 			<a class="bottom-title" id="cart-btn" href="./cart">장바구니</a>
 		</div>
 	</div>
+
 </header>
 
+<script>
+   
+</script>
