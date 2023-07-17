@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+.games_banner {
+	border: solid 3px black;
+	height: 300px;
+	text-align: center;
+	margin-bottom: 150px;
+}
+
+.editer_categories {
+	border: solid 3px black;
+	height : 200px;
+	margin-bottom: 20px;
+}
+
+.best_seller {
+	border: solid 3px black;
+	height: 500px;
+}
+
+.pre_order {
+	border: solid 3px black;
+	height: 400px;
+}
+
+.week_best_seller {
+	border: solid 3px black;
+	height: 500px;
+	margin-bottom: 50px;
+}
+
+.grid_container {
+	border: solid 3px black;
+	display : grid;
+	grid-template-columns: 300px 1fr;
+}
+
+.filter {
+	border: solid 2px blue;
+}
+
+.filter_header {
+	display: flex;
+	align-items: center;
+	height: 50px;
+	font-weight: bold;
+	font-size: 25px;
+	padding : 10px;
+}
+
+.filter_toggle {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-basis: auto;
+	background-color: skyblue;
+	border: 0;
+	background: transparent;
+	padding: 10px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.filter_content {
+	display: block;
+}
+
+
+.primary {
+	margin-left: 50px;
+}
+
+.sort {
+	display: flex;
+	margin-left: 40px;
+	margin-right: 30px;
+	padding-right: 30px;
+	height: 60px;
+	background-color: lightgray;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.sort_by {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.sort_by_inner {
+	margin-left: 10px;
+}
+
+.card{
+	width: 250px;
+	height: 400px;
+	margin-right: 10px;
+	margin-bottom: 80px;
+	border-radius: 20px / 20px;
+	background-color: black;
+}
+
+ul{
+	list-style: none;
+}
+
+.filter_list {
+	padding-left: 10px;
+}
+
+.card_list > * {
+	float: left;
+	display: flex;
+	
+}
+
+.selector_items {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: white;
+	border: solid 2px black;
+	z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
+
