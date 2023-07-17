@@ -37,7 +37,7 @@
 						<li></li>
 						<li><a>Gitae Pick</a></li>
 					</ul></li>
-				<li id="genre"><a class="bottom-title" id="genre-btn" href="">장르</a>
+				<li id="header-genre"><a class="bottom-title" id="genre-btn" href="">장르</a>
 					<ul id="genre-li" class="sub-ul">
 						<li><a>RPG</a></li>
 						<li><a>액션 / 어드벤처</a></li>
