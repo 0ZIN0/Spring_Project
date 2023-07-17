@@ -31,8 +31,13 @@ header {
 #header-top-ul {
     display: grid;
     list-style-type: none;
+<<<<<<< HEAD
     grid-template-columns: 30% repeat(4, 1fr);
     padding-left: 0;
+=======
+    grid-template-columns: 0.6fr 0.3fr 0.43fr 5fr 1fr;
+    
+>>>>>>> e8caa19490f6dc74205c01fdf7aee8dc5bf52c10
 }
 
 #header-top-ul > * > a {
@@ -42,7 +47,30 @@ header {
 	font-size: 1rem;
 }
 
+<<<<<<< HEAD
 #customer-ul, .sub-ul {
+=======
+#logo-btn:hover {
+ color: #67c1f5;
+}
+
+#game-btn:hover {
+ color: #67c1f5;
+}
+
+#notices-btn:hover {
+ color: #67c1f5;
+}
+
+#customer-btn:hover {
+ color: #67c1f5;
+}
+
+#login-btn:hover {
+ color: #67c1f5;
+}
+
+#customer-ul {
 	position: relative;
 	z-index: 1;
 	background: white;
