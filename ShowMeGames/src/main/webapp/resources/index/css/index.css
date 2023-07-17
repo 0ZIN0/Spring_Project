@@ -1,9 +1,167 @@
-@charset "UTF-8";
-
-* {
-	box-sizing: border-box;
+/* 임시 스타일 */
+button {
+    border: none;
 }
 
 body {
-	margin: 0
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding-top: 150px;
+    padding-bottom: 300px;
+}
+
+#banner {
+    height: 540px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+
+#bestGame {
+    width: 100%;
+    height: 640px;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 120px;
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 500px) 1fr;
+    column-gap: 30px;
+}
+#bestGame > .best_games {
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 500px;
+    height: 600px;
+    border-radius: 20px;
+}
+#bestGame > .best_games > img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+#bestGame > .best_games > .bottom-right1 {
+    position: absolute;
+    bottom: 5em;
+    right: 16px;
+}
+#bestGame > .best_games > .bottom-right2 {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+/* 베스트게임 폰트설정 */
+#bestGame > .best_games > .bottom-right1 > .old-p {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: line-through;
+}
+#bestGame > .best_games > .bottom-right2 > .pre-p {
+    color: #FA5D05;
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -4.2px;
+}
+#bestGame > .best_games > .bottom-right2 > .dis-p {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#bestGame > .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#bestGame > .btn > button {
+    width: 80px;
+    height: 120px;
+    color: #000;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#subBanner {
+    width: 100%;
+    overflow: hidden;
+    height: 305px;
+    margin-bottom: 120px;
+}
+
+/* 타이틀 폰트 관련 css */
+#main .title {
+    color: #000;
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -4.8px;
+}
+#main .sub-title {
+    color: #666363;
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -4.8px;
+}
+
+.recmd {
+    width: 100%;
+    height: 600px;
+    padding: 180px;
+    margin-bottom: 120px;
+    border: 1px red solid;
+}
+
+#genre {
+    display: grid;
+    grid-template-columns: 1fr repeat(4, 375px) 1fr;
+    column-gap: 20px;
+    row-gap: 30px;
+    height: 395px;
+    width: 100%;
+    margin-bottom: 120px;
+}
+#genre > div:nth-child(2) { 
+    grid-column: 2 / 6;
+}
+#genre > .genres {
+    overflow: hidden;
+    border-radius: 20px;
+    width: 375px;
+    height: 290px;
+}
+#genre > .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#genre > .btn > button {
+    width: 98px;
+    height: 160px;
+    color: #000;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
