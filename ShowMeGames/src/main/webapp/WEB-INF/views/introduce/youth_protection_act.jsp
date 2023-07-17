@@ -9,6 +9,7 @@
 <jsp:include page="/WEB-INF/views/include/link/footer_css.jsp"/>
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	 <div id="main">
 		<div>
 			<div id="title">
@@ -37,8 +38,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div id="blank" style="height:200px;"></div>
+	</div>	
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
 </body>
 </html>
