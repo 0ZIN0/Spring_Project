@@ -62,9 +62,27 @@
                 </div>
                 <div class="recmd-items">
                     <img src="${img}/black.png" alt="사진">
-                    <div class="recmd-next-btn"> 
-                        <button>Btn</button>
-                    </div>
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-next-btn"> 
+                    <button>Btn</button>
                 </div>
             </div>
         </div>
@@ -119,5 +137,6 @@
 	
 	<!-- js -->
 	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
+	<script src="./resources/index/js/index.js"></script>
 </body>
 </html>

@@ -142,10 +142,14 @@ body {
     display: flex;
     flex-direction: row;
     column-gap: 20px;
+    flex-wrap: no-wrap;
+  	overflow-x: scroll;
+  	overflow-y: hidden;
 }
 .recmd-container > .recmd-items {
     width: 420px;
     height: 500px;
+    flex: 0 0 auto;
     border-radius: 20px;
     overflow: hidden;
     position: relative;
@@ -155,9 +159,9 @@ body {
     align-items: center;
     position: absolute;
     background-color: gray;
-    color: white;
-    top: 0;
-    left: 50%;
+    color: white;	
+    top: 50%;
+    right: 50%;
     height:100%;
     width: 100%;
 }
