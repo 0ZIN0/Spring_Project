@@ -12,8 +12,8 @@ import lombok.extern.log4j.Log4j;
 public class CustomerController {
 	
 	@GetMapping(value="/faq")
-	public void faq() {
-		log.info("자주 묻는 질문으로 갑니다.");
+	String faq() {
+		return "customer/faq";
 	}
 	
 	@GetMapping(value="/notice")
