@@ -1,32 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:url value="/" var="conPath"/>
-<script src="https://kit.fontawesome.com/c48a5ad62b.js" crossorigin="anonymous"></script>
+<c:url value="/" var="conPath" />
+<script src="https://kit.fontawesome.com/c48a5ad62b.js"
+	crossorigin="anonymous"></script>
 <header>
-   <div id="header-top">
-      <div>
-         <ul class="header-top-menu" id="header-top-ul">
-            <li><a id="logo-btn" href="${conPath}">로고</a></li>
-            <li><a id="game-btn" href="${conPath}">게임</a></li>
-            <li><a id="notices-btn" href="${conPath}customer/notice">공지 사항</a></li>
-            <li><a id="customer-btn" href="${conPath}customer/faq">고객 지원</a></li>
-            <li></li>
-            <li><i class="fa-solid fa-circle-user fa-lg" style="color: #a1a1a1;"></i><a id="login-btn" href="./member/login">로그인</a></li>
-         </ul>
-      </div>
-   </div>   
-    <div id="header-top-underline">
-   		<ul id="header-top-ul-underline">
-   			<li></li>
-	   		<li id="game-btn-underline"></li>
-	   		<li id="notices-btn-underline"></li>
-	   		<li id="customer-btn-underline"></li>
-	   		<li></li>
-	   		<li></li>
-   		</ul>
-   		<ul id="header-top-ul-underline2"></ul>
-   	</div>
+	<div id="header-top">
+		<div>
+			<ul class="header-top-menu" id="header-top-ul">
+				<li><a id="logo-btn" href="${conPath}">로고</a></li>
+				<li><a id="game-btn" href="${conPath}">게임</a></li>
+				<li><a id="notices-btn" href="${conPath}customer/notice">공지
+						사항</a></li>
+				<li><a id="customer-btn" href="${conPath}customer/faq">고객
+						지원</a></li>
+				<li></li>
+				<li><i class="fa-solid fa-circle-user fa-lg"
+					style="color: #a1a1a1;"></i><a id="login-btn" href="./member/login">로그인</a></li>
+			</ul>
+		</div>
+		<div id="header-top-underline">
+			<ul id="header-top-ul-underline">
+				<li></li>
+				<li id="game-btn-underline"></li>
+				<li id="notices-btn-underline"></li>
+				<li id="customer-btn-underline"></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<ul id="header-top-ul-underline2"></ul>
+		</div>
+	</div>
 	<div id="header-bottom">
 		<div>
 			<ul id="header-bottom-ul">
