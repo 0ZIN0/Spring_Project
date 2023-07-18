@@ -147,8 +147,7 @@ header {
 }
 
 /*************** header-bottom *******************/
-
-.bottom-title {
+.title-div, .bottom-title {
 	font-size: 1.02rem;
 	color: #008AA4;
 }
@@ -221,6 +220,7 @@ header {
 	padding: 30px;
 	text-align: left;
 	padding: 5px;
+	color: black;
 }
 
 .sub-ul > li:hover {
@@ -238,6 +238,11 @@ header {
 	border-radius: 30px;
 	display: flex;
 	align-items: center;
+}
+
+#search-form:hover {
+	background-color: #E5F3F6;
+	border-radius: 30px;
 }
 
 #cart-btn {
@@ -281,4 +286,30 @@ header {
 	padding: 35px 0 0 30px;
 	margin-top: 40px;
 	border-top: #008AA4 solid 2px;
+}
+
+.title-active {
+	background-color: #E5F3F6;
+	border-radius: 10px;
+}
+
+.title-div: hover {
+	background-color: #E5F3F6;
+	border-radius: 10px;
+}
+
+#search {
+	background-color: transparent;
+	font-size: 16px;
+	color: #008aa4;
+	caret-color: #808080;
+}
+
+#search:focus {outline: none;}
+
+#header-cart:hover {
+	cursor: pointer;
+	background-color: #E5F3F6;
+	border-radius: 40px;
+	margin-bottom: 25px;
 }
