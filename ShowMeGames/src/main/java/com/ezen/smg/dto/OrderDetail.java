@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class OrderDetail {
-	private int od_id;
-	private int order_id;
-	private int game_id;
+	private Integer od_id;
+	private Integer order_id;
+	private Integer game_id;
 }
