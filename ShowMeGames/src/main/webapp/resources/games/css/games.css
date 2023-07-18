@@ -47,25 +47,69 @@
 	font-size: 25px;
 	padding : 10px;
 }
-
-.filter_toggle {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	flex-basis: auto;
-	background-color: skyblue;
-	border: 0;
-	background: transparent;
-	padding: 10px;
-	font-size: 20px;
-	cursor: pointer;
-}
-
 .filter_content {
-	display: block;
+  background-size: 20px;
+  cursor: pointer;
 }
 
+.filter_content:after {
+  content: '';
+  display: block; 
+  width: 2px;
+  height: 100%; 
+  position: absolute; 
+  top: 0; 
+  right: 35px;
+}
+
+.filter_content .filter_toggle {
+	width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-basis: auto;
+  align-items: center;
+  height: 50px;
+  border: 0 none;
+  outline: 0 none;
+  padding-left: 15px;
+  background: transparent;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.filter_content .filter_list {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  max-height: 500px;
+  transition: .3s linear;
+}
+
+.filter_content.active .filter_list {
+  max-height: 0px;
+}
+
+.filter_content .filter_item {
+  padding: 5px 15px 5px;
+  transition: .3s linear;
+}
+
+.filter_content .filter_item:hover {
+  background: rgb(175, 93, 93);
+}
+
+.filter_label {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.arrow{
+	transition: .3s ease-in;
+}
+
+.arrow.reverse {
+	transform: rotate(180deg);
+}
 
 .primary {
 	margin-left: 50px;
@@ -88,9 +132,6 @@
 	align-items: center;
 }
 
-.sort_by_inner {
-	margin-left: 10px;
-}
 
 .card{
 	width: 250px;
@@ -123,6 +164,81 @@ ul{
 	border: solid 2px black;
 	z-index: -1;
 }
+
+.filter_list > li {
+	font-size: 20px;
+	line-height: 60px;
+	
+}
+
+.sort_selector {
+  position: relative;
+  width: 150px;
+  height: 35px;
+  background-size: 20px;
+  cursor: pointer;
+}
+
+.sort_selector:after {
+  content: '';
+  display: block; 
+  width: 2px;
+  height: 100%; 
+  position: absolute; 
+  top: 0; 
+  right: 35px;
+}
+
+.sort_selector .label {
+  display: flex;
+  align-items: center;
+  width: inherit;
+  height: inherit;
+  border: 0 none;
+  outline: 0 none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.sort_selector .option_list {
+  position: absolute; 
+  top: 28px;
+  left: 50px;
+  width: 100%;
+  background: white;
+  list-style-type: none;
+  padding: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  max-height: 0;
+  transition: .3s ease-in;  
+}
+
+.sort_selector.active .option_list {
+  max-height: 500px;
+}
+
+.sort_selector .option_item {
+  padding: 5px 15px 5px;
+  transition: .1s;
+}
+
+.sort_selector .option_item:hover {
+  background: yellow;
+}
+
+.sort_selector .option_item:last-child {
+  border-bottom: 0 none;
+}
+
+.label_text{
+	direction: rtl;
+}
+
+
 
 
 

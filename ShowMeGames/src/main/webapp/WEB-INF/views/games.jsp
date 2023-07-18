@@ -25,53 +25,58 @@
 	<div class="grid_container">
 		<div class="filter">
 			<div class="filter_header">필터</div>
-			<div>
-				<button class="filter_toggle">
-					<span>개인 맞춤 추천</span>
-					<span class="material-symbols-outlined">
-						expand_less 
-					</span>
-				</button>
 				<div class="filter_content">
+					<button class="filter_toggle">
+						<span class="filter_label">개인 맞춤 추천</span> 
+						<div class="arrow">
+							<span class="material-symbols-outlined">
+								expand_less 
+							</span>
+						</div>
+					</button>
 					<ul class="filter_list">
-						<li><input type="checkbox" /></li>
+						<li class="filter_item"><input type="checkbox" /> <label
+							for="">개인 맞춤 추천</label></li>
 					</ul>
 				</div>
+			<hr />
+			<div class="filter_content">
+				<button class="filter_toggle">
+					<span class="filter_label">장르</span> 
+					<div class="arrow">
+					<span class="material-symbols-outlined">
+						expand_less </span>
+					</div>
+				</button>
+				<ul class="filter_list">
+					<li class="filter_item"><input type="checkbox" /></li>
+					<li class="filter_item"><input type="checkbox" /></li>
+				</ul>
 			</div>
 			<hr />
-			<div>
-				<button class="filter_toggle">
-					<span>장르</span>
-					<span class="material-symbols-outlined">
-						expand_less 
-					</span>
-				</button>
 				<div class="filter_content">
+					<button class="filter_toggle">
+						<span class="filter_label">에디터 추천</span> 
+						<div class="arrow">
+							<span class="material-symbols-outlined">
+								expand_less 
+							</span>
+						</div>
+					</button>
 					<ul class="filter_list">
-						<li>
-							<input type="checkbox" />
-						</li>
-						<li>
-							<input type="checkbox" />
-						</li>
+						<li class="filter_item"><input type="checkbox" /> <label
+							for="">Chanwoo's Pick</label></li>
+						<li class="filter_item"><input type="checkbox" /> <label
+							for="">youngmin's Pick</label></li>
+						<li class="filter_item"><input type="checkbox" /> <label
+							for="">Loa's Pick</label></li>
+						<li class="filter_item"><input type="checkbox" /> <label
+							for="">Jaehun's Pick</label></li>
+						<li class="filter_item"><input type="checkbox" /> <label
+							for="">Gicheul's Pick</label></li>
+						<li class="filter_item"><input type="checkbox" /> <label
+							for="">Gitae's Pick</label></li>
 					</ul>
-				</div>
-			</div>
-			<hr />
-			<div>
-				<button class="filter_toggle">
-					<span>에디터 추천</span>
-					<span class="material-symbols-outlined">
-						expand_less 
-					</span>
-				</button>
-				<div class="filter_content">
-					<ul class="filter_list">
-						<li>
-							<input type="checkbox" />
-						</li>
-					</ul>
-				</div>
 			</div>
 		</div>
 		<div class="primary">
@@ -81,14 +86,19 @@
 					<label>정렬 기준:</label>
 					<div class="sort_by_inner">
 						<div class="sort_selector">
-								<span>베스트셀러</span>
-							<div class="selector_items">
-								<ul>
-									<li>베스트셀러</li>
-									<li>출시일</li>
-									<li>이름순</li>
-								</ul>
-							</div>				
+							<button class="label">
+								<span class="label_text">정렬보기</span>
+								<div class="arrow">
+									<span class="material-symbols-outlined">
+										expand_less 
+									</span>								
+								</div>
+							</button>
+							<ul class="option_list">
+								<li class="option_item">베스트셀러</li>
+								<li class="option_item">출시일</li>
+								<li class="option_item">이름순</li>
+							</ul>
 						</div>
 					</div>
 				</div>

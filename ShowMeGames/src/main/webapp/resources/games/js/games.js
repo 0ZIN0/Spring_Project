@@ -1,35 +1,49 @@
-const filter_dropdown = $('.filter_toggle');
+const filter_dropdowns = document.querySelectorAll('.filter_toggle');
 
-var i;
-
-for (i = 0; i < filter_dropdown.length; i++) {
-    
-    filter_dropdown[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display != "none") {
-      dropdownContent.style.display = "none";
+filter_dropdowns.forEach(dropdown => {
+	console.log(dropdown);
+  dropdown.addEventListener('click', () => {
+    console.log(dropdown.querySelector('.arrow'));
+    if(dropdown.parentNode.classList.contains('active')) {
+      dropdown.parentNode.classList.remove('active');
+      dropdown.querySelector('.arrow').classList.remove('reverse');
     } else {
-      dropdownContent.style.display = "block";
+      dropdown.parentNode.classList.add('active');
+      dropdown.querySelector('.arrow').classList.add('reverse');
     }
-  });
-}
-
-const sort_dropdown = $('.sort_list_btn');
-function myFunction() {
-    sort_dropdown.classList.toggle("show");
-  }
+  })
+})
   
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.sort_list_btn')) {
-      var dropdowns = $('sort_list');
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
+/*sort_selector*/ 
+const label = document.querySelector('.label');
+const options = document.querySelectorAll('.option_item');
+const text = document.querySelector('.label_text');
+console.log(text);
+// 클릭한 옵션의 텍스트를 라벨 안에 넣음
+const handleSelect = (item) => {
+  label.parentNode.classList.remove('active');
+  text.textContent = item.textContent;
+}
+// 옵션 클릭시 클릭한 옵션을 넘김
+options.forEach(option => {
+	option.addEventListener('click', (e) => {
+	label.querySelector('.arrow').classList.remove('reverse');
+	handleSelect(option);
+	})
+})
+
+// 라벨을 클릭시 옵션 목록이 열림/닫힘
+label.addEventListener('click', () => {
+  if(label.parentNode.classList.contains('active')) {
+  	label.parentNode.classList.remove('active');
+    label.querySelector('.arrow').classList.remove('reverse');
+  } else {
+  	label.parentNode.classList.add('active');
+    label.querySelector('.arrow').classList.add('reverse');
   }
+})
+
+label.onblur = function(e) {
+  label.parentNode.classList.remove('active');
+  label.querySelector('.arrow').classList.remove('reverse');
+}
