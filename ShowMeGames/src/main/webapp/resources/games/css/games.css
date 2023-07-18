@@ -30,13 +30,13 @@
 }
 
 .grid_container {
-	border: solid 3px black;
 	display : grid;
 	grid-template-columns: 300px 1fr;
 }
 
 .filter {
-	border: solid 2px blue;
+	border-radius: 10px / 10px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .filter_header {
@@ -118,12 +118,13 @@
 .sort {
 	display: flex;
 	margin-left: 40px;
-	margin-right: 30px;
+	margin-right: 60px;
 	padding-right: 30px;
 	height: 60px;
 	background-color: lightgray;
 	justify-content: flex-end;
 	align-items: center;
+	border-radius: 10px / 10px;
 }
 
 .sort_by {
@@ -214,7 +215,8 @@ ul{
   border-radius: 6px;
   overflow: hidden;
   max-height: 0;
-  transition: .3s ease-in;  
+  transition: .3s ease-in;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;  
 }
 
 .sort_selector.active .option_list {
