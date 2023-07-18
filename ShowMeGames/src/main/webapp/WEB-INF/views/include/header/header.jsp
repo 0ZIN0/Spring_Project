@@ -4,6 +4,7 @@
 <c:url value="/" var="conPath" />
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
 	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <header>
 	<div id="header-top">
 		<div>
@@ -45,7 +46,12 @@
 			<ul id="header-bottom-ul">
 				<li class="title-div">
 					<div class="header-bottom-btn" id="category">
-						카테고리
+						<div>카테고리</div> 
+					<div>
+						<span class="material-symbols-outlined">
+							expand_more
+						</span>
+					</div>
 					</div>
 					<ul id="category-li" class="sub-ul">
 						<li onclick="location.href='${conPath}category/best-sellers'"><a>베스트
@@ -72,7 +78,15 @@
 								Pick</a></li>
 					</ul>
 				</li>
-				<li class="title-div"><div class="header-bottom-btn" id="header-genre">장르</div>
+				<li class="title-div">
+				<div class="header-bottom-btn" id="header-genre">
+					<div>장르</div> 
+					<div>
+						<span class="material-symbols-outlined">
+							expand_more
+						</span>
+					</div>
+				</div>
 					<ul id="genre-li" class="sub-ul">
 						<li onclick="location.href='${conPath}genre/rpg'"><a>RPG</a></li>
 						<li onclick="location.href='${conPath}genre/action-adventure'"><a>액션
@@ -89,7 +103,13 @@
 						<li onclick="location.href='${conPath}genre/sports'"><a>스포츠</a></li>
 					</ul>
 				</li>
-				<li class="title-div"><div class="header-bottom-btn" id="editor">큐레이터 추천</div>
+				<li class="title-div"><div class="header-bottom-btn" id="editor">
+					<div>큐레이터 추천</div> 
+					<div>
+						<span class="material-symbols-outlined">
+							expand_more
+						</span>
+					</div></div>
 					<ul id="editor-pink-li" class="sub-ul">
 						<li><a>젤다의 전설</a></li>
 						<li><a>슬레이 서 스파이어</a></li>
@@ -101,8 +121,8 @@
 						<li><a>에이펙스</a></li>
 					</ul>
 				</li>
-				<li><a class="bottom-title" id="all-game-btn" href="${conPath}games"><div id="header-games-btn">모든
-						게임 보기</div></a></li>
+				<li><div class="bottom-title" id="header-games-btn" onclick="location.href='${conPath}games'">모든
+						게임 보기</div></li>
 			</ul>
 		</div>
 		<div id="blank"></div>
