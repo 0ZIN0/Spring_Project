@@ -288,6 +288,7 @@ header {
 	background-color: transparent;
 	width: 45px;
 	height: 45px;
+	margin-left: 10px;
 }
 
 #cart-icon {
@@ -333,6 +334,7 @@ header {
 	font-size: 16px;
 	color: #008aa4;
 	caret-color: #808080;
+	margin-right: 10px;
 }
 
 #search:focus {outline: none;}
