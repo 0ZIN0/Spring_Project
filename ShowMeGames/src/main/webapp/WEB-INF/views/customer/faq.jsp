@@ -61,7 +61,7 @@
         <div id="thumbnails">
         	<c:forEach begin="1" end="9">
             <div class="thumbnail-container">
-                <a class="thumbnail-items" href="">
+                <a class="thumbnail-items" href="./faq/detail">
                     <div class="thumbnail-topics">
                         <span>topic</span>
                     </div>
