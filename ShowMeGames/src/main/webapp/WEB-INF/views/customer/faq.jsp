@@ -59,6 +59,7 @@
         </div>
 
         <div id="thumbnails">
+        	<c:forEach begin="1" end="9">
             <div class="thumbnail-container">
                 <a class="thumbnail-items" href="">
                     <div class="thumbnail-topics">
@@ -71,102 +72,7 @@
                     </div>
                 </a>
             </div>
-            <div class="thumbnail-container">
-                <a class="thumbnail-items" href="">
-                    <div class="thumbnail-topics">
-                        <span>topic</span>
-                    </div>
-                    <div class="thumbnail-content">
-                        <span>제목</span>
-                        <span>내용</span>
-                        <span>더 알아보기 &#9654;</span>
-                    </div>
-                </a>
-            </div>
-            <div class="thumbnail-container">
-                <a class="thumbnail-items" href="">
-                    <div class="thumbnail-topics">
-                        <span>topic</span>
-                    </div>
-                    <div class="thumbnail-content">
-                        <span>제목</span>
-                        <span>내용</span>
-                        <span>더 알아보기 &#9654;</span>
-                    </div>
-                </a>
-            </div>
-            <div class="thumbnail-container">
-                <a class="thumbnail-items" href="">
-                    <div class="thumbnail-topics">
-                        <span>topic</span>
-                    </div>
-                    <div class="thumbnail-content">
-                        <span>제목</span>
-                        <span>내용</span>
-                        <span>더 알아보기 &#9654;</span>
-                    </div>
-                </a>
-            </div>
-            <div class="thumbnail-container">
-                <a class="thumbnail-items" href="">
-                    <div class="thumbnail-topics">
-                        <span>topic</span>
-                    </div>
-                    <div class="thumbnail-content">
-                        <span>제목</span>
-                        <span>내용</span>
-                        <span>더 알아보기 &#9654;</span>
-                    </div>
-                </a>
-            </div>
-            <div class="thumbnail-container">
-                <a class="thumbnail-items" href="">
-                    <div class="thumbnail-topics">
-                        <span>topic</span>
-                    </div>
-                    <div class="thumbnail-content">
-                        <span>제목</span>
-                        <span>내용</span>
-                        <span>더 알아보기 &#9654;</span>
-                    </div>
-                </a>
-            </div>
-            <div class="thumbnail-container">
-                <a class="thumbnail-items" href="">
-                    <div class="thumbnail-topics">
-                        <span>topic</span>
-                    </div>
-                    <div class="thumbnail-content">
-                        <span>제목</span>
-                        <span>내용</span>
-                        <span>더 알아보기 &#9654;</span>
-                    </div>
-                </a>
-            </div>
-            <div class="thumbnail-container">
-                <a class="thumbnail-items" href="">
-                    <div class="thumbnail-topics">
-                        <span>topic</span>
-                    </div>
-                    <div class="thumbnail-content">
-                        <span>제목</span>
-                        <span>내용</span>
-                        <span>더 알아보기 &#9654;</span>
-                    </div>
-                </a>
-            </div>
-            <div class="thumbnail-container">
-                <a class="thumbnail-items" href="">
-                    <div class="thumbnail-topics">
-                        <span>topic</span>
-                    </div>
-                    <div class="thumbnail-content">
-                        <span>제목</span>
-                        <span>내용</span>
-                        <span>더 알아보기 &#9654;</span>
-                    </div>
-                </a>
-            </div>
+        	</c:forEach>
         </div>
 
         <div role="navigation" id="pageNav">
