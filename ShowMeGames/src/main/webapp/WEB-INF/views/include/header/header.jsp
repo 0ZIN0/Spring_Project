@@ -8,15 +8,23 @@
 	<div id="header-top">
 		<div>
 			<ul class="header-top-menu" id="header-top-ul">
-				<li><a id="logo-btn" href="${conPath}">로고</a></li>
-				<li><a id="game-btn" href="${conPath}">게임</a></li>
-				<li><a id="notices-btn" href="${conPath}customer/notice">공지
-						사항</a></li>
-				<li><a id="customer-btn" href="${conPath}customer/faq">고객
-						지원</a></li>
+				<li class="clickable-li" onclick="window.location.href='${conPath}'">
+					<a id="logo-btn" href="${conPath}"></a> 로고
+				</li>
+				<li class="clickable-li" onclick="window.location.href='${conPath}'">
+					<a id="game-btn" href="${conPath}"></a> 게임
+				</li>
+				<li class="clickable-li"
+					onclick="window.location.href='${conPath}customer/notice'"><a
+					id="notices-btn" href="${conPath}customer/notice"></a> 공지 사항</li>
+				<li class="clickable-li"
+					onclick="window.location.href='${conPath}customer/faq'"><a
+					id="customer-btn" href="${conPath}customer/faq"></a> 고객 지원</li>
 				<li></li>
-				<li><i class="fa-solid fa-circle-user fa-lg"
-					style="color: #a1a1a1;"></i><a id="login-btn" href="./member/login">로그인</a></li>
+				<li class="clickable-li"
+					onclick="window.location.href='./member/login'"><i
+					class="fa-solid fa-circle-user fa-lg" style="color: #a1a1a1;"></i>
+					<a id="login-btn" href="./member/login"></a> 로그인</li>
 			</ul>
 		</div>
 		<div id="header-top-underline">

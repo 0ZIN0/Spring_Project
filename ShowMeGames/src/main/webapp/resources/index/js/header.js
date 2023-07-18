@@ -1,22 +1,11 @@
-// <!-- 고객지원 토글기능 -->
-
-// $("#customer-btn").on("click", (e) => {
-//     e.preventDefault();
-    
-//     $('#category-li').hide();
-//     $('#genre-li').hide();
-//     $('#editor-pink-li').hide();
-//     $("#customer-ul").toggle();
-// });
-
 // <!-- 상단바 게임버튼, 공지사항버튼 호버기능 -->
 $("#notices-btn").on("mouseover", () => {
-    $("#notices-btn-underline").css("backgroundColor", "red");
+    $("#notices-btn-underline").css("backgroundColor", "white");
     $("#notices-btn-underline").css("transition", "background-color 0.3s ease");
 });
 
 $("#notices-btn").on("mouseout", () => {
-    $("#notices-btn-underline").css("backgroundColor", "blue");
+    $("#notices-btn-underline").css("backgroundColor", "");
     $("#notices-btn-underline").css("transition", "background-color 0.4s ease");
 });
 
