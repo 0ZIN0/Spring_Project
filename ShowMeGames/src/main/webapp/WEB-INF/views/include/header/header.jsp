@@ -90,7 +90,7 @@
 			</button>
 		</form>
 		<div>
-			<a class="bottom-title" id="cart-btn" href="./cart">장바구니</a>
+			<a class="bottom-title" id="cart-btn" href="./cart"><i id="cart-icon" class="fa-solid fa-cart-shopping"></i>장바구니</a>
 		</div>
 	</div>
 

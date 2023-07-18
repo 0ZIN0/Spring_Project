@@ -30,7 +30,7 @@ $("#customer-btn").on("mouseout", () => {
     $("#customer-btn-underline").css("transition", "background-color 0.4s ease");
 });
 
-
+// header-bottom 버튼 기능 구현
 $("#category-btn").on("click", (e) => {
     e.preventDefault();
     
@@ -67,6 +67,7 @@ $("#editor").on("click", (e) => {
     $('#category').css({'background':'white', 'border-radius':'10px'});
 });
 
+// header scroll 기능 구현
 $(window).scroll(function () {
   if ($(document).scrollTop() >= 200) {
     $('#header-top').css({'height':'1px', 'transition':'0.3s'});
@@ -96,3 +97,4 @@ $(window).on('scroll', function(){
     }
     lastScroll = scrollTop;
 });
+

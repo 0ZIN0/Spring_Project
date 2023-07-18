@@ -208,6 +208,8 @@ header {
 
 #header-bottom > :last-child {
 	padding: 13px 0;
+	display: flex;
+	justify-content: center;
 }
 
 #header-bottom > :nth-child(3) {
@@ -228,22 +230,6 @@ header {
 
 .sub-ul {
 	display: none;
-}
-
-.sub-ul {
-	position: absolute;
-	left:0;
-	right:0;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(6, 35px);
-	width: 1330px;
-	height: 525px;
-	z-index: 1;
-	background: white;
-	padding: 35px 0 0 30px;
-	margin-top: 40px;
-	border-top: #008AA4 solid 2px;
 }
 
 #search-form {
@@ -274,4 +260,25 @@ header {
 	background-color: transparent;
 	width: 45px;
 	height: 45px;
+}
+
+#cart-icon {
+	color: #008AA4;
+	margin-right: 10px;
+}
+
+.active {
+	position: absolute;
+	left:0;
+	right:0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(6, 35px);
+	width: 1330px;
+	height: 525px;
+	z-index: 1;
+	background: white;
+	padding: 35px 0 0 30px;
+	margin-top: 40px;
+	border-top: #008AA4 solid 2px;
 }
