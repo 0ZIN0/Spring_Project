@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="resources/games/css/games.css" var="css1" />
+<c:url value="resources/index/css/index.css" var="css2" />
 <c:url value="resources/games/js/games.js" var="js1" />
 <!DOCTYPE html>
 <html>
@@ -9,6 +10,7 @@
 <meta charset="UTF-8">
 <title>모든 게임 보기</title>
 <link rel="stylesheet" href="${css1}">
+<link rel="stylesheet" href="${css2}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 </head>
