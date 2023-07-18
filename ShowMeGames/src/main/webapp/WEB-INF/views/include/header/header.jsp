@@ -42,8 +42,7 @@
 	<div id="header-bottom">
 		<div>
 			<ul id="header-bottom-ul">
-				<li id="category"><a class="bottom-title" id="category-btn"
-					href="">카테고리</a>
+				<li class="title-div" id="category">카테고리
 					<ul id="category-li" class="sub-ul">
 						<li><a>베스트 셀러</a></li>
 						<li><a>Chanwoo Pick</a></li>
@@ -57,9 +56,9 @@
 						<li><a>Yeoungmin Pick</a></li>
 						<li></li>
 						<li><a>Gitae Pick</a></li>
-					</ul></li>
-				<li id="header-genre"><a class="bottom-title" id="genre-btn"
-					href="">장르</a>
+					</ul>
+				</li>
+				<li class="title-div" id="header-genre">장르
 					<ul id="genre-li" class="sub-ul">
 						<li><a>RPG</a></li>
 						<li><a>액션 / 어드벤처</a></li>
@@ -70,9 +69,9 @@
 						<li><a>멀티 / 협동</a></li>
 						<li><a>레이싱</a></li>
 						<li><a>스포츠</a></li>
-					</ul></li>
-				<li id="editor"><a class="bottom-title" id="editor-pick"
-					href="">큐레이터 추천</a>
+					</ul>
+				</li>
+				<li class="title-div" id="editor">큐레이터 추천
 					<ul id="editor-pink-li" class="sub-ul">
 						<li><a>젤다의 전설</a></li>
 						<li><a>슬레이 서 스파이어</a></li>
@@ -82,7 +81,8 @@
 						<li><a>카운터스트라이크</a></li>
 						<li><a>레인보우6</a></li>
 						<li><a>에이펙스</a></li>
-					</ul></li>
+					</ul>
+				</li>
 				<li><a class="bottom-title" id="all-game-btn" href="./games">모든
 						게임 보기</a></li>
 			</ul>
@@ -95,8 +95,9 @@
 					style="color: #008aa4; font-size: 25px;"></i>
 			</button>
 		</form>
-		<div>
-			<a class="bottom-title" id="cart-btn" href="${conPath}cart">장바구니</a>
+		<div id="header-cart" onclick="location.href='${conPath}cart'">
+			<a class="bottom-title" id="cart-btn" href="${conPath}cart"><i
+				id="cart-icon" class="fa-solid fa-cart-shopping"></i>장바구니</a>
 		</div>
 	</div>
 

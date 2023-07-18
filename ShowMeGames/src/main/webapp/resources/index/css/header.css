@@ -167,8 +167,7 @@ header {
 }
 
 /*************** header-bottom *******************/
-
-.bottom-title {
+.title-div, .bottom-title {
 	font-size: 1.02rem;
 	color: #008AA4;
 }
@@ -228,6 +227,8 @@ header {
 
 #header-bottom > :last-child {
 	padding: 13px 0;
+	display: flex;
+	justify-content: center;
 }
 
 #header-bottom > :nth-child(3) {
@@ -239,6 +240,7 @@ header {
 	padding: 30px;
 	text-align: left;
 	padding: 5px;
+	color: black;
 }
 
 .sub-ul > li:hover {
@@ -250,28 +252,17 @@ header {
 	display: none;
 }
 
-.sub-ul {
-	position: absolute;
-	left:0;
-	right:0;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(6, 35px);
-	width: 1330px;
-	height: 525px;
-	z-index: 1;
-	background: white;
-	padding: 35px 0 0 30px;
-	margin-top: 40px;
-	border-top: #008AA4 solid 2px;
-}
-
 #search-form {
 	height: 50px;
 	border: 2px solid #008AA4;
 	border-radius: 30px;
 	display: flex;
 	align-items: center;
+}
+
+#search-form:hover {
+	background-color: #E5F3F6;
+	border-radius: 30px;
 }
 
 #cart-btn {
@@ -294,4 +285,51 @@ header {
 	background-color: transparent;
 	width: 45px;
 	height: 45px;
+}
+
+#cart-icon {
+	color: #008AA4;
+	margin-right: 10px;
+}
+
+.active {
+	position: absolute;
+	left:0;
+	right:0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(6, 35px);
+	width: 1330px;
+	height: 525px;
+	z-index: 1;
+	background: white;
+	padding: 35px 0 0 30px;
+	margin-top: 40px;
+	border-top: #008AA4 solid 2px;
+}
+
+.title-active {
+	background-color: #E5F3F6;
+	border-radius: 10px;
+}
+
+.title-div: hover {
+	background-color: #E5F3F6;
+	border-radius: 10px;
+}
+
+#search {
+	background-color: transparent;
+	font-size: 16px;
+	color: #008aa4;
+	caret-color: #808080;
+}
+
+#search:focus {outline: none;}
+
+#header-cart:hover {
+	cursor: pointer;
+	background-color: #E5F3F6;
+	border-radius: 40px;
+	margin-bottom: 25px;
 }
