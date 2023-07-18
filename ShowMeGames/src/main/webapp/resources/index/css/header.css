@@ -66,32 +66,12 @@ header {
 	font-size: 14px;
 }
 
-#logo-btn:hover {
-	color: #67c1f5;
-}
-
-#game-btn:hover {
-	color: #67c1f5;
-}
-
-#notices-btn:hover {
-	color: #67c1f5;
-}
-
-#customer-btn:hover {
-	color: #67c1f5;
-}
-
 #login-btn:hover {
 	color: #67c1f5;
 }
 
 .fa-solid.fa-circle-user {
 	margin-right: 10px;
-}
-#logo-btn:hover {
- color: #67c1f5;
-
 }
 
 .fa-solid.fa-circle-user:hover {
@@ -103,6 +83,7 @@ header {
 }
 
 #header-top-underline {
+	padding: 7px;
 	height: 15px;
 }
 
