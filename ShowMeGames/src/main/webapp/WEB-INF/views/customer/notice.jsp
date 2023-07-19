@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- url : set -->
 <c:url value="/resources/customer/notice/notice.css" var="notice_css" />
 <c:url value="/resources/customer/notice/notice.js" var="notice_js" />
-<c:url value="/customer/" var="conpath" />
+<c:url value="/customer/notice/" var="conpath" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +44,7 @@
 			</select>
 		</div>
 		<div id="notice-grid">
-			<a id="notice-id" href="${conpath}notice_detail?id=1">
+			<a id="notice-id" href="${conpath}detail?id=1">
 				<div class="notice-date">7월 2023년</div>
 				<div class="notice-banner">
 					<img alt="" src="https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/7neLQ1AbemfEXsYa9C8wlm/2ecc3dd82e8d268c37251a822a3f09a7/BrandNewsArticle_SummerSale-June23_960x540.jpg">
