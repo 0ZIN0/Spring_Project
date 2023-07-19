@@ -19,12 +19,27 @@ public class CustomerController {
 	FAQService faqService;
 	
 	@GetMapping(value="/faq")
-	String faq(Integer page, Model model) {
+	String faq(Integer page, String topic, String search, Model model) {
 		if(page == null) page = 1;
 		
-		model.addAttribute("paging", faqService.getPagination(page)); 
-	
-		model.addAttribute("faqList", faqService.getList(page));
+		if(topic == null || topic.equals("")) topic = "all";
+		
+		int totalSize;
+		
+		if(search == null || search.equals("")) {
+			totalSize = topic.equals("all") ? faqService.getTotalSize() : faqService.getTopicSize(topic);
+			
+			model.addAttribute("faqList", faqService.getList(page, topic));
+			model.addAttribute("topic", topic);
+		} else {
+			totalSize = faqService.getSearchSize(search);
+			
+			model.addAttribute("faqList", faqService.getSearchList(page, search));
+			model.addAttribute("topic", search);
+		}
+		
+		model.addAttribute("paging", faqService.getPagination(page, totalSize)); 
+		model.addAttribute("totalSize", totalSize);
 		
 		return "customer/faq";
 	}
