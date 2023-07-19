@@ -5,6 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>환불정책</title>
+	<!-- header, footer css -->
 	<jsp:include page="/WEB-INF/views/include/link/common.jsp"/>
 	<jsp:include page="/WEB-INF/views/include/link/footer_css.jsp"/>
 	<style>
@@ -105,4 +106,7 @@
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%></body>
+	
+	<!-- header, footer js -->
+	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
 </html>

@@ -235,7 +235,7 @@ img {
 #pageNav > div:last-child > button:last-of-type {
     color: #d80388;
 }
-#pageNav > div:last-child > button[class=now-page] {
+#pageNav > div:last-child > button[id=now-page] {
     border-bottom: 3px solid #d80388;   
 }
 

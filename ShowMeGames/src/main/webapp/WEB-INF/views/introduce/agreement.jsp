@@ -4,7 +4,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>쇼미게임즈 - 이용약관</title>
-	<jsp:include page="/WEB-INF/views/include/link/common.jsp"/>
+	<!-- header, footer css -->
+	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
+	<!-- css -->
 	<jsp:include page="/WEB-INF/views/include/link/footer_css.jsp"/>
 </head>
 <body>
