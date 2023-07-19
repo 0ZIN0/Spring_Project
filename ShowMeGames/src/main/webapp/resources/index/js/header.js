@@ -26,44 +26,89 @@ function changeIconColor(iconId, color) {
     icon.style.color = color;
 }
 
-// head-top 호버기능 여기까지
 
-$("#category-btn").on("click", (e) => {
+// header-bottom list css active
+function openOthers(list) {
+  var tablinks = $('.sub-ul');
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" list-active", "");
+  }
+  list.addClass('list-active');
+  list.css({'display':'grid'});
+}
+
+// header-bottom title css active
+function clickChangeColor(btn, list) {
+    if (btn.hasClass('title-active')) {
+      btn.className = btn.removeClass('title-active');
+      return;
+    } else {
+      var tablinks = $('.header-bottom-btn');
+      console.log(tablinks);
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" title-active", "");
+      }
+      btn.addClass('title-active');
+      openOthers(list);
+    }
+}
+
+// header-bottom 버튼 기능 구현
+$("#category").on("click", (e) => {
     e.preventDefault();
-    
+    var category =  $('#category-li');
+    var categoryBtn = $('#category');
+
     $('#category-li').toggle();
     $('#genre-li').hide();
     $('#editor-pink-li').hide();
-    $("#customer-ul").hide();
-    $('#header-genre').css({'background':'white', 'border-radius':'10px'});
-    $('#editor').css({'background':'white', 'border-radius':'10px'});
-    $('#category').css({'background':'#E5F3F6', 'border-radius':'10px'});
+    
+    clickChangeColor(categoryBtn, category);
 });
 
 $("#header-genre").on("click", (e) => {
     e.preventDefault();
-    
+    var genre =  $('#genre-li');
+    var genreBtn = $('#header-genre');
+
     $('#category-li').hide();
     $('#genre-li').toggle();
     $('#editor-pink-li').hide();
-    $("#customer-ul").hide();
-    $('#header-genre').css({'background':'#E5F3F6', 'border-radius':'10px'});
-    $('#category').css({'background':'white', 'border-radius':'10px'});
-    $('#editor').css({'background':'white', 'border-radius':'10px'});
+    
+    clickChangeColor(genreBtn, genre);
 });
 
 $("#editor").on("click", (e) => {
     e.preventDefault();
+    var editor =  $('#editor-pink-li');
+    var editorBtn =  $('#editor');
     
     $('#category-li').hide();
     $('#genre-li').hide();
     $('#editor-pink-li').toggle();
-    $("#customer-ul").hide();
-    $('#editor').css({'background':'#E5F3F6', 'border-radius':'10px'});
-    $('#header-genre').css({'background':'white', 'border-radius':'10px'});
-    $('#category').css({'background':'white', 'border-radius':'10px'});
+
+    clickChangeColor(editorBtn, editor);
 });
 
+$('html').click(function(e) {   
+	if($(e.target).hasClass("sub-ul") || $(e.target).hasClass("title-div") || $(e.target).hasClass("header-bottom-btn")) {
+  } else {
+   
+    $('#category-li').hide();
+    $('#genre-li').hide();
+    $('#editor-pink-li').hide();
+    
+    var tablinks = $('.title-div');
+    var tablinks2 = $('.sub-ul');
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" title-active", 
+      "");
+      tablinks2[i].className = tablinks2[i].className.replace(" active", "");
+    }
+  }
+});
+
+// header scroll 기능 구현
 $(window).scroll(function () {
   if ($(document).scrollTop() >= 200) {
     $('#header-top').css({'height':'1px', 'transition':'0.3s'});
@@ -72,24 +117,32 @@ $(window).scroll(function () {
     $('#header-top').css({'height':'50px', 'transition':'0.3s'});
     $('#header-bottom').css({'top':'50px', 'transition':'0.3s'});
   }
+});
 
-}); 
 let lastScroll = 0;
-$(window).on('scroll', function(){
+$(window).on('scroll', function() {
     let scrollTop = $(this).scrollTop();
 
     if (scrollTop <= 200) {
         return;
     }
 
+    var logo =  $('#header-bottom-logo');
+    var headerBottom =  $('#header-bottom');
     if(scrollTop > lastScroll) {
         //down
         $('#header-top').css({'height':'1px', 'transition':'0.3s'});
         $('#header-bottom').css({'top':'0', 'transition':'0.3s'});
-    } else {
+        logo.css('display', 'block');
+        headerBottom.addClass('header-bottom-drop');
+        headerBottom.removeClass('header-bottom-up');
+      } else {
         // up
         $('#header-top').css({'height':'50px', 'transition':'0.3s'});
         $('#header-bottom').css({'top':'50px', 'transition':'0.3s'});
+        logo.css('display', 'none');
+        headerBottom.addClass('header-bottom-up');
+        headerBottom.removeClass('header-bottom-drop');
     }
     lastScroll = scrollTop;
 });

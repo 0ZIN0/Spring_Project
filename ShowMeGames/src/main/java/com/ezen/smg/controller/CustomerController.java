@@ -16,6 +16,11 @@ public class CustomerController {
 		return "customer/faq";
 	}
 	
+	@GetMapping(value="/faq/detail")
+	String faqDetail() {
+		return "customer/faq_detail";
+	}
+	
 	@GetMapping(value="/notice")
 	public void notice() {
 		log.info("공지사항으로 갑니다.");
