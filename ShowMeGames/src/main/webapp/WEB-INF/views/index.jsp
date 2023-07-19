@@ -10,6 +10,7 @@
 	<title>Show Me Games</title>
 	<!-- css -->
 	<link rel="stylesheet" href="${css1}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<!-- header, footer css -->
 	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
 </head>
@@ -50,7 +51,18 @@
 	
         <div class="recmd">
             <div><span class="title">에디터 추천.</span> <span class="sub-title">이런 장르 게임은 어떤가요?</span></div>
-            <div class="recmd-container">
+            <div class="recmd-container editer-container">
+            	<div class="recmd-prev-btn"> 
+                    <i class="material-icons" id="editer-prev-button" style="font-size:48px;">arrow_back_ios_new</i>				
+                </div>
+                <div class="blank">                    
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
                 <div class="recmd-items">
                     <img src="${game_img}/Tekken7/Tekken5.jpg" alt="사진">
                 </div>
@@ -69,12 +81,32 @@
                         <button>Btn</button>
                     </div>
                 </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="recmd-next-btn"> 
+                    <i class="material-icons" id="editer-next-button"style="font-size:48px;">arrow_forward_ios</i>
+				</div>
             </div>
         </div>
 
         <div class="recmd">
             <div><span class="title">출시 예정 게임.</span> <span class="sub-title">곧 다가올 게임들을 만나봅니다.</span></div>
-            <div class="recmd-container">
+            <div class="recmd-container cms-container">
+            	<div class="recmd-prev-btn"> 
+                    <i class="material-icons" id="cms-prev-button" style="font-size:48px;">arrow_back_ios_new</i>				
+                </div>
+                <div class="blank">                    
+                </div>
                 <div class="recmd-items">
                     <img src="${img}/black.png" alt="사진">
                 </div>
@@ -93,6 +125,9 @@
                         <button>Btn</button>
                     </div>
                 </div>
+                <div class="recmd-next-btn"> 
+                    <i class="material-icons" id="cms-next-button"style="font-size:48px;">arrow_forward_ios</i>
+				</div>
             </div>
         </div>
 	
@@ -125,5 +160,6 @@
 	
 	<!-- js -->
 	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
+	<script src="./resources/index/js/index.js"></script>
 </body>
 </html>
