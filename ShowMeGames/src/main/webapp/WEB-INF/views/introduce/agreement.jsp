@@ -4,7 +4,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>쇼미게임즈 - 이용약관</title>
-	<jsp:include page="/WEB-INF/views/include/link/common.jsp"/>
+	<!-- icons -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+	<!-- header, footer css -->
+	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
+	<!-- css -->
 	<jsp:include page="/WEB-INF/views/include/link/footer_css.jsp"/>
 </head>
 <body>
