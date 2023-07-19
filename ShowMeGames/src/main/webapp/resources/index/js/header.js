@@ -172,3 +172,8 @@ $(window).on('scroll', function () {
   }
   lastScroll = scrollTop;
 });
+
+function openLoginPopup() {
+    window.open('./member/login', '_blank', 'width=400,height=400');
+}
+
