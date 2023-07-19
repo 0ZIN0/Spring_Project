@@ -153,6 +153,7 @@
 	
 	
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
+	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
 	<script src="${js1 }"></script>
 </body>
 </html>
