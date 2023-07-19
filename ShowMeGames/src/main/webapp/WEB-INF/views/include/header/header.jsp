@@ -124,7 +124,7 @@
 					</div></div>
 					<ul id="editor-pink-li" class="sub-ul">
 						<li><a>젤다의 전설</a></li>
-						<li><a>슬레이 서 스파이어</a></li>
+						<li><a>슬레이 더 스파이어</a></li>
 						<li><a>마리오 카트</a></li>
 						<li><a>포탈</a></li>
 						<li><a>하프라이프</a></li>
