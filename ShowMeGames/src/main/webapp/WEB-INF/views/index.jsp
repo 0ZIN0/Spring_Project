@@ -22,9 +22,9 @@
 	        <img src="${img}/HomeHero_SummerSale-June23_desk 1.png" alt="배너사진">
 	    </div>
 	    <div id="bestGame">
-	        <div class="btn">
-	            <button>btn</button>
-	        </div>
+	       <div class="btn"> 
+                    <i class="material-icons" id="best-prev-button" style="font-size:48px;">arrow_back_ios_new</i>				
+                </div>
 	        <div class="best_games">
 	            <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
 	            <div class="bottom-right1"><span class="old-p">원가격</span></div>
@@ -40,9 +40,9 @@
 	            <div class="bottom-right1"><span class="old-p">원가격</span></div>
 	            <div class="bottom-right2"><span class="dis-p">할인율</span><span class="pre-p">현재가격</span></div>
 	        </div>
-	        <div class="btn">
-	            <button>btn</button>
-	        </div>
+	        <div class="btn"> 
+                <i class="material-icons" id="best-next-button"style="font-size:48px;">arrow_forward_ios</i>
+			</div>
 	    </div>
 	
 	    <div id="subBanner" class="banner">
@@ -76,10 +76,7 @@
                     <img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
                 </div>
                 <div class="recmd-items">
-                    <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
-                    <div class="recmd-next-btn"> 
-                        <button>Btn</button>
-                    </div>
+                    <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">                  
                 </div>
                 <div class="recmd-items">
                     <img src="${img}/black.png" alt="사진">
@@ -120,10 +117,7 @@
                     <img src="${img}/black.png" alt="사진">
                 </div>
                 <div class="recmd-items">
-                    <img src="${img}/black.png" alt="사진">
-                    <div class="recmd-next-btn">
-                        <button>Btn</button>
-                    </div>
+                    <img src="${img}/black.png" alt="사진">                   
                 </div>
                 <div class="recmd-next-btn"> 
                     <i class="material-icons" id="cms-next-button"style="font-size:48px;">arrow_forward_ios</i>
@@ -135,9 +129,9 @@
 	        <div class="blank"></div>
 	        <div><span class="title">장르별로 살펴보기.</span> <span class="sub-title">다양한 장르속 다양한 게임.</span></div>
 	        <div class="blank"></div>
-	        <div class="btn">
-	            <button>btn</button>
-	        </div>
+	        <div class="btn"> 
+                <i class="material-icons" id="genre-prev-button" style="font-size:48px;">arrow_back_ios_new</i>				
+            </div>
 	        <div class="genres">
 	            <img src="${img}/black.png" alt="사진">
 	        </div>
@@ -150,9 +144,9 @@
 	        <div class="genres">
 	            <img src="${img}/black.png" alt="사진">
 	        </div>
-	        <div class="btn">
-	            <button>btn</button>
-	        </div>
+	        <div class="btn"> 
+                <i class="material-icons" id="genre-next-button"style="font-size:48px;">arrow_forward_ios</i>
+			</div>
 	    </div>
 	</div>
 	
