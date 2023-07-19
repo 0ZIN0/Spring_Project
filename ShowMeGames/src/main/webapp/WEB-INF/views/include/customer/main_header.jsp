@@ -10,7 +10,7 @@
                 <div>
                     <div id="search-container">
                         <form action="${pageContext.request.contextPath}/customer/faq">
-                            <input type="text" name="search" placeholder="질문이나 키워드를 적으십시오..."/>
+                            <input type="text" name="search" placeholder="질문이나 키워드를 적으십시오..." autocomplete="off" />
                             <button type="submit"><i class="fa-solid fa-magnifying-glass"style="color: #fff; font-size: 25px;"></i></button>
                         </form>
                     </div>

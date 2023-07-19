@@ -47,66 +47,88 @@
             </div>
         </div>
         
-        <div id="thumbnails">
-        	<c:forEach items="${faqList}" var="faq">
-            <div class="thumbnail-container">
-                <a class="thumbnail-items" href="./faq/detail?id=${faq.qna_id}">
-                    <div class="thumbnail-topics">
-                        <span>${faq.qna_topic}</span>
-                    </div>
-                    <div class="thumbnail-content">
-                        <span>${faq.qna_title}</span>
-                        <span>${faq.qna_content}</span>
-                        <span>더 알아보기 &#9654;</span>
-                    </div>
-                </a>
-            </div>
-        	</c:forEach>
-        </div>
+        <c:if test="${search != null }">
+        
+	        <div id="searchResult">
+	        	<h1>"${search}"에 대한 검색 결과 [${totalSize}개]</h1>
+	        </div>
+        
+        </c:if>
 
-        <div role="navigation" id="pageNav">
-            <div aria-live="polite" aria-atomic="true">${totalSize}개</div>
-			<c:set var="nextPage" value="${paging.currPage + 1}" scope="page" />
-			<c:set var="prePage" value="${paging.currPage - 1}" scope="page" />
+		<c:if test="${totalSize <= 0}">
+			<div class="qna_blank"></div>
+			<div id="searchResultZero">
+				<div>
+					<h2>검색 결과가 없습니다.</h2>
+					<button onclick="location.href='./faq'">목록으로</button>
+				</div>
+			</div>
+		</c:if>
+
+		<c:if test="${totalSize > 0}">
+		
+	        <div id="thumbnails">
+	        	<c:forEach items="${faqList}" var="faq">
+	            <div class="thumbnail-container">
+	                <a class="thumbnail-items" href="./faq/detail?id=${faq.qna_id}">
+	                    <div class="thumbnail-topics">
+	                        <span>${faq.qna_topic}</span>
+	                    </div>
+	                    <div class="thumbnail-content">
+	                        <span>${faq.qna_title}</span>
+	                        <span>${faq.qna_content}</span>
+	                        <span>더 알아보기 &#9654;</span>
+	                    </div>
+	                </a>
+	            </div>
+	        	</c:forEach>
+	        </div>
 			
-			<c:if test="${search == null}">
-				<c:set var="second_para" value="topic=${topic}" />
-			</c:if>
-			
-			<c:if test="${search != null}">
-				<c:set var="second_para" value="search=${search}" />
-			</c:if>
-			
-			<div id="pageDiv">
-				<c:choose>
-					<c:when test="${prePage >= paging.firstPage}">
-						<button class="btn" onclick="location.href='./faq?page=${nextPage}&&${second_para}'">&#9664;</button> 
-					</c:when>
-					<c:otherwise>
-						<button class="btn disabled" disabled>&#9664;</button> 
-					</c:otherwise>
-				</c:choose>		
-				<c:forEach items="${paging.pageList}" var="pageNum">
+	        <div role="navigation" id="pageNav">
+	            <div aria-live="polite" aria-atomic="true">${totalSize}개</div>
+				<c:set var="nextPage" value="${paging.currPage + 1}" scope="page" />
+				<c:set var="prePage" value="${paging.currPage - 1}" scope="page" />
+				
+				<c:if test="${search == null}">
+					<c:set var="second_para" value="topic=${topic}" />
+				</c:if>
+				
+				<c:if test="${search != null}">
+					<c:set var="second_para" value="search=${search}" />
+				</c:if>
+				
+				<div id="pageDiv">
 					<c:choose>
-						<c:when test="${pageNum == paging.currPage}">
-							<button id="now-page" class="btn" onclick="location.href='./faq?page=${pageNum}&&${second_para}'">${pageNum}</button> 
+						<c:when test="${prePage >= paging.firstPage}">
+							<button class="btn" onclick="location.href='./faq?page=${nextPage}&&${second_para}'">&#9664;</button> 
 						</c:when>
 						<c:otherwise>
-							<button class="btn" onclick="location.href='./faq?page=${pageNum}&&${second_para}'">${pageNum}</button>
+							<button class="btn disabled" disabled>&#9664;</button> 
 						</c:otherwise>
 					</c:choose>		
-				</c:forEach>
-				<c:choose>
-					<c:when test="${nextPage <= paging.lastPage}">
-						<button class="btn" onclick="location.href='./faq?page=${nextPage}&&${second_para}'">&#9654;</button>
-					</c:when>
-					<c:otherwise>
-						<button class="btn disabled" disabled>&#9654;</button> 
-					</c:otherwise>
-				</c:choose>
-			</div>
-        </div>
-
+					<c:forEach items="${paging.pageList}" var="pageNum">
+						<c:choose>
+							<c:when test="${pageNum == paging.currPage}">
+								<button id="now-page" class="btn" onclick="location.href='./faq?page=${pageNum}&&${second_para}'">${pageNum}</button> 
+							</c:when>
+							<c:otherwise>
+								<button class="btn" onclick="location.href='./faq?page=${pageNum}&&${second_para}'">${pageNum}</button>
+							</c:otherwise>
+						</c:choose>		
+					</c:forEach>
+					<c:choose>
+						<c:when test="${nextPage <= paging.lastPage}">
+							<button class="btn" onclick="location.href='./faq?page=${nextPage}&&${second_para}'">&#9654;</button>
+						</c:when>
+						<c:otherwise>
+							<button class="btn disabled" disabled>&#9654;</button> 
+						</c:otherwise>
+					</c:choose>
+				</div>
+	        </div>
+		
+		</c:if>		
+		
 		<%@ include file="/WEB-INF/views/include/customer/faq_qnadiv.jsp" %>
 				
     </div>

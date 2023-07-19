@@ -35,7 +35,7 @@ public class CustomerController {
 			totalSize = faqService.getSearchSize(search);
 			
 			model.addAttribute("faqList", faqService.getSearchList(page, search));
-			model.addAttribute("topic", search);
+			model.addAttribute("search", search);
 		}
 		
 		model.addAttribute("paging", faqService.getPagination(page, totalSize)); 
