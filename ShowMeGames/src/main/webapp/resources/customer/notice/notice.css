@@ -31,25 +31,30 @@ html, body {
 	margin: 0 300px;
 }
 
-#notice-sort>select {
+#notice-year-select, #notice-date-select {
 	height: 30px;
 	width: 235px;
-	color: #d80388;
 	border: none;
 	border-radius: 0;
 	font-size: 16px;
 	font-weight: bold;
-	border-bottom: 1px solid #d80388;
 	-webkit-appearance:none; /* for chrome */
     -moz-appearance:none; /*for firefox*/
     appearance:none;
-    background:url('../../img/customer/notice/select-arrow-none.png') no-repeat right center;
 	padding-left: 10px;
 	margin-right: 250px;
 }
 
+.select-none {
+	color: #d80388;
+    background:url('../../img/customer/notice/select-arrow-none.png') no-repeat right center;
+	border-bottom: 1px solid #d80388;
+}
+
 .select-click {
 	background:url('../../img/customer/notice/select-arrow-click.png') no-repeat right center;
+	color:black;
+	border-bottom: 1px solid black;
 }
 
 #notice-sort>select::-ms-expand{

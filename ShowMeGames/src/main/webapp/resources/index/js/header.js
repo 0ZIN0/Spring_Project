@@ -69,7 +69,6 @@ function clickChangeColor(btn, list, arrow) {
 
 // header-bottom 버튼 기능 구현
 $("#category").on("click", (e) => {
-  console.log("11111");
   e.preventDefault();
   var category = $('#category-li');
   var categoryBtn = $('#category');
@@ -110,8 +109,9 @@ $("#editor").on("click", (e) => {
 
 
 $('html').click(function (e) {
-  if ($(e.target).hasClass("sub-ul") || $(e.target).hasClass("title-div") || $(e.target).hasClass("bottom-btns")) {
-
+  console.log(e.target);
+  if ($(e.target).hasClass("sub-ul") || $(e.target).hasClass("title-div") || $(e.target).hasClass("bottom-btns") || $(e.target).hasClass("material-symbols-outlined")) {
+    return;
   } else {
 
     $('#category-li').hide();

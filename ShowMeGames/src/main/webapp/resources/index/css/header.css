@@ -235,7 +235,7 @@ header {
 	margin: 0;
 	padding: 0;
 	display: grid;
-	grid-template-columns: 130px 100px 160px 140px;
+	grid-template-columns: 130px 100px 170px 140px;
 	height: 50px;
 	position: relative;
 	column-gap: 20px;
@@ -247,7 +247,7 @@ header {
 }
 
 #editor {
-   grid-template-columns: 120px 40px; 
+   grid-template-columns: 130px 40px; 
 }
 
 
@@ -263,6 +263,7 @@ header {
 	padding-top: 13px;
 	text-align: center;
 	height: 50px;
+	font-size: 18px;
 }
 
 #header-bottom>:last-child {
@@ -403,7 +404,7 @@ header {
 
 
 .expand_more-active {
-	transform: rotate(180deg);
+	transform: rotate(-180deg);
 }
 
 .expand_more {
