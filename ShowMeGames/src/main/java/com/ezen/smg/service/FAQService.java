@@ -7,9 +7,17 @@ import com.ezen.smg.dto.QnADTO;
 
 public interface FAQService {
 
-	Pagination getPagination(int page);
+	Pagination getPagination(int page, int totalSize);
 	
-	List<QnADTO> getList(int currPage);
+	List<QnADTO> getList(int currPage, String topic);
+	
+	List<QnADTO> getSearchList(int currPage, String search);
 	
 	QnADTO getDetail(int id);
+	
+	int getTotalSize();
+	
+	int getTopicSize(String topic);
+	
+	int getSearchSize(String search);
 }
