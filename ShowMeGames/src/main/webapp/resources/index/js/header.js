@@ -91,7 +91,9 @@ $("#editor").on("click", (e) => {
 });
 
 $('html').click(function(e) {   
+
 	if($(e.target).hasClass("sub-ul") || $(e.target).hasClass("title-div") || $(e.target).hasClass("header-bottom-btn")) {
+
   } else {
    
     $('#category-li').hide();
@@ -114,8 +116,8 @@ $(window).scroll(function () {
     $('#header-top').css({'height':'1px', 'transition':'0.3s'});
     $('#header-bottom').css({'top':'0', 'transition':'0.3s'});
   } else {
-    $('#header-top').css({'height':'50px', 'transition':'0.3s'});
-    $('#header-bottom').css({'top':'50px', 'transition':'0.3s'});
+    $('#header-top').css({'height':'54px', 'transition':'0.3s'});
+    $('#header-bottom').css({'top':'54px', 'transition':'0.3s'});
   }
 });
 
@@ -138,11 +140,17 @@ $(window).on('scroll', function() {
         headerBottom.removeClass('header-bottom-up');
       } else {
         // up
-        $('#header-top').css({'height':'50px', 'transition':'0.3s'});
-        $('#header-bottom').css({'top':'50px', 'transition':'0.3s'});
+
+        $('#header-top').css({'height':'54px', 'transition':'0.3s'});
+        $('#header-bottom').css({'top':'54px', 'transition':'0.3s'});
+
         logo.css('display', 'none');
         headerBottom.addClass('header-bottom-up');
         headerBottom.removeClass('header-bottom-drop');
     }
     lastScroll = scrollTop;
 });
+
+function openLoginPopup() {
+    window.open('./member/login', '_blank', 'width=400,height=400');
+}
