@@ -31,7 +31,7 @@
 		</div>
 	</div>
 	<div class="best_seller">
-		<h1 class="title">최고 인기작 게임입니다!</h1>
+		<h1 class="section_header">최고 인기작 게임입니다!</h1>
 			<div class="grid-x">
 				<c:forEach begin="1" end="8" var="1">
 					<div class="best_seller_card"></div>
@@ -39,7 +39,7 @@
 			</div>
 	</div>
 	<div class="pre_order">
-		<h1 class="title">출시 임박</h1>
+		<h1 class="section_header">출시 임박</h1>
 			<div class="grid-x">
 				<c:forEach begin="1" end="6" var="1">
 					<div class="pre_order_card"></div>
@@ -47,7 +47,7 @@
 			</div>
 	</div>
 	<div class="week_best_seller">
-		<h1 class="title">이번주 베스트 셀러</h1>
+		<h1 class="section_header">이번주 베스트 셀러</h1>
 		<div class="grid-x">
 			<c:forEach begin="1" end="8" var="1">
 					<div class="weekly_card"></div>
