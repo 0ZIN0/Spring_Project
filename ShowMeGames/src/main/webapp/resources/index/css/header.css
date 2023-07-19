@@ -157,9 +157,9 @@ header {
 }
 
 /*************** header-bottom *******************/
-<<<<<<< HEAD
-.bottom-title {
-=======
+
+
+
 #header-bottom-logo {
 	display: none;
 	margin-top: 15px;
@@ -167,7 +167,6 @@ header {
 }
 
 .title-div, .bottom-title {
->>>>>>> ba3daa5ede9b12558b09ca54217562d7d9894b51
 	font-size: 1.02rem;
 	color: #008AA4;
 }
@@ -213,9 +212,6 @@ header {
 	background-color: white;
 }
 
-<<<<<<< HEAD
-#header-bottom>* {
-=======
 .header-bottom-up {
 	grid-template-columns: 520px 560px 385px 115px;
 }
@@ -225,7 +221,6 @@ header {
 }
 
 #header-bottom > * {
->>>>>>> ba3daa5ede9b12558b09ca54217562d7d9894b51
 	background-color: white;
 }
 
@@ -248,27 +243,15 @@ header {
 	white-space: nowrap;
 }
 
-<<<<<<< HEAD
-#header-bottom-ul>li:hover {
-	background: #E5F3F6;
-	border-radius: 10px;
-=======
+
 #header-games-btn:hover {
->>>>>>> ba3daa5ede9b12558b09ca54217562d7d9894b51
 	cursor: pointer;
 	background-color: #E5F3F6;
 	border-radius: 10px;
 }
 
-<<<<<<< HEAD
-#header-bottom-ul>li:not(li:last-child) {
-	margin-right: 20px;
-}
 
-#header-bottom-ul>li {
-=======
 #header-bottom-ul > li > div, #header-games-btn {
->>>>>>> ba3daa5ede9b12558b09ca54217562d7d9894b51
 	margin: 0;
 	text-align: center;
 	padding: 13px 0;
@@ -303,25 +286,7 @@ header {
 	display: none;
 }
 
-<<<<<<< HEAD
-.sub-ul {
-	position: absolute;
-	left: 0;
-	right: 0;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(6, 35px);
-	width: 1330px;
-	height: 525px;
-	z-index: 1;
-	background: white;
-	padding: 35px 0 0 30px;
-	margin-top: 40px;
-	border-top: #008AA4 solid 2px;
-}
 
-=======
->>>>>>> ba3daa5ede9b12558b09ca54217562d7d9894b51
 #search-form {
 	height: 50px;
 	border: 2px solid #008AA4;
