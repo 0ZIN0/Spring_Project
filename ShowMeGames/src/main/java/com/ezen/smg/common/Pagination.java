@@ -21,11 +21,11 @@ public class Pagination {
 	}
 	
 	public Pagination(int totalNum, int pageNum, int posiNum) {
-		firstPage = 1;
-		lastPage = calLastPage(totalNum);
 		this.pageNum = pageNum;
 		this.posiNum = posiNum;
 		this.totalNum = totalNum;
+		firstPage = 1;
+		lastPage = calLastPage(totalNum);
 	}
 	
 	private int calLastPage(int totalNum) {

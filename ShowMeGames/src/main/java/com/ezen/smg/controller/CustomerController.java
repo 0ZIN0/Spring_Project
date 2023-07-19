@@ -2,6 +2,7 @@ package com.ezen.smg.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,12 +19,21 @@ public class CustomerController {
 	FAQService faqService;
 	
 	@GetMapping(value="/faq")
-	String faq() {
+	String faq(Integer page, Model model) {
+		if(page == null) page = 1;
+		
+		model.addAttribute("paging", faqService.getPagination(page)); 
+	
+		model.addAttribute("faqList", faqService.getList(page));
+		
 		return "customer/faq";
 	}
 	
 	@GetMapping(value="/faq/detail")
-	String faqDetail() {
+	String faqDetail(Integer id, Model model) {
+	
+		model.addAttribute("qna", faqService.getDetail(id));
+		
 		return "customer/faq_detail";
 	}
 	

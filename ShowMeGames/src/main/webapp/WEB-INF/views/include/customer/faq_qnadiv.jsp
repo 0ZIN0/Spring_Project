@@ -5,7 +5,7 @@
         <div id="qnaDiv">
             <h1>찾으시는 정보가 없습니까?</h1>
             <div></div>
-            <button onclick="location.href='./qna';">문의</button>
+            <button onclick="location.href='${pageContext.request.contextPath}/customer/qna';">문의</button>
         </div>
 
         <div class="qna_blank"></div>

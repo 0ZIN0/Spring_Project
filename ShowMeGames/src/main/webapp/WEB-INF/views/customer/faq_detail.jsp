@@ -6,7 +6,7 @@
 <html>
 <head lang="ko">
 	<meta charset="UTF-8">
-	<title>글 제목</title>
+	<title>${qna.qna_title}</title>
 	<link rel="stylesheet" href="${faq_detail_css}">
 	<!-- header, footer css -->
 	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
@@ -24,13 +24,13 @@
 
         <div id="main-body">
             <div id="main-content">
-                <h1>제목</h1>
+                <h1>[${qna.qna_topic}] ${qna.qna_title}</h1>
                 <div class="main-content-text">
-                    본문
+                    ${qna.qna_content}
                 </div>
                 <div>
                     <h3>글 번호</h3>
-                    <span class="content-num">0001234</span>
+                    <span class="content-num">${qna.qna_id}</span>
                 </div>
             </div>
         </div>

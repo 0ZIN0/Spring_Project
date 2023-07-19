@@ -8,6 +8,9 @@ import com.ezen.smg.dto.QnADTO;
 
 public interface FAQmapper {
 
-	List<QnADTO> getPage(@Param("start") int start, @Param("end") int end);
+	List<QnADTO> getFAQList(@Param("start") int start, @Param("end") int end);
 	
+	int getTotalNum();
+
+	QnADTO getFAQ(@Param("id") int qna_id);
 }

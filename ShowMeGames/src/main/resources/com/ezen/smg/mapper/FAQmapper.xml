@@ -3,7 +3,13 @@
   PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="com.ezen.smg.mapper.FAQmapper">
- 	<select id="getPage" resultType="com.ezen.smg.dto.QnADTO" parameterType="int">
+ 	<select id="getFAQList" parameterType="int" resultType="com.ezen.smg.dto.QnADTO">
  		SELECT * FROM (SELECT rownum AS rn, a.* FROM qna a) WHERE rn BETWEEN #{start} AND #{end}
+ 	</select>
+ 	<select id="getTotalNum">
+ 		SELECT count(*) FROM qna
+ 	</select>
+ 	<select id="getFAQ" parameterType="int" resultType="com.ezen.smg.dto.QnADTO">
+ 		SELECT * FROM qna WHERE qna_id = #{id}
  	</select>
  </mapper>

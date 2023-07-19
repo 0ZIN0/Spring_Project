@@ -46,15 +46,15 @@
             </div>
         </div>
         <div id="thumbnails">
-        	<c:forEach begin="1" end="9">
+        	<c:forEach items="${faqList}" var="faq">
             <div class="thumbnail-container">
-                <a class="thumbnail-items" href="./faq/detail">
+                <a class="thumbnail-items" href="./faq/detail?id=${faq.qna_id}">
                     <div class="thumbnail-topics">
-                        <span>topic</span>
+                        <span>${faq.qna_topic}</span>
                     </div>
                     <div class="thumbnail-content">
-                        <span>제목</span>
-                        <span>내용</span>
+                        <span>${faq.qna_title}</span>
+                        <span>${faq.qna_content}</span>
                         <span>더 알아보기 &#9654;</span>
                     </div>
                 </a>
