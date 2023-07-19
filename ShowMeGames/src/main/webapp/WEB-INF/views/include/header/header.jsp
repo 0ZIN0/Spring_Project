@@ -51,12 +51,12 @@
 			<ul id="header-bottom-ul">
 				<li class="title-div">
 					<div class="header-bottom-btn" id="category">
-						<div>카테고리</div> 
-					<div>
-						<span class="material-symbols-outlined">
-							expand_more
-						</span>
-					</div>
+						<div class="bottom-btns">카테고리</div> 
+						<div id="category-arrow" class="bottom-btns expand_more">
+							<span class="material-symbols-outlined">
+								expand_more
+							</span>
+						</div>
 					</div>
 					<ul id="category-li" class="sub-ul">
 						<li onclick="location.href='${conPath}category/best-sellers'"><a>베스트
@@ -85,8 +85,8 @@
 				</li>
 				<li class="title-div">
 				<div class="header-bottom-btn" id="header-genre">
-					<div>장르</div> 
-					<div>
+					<div class="bottom-btns">장르</div> 
+					<div id="genre-arrow" class="bottom-btns expand_more">
 						<span class="material-symbols-outlined">
 							expand_more
 						</span>
@@ -109,8 +109,8 @@
 					</ul>
 				</li>
 				<li class="title-div"><div class="header-bottom-btn" id="editor">
-					<div>큐레이터 추천</div> 
-					<div>
+					<div class="bottom-btns">큐레이터 추천</div> 
+					<div id="editor-arrow" class="bottom-btns expand_more">
 						<span class="material-symbols-outlined">
 							expand_more
 						</span>
