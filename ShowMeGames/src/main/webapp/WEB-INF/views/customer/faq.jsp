@@ -10,10 +10,6 @@
 	<title>자주 묻는 질문</title>
 	<!-- css -->
 	<link rel="stylesheet" href="${faq_css}">
-	<!-- icons -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-	<!-- JQuery -->
-	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 	<!-- header, footer css -->
 	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
 </head>
@@ -21,24 +17,9 @@
 	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	
     <div id="main">
-        <div id="main-header">
-            <div id="main-header-img">
-                <img src="${faq_img}/Img-header.jpg" alt="헤더이미지">
-            </div>
-            <div id="main-header-content">
-                <div>
-                    <h1>무엇을 도와드릴까요?</h1>
-                </div>
-                <div>
-                    <div id="search-container">
-                        <form action="">
-                            <input type="text" placeholder="질문이나 키워드를 적으십시오..."/>
-                            <button type="submit"><i class="fa-solid fa-magnifying-glass"style="color: #fff; font-size: 25px;"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
+		<%@ include file="/WEB-INF/views/include/customer/main_header.jsp" %>
+			
         <div id="main-category">
             <div>
                 <div id="dropdown-title">주제 선택</div>
@@ -57,7 +38,6 @@
                 <button>필터 적용</button>
             </div>
         </div>
-
         <div id="thumbnails">
         	<c:forEach begin="1" end="9">
             <div class="thumbnail-container">
@@ -88,16 +68,8 @@
             </div>
         </div>
 
-        <div class="qna_blank"></div>
-
-        <div id="qnaDiv">
-            <h1>찾으시는 정보가 없습니까?</h1>
-            <div></div>
-            <button>문의</button>
-        </div>
-
-        <div class="qna_blank"></div>
-        
+		<%@ include file="/WEB-INF/views/include/customer/faq_qnadiv.jsp" %>
+				
     </div>
 
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
