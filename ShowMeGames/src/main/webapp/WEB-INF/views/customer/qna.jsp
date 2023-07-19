@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>문의하기</title>
+	<meta charset="UTF-8">
+	<title>문의하기</title>
 </head>
 <body>
 
-<h1>문의하기 페이지</h1>
+	<h1>문의하기 페이지</h1>
 	
 </body>
 </html>
