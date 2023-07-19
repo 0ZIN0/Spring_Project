@@ -26,7 +26,14 @@
                 <div class="selectBox">
                     <select id="select">
                         <option value="all">모든 주제</option>
-                        <option value="topic1">주제1</option>
+                        <option value="topic1">이용방법</option>
+                        <option value="topic1">계정</option>
+                        <option value="topic1">주문</option>
+                        <option value="topic1">환불</option>
+                        <option value="topic1">등록</option>
+                        <option value="topic1">설치</option>
+                        <option value="topic1">상품</option>
+                        <option value="topic1">기타</option>
                     </select>
                     <svg role="presentation" class="icon--arrow" width="40" height="50" viewBox="0 0 40 40" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -57,15 +64,36 @@
 
         <div role="navigation" id="pageNav">
             <div aria-live="polite" aria-atomic="true">0개</div>
-            <div>
-                <button>&#9664;</button>
-                <button class="now-page">1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-                <button>&#9654;</button>
-            </div>
+			<c:set var="nextPage" value="${paging.currPage + 1}" scope="page" />
+			<c:set var="prePage" value="${paging.currPage - 1}" scope="page" />
+			<div id="pageDiv">
+				<c:choose>
+					<c:when test="${prePage >= paging.firstPage}">
+						<button class="btn" onclick="location.href='./faq?page=${prePage}'">&#9664;</button> 
+					</c:when>
+					<c:otherwise>
+						<button class="btn disabled" disabled>&#9664;</button> 
+					</c:otherwise>
+				</c:choose>		
+				<c:forEach items="${paging.pageList}" var="pageNum">
+					<c:choose>
+						<c:when test="${pageNum == paging.currPage}">
+							<button id="now-page" class="btn" onclick="location.href='./faq?page=${pageNum}'">${pageNum}</button> 
+						</c:when>
+						<c:otherwise>
+							<button class="btn" onclick="location.href='./faq?page=${pageNum}'">${pageNum}</button>
+						</c:otherwise>
+					</c:choose>		
+				</c:forEach>
+				<c:choose>
+					<c:when test="${nextPage <= paging.lastPage}">
+						<button class="btn" onclick="location.href='./faq?page=${nextPage}'">&#9654;</button>
+					</c:when>
+					<c:otherwise>
+						<button class="btn disabled" disabled>&#9654;</button> 
+					</c:otherwise>
+				</c:choose>
+			</div>
         </div>
 
 		<%@ include file="/WEB-INF/views/include/customer/faq_qnadiv.jsp" %>

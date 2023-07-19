@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="resources/index/css/index.css" var="css1" />
 <c:url value="resources/img/index" var="img"/>
+<c:url value="resources/img/index/games" var="game_img"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -24,17 +25,17 @@
 	            <button>btn</button>
 	        </div>
 	        <div class="best_games">
-	            <img src="${img}/black.png" alt="사진">
+	            <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
 	            <div class="bottom-right1"><span class="old-p">원가격</span></div>
 	            <div class="bottom-right2"><span class="dis-p">할인율</span><span class="pre-p">현재가격</span></div>
 	        </div>
 	        <div class="best_games">
-	            <img src="${img}/black.png" alt="사진">
+	            <img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
 	            <div class="bottom-right1"><span class="old-p">원가격</span></div>
 	            <div class="bottom-right2"><span class="dis-p">할인율</span><span class="pre-p">현재가격</span></div>
 	        </div>
 	        <div class="best_games">
-	            <img src="${img}/black.png" alt="사진">
+	            <img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
 	            <div class="bottom-right1"><span class="old-p">원가격</span></div>
 	            <div class="bottom-right2"><span class="dis-p">할인율</span><span class="pre-p">현재가격</span></div>
 	        </div>
@@ -51,16 +52,19 @@
             <div><span class="title">에디터 추천.</span> <span class="sub-title">이런 장르 게임은 어떤가요?</span></div>
             <div class="recmd-container">
                 <div class="recmd-items">
-                    <img src="${img}/black.png" alt="사진">
+                    <img src="${game_img}/Tekken7/Tekken5.jpg" alt="사진">
                 </div>
                 <div class="recmd-items">
-                    <img src="${img}/black.png" alt="사진">
+                    <img src="${game_img}/Forza_Horizon/Forza Horzon4.jpg" alt="사진">
                 </div>
                 <div class="recmd-items">
-                    <img src="${img}/black.png" alt="사진">
+                    <img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
                 </div>
                 <div class="recmd-items">
-                    <img src="${img}/black.png" alt="사진">
+                    <img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
+                </div>
+                <div class="recmd-items">
+                    <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
                     <div class="recmd-next-btn"> 
                         <button>Btn</button>
                     </div>
@@ -71,6 +75,9 @@
         <div class="recmd">
             <div><span class="title">출시 예정 게임.</span> <span class="sub-title">곧 다가올 게임들을 만나봅니다.</span></div>
             <div class="recmd-container">
+                <div class="recmd-items">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
                 <div class="recmd-items">
                     <img src="${img}/black.png" alt="사진">
                 </div>
