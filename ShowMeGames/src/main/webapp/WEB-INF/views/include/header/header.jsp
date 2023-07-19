@@ -22,10 +22,15 @@
 					onclick="window.location.href='${conPath}customer/faq'"><a
 					id="customer-btn" href="${conPath}customer/faq"></a> 고객 지원</li>
 				<li></li>
-				<li class="clickable-li"
-					onclick="window.location.href='${conPath}member/login'"><i
-					class="fa-solid fa-circle-user fa-lg" style="color: #a1a1a1;"></i>
-					<a id="login-btn" href="./member/login"></a> 로그인</li>
+
+				<li class="clickable-li" id="login-li"
+					onclick="window.location.href='./member/login'"
+					onmouseover="changeIconColor('login-icon', 'white')"
+					onmouseout="changeIconColor('login-icon', '#a1a1a1')"><i
+					class="fa-solid fa-circle-user fa-xl" id="login-icon"
+					style="color: #a1a1a1;"></i> <a id="login-btn"
+					href="./member/login"></a>로그인</li>
+
 			</ul>
 		</div>
 		<div id="header-top-underline">
@@ -37,7 +42,7 @@
 				<li></li>
 				<li></li>
 			</ul>
-			<ul id="header-top-ul-underline2"></ul>
+
 		</div>
 	</div>
 	<div id="header-bottom" class="header-bottom-up">
