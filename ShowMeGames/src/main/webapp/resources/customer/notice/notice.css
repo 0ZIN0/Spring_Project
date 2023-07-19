@@ -1,0 +1,57 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+}
+
+#notice-main {
+	display: grid;
+	grid-template-rows: 800px 30px 1fr;
+	width: 100%;
+	row-gap: 20px;
+}
+
+#notice-main-img {
+	width: 100%;
+	height: 800px;
+	object-fit: cover;
+}
+
+#notice-sort {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	width: 100%;
+	padding: 0 50px;
+}
+
+#notice-sort > h2 {
+	margin: 0 300px;
+}
+
+#notice-sort>select {
+	height: 30px;
+	width: 235px;
+	color: #d80388;
+	border: none;
+	border-radius: 0;
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid #d80388;
+	-webkit-appearance:none; /* for chrome */
+    -moz-appearance:none; /*for firefox*/
+    appearance:none;
+    background:url('../../img/customer/notice/select-arrow-none.png') no-repeat right center;
+	padding-left: 10px;
+	margin-right: 250px;
+}
+
+.select-click {
+	background:url('../../img/customer/notice/select-arrow-click.png') no-repeat right center;
+}
+
+#notice-sort>select::-ms-expand{
+   display:none;/*for IE10,11*/
+}
