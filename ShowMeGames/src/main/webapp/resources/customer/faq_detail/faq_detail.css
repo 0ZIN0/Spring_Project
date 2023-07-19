@@ -1,0 +1,158 @@
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#main-header {
+    position: relative;
+    padding: 32px 0 32px 0;
+    height: 320px;
+}
+
+#main-header-img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 320px;
+    filter: brightness(50%); 
+    z-index: -1;
+    overflow: hidden;
+}
+
+#main-header-content {
+    text-align: center;
+}
+
+#main-header-content > div:first-child {
+    color: white;
+}
+#main-header-content > div:first-child > h1 {
+    font-size: 56px;
+}
+
+#main-header-content > div:last-child {
+    width: 100%;
+}
+
+#search-container {
+    width: 960px;
+    margin: auto;
+    border-radius: 50px;
+    overflow: hidden;
+}
+#search-container form {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    position: relative;
+}
+#search-container input {
+    display: block;
+    width: 960px;
+    height: 50px;
+    padding: 10px 60px 10px 30px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+}
+#search-container button {
+    position: absolute;
+    right: 0;
+    display: block;
+    height: 50px;
+    width: 50px;
+    background-color: #d80388;
+    border: none;
+    cursor: pointer;
+}
+
+#main-body {
+    width: 100%;
+    background-color: #f1f3f4;
+    font-size: 18px;
+}
+
+#main-content {
+    width: 70%;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    min-height: 300px;
+    padding: 48px 120px;
+}
+
+div[class=qna_blank]:first-of-type {
+    position: relative;
+}
+
+#toList {
+    position: relative;
+    left: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    width: 90px;
+    background-color: #d80388;
+    border: 1px solid #d80388;
+    color: #fff;
+    border-radius: 100px;
+    overflow: hidden;
+    font-weight: 550;
+    font-size: 20px;
+    white-space: nowrap;
+    cursor: pointer;    
+}
+
+#main-content > h1 {
+    font-size: 50px;
+}
+#main-content > .main-content-text {
+    min-height: 200px;
+    border-bottom: #dee1e6 1px solid;
+}
+#main-content > div:last-child {
+    margin-top: 24px;
+}
+#main-content > div:last-child > h3 {
+    color: #a0a3a7;
+}
+
+.qna_blank {
+    height: 110px;
+    width: 100%;
+    background-color: #f1f3f4;
+}
+
+#qnaDiv {
+    padding: 30px 0 30px 0;
+    height: 220px;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+}
+
+#qnaDiv > h1 {
+    height: 56px;
+    margin: 0;
+    color: #272727;
+    font-size: 42px;
+    font-weight: 550;
+}
+#qnaDiv > div {
+    height: 56px;
+}
+#qnaDiv > button {
+    height: 50px;
+    width: 90px;
+    background-color: #d80388;
+    border: 1px solid #d80388;
+    color: #fff;
+    border-radius: 100px;
+    overflow: hidden;
+    font-weight: 550;
+    font-size: 20px;
+    cursor: pointer;
+}

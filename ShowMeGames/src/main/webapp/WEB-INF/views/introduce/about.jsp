@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:url value="/resources/introduce/css/about.css" var="css1"/>
+<c:url value="/resources/introduce/css/about.css" var="about_css"/>
 <c:url value="/resources/img/introduce/about" var="img"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
 	<title>쇼미게임즈 - 회사소개</title>
-	<jsp:include page="/WEB-INF/views/include/link/common.jsp"/>
-	<link rel="stylesheet" href="${css1}">
+	<!-- css -->
+	<link rel="stylesheet" href="${about_css}">
+	<!-- header, footer css -->
+	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
@@ -37,5 +39,8 @@
     </div>
 	
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
+	
+	<!-- header, footer js -->
+	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
 </body>
 </html>

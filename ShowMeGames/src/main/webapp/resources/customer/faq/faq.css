@@ -172,6 +172,7 @@ img {
 
 .thumbnail-topics {
     height: 50px;
+    padding: 5px;
 }
 .thumbnail-topics > span {
     background-color: #919499;
@@ -190,13 +191,19 @@ img {
 .thumbnail-content > span {
     display: block;
     color: black;
+    overflow: hidden;
+  	text-overflow: ellipsis;
 }
 .thumbnail-content > span:first-child {
     font-size: 18px;
     font-weight: 550;
+    white-space: nowrap;
 }
 .thumbnail-content > span:nth-child(2) {
     font-size: 16px;
+    display: -webkit-box; 
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
 .thumbnail-content > span:last-child {
     margin-top: 4px;
@@ -235,7 +242,7 @@ img {
 #pageNav > div:last-child > button:last-of-type {
     color: #d80388;
 }
-#pageNav > div:last-child > button[class=now-page] {
+#pageNav > div:last-child > button[id=now-page] {
     border-bottom: 3px solid #d80388;   
 }
 

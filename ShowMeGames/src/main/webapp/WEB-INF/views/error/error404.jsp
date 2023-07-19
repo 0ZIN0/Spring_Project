@@ -4,8 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>존재하지 않는 페이지</title>
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <%@ include file="/WEB-INF/views/include/link/common.jsp" %>
+	<!-- header, footer css -->
+	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
     <style>
         #main {
             width: 50%;
@@ -32,7 +32,7 @@
     
     <%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
     
-    <!-- js -->
+    <!-- header, footer js -->
 	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>    
 </body>
 </html>
