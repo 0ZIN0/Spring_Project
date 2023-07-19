@@ -115,7 +115,7 @@
                 </div>
                 <div class="recmd-next-btn"> 
                     <i class="material-icons" id="cms-next-button"style="font-size:48px;">arrow_forward_ios</i>
-				</div>>
+				</div>
             </div>
         </div>
 	
