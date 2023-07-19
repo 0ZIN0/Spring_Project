@@ -13,6 +13,7 @@ footer {
 	width: 100%;
 	height: 300px;
 	border: 1px solid #2b333d;
+	overflow: hidden;
 }
 
 #footer-main {
