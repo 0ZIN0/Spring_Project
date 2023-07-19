@@ -31,9 +31,18 @@ function openOthers(list) {
   list.css({'display':'grid'});
 }
 
+// arrow spin active css
+function spinActive(arrow) {
+  var tablinks = $('.expand_more');
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" expand_more-active", "");
+  }
+  arrow.addClass('expand_more-active');
+}
+
 // header-bottom title css active
 function clickChangeColor(btn, list, arrow) {
-    if (btn.hasClass('title-active')) {
+    if (btn.hasClass('title-active') || arrow.hasClass('expand_more-active')) {
       btn.className = btn.removeClass('title-active');
       list.className = list.removeClass('expand_more-active');
       return;
@@ -150,12 +159,3 @@ $(window).on('scroll', function() {
     }
     lastScroll = scrollTop;
 });
-
-// arrow spin active css
-function spinActive(list) {
-  var tablinks = $('.expand_more');
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" expand_more-active", "");
-  }
-  list.addClass('expand_more-active');
-}
