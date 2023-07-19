@@ -5,7 +5,7 @@
 	display: block;
 	height: auto;
 	text-align: center;
-	margin-bottom: 4%;
+	margin-bottom: 120px;
 	background-image: url(https://store.ubisoft.com/on/demandware.static/-/Library-Sites-shared-library-web/default/dw27e9e8be/images/category-banners/CatBan_new-release-feb22_1920x300_desk.jpg);
 	background-size: cover;
 	background-position: center center;
@@ -36,7 +36,7 @@
 	margin-left: 80px;
 	padding-right: 40px;
 	height: 200px;
-	margin-bottom: 5%;
+	margin-bottom: 120px;
 	white-space: nowrap;
 }
 
@@ -52,7 +52,7 @@
 	margin-left: 70px;
 	height: 100%;
 	padding-left: 4%;
-	margin-bottom: 5%;
+	margin-bottom: 120px;
 }
 
 .best_seller .grid-x {
@@ -80,7 +80,7 @@
 	margin-left: 70px;
 	height: 100%;
 	padding-left: 4%;
-	margin-bottom: 5%;
+	margin-bottom: 120px;
 }
 
 .pre_order .grid-x {
@@ -103,7 +103,7 @@
 	margin-left: 70px;
 	height: 100%;
 	padding-left: 4%;
-	margin-bottom: 5%;
+	margin-bottom: 120px;
 }
 
 .week_best_seller .grid-x {
@@ -141,12 +141,16 @@
 
 .filter_header {
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	height: 50px;
-	font-weight: bold;
-	font-size: 25px;
 	padding : 10px;
 }
+
+.search {
+	white-space: nowrap;	
+}
+
 .filter_content {
   background-size: 20px;
   cursor: pointer;
@@ -235,7 +239,7 @@
 
 .sort_result_list {
 	margin-top: 20px;
-	padding-left: 20px;
+	padding-left: 30px;
 	display: grid;
 	grid-template-columns: repeat(4, 300px);
 	place-items: center;
@@ -243,7 +247,7 @@
 
 
 .sort_result_card{
-	width: 250px;
+	width: 280px;
 	height: 400px;
 	margin-right: 10px;
 	margin-bottom: 80px;

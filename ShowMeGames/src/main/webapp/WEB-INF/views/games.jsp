@@ -56,7 +56,12 @@
 	</div>
 	<div class="grid_container">
 		<div class="filter">
-			<div class="filter_header">필터</div>
+			<div class="filter_header">
+				<h1>필터</h1>
+				<div>
+					<p class="search">검색건수: 100건</p>				
+				</div>
+			</div>
 				<div class="filter_content">
 					<button class="filter_toggle">
 						<span class="filter_label">개인 맞춤 추천</span> 
