@@ -1,42 +1,142 @@
 @charset "UTF-8";
 
+
 .games_banner {
-	border: solid 3px black;
-	height: 300px;
+	display: block;
+	height: auto;
 	text-align: center;
-	margin-bottom: 150px;
+	margin-bottom: 4%;
+	background-image: url(https://store.ubisoft.com/on/demandware.static/-/Library-Sites-shared-library-web/default/dw27e9e8be/images/category-banners/CatBan_new-release-feb22_1920x300_desk.jpg);
+	background-size: cover;
+	background-position: center center;
+	
+}
+
+.title {
+	margin-bottom: 60px;
+	box-sizing: inherit;
+}
+
+.editer_categories .grid-x {
+	display: grid;
+	column-gap: 20px;
+	grid-template-columns: repeat(5, 1fr);
+}
+
+
+.banner_textbox {
+	display: block;
+	box-sizing: inherit;
+	margin: auto;
+	width: 40%;
+	padding: 4%;
 }
 
 .editer_categories {
-	border: solid 3px black;
-	height : 200px;
-	margin-bottom: 20px;
+	margin-left: 80px;
+	padding-right: 40px;
+	height: 200px;
+	margin-bottom: 5%;
+	white-space: nowrap;
+}
+
+
+.category_card {
+	height: 200px;
+	width: 300px;
+	border-radius: 20px / 20px;
+	background-color: black;
 }
 
 .best_seller {
-	border: solid 3px black;
-	height: 500px;
+	margin-left: 70px;
+	height: 100%;
+	padding-left: 4%;
+	margin-bottom: 5%;
+}
+
+.best_seller .grid-x {
+	display: grid;
+	column-gap: 20px;
+	grid-template-columns: repeat(8, 1fr);
+	overflow: hidden;
+}
+
+.best_seller_card {
+	width: 250px;
+	height: 400px;
+	border-radius: 20px / 20px;
+	background-color: black;
+}
+
+.best_seller .grid-x {
+	display: grid;
+	column-gap: 20px;
+	grid-template-columns: repeat(8, 1fr);
+	overflow: hidden;
 }
 
 .pre_order {
-	border: solid 3px black;
-	height: 400px;
+	margin-left: 70px;
+	height: 100%;
+	padding-left: 4%;
+	margin-bottom: 5%;
 }
 
+.pre_order .grid-x {
+	display: grid;
+	column-gap: 20px;
+	grid-template-columns: repeat(8, 1fr);
+	overflow: hidden;
+}
+
+.pre_order_card {
+	height: 200px;
+	width: 300px;
+	border-radius: 20px / 20px;
+	background-color: black;
+}
+
+
+
 .week_best_seller {
-	border: solid 3px black;
-	height: 500px;
-	margin-bottom: 50px;
+	margin-left: 70px;
+	height: 100%;
+	padding-left: 4%;
+	margin-bottom: 5%;
+}
+
+.week_best_seller .grid-x {
+	display: grid;
+	column-gap: 20px;
+	grid-template-columns: repeat(8, 1fr);
+	overflow: hidden;
+}
+
+
+.weekly_card {
+	width: 250px;
+	height: 400px;
+	border-radius: 20px / 20px;
+	background-color: black;
 }
 
 .grid_container {
+	position: relative;
 	display : grid;
 	grid-template-columns: 300px 1fr;
+	height: auto;
+	margin-left: 100px;
+	padding-left: 40px;
+	padding-right: 20px;
 }
 
 .filter {
+	position: sticky;
+	top: 150px;
 	border-radius: 10px / 10px;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	height: 800px;
 }
 
 .filter_header {
@@ -64,25 +164,25 @@
 
 .filter_content .filter_toggle {
 	width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-basis: auto;
-  align-items: center;
-  height: 50px;
-  border: 0 none;
-  outline: 0 none;
-  padding-left: 15px;
-  background: transparent;
-  cursor: pointer;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	flex-basis: auto;
+	align-items: center;
+	height: 50px;
+	border: 0 none;
+	outline: 0 none;
+	padding-left: 15px;
+	background: transparent;
+	cursor: pointer;
+	justify-content: space-between;
 }
 
 .filter_content .filter_list {
-  list-style-type: none;
-  padding: 0;
-  overflow: hidden;
-  max-height: 500px;
-  transition: .3s linear;
+	list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+	max-height: 500px;
+	transition: .3s linear;
 }
 
 .filter_content.active .filter_list {
@@ -118,13 +218,13 @@
 .sort {
 	display: flex;
 	margin-left: 40px;
-	margin-right: 60px;
 	padding-right: 30px;
 	height: 60px;
 	background-color: lightgray;
 	justify-content: flex-end;
 	align-items: center;
 	border-radius: 10px / 10px;
+	width: 1200px;
 }
 
 .sort_by {
@@ -133,8 +233,16 @@
 	align-items: center;
 }
 
+.sort_result_list {
+	margin-top: 20px;
+	padding-left: 20px;
+	display: grid;
+	grid-template-columns: repeat(4, 300px);
+	place-items: center;
+}
 
-.card{
+
+.sort_result_card{
 	width: 250px;
 	height: 400px;
 	margin-right: 10px;
@@ -168,7 +276,7 @@ ul{
 
 .filter_list > li {
 	font-size: 20px;
-	line-height: 60px;
+	line-height: 40px;
 	
 }
 

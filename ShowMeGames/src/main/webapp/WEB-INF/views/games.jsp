@@ -13,17 +13,47 @@
 <link rel="stylesheet" href="${css2}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
-	<div class="games_banner">배너</div>
-	<div class="editer_categories">에디터 픽</div>
-	<h1>최고 인기작 게임입니다!</h1>
-	<div class="best_seller">베스트 셀러</div>
-	<h1>출시 임박</h1>
-	<div class="pre_order">출시임박</div>
-	<h1>이번주 베스트 셀러</h1>
-	<div class="week_best_seller">이번주 베스트 셀러</div>
+	<div class="games_banner">
+		<div class="banner_textbox">
+			<h1>Show Me Games</h1>
+			<p>Show Me Games의 최신 게임, 베스트셀러들을 구매하시고 플레이하세요!</p>
+		</div>
+	</div>
+	<div class="editer_categories">
+		<div class="grid-x">
+			<c:forEach begin="1" end="5" var="1">
+					<div class="category_card"></div>
+			</c:forEach>
+		</div>
+	</div>
+	<div class="best_seller">
+		<h1 class="title">최고 인기작 게임입니다!</h1>
+			<div class="grid-x">
+				<c:forEach begin="1" end="8" var="1">
+					<div class="best_seller_card"></div>
+				</c:forEach>
+			</div>
+	</div>
+	<div class="pre_order">
+		<h1 class="title">출시 임박</h1>
+			<div class="grid-x">
+				<c:forEach begin="1" end="6" var="1">
+					<div class="pre_order_card"></div>
+				</c:forEach>
+			</div>
+	</div>
+	<div class="week_best_seller">
+		<h1 class="title">이번주 베스트 셀러</h1>
+		<div class="grid-x">
+			<c:forEach begin="1" end="8" var="1">
+					<div class="weekly_card"></div>
+			</c:forEach>
+		</div>
+	</div>
 	<div class="grid_container">
 		<div class="filter">
 			<div class="filter_header">필터</div>
@@ -106,14 +136,11 @@
 				</div>
 			</div>
 			<div class="sort_result_content">
-				<ul class="card_list">
+				<div class="sort_result_list">
 					<c:forEach begin="1" end="10" var="1">
-						<li>
-							<div class="card">
-							</div>
-						</li>
+							<div class="sort_result_card"></div>
 					</c:forEach>
-				</ul>
+				</div>
 			</div>
 		</div>
 	</div>
