@@ -9,10 +9,6 @@
 	<title>Show Me Games</title>
 	<!-- css -->
 	<link rel="stylesheet" href="${css1}">
-	<!-- icons -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-	<!-- JQuery -->
-	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 	<!-- header, footer css -->
 	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
 </head>

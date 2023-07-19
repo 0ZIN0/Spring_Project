@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>쇼미게임즈 - 개인정보처리방침</title>
+	<!-- header, footer css -->
 	<jsp:include page="/WEB-INF/views/include/link/common.jsp"/>
 	<jsp:include page="/WEB-INF/views/include/link/footer_css.jsp"/>
 </head>
@@ -156,6 +157,10 @@
 			</div>
 		</div>	
 	</div>
+	
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
+	
+	<!-- header, footer js -->
+	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
 </body>
 </html>
