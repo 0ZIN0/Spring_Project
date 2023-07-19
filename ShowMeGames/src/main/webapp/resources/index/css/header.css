@@ -1,159 +1,163 @@
 * {
-	box-sizing: border-box;
+   box-sizing: border-box;
 }
 
 #header-top>a:not( '#logo-btn '):hover {
-	color: black;
+   color: black;
 }
 
 a {
-	text-decoration: none;
+   text-decoration: none;
 }
 
 ul {
-	list-style-type: none;
-	padding-left: 0;
+   list-style-type: none;
+   padding-left: 0;
 }
 
 header {
-	width: 100%;
-	height: 150px;
-	display: grid;
-	grid-template-rows: 50px 100px;
-	position: relative;
-	left: 0;
-	bottom: 0;
+   width: 100%;
+   height: 150px;
+   display: grid;
+   grid-template-rows: 50px 100px;
+   position: relative;
+   left: 0;
+   bottom: 0;
 }
 
 #header-top {
-	background-color: #131c27;
-	border: 1px solid #2b333d;
-	position: fixed;
-	width: 100%;
-	top: 0;
-	left: 0;
-	height: 54px;
-	overflow: hidden;
-	z-index: 60;
+   background-color: #131c27;
+   border: 1px solid #2b333d;
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   height: 54px;
+   overflow: hidden;
+   z-index: 60;
+   
 }
 
 .header-top-menu {
-	background-color: #131c27;
-	margin-bottom: 0;
+   background-color: #131c27;
+   margin-bottom: 0;
+   margin-left: 160px
 }
 
 #header-top-ul {
-	display: grid;
-	list-style-type: none;
-	grid-template-columns: 250px 115px 115px 115px 790px 115px;
-	column-gap: 20px;
-	text-align: center;
-	positon: relative;
-	text-align: center;
-	column-gap: 20px
+   display: grid;
+   list-style-type: none;
+   grid-template-columns: 250px 115px 115px 115px 777px 115px;
+   column-gap: 20px;
+   text-align: center;
+   positon: relative;
+   text-align: center;
+   column-gap: 20px
 }
 
 /* 상단메뉴바 글자크기조절 */
 #header-top-ul>*>a {
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
-	font-size: 14px;
+   color: white;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 14px;
 }
 
+
 .clickable-li {
-	display: inline-block;
-	position: relative;
-	cursor: pointer;
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
-	font-size: 14px;
+   display: inline-block;
+   position: relative;
+   cursor: pointer;
+   color: white;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 14px;
 }
 
 .clickable-li a {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	text-decoration: none;
+   display: block;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   text-decoration: none;
 }
 
 #login-li {
-	color: #acacac;
-	font-size: 17px;
-	position: relative;
-	transition: color 0.3s;
+   color: #acacac;
+   font-size: 17px;
+   position: relative;
+   transition: color 0.3s;
 }
 
 #login-li:hover {
-	color: white;
+   color: white;
 }
 
 #login-li i {
-	position: relative;
-	left: -3px;
-	transition: color 0.3s;
+   position: relative;
+   left: -3px;
+   transition: color 0.3s;
 }
 
 #header-top-underline {
-	padding: 10px;
-	/* height: 15px; */
+   padding: 10px;
+   margin-left: 160px
+   /* height: 15px; */
 }
 
 #header-top-ul-underline {
-	display: grid;
-	list-style-type: none;
-	grid-template-columns: 260px 125px 145px 125px 800px 125px;
-	text-align: center;
-	height: 4px;
-	background-color: #131c27;
-	margin-top: 0;
-	margin-bottom: 0;
+   display: grid;
+   list-style-type: none;
+   grid-template-columns: 256px 130px 138px 133px 800px 125px;
+   text-align: center;
+   height: 4px;
+   background-color: #131c27;
+   margin-top: 0;
+   margin-bottom: 0;
 }
 
 #game-btn-underline {
-	background-color: white;
+   background-color: white;
 }
 
 #header-top>:first-child {
-	z-index: 60;
-	position: relative;
+   z-index: 60;
+   position: relative;
 }
 
 #customer-ul {
-	position: absolute;
-	z-index: 1;
-	position: relative;
-	z-index: 100;
-	background: #25374e;
-	display: none;
-	list-style-type: none;
-	height: 120px;
-	width: 200px;
-	text-align: center;
-	bottom: -25px;
-	text-align: left;
-	padding-left: 25px;
-	padding-top: 25px;
-	font-size: 12px
+   position: absolute;
+   z-index: 1;
+   position: relative;
+   z-index: 100;
+   background: #25374e;
+   display: none;
+   list-style-type: none;
+   height: 120px;
+   width: 200px;
+   text-align: center;
+   bottom: -25px;
+   text-align: left;
+   padding-left: 25px;
+   padding-top: 25px;
+   font-size: 12px
 }
 
 #customer-ul li {
-	margin-bottom: 13px;
-	font-color: white;
+   margin-bottom: 13px;
+   font-color: white;
 }
 
 #customer-ul>li {
-	position: relative;
-	z-index: 100;
+   position: relative;
+   z-index: 100;
 }
 
 #header-top-ul>:last-child {
-	position: relative;
-	z-index: 100;
+   position: relative;
+   z-index: 100;
 }
 
 /*************** header-bottom *******************/
@@ -161,6 +165,7 @@ header {
 
 
 #header-bottom-logo {
+
 	display: none;
 	margin-top: 15px;
 	text-align: center;
@@ -234,16 +239,17 @@ header {
 	height: 50px;
 	position: relative;
 	column-gap: 20px;
+
 }
 
-#search::placeholder {
-	color: #008AA4;
-	font-size: 16px;
+#header-genre {
+   grid-template-columns: 60px 40px; 
 }
 
 #editor {
-	white-space: nowrap;
+   grid-template-columns: 120px 40px; 
 }
+
 
 
 #header-games-btn:hover {
@@ -264,36 +270,44 @@ header {
 	display: flex;
 	justify-content: center;
 	margin-left: 20px;
+
 }
 
 #header-bottom>:nth-child(3) {
-	margin-right: 20px;
+   margin-right: 20px;
 }
 
 .sub-ul>li {
+
 	font-size: 16px;
 	padding: 30px;
 	text-align: left;
 	padding: 5px;
 	color: black;
+
 }
 
 .sub-ul>li:hover {
-	font-weight: bold;
-	cursor: pointer;
+   font-weight: bold;
+   cursor: pointer;
 }
 
 .sub-ul {
-	display: none;
+   display: none;
 }
 
 
 #search-form {
-	height: 50px;
-	border: 2px solid #008AA4;
-	border-radius: 30px;
-	display: flex;
-	align-items: center;
+   height: 50px;
+   border: 2px solid #008AA4;
+   border-radius: 30px;
+   display: flex;
+   align-items: center;
+}
+
+#search-form:hover {
+   background-color: #E5F3F6;
+   border-radius: 30px;
 }
 
 #search-form:hover {
@@ -302,20 +316,21 @@ header {
 }
 
 #cart-btn {
-	font-weight: bold;
-	display: block;
+   font-weight: bold;
+   display: block;
 }
 
 #search {
-	margin-top: 0;
-	padding: 0;
-	margin-left: 20px;
-	height: 38px;
-	width: 280px;
-	border: 0;
+   margin-top: 0;
+   padding: 0;
+   margin-left: 20px;
+   height: 38px;
+   width: 280px;
+   border: 0;
 }
 
 #submit-btn {
+
 	border: 0;
 	background-color: transparent;
 	width: 45px;
@@ -367,15 +382,18 @@ header {
 	color: #008aa4;
 	caret-color: #808080;
 	margin-right: 10px;
+
 }
 
 #search:focus {outline: none;}
 
 #header-cart:hover {
+
 	cursor: pointer;
 	background-color: #E5F3F6;
 	border-radius: 40px;
 	margin-bottom: 25px;
+
 }
 
 .expand_more {

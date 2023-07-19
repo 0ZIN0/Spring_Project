@@ -1,38 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:url value="/" var="conPath" />
-<script src="https://kit.fontawesome.com/c48a5ad62b.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/c48a5ad62b.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <header>
-	<div id="header-top">
-		<div>
-			<ul class="header-top-menu" id="header-top-ul">
-				<li class="clickable-li" onclick="window.location.href='${conPath}'">
-					<a id="logo-btn" href="${conPath}"></a> 로고
-				</li>
-				<li class="clickable-li" onclick="window.location.href='${conPath}'">
-					<a id="game-btn" href="${conPath}"></a> 게임
-				</li>
-				<li class="clickable-li"
-					onclick="window.location.href='${conPath}customer/notice'"><a
-					id="notices-btn" href="${conPath}customer/notice"></a> 공지 사항</li>
-				<li class="clickable-li"
-					onclick="window.location.href='${conPath}customer/faq'"><a
-					id="customer-btn" href="${conPath}customer/faq"></a> 고객 지원</li>
-				<li></li>
+   <div id="header-top">
+      <div>
+         <ul class="header-top-menu" id="header-top-ul">
+            <li class="clickable-li" onclick="window.location.href='${conPath}'">
+               <a id="logo-btn" href="${conPath}"></a> 로고
+            </li>
+            <li class="clickable-li" onclick="window.location.href='${conPath}'">
+               <a id="game-btn" href="${conPath}"></a> 게임
+            </li>
+            <li class="clickable-li"
+               onclick="window.location.href='${conPath}customer/notice'"><a
+               id="notices-btn" href="${conPath}customer/notice"></a> 공지 사항</li>
+            <li class="clickable-li"
+               onclick="window.location.href='${conPath}customer/faq'"><a
+               id="customer-btn" href="${conPath}customer/faq"></a> 고객 지원</li>
+            <li></li>
 
-				<li class="clickable-li" id="login-li"
-					onclick="window.location.href='./member/login'"
-					onmouseover="changeIconColor('login-icon', 'white')"
-					onmouseout="changeIconColor('login-icon', '#a1a1a1')"><i
-					class="fa-solid fa-circle-user fa-xl" id="login-icon"
-					style="color: #a1a1a1;"></i> <a id="login-btn"
-					href="./member/login"></a>로그인</li>
-
-			</ul>
-		</div>
+            <li class="clickable-li" id="login-li"
+                onclick="openLoginPopup()"
+               onmouseover="changeIconColor('login-icon', 'white')"
+               onmouseout="changeIconColor('login-icon', '#a1a1a1')"><i
+               class="fa-solid fa-circle-user fa-xl" id="login-icon"
+               style="color: #a1a1a1;"></i> <a id="login-btn"
+               ></a>로그인</li>
+         </ul>
+      </div>
+      <div id="header-top-underline">
+         <ul id="header-top-ul-underline">
+            <li></li>
+            <li id="game-btn-underline"></li>
+            <li id="notices-btn-underline"></li>
+            <li id="customer-btn-underline"></li>
+            <li></li>
+            <li></li>
+         </ul>
+	  </div>
 		<div id="header-top-underline">
 			<ul id="header-top-ul-underline">
 				<li></li>
@@ -42,7 +50,6 @@
 				<li></li>
 				<li></li>
 			</ul>
-
 		</div>
 	</div>
 	<div id="header-bottom" class="header-bottom-up">
