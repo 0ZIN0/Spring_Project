@@ -22,27 +22,23 @@
 	        <img src="${img}/HomeHero_SummerSale-June23_desk 1.png" alt="배너사진">
 	    </div>
 	    <div id="bestGame">
-	        <div class="btn">
-	            <button>btn</button>
-	        </div>
-	        <div class="best_games">
-	            <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
-	            <div class="bottom-right1"><span class="old-p">원가격</span></div>
-	            <div class="bottom-right2"><span class="dis-p">할인율</span><span class="pre-p">현재가격</span></div>
-	        </div>
-	        <div class="best_games">
-	            <img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
-	            <div class="bottom-right1"><span class="old-p">원가격</span></div>
-	            <div class="bottom-right2"><span class="dis-p">할인율</span><span class="pre-p">현재가격</span></div>
-	        </div>
-	        <div class="best_games">
-	            <img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
-	            <div class="bottom-right1"><span class="old-p">원가격</span></div>
-	            <div class="bottom-right2"><span class="dis-p">할인율</span><span class="pre-p">현재가격</span></div>
-	        </div>
-	        <div class="btn">
-	            <button>btn</button>
-	        </div>
+	    	<div id="bestGame_title">
+	    		<span>신작게임</span>
+	    	</div>
+	    	<div id="bestGame_container">
+		        <div class="best_games">
+		            <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
+		        </div>
+		        <div class="best_games">
+		            <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
+		        </div>
+		        <div class="best_games">
+		            <img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
+		        </div>
+		        <div class="best_games">
+		            <img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
+		        </div>
+	    	</div>
 	    </div>
 	
 	    <div id="subBanner" class="banner">
