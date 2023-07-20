@@ -24,6 +24,7 @@
 		</div>
 		<div class='qna-input'>
 			<div><h2>문의하기</h2></div>
+			<form action="${pageContext.request.contextPath}/customer/qna">
 			<div>
 				<table class='qna-table'>
 					<tr>
@@ -73,6 +74,7 @@
 				
 				
 			</div>
+			</form>
 	</div>	
 	</div>
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>

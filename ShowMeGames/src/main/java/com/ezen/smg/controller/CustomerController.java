@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ezen.smg.dto.Inquiries;
+import com.ezen.smg.mapper.InquiriesMapper;
 import com.ezen.smg.service.FAQService;
 
 import lombok.extern.log4j.Log4j;
@@ -17,6 +19,9 @@ public class CustomerController {
 
 	@Autowired
 	FAQService faqService;
+	
+	@Autowired
+	InquiriesMapper inquiriesMapper;
 	
 	@GetMapping(value="/faq")
 	String faq(Integer page, String topic, String search, Model model) {
@@ -60,6 +65,13 @@ public class CustomerController {
 	@GetMapping(value="/qna")
 	public void qna() {
 		log.info("문의 사항으로 갑니다.");
+	}
+	
+	@GetMapping(value="customer/faq")
+	public void add(Inquiries inquiries) {
+						
+		inquiriesMapper.add(inquiries);
+		log.info("결과" + inquiriesMapper.add(inquiries));
 	}
 	
 }
