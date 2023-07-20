@@ -174,6 +174,18 @@ $(window).on('scroll', function () {
 });
 
 function openLoginPopup() {
-    window.open('./member/login', '_blank', 'width=400,height=400');
+    var screenWidth = window.screen.width;
+    var screenHeight = window.screen.height;
+    var popupWidth = 480;
+    var popupHeight = 800;
+    
+    var left = (screenWidth - popupWidth) / 2;
+    var top = (screenHeight - popupHeight) / 2;
+    
+    var popupFeatures = 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + left + ',top=' + top;
+    
+    window.open('./member/login', '_blank', popupFeatures);
 }
+
+
 

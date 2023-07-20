@@ -16,10 +16,10 @@
             </li>
             <li class="clickable-li"
                onclick="window.location.href='${conPath}customer/notice'"><a
-               id="notices-btn" href="${conPath}customer/notice"></a> 공지 사항</li>
+               id="notices-btn" href="${conPath}customer/notice"></a> 공지사항</li>
             <li class="clickable-li"
                onclick="window.location.href='${conPath}customer/faq'"><a
-               id="customer-btn" href="${conPath}customer/faq"></a> 고객 지원</li>
+               id="customer-btn" href="${conPath}customer/faq"></a> 고객지원</li>
             <li></li>
 
             <li class="clickable-li" id="login-li"
