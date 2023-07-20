@@ -28,5 +28,23 @@ $('html').click(function (e) {
     }
 });
 
+// select year ajax
+$('#notice-year-select').click(function (e) {
+    
+    console.log($("#notice-year-select").val());
+    console.log($("#notice-date-select").val());
 
-  
+    $.ajax({
+        url: `./select-notice?year=${$("#notice-year-select").val()}&date=${$("#notice-date-select").val()}`,
+        type: 'GET',
+        dataType: 'json' // 받는 데이터의 타입
+        // success: (emps, state, xhttp) => {
+        //     emps.forEach((emp) => {
+        //         // document.createElement + document.createTextNode()를 생략
+        //         const newDiv = $(`<div id=${emp.employee_id}>${emp.first_name} ${emp.last_name}</div>`);
+
+        //         $('#out').append(newDiv); // appendChilde()
+        //     });
+        // }
+    });
+});
