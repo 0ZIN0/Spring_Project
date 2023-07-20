@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h2>회원가입 페이지</h2>
+	<!-- height: 800, 480 -->
 </body>
 </html>
