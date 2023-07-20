@@ -43,6 +43,23 @@
 	        <div class="btn"> 
                 <i class="material-icons" id="best-next-button"style="font-size:48px;">arrow_forward_ios</i>
 			</div>
+	    	<div id="bestGame_title">
+	    		<span>신작게임</span>
+	    	</div>
+	    	<div id="bestGame_container">
+		        <div class="best_games">
+		            <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
+		        </div>
+		        <div class="best_games">
+		            <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
+		        </div>
+		        <div class="best_games">
+		            <img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
+		        </div>
+		        <div class="best_games">
+		            <img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
+		        </div>
+	    	</div>
 	    </div>
 	
 	    <div id="subBanner" class="banner">
