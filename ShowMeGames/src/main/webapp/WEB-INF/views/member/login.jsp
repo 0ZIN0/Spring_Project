@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:url value="/resources/index/css/login.css" var="css1" />
+<c:url value="/resources/member/login/login.css" var="css1" />
 <c:url value="/resources/img/index" var="img" />
 <c:url value="/resources/img/member" var="member_img" />
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
@@ -33,13 +33,34 @@
 
 		<div class="infor-container">
 			<div id="email">
-				<label for="email-input" id="email-font">이메일 주소</label> <input
+				<label for="email-input" id="email-label">이메일 주소</label> <input
 					type="text" id="email-input" /> <i
 					class="fa-regular fa-envelope fa-xs"></i>
 			</div>
+
+			<div id=email-guide>
+				<i class="fa-solid fa-circle-exclamation fa-xs"
+					style="color: #ff0000;"></i> <label for="" id="email-guideText">이메일
+					주소가 잘못되었습니다!</label>
+			</div>
+
+			<div id=email-empty>
+				<i class="fa-solid fa-circle-exclamation fa-xs"
+					style="color: #ff0000;"></i> <label for="" id="email-emptyText">
+					입력 필요</label>
+			</div>
+
+
+
 			<div id="pw">
-				<label for=""></label> <input type="password" id="pw-input" /> <i
-					class="fa-solid fa-lock fa-xs"></i>
+				<label for="pw-input" id="pw-label">비밀번호</label> <input
+					type="password" id="pw-input" /> <i class="fa-solid fa-lock fa-xs"></i>
+			</div>
+			
+			<div id=pw-empty>
+				<i class="fa-solid fa-circle-exclamation fa-xs"
+					style="color: #ff0000;"></i> <label for="" id="pw-emptyText">
+					입력 필요</label>
 			</div>
 
 		</div>
@@ -76,29 +97,158 @@
 			window.open("/smg/introduce/private");
 		});
 	</script>
-	
+
+
 	<script>
-    // email-input 요소를 찾습니다.
-    const emailInput = document.getElementById("email-input");
+	 	const emailInput = document.getElementById("email-input");
+	    const emailLabel = document.getElementById("email-label");
+	    const emailEmpty = document.getElementById("email-empty"); 
+	    
+	    const pwInput = document.getElementById("pw-input");
+	    const pwLabel = document.getElementById("pw-label");
+	    const pwEmpty = document.getElementById("pw-empty"); 
 
-    // 커서가 깜빡일 때에 대한 이벤트 리스너를 추가합니다.
-    emailInput.addEventListener("focus", () => {
-        const emailFont = document.getElementById("email-font");
-        // Blink 클래스를 적용합니다.
-        emailFont.classList.add("blink");
-        // No-blink 클래스를 제거합니다.
-        emailFont.classList.remove("no-blink");
-    });
+	    
+	    function applySmallStyle() {
+	        emailLabel.classList.add("small");
+	        emailLabel.classList.remove("big");
+	    }
 
-    // 커서가 깜빡이지 않을 때에 대한 이벤트 리스너를 추가합니다.
-    emailInput.addEventListener("blur", () => {
-        const emailFont = document.getElementById("email-font");
-        // No-blink 클래스를 적용합니다.
-        emailFont.classList.add("no-blink");
-        // Blink 클래스를 제거합니다.
-        emailFont.classList.remove("blink");
-    });
+	    function applyBigStyle() {
+	        emailLabel.classList.add("big");
+	        emailLabel.classList.remove("small");
+	    }
+	    
+	    function applySmallStylePw() {
+	        pwLabel.classList.add("smallPw");
+	        pwLabel.classList.remove("bigPw");
+	    }
+
+	    function applyBigStylePw() {
+	        pwLabel.classList.add("bigPw");
+	        pwLabel.classList.remove("smallPw");
+	    }
+	    
+	    
+
+	    
+	    
+	    function applyValidStyle() {
+	        emailInput.style.borderBottom = "2px solid #80bc00";
+	    }
+
+	    function applyInvalidStyle() {
+	        emailInput.style.borderBottom = "2px solid #CC0011";
+	    }
+
+	    
+	    
+	    
+	    
+	    
+	    function applyValidStylePw() {
+	        pwInput.style.borderBottom = "2px solid #80bc00";
+	    }
+
+	   
+	    
+	    
+	    
+	    
+	    function showEmailEmpty() {
+	        emailEmpty.style.display = "block"; 
+	    }
+
+	    function hideEmailEmpty() {
+	        emailEmpty.style.display = "none"; 
+	    }
+	    
+	    function showPwEmpty() {
+	        pwEmpty.style.display = "block"; 
+	    }
+
+	    function hidePwEmpty() {
+	        pwEmpty.style.display = "none"; 
+	    }
+
+	    
+	    
+	    
+	    emailInput.addEventListener("focus", () => {
+	        applySmallStyle();
+	    });
+
+	    emailInput.addEventListener("blur", () => {
+	        if (emailInput.value === "") {
+	            applyBigStyle();
+	            showEmailEmpty();
+	            applyInvalidStyle();
+	        } else {
+	            hideEmailEmpty(); 
+	        }
+	    });
+	    
+	    
+	    
+	    pwInput.addEventListener("focus", () => {
+	        applySmallStylePw();
+	    });
+
+	    pwInput.addEventListener("blur", () => {
+	        if (pwInput.value === "") {
+	            applyBigStylePw();
+	            showPwEmpty();
+	        } else {
+	            hidePwEmpty(); 
+	        }
+	    });
+	    
+	    
+
+	    emailInput.addEventListener("input", () => {
+	        if (isValidEmail(emailInput.value)) {
+	            applyValidStyle();
+	            hideEmailGuide();
+	        } else {
+	            applyInvalidStyle();
+	            showEmailGuide();
+	        }
+
+	        if (emailInput.value === "") {
+	            showEmailEmpty(); 
+	            hideEmailGuide();
+	        } else {
+	            hideEmailEmpty(); 
+	        }
+	    });
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+
+	    function isValidEmail(email) {
+	        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	        return emailRegex.test(email);
+	    }
+
+	    function showEmailGuide() {
+	        const emailGuide = document.getElementById("email-guide");
+	        emailGuide.style.display = "block";
+	    }
+
+	    function hideEmailGuide() {
+	        const emailGuide = document.getElementById("email-guide");
+	        emailGuide.style.display = "none";
+	    }
+
+	    applyBigStyle();
 </script>
+
 
 
 </body>
