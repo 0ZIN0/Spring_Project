@@ -1,0 +1,140 @@
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#reg_main {
+    margin: auto;
+    width: 480px;
+    height: 1000px;
+    padding: 15px;
+}
+
+#reg_header {
+    padding: 30px 0 0;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+}
+#reg_header > span:last-child {
+    margin-left: auto;
+}
+#reg_header > span:last-child a {
+    text-decoration: none;
+    cursor: pointer;
+    color: gray;
+}
+
+.reg_input_div {
+    position: relative;
+    border-bottom: 2px gray solid;
+    padding: 40px 10px 10px;
+}
+.reg_input_div:hover {
+    border-bottom: 2px #006ef5 solid;
+}
+.reg_input_div.unvalid {   
+    border-bottom: 2px red solid;
+}
+.reg_input_div.valid {
+    border-bottom: 2px green solid;
+}
+
+.reg_input_header {
+    position: absolute;
+    top: 43px;
+    left: 40px;
+    transition: 0.3s;
+    z-index: 1;
+}
+.reg_input_header.focused {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 0.8em;
+    transition: 0.3s;
+}
+
+.reg_input_div > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.reg_input_div > div > span {
+    display: block;
+}
+.reg_input {
+    position: relative;
+    background-color: transparent;
+    font-size: 16px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    z-index: 2;
+}
+
+.confirm_div {
+    padding-left: 10px;
+    color: red;
+    font-size: 0.8em;
+    display: none;
+}
+
+.accordion {
+    display: block;
+    padding-left: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    text-decoration-line: underline;
+    transition: 0.4s;
+}
+
+.acc_panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+.reg_checkbox_div {
+    padding: 30px 0;
+}
+.reg_checkbox_div input,
+.reg_checkbox_div label {
+    cursor: pointer;
+}
+
+#reg_btn {
+    width: 100%;
+    height: 50px;
+    color: white;
+    background-color: #006ef5;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+#reg_btn:hover {
+    filter: brightness(95%);
+}
+
+#birth_header {
+    z-index: 3;
+}
+
+#birth_input {
+    position: relative;
+    background-color: transparent;
+    font-size: 16px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    opacity: 0;
+    transition: 0.3s;
+}
