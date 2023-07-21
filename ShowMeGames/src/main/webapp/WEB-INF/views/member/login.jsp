@@ -8,17 +8,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="${css1}">
-<title>로그인</title>
-
+	<link rel="stylesheet" href="${css1}">
+	<title>로그인</title>
 </head>
 <body>
 	
 	<div class="main-container">
 		<div class="logo-container">
 			<div id="login_logo">
-			<img src="${member_img}/temp_login_image.png" alt="대체사진" class="login-image">	
-			
+				<img src="${member_img}/login_img.png" alt="배너사진" class="login-image">	
 			</div>
 		</div>
 		
