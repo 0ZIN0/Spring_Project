@@ -24,13 +24,13 @@
 		</div>
 		<div class='qna-input'>
 			<div><h2>문의하기</h2></div>
-			<form action="${pageContext.request.contextPath}/customer/qna">
+			<form action="${pageContext.request.contextPath}/customer/inquireis" enctype="multipart/form-data">
 			<div>
 				<table class='qna-table'>
 					<tr>
 						<td class='qna-text'>문의구분</td>
 						<td>
-							<select id="title-select">
+							<select id="title-select" name="inquiry_subject">
 								<option value="" selected>::선택::</option>
 								<option value="">모든 주제</option>
 								<option value="">이용방법</option>
@@ -47,18 +47,18 @@
 					<tr>
 						<td class='qna-text'>제목</td>
 						<td>
-							<input type="text" value="제목을 입력해주세요" style="width: 863px; height: 35px;"/>
+							<input type="text" value="제목을 입력해주세요" name="inquiry_title" style="width: 863px; height: 35px;"/>
 						</td>					
 					</tr>
 					<tr>
 						<td class='qna-text textarea'>내용</td>
 						<td>
-							<textarea id="" cols="120" rows="30" style="resize: none;"></textarea>
+							<textarea id="" name="inquiry_content" cols="120" rows="30"  style="resize: none;"></textarea>
 						</td>				
 					</tr>
 					<tr>
 						<td class='qna-text'>첨부파일</td>
-						<td><input type="file" /></td>
+						<td><input type="file" name="attachment" /></td>
 					</tr>
 					<tr>
 						<td></td>

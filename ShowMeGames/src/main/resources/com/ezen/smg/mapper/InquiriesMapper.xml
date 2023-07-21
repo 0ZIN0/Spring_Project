@@ -12,8 +12,8 @@
   				attachment,
   				inquiry_subject
   			) VALUES (
+  				inquiry_id_seq.nextval,
   				1,
-  				2,
   				#{inquiry_title},
   				#{inquiry_content},
   				#{attachment},

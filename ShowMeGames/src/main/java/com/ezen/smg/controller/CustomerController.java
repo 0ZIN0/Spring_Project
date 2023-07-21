@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ezen.smg.dto.Inquiries;
 import com.ezen.smg.mapper.InquiriesMapper;
 import com.ezen.smg.service.FAQService;
+import com.ezen.smg.service.InquiriesService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -64,14 +65,13 @@ public class CustomerController {
 	
 	@GetMapping(value="/qna")
 	public void qna() {
-		log.info("문의 사항으로 갑니다.");
+		log.info("문의사항으로 갑니다");
 	}
 	
-	@GetMapping(value="customer/faq")
-	public void add(Inquiries inquiries) {
-						
-		inquiriesMapper.add(inquiries);
-		log.info("결과" + inquiriesMapper.add(inquiries));
-	}
+	@GetMapping(value="/inquireis")
+	public String insert(Inquiries inquiries) {
+		inquiriesMapper.add(inquiries);		
+		return "redirect:/customer/faq";
+	}	
 	
 }
