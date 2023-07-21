@@ -8,7 +8,7 @@ html, body {
 
 #notice-main {
 	display: grid;
-	grid-template-rows: 800px 30px 1fr;
+	grid-template-rows: 800px 100px 1fr;
 	width: 100%;
 	row-gap: 20px;
 	position: relative;
@@ -79,9 +79,9 @@ html, body {
 }
 
 #notice-grid-content {
-	display: grid;
 	grid-template-rows: 25px 170px;
 	row-gap: 40px;
+	margin-bottom: 40px;
 }
 
 .notice-date {
@@ -97,7 +97,8 @@ html, body {
 
 .banner-img {
 	width: 300px;
-	height: auto;
+	height: 170px;
+    object-fit: cover;
 }
 
 .notice-detail-banner {
@@ -123,3 +124,11 @@ html, body {
 .banner-others-btn > * {
 	color: #d80388;
 }
+
+.notice-grid-view {
+	display: grid;
+}
+
+.notice-grid-none {
+	display: none;
+S}
