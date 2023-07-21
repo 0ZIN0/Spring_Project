@@ -2,13 +2,12 @@ package com.ezen.smg.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.service.FAQService;
@@ -25,44 +24,45 @@ public class CustomerController {
 	FAQService faqService;
 	@Autowired
 	NoticeService noticeService;
-	
+
 	@GetMapping(value="/faq")
 	String faq(Integer page, Model model) {
 		if(page == null) page = 1;
-		
+
 		model.addAttribute("paging", faqService.getPagination(page)); 
-	
+
 		model.addAttribute("faqList", faqService.getList(page));
-		
+
 		return "customer/faq";
 	}
-	
+
 	@GetMapping(value="/faq/detail")
 	String faqDetail(Integer id, Model model) {
-	
+
 		model.addAttribute("qna", faqService.getDetail(id));
-		
+
 		return "customer/faq_detail";
 	}
-	
+
 	@GetMapping(value="/notice")
 	public void notice(Model model) {
 		model.addAttribute("notices", noticeService.getNotices(1, 10));
 	}
 	
+	@ResponseBody
 	@GetMapping(value = "/select-notice", produces = "application/json")
 	public List<NoticeDTO> getSelectNotice(Model model, Integer year, Integer date) {
+
+		if (date == 0) {
+			return noticeService.getSelectDateNotices(year);
+		}
 		
-		if (date == null) date = 0;
-		
-		log.info(String.format("%d년 %d월", year, date));
-		
-		return null;
+		return noticeService.getSelectDateNotices(year, date);
 	}
-	
+
 	@GetMapping(value="/qna")
 	public void qna() {
 		log.info("문의 사항으로 갑니다.");
 	}
-	
+
 }

@@ -22,7 +22,9 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp"%>
-
+	
+	<div id="conpath" style="visibility: hidden;" data-conpath="${notice_img}"></div>
+	
 	<main id="notice-main">
 		<div id="notice-img">
 			<img id="notice-main-img" alt=""
@@ -34,13 +36,14 @@
 		<div id="notice-sort">
 			<h2>정렬기준:</h2>
 			<select name="notice_year" id="notice-year-select"
-				class="select-year select-none">
+				class="selects select-year select-none">
 				<c:forEach begin="${startYear}" end="${endYear}" var="i">
 					<option value="${endYear - i + startYear}">${endYear - i + startYear}</option>
 				</c:forEach>
-			</select> <select name="notice_date" id="notice-date-select"
-				class="select-date select-none">
-				<option value>월 선택</option>
+			</select> 
+			<select name="notice_date" id="notice-date-select"
+				class="selects select-date select-none">
+				<option value="0">월 선택</option>
 				<c:forEach begin="1" end="12" var="i">
 					<option value="${i}">${i}월</option>
 				</c:forEach>
@@ -48,8 +51,8 @@
 		</div>
 		<div id="notice-grid">
 			<div></div>
-			<div id="notice-grid-content">
-				<div class="notice-date">2023년</div>
+			<div id="notice-grid-content" class="notice-grid-view">
+				<div class="notice-date">전체</div>
 				<c:forEach items="${notices}" var="notice">
 					<a class="notice-content" id="notice-id" href="${conpath}detail?id=${notice.notice_id}">
 						<div class="notice-banner">
