@@ -1,0 +1,81 @@
+#cart-main {
+    display: grid;
+    width: 1920px;
+    grid-template-columns: 1fr 1200px 1fr;
+    padding-top: 40px;
+}
+
+#nothing-main-grid {
+    display: grid;
+    width: 1200px;
+    grid-template-rows: 1fr 480px;
+    row-gap: 40px;
+}
+
+/* nothing games css */
+
+#nothing-games-grid {
+    display: grid;
+    grid-template-columns: 755px 252px;
+    column-gap: 193px;
+}
+
+#nothing-content {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
+
+#nothing-content > * {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+#nothing-title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#go-shopping-btn {
+    width: 215px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    background-color: #F22349;
+    border-radius: 40px;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+#go-shopping-btn:hover {
+    background-color: #fcee27;
+    color: black;
+}
+
+#cart-bottom-grid {
+    display: grid;
+    grid-template-rows: 24px 430px;
+    row-gap: 24px;
+}
+
+#cart-bottom-grid > h3 {
+    margin: 0;
+}
+
+#week-best-grid { 
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 10px;
+}
+
+#week-best-grid > * {
+    background-color: #F22349;
+    border-radius: 20px;
+}
+
+/* games cart css */
+#cart-content-grid {
+    display: grid;
+
+}
