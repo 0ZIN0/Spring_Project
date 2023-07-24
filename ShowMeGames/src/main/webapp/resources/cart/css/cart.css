@@ -59,7 +59,7 @@
     row-gap: 24px;
 }
 
-#cart-bottom-grid > h3 {
+h3 {
     margin: 0;
 }
 
@@ -75,7 +75,24 @@
 }
 
 /* games cart css */
+#cart-main-grid {
+    display: grid;
+    grid-template-columns: 750px 1fr;
+    column-gap: 20px;
+}
+
 #cart-content-grid {
     display: grid;
+    grid-template-rows: 24px 1fr;
+    row-gap: 24px;
+}
 
+#cart-content-grid > * {
+    border: 1px solid red;
+}
+
+#games-info-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    row-gap: 5px;
 }

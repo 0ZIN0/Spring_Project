@@ -23,12 +23,20 @@
 	<main id="cart-main">
 		<div></div>
 		<c:choose>
-			<c:when test="${gamesLen > 0}">
+			<c:when test="${gamesLen != 0}">
 				<div id="cart-main-grid">
 					<div id="cart-content-grid">
-						<div id="cart-title">고객님의 장바구니 (0 상품)</div>
+						<h3 id="cart-title">고객님의 장바구니 (1 상품)</h3>
+						<div id="games-info-grid">
+							<div class="">
+								<div class="game_img">img</div>
+							</div>
+							<div>게임2</div>
+						</div>
 					</div>
-					<div id="nav-bar"></div>
+					<div id="nav-bar">
+						<h3>요약</h3>
+					</div>
 				</div>
 			</c:when>
 			<c:otherwise>
