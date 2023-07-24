@@ -149,6 +149,10 @@
 	    function applyValidStylePw() {
 	        pwInput.style.borderBottom = "2px solid #80bc00";
 	    }
+	    
+	    function applyInvalidStylePw() {
+	        pwInput.style.borderBottom = "2px solid #CC0011";
+	    }
 
 	   
 	    
@@ -198,8 +202,10 @@
 	        if (pwInput.value === "") {
 	            applyBigStylePw();
 	            showPwEmpty();
+	            applyInvalidStylePw();
 	        } else {
 	            hidePwEmpty(); 
+	            applyValidStylePw();
 	        }
 	    });
 	    
@@ -224,6 +230,24 @@
 	    
 	    
 	    
+	    pwInput.addEventListener("input", () => {
+	        if (isValidPw(pwInput.value)) {
+	            applyValidStylePw();
+	            hidePwEmpty()
+	        } else {
+	            showPwEmpty();
+	            applyInvalidStylePw();
+	        }
+
+	        if (pwInput.value === "") {
+	        	showPwEmpty(); 
+	        	 applyInvalidStylePw();
+	        } else {
+	        }
+	    });
+	    
+	    
+	    
 	    
 	    
 	    
@@ -232,7 +256,7 @@
 	    
 
 	    function isValidEmail(email) {
-	        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	        const emailRegex = /^[^\s@ㄱ-ㅎㅏ-ㅣ가-힣]+@[^\s@ㄱ-ㅎㅏ-ㅣ가-힣]+\.[^\s@ㄱ-ㅎㅏ-ㅣ가-힣]+$/;
 	        return emailRegex.test(email);
 	    }
 
@@ -246,7 +270,12 @@
 	        emailGuide.style.display = "none";
 	    }
 
-	    applyBigStyle();
+	    
+	    function isValidPw(pw) {
+	    	return true;
+	    }
+	    
+	    
 </script>
 
 
