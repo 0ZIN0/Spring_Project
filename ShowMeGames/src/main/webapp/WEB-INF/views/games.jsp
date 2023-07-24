@@ -2,15 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="resources/games/css/games.css" var="css1" />
-<c:url value="resources/index/css/index.css" var="css2" />
 <c:url value="resources/games/js/games.js" var="js1" />
+<c:url value="resources/img/index" var="img"/>
+<c:url value="resources/img/index/games" var="game_img"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>모든 게임 보기</title>
 <link rel="stylesheet" href="${css1}">
-<link rel="stylesheet" href="${css2}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <%@ include file="/WEB-INF/views/include/link/common.jsp" %>
@@ -30,28 +30,106 @@
 			</c:forEach>
 		</div>
 	</div>
-	<div class="best_seller">
-		<h1 class="section_header">최고 인기작 게임입니다!</h1>
-			<div class="grid-x">
-				<c:forEach begin="1" end="8" var="1">
-					<div class="best_seller_card"></div>
-				</c:forEach>
+	<div id=best-seller class="slider">
+            <div>
+            	<div class="bar"></div><div class="head-title"><span class="title">최고 인기 게임</span></div>
+            </div>
+            <div id=best-seller-card-container class="card-container editer-container">
+            	<div id=best-seller-prev-btn class="slider-prev-btn inactive">
+					<span class="material-symbols-outlined" style="font-size: 48px"> arrow_back_ios </span>
+				</div>
+                <div class="blank"></div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${game_img}/Tekken7/Tekken5.jpg" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${game_img}/Forza_Horizon/Forza Horzon4.jpg" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">                  
+                </div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+			<div id=best-seller-next-btn class="slider-next-btn">
+				<span class="material-symbols-outlined" style="font-size: 48px"> arrow_forward_ios </span>
 			</div>
+		</div>
 	</div>
 	<div class="pre_order">
-		<h1 class="section_header">출시 임박</h1>
+		<h1 class="section_header title">출시 임박</h1>
 			<div class="grid-x">
 				<c:forEach begin="1" end="6" var="1">
 					<div class="pre_order_card"></div>
 				</c:forEach>
 			</div>
 	</div>
-	<div class="week_best_seller">
-		<h1 class="section_header">이번주 베스트 셀러</h1>
-		<div class="grid-x">
-			<c:forEach begin="1" end="8" var="1">
-					<div class="weekly_card"></div>
-			</c:forEach>
+	<div id=week-best-seller class="slider">
+            <div>
+            	<div class="bar"></div><div><span class="title">이번주 베스트셀러</span></div>
+            </div>
+            <div id=week-best-seller-card-container class="card-container editer-container">
+            	<div id=week-best-seller-prev-btn class="slider-prev-btn inactive">
+					<span class="material-symbols-outlined" style="font-size: 48px"> arrow_back_ios </span>
+				</div>
+                <div class="blank"></div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${game_img}/Tekken7/Tekken5.jpg" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${game_img}/Forza_Horizon/Forza Horzon4.jpg" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">                  
+                </div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+                <div class="card">
+                    <img src="${img}/black.png" alt="사진">
+                </div>
+			<div id=week-best-seller-next-btn class="slider-next-btn">
+				<span class="material-symbols-outlined" style="font-size: 48px"> arrow_forward_ios </span>
+			</div>
 		</div>
 	</div>
 	<div class="grid_container">

@@ -46,6 +46,28 @@ label.on('blur', function(e) {
 /*filter logic*/
 const filter_item = $('.filter_item');
 const tag_container = $('.tag_container');
+$('input').click(function(e) {
+  e.stopPropagation();
+  if($(checkbox).is(':checked') == false) {
+    console.log($(checkbox).is(':checked'));
+    var tag = tag_container.find('.tag_title');
+    $.each(tag, function(index,el) {
+      if($(el).text() == $(checkbox).val()) {
+        $(el).parent().remove();
+      }
+    })
+  } else {
+    tag_container
+    .prepend(`<div class="tag">
+      <div class="tag_title">${$(this).val()}</div>
+      <div class="remove_filter">
+        <span class="material-symbols-outlined">
+          close
+        </span>
+      </div>
+    </div>`);
+  }
+});
 filter_item.on('click', function() {
   var el = this;
   var checkbox = $(el).find('input');
@@ -83,4 +105,44 @@ $(document).on('click', '.remove_filter', function() {
       return false;
     }
   })
+});
+
+let isAnimating = false;
+// card scroll
+// 스크롤 이동 버튼
+const card_container = $('.card-container');
+const next_btn = $('.slider-next-btn');
+const prev_btn = $('.slider-prev-btn');
+next_btn.on('click', function() {
+  if(!isAnimating) {
+    isAnimating = true;
+    $(this).parent().scrollLeft($(this).parent().scrollLeft() + 1600);	
+  }
+});
+prev_btn.on('click', function() {
+  if(!isAnimating) {
+    isAnimating = true;
+    $(this).parent().scrollLeft($(this).parent().scrollLeft() - 1600);
+    isAnimating = false;	
+  }
+});
+
+card_container.scroll(function() {
+  var el = this;
+	var Top = $(el).scrollLeft();
+	var Width = $(el).width();	
+	
+	clearTimeout($.data(this, 'scrollTimer'));
+	
+	$.data(this, 'scrollTimer', setTimeout(() => {
+		if ((Width - Top) <= 50) {
+			$(el).find('.slider-next-btn').addClass('inactive');
+		} else if (Top <= 30) {
+			$(el).find('.slider-prev-btn').addClass('inactive');
+		} else {
+			$(el).find('.slider-next-btn').removeClass('inactive');
+			$(el).find('.slider-prev-btn').removeClass('inactive');
+		}
+    isAnimating = false;	
+	}, 50));
 });
