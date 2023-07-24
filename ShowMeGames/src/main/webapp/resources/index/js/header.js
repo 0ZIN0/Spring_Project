@@ -69,7 +69,6 @@ function clickChangeColor(btn, list, arrow) {
 
 // header-bottom 버튼 기능 구현
 $("#category").on("click", (e) => {
-  console.log("11111");
   e.preventDefault();
   var category = $('#category-li');
   var categoryBtn = $('#category');
@@ -110,8 +109,9 @@ $("#editor").on("click", (e) => {
 
 
 $('html').click(function (e) {
-  if ($(e.target).hasClass("sub-ul") || $(e.target).hasClass("title-div") || $(e.target).hasClass("bottom-btns")) {
-
+  console.log(e.target);
+  if ($(e.target).hasClass("sub-ul") || $(e.target).hasClass("title-div") || $(e.target).hasClass("bottom-btns") || $(e.target).hasClass("material-symbols-outlined")) {
+    return;
   } else {
 
     $('#category-li').hide();
@@ -174,6 +174,18 @@ $(window).on('scroll', function () {
 });
 
 function openLoginPopup() {
-    window.open('./member/login', '_blank', 'width=400,height=400');
+    var screenWidth = window.screen.width;
+    var screenHeight = window.screen.height;
+    var popupWidth = 480;
+    var popupHeight = 800;
+    
+    var left = (screenWidth - popupWidth) / 2;
+    var top = (screenHeight - popupHeight) / 2;
+    
+    var popupFeatures = 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + left + ',top=' + top;
+    
+    window.open('./member/login', '_blank', popupFeatures);
 }
+
+
 

@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/resources/index/css/header.css" var="header_css" />    
 <c:url value="/resources/index/css/footer.css" var="footer_css" />
+<c:url value="/resources/common/css/common.css" var="common_css" />
 
 <!-- icons -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -10,3 +11,4 @@
     
 <link rel="stylesheet" href="${header_css}">
 <link rel="stylesheet" href="${footer_css}">
+<link rel="stylesheet" href="${common_css}">

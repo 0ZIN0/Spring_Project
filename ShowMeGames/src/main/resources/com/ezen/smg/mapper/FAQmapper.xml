@@ -6,8 +6,20 @@
  	<select id="getFAQList" parameterType="int" resultType="com.ezen.smg.dto.QnADTO">
  		SELECT * FROM (SELECT rownum AS rn, a.* FROM qna a) WHERE rn BETWEEN #{start} AND #{end}
  	</select>
+ 	<select id="getFAQTopicList" resultType="com.ezen.smg.dto.QnADTO">
+ 		SELECT * FROM (SELECT rownum AS rn, a.* FROM qna a WHERE qna_topic = #{topic}) WHERE rn BETWEEN #{start} AND #{end}
+ 	</select>
+ 	<select id="getFAQSearchList" resultType="com.ezen.smg.dto.QnADTO">
+ 		SELECT * FROM (SELECT rownum AS rn, a.* FROM qna a WHERE qna_title LIKE '%' || #{search} || '%') WHERE rn BETWEEN #{start} AND #{end}
+ 	</select>
  	<select id="getTotalNum">
  		SELECT count(*) FROM qna
+ 	</select>
+ 	<select id="getTopicNum" parameterType="String">
+ 		SELECT count(*) FROM qna WHERE qna_topic = #{topic}
+ 	</select>
+ 	<select id="getSearchNum" parameterType="String">
+ 		SELECT count(*) FROM qna WHERE qna_title LIKE '%' || #{search} || '%'
  	</select>
  	<select id="getFAQ" parameterType="int" resultType="com.ezen.smg.dto.QnADTO">
  		SELECT * FROM qna WHERE qna_id = #{id}

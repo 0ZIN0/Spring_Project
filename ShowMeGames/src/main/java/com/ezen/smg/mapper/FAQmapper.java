@@ -10,7 +10,15 @@ public interface FAQmapper {
 
 	List<QnADTO> getFAQList(@Param("start") int start, @Param("end") int end);
 	
+	List<QnADTO> getFAQTopicList(@Param("start") int start, @Param("end") int end, @Param("topic") String topic);
+	
+	List<QnADTO> getFAQSearchList(@Param("start") int start, @Param("end") int end, @Param("search") String search);
+	
 	int getTotalNum();
 
 	QnADTO getFAQ(@Param("id") int qna_id);
+
+	int getTopicNum(@Param("topic") String topic);
+
+	int getSearchNum(@Param("search") String search);
 }

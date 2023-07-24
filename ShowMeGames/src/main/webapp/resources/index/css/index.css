@@ -26,79 +26,58 @@ body {
     margin-bottom: 100px;
 }
 
+/* bestgame 관련*/
 #bestGame {
-    width: 100%;
+    width: auto;
     height: 640px;
-    padding: 20px;
     margin: auto;
     margin-bottom: 120px;
-    display: grid;
-    grid-template-columns: 1fr repeat(3, 500px) 1fr;
-    column-gap: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
     overflow: hidden;
-}
-#bestGame > .best_games {
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    color: white;
-    width: 500px;
-    height: 600px;
-    border-radius: 20px;
-}
-#bestGame > .best_games > .bottom-right1 {
-    position: absolute;
-    bottom: 5em;
-    right: 16px;
-}
-#bestGame > .best_games > .bottom-right2 {
-    position: absolute;
-    bottom: 8px;
-    right: 16px;
-}
-/* 베스트게임 폰트설정 */
-#bestGame > .best_games > .bottom-right1 > .old-p {
-    color: #FFF;
-    font-family: Inter;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration-line: line-through;
-}
-#bestGame > .best_games > .bottom-right2 > .pre-p {
-    color: #FA5D05;
-    font-family: Inter;
-    font-size: 60px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -4.2px;
-}
-#bestGame > .best_games > .bottom-right2 > .dis-p {
-    color: #FFF;
-    font-family: Inter;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }
 
 #bestGame > .btn {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #000;
 }
-#bestGame > .btn > button {
-    width: 80px;
-    height: 120px;
+
+#bestGame_title {
+	width: 144px;
+    height: 50px;
+}
+#bestGame_title > span {
     color: #000;
     font-family: Inter;
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    letter-spacing: -1.2px;
+    white-space: nowrap;
 }
+
+#bestGame_container {
+	width: 1560px;
+    height: 566px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+.best_games {
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 375px;
+    height: 560px;
+    border-radius: 20px;
+}
+
 
 #subBanner {
     width: 100%;
@@ -127,7 +106,7 @@ body {
     letter-spacing: -4.8px;
 }
 
-
+/* 게임 뷰 포트*/
 .recmd {
     display: flex;
     flex-direction: column;
@@ -206,7 +185,7 @@ body {
     line-height: normal;
 }
 
-
+/* 장르 관련 css*/
 #genre {
     display: grid;
     grid-template-columns: 1fr repeat(4, 375px) 1fr;
@@ -230,14 +209,5 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-#genre > .btn > button {
-    width: 98px;
-    height: 160px;
     color: #000;
-    font-family: Inter;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 }

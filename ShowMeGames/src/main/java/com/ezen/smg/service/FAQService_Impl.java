@@ -18,28 +18,50 @@ public class FAQService_Impl implements FAQService {
 	private int pageNum = 9;
 	
 	@Override
-	public Pagination getPagination(int currPage) {
-		int totalNum = mapper.getTotalNum();
+	public Pagination getPagination(int currPage, int totalSize) {
 		
-		Pagination paging = new Pagination(totalNum, pageNum);
+		Pagination paging = new Pagination(totalSize, pageNum);
 		
 		paging.setCurrPage(currPage);
 		
 		return paging;
+		
 	}
 
 	@Override
-	public List<QnADTO> getList(int currPage) {
-		
+	public List<QnADTO> getList(int currPage, String topic) {
 		int lastFAQ = currPage * pageNum;
 		int firstFAQ = lastFAQ - 8;
 		
-		return mapper.getFAQList(firstFAQ, lastFAQ);
+		return topic.equals("all") ? mapper.getFAQList(firstFAQ, lastFAQ) : mapper.getFAQTopicList(firstFAQ, lastFAQ, topic);
+	}
+
+	@Override
+	public List<QnADTO> getSearchList(int currPage, String search) {
+		int lastFAQ = currPage * pageNum;
+		int firstFAQ = lastFAQ - 8;
+		
+		return mapper.getFAQSearchList(firstFAQ, lastFAQ, search);
 	}
 
 	@Override
 	public QnADTO getDetail(int id) {
 		return mapper.getFAQ(id);
+	}
+
+	@Override
+	public int getTotalSize() {
+		return mapper.getTotalNum();
+	}
+
+	@Override
+	public int getTopicSize(String topic) {
+		return mapper.getTopicNum(topic); 
+	}
+
+	@Override
+	public int getSearchSize(String search) {
+		return mapper.getSearchNum(search);
 	}
 
 }
