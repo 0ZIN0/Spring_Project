@@ -4,6 +4,9 @@ let chkName = /^[가-힣]{2,13}$/;
 let chkPhone = /^010-\d{4}-\d{4}$/
 let chkNick = /^[가-힣a-zA-Z0-9_-]{3,15}$/
 
+// 중복검사 유무
+let chkEmailValid = 0;
+
 $(document).ready(function(){
     window.resizeTo(560, 850);
 });
@@ -39,6 +42,11 @@ $('#reg_input_id').blur(function() {
     }
 
     $(this).closest('.reg_input_div').addClass('valid');
+});
+
+// 이메일 값 변경시 중복검사여부 초기화
+$('#reg_input_id').on('change', function() {
+    chkEmailValid = 0;
 });
 
 $('#reg_input_pwd').blur(function() {
@@ -158,17 +166,58 @@ $('.accordion').click(function() {
     }
 });
 
+$('#email-accDiv > .accordion').click(function() {
+    $(this).toggleClass('active');
+
+    if($(this).parent().next('.acc_panel').css('display') == 'block') {
+        $(this).parent().next('.acc_panel').hide();
+    } else {
+        $(this).parent().next('.acc_panel').show();
+    }
+})
+
+// 이메일 중복체크 기능
+$('#email-chkBtn').click(function() {
+    let userId = $('#reg_input_id').val();
+
+    $.ajax({
+        url : "./checkEmail",
+        type : "GET",
+        data :  {userId: userId},
+        datatype : 'json',
+        success : function(result) {
+            if(result == 0) {
+                $('#email_input_div').removeClass('unvalid');
+                $('#email_input_div').addClass('valid');
+                $('#email_confirm').css('color', 'green');
+                $('#email_confirm').text('사용할 수 있는 이메일.');
+                $('#email_confirm').show();
+                chkEmailValid = 1;
+            } else {
+                $('#email_input_div').removeClass('valid');
+                $('#email_input_div').addClass('unvalid');
+                $('#email_confirm').css('color', 'red');
+                $('#email_confirm').text('중복된 이메일입니다.');
+                $('#email_confirm').show();
+            }
+        },
+        error : function() {
+            alert("서버요청실패");
+        }
+    })
+});
+
 // 가입 버튼 누를시 동작 설정
 $('#signup').submit(function() {
-    if(!$("#terms_agree").prop('checked')){
-        alert("약관에 동의해주세요");
-        $("#terms_agree").focus();
-        return false;
-    }
 
     if (!$("#reg_input_id").closest('.reg_input_div').hasClass('valid')) {
         alert('이메일확인');
         $('#reg_input_id').focus();
+        return false;
+    }
+
+    if(chkEmailValid == 0) {
+        alert('이메일 중복검사를 해주세요.');
         return false;
     }
 
@@ -193,6 +242,12 @@ $('#signup').submit(function() {
     if(!$("#birth_input").closest('.reg_input_div').hasClass('valid')) {
         alert('닉네임 확인');
         $('#birth_input').focus();
+        return false;
+    }
+
+    if(!$("#terms_agree").prop('checked')){
+        alert("약관에 동의해주세요");
+        $("#terms_agree").focus();
         return false;
     }
 
