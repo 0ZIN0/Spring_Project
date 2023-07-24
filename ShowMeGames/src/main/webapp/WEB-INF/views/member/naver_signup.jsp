@@ -26,24 +26,13 @@
         <form action="./signup" id="signup" method="POST">
             <div id="reg_content">
                 <div id="email_input_div" class="reg_input_div">
-                    <span class="reg_input_header">이메일 입력</span>
+                    <span class="reg_input_header focused">이메일 입력</span>
                     <div>
                         <span class="material-icons-outlined">person</span>
-                        <input type="text" id="reg_input_id" name="user_id" class="reg_input" required />
+                        <input type="text" id="reg_input_id" name="user_id" class="reg_input" readonly required />
                     </div>
                 </div>
                 <div id="email_confirm" class="confirm_div"></div>
-                
-				<div id="email-accDiv">
-                	<span class="accordion">이메일규정</span>
-                	<button id="email-chkBtn" type="button">중복검사</button>
-                </div>
-                <div class="acc_panel">
-                    <ul>
-                        <li>글자(A-Z, a-z), 숫자(0-9), 밑줄(_), 대시(-), 온점(.)만 사용할 수 있습니다.</li>
-                        <li>이메일은 사이트 로그인시에 아이디로 사용됩니다.</li>
-                    </ul>
-                </div>
                 
                 <div class="reg_input_div">
                     <span class="reg_input_header">패스워드 입력</span>
@@ -67,31 +56,22 @@
                 </div>        
 
                 <div class="reg_input_div">
-                    <span class="reg_input_header">사용자이름 입력</span>
+                    <span class="reg_input_header focused">사용자이름 입력</span>
                     <div>
                         <span class="material-icons-outlined">badge</span>
-                        <input type="text" id="reg_input_name" name="user_name" class="reg_input" required />
+                        <input type="text" id="reg_input_name" name="user_name" class="reg_input" readonly required />
                     </div>
                 </div>
                 <div class="confirm_div"></div>
-                <span class="accordion"></span>
 
                 <div class="reg_input_div">
-                    <span class="reg_input_header">휴대전화번호 입력</span>
+                    <span class="reg_input_header focused">휴대전화번호 입력</span>
                     <div>
                         <span class="material-icons-outlined">smartphone</span>
-                        <input type="text" id="reg_input_phone" name="phone_number" class="reg_input" required />
+                        <input type="text" id="reg_input_phone" name="phone_number" class="reg_input" readonly required />
                     </div>
                 </div>
-                <div class="confirm_div">전화번호를 확인하세요</div>
-
-                <span class="accordion"> 전화번호 규정 </span>
-                <div class="acc_panel">
-                    <ul>
-                        <li>010으로 시작해야함</li>
-                        <li>대시(-)를 포함하여 13자리여야함</li>
-                    </ul>
-                </div>                            
+                <div class="confirm_div"></div>
 
                 <div class="reg_input_div">
                     <span class="reg_input_header">닉네임 입력</span>
@@ -112,10 +92,10 @@
                 </div>   
 
                 <div class="reg_input_div">
-                    <span id="birth_header" class="reg_input_header">생년월일 선택</span>
+                    <span id="birth_header" class="reg_input_header focused">생년월일 선택</span>
                     <div>
                         <span class="material-icons-outlined">cake</span>
-                        <input type="date" id="birth_input" name="birth_date" required>
+                        <input type="date" id="birth_input" name="birth_date" readonly required>
                     </div>
                 </div>
                 <div class="confirm_div">생년월일을 선택하세요</div>
@@ -125,15 +105,13 @@
                     <label for="terms_agree">쇼미게임즈의 이용 약관 및 판매 약관을 이해했으며, 개인정보처리방침에 동의합니다.</label>
                 </div>
                 
-                <input type="hidden" name="login_type" value="smg"/>
+                <input type="hidden" name="login_type" value="naver"/>
                 <button class="reg_btn">쇼미게임즈 계정 만들기</button>
-                <div id="naverIdLogin"></div>
-                <button id="replaceNaverBtn" class="reg_btn" type="button">네이버로 로그인</button>
             </div>
         </form>
     </div>
-
-    <script src="${resource}/signup.js"></script>
-    <script src="${resource}/naverLogin.js"></script>
+    
+    <script src="${resource}/social_signup.js"></script>
+    <script src="${resource}/naverCallBack.js"></script> 
 </body>
 </html>

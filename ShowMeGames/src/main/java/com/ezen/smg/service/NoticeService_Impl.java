@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.mapper.NoticeMapper;
 
-import lombok.extern.log4j.Log4j;
-
-@Log4j
 @Service
 public class NoticeService_Impl implements NoticeService {
 
