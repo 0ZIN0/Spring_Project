@@ -1,8 +1,5 @@
 package com.ezen.smg.service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +38,11 @@ public class NoticeService_Impl implements NoticeService {
 		String dateStr = String.format("%d", year);
 		
 		return noticeMapper.getSelectYearNotices(dateStr);
+	}
+
+	@Override
+	public List<NoticeDTO> getAllNotices() {
+		
+		return noticeMapper.getAllNotices();
 	}
 }

@@ -16,4 +16,8 @@ banner_url from notices where to_char(trunc(write_date, 'month'), 'yyyy') = #{da
  		select notice_id, mng_num, notice_title , write_date, short_content, 
 banner_url from notices where to_char(trunc(write_date, 'month'), 'yyyy/mm') = #{date} order by write_date desc
  	</select>
+ 	
+ 	<select id="getAllNotices" resultType="com.ezen.smg.dto.NoticeDTO">
+ 		SELECT * FROM notices order by write_date desc
+ 	</select>
  </mapper>

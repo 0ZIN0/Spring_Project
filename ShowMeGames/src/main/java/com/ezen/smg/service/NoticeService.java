@@ -8,6 +8,8 @@ public interface NoticeService {
 	
 	List<NoticeDTO> getNotices(int page, int scope);
 	
+	List<NoticeDTO> getAllNotices();
+	
 	List<NoticeDTO> getSelectDateNotices(int year, int date);
 	
 	List<NoticeDTO> getSelectDateNotices(int year);

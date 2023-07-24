@@ -61,7 +61,7 @@ public class CustomerController {
 
 	@GetMapping(value="/notice")
 	public void notice(Model model) {
-		model.addAttribute("notices", noticeService.getNotices(1, 10));
+		model.addAttribute("notices", noticeService.getAllNotices());
 	}
 	
 	@ResponseBody

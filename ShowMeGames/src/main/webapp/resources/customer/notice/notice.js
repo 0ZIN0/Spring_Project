@@ -83,6 +83,7 @@ $('.selects').click(function (e) {
     });
 });
 
+// date format
 function dateFormat(date) {
     let month = date.getMonth() + 1;
     let day = date.getDate();
@@ -96,8 +97,6 @@ function dateFormat(date) {
 // infinity scroll
 $(window).on('scroll', function () {
   let scrollTop = $(this).scrollTop();
-
-    console.log(scrollTop);
 
     if (scrollTop <= 2300) {
         return;
