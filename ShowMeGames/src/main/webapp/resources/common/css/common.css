@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+* {
+	font-family: SF Pro Display;
+	font-style: normal;
+	font-size: 18px;
+	letter-spacing: -0.54px;
+}
+
+.title {
+	font-size: 60px;
+}
+
+.sub-title {
+	color: #F22349;
+	font-size: 60px;
+}
+
+.card_game_title  {
+	color: #FFF;
+	leading-trim: both;
+	text-edge: cap;
+	font-size: 30px;
+	letter-spacing: -0.6px;
+}
+
+.card_discount_price {
+	color: #FFF;
+	leading-trim: both;
+	text-edge: cap;
+	font-family: SF Pro Display;
+	letter-spacing: -0.9px;
+	text-decoration-line: strikethrough;
+}
+
+.card_price {
+	color: #F22349;
+	leading-trim: both;
+	text-edge: cap;
+	font-size: 38px;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: -1.14px;
+}
+
+.card_discount_rate {
+	color: #F22349;
+	leading-trim: both;
+	text-edge: cap;
+	font-size: 30px;
+	font-weight: 600;
+	line-height: normal;
+	letter-spacing: -0.9px;
+}
+
+.genre_title {
+	color: #FFF;
+	text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	font-size: 60px;
+	font-weight: 600;
+	line-height: normal;
+	letter-spacing: -1.8px;
+}
+
+.menu {
+	color: rgba(70, 70, 70, 0.93);
+	font-family: SF Pro Display;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	letter-spacing: -0.54px;
+}
+
+.card_border {
+	border-radius: 20px;
+}
