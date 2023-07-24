@@ -57,9 +57,13 @@
 	<div class="grid_container">
 		<div class="filter">
 			<div class="filter_header">
-				<h1>필터</h1>
-				<div>
-					<p class="search">검색건수: 100건</p>				
+				<div class="filter_header_title">
+					<h1>필터</h1>
+					<div class="search_result">
+						<p class="search">검색건수: 100건</p>				
+					</div>
+				</div>
+				<div class="tag_container">
 				</div>
 			</div>
 				<div class="filter_content">
@@ -72,8 +76,10 @@
 						</div>
 					</button>
 					<ul class="filter_list">
-						<li class="filter_item"><input type="checkbox" /> <label
-							for="">개인 맞춤 추천</label></li>
+						<li class="filter_item">
+							<input type="checkbox" value="개인 맞춤 추천"/> 
+							<label for="">개인 맞춤 추천</label>
+						</li>
 					</ul>
 				</div>
 			<hr />
@@ -101,17 +107,17 @@
 						</div>
 					</button>
 					<ul class="filter_list">
-						<li class="filter_item"><input type="checkbox" /> <label
+						<li class="filter_item"><input type="checkbox" value="Chanwoo's Pick"/> <label
 							for="">Chanwoo's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" /> <label
+						<li class="filter_item"><input type="checkbox" value="youngmin's Pick"/> <label
 							for="">youngmin's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" /> <label
+						<li class="filter_item"><input type="checkbox" value="Loa's Pick"/> <label
 							for="">Loa's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" /> <label
+						<li class="filter_item"><input type="checkbox" value="Jaehun's Pick"/> <label
 							for="">Jaehun's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" /> <label
+						<li class="filter_item"><input type="checkbox" value="Gicheul's Pick"/> <label
 							for="">Gicheul's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" /> <label
+						<li class="filter_item"><input type="checkbox" value="Gitae's Pick"/> <label
 							for="">Gitae's Pick</label></li>
 					</ul>
 			</div>
