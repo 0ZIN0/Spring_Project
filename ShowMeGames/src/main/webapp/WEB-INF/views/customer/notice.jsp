@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- url : set -->
 <c:url value="/resources/customer/notice/notice.css" var="notice_css" />
 <c:url value="/resources/customer/notice/notice.js" var="notice_js" />
 <c:url value="/customer/notice/" var="conpath" />
+<c:url value="/resources/img/customer/notice/" var="notice_img" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +14,6 @@
 <title>공지사항</title>
 <!-- css -->
 <link rel="stylesheet" href="${notice_css}">
-<!-- icon -->
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-<!-- JQuery -->
-<script src="https://code.jquery.com/jquery-3.7.0.js"
-	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-	crossorigin="anonymous"></script>
 <!-- header, footer css -->
 <%@ include file="/WEB-INF/views/include/link/common.jsp"%>
 <!-- jstl: set -->
@@ -27,7 +22,9 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp"%>
-
+	
+	<div id="conpath" style="visibility: hidden;" data-conpath="${notice_img}"></div>
+	
 	<main id="notice-main">
 		<div id="notice-img">
 			<img id="notice-main-img" alt=""
@@ -39,13 +36,14 @@
 		<div id="notice-sort">
 			<h2>정렬기준:</h2>
 			<select name="notice_year" id="notice-year-select"
-				class="select-year select-none">
+				class="selects select-year select-none">
 				<c:forEach begin="${startYear}" end="${endYear}" var="i">
 					<option value="${endYear - i + startYear}">${endYear - i + startYear}</option>
 				</c:forEach>
-			</select> <select name="notice_date" id="notice-date-select"
-				class="select-date select-none">
-				<option value="">월 선택</option>
+			</select> 
+			<select name="notice_date" id="notice-date-select"
+				class="selects select-date select-none">
+				<option value="0">월 선택</option>
 				<c:forEach begin="1" end="12" var="i">
 					<option value="${i}">${i}월</option>
 				</c:forEach>
@@ -53,26 +51,29 @@
 		</div>
 		<div id="notice-grid">
 			<div></div>
-			<div id="notice-grid-content">
-				<div class="notice-date">7월 2023년</div>
-				<a class="notice-content" id="notice-id" href="${conpath}detail?id=1">
-					<div class="notice-banner">
-						<img class="banner-img" alt=""
-							src="https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/7neLQ1AbemfEXsYa9C8wlm/2ecc3dd82e8d268c37251a822a3f09a7/BrandNewsArticle_SummerSale-June23_960x540.jpg">
-						<div class="notice-detail-banner">
-							<div class="banner-date">2023년 7월 19일</div>
-							<div class="banner-title">Ubisoft Store 여름 세일 최대 75% 할인</div>
-							<div class="banner-content">Assassin's Creed Valhalla, Far
-								Cry 6, Anno 1800 등 다양한 게임을 저렴한 가격에 구매하세요.</div>
-							<div class="banner-others-btn">
-								<div>더 읽어보기</div>
-								<div>
-									<span class="material-symbols-outlined">arrow_right</span>
+			<div id="notice-grid-content" class="notice-grid-view">
+				<div class="notice-date">전체</div>
+				<c:forEach items="${notices}" var="notice">
+					<a class="notice-content" id="notice-id" href="${conpath}detail?id=${notice.notice_id}">
+						<div class="notice-banner">
+							<img class="banner-img" alt=""
+								src="${notice_img}${notice.banner_url}">
+							<div class="notice-detail-banner">
+								<div class="banner-date">
+									<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${notice.write_date}"/>
+								</div>
+								<div class="banner-title">${notice.notice_title}</div>
+								<div class="banner-content">${notice.short_content}</div>
+								<div class="banner-others-btn">
+									<div>더 읽어보기</div>
+									<div>
+										<span class="material-symbols-outlined">arrow_right</span>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</a>
+					</a>
+				</c:forEach>
 			</div>
 			<div></div>
 		</div>

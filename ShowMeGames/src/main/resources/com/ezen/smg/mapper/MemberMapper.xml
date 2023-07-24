@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.ezen.smg.mapper.MemberMapper">
+ 	<insert id="signUp" parameterType="com.ezen.smg.dto.SmgUsersDTO">
+ 		INSERT INTO smg_users(
+ 			user_num,
+ 			user_id,
+ 			user_pw,
+ 			user_name,  
+			nick_name,
+ 			phone_number,
+ 			birth_date
+ 		) VALUES (
+ 			user_num_seq.nextval,
+			#{dto.user_id}, 			
+			#{dto.user_pw}, 			
+			#{dto.user_name}, 			
+			#{dto.nick_name}, 			
+			#{dto.phone_number}, 			
+			#{dto.birth_date} 			
+ 		)
+ 	</insert>
+ </mapper>
