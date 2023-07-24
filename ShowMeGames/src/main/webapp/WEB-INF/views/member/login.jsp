@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+<form action="./check" name="logining">
 	<div class="main-container">
 		<div class="logo-container">
 			<div id="login_logo">
@@ -35,7 +35,7 @@
 		<div class="infor-container">
 			<div id="email">
 				<label for="email-input" id="email-label">이메일 주소</label> <input
-					type="text" id="email-input" /> <i
+					type="text" id="email-input" name="user_id"/> <i
 					class="fa-regular fa-envelope fa-xs"></i>
 			</div>
 
@@ -55,7 +55,7 @@
 
 			<div id="pw">
 				<label for="pw-input" id="pw-label">비밀번호</label> <input
-					type="password" id="pw-input" /> <i class="fa-solid fa-lock fa-xs"></i>
+					type="password" id="pw-input" name="user_pw"/> <i class="fa-solid fa-lock fa-xs"></i>
 			</div>
 			
 			<div id=pw-empty>
@@ -88,6 +88,8 @@
 		</div>
 
 	</div>
+</form>	
+
 
 	<script>
 		const privateBtn = document.getElementById("private-btn");
@@ -275,6 +277,21 @@
 	    function isValidPw(pw) {
 	    	return true;
 	    }
+	    
+	    
+	    
+	    
+	    
+	    
+	
+	    const loginButton = document.querySelector('.login-btn');
+	    loginButton.addEventListener('click', function() {
+	        const form = document.forms.logining;
+	        form.submit();
+	    });
+	    
+	    
+	    
 	    
 	    
 </script>
