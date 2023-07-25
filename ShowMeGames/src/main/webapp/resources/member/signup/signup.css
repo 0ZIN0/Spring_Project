@@ -114,7 +114,7 @@ img {
     padding: 5px;
     white-space: nowrap;
     color: white;
-    background-color: #006ef5;
+    background-color: #F22349;
     border: none;
     font-size: 14px;
     font-weight: bold;
@@ -135,8 +135,8 @@ img {
 .reg_btn {
     width: 100%;
     height: 50px;
-    color: white;
-    background-color: #006ef5;
+    color: #fff;
+    background-color: #F22349;
     border: none;
     font-size: 20px;
     font-weight: bold;
@@ -145,6 +145,11 @@ img {
 }
 .reg_btn:hover {
     filter: brightness(95%);
+}
+
+#birth_gender_div {
+    display: flex;
+    flex-direction: row;
 }
 
 #birth_header {
@@ -162,10 +167,57 @@ img {
     transition: 0.3s;
 }
 
+#gender_input_div {
+    position: relative;
+    border-bottom: 2px gray solid;
+    padding: 40px 10px 10px;
+    margin-left: auto;   
+}
+
+#gender_input_div.valid {
+    border-bottom: 2px green solid;
+}
+
+.gender_input_header {
+    position: absolute;
+    top: 43px;
+    left: 75px;
+    transition: 0.3s;
+    z-index: 1;
+}
+.gender_input_header.focused {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 0.8em;
+    transition: 0.3s;
+}
+
+#gender_input {
+    display: flex;
+    flex-direction: row;
+}
+
+#gender_ratio {
+    opacity: 0;
+    transition: 0.3s;
+}
+
 #naverIdLogin {
     display: none;
 }
 
 #replaceNaverBtn {
     background-color: #03C75A;
+}
+
+.g_id_signin {
+    display: none;
+}
+
+#replaceGoogleBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a73e8;
 }

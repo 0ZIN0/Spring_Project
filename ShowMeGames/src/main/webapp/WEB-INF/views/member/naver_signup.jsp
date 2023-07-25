@@ -33,27 +33,6 @@
                     </div>
                 </div>
                 <div id="email_confirm" class="confirm_div"></div>
-                
-                <div class="reg_input_div">
-                    <span class="reg_input_header">패스워드 입력</span>
-                    <div>
-                        <span class="material-icons-outlined">lock</span>
-                        <input type="password" id="reg_input_pwd" name="user_pw" class="reg_input" required />
-                    </div>
-                </div>
-                <div class="confirm_div"></div>
-
-                <span class="accordion">패스워드 규정</span>
-                <div class="acc_panel">
-                    <ul>
-                        <li>반드시8~16자 이내여야 함</li>
-                        <li>최소 소문자 1개 포함</li>
-                        <li>최소 대문자 1개 포함</li>
-                        <li>최소 숫자 1개 포함</li>
-                        <li>최소 특수문자 1개 포함</li>
-                        <li>사용자 이름 포함하지 말 것</li>
-                    </ul>
-                </div>        
 
                 <div class="reg_input_div">
                     <span class="reg_input_header focused">사용자이름 입력</span>
@@ -73,6 +52,32 @@
                 </div>
                 <div class="confirm_div"></div>
 
+				<div id="birth_gender_div">
+	                <div class="reg_input_div">
+	                    <span id="birth_header" class="reg_input_header focused">생년월일 선택</span>
+	                    <div>
+	                        <span class="material-icons-outlined">cake</span>
+	                        <input type="date" id="birth_input" name="birth_date" readonly required>
+	                    </div>
+	                </div>
+	                <div id="gender_input_div">
+	                    <span id="gender_header" class="gender_input_header focused">성별 선택</span>
+	                    <div id="gender_input">
+	                    	<span class="material-icons-outlined">male</span>
+	                    	<span class="material-icons-outlined">female</span>
+	                    	<div>
+	                            <input type="radio" id="genderChoice1" name="gender" value="1" onclick="return false;">
+							    <label for="genderChoice1">남</label>
+							    <input type="radio" id="genderChoice2" name="gender" value="2" onclick="return false;">
+							    <label for="genderChoice2">여</label>
+							    <input type="radio" id="genderChoice3" name="gender" value="0" onclick="return false;">
+							    <label for="genderChoice3">미응답</label>
+						    </div>
+	                    </div>
+	                </div>
+				</div>
+                <div class="confirm_div">생년월일을 선택하세요</div>
+                
                 <div class="reg_input_div">
                     <span class="reg_input_header">닉네임 입력</span>
                     <div>
@@ -90,21 +95,14 @@
                         <li>남들에게 보여지는 이름입니다</li>
                     </ul>
                 </div>   
-
-                <div class="reg_input_div">
-                    <span id="birth_header" class="reg_input_header focused">생년월일 선택</span>
-                    <div>
-                        <span class="material-icons-outlined">cake</span>
-                        <input type="date" id="birth_input" name="birth_date" readonly required>
-                    </div>
-                </div>
-                <div class="confirm_div">생년월일을 선택하세요</div>
-
+	
                 <div class="reg_checkbox_div">  
                     <input id="terms_agree" type="checkbox"/>
                     <label for="terms_agree">쇼미게임즈의 이용 약관 및 판매 약관을 이해했으며, 개인정보처리방침에 동의합니다.</label>
                 </div>
-                
+    			
+    			<input type="hidden" name="user_pw">
+    			<input type="hidden" id="social_key" name="social_key">            
                 <input type="hidden" name="login_type" value="naver"/>
                 <button class="reg_btn">쇼미게임즈 계정 만들기</button>
             </div>
