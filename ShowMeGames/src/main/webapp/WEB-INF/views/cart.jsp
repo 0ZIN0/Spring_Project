@@ -28,7 +28,7 @@
 						<div id="cart-content-grid">
 							<h3 id="cart-title">고객님의 장바구니 (1 상품)</h3>
 							<div id="games-info-grid">
-								<c:forEach begin="1" end="3" var="i">
+								<c:forEach begin="1" end="4" var="i">
 									<div class="game-img">img ${i}</div>
 									<div class="game-content">
 										<a class="game-name">title</a>
@@ -86,7 +86,7 @@
 
 								<div id="safe-deal-grid">
 									<div>
-										<span class="material-symbols-outlined">credit_score</span> 안전
+										<span class="material-symbols-outlined">credit_score</span>&nbsp;안전
 										거래
 									</div>
 									<div id="cart-secured-payment">

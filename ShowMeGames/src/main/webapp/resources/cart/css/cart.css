@@ -63,6 +63,7 @@
 
 h3 {
     margin: 0;
+	font-size: 24px;
 }
 
 #week-best-grid { 
@@ -114,6 +115,10 @@ h3 {
 	font-weight: bold;
 }
 
+.game-short-title {
+	font-size: 16px;
+}
+
 .game-content-bottom {
 	display: grid;
 	grid-template-columns: 50px 1fr 80px;
@@ -125,7 +130,12 @@ h3 {
 }
 
 .cart-delete > * {
+	font-size: 16px;
 	color: black;
+}
+
+.game-price {
+	font-size: 16px;
 }
 
 .cart-delete > :last-child {
@@ -163,6 +173,10 @@ h3 {
 	border-bottom: 1px black dashed;
 }
 
+#summary-grid > :first-child > * {
+	font-size: 16px;
+}
+
 #summary-grid > :nth-child(2) {
 	display: grid;
 	grid-template-columns: 50px 71px 1fr 1fr;
@@ -195,6 +209,7 @@ h3 {
 #summary-grid > :nth-child(3) > * {
 	display: flex;
 	align-items: center;
+	font-size: 16px;
 }
 
 #summary-grid > :nth-child(3) > :first-child {
@@ -239,6 +254,7 @@ h3 {
 	font-weight: 600;
 	text-decoration: underline;
 	color: black;
+	font-size: 16px;
 }
 
 #nav-grid > :nth-child(2) {
@@ -266,6 +282,7 @@ h3 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-size: 16px;
 }
 
 #cart-secured-payment {
