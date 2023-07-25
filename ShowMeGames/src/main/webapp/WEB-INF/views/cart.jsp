@@ -18,8 +18,23 @@
 <c:set var="gamesLen" scope="session" value="${gamesLength}" />
 </head>
 <body>
+	<div id="refund-popup" class="refund-none">
+		<div id="refund-content">
+			<div id="refund-top">
+				<i id="refund-big-icon" class="fa-solid fa-rotate">&nbsp;</i>
+				<span id="refund-close-btn" class="material-symbols-outlined">close</span>
+			</div>
+			<div id="refund-bottom">
+				<div>PC 게임 구매에 대한 환불</div>
+				<div class="refund_innder">
+					<p>게임 플레이 시간이 2시간 미만이라면, 구매일로부터 14일 이내에 PC 게임의 환불을 요청할 수 있습니다.</p>
+					<p>Show me games의 주문 내역 페이지에서 PC 게임 환불 요청을 신청할 수 있습니다.</p>
+					<p>*다음의 제품을 구매하는 경우, 구매자는 콘텐츠를 즉시 이용할 수 있으며, 철회권을 포기한다는 점에 동의하게됩니다. 그에 따라 다음 상품의 구매는 최종적이며 환불 대상이 아닙니다. 소모품, 디지털 콘솔 키 다운로드 가능한 콘텐츠(예: 확장팩), 게임 내 화폐, 게임 내 상점에서 이루어진 구매</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp"%>
-
 	<main id="cart-main">
 		<div></div>
 		<c:choose>
@@ -31,7 +46,7 @@
 								<c:forEach begin="1" end="4" var="i">
 									<div class="game-img">img ${i}</div>
 									<div class="game-content">
-										<a class="game-name">title</a>
+										<a class="game-name" href="./">카트라이더</a>
 										<div class="game-short-title">short title</div>
 										<div class="game-content-bottom">
 											<a class="cart-delete" href="./cart"> <span
@@ -79,7 +94,7 @@
 									<a href="./">쇼핑 계속하기</a>
 								</div>
 								<div>
-									<a id="refund-btn" href="./"> <i id="refund-icon"
+									<a id="refund-btn"> <i id="refund-icon"
 										class="fa-solid fa-rotate">&nbsp;</i>구매 확정 혹은 환불
 									</a>
 								</div>
