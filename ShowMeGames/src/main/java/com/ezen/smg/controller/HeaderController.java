@@ -23,5 +23,4 @@ public class HeaderController {
 	public void cart() {
 		log.info("장바구니 페이지입니다.");
 	}
-	
 }

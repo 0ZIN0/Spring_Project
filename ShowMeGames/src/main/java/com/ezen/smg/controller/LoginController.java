@@ -1,11 +1,11 @@
 package com.ezen.smg.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.smg.service.LoginService;
 
@@ -18,28 +18,34 @@ public class LoginController {
 	@Autowired
 	LoginService loginService;
 	
+	@Autowired
+	HttpSession session;
 	
 	@GetMapping("/member/check")
-	public String loginCheck(String user_id, String user_pw) {
-		loginService.getSelectUser(user_id, user_pw);
-		
-		
-		return null;
+	public String loginCheck(String user_id, String user_pw, Model model) {
+		int result = loginService.getSelectUser(user_id, user_pw);
+		if (result == 1) {
+			
+			System.out.println("로그인 성공");
+				
+			// 사용자 정보를 세션에 저장
+	        session.setAttribute("user_id", user_id);
+	        session.setAttribute("user_pw", user_pw);
+	        return "/member/loginSuccess";
+		} else {
+			// 로그인 실패 시, 에러 메시지 출력 또는 다른 작업 수행
+			System.out.println("로그인 실패");
+			 model.addAttribute("loginFailed", true);
+			return "redirect:/member/login"; 
+		}
+	}
+	@GetMapping(value="/member/loginSession")
+	public void session() {
+		log.info("세션 페이지입니다.");
 	}
 	
-	
-//	@PostMapping("/login")
-//    public String login(@RequestParam String user_id, @RequestParam String user_pw, Model model) {
-//        int result = loginService.getSelectUser(user_id, user_pw);
-//        if (result == 1) {
-//            // 로그인 성공
-//            // 로그인 성공 시에는 여기에서 로그인에 성공했다는 다른 작업을 수행할 수 있습니다.
-//            return "redirect:/success"; // 성공 페이지로 이동하거나, 원하는 처리를 진행합니다.
-//        } else {
-//            // 이메일 또는 비밀번호가 올바르지 않음
-//            model.addAttribute("errorMessage", "이메일 또는 비밀번호가 올바르지 않습니다.");
-//            return "login"; // 로그인 페이지로 다시 이동하며, 에러 메시지를 화면에 표시합니다.
-//        }
-//    }
-	
+	@GetMapping(value="/member/sessionLogout")
+	public void hello() {
+		log.info("로그아웃 페이지입니다.");
+	}
 }

@@ -1,179 +1,194 @@
+/* íŒŒì¼ê²½ë¡œë°”ë€œ ì´ê±° ì•ˆì”€ @@@ */
+
+/* íŒŒì¼ê²½ë¡œë°”ë€œ ì´ê±° ì•ˆì”€ @@@ */
+/* íŒŒì¼ê²½ë¡œë°”ë€œ ì´ê±° ì•ˆì”€ @@@ */
+
+/* íŒŒì¼ê²½ë¡œë°”ë€œ ì´ê±° ì•ˆì”€ @@@ */
+/* íŒŒì¼ê²½ë¡œë°”ë€œ ì´ê±° ì•ˆì”€ @@@ */
+
 @charset "EUC-KR";
 
+
+
 .main-container {
-   padding: 10px;
+	padding: 10px;
 }
 
 .logo-container {
-   position: relative;
-   margin-right: 10px;
+	position: relative;
+	margin-right: 10px;
 }
 
 .loginAndSignUp-container {
-   margin-top: 33px;
+	margin-top: 33px;
 }
 
 #IdLoginText {
-   text-decoration: none;
+	text-decoration: none;
 }
 
 .title-link {
-   margin-left: 215px;
-   font-size: 23px;
-   font-weight: 400;
-   text-decoration: none;
-   color: inherit;
+	margin-left: 215px;
+	font-size: 23px;
+	font-weight: 400;
+	text-decoration: none;
+	color: inherit;
 }
 
 #email-input {
-   border: none;
-   border-bottom: 2px solid black;
-   outline: none;
-   display: block;
-   width: 100%;
-   height: 55px; /* ¿øÇÏ´Â ³ôÀÌ·Î Á¶Á¤ */
-   font-size: 16px; /* ¿øÇÏ´Â ±ÛÀÚ Å©±â·Î Á¶Á¤ */
-   text-indent: 35px; /* ¿øÇÏ´Â ½ÃÀÛ À§Ä¡·Î Á¶Á¤ */
-   margin-top: 42px;
-   transition: border-color 0.3s;
+	border: none;
+	border-bottom: 2px solid black;
+	outline: none;
+	display: block;
+	width: 100%;
+	height: 55px; /* ì›í•˜ëŠ” ë†’ì´ë¡œ ì¡°ì • */
+	font-size: 16px; /* ì›í•˜ëŠ” ê¸€ì í¬ê¸°ë¡œ ì¡°ì • */
+	text-indent: 35px; /* ì›í•˜ëŠ” ì‹œì‘ ìœ„ì¹˜ë¡œ ì¡°ì • */
+	margin-top: 42px;
+	transition: border-color 0.3s;
 }
 
 #email-input:hover {
-   border-bottom: 2px solid #015ed1; /* È£¹ö ½Ã »ö»ó º¯°æ */
+	border-bottom: 2px solid #015ed1; /* í˜¸ë²„ ì‹œ ìƒ‰ìƒ ë³€ê²½ */
 }
 
 #email i {
-   position: relative;
-   right: -15px;
-   top: -30px;
+	position: relative;
+	right: -15px;
+	top: -30px;
 }
 
 #email-guide {
-   padding: 6px;
-   display: none; /* Hide the email-guide by default */
+	padding: 6px;
+	display: none; /* Hide the email-guide by default */
 }
 
 #email-guideText {
-   color: #CC0011;
-   font-size: 14px;
+	color: #CC0011;
+	font-size: 14px;
 }
 
 #email-empty {
-   padding: 6px;
-   display: none;
+	padding: 6px;
+	display: none;
 }
 
 #email-emptyText {
-   color: #CC0011;
-   font-size: 14px;
+	color: #CC0011;
+	font-size: 14px;
 }
 
 .big {
-   font-size: 16px;
-   transform: translateX(0px) translateY(0px);
-   transition: font-size 0.5s, transform 0.5s;
+	font-size: 16px;
+	transform: translateX(0px) translateY(0px);
+	transition: font-size 0.5s, transform 0.5s;
 }
 
 .small {
-   font-size: 9px;
-   transform: translateX(-26px) translateY(-20px);
-   transition: font-size 0.5s, transform 0.5s;
+	font-size: 9px;
+	transform: translateX(-26px) translateY(-20px);
+	transition: font-size 0.5s, transform 0.5s;
 }
 
 #email-label {
-   position: absolute;
-   display: inline-block;
-   margin-top: 15px;
-   margin-left: 40px;
+	position: absolute;
+	display: inline-block;
+	margin-top: 15px;
+	margin-left: 40px;
 }
 
 #pw-input {
-   border: none;
-   border-bottom: 2px solid black;
-   outline: none;
-   display: block;
-   width: 100%;
-   height: 55px; /* ¿øÇÏ´Â ³ôÀÌ·Î Á¶Á¤ */
-   font-size: 16px; /* ¿øÇÏ´Â ±ÛÀÚ Å©±â·Î Á¶Á¤ */
-   text-indent: 35px; /* ¿øÇÏ´Â ½ÃÀÛ À§Ä¡·Î Á¶Á¤ */
-   margin-top: 42px;
-   transition: border-color 0.3s;
+	border: none;
+	border-bottom: 2px solid black;
+	outline: none;
+	display: block;
+	width: 100%;
+	height: 55px; /* ì›í•˜ëŠ” ë†’ì´ë¡œ ì¡°ì • */
+	font-size: 16px; /* ì›í•˜ëŠ” ê¸€ì í¬ê¸°ë¡œ ì¡°ì • */
+	text-indent: 35px; /* ì›í•˜ëŠ” ì‹œì‘ ìœ„ì¹˜ë¡œ ì¡°ì • */
+	margin-top: 42px;
+	transition: border-color 0.3s;
 }
 
 #pw-input:hover {
-   border-bottom: 2px solid #015ed1; /* È£¹ö ½Ã »ö»ó º¯°æ */
+	border-bottom: 2px solid #015ed1; /* í˜¸ë²„ ì‹œ ìƒ‰ìƒ ë³€ê²½ */
 }
 
 #pw i {
-   position: relative;
-   right: -15px;
-   top: -30px;
+	position: relative;
+	right: -15px;
+	top: -30px;
 }
 
 #pw-guide {
-   padding: 6px;
-   display: none; /* Hide the email-guide by default */
+	padding: 6px;
+	display: none; /* Hide the email-guide by default */
 }
 
 #pw-guideText {
-   color: #CC0011;
-   font-size: 14px;
+	color: #CC0011;
+	font-size: 14px;
 }
 
 #pw-empty {
-   padding: 6px;
-   display: none;
+	padding: 6px;
+	display: none;
 }
 
 #pw-emptyText {
+	color: #CC0011;
+	font-size: 14px;
+}
+
+.bigPw {
+	font-size: 16px;
+	transform: translateX(0px) translateY(0px);
+	transition: font-size 0.5s, transform 0.5s;
+}
+
+.smallPw {
+	font-size: 9px;
+	transform: translateX(-26px) translateY(-20px);
+	transition: font-size 0.5s, transform 0.5s;
+}
+
+#pw-label {
+	position: absolute;
+	display: inline-block;
+	margin-top: 15px;
+	margin-left: 40px;
+}
+
+#pw-label {
+	position: absolute;
+	display: inline-block;
+	margin-top: 15px;
+	margin-left: 40px;
+}
+
+#login-failedText {
    color: #CC0011;
    font-size: 14px;
 }
 
-.bigPw {
-   font-size: 16px;
-   transform: translateX(0px) translateY(0px);
-   transition: font-size 0.5s, transform 0.5s;
-}
-
-.smallPw {
-   font-size: 9px;
-   transform: translateX(-26px) translateY(-20px);
-   transition: font-size 0.5s, transform 0.5s;
-}
-
-#pw-label {
-   position: absolute;
-   display: inline-block;
-   margin-top: 15px;
-   margin-left: 40px;
-}
-
-#pw-label {
-   position: absolute;
-   display: inline-block;
-   margin-top: 15px;
-   margin-left: 40px;
-}
-
 #rememberCheckbox {
-   transform: scale(1.5);
-   margin-right: 13px; /* Ã¼Å©¹Ú½º ¿À¸¥ÂÊ ¿©¹é Á¶Á¤ (¿øÇÏ´Â Å©±â·Î Á¶Á¤) */
+	transform: scale(1.5);
+	margin-right: 13px; /* ì²´í¬ë°•ìŠ¤ ì˜¤ë¥¸ìª½ ì—¬ë°± ì¡°ì • (ì›í•˜ëŠ” í¬ê¸°ë¡œ ì¡°ì •) */
 }
 
 #remember-and-forget {
-   display: flex;
-   align-items: center;
-   margin-top: 27px;
+	display: flex;
+	align-items: center;
+	margin-top: 27px;
 }
 
 #rememberLabel {
-   margin-right: 200px;
+	margin-right: 200px;
 }
 
 #forgetBtn {
-   text-decoration: none;
-   color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 /* .checkbox-container {
     display: flex;
@@ -181,54 +196,54 @@
     margin-right: 10px; Optional: To add some space between the checkbox and the link
 } */
 #loginBtn {
-   margin-top: 38px;
-   background-color: #0077E5;
-   height: 50px;
-   color: white;
-   font-size: 18px;
-   font-weight: bold;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   cursor: pointer;
+	margin-top: 38px;
+	background-color: #0077E5;
+	height: 50px;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
 }
 
 .easyLogin {
-   display: flex;
-   flex-basis: 100%;
-   align-items: center;
-   color: black;
-   font-size: 16px;
-   margin: 0px 0px;
-   margin-top: 20px;
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color: black;
+	font-size: 16px;
+	margin: 0px 0px;
+	margin-top: 20px;
 }
 
 .easyLogin::before {
-   content: "";
-   flex-grow: 1;
-   background: #8c8c8c;
-   height: 1px;
-   font-size: 0px;
-   line-height: 0px;
-   margin-right: 16px;
+	content: "";
+	flex-grow: 1;
+	background: #8c8c8c;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin-right: 16px;
 }
 
 .easyLogin::after {
-   content: "";
-   flex-grow: 1;
-   background: #8c8c8c;
-   height: 1px;
-   font-size: 0px;
-   line-height: 0px;
-   margin-left: 16px;
+	content: "";
+	flex-grow: 1;
+	background: #8c8c8c;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin-left: 16px;
 }
 
 .private-div {
-   margin-top: 50px;
+	margin-top: 50px;
 }
 
 #private-btn {
-   margin-left: 120px;
-   color: #006EF5;
-   text-decoration: none;
+	margin-left: 120px;
+	color: #006EF5;
+	text-decoration: none;
 }
