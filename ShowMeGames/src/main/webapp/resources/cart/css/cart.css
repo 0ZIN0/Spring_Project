@@ -1,8 +1,9 @@
 #cart-main {
     display: grid;
-    width: 1920px;
+    width: 100%;
     grid-template-columns: 1fr 1200px 1fr;
-    padding-top: 40px;
+    padding: 80px 0;
+    background-color: #e5e8f0;
 }
 
 #nothing-main-grid {
@@ -56,6 +57,7 @@
 #cart-bottom-grid {
     display: grid;
     grid-template-rows: 24px 430px;
+    padding-top: 40px;
     row-gap: 24px;
 }
 
@@ -65,7 +67,7 @@ h3 {
 
 #week-best-grid { 
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 232px);
     column-gap: 10px;
 }
 
@@ -78,21 +80,209 @@ h3 {
 #cart-main-grid {
     display: grid;
     grid-template-columns: 750px 1fr;
-    column-gap: 20px;
+    column-gap: 40px;
+    margin-bottom: 40px;
+    position: relative;
 }
 
 #cart-content-grid {
     display: grid;
-    grid-template-rows: 24px 1fr;
+    grid-template-rows: 24px 1fr 520px;
     row-gap: 24px;
-}
-
-#cart-content-grid > * {
-    border: 1px solid red;
 }
 
 #games-info-grid {
     display: grid;
     grid-template-columns: 120px 1fr;
     row-gap: 5px;
+}
+
+#games-info-grid > * {
+	height: 160px;
+	background-color: white;
+}
+
+.game-content {
+	padding: 16px;
+	display: grid;
+	grid-template-rows: 24px 1fr 24px;
+	row-gap: 10px;
+}
+
+.game-name {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.game-content-bottom {
+	display: grid;
+	grid-template-columns: 50px 1fr 80px;
+}
+
+.cart-delete {
+	display: grid;
+	grid-template-columns: 1fr 32px;
+}
+
+.cart-delete > * {
+	color: black;
+}
+
+.cart-delete > :last-child {
+	text-decoration: underline;
+}
+
+/* nav css */
+#nav-bar {
+	display: grid;
+	grid-template-rows: 24px 342px 112px;
+	row-gap: 24px;
+	position: sticky;
+	top: 214px;
+	height: min-content;
+}
+
+#nav-grid {
+	display: grid;
+	grid-template-rows: 300px 42px;
+}
+
+#summary-grid {
+	display: grid;
+	grid-template-rows: 30px 40px 25px 1fr 24px;
+	padding: 24px;
+	background-color: white;
+	row-gap: 10px;
+	border-bottom: #e5e8f0 solid 2px;
+}
+
+#summary-grid > :first-child {
+	display: grid;
+	grid-template-columns: 95px 1fr;
+	column-gap: 200px;
+	border-bottom: 1px black dashed;
+}
+
+#summary-grid > :nth-child(2) {
+	display: grid;
+	grid-template-columns: 50px 71px 1fr 1fr;
+}
+
+#summary-grid > :nth-child(2) > * {
+	display: flex;
+	align-items: center;
+}
+
+#summary-grid > :nth-child(2) > :first-child {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+#summary-grid > :nth-child(2) > :nth-child(2) {
+	font-size: 10px;
+	display: flex;
+	align-items: center;
+	color: #9d9d9d;
+	font-weight: 600;
+}
+
+#summary-grid > :nth-child(3) {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	column-gap: 100px;
+}
+
+#summary-grid > :nth-child(3) > * {
+	display: flex;
+	align-items: center;
+}
+
+#summary-grid > :nth-child(3) > :first-child {
+	text-decoration: underline;
+}
+
+#summary-grid > :nth-child(3) > :last-child {
+	color: #f2c800;
+	font-weight: 600;
+}
+
+.price {
+	display: flex;
+	justify-content: right;
+}
+
+#summary-grid > :nth-child(4) {
+	padding: 20px 0;
+}
+
+#check-out-btn {
+	display: flex;
+	height: 100%;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	background-color: #F22349;
+	color: white;
+	border-radius: 30px;
+	font-weight: 600;
+}
+
+#check-out-btn:hover {
+	cursor: pointer;
+	background-color: #fcee27;
+    color: black;
+}
+
+#summary-grid > :nth-child(5) {
+	display: flex;
+	justify-content: center;
+	font-weight: 600;
+	text-decoration: underline;
+	color: black;
+}
+
+#nav-grid > :nth-child(2) {
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: underline;
+	padding: 16px;
+}
+
+#refund-btn {
+	color: black;
+	font-size: 16px;
+	font-weight: 100;
+}
+
+#safe-deal-grid {
+	padding: 24px;
+	display: grid;
+	grid-template-rows: 24px 1fr;
+}
+
+#safe-deal-grid > :first-child {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#cart-secured-payment {
+	display: grid;
+	grid-template-columns: repeat(7, 38px);
+	column-gap: 5px;
+	padding-top: 10px;
+	margin: 0 auto;
+}
+
+#cart-pick-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 232px);
+	column-gap: 10px;
+}
+
+#cart-pick-grid > * {
+    background-color: #F22349;
+    border-radius: 20px;
 }
