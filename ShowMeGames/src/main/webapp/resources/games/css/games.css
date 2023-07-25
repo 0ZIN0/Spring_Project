@@ -20,8 +20,9 @@
 
 .editer_categories .grid-x {
 	display: grid;
-	column-gap: 20px;
 	grid-template-columns: repeat(5, 1fr);
+	padding-left: 145px;
+	padding-right: 180px;
 }
 
 
@@ -34,8 +35,6 @@
 }
 
 .editer_categories {
-	margin-left: 80px;
-	padding-right: 40px;
 	height: 200px;
 	margin-bottom: 120px;
 	white-space: nowrap;
@@ -217,11 +216,11 @@
 
 .primary {
 	margin-left: 50px;
+	padding-right: 40px;
 }
 
 .sort {
 	display: flex;
-	margin-left: 40px;
 	padding-right: 30px;
 	height: 60px;
 	background-color: lightgray;
@@ -239,12 +238,9 @@
 
 .sort_result_list {
 	margin-top: 20px;
-	padding-left: 30px;
 	display: grid;
 	grid-template-columns: repeat(4, 300px);
-	place-items: center;
 }
-
 
 .sort_result_card{
 	width: 280px;

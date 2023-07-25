@@ -19,7 +19,7 @@
 	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	<div class="games_banner">
 		<div class="banner_textbox">
-			<h1>Show Me Games</h1>
+			<h3>Show Me Games</h3>
 			<p>Show Me Games의 최신 게임, 베스트셀러들을 구매하시고 플레이하세요!</p>
 		</div>
 	</div>
@@ -155,7 +155,7 @@
 					</button>
 					<ul class="filter_list">
 						<li class="filter_item">
-							<input type="checkbox" value="개인 맞춤 추천"/> 
+							<input type="checkbox" value="개인맞춤추천"/> 
 							<label for="">개인 맞춤 추천</label>
 						</li>
 					</ul>

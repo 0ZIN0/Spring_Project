@@ -1,5 +1,6 @@
+var filterArr = new Array();
+
 $('.filter_toggle').on('click', function() {
-  // 이벤트 핸들러에서 this를 사용하여 클릭된 요소를 참조합니다.
   var el = this;
   if ($(el).parent().hasClass('active')) {
     $(el).parent().removeClass('active');
@@ -46,16 +47,21 @@ label.on('blur', function(e) {
 /*filter logic*/
 const filter_item = $('.filter_item');
 const tag_container = $('.tag_container');
+// checkbox를 선택했을 때
 $('input').click(function(e) {
+  var checkbox = this;
+
+  // 부모 요소에게 이벤트 전가 x
   e.stopPropagation();
+
   if($(checkbox).is(':checked') == false) {
-    console.log($(checkbox).is(':checked'));
     var tag = tag_container.find('.tag_title');
     $.each(tag, function(index,el) {
       if($(el).text() == $(checkbox).val()) {
         $(el).parent().remove();
       }
     })
+    filterArr.splice(filterArr.indexOf($(checkbox).val()), 1);
   } else {
     tag_container
     .prepend(`<div class="tag">
@@ -66,8 +72,12 @@ $('input').click(function(e) {
         </span>
       </div>
     </div>`);
+    filterArr.push($(this).val());
   }
+  console.log(filterArr);
 });
+
+// li를 눌렀을 때
 filter_item.on('click', function() {
   var el = this;
   var checkbox = $(el).find('input');
@@ -79,6 +89,7 @@ filter_item.on('click', function() {
         $(el).parent().remove();
       }
     })
+    filterArr.splice(filterArr.indexOf(checkbox.val()), 1);
   } else {
     checkbox.prop('checked', true);
     tag_container
@@ -90,9 +101,12 @@ filter_item.on('click', function() {
         </span>
       </div>
     </div>`);
+    filterArr.push(checkbox.val());
   }
+  console.log(filterArr);
 });
 
+// remove filter
 $(document).on('click', '.remove_filter', function() {
   var remove_filter = this;
   var tag = $(remove_filter).parent();
@@ -100,49 +114,64 @@ $(document).on('click', '.remove_filter', function() {
   $.each(filter_item, function(index, el){
     var checkbox = $(el).find('input');
     if(checkbox.val() == tag.find('.tag_title').text()){
-      console.log('통과');
       checkbox.prop('checked', false);
+      filterArr.splice(filterArr.indexOf(checkbox.val()), 1);
       return false;
     }
   })
 });
 
-let isAnimating = false;
 // card scroll
 // 스크롤 이동 버튼
+let isAnimating = false;
 const card_container = $('.card-container');
 const next_btn = $('.slider-next-btn');
 const prev_btn = $('.slider-prev-btn');
 next_btn.on('click', function() {
   if(!isAnimating) {
-    isAnimating = true;
-    $(this).parent().scrollLeft($(this).parent().scrollLeft() + 1600);	
+    $(this).parent().scrollLeft($(this).parent().scrollLeft() + 1600);
   }
 });
 prev_btn.on('click', function() {
   if(!isAnimating) {
-    isAnimating = true;
     $(this).parent().scrollLeft($(this).parent().scrollLeft() - 1600);
-    isAnimating = false;	
   }
 });
 
 card_container.scroll(function() {
+  isAnimating = true;
   var el = this;
-	var Top = $(el).scrollLeft();
-	var Width = $(el).width();	
-	
+	var current = $(el).scrollLeft();
+	var width = $(el).prop('scrollWidth') - $(el).prop('clientWidth');
+
 	clearTimeout($.data(this, 'scrollTimer'));
 	
 	$.data(this, 'scrollTimer', setTimeout(() => {
-		if ((Width - Top) <= 50) {
+		if ((width - current) <= 50) {
 			$(el).find('.slider-next-btn').addClass('inactive');
-		} else if (Top <= 30) {
+      $(el).find('.slider-prev-btn').removeClass('inactive');
+		} else if (current <= 30) {
 			$(el).find('.slider-prev-btn').addClass('inactive');
+      $(el).find('.slider-next-btn').removeClass('inactive');
 		} else {
 			$(el).find('.slider-next-btn').removeClass('inactive');
 			$(el).find('.slider-prev-btn').removeClass('inactive');
 		}
-    isAnimating = false;	
-	}, 50));
+    isAnimating = false;
+	}, 100));
 });
+
+// Search Logic
+
+
+function getSearchList(){
+	$.ajax({
+		type: 'GET',
+		url : "/games",
+		data : $("form[name=search-form]").serialize(),
+		success : function(result){
+			//테이블 초기화
+			$('.sort_result_rist').empty();
+		}
+	})
+}
