@@ -7,5 +7,7 @@ import com.ezen.smg.dto.SmgUsersDTO;
 public interface MemberMapper {
 	
 	int signUp(@Param("dto") SmgUsersDTO dto);
+
+	int idCheck(@Param("id") String userId);
 	
 }

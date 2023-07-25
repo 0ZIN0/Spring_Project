@@ -17,4 +17,12 @@ public class MemberService_Impl implements MemberService {
 		return mapper.signUp(dto);
 	}
 
+	@Override
+	public int idCheck(String userId) {
+		
+		int chk = mapper.idCheck(userId);
+		
+		return chk;
+	}
+
 }
