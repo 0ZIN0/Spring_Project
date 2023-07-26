@@ -7,7 +7,7 @@ img {
 #reg_main {
     margin: auto;
     width: 480px;
-    height: 1000px;
+    height: auto;
     padding: 15px;
 }
 
@@ -101,6 +101,29 @@ img {
     overflow: hidden;
 }
 
+#email-accDiv {
+    display: flex;
+    flex-direction: row;
+}
+#email-accDiv > .accordion {
+    width: 50%;
+    margin-right: auto;
+}
+#email-chkBtn {
+    margin-top: 5px;
+    padding: 5px;
+    white-space: nowrap;
+    color: white;
+    background-color: #006ef5;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#email-chkBtn:hover {
+    filter: brightness(95%);
+}
+
 .reg_checkbox_div {
     padding: 30px 0;
 }
@@ -109,7 +132,7 @@ img {
     cursor: pointer;
 }
 
-#reg_btn {
+.reg_btn {
     width: 100%;
     height: 50px;
     color: white;
@@ -118,9 +141,9 @@ img {
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
-#reg_btn:hover {
+.reg_btn:hover {
     filter: brightness(95%);
 }
 
@@ -137,4 +160,12 @@ img {
     outline: none;
     opacity: 0;
     transition: 0.3s;
+}
+
+#naverIdLogin {
+    display: none;
+}
+
+#replaceNaverBtn {
+    background-color: #03C75A;
 }

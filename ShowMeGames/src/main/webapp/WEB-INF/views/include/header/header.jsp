@@ -138,6 +138,7 @@
 			</ul>
 		</div>
 		<div id="blank"></div>
+		<div>
 		<form id="search-form" action="${conPath}search">
 			<input type="text" id="search" name="search" placeholder="게임을 검색하세요!"></input>
 			<button type="submit" id="submit-btn">
@@ -145,6 +146,7 @@
 					style="color: #008aa4; font-size: 25px;"></i>
 			</button>
 		</form>
+		</div>
 		<div id="header-cart" onclick="location.href='${conPath}cart'">
 			<a class="bottom-title" id="cart-btn" href="${conPath}cart"><i
 				id="cart-icon" class="fa-solid fa-cart-shopping"></i>장바구니</a>

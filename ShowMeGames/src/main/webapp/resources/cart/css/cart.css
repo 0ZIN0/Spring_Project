@@ -1,0 +1,383 @@
+#cart-main {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1200px 1fr;
+    padding: 80px 0;
+    background-color: #e5e8f0;
+}
+
+#nothing-main-grid {
+    display: grid;
+    width: 1200px;
+    grid-template-rows: 1fr 480px;
+    row-gap: 40px;
+}
+
+/* nothing games css */
+
+#nothing-games-grid {
+    display: grid;
+    grid-template-columns: 755px 252px;
+    column-gap: 193px;
+}
+
+#nothing-content {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
+
+#nothing-content > * {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+#nothing-title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#go-shopping-btn {
+    width: 215px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    background-color: #F22349;
+    border-radius: 40px;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+#go-shopping-btn:hover {
+    background-color: #fcee27;
+    color: black;
+}
+
+#cart-bottom-grid {
+    display: grid;
+    grid-template-rows: 24px 430px;
+    padding-top: 40px;
+    row-gap: 24px;
+}
+
+h3 {
+    margin: 0;
+	font-size: 24px;
+}
+
+#week-best-grid { 
+    display: grid;
+    grid-template-columns: repeat(5, 232px);
+    column-gap: 10px;
+}
+
+#week-best-grid > * {
+    background-color: #F22349;
+    border-radius: 20px;
+}
+
+/* games cart css */
+#cart-main-grid {
+    display: grid;
+    grid-template-columns: 750px 1fr;
+    column-gap: 40px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+#cart-content-grid {
+    display: grid;
+    grid-template-rows: 24px 1fr 520px;
+    row-gap: 24px;
+}
+
+#games-info-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    row-gap: 5px;
+}
+
+#games-info-grid > * {
+	height: 160px;
+	background-color: white;
+}
+
+.game-content {
+	padding: 16px;
+	display: grid;
+	grid-template-rows: 24px 1fr 24px;
+	row-gap: 10px;
+}
+
+.game-name {
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+}
+
+.game-short-title {
+	font-size: 16px;
+}
+
+.game-content-bottom {
+	display: grid;
+	grid-template-columns: 50px 1fr 80px;
+}
+
+.cart-delete {
+	display: grid;
+	grid-template-columns: 1fr 32px;
+}
+
+.cart-delete > * {
+	font-size: 16px;
+	color: black;
+}
+
+.game-price {
+	font-size: 16px;
+}
+
+.cart-delete > :last-child {
+	text-decoration: underline;
+}
+
+/* nav css */
+#nav-bar {
+	display: grid;
+	grid-template-rows: 24px 342px 112px;
+	row-gap: 24px;
+	position: sticky;
+	top: 214px;
+	height: min-content;
+}
+
+#nav-grid {
+	display: grid;
+	grid-template-rows: 300px 42px;
+}
+
+#summary-grid {
+	display: grid;
+	grid-template-rows: 30px 40px 25px 1fr 24px;
+	padding: 24px;
+	background-color: white;
+	row-gap: 10px;
+	border-bottom: #e5e8f0 solid 2px;
+}
+
+#summary-grid > :first-child {
+	display: grid;
+	grid-template-columns: 95px 1fr;
+	column-gap: 200px;
+	border-bottom: 1px black dashed;
+}
+
+#summary-grid > :first-child > * {
+	font-size: 16px;
+}
+
+#summary-grid > :nth-child(2) {
+	display: grid;
+	grid-template-columns: 50px 71px 1fr 1fr;
+}
+
+#summary-grid > :nth-child(2) > * {
+	display: flex;
+	align-items: center;
+}
+
+#summary-grid > :nth-child(2) > :first-child {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+#summary-grid > :nth-child(2) > :nth-child(2) {
+	font-size: 10px;
+	display: flex;
+	align-items: center;
+	color: #9d9d9d;
+	font-weight: 600;
+}
+
+#summary-grid > :nth-child(3) {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	column-gap: 100px;
+}
+
+#summary-grid > :nth-child(3) > * {
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+}
+
+#summary-grid > :nth-child(3) > :first-child {
+	text-decoration: underline;
+}
+
+#summary-grid > :nth-child(3) > :last-child {
+	color: #f2c800;
+	font-weight: 600;
+}
+
+.price {
+	display: flex;
+	justify-content: right;
+}
+
+#summary-grid > :nth-child(4) {
+	padding: 20px 0;
+}
+
+#check-out-btn {
+	display: flex;
+	height: 100%;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	background-color: #F22349;
+	color: white;
+	border-radius: 30px;
+	font-weight: 600;
+}
+
+#check-out-btn:hover {
+	cursor: pointer;
+	background-color: #fcee27;
+    color: black;
+}
+
+#summary-grid > :nth-child(5) {
+	display: flex;
+	justify-content: center;
+	font-weight: 600;
+	text-decoration: underline;
+	color: black;
+	font-size: 16px;
+}
+
+#nav-grid > :nth-child(2) {
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: underline;
+	padding: 16px;
+}
+
+#refund-btn {
+	color: black;
+	font-size: 16px;
+	font-weight: 100;
+}
+
+#refund-btn:hover {
+	cursor: pointer;
+}
+
+#safe-deal-grid {
+	padding: 24px;
+	display: grid;
+	grid-template-rows: 24px 1fr;
+}
+
+#safe-deal-grid > :first-child {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
+}
+
+#cart-secured-payment {
+	display: grid;
+	grid-template-columns: repeat(7, 38px);
+	column-gap: 5px;
+	padding-top: 10px;
+	margin: 0 auto;
+}
+
+#cart-pick-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 232px);
+	column-gap: 10px;
+}
+
+#cart-pick-grid > * {
+    background-color: #F22349;
+    border-radius: 20px;
+}
+
+/*
+body {
+	overflow: hidden;
+	height: 100%;
+}
+*/
+
+#refund-popup {
+	height: 100%;
+	width: 100%;
+	z-index: 90;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.60);
+}
+
+#refund-content {
+	width: 650px;
+	height: 600px;
+	background-color: white;
+	display: grid;
+	margin: 140px auto;
+	border-radius: 10px;
+	grid-template-rows: 20% 80%;
+}
+
+#refund-top {
+	position: relative;
+}
+
+#refund-big-icon  {
+	height: 100%;
+	font-size: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#refund-close-btn {
+	font-size: 32px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+#refund-close-btn:hover {
+	cursor: pointer;
+}
+
+#refund-bottom {
+	padding: 35px;
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+}
+
+#refund-bottom > :first-child {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.refund_innder > * {
+	font-size: 16px;
+	margin-bottom: 30px;
+	line-height : 30px;
+}
+
+.refund_innder > :nth-child(3) {
+	color:#9d9d9d;
+}
+
+.refund-none {
+	display: none;
+}
