@@ -8,5 +8,4 @@ public interface LoginMapper {
 	
 	SmgUsersDTO getSelectUser(@Param("user_id") String user_id);
 	
-	
 }

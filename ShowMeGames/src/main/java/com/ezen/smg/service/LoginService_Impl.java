@@ -23,6 +23,9 @@ public class LoginService_Impl implements LoginService {
 		return 0;
 	}
 
-	
-	
+
+	@Override
+	public SmgUsersDTO getUser(String user_id) {
+		return loginMapper.getSelectUser(user_id);
+	}
 }
