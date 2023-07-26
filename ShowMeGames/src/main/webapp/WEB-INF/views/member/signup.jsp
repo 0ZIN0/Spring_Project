@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="${resource}/signup.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <!-- naver sdk -->
     <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 </head>
 <body>
@@ -110,28 +111,46 @@
                         <li>남들에게 보여지는 이름입니다</li>
                     </ul>
                 </div>   
-
-                <div class="reg_input_div">
-                    <span id="birth_header" class="reg_input_header">생년월일 선택</span>
-                    <div>
-                        <span class="material-icons-outlined">cake</span>
-                        <input type="date" id="birth_input" name="birth_date" required>
-                    </div>
-                </div>
+				
+				<div id="birth_gender_div">
+	                <div class="reg_input_div">
+	                    <span id="birth_header" class="reg_input_header">생년월일 선택</span>
+	                    <div>
+	                        <span class="material-icons-outlined">cake</span>
+	                        <input type="date" id="birth_input" name="birth_date" required>
+	                    </div>
+	                </div>
+	                <div id="gender_input_div">
+	                    <span id="gender_header" class="gender_input_header">성별 선택</span>
+	                    <div id="gender_input">
+	                    	<span class="material-icons-outlined">male</span>
+	                    	<span class="material-icons-outlined">female</span>
+	                    	<div id="gender_ratio">
+	                            <input type="radio" id="genderChoice1" name="gender" value="1">
+							    <label for="genderChoice1">남</label>
+							    <input type="radio" id="genderChoice2" name="gender" value="2">
+							    <label for="genderChoice2">여</label>
+							    <input type="radio" id="genderChoice3" name="gender" value="0">
+							    <label for="genderChoice3">미응답</label>
+						    </div>
+	                    </div>
+	                </div>
+				</div>
                 <div class="confirm_div">생년월일을 선택하세요</div>
-
+				
                 <div class="reg_checkbox_div">  
                     <input id="terms_agree" type="checkbox"/>
                     <label for="terms_agree">쇼미게임즈의 이용 약관 및 판매 약관을 이해했으며, 개인정보처리방침에 동의합니다.</label>
                 </div>
                 
+	            <input type="hidden" id="social_key" name="social_key">    
                 <input type="hidden" name="login_type" value="smg"/>
                 <button class="reg_btn">쇼미게임즈 계정 만들기</button>
-                <div id="naverIdLogin"></div>
-                <button id="replaceNaverBtn" class="reg_btn" type="button">네이버로 로그인</button>
-            </div>
+			</div>
         </form>
-    </div>
+		<div id="naverIdLogin"></div>
+		<button id="replaceNaverBtn" class="reg_btn" type="button">네이버로 계정 만들기</button>
+	</div>
 
     <script src="${resource}/signup.js"></script>
     <script src="${resource}/naverLogin.js"></script>

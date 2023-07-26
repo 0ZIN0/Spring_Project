@@ -103,26 +103,103 @@ h3 {
 	background-color: white;
 }
 
+.game-img {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
 .game-content {
 	padding: 16px;
 	display: grid;
-	grid-template-rows: 24px 1fr 24px;
+	grid-template-rows: 30px 1fr 24px;
 	row-gap: 10px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 
 .game-name {
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: bold;
 	color: black;
 }
 
-.game-short-title {
-	font-size: 16px;
+.game-select-form {
+	padding-top: 20px;
+	display: grid;
+	grid-template-columns: 50px 100px;
+	column-gap: 10px;
+}
+
+.game-select-form > * {
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.game-select-form > :nth-child(2) {
+	color: #35C1CF;
 }
 
 .game-content-bottom {
 	display: grid;
 	grid-template-columns: 50px 1fr 80px;
+}
+
+.plat-form-select:hover {
+	cursor: pointer;
+}
+
+.plat-form-select {
+	display: grid;
+	grid-template-columns: 80px 20px;
+	position: relative;
+}
+
+.plat-form-options {
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+	background: #ffffff;
+	width: 150px;
+	height: 100px;
+	position: absolute;
+	font-weight: 100;
+	color:#636363;
+	display: none;
+	grid-template-rows: repeat(3, 1fr);
+	right: 10px;
+    top: 40px;
+}
+
+.plat-form-options::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 11px solid transparent;
+	border-bottom-color: #ffffff;
+	border-top: 0;
+	margin-left: -11px;
+	margin-top: -11px;
+}
+
+.plat-form-options > * {
+	font-size: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.plat-form-options > :first-child {
+	background-color: #35C1CF4D;
+}
+
+.plat-form-options > *:hover {
+	cursor: pointer;
+	background-color: #35C1CF4D;
+}
+
+.plat-form-select > * {
+	font-size: 15px;
 }
 
 .cart-delete {
@@ -165,6 +242,7 @@ h3 {
 	background-color: white;
 	row-gap: 10px;
 	border-bottom: #e5e8f0 solid 2px;
+	border-radius: 8px;
 }
 
 #summary-grid > :first-child {
@@ -265,11 +343,12 @@ h3 {
 	align-items: center;
 	text-decoration: underline;
 	padding: 16px;
+	border-radius: 8px;
 }
 
 #refund-btn {
 	color: black;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 100;
 }
 
