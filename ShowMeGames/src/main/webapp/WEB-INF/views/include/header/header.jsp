@@ -148,6 +148,28 @@
 		<div id="header-cart" onclick="location.href='${conPath}cart'">
 			<a class="bottom-title" id="cart-btn" href="${conPath}cart"><i
 				id="cart-icon" class="fa-solid fa-cart-shopping"></i>장바구니</a>
+				
 		</div>
+
 	</div>
+		
+		<!-- 장바구니 마우스 오버 시 나올 MiniCart -->
+		<div id="minicart">
+			<div class="minicart-header">
+				<div class="minicart-title">
+					<h3>장바구니</h3>
+				</div>
+			</div>
+			<div class="minicart-content">
+				<div class="empty-minicart-content">
+					<div class="empty-minicart-image">
+						<img alt="Empty Minicart" src="https://store.ubisoft.com/on/demandware.static/-/Library-Sites-shared-library-web/default/dwedbef18c/Web_Revamp_Contribution/minicart/empty_minicart.png">
+					</div>
+					<div class="empty-minicart-buttons">
+						<button>쇼핑하러 가기</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
 </header>

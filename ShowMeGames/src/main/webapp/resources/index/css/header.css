@@ -50,7 +50,7 @@ header {
    grid-template-columns: 250px 115px 115px 115px 777px 115px;
    column-gap: 20px;
    text-align: center;
-   positon: relative;
+   position: relative;
    text-align: center;
    column-gap: 20px
 }
@@ -147,7 +147,7 @@ header {
 
 #customer-ul li {
    margin-bottom: 13px;
-   font-color: white;
+   color: white;
 }
 
 #customer-ul>li {
@@ -410,3 +410,27 @@ header {
 .expand_more {
 	transition: .3s ease-in;
 }
+
+/* 장바구니 마우스 hover시 나오는 minicart */
+#minicart {
+   box-shadow: 9px 9px 20px rgba(0,0,0,.12);
+   background: #e4ecec;
+   position: fixed;
+   top: 126px;
+   right: -1752px;
+   z-index: 80;
+   width: 480px;
+}
+
+.minicart-header {
+   background-color: #F22349;
+   height: 54px;
+}
+
+#minicart.minicart-active {
+   opacity: 1;
+   transform: translateY(0);
+   visibility: visible;
+   pointer-events: auto;
+}
+
