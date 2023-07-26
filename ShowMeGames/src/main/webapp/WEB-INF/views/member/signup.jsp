@@ -143,7 +143,7 @@
                     <label for="terms_agree">쇼미게임즈의 이용 약관 및 판매 약관을 이해했으며, 개인정보처리방침에 동의합니다.</label>
                 </div>
                 
-	            <input type="hidden" id="social_key">    
+	            <input type="hidden" id="social_key" name="social_key">    
                 <input type="hidden" name="login_type" value="smg"/>
                 <button class="reg_btn">쇼미게임즈 계정 만들기</button>
 			</div>
