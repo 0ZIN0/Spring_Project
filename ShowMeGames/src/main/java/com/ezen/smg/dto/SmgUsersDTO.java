@@ -21,4 +21,6 @@ public class SmgUsersDTO {
 	private Date birth_date;
 	private String login_type;
 	private String profile_url;
+	private String social_key;
+	private Integer gender;
 }

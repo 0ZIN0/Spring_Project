@@ -12,7 +12,9 @@
 			nick_name,
  			phone_number,
  			birth_date,
- 			login_type
+ 			login_type,
+ 			social_key,
+ 			gender
  		) VALUES (
  			user_num_seq.nextval,
 			#{dto.user_id}, 			
@@ -21,7 +23,9 @@
 			#{dto.nick_name}, 			
 			#{dto.phone_number}, 			
 			#{dto.birth_date},
-			#{dto.login_type} 			
+			#{dto.login_type},
+			#{dto.social_key},
+			#{dto.gender} 			
  		)
  	</insert>
  	<select id="idCheck" parameterType="String" resultType="int">

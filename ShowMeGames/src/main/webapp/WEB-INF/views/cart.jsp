@@ -14,8 +14,11 @@
 <%@ include file="/WEB-INF/views/include/link/common.jsp"%>
 <!-- css -->
 <link rel="stylesheet" href="${cart_css}">
+<!-- payment port one api -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <!-- c:set settings -->
 <c:set var="gamesLen" scope="session" value="${gamesLength}" />
+<c:set var="gamePlatform" scope="session" value="${gamePlatform}" />
 </head>
 <body>
 	<div id="refund-popup" class="refund-none">
@@ -41,13 +44,27 @@
 			<c:when test="${gamesLen != 0}">
 					<div id="cart-main-grid">
 						<div id="cart-content-grid">
-							<h3 id="cart-title">고객님의 장바구니 (1 상품)</h3>
+							<h3 id="cart-title">&nbsp;고객님의 장바구니 (1 상품)</h3>
 							<div id="games-info-grid">
 								<c:forEach begin="1" end="4" var="i">
 									<div class="game-img">img ${i}</div>
 									<div class="game-content">
 										<a class="game-name" href="./">카트라이더</a>
-										<div class="game-short-title">short title</div>
+										<div class="game-select-form">
+											<c:choose>
+												<c:when test="${gamePlatform != 1}">
+												<div>플랫폼:</div>
+												<div class="plat-form-select">
+													<div>PC (디지털)</div>
+													<div class="option-open-btn"><span class="material-symbols-outlined">expand_more</span></div>
+												</div>
+												</c:when>
+												<c:otherwise>
+												<div>플랫폼:</div>
+												<div>PC (디지털)</div>	
+												</c:otherwise>
+											</c:choose>
+										</div>
 										<div class="game-content-bottom">
 											<a class="cart-delete" href="./cart"> <span
 												class="material-symbols-outlined">delete</span>
@@ -69,7 +86,7 @@
 							</div>
 						</div>
 						<div id="nav-bar">
-							<h3>요약</h3>
+							<h3>&nbsp;요약</h3>
 							<div id="nav-grid">
 								<div id="summary-grid">
 									<div>
