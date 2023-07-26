@@ -23,6 +23,7 @@ header {
    position: relative;
    left: 0;
    bottom: 0;
+   overflow: hidden;
 }
 
 #header-top {

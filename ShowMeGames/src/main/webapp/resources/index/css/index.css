@@ -17,53 +17,85 @@ body {
     width: 100%;
     margin: 0;
     padding-bottom: 300px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, #210b6a 100%);
+	backdrop-filter: blur(7px);
+}
+
+.background_layer1 {
+	background: linear-gradient(179deg, #090300 0%, rgba(9, 3, 0, 0.00) 100%);
+}
+.background_layer2 {
+	background: linear-gradient(135deg, rgba(9, 3, 0, 0.80) 0%, rgba(9, 3, 0, 0.00) 100%);
+}
+
+/* 타이틀 폰트 관련 css */
+#main .title {
+    color: #EEE;
+    font-family: SF Pro Display;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -1.8px;
+}
+#main .sub-title {
+    color: #F22349;
+    font-family: SF Pro Display;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -1.8px;
 }
 
 #mainBanner {
+    position: relative;
     height: 540px;
     width: 100%;
     overflow: hidden;
     margin-bottom: 100px;
 }
 
+#mainBanner > div:first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 580px;
+    padding: 56px 50px 77px 31px;
+    background: linear-gradient(88deg, #989090 0%, rgba(0, 0, 0, 0.00) 100%);
+    z-index: 2;
+}
+
 /* bestgame 관련*/
 #bestGame {
     width: auto;
-    height: 640px;
+    height: 730px;
     margin: auto;
-    margin-bottom: 120px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
+    margin-bottom: 100px;
     overflow: hidden;
 }
 
-#bestGame > .btn {
+#bestGame > div {
+    width: 1560px;
+    height: 686px;
+    padding: 20px;
+    margin: 0 160px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000;
+    flex-direction: column;
+    row-gap: 40px;
 }
 
 #bestGame_title {
-	width: 144px;
-    height: 50px;
-}
-#bestGame_title > span {
-    color: #000;
-    font-family: Inter;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -1.2px;
-    white-space: nowrap;
+	width: 1560px;
+    height: 80px;
+    border-left: white 10px solid;
+    padding-left: 30px;
 }
 
 #bestGame_container {
 	width: 1560px;
     height: 566px;
-    padding: 20px;
     display: flex;
     flex-direction: row;
     column-gap: 20px;
@@ -78,7 +110,6 @@ body {
     border-radius: 20px;
 }
 
-
 #subBanner {
     width: 100%;
     overflow: hidden;
@@ -86,45 +117,25 @@ body {
     margin-bottom: 120px;
 }
 
-/* 타이틀 폰트 관련 css */
-#main .title {
-    color: #000;
-    font-family: Inter;
-    font-size: 60px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: -4.8px;
-}
-#main .sub-title {
-    color: #666363;
-    font-family: Inter;
-    font-size: 60px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -4.8px;
-}
-
 /* 게임 뷰 포트*/
 .recmd {
     display: flex;
     flex-direction: column;
     column-gap: 20px;
-    row-gap: 20px;
+    row-gap: 40px;
     width: 100%;
     height: 550px;
     margin-bottom: 120px;
     overflow: hidden;
     position: relative;
 }
-.recmd > div:first-child {
+.title_div {
+    margin-left: 180px;
+    padding-left: 30px;
 	white-space: nowrap;    
+    border-left: white 10px solid;
 }
 
-.title {
-	padding-left: 180px;
-}
 .recmd > .recmd-container{
     display: flex;
     flex-direction: row;
@@ -172,8 +183,6 @@ body {
     height:50px;
 }
 
-
-
 .recmd-next-btn > button {
     width: 140px;
     height: 160px;
@@ -187,27 +196,26 @@ body {
 
 /* 장르 관련 css*/
 #genre {
-    display: grid;
-    grid-template-columns: 1fr repeat(4, 375px) 1fr;
+    display: flex;
+    flex-direction: row;
+}
+#genre > .btn {
+    display: flex;
+    width: 180px;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+
+#genre-container {
+    display: flex;
+    flex-direction: row;
     column-gap: 20px;
-    row-gap: 30px;
-    height: 400px;
-    width: 100%;
-    margin-bottom: 120px;
-    overflow: hidden;
 }
-#genre > div:nth-child(2) { 
-    grid-column: 2 / 6;
-}
-#genre > .genres {
+#genre-container > .genres {
     overflow: hidden;
     border-radius: 20px;
     width: 375px;
     height: 290px;
 }
-#genre > .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000;
-}
+    
