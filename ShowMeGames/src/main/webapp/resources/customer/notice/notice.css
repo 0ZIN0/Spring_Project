@@ -17,10 +17,13 @@ html, body {
 #notice-text {
 	position: absolute;
 	color: #d80388;
-	font-size: 15rem;
 	top: -60px;
 	font-weight: 800;
 	left: 100px;
+}
+
+#notice-main-text {
+	font-size: 15rem;
 }
 
 #notice-main-img {
@@ -39,6 +42,7 @@ html, body {
 
 #notice-sort > h2 {
 	margin: 0 350px;
+	font-size: 24px;
 }
 
 #notice-year-select, #notice-date-select {
@@ -116,6 +120,10 @@ html, body {
 	font-weight: bold;
 }
 
+.banner-content {
+	font-size: 16px;
+}
+
 .banner-others-btn {
 	display: grid;
 	grid-template-columns: 100px 5px;
@@ -123,6 +131,7 @@ html, body {
 
 .banner-others-btn > * {
 	color: #d80388;
+	font-size: 16px;
 }
 
 .notice-grid-view {
@@ -131,4 +140,4 @@ html, body {
 
 .notice-grid-none {
 	display: none;
-S}
+}

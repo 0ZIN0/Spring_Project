@@ -187,5 +187,10 @@ function openLoginPopup() {
     window.open('./member/login', '_blank', popupFeatures);
 }
 
+$(window).scroll(function(){
+  $('#header-top').css('left', 0-$(this).scrollLeft());
+  $('#header-bottom').css('left', 0-$(this).scrollLeft());
+});
+
 
 
