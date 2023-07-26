@@ -63,6 +63,7 @@
 
 h3 {
     margin: 0;
+	font-size: 24px;
 }
 
 #week-best-grid { 
@@ -102,21 +103,58 @@ h3 {
 	background-color: white;
 }
 
+.game-img {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
 .game-content {
 	padding: 16px;
 	display: grid;
-	grid-template-rows: 24px 1fr 24px;
+	grid-template-rows: 30px 1fr 24px;
 	row-gap: 10px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 
 .game-name {
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: bold;
+	color: black;
+}
+
+.game-select-form {
+	padding-top: 20px;
+	display: grid;
+	grid-template-columns: 50px 100px;
+	column-gap: 10px;
+}
+
+.game-select-form > * {
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.game-select-form > :nth-child(2) {
+	color: #35C1CF;
 }
 
 .game-content-bottom {
 	display: grid;
 	grid-template-columns: 50px 1fr 80px;
+}
+
+.plat-form-select:hover {
+	cursor: pointer;
+}
+
+.plat-form-select {
+	display: grid;
+	grid-template-columns: 80px 20px;
+}
+
+.plat-form-select > * {
+	font-size: 15px;
 }
 
 .cart-delete {
@@ -125,7 +163,12 @@ h3 {
 }
 
 .cart-delete > * {
+	font-size: 16px;
 	color: black;
+}
+
+.game-price {
+	font-size: 16px;
 }
 
 .cart-delete > :last-child {
@@ -154,6 +197,7 @@ h3 {
 	background-color: white;
 	row-gap: 10px;
 	border-bottom: #e5e8f0 solid 2px;
+	border-radius: 8px;
 }
 
 #summary-grid > :first-child {
@@ -161,6 +205,10 @@ h3 {
 	grid-template-columns: 95px 1fr;
 	column-gap: 200px;
 	border-bottom: 1px black dashed;
+}
+
+#summary-grid > :first-child > * {
+	font-size: 16px;
 }
 
 #summary-grid > :nth-child(2) {
@@ -195,6 +243,7 @@ h3 {
 #summary-grid > :nth-child(3) > * {
 	display: flex;
 	align-items: center;
+	font-size: 16px;
 }
 
 #summary-grid > :nth-child(3) > :first-child {
@@ -239,6 +288,7 @@ h3 {
 	font-weight: 600;
 	text-decoration: underline;
 	color: black;
+	font-size: 16px;
 }
 
 #nav-grid > :nth-child(2) {
@@ -248,12 +298,17 @@ h3 {
 	align-items: center;
 	text-decoration: underline;
 	padding: 16px;
+	border-radius: 8px;
 }
 
 #refund-btn {
 	color: black;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 100;
+}
+
+#refund-btn:hover {
+	cursor: pointer;
 }
 
 #safe-deal-grid {
@@ -266,6 +321,7 @@ h3 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-size: 16px;
 }
 
 #cart-secured-payment {
@@ -285,4 +341,77 @@ h3 {
 #cart-pick-grid > * {
     background-color: #F22349;
     border-radius: 20px;
+}
+
+/*
+body {
+	overflow: hidden;
+	height: 100%;
+}
+*/
+
+#refund-popup {
+	height: 100%;
+	width: 100%;
+	z-index: 90;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.60);
+}
+
+#refund-content {
+	width: 650px;
+	height: 600px;
+	background-color: white;
+	display: grid;
+	margin: 140px auto;
+	border-radius: 10px;
+	grid-template-rows: 20% 80%;
+}
+
+#refund-top {
+	position: relative;
+}
+
+#refund-big-icon  {
+	height: 100%;
+	font-size: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#refund-close-btn {
+	font-size: 32px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+#refund-close-btn:hover {
+	cursor: pointer;
+}
+
+#refund-bottom {
+	padding: 35px;
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+}
+
+#refund-bottom > :first-child {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.refund_innder > * {
+	font-size: 16px;
+	margin-bottom: 30px;
+	line-height : 30px;
+}
+
+.refund_innder > :nth-child(3) {
+	color:#9d9d9d;
+}
+
+.refund-none {
+	display: none;
 }
