@@ -26,11 +26,14 @@ public class LoginController {
 		int result = loginService.getSelectUser(user_id, user_pw);
 		if (result == 1) {
 			
+			
 			System.out.println("로그인 성공");
 				
 			// 사용자 정보를 세션에 저장
 	        session.setAttribute("user_id", user_id);
 	        session.setAttribute("user_pw", user_pw);
+	        session.setAttribute("isLoggedIn", true);
+	        session.setAttribute("user", loginService.getUser(user_id));
 	        return "/member/loginSuccess";
 		} else {
 			// 로그인 실패 시, 에러 메시지 출력 또는 다른 작업 수행

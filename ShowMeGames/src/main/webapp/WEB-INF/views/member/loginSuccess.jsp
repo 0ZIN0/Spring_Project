@@ -10,7 +10,9 @@
 	
     <script>
         window.close();
+        opener.parent.location.reload();
 	</script>
+	
 	
 </body>
 </html>

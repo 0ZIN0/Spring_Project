@@ -63,6 +63,26 @@ header {
    font-size: 14px;
 }
 
+#point-li {
+	font-size: 14px;
+	margin-left: -200px;
+	color: white;
+}
+/* #point-amount {
+		
+	width: 50px;
+} */
+
+ #point-i {
+    color: #edc800;
+    font-size: 14px; 
+    font-weight: 100px;
+}
+
+
+#login-icon {
+	margin-left: 30px;
+}
 
 .clickable-li {
    display: inline-block;
@@ -410,3 +430,4 @@ header {
 .expand_more {
 	transition: .3s ease-in;
 }
+
