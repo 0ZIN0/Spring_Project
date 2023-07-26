@@ -18,7 +18,6 @@
 <script type="text/javascript"
 	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <!-- c:set settings -->
-<c:set var="gamesLen" scope="session" value="${gamesLength}" />
 <c:set var="gamePlatform" scope="session" value="${gamePlatform}" />
 </head>
 <body>
@@ -44,10 +43,10 @@
 	<main id="cart-main">
 		<div></div>
 		<c:choose>
-			<c:when test="${gamesLen != 0}">
+			<c:when test="${cart_len > 0}">
 				<div id="cart-main-grid">
 					<div id="cart-content-grid">
-						<h3 id="cart-title">&nbsp;고객님의 장바구니 (1 상품)</h3>
+						<h3 id="cart-title">&nbsp;고객님의 장바구니 (${cart_len} 상품)</h3>
 						<div id="games-info-grid">
 							<c:forEach begin="1" end="4" var="i">
 								<div class="game-img">img ${i}</div>
@@ -103,7 +102,7 @@
 						<div id="nav-grid">
 							<div id="summary-grid">
 								<div>
-									<div>소계 (3 항목)</div>
+									<div>소계 (${cart_len} 항목)</div>
 									<div class="price" id="lower-order">￦ 소계</div>
 								</div>
 								<div>
