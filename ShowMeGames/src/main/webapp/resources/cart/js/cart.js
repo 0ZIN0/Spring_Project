@@ -31,3 +31,9 @@ $("#check-out-btn").click(function (e) {
         console.log(rsp);
     });
 });
+
+// platform select active 
+$('.plat-form-select').click(function (e) {
+    var option = $('.plat-form-options');
+    $(option.dataset.game_name).css('display', 'grid');
+});
