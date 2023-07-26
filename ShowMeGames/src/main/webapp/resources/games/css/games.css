@@ -1,5 +1,20 @@
 @charset "UTF-8";
 
+*{
+	color: white;
+}
+body {
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, #210b6a 100%);
+	backdrop-filter: blur(7px);
+}
+
+.background_layer1 {
+	background: linear-gradient(179deg, #090300 0%, rgba(9, 3, 0, 0.00) 100%);
+}
+.background_layer2 {
+	background: linear-gradient(135deg, rgba(9, 3, 0, 0.80) 0%, rgba(9, 3, 0, 0.00) 100%);
+}
+
 
 .games_banner {
 	display: block;
@@ -45,7 +60,7 @@
 	height: 200px;
 	width: 300px;
 	border-radius: 20px / 20px;
-	background-color: black;
+	background-color: white;
 }
 
 .best_seller {
@@ -248,7 +263,6 @@
 	margin-right: 10px;
 	margin-bottom: 80px;
 	border-radius: 20px / 20px;
-	background-color: black;
 }
 
 ul{

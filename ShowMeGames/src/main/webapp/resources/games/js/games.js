@@ -62,6 +62,7 @@ $('input').click(function(e) {
       }
     })
     filterArr.splice(filterArr.indexOf($(checkbox).val()), 1);
+    getSearchList();
   } else {
     tag_container
     .prepend(`<div class="tag">
@@ -73,6 +74,7 @@ $('input').click(function(e) {
       </div>
     </div>`);
     filterArr.push($(this).val());
+    getSearchList();
   }
   console.log(filterArr);
 });
@@ -90,6 +92,7 @@ filter_item.on('click', function() {
       }
     })
     filterArr.splice(filterArr.indexOf(checkbox.val()), 1);
+    getSearchList();
   } else {
     checkbox.prop('checked', true);
     tag_container
@@ -102,6 +105,7 @@ filter_item.on('click', function() {
       </div>
     </div>`);
     filterArr.push(checkbox.val());
+    getSearchList();
   }
   console.log(filterArr);
 });
@@ -165,13 +169,13 @@ card_container.scroll(function() {
 
 
 function getSearchList(){
-	$.ajax({
-		type: 'GET',
-		url : "/games",
-		data : $("form[name=search-form]").serialize(),
-		success : function(result){
-			//테이블 초기화
-			$('.sort_result_rist').empty();
-		}
-	})
+ $.ajax ({
+  url: `./games-filter?${filterArr.join()}`,
+  type: 'GET',
+  data: {filters: filterArr},
+  dataType: 'json',
+  success: function(resp) {
+    console.log(resp);
+  }
+ });
 }

@@ -10,13 +10,15 @@
 <head>
 <meta charset="UTF-8">
 <title>모든 게임 보기</title>
-<link rel="stylesheet" href="${css1}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <%@ include file="/WEB-INF/views/include/link/common.jsp" %>
+<link rel="stylesheet" href="${css1}">
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
+	<div class="background_layer1">
+	<div class="background_layer2">
 	<div class="games_banner">
 		<div class="banner_textbox">
 			<h3>Show Me Games</h3>
@@ -185,17 +187,17 @@
 						</div>
 					</button>
 					<ul class="filter_list">
-						<li class="filter_item"><input type="checkbox" value="Chanwoo's Pick"/> <label
+						<li class="filter_item"><input type="checkbox" value="chanwoo"/> <label
 							for="">Chanwoo's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" value="youngmin's Pick"/> <label
+						<li class="filter_item"><input type="checkbox" value="youngmin"/> <label
 							for="">youngmin's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" value="Loa's Pick"/> <label
+						<li class="filter_item"><input type="checkbox" value="loa"/> <label
 							for="">Loa's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" value="Jaehun's Pick"/> <label
+						<li class="filter_item"><input type="checkbox" value="jaehun"/> <label
 							for="">Jaehun's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" value="Gicheul's Pick"/> <label
+						<li class="filter_item"><input type="checkbox" value="gicheul"/> <label
 							for="">Gicheul's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" value="Gitae's Pick"/> <label
+						<li class="filter_item"><input type="checkbox" value="gitae"/> <label
 							for="">Gitae's Pick</label></li>
 					</ul>
 			</div>
@@ -226,18 +228,59 @@
 			</div>
 			<div class="sort_result_content">
 				<div class="sort_result_list">
-					<c:forEach begin="1" end="10" var="1">
-							<div class="sort_result_card"></div>
+					<c:forEach items="${games }" var="game">
+							<div class="sort_result_card">
+								<img src="${game.banner_img_url}" alt="banner_img"/>
+							</div>
+					</c:forEach>
+					<c:forEach items="${games }" var="game">
+							<div class="sort_result_card">
+								<img src="${game.banner_img_url}" alt="banner_img"/>
+							</div>
+					</c:forEach>
+					<c:forEach items="${games }" var="game">
+							<div class="sort_result_card">
+								<img src="${game.banner_img_url}" alt="banner_img"/>
+							</div>
+					</c:forEach>
+					<c:forEach items="${games }" var="game">
+							<div class="sort_result_card">
+								<img src="${game.banner_img_url}" alt="banner_img"/>
+							</div>
+					</c:forEach>
+					<c:forEach items="${games }" var="game">
+							<div class="sort_result_card">
+								<img src="${game.banner_img_url}" alt="banner_img"/>
+							</div>
+					</c:forEach>
+					<c:forEach items="${games }" var="game">
+							<div class="sort_result_card">
+								<img src="${game.banner_img_url}" alt="banner_img"/>
+							</div>
+					</c:forEach>
+					<c:forEach items="${games }" var="game">
+							<div class="sort_result_card">
+								<img src="${game.banner_img_url}" alt="banner_img"/>
+							</div>
+					</c:forEach>
+					<c:forEach items="${games }" var="game">
+							<div class="sort_result_card">
+								<img src="${game.banner_img_url}" alt="banner_img"/>
+							</div>
+					</c:forEach>
+					<c:forEach items="${games }" var="game">
+							<div class="sort_result_card">
+								<img src="${game.banner_img_url}" alt="banner_img"/>
+							</div>
 					</c:forEach>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	
-	
+	</div>	
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
 	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
+	</div>
+	</div>
 	<script src="${js1 }"></script>
 </body>
 </html>
