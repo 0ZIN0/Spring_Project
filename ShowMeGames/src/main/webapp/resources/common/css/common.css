@@ -3,12 +3,15 @@
 * {
 	font-family: SF Pro Display;
 	font-style: normal;
+	line-height: normal;
 	font-size: 18px;
 	letter-spacing: -0.54px;
 }
 
 .title {
 	font-size: 60px;
+	letter-spacing: -1.8px;
+	font-weight: 600;
 }
 
 .sub-title {

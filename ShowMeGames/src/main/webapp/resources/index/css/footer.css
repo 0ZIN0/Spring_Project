@@ -9,10 +9,9 @@ footer {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	background-color: #131c27;	
+	background-color: rgba(0,0,0,0.80);
 	width: 100%;
 	height: 300px;
-	border: 1px solid #2b333d;
 	overflow: hidden;
 }
 

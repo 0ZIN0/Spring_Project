@@ -1,5 +1,20 @@
 @charset "UTF-8";
 
+*{
+	color: white;
+}
+body {
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, #210b6a 100%);
+	backdrop-filter: blur(7px);
+}
+
+.background_layer1 {
+	background: linear-gradient(179deg, #090300 0%, rgba(9, 3, 0, 0.00) 100%);
+}
+.background_layer2 {
+	background: linear-gradient(135deg, rgba(9, 3, 0, 0.80) 0%, rgba(9, 3, 0, 0.00) 100%);
+}
+
 
 .games_banner {
 	display: block;
@@ -15,12 +30,14 @@
 .section_header {
 	margin-bottom: 60px;
 	box-sizing: inherit;
+	padding-left: 0;
 }
 
 .editer_categories .grid-x {
 	display: grid;
-	column-gap: 20px;
 	grid-template-columns: repeat(5, 1fr);
+	padding-left: 145px;
+	padding-right: 180px;
 }
 
 
@@ -33,8 +50,6 @@
 }
 
 .editer_categories {
-	margin-left: 80px;
-	padding-right: 40px;
 	height: 200px;
 	margin-bottom: 120px;
 	white-space: nowrap;
@@ -45,7 +60,7 @@
 	height: 200px;
 	width: 300px;
 	border-radius: 20px / 20px;
-	background-color: black;
+	background-color: white;
 }
 
 .best_seller {
@@ -125,26 +140,25 @@
 	position: relative;
 	display : grid;
 	grid-template-columns: 300px 1fr;
-	height: auto;
+	height: 100%;
 	margin-left: 100px;
 	padding-left: 40px;
 	padding-right: 20px;
+	padding-bottom: 50px;
 }
 
 .filter {
 	position: sticky;
-	top: 150px;
+	top: 100px;
 	border-radius: 10px / 10px;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-	height: 800px;
+	height: min-content;
 }
 
 .filter_header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 50px;
-	padding : 10px;
+	display: gird;
+	padding: 10px;
+	grid-template-rows: 1fr 1fr;
 }
 
 .search {
@@ -217,11 +231,11 @@
 
 .primary {
 	margin-left: 50px;
+	padding-right: 40px;
 }
 
 .sort {
 	display: flex;
-	margin-left: 40px;
 	padding-right: 30px;
 	height: 60px;
 	background-color: lightgray;
@@ -239,12 +253,9 @@
 
 .sort_result_list {
 	margin-top: 20px;
-	padding-left: 30px;
 	display: grid;
 	grid-template-columns: repeat(4, 300px);
-	place-items: center;
 }
-
 
 .sort_result_card{
 	width: 280px;
@@ -252,7 +263,6 @@
 	margin-right: 10px;
 	margin-bottom: 80px;
 	border-radius: 20px / 20px;
-	background-color: black;
 }
 
 ul{
@@ -351,6 +361,139 @@ ul{
 .label_text{
 	direction: rtl;
 }
+
+.tag_container {
+	display: flex;
+	flex-flow: row wrap;
+	row-gap: 10px;
+}
+
+.tag {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: min-content;
+	background-color: plum;
+	border-radius: 50px;
+	padding: 10px;
+	margin: 8px;
+	white-space: nowrap;
+}
+
+.filter_header_title {
+	display: grid;
+	white-space: nowrap;
+	grid-template-columns: 150px 1fr;
+}
+
+.search_result {
+	display: flex;
+	align-items: center;	
+}
+
+.remove_filter {
+	display: inline-flex;
+	align-items: center;
+}
+
+.remove_filter:hover {
+	cursor: pointer;
+}
+
+/*card css*/
+img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    object-fit: cover;
+}
+
+/* 게임 뷰 포트*/
+.slider {
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+    row-gap: 20px;
+    width: 100%;
+    height: 550px;
+    margin-bottom: 120px;
+    overflow: hidden;
+    position: relative;
+}
+.slider > div:first-child {
+	display: grid;
+	grid-template-columns: 8px 1fr;
+	column-gap: 13px;
+	white-space: nowrap; 	
+	padding-left: 145px;   
+}
+
+.slider > .card-container{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    flex-wrap: nowrap;
+  	overflow-x: hidden;
+  	overflow-y: hidden;
+  	position: relative;
+  	scroll-behavior: smooth;
+}
+.card-container > .blank {
+	width: 55px;
+    height: 420px;
+    flex: 0 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.card-container > .card {
+    width: 350px;
+    height: 420px;
+    flex: 0 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-prev-btn {
+    position: sticky;
+    background-color: transparent;
+    color: red;
+    left:15px;
+    top: 200px;	
+    height:50px;  
+    z-index:1;
+    cursor: pointer;
+}
+
+.slider-next-btn {
+    position: sticky;
+    background-color: transparent;
+    color: white;	
+    right: 15px;
+    top: 200px;
+    height:50px;
+    cursor: pointer;
+}
+
+.inactive {
+	visibility: hidden;
+}
+
+.slider-next-btn > button {
+    width: 140px;
+    height: 160px;
+    color: #000;
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.bar {
+	background-color: black;
+}
+
 
 
 
