@@ -63,9 +63,10 @@ header {
    font-size: 14px;
 }
 
-#point-li {
+#point-div {
 	font-size: 14px;
 	margin-left: -200px;
+	margin-top: -3px;
 	color: white;
 }
 /* #point-amount {
@@ -92,6 +93,11 @@ header {
    text-decoration: none;
    font-weight: bold;
    font-size: 14px;
+   /* margin-bottom: 1px; */
+}
+
+.point-li {
+	margin-bottom: 10px;
 }
 
 .clickable-li a {
@@ -120,6 +126,13 @@ header {
    left: -3px;
    transition: color 0.3s;
 }
+
+/* #login-btn {
+	margin-left: 25px;
+	margin-bottom: 8px;
+	width: 30px;
+	height: 30px;
+} */
 
 #header-top-underline {
    padding: 10px;

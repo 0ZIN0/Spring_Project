@@ -193,6 +193,9 @@ function openLoginPopup() {
 
         // 새로운 팝업을 열고, loginPopup 변수에 할당하여 저장
         loginPopup = window.open('./member/login', '_blank', popupFeatures);
+        $(document).ready(function(){
+    	window.resizeTo(480, 800);
+});
     }
 }
 

@@ -28,8 +28,8 @@
 
 				<!-- 사용자가 로그인한 경우 이 li 요소를 보여줍니다. -->
 				<c:if test="${not empty sessionScope.isLoggedIn}">
-					<li>
-						<div id="point-li">
+					<li id="point-li">
+						<div id="point-div">
 							현재 보유량: <i class="fa-brands fa-bitcoin" id="point-i"> ${user.user_point} </i> 
 							<div class="clickable-li" id="login-li">
 								<i class="fa-regular fa-circle-user fa-xl" id="login-icon"

@@ -1,5 +1,10 @@
+   
+   $(document).ready(function(){
+   	  window.resizeTo(480, 800);
+   });
+  
    // 개인정보처리방침 확인하기 버튼 누르면 페이지 이동
-   const privateBtn = document.getElementById("private-btn");
+    const privateBtn = document.getElementById("private-btn");
    
       privateBtn.addEventListener("click", function(event) {
       event.preventDefault();
