@@ -103,26 +103,58 @@ h3 {
 	background-color: white;
 }
 
+.game-img {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
 .game-content {
 	padding: 16px;
 	display: grid;
-	grid-template-rows: 24px 1fr 24px;
+	grid-template-rows: 30px 1fr 24px;
 	row-gap: 10px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
 }
 
 .game-name {
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: bold;
 	color: black;
 }
 
-.game-short-title {
-	font-size: 16px;
+.game-select-form {
+	padding-top: 20px;
+	display: grid;
+	grid-template-columns: 50px 100px;
+	column-gap: 10px;
+}
+
+.game-select-form > * {
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.game-select-form > :nth-child(2) {
+	color: #35C1CF;
 }
 
 .game-content-bottom {
 	display: grid;
 	grid-template-columns: 50px 1fr 80px;
+}
+
+.plat-form-select:hover {
+	cursor: pointer;
+}
+
+.plat-form-select {
+	display: grid;
+	grid-template-columns: 80px 20px;
+}
+
+.plat-form-select > * {
+	font-size: 15px;
 }
 
 .cart-delete {
@@ -165,6 +197,7 @@ h3 {
 	background-color: white;
 	row-gap: 10px;
 	border-bottom: #e5e8f0 solid 2px;
+	border-radius: 8px;
 }
 
 #summary-grid > :first-child {
@@ -265,11 +298,12 @@ h3 {
 	align-items: center;
 	text-decoration: underline;
 	padding: 16px;
+	border-radius: 8px;
 }
 
 #refund-btn {
 	color: black;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 100;
 }
 
