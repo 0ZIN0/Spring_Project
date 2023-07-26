@@ -26,18 +26,21 @@ $('.reg_input').focus(function() {
 
 // 각 input 포커스아웃 됐을 때
 $('#reg_input_id').blur(function() {
+    
     if(!$(this).val()) {
         $(this).parent().prev('.reg_input_header').removeClass('focused');
         $(this).closest('.reg_input_div').addClass('unvalid');
-        $(this).closest('.reg_input_div').next('.confirm_div').text('이메일을 입력하세요');
-        $(this).closest('.reg_input_div').next('.confirm_div').show();
+        $('#email_confirm').css('color', 'red');
+        $('#email_confirm').text('이메일을 입력하세요');
+        $('#email_confirm').show();
         return;
     };
 
     if(!chkEmail.test($(this).val())) {
         $(this).closest('.reg_input_div').addClass('unvalid');
-        $(this).closest('.reg_input_div').next('.confirm_div').text('이메일이 형식에 맞지 않습니다.');
-        $(this).closest('.reg_input_div').next('.confirm_div').show();
+        $('#email_confirm').css('color', 'red');
+        $('#email_confirm').text('이메일이 형식에 맞지 않습니다.');
+        $('#email_confirm').show();
         return;
     }
 
@@ -133,7 +136,7 @@ $('#birth_header').on('click', function() {
 });
 
 $('#birth_input').focus(function() {
-    $(this).closest('.reg_input_div').next('.confirm_div').hide();
+    $(this).closest('#birth_gender_div').next('.confirm_div').hide();
     $(this).prop('disabled', false);
     if($(this).val() != false) {
         $(this).closest('.reg_input_div').removeClass('unvalid');
@@ -147,13 +150,31 @@ $('#birth_input').blur(function() {
         $(this).prop('disabled', true);
         $('#birth_header').removeClass('focused');
         $(this).closest('.reg_input_div').addClass('unvalid');
-        $(this).closest('.reg_input_div').next('.confirm_div').show();
+        $(this).closest('#birth_gender_div').next('.confirm_div').show();
         return;
     } 
     
     $(this).closest('.reg_input_div').removeClass('unvalid');
     $(this).closest('.reg_input_div').addClass('valid');
 });
+
+// 성별 선택 동작 설정
+$('#gender_header').click(function() {
+    $(this).addClass('focused');
+    $('#gender_ratio').css('opacity', 1);
+});
+$('#gender_input').mouseleave(function() {
+    if(($('#genderChoice1').prop('checked')
+         || $('#genderChoice2').prop('checked')
+         || $('#genderChoice3').prop('checked')) == false) {
+        $(this).prev('#gender_header').removeClass('focused');
+        $('#gender_ratio').css('opacity', 0);
+        return;
+    } 
+
+    $(this).closest('#gender_input_div').addClass('valid');
+});
+
 
 // 규정 부분 동작 설정
 $('.accordion').click(function() {
@@ -180,6 +201,13 @@ $('#email-accDiv > .accordion').click(function() {
 $('#email-chkBtn').click(function() {
     let userId = $('#reg_input_id').val();
 
+    if(!chkEmail.test(userId)) {
+        $(this).closest('.reg_input_div').addClass('unvalid');
+        $(this).closest('.reg_input_div').next('.confirm_div').text('이메일이 형식에 맞지 않습니다.');
+        $(this).closest('.reg_input_div').next('.confirm_div').show();
+        return;
+    }
+    
     $.ajax({
         url : "./checkEmail",
         type : "GET",

@@ -23,7 +23,7 @@ public class SignUpController {
 	
 	@GetMapping(value="/signup")
 	public void signup() {
-		log.info("회원가입 + 화면입니다.");
+		log.info("기본 회원가입 화면입니다.");
 	}
 	
 	@GetMapping(value="/naver_signup")

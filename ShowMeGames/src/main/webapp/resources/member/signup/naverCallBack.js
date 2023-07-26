@@ -1,13 +1,11 @@
 
 var naverLogin = new naver.LoginWithNaverId({
-  clientId: "lmZiRViUOnHbdLiKlCPj", // 본인걸로 수정, 띄어쓰기 금지.
-  callbackUrl: "http://localhost:8090/smg/member/naver_signup", // 아무거나 설정
+  clientId: "lmZiRViUOnHbdLiKlCPj", 
+  callbackUrl: "http://localhost:8090/smg/member/naver_signup", 
   isPopup: false,
   callbackHandle: true
 });
 naverLogin.init();
-
-const input_id = $('#reg_input_id');
 
 window.addEventListener('load', function () {
   naverLogin.getLoginStatus(function (status) {
@@ -19,6 +17,8 @@ window.addEventListener('load', function () {
       var email = naverLogin.user.getEmail();
       var name = naverLogin.user.getName();
       var mobile = naverLogin.user.getMobile();
+      var gender = naverLogin.user.getGender();
+      var id = naverLogin.user.getId();
 
       var birth = birthyear + '-' + birthday;
 
@@ -26,6 +26,16 @@ window.addEventListener('load', function () {
       $('#reg_input_name').val(name);
       $('#reg_input_phone').val(mobile);
       $('#birth_input').val(birth);
+
+      if(gender == 'M') {
+        $('#genderChoice1').prop('checked', true);
+      } else if(gender == "F") {
+        $('#genderChoice2').prop('checked', true);
+      } else {
+        $('#genderChoice3').prop('checked', true);
+      }
+
+      $('#social_key').val(id);
 
     } else {
       console.log("callback 처리에 실패하였습니다.");
