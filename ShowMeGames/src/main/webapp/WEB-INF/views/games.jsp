@@ -227,7 +227,7 @@
 				</div>
 			</div>
 			<div class="sort_result_content">
-				<div class="sort_result_list">
+				<div class="sort_result_list">1234
 					<c:forEach items="${games }" var="game">
 							<div class="sort_result_card">
 								<img src="${game.banner_img_url}" alt="banner_img"/>
