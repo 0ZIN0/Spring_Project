@@ -48,8 +48,8 @@
 					<div id="cart-content-grid">
 						<h3 id="cart-title">&nbsp;고객님의 장바구니 (${cart_len} 상품)</h3>
 						<div id="games-info-grid">
-							<c:forEach begin="1" end="4" var="i">
-								<div class="game-img">img ${i}</div>
+							<c:forEach items="cart_list" var="game">
+								<img class="game-img" alt="" src="${game.banner_img_url}"></img>
 								<div class="game-content">
 									<a class="game-name" href="./">카트라이더</a>
 									<div class="game-select-form">

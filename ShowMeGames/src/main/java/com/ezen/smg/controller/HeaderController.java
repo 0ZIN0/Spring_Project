@@ -35,10 +35,19 @@ public class HeaderController {
 	}
 	
 	@GetMapping(value="/cart")
-	public void cart(@SessionAttribute(name = "user", required = true) SmgUsersDTO user, Model model) {
-		int user_num = user.getUser_num();
-		
-		model.addAttribute("cart_list", cartService.getCartList(user_num));
-		model.addAttribute("cart_len", cartService.getCartList(user_num).size());
+	public String cart(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model) {
+		try {
+			Integer user_num = user.getUser_num();
+			
+			model.addAttribute("cart_list", cartService.getCartList(user_num));
+			model.addAttribute("cart_len", cartService.getCartList(user_num).size());
+			
+			log.info(cartService.getCartList(user_num));
+			
+			return null;
+//			return "cart";
+		} catch (Exception e) {
+			return "redirect:/"; // 로그인 팝업창 띄우기
+		}
 	}
 }
