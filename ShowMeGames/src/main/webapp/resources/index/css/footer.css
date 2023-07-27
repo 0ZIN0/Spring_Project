@@ -17,7 +17,7 @@ footer {
 
 #footer-main {
 	margin: auto;
-	width: 800px;
+	width: 1000px;
 }
 
 #footer-main > div:first-child {
@@ -51,11 +51,11 @@ footer {
 
 #footer-main > div:nth-child(2) {
 	font-size: 12px;
-	color: #777777;	
+	color: white;	
 }
 
 #footer-main > div:last-child {
 	margin-top:10px;
 	font-size: 10px;
-	color: #777777;	
+	color: white;	
 }
