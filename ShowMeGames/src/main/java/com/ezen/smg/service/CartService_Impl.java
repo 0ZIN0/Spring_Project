@@ -31,4 +31,16 @@ public class CartService_Impl implements CartService {
 		return games;
 	}
 
+	@Override
+	public int getTotalPrice(int user_num) {
+		String[] cartContent = cartMapper.getCartContent(user_num).split("/");
+		int total_price = 0;
+		
+		for (String game : cartContent) {
+			total_price += gamesMapper.getGame(Integer.parseInt(game)).getGame_price();
+		}
+		
+		return total_price;
+	}
+
 }

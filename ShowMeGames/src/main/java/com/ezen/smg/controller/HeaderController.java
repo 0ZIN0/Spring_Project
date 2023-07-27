@@ -41,12 +41,11 @@ public class HeaderController {
 			
 			model.addAttribute("cart_list", cartService.getCartList(user_num));
 			model.addAttribute("cart_len", cartService.getCartList(user_num).size());
-			
-			log.info(cartService.getCartList(user_num));
+			model.addAttribute("total_price", cartService.getTotalPrice(user_num));
 			
 			return "cart";
 		} catch (Exception e) {
-			return "redirect:/"; // 로그인 팝업창 띄우기
+			return "redirect:/member/login"; // 로그인 팝업창 띄우기
 		}
 	}
 }

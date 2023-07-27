@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!-- c:url settings -->
 <c:url value="/resources/cart/css/cart.css" var="cart_css" />
 <c:url value="/resources/cart/js/cart.js" var="cart_js" />
@@ -48,10 +49,10 @@
 					<div id="cart-content-grid">
 						<h3 id="cart-title">&nbsp;고객님의 장바구니 (${cart_len} 상품)</h3>
 						<div id="games-info-grid">
-							<c:forEach items="cart_list" var="game">
-								<img class="game-img" alt="" src="${game.banner_img_url}"></img>
+							<c:forEach items="${cart_list}" var="game">
+								<img class="game-img" alt="" src="${game.banner_img_url}">
 								<div class="game-content">
-									<a class="game-name" href="./">카트라이더</a>
+									<a class="game-name" href="./detail?game=${game.game_id}">${game.game_name}</a>
 									<div class="game-select-form">
 										<c:choose>
 											<c:when test="${gamePlatform != 1}">
@@ -83,7 +84,16 @@
 											<div>제거</div>
 										</a>
 										<div></div>
-										<div class="game-price price">￦ 가격</div>
+										<div class="game-price price">
+											<c:choose>
+												<c:when test="${game.game_price > 0}">
+													￦ <fmt:formatNumber type="number" maxFractionDigits="3" value="${game.game_price}" />
+												</c:when>
+												<c:otherwise>
+													￦ 무료
+												</c:otherwise>
+											</c:choose>
+										</div>
 									</div>
 								</div>
 							</c:forEach>
@@ -103,13 +113,17 @@
 							<div id="summary-grid">
 								<div>
 									<div>소계 (${cart_len} 항목)</div>
-									<div class="price" id="lower-order">￦ 소계</div>
+									<div class="price" id="lower-order">
+										￦ <fmt:formatNumber type="number" maxFractionDigits="3" value="${total_price}" />
+									</div>
 								</div>
 								<div>
 									<div>합계</div>
 									<div>부가세 포함</div>
 									<div></div>
-									<div class="price" id="total-order">￦ 합계</div>
+									<div class="price" id="total-order">
+										￦ <fmt:formatNumber type="number" maxFractionDigits="3" value="${total_price}" />
+									</div>
 								</div>
 								<div>
 									<div>해당 구매로 획득하는 유닛</div>
