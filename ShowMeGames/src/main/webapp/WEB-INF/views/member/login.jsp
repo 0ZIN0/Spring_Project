@@ -5,6 +5,7 @@
 <c:url value="/resources/member/login/login.css" var="css1" />
 <c:url value="/resources/img/index" var="img" />
 <c:url value="/resources/img/member" var="member_img" />
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
 	crossorigin="anonymous"></script>
 <!DOCTYPE html>
@@ -91,6 +92,8 @@
 			<div class="login-btn" id="loginBtn">로그인</div>
 
 			<div class="easyLogin">간편 로그인</div>
+
+			<div class="naver-login-btn" id="naverLoginBtn">네이버 로그인</div>
 
 			<div class="private-div">
 				<a href="" id="private-btn">개인정보처리방침 확인하기</a>
