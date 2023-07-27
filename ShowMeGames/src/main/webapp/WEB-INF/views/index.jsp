@@ -27,24 +27,17 @@
 				</div>
 				<img src="${img}/HomeHero_SummerSale-June23_desk 1.png" alt="배너사진">
 			</div>
-			<div id="bestGame">
+			<div id="newGame">
 				<div>
-					<div id="bestGame_title">
+					<div id="newGame_title">
 						<span class="title">최신 게임.</span><span class="sub-title"> 따끈따끈한 새 게임의 세계로.</span>
 					</div>
-					<div id="bestGame_container">
-						<div class="best_games">
-							<img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
-						</div>
-						<div class="best_games">
-							<img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
-						</div>
-						<div class="best_games">
-							<img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
-						</div>
-						<div class="best_games">
-							<img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
-						</div>
+					<div id="newGame_container">
+						<c:forEach begin="1" end="4" varStatus="status">
+							<div class="newgames">
+								<img src="${img}/temp/best${status.count}.png" alt="사진${status.count}">
+							</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
@@ -144,18 +137,18 @@
 						<i class="material-icons" id="genre-prev-button"
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
-					<div id="genre-container">
-						<div class="genres">
-							<img src="${img}/black.png" alt="사진">
+					<div id="genre-container" data-imgurl="${img}/genre">
+						<div class="genres" style="background-image: url(${img}/genre/genre1.png;">
+							<span>캐주얼</span>
 						</div>
-						<div class="genres">
-							<img src="${img}/black.png" alt="사진">
+						<div class="genres" style="background-image: url(${img}/genre/genre2.png;">
+							<span>전략/시뮬</span>
 						</div>
-						<div class="genres">
-							<img src="${img}/black.png" alt="사진">
+						<div class="genres" style="background-image: url(${img}/genre/genre3.png;">
+							<span>RPG</span>
 						</div>
-						<div class="genres">
-							<img src="${img}/black.png" alt="사진">
+						<div class="genres" style="background-image: url(${img}/genre/genre4.png;">
+							<span>퍼즐</span>
 						</div>
 					</div>
 					<div class="btn">

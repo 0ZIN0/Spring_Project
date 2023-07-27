@@ -17,14 +17,6 @@ body {
     width: 100%;
     margin: 0;
     padding-bottom: 300px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, #210b6a 100%);
-}
-
-.background_layer1 {
-	background: linear-gradient(179deg, #090300 0%, rgba(9, 3, 0, 0.00) 100%);
-}
-.background_layer2 {
-	background: linear-gradient(135deg, rgba(9, 3, 0, 0.80) 0%, rgba(9, 3, 0, 0.00) 100%);
 }
 
 /* 타이틀 폰트 관련 css */
@@ -66,8 +58,8 @@ body {
     z-index: 2;
 }
 
-/* bestgame 관련*/
-#bestGame {
+/* newGame 관련*/
+#newGame {
     width: auto;
     height: 730px;
     margin: auto;
@@ -75,9 +67,9 @@ body {
     overflow: hidden;
 }
 
-#bestGame > div {
+#newGame > div {
     width: 1560px;
-    height: 686px;
+    height: 726px;
     padding: 20px;
     margin: 0 160px;
     display: flex;
@@ -85,21 +77,21 @@ body {
     row-gap: 40px;
 }
 
-#bestGame_title {
+#newGame_title {
 	width: 1560px;
     height: 80px;
     border-left: white 10px solid;
     padding-left: 30px;
 }
 
-#bestGame_container {
+#newGame_container {
 	width: 1560px;
     height: 566px;
     display: flex;
     flex-direction: row;
     column-gap: 20px;
 }
-.best_games {
+.newgames {
     overflow: hidden;
     position: relative;
     text-align: center;
@@ -200,7 +192,11 @@ body {
     width: 180px;
     justify-content: center;
     align-items: center;
-    color: #000;
+    color: #fff;
+    user-select: none;
+}
+#genre-div > .btn > i:hover {
+    cursor: pointer;
 }
 
 #genre-container {
@@ -213,6 +209,18 @@ body {
     border-radius: 20px;
     width: 375px;
     height: 290px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#genre-container > .genres > span {
+    color: #FFF;
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 60px;
+    font-weight: 600;
+    letter-spacing: -1.8px;
 }
 
 /* hotgame css */
@@ -316,6 +324,7 @@ body {
     width: 100%;
     height: 940px;
     overflow: hidden;
+    margin: 0;
 }
 #curator > div {
     display: flex;
