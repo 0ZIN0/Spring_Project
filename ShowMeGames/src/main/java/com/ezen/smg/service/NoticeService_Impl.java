@@ -42,4 +42,10 @@ public class NoticeService_Impl implements NoticeService {
 		
 		return noticeMapper.getAllNotices();
 	}
+	
+	@Override
+	public List<NoticeDTO> getContent(Integer notice_id) {
+		
+		return noticeMapper.getContent(notice_id);
+	}
 }

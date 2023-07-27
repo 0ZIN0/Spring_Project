@@ -72,6 +72,13 @@ public class CustomerController {
 		model.addAttribute("notices", noticeService.getAllNotices());
 	}
 	
+	@GetMapping(value="/notice/notice_detail")
+	String noticeDetail(Integer notice_id, Model model) {
+		log.info(noticeService.getContent(notice_id));
+		//model.addAttribute("notice_id", noticeService.getContent(notice_id));
+		return "customer/notice_detail";
+	}
+	
 	@ResponseBody
 	@GetMapping(value = "/select-notice", produces = "application/json")
 	public List<NoticeDTO> getSelectNotice(Model model, Integer year, Integer date) {
