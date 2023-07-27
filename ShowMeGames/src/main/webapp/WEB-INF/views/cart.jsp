@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!-- c:url settings -->
 <c:url value="/resources/cart/css/cart.css" var="cart_css" />
 <c:url value="/resources/cart/js/cart.js" var="cart_js" />
@@ -18,8 +19,6 @@
 <!-- payment port one api -->
 <script type="text/javascript"
 	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-<!-- c:set settings -->
-<c:set var="gamePlatform" scope="session" value="${gamePlatform}" />
 </head>
 <body>
 	<div id="refund-popup" class="refund-none">
@@ -55,7 +54,13 @@
 									<a class="game-name" href="./detail?game=${game.game_id}">${game.game_name}</a>
 									<div class="game-select-form">
 										<c:choose>
-											<c:when test="${gamePlatform != 1}">
+											<c:set var="platforms" value="${fn:split(game.platform,' ')}" />
+
+											<c:when test="${platforms != 1}">
+											<c:forEach var="telNum" items="${tel}" varStatus="g">
+												<c:if test="${g.count == 2}">${telNum}</c:if>
+												<c:if test="${g.last}">-${telNum}</c:if>
+											</c:forEach>
 												<div>플랫폼:</div>
 												<div class="plat-form-select">
 													<div>PC (디지털)</div>
@@ -87,7 +92,8 @@
 										<div class="game-price price">
 											<c:choose>
 												<c:when test="${game.game_price > 0}">
-													￦ <fmt:formatNumber type="number" maxFractionDigits="3" value="${game.game_price}" />
+													￦ <fmt:formatNumber type="number" maxFractionDigits="3"
+														value="${game.game_price}" />
 												</c:when>
 												<c:otherwise>
 													￦ 무료
@@ -114,7 +120,9 @@
 								<div>
 									<div>소계 (${cart_len} 항목)</div>
 									<div class="price" id="lower-order">
-										￦ <fmt:formatNumber type="number" maxFractionDigits="3" value="${total_price}" />
+										￦
+										<fmt:formatNumber type="number" maxFractionDigits="3"
+											value="${total_price}" />
 									</div>
 								</div>
 								<div>
@@ -122,7 +130,9 @@
 									<div>부가세 포함</div>
 									<div></div>
 									<div class="price" id="total-order">
-										￦ <fmt:formatNumber type="number" maxFractionDigits="3" value="${total_price}" />
+										￦
+										<fmt:formatNumber type="number" maxFractionDigits="3"
+											value="${total_price}" />
 									</div>
 								</div>
 								<div>
