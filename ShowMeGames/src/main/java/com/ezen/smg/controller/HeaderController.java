@@ -44,8 +44,7 @@ public class HeaderController {
 			
 			log.info(cartService.getCartList(user_num));
 			
-			return null;
-//			return "cart";
+			return "cart";
 		} catch (Exception e) {
 			return "redirect:/"; // 로그인 팝업창 띄우기
 		}
