@@ -155,6 +155,7 @@
 			</ul>
 		</div>
 		<div id="blank"></div>
+
 		<div>
 			<form id="search-form" action="${conPath}search">
 				<input type="text" id="search" name="search"
@@ -165,9 +166,31 @@
 				</button>
 			</form>
 		</div>
+
 		<div id="header-cart" onclick="location.href='${conPath}cart'">
 			<a class="bottom-title" id="cart-btn" href="${conPath}cart"><i
 				id="cart-icon" class="fa-solid fa-cart-shopping"></i>장바구니</a>
 		</div>
 	</div>
+
+	<!-- 장바구니 마우스 오버 시 나올 MiniCart -->
+	<div id="minicart" class="minicart-common">
+		<div class="minicart-header minicart-common">장바구니</div>
+		<div class="minicart-content">
+			<div class="empty-minicart-content minicart-common">
+				<div class="empty-minicart-message minicart-common">
+					장바구니가 비어 있습니다.
+				</div>
+				<div class="empty-minicart-image minicart-common">
+					<img alt="Empty Minicart"src="https://store.ubisoft.com/on/demandware.static/-/Library-Sites-shared-library-web/default/dwedbef18c/Web_Revamp_Contribution/minicart/empty_minicart.png">
+				</div>
+				<div class="empty-minicart-buttons minicart-common">
+					쇼핑하러 가기1!.
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- minicart Part End -->
+
+
 </header>
