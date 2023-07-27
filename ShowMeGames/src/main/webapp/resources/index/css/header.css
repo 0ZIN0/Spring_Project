@@ -66,8 +66,9 @@ header {
 #point-div {
 	font-size: 14px;
 	margin-left: -200px;
-	margin-top: -3px;
+	margin-top: -2px;
 	color: white;
+	font-weight: bold;
 }
 /* #point-amount {
 		
@@ -78,12 +79,19 @@ header {
     color: #edc800;
     font-size: 14px; 
     font-weight: 100px;
+     margin-left: 2px;
+    margin-right: 2px;
 }
 
 
 #login-icon {
 	margin-left: 30px;
 }
+
+#login-icon2 {
+    margin-left: 32px;
+    margin-right: 2px;
+  }
 
 .clickable-li {
    display: inline-block;
@@ -93,7 +101,7 @@ header {
    text-decoration: none;
    font-weight: bold;
    font-size: 14px;
-   /* margin-bottom: 1px; */
+   margin-bottom: -3px;
 }
 
 .point-li {

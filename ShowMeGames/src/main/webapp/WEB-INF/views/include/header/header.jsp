@@ -30,9 +30,9 @@
 				<c:if test="${not empty sessionScope.isLoggedIn}">
 					<li id="point-li">
 						<div id="point-div">
-							현재 보유량: <i class="fa-brands fa-bitcoin" id="point-i"> ${user.user_point} </i> 
+							현재 보유량:&nbsp;<i class="fa-brands fa-bitcoin" id="point-i">&nbsp;&nbsp;${user.user_point} </i> 
 							<div class="clickable-li" id="login-li">
-								<i class="fa-regular fa-circle-user fa-xl" id="login-icon"
+								<i class="fa-regular fa-circle-user fa-2xl" id="login-icon2"
 									style="color: #a1a1a1;"></i> <a id="login-btn"></a>
 							</div>
 							
