@@ -444,6 +444,7 @@ header {
    margin: 0%;
    font-weight: bold;
    border-radius: 0px 0px 8px 8px;
+   display: none;
 }
 
 .minicart-common {
