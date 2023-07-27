@@ -153,6 +153,99 @@ body {
     overflow: hidden;
     position: relative;
 }
+.card-container > .recmd-items > div:first-child {
+    height: 300px;
+}
+.item_text_box {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.70);
+    color: #fff;
+}
+.item_text_box > div:first-child {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.game_title {
+    font-size: 30px;
+    font-weight: 550;
+}
+.item_text_box > div:nth-child(2) {
+    position: absolute;
+    right: 20px;
+    bottom: 70px;
+}
+.item_text_box > div:nth-child(2) > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #F3EED9;
+    color: #F22349;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -1.08px;
+}
+.item_text_box > div:nth-child(3) {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.item_text_box > div:nth-child(3) > span:first-child {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -1.14px;
+    text-decoration-line: line-through;
+}
+.item_text_box > div:nth-child(3) > span:last-child {
+    color: #F22349;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: -1.38px;
+}
+.card-container > .recmd-items > .item_text_box {
+    height: 120px;
+}
+.card-container > .recmd-items > .item_text_box > div {
+    position: absolute;
+}
+.card-container > .recmd-items > .item_text_box > div:first-child {
+    left: 14px;
+    top: 5px;
+}
+.card-container > .recmd-items > .item_text_box > div:nth-child(2) {
+    right: 14px;
+    bottom : 50px;
+}
+.card-container > .recmd-items > .item_text_box > div:nth-child(2) > span {
+    width: 80px;
+    height: 30px;
+    font-size: 30px;
+}
+.card-container > .recmd-items > .item_text_box > div:nth-child(3) {
+    right: 14px;
+    bottom : 5px;
+}
+.card-container > .recmd-items > .item_text_box > div:nth-child(3) > span:first-child {
+    font-size: 30px;
+    font-weight: 300;
+}
+.card-container > .recmd-items > .item_text_box > div:nth-child(3) > span:last-child {
+    font-size: 38px;
+    font-weight: 700;
+}
 
 .slider-prev-btn {
     position: sticky;
@@ -247,7 +340,6 @@ body {
     width: 1600px;
     height: 780px;
 }
-
 .game_item {
     width: 770px;
     height: 780px;
@@ -259,65 +351,11 @@ body {
     height: 540px;
     flex-shrink: 0;
 }
-.game_item > div:last-child {
-    position: relative;
-    width: 100%;
-    height: 240px;
-    flex-shrink: 0;
-    background: rgba(0, 0, 0, 0.70);
-    color: #fff;
-    padding: 20px;
-}
-.game_item > div:last-child > div:first-child {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
-.game_title {
+.game_item .game_title {
     font-size: 55px;
     font-weight: 550;
 }
-.game_item > div:last-child > div:nth-child(2) {
-    position: absolute;
-    right: 20px;
-    bottom: 70px;
-}
-.game_item > div:last-child > div:nth-child(2) > span {
-    display: block;
-    text-align: center;
-    width: 100px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: #F3EED9;
-    color: #F22349;
-    font-size: 36px;
-    font-weight: 600;
-    letter-spacing: -1.08px;
-}
-.game_item > div:last-child > div:nth-child(3) {
-    display: flex;
-    flex-direction: row;
-    column-gap: 10px;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-}
-.game_item > div:last-child > div:nth-child(3) > span:first-child {
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-    color: #FFF;
-    font-size: 32px;
-    font-weight: 400;
-    letter-spacing: -1.14px;
-    text-decoration-line: line-through;
-}
-.game_item > div:last-child > div:nth-child(3) > span:last-child {
-    color: #F22349;
-    font-size: 40px;
-    font-weight: 600;
-    letter-spacing: -1.38px;
-}
+
 
 /* curator 관련 css */
 #curator {
@@ -353,7 +391,7 @@ body {
     left: 20px;
 }
 #curator-content .game_item:first-child > div:last-child > div:first-child {
-    top: 30px;
+    top: 15px;
     left: 30px;
 }
 #curator-content > .game_item:first-child > div:first-child {

@@ -78,7 +78,8 @@ let genres = [
 		'img' : genre_imgurl + '/genre9.png'
 	},
 ];
-let preBtnIndex = 8;
+let lastIndex = genres.length - 1;
+let preBtnIndex = lastIndex;
 let nextBtnIndex = 4;
 const preBtn = $('#genre-div > .btn:first-child > i');
 const nextBtn = $('#genre-div > .btn:last-child > i');
@@ -94,8 +95,8 @@ $(preBtn).click(function() {
 	--preBtnIndex;
 	--nextBtnIndex;
 
-	if(preBtnIndex == -1) preBtnIndex = 8;
-	if(nextBtnIndex == -1) nextBtnIndex = 8;
+	if(preBtnIndex == -1) preBtnIndex = lastIndex;
+	if(nextBtnIndex == -1) nextBtnIndex = lastIndex;
 	if(preBtnIndex == 9) preBtnIndex = 0;
 	if(nextBtnIndex == 9) nextBtnIndex = 0;
 });
@@ -111,8 +112,8 @@ $(nextBtn).click(function() {
 	++preBtnIndex;
 	++nextBtnIndex;
 
-	if(preBtnIndex == -1) preBtnIndex = 8;
-	if(nextBtnIndex == -1) nextBtnIndex = 8;
+	if(preBtnIndex == -1) preBtnIndex = lastIndex;
+	if(nextBtnIndex == -1) nextBtnIndex = lastIndex;
 	if(preBtnIndex == 9) preBtnIndex = 0;
 	if(nextBtnIndex == 9) nextBtnIndex = 0;
 });

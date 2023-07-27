@@ -56,39 +56,24 @@
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
 					<div class="blank"></div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${game_img}/Tekken7/Tekken5.jpg" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${game_img}/Forza_Horizon/Forza Horzon4.jpg" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
+					<c:forEach begin="1" end="10">
+						<div class="recmd-items">
+							<div>
+								<img src="${img}/temp/temp2.png" alt="사진">
+							</div>
+							<div class="item_text_box">
+								<div>
+									<span class="game_title">로렘 Ipsum</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩18,000</span><span>₩9,000</span>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
 					<div class="slider-next-btn">
 						<i class="material-icons" id="editer-next-button"
 							style="font-size: 48px;">arrow_forward_ios</i>
@@ -106,21 +91,24 @@
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
 					<div class="blank"></div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
+					<c:forEach begin="1" end="8">
+						<div class="recmd-items">
+							<div>
+								<img src="${img}/temp/temp1.png" alt="사진">
+							</div>
+							<div class="item_text_box">
+								<div>
+									<span class="game_title">로렘 Ipsum</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩18,000</span><span>₩9,000</span>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
 					<div class="slider-next-btn">
 						<i class="material-icons" id="cms-next-button"
 							style="font-size: 48px;">arrow_forward_ios</i>
@@ -169,7 +157,7 @@
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -185,7 +173,7 @@
 							<div>
 								<img src="${img}/temp/Img2.png" alt="임시사진2">
 							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -211,7 +199,7 @@
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -227,7 +215,7 @@
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -243,7 +231,7 @@
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -259,7 +247,7 @@
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -275,7 +263,7 @@
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -290,11 +278,10 @@
 					</div>
 				</div>
 			</div>
-
-			<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
 		</div>
 	</div>
 
+	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
 	<!-- js -->
 	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
 	<script src="./resources/index/js/index.js"></script>
