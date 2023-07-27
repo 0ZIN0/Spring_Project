@@ -24,40 +24,41 @@
 		</div>
 		<div class='qna-input'>
 			<div><h2>문의하기</h2></div>
+			<form method="POST" action="${pageContext.request.contextPath}/customer/inquireis" enctype="multipart/form-data">
 			<div>
 				<table class='qna-table'>
 					<tr>
 						<td class='qna-text'>문의구분</td>
 						<td>
-							<select id="title-select">
-								<option value="" selected>::선택::</option>
-								<option value="">모든 주제</option>
-								<option value="">이용방법</option>
-								<option value="">계정</option>
-								<option value="">주문</option>
-								<option value="">환불</option>
-								<option value="">등록</option>
-								<option value="">설치</option>
-								<option value="">상품</option>
-								<option value="">기타</option>
+							<select id="title-select" name="inquiry_subject">
+								<option value="select" selected>::선택::</option>
+								<option value="All">모든 주제</option>
+								<option value="이용방법">이용방법</option>
+								<option value="계정">계정</option>
+								<option value="주문">주문</option>
+								<option value="환불">환불</option>
+								<option value="등록">등록</option>
+								<option value="설치">설치</option>
+								<option value="상품">상품</option>
+								<option value="기타">기타</option>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<td class='qna-text'>제목</td>
 						<td>
-							<input type="text" value="제목을 입력해주세요" style="width: 863px; height: 35px;"/>
+							<input type="text" value="제목을 입력해주세요" name="inquiry_title" style="width: 863px; height: 35px;"/>
 						</td>					
 					</tr>
 					<tr>
 						<td class='qna-text textarea'>내용</td>
 						<td>
-							<textarea id="" cols="120" rows="30" style="resize: none;"></textarea>
+							<textarea id="" name="inquiry_content" cols="100" rows="28"  style="resize: none;"></textarea>
 						</td>				
 					</tr>
 					<tr>
 						<td class='qna-text'>첨부파일</td>
-						<td><input type="file" /></td>
+						<td><input type="file" name="attachment" accept="image/jpeg image/png image/gif"/></td>
 					</tr>
 					<tr>
 						<td></td>
@@ -73,6 +74,7 @@
 				
 				
 			</div>
+			</form>
 	</div>	
 	</div>
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
