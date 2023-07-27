@@ -16,7 +16,7 @@
   				1,
   				#{inquiry_title},
   				#{inquiry_content},
-  				#{attachment},
+  				#{file_name},
   				#{inquiry_subject}
   			)
   		</insert>
