@@ -38,3 +38,81 @@ card_container.scroll(function() {
 	}, 100));
 });
 
+// 장르 이동 버튼
+let genre_imgurl = $('#genre-container').data('imgurl');
+let genres = [
+	{
+		'text': '캐주얼',
+		'img' : genre_imgurl + '/genre1.png'
+	},
+	{
+		'text': '전략/시뮬',
+		'img' : genre_imgurl + '/genre2.png'
+	},
+	{
+		'text': 'RPG',
+		'img' : genre_imgurl + '/genre3.png'
+	},
+	{
+		'text': '퍼즐',
+		'img' : genre_imgurl + '/genre4.png'
+	},
+	{
+		'text': '액션/어드벤처',
+		'img' : genre_imgurl + '/genre5.png'
+	},
+	{
+		'text': '슈팅/FPS',
+		'img' : genre_imgurl + '/genre6.png'
+	},
+	{
+		'text': '멀티/협동',
+		'img' : genre_imgurl + '/genre7.png'
+	},
+	{
+		'text': '레이싱',
+		'img' : genre_imgurl + '/genre8.png'
+	},
+	{
+		'text': '스포츠',
+		'img' : genre_imgurl + '/genre9.png'
+	},
+];
+let preBtnIndex = 8;
+let nextBtnIndex = 4;
+const preBtn = $('#genre-div > .btn:first-child > i');
+const nextBtn = $('#genre-div > .btn:last-child > i');
+
+// 이전버튼
+$(preBtn).click(function() {
+	$('#genre-container').prepend(
+		'<div class="genres" style="background-image: url(' + genres[preBtnIndex].img + '">' +
+			'<span>' + genres[preBtnIndex].text + '</span>' +
+		'</div>'
+	);
+	$('#genre-container > div:last-child').remove();
+	--preBtnIndex;
+	--nextBtnIndex;
+
+	if(preBtnIndex == -1) preBtnIndex = 8;
+	if(nextBtnIndex == -1) nextBtnIndex = 8;
+	if(preBtnIndex == 9) preBtnIndex = 0;
+	if(nextBtnIndex == 9) nextBtnIndex = 0;
+});
+
+// 다음버튼
+$(nextBtn).click(function() {
+	$('#genre-container').append(
+		'<div class="genres" style="background-image: url(' + genres[nextBtnIndex].img + '">' +
+			'<span>' + genres[nextBtnIndex].text + '</span>' +
+		'</div>'
+	);
+	$('#genre-container > div:first-child').remove();
+	++preBtnIndex;
+	++nextBtnIndex;
+
+	if(preBtnIndex == -1) preBtnIndex = 8;
+	if(nextBtnIndex == -1) nextBtnIndex = 8;
+	if(preBtnIndex == 9) preBtnIndex = 0;
+	if(nextBtnIndex == 9) nextBtnIndex = 0;
+});
