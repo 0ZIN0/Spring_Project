@@ -1,71 +1,40 @@
+// card scroll
 // 스크롤 이동 버튼
-
-$('#editer-next-button').on('click', () => {
-	$('.editer-container').scrollLeft($('.editer-container').scrollLeft() + 1600);	
+let isAnimating = false;
+const card_container = $('.card-container');
+const next_btn = $('.slider-next-btn');
+const prev_btn = $('.slider-prev-btn');
+next_btn.on('click', function() {
+  if(!isAnimating) {
+    $(this).parent().scrollLeft($(this).parent().scrollLeft() + 1600);
+  }
 });
-$('#editer-prev-button').on('click', () => {
-	$('.editer-container').scrollLeft($('.editer-container').scrollLeft() - 1600);	
+prev_btn.on('click', function() {
+  if(!isAnimating) {
+    $(this).parent().scrollLeft($(this).parent().scrollLeft() - 1600);
+  }
 });
 
-// 스크롤이 멈췄을 때 버튼 숨김
-$('.editer-container').scroll(() => {
-	var Top = $('.editer-container').scrollLeft();
-	var Width = $('.editer-container').width();
-	
+card_container.scroll(function() {
+  isAnimating = true;
+  var el = this;
+	var current = $(el).scrollLeft();
+	var width = $(el).prop('scrollWidth') - $(el).prop('clientWidth');
+
 	clearTimeout($.data(this, 'scrollTimer'));
 	
 	$.data(this, 'scrollTimer', setTimeout(() => {
-		
-		if (top <= 1700) {
-			$('#editer-next-button').css({
-				'visibility': 'hidden'
-			});
-		} else if (Top <= 30) {
-			$('#editer-prev-button').css({
-				'visibility': 'hidden'
-			});
+		if ((width - current) <= 50) {
+			$(el).find('.slider-next-btn').addClass('inactive');
+      $(el).find('.slider-prev-btn').removeClass('inactive');
+		} else if (current <= 30) {
+			$(el).find('.slider-prev-btn').addClass('inactive');
+      $(el).find('.slider-next-btn').removeClass('inactive');
 		} else {
-			$('#editer-next-button').css({
-				'visibility': 'visible'
-			});
-			$('#editer-prev-button').css({
-				'visibility': 'visible'
-			});
-		}	
-	}, 50));
+			$(el).find('.slider-next-btn').removeClass('inactive');
+			$(el).find('.slider-prev-btn').removeClass('inactive');
+		}
+    isAnimating = false;
+	}, 100));
 });
 
-
-
-$('#cms-next-button').on('click', () => {
-	$('.cms-container').scrollLeft($('.cms-container').scrollLeft() + 1600);	
-});
-$('#cms-prev-button').on('click', () => {
-	$('.cms-container').scrollLeft($('.cms-container').scrollLeft() - 1600);	
-});
-
-$('.cms-container').scroll(() => {
-	var Top = $('.cms-container').scrollLeft();
-	var Width = $('.cms-container').width();	
-	
-	clearTimeout($.data(this, 'scrollTimer'));
-	
-	$.data(this, 'scrollTimer', setTimeout(() => {
-		if ((Width - Top) <= 50) {
-			$('#cms-next-button').css({
-				'visibility': 'hidden'
-			});
-		} else if (Top <= 30) {
-			$('#cms-prev-button').css({
-				'visibility': 'hidden'
-			});
-		} else {
-			$('#cms-next-button').css({
-				'visibility': 'visible'
-			});
-			$('#cms-prev-button').css({
-				'visibility': 'visible'
-			});
-		}		
-	}, 50));
-});

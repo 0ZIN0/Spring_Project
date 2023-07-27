@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 import com.ezen.smg.service.CartService;
-import com.ezen.smg.dto.Games;
 import com.ezen.smg.service.GamesService;
 
 import lombok.extern.log4j.Log4j;

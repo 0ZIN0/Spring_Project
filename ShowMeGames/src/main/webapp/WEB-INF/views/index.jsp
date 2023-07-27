@@ -50,15 +50,15 @@
 			</div>
 
 			<div id="subBanner" class="banner">
-				<img src="${img}/SubBanner1.png" alt="서브배너사진">
+				<img src="${img}/Rectangle 50.png" alt="서브배너사진">
 			</div>
 
 			<div class="recmd">
 				<div class="title_div">
 					<span class="title">에디터 추천. </span><span class="sub-title">나만 알기에는 너무 아까운 게임.</span>
 				</div>
-				<div class="recmd-container editer-container">
-					<div class="recmd-prev-btn">
+				<div class="card-container">
+					<div class="slider-prev-btn inactive">
 						<i class="material-icons" id="editer-prev-button"
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
@@ -96,7 +96,7 @@
 					<div class="recmd-items">
 						<img src="${img}/black.png" alt="사진">
 					</div>
-					<div class="recmd-next-btn">
+					<div class="slider-next-btn">
 						<i class="material-icons" id="editer-next-button"
 							style="font-size: 48px;">arrow_forward_ios</i>
 					</div>
@@ -107,8 +107,8 @@
 				<div class="title_div"> 
 					<span class="title">파격 할인. </span> <span class="sub-title">놓치지 않을거에요.</span>
 				</div>
-				<div class="recmd-container cms-container">
-					<div class="recmd-prev-btn">
+				<div class="card-container">
+					<div class="slider-prev-btn inactive">
 						<i class="material-icons" id="cms-prev-button"
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
@@ -128,18 +128,18 @@
 					<div class="recmd-items">
 						<img src="${img}/black.png" alt="사진">
 					</div>
-					<div class="recmd-next-btn">
+					<div class="slider-next-btn">
 						<i class="material-icons" id="cms-next-button"
 							style="font-size: 48px;">arrow_forward_ios</i>
 					</div>
 				</div>
 			</div>
 
-			<div class="recmd">
+			<div id="genre" class="recmd">
 				<div class="title_div">
 					<span class="title">장르별로 살펴보기.</span>
 				</div>
-				<div id="genre">
+				<div id="genre-div">
 					<div class="btn">
 						<i class="material-icons" id="genre-prev-button"
 							style="font-size: 48px;">arrow_back_ios_new</i>
@@ -161,6 +161,139 @@
 					<div class="btn">
 						<i class="material-icons" id="genre-next-button"
 							style="font-size: 48px;">arrow_forward_ios</i>
+					</div>
+				</div>
+			</div>
+			
+			<div id="hotgame_container">
+				<div>
+					<div class="title_div">
+						<span class="title">이번주 HOT 게임. </span><span class="sub-title">수
+							많은 플레이어가 선택한 게임. </span>
+					</div>
+					<div id="hotgame_content">
+						<div class="game_item">
+							<div>
+								<img src="${img}/temp/Img1.png" alt="임시사진">
+							</div>
+							<div>
+								<div>
+									<span class="game_title">title</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩18,000</span><span>₩9,000</span>
+								</div>
+							</div>
+						</div>
+						<div class="game_item">
+							<div>
+								<img src="${img}/temp/Img2.png" alt="임시사진2">
+							</div>
+							<div>
+								<div>
+									<span class="game_title">title</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩18,000</span> <span>₩9,000</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="curator" class="recmd">
+				<div> 
+					<div class="title_div">
+						<span class="title">큐레이터 추천. </span><span class="sub-title">몰랐던 띵작들을 만나보세요. </span>
+					</div>
+					<div id="curator-content">
+						<div class="game_item">
+							<div>
+								<img src="${img}/temp/Img1.png" alt="임시사진">
+							</div>
+							<div>
+								<div>
+									<span class="game_title">title</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩18,000</span><span>₩9,000</span>
+								</div>
+							</div>
+						</div>
+						<div class="game_item">
+							<div>
+								<img src="${img}/temp/Img1.png" alt="임시사진">
+							</div>
+							<div>
+								<div>
+									<span class="game_title">title</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩18,000</span><span>₩9,000</span>
+								</div>
+							</div>
+						</div>
+						<div class="game_item">
+							<div>
+								<img src="${img}/temp/Img1.png" alt="임시사진">
+							</div>
+							<div>
+								<div>
+									<span class="game_title">title</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩18,000</span><span>₩9,000</span>
+								</div>
+							</div>
+						</div>
+						<div class="game_item">
+							<div>
+								<img src="${img}/temp/Img1.png" alt="임시사진">
+							</div>
+							<div>
+								<div>
+									<span class="game_title">title</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩18,000</span><span>₩9,000</span>
+								</div>
+							</div>
+						</div>
+						<div class="game_item">
+							<div>
+								<img src="${img}/temp/Img1.png" alt="임시사진">
+							</div>
+							<div>
+								<div>
+									<span class="game_title">title</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩18,000</span><span>₩9,000</span>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
