@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.ezen.smg.mapper.InquiriesMapper">
+  		<insert id="add" parameterType="com.ezen.smg.dto.Inquiries">
+  			INSERT INTO inquiries(
+  				inquiry_id,
+  				user_num,
+  				inquiry_title,
+  				inquiry_content,
+  				attachment,
+  				inquiry_subject
+  			) VALUES (
+  				inquiry_id_seq.nextval,
+  				1,
+  				#{inquiry_title},
+  				#{inquiry_content},
+  				#{file_name},
+  				#{inquiry_subject}
+  			)
+  		</insert>
+  </mapper>
