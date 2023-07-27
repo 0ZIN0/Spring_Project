@@ -53,7 +53,7 @@
 					<tr>
 						<td class='qna-text textarea'>내용</td>
 						<td>
-							<textarea id="" name="inquiry_content" cols="120" rows="30"  style="resize: none;"></textarea>
+							<textarea id="" name="inquiry_content" cols="100" rows="28"  style="resize: none;"></textarea>
 						</td>				
 					</tr>
 					<tr>
