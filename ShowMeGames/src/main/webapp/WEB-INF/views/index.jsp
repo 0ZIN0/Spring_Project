@@ -18,7 +18,7 @@
 	<%@ include file="/WEB-INF/views/include/header/header.jsp"%>
 
 	<div id="main" class="background_layer1">
-		<div class="background_layer1">
+		<div class="background_layer2">
 			<div id="mainBanner" class="banner">
 				<div>
 					<div>
