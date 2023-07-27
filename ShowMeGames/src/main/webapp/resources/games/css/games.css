@@ -3,9 +3,13 @@
 *{
 	color: white;
 }
+
+img {
+	border-radius: 20px;	
+}
+
 body {
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, #210b6a 100%);
-	backdrop-filter: blur(7px);
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, rgba(16, 7, 35, 0.89) 99.98%, rgba(29, 5, 81, 0.90) 100%, #3C0BAA 100%);
 }
 
 .background_layer1 {
@@ -23,8 +27,7 @@ body {
 	margin-bottom: 120px;
 	background-image: url(https://store.ubisoft.com/on/demandware.static/-/Library-Sites-shared-library-web/default/dw27e9e8be/images/category-banners/CatBan_new-release-feb22_1920x300_desk.jpg);
 	background-size: cover;
-	background-position: center center;
-	
+	background-position: center center;	
 }
 
 .section_header {
@@ -262,7 +265,7 @@ body {
 	height: 400px;
 	margin-right: 10px;
 	margin-bottom: 80px;
-	border-radius: 20px / 20px;
+	border-radius: 20px;
 }
 
 ul{

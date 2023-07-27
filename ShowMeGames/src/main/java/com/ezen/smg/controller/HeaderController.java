@@ -4,8 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
-
+import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.service.CartService;
 import com.ezen.smg.service.GamesService;
 
@@ -34,8 +35,17 @@ public class HeaderController {
 	}
 	
 	@GetMapping(value="/cart")
-	public void cart(Model model) {
-		log.info("1");
-//		model.addAttribute("carts", cartService.getCartList());
+	public String cart(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model) {
+		try {
+			Integer user_num = user.getUser_num();
+			
+			model.addAttribute("cart_list", cartService.getCartList(user_num));
+			model.addAttribute("cart_len", cartService.getCartList(user_num).size());
+			model.addAttribute("total_price", cartService.getTotalPrice(user_num));
+			
+			return "cart";
+		} catch (Exception e) {
+			return "redirect:/member/login"; // 로그인 팝업창 띄우기
+		}
 	}
 }

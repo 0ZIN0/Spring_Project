@@ -233,46 +233,6 @@
 								<img src="${game.banner_img_url}" alt="banner_img"/>
 							</div>
 					</c:forEach>
-					<c:forEach items="${games }" var="game">
-							<div class="sort_result_card">
-								<img src="${game.banner_img_url}" alt="banner_img"/>
-							</div>
-					</c:forEach>
-					<c:forEach items="${games }" var="game">
-							<div class="sort_result_card">
-								<img src="${game.banner_img_url}" alt="banner_img"/>
-							</div>
-					</c:forEach>
-					<c:forEach items="${games }" var="game">
-							<div class="sort_result_card">
-								<img src="${game.banner_img_url}" alt="banner_img"/>
-							</div>
-					</c:forEach>
-					<c:forEach items="${games }" var="game">
-							<div class="sort_result_card">
-								<img src="${game.banner_img_url}" alt="banner_img"/>
-							</div>
-					</c:forEach>
-					<c:forEach items="${games }" var="game">
-							<div class="sort_result_card">
-								<img src="${game.banner_img_url}" alt="banner_img"/>
-							</div>
-					</c:forEach>
-					<c:forEach items="${games }" var="game">
-							<div class="sort_result_card">
-								<img src="${game.banner_img_url}" alt="banner_img"/>
-							</div>
-					</c:forEach>
-					<c:forEach items="${games }" var="game">
-							<div class="sort_result_card">
-								<img src="${game.banner_img_url}" alt="banner_img"/>
-							</div>
-					</c:forEach>
-					<c:forEach items="${games }" var="game">
-							<div class="sort_result_card">
-								<img src="${game.banner_img_url}" alt="banner_img"/>
-							</div>
-					</c:forEach>
 				</div>
 			</div>
 		</div>
