@@ -254,6 +254,7 @@ header {
 	top: 50px;
 	z-index: 50;
 	background-color: white;
+   overflow: hidden;
 }
 
 #header-bottom > * {
