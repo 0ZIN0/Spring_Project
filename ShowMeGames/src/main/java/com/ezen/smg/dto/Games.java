@@ -19,4 +19,5 @@ public class Games {
 	private Integer game_grade;
 	private String banner_img_url;
 	private	String editor;
+	private Integer discounted_price;
 }
