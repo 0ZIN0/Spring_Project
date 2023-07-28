@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ezen.smg.dto.Games;
 import com.ezen.smg.service.GamesService;
 
 import lombok.extern.log4j.Log4j;
@@ -21,8 +22,16 @@ public class GamesController {
 	
 	@ResponseBody
 	@GetMapping("/games-filter")
-	public void gameListFilter(@RequestParam(value = "filters[]") List<String> filters) {
+	public List<Games> gameListFilter(@RequestParam(value = "filters[]") List<String> filters) {
 		log.info("필터지나감");
 		log.info(filters);
+		List<Games> gameList;
+		try {
+			 gameList = gamesService.getFilteredGames(filters);
+		} catch (NullPointerException e) {
+			gameList = gamesService.getAllGames();
+		}
+		
+		return gameList;
 	}
 }

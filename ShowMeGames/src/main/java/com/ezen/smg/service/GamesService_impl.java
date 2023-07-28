@@ -20,4 +20,10 @@ public class GamesService_impl implements GamesService{
 		return gamesMapper.getAllGames();
 	}
 
+	@Override
+	public List<Games> getFilteredGames(List<String> filters) {
+		
+		return gamesMapper.getFilteredGames(filters);
+	}
+
 }

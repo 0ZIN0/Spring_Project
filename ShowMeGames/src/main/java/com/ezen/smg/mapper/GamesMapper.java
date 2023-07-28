@@ -9,4 +9,6 @@ public interface GamesMapper {
 	List<Games> getAllGames();
 	
 	Games getGame(int game_id);
+	
+	List<Games> getFilteredGames(List<String> filters);
 }

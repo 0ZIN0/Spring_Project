@@ -10,4 +10,11 @@
 	<select id="getGame" resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM games where game_id=#{game_id}
 	</select>
+	
+	<select id="getFilteredGames" resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM games WHERE editor IN
+		<foreach collection="list" item="editor" separator="," open="(" close=")">
+        #{editor}
+     </foreach>
+	</select>
 </mapper> 

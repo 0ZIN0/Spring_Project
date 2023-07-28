@@ -204,8 +204,6 @@ card_container.scroll(function() {
 });
 
 // Search Logic
-
-
 function getSearchList(){
  $.ajax ({
   url: `./games-filter?${filterArr.join()}`,
