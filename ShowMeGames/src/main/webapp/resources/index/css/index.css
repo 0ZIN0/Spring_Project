@@ -19,6 +19,16 @@ body {
     padding-bottom: 300px;
 }
 
+.toGenreBtn,
+.toDetailBtn {
+	transition: transform 0.3s;
+    cursor: pointer;
+}
+.toGenreBtn:hover,
+.toDetailBtn:hover {
+    transform: translateY(-5px);
+}
+
 /* 타이틀 폰트 관련 css */
 #main .title {
     color: #EEE;
@@ -136,6 +146,8 @@ body {
   	overflow-y: hidden;
   	position: relative;
   	scroll-behavior: smooth;
+    height: 430px;
+    align-items: center;
 }
 .card-container > .blank {
 	width: 55px;
