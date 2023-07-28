@@ -206,6 +206,24 @@
  background-color: #006acc;
 }
 
+#naverLoginBtn {
+	margin-top: 21px;
+	background-color: #03C75A;
+	height: 50px;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+#naverLoginBtn:hover {
+	filter: brightness(95%);
+}
+
+
 .easyLogin {
 	display: flex;
 	flex-basis: 100%;

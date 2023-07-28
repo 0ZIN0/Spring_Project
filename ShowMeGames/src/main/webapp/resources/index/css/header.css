@@ -23,6 +23,7 @@ header {
    position: relative;
    left: 0;
    bottom: 0;
+   overflow: hidden;
 }
 
 #header-top {
@@ -63,10 +64,12 @@ header {
    font-size: 14px;
 }
 
-#point-li {
+#point-div {
 	font-size: 14px;
 	margin-left: -200px;
+	margin-top: -2px;
 	color: white;
+	font-weight: bold;
 }
 /* #point-amount {
 		
@@ -77,12 +80,19 @@ header {
     color: #edc800;
     font-size: 14px; 
     font-weight: 100px;
+     margin-left: 2px;
+    margin-right: 2px;
 }
 
 
 #login-icon {
 	margin-left: 30px;
 }
+
+#login-icon2 {
+    margin-left: 32px;
+    margin-right: 2px;
+  }
 
 .clickable-li {
    display: inline-block;
@@ -92,6 +102,11 @@ header {
    text-decoration: none;
    font-weight: bold;
    font-size: 14px;
+   margin-bottom: -3px;
+}
+
+.point-li {
+	margin-bottom: 10px;
 }
 
 .clickable-li a {
@@ -120,6 +135,13 @@ header {
    left: -3px;
    transition: color 0.3s;
 }
+
+/* #login-btn {
+	margin-left: 25px;
+	margin-bottom: 8px;
+	width: 30px;
+	height: 30px;
+} */
 
 #header-top-underline {
    padding: 10px;
