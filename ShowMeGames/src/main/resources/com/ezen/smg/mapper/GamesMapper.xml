@@ -11,10 +11,31 @@
 		SELECT * FROM games where game_id=#{game_id}
 	</select>
 	
-	<select id="getFilteredGames" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM games WHERE editor IN
-		<foreach collection="list" item="editor" separator="," open="(" close=")">
-        #{editor}
-     </foreach>
+	<select id="getFilteredGames" resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
+  		SELECT * FROM games
+  		WHERE editor IN
+  		<foreach collection="editor" item="editor" separator="," open="(" close=")">
+   			#{editor}
+  		</foreach>
+ 			AND REGEXP_LIKE(game_genre,
+  		<foreach collection="genre" item="genre" separator="||" close=")">
+			#{genre}
+  		</foreach>
+	</select>
+	
+	<select id="getFilteredGenreOnly" resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
+  		SELECT * FROM games
+  		WHERE REGEXP_LIKE(game_genre,
+  		<foreach collection="list" item="genre" separator="||" close=")">
+			#{genre}
+  		</foreach>
+	</select>
+	
+	<select id="getFilteredEditorOnly" resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
+  		SELECT * FROM games
+  		WHERE editor IN
+  		<foreach collection="list" item="editor" separator="," open="(" close=")">
+			#{editor}
+  		</foreach>
 	</select>
 </mapper> 

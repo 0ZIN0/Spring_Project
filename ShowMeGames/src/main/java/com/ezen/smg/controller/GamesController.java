@@ -1,9 +1,14 @@
 package com.ezen.smg.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,15 +25,26 @@ public class GamesController {
 	@Autowired
 	GamesService gamesService;
 	
-	@ResponseBody
 	@GetMapping("/games-filter")
-	public List<Games> gameListFilter(@RequestParam(value = "filters[]") List<String> filters) {
+	public List<Games> gameListFilter(
+			@RequestParam(name = "genre") String genre,
+			@RequestParam(name = "editor") String editor
+			) throws Exception {
 		log.info("필터지나감");
-		log.info(filters);
-		List<Games> gameList;
-		try {
-			 gameList = gamesService.getFilteredGames(filters);
-		} catch (NullPointerException e) {
+		List<String> genres = Arrays.asList(genre.split("/"));
+		List<String> editors = Arrays.asList(editor.split("/"));
+		log.info(genres.toString());
+		log.info(editor);
+		List<Games> gameList = new ArrayList<Games>();
+		
+		if(!genres.get(0).equals("")
+				&& !editors.get(0).equals("")) {
+			gameList = gamesService.getFilteredGames(genres, editors);
+		} else if(!genres.get(0).equals("")) {
+			gameList = gamesService.getFilteredGenreOnly(genres);
+		} else if(!editors.get(0).equals("")) {
+			gameList = gamesService.getFilteredEditorOnly(editors);
+		} else {
 			gameList = gamesService.getAllGames();
 		}
 		

@@ -146,11 +146,12 @@ body {
 	padding-left: 40px;
 	padding-right: 20px;
 	padding-bottom: 50px;
+	min-height: 2000px;
 }
 
 .secondary {
 	position: relative;
-	height: auto;
+	height: 100%;
 }
 
 .fixed {

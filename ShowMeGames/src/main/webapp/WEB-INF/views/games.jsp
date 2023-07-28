@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="resources/games/css/games.css" var="css1" />
 <c:url value="resources/games/js/games.js" var="js1" />
+<c:url value="resources/games/js/filter.js" var="js2" />
 <c:url value="resources/img/index" var="img"/>
 <c:url value="resources/img/index/games" var="game_img"/>
 <!DOCTYPE html>
@@ -172,14 +173,14 @@
 							expand_less </span>
 						</div>
 					</button>
-					<ul class="filter_list">
-						<li class="filter_item"><input type="checkbox" value="RPG"/><label for="">RPG</label></li>
-						<li class="filter_item"><input type="checkbox" value="슈팅"/><label for="">슈팅</label></li>
-						<li class="filter_item"><input type="checkbox" value="전략"/><label for="">전략</label></li>
-						<li class="filter_item"><input type="checkbox" value="시뮬레이션"/><label for="">시뮬레이션</label></li>
-						<li class="filter_item"><input type="checkbox" value="인디"/><label for="">인디</label></li>
-						<li class="filter_item"><input type="checkbox" value="레이싱"/><label for="">레이싱</label></li>
-						<li class="filter_item"><input type="checkbox" value="퍼즐"/><label for="">퍼즐</label></li>
+					<ul class="filter_list genre-list">
+						<li class="filter_item genre"><input type="checkbox" value="RPG"/><label for="">RPG</label></li>
+						<li class="filter_item genre"><input type="checkbox" value="슈팅"/><label for="">슈팅</label></li>
+						<li class="filter_item genre"><input type="checkbox" value="전략"/><label for="">전략</label></li>
+						<li class="filter_item genre"><input type="checkbox" value="시뮬레이션"/><label for="">시뮬레이션</label></li>
+						<li class="filter_item genre"><input type="checkbox" value="인디"/><label for="">인디</label></li>
+						<li class="filter_item genre"><input type="checkbox" value="레이싱"/><label for="">레이싱</label></li>
+						<li class="filter_item genre"><input type="checkbox" value="퍼즐"/><label for="">퍼즐</label></li>
 					</ul>
 				</div>
 				<hr />
@@ -192,18 +193,18 @@
 								</span>
 							</div>
 						</button>
-						<ul class="filter_list">
-							<li class="filter_item"><input type="checkbox" value="chanwoo"/> <label
+						<ul class="filter_list editor-list">
+							<li class="filter_item editor"><input type="checkbox" value="chanwoo"/> <label
 								for="">Chanwoo's Pick</label></li>
-							<li class="filter_item"><input type="checkbox" value="youngmin"/> <label
+							<li class="filter_item editor"><input type="checkbox" value="youngmin"/> <label
 								for="">Youngmin's Pick</label></li>
-							<li class="filter_item"><input type="checkbox" value="roa"/> <label
+							<li class="filter_item editor"><input type="checkbox" value="roa"/> <label
 								for="">Roa's Pick</label></li>
-							<li class="filter_item"><input type="checkbox" value="jaehun"/> <label
+							<li class="filter_item editor"><input type="checkbox" value="jaehun"/> <label
 								for="">Jaehun's Pick</label></li>
-							<li class="filter_item"><input type="checkbox" value="gicheul"/> <label
+							<li class="filter_item editor"><input type="checkbox" value="gicheul"/> <label
 								for="">Gicheul's Pick</label></li>
-							<li class="filter_item"><input type="checkbox" value="gitae"/> <label
+							<li class="filter_item editor"><input type="checkbox" value="gitae"/> <label
 								for="">Gitae's Pick</label></li>
 						</ul>
 				</div>
@@ -249,5 +250,6 @@
 	</div>
 	</div>
 	<script src="${js1 }"></script>
+	<script src="${js2 }"></script>
 </body>
 </html>
