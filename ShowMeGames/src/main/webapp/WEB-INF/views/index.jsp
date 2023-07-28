@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:url value="resources/index/css/index.css" var="css1" />
 <c:url value="resources/img/index" var="img"/>
 <c:url value="resources/img/index/games" var="game_img"/>
@@ -33,9 +34,9 @@
 						<span class="title">최신 게임.</span><span class="sub-title"> 따끈따끈한 새 게임의 세계로.</span>
 					</div>
 					<div id="newGame_container">
-						<c:forEach begin="1" end="4" varStatus="status">
-							<div class="newgames toDetailBtn" data-id="1004">
-								<img src="${img}/temp/best${status.count}.png" alt="사진${status.count}">
+						<c:forEach items="${latestList}" var="game">
+							<div class="newgames toDetailBtn" data-id="${game.game_id}">
+								<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
 							</div>
 						</c:forEach>
 					</div>
@@ -56,21 +57,51 @@
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
 					<div class="blank"></div>
-					<c:forEach begin="1" end="10">
-						<div class="recmd-items toDetailBtn">
+					<c:forEach items="${editorList}" var="game">
+						<div class="recmd-items toDetailBtn" data-id="${game.game_id}">
 							<div>
-								<img src="${img}/temp/temp2.png" alt="사진">
+								<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
 							</div>
 							<div class="item_text_box">
 								<div>
-									<span class="game_title">로렘 Ipsum</span>
+									<span class="game_title">${game.game_name}</span>
 								</div>
-								<div>
-									<span>-50%</span>
-								</div>
-								<div>
-									<span>₩18,000</span><span>₩9,000</span>
-								</div>
+								<c:choose>
+									<c:when test="${game.game_price == 0}">
+										<div>
+										</div>
+										<div>
+											<span></span>
+											<span>무료</span>
+										</div>
+									</c:when>
+									<c:when test="${game.discount == 0}">
+										<div>
+										</div>
+										<div>
+											<span></span>	
+											<span>
+												₩<fmt:formatNumber type="number"
+														maxFractionDigits="3" value="${game.discounted_price}" />
+											</span>
+										</div>	
+									</c:when>
+									<c:otherwise>
+										<div>
+											<span>-${game.discount}%</span>	
+										</div>
+										<div>
+											<span>
+												₩<fmt:formatNumber type="number" maxFractionDigits="3"
+													value="${game.game_price}" />	
+											</span>
+											<span>
+												₩<fmt:formatNumber type="number"
+														maxFractionDigits="3" value="${game.discounted_price}" />
+											</span>
+										</div>	
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</div>
 					</c:forEach>
@@ -91,21 +122,51 @@
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
 					<div class="blank"></div>
-					<c:forEach begin="1" end="8">
-						<div class="recmd-items toDetailBtn">
+					<c:forEach items="${discountList}" var="game">
+						<div class="recmd-items toDetailBtn" data-id="${game.game_id}">
 							<div>
-								<img src="${img}/temp/temp1.png" alt="사진">
+								<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
 							</div>
 							<div class="item_text_box">
 								<div>
-									<span class="game_title">로렘 Ipsum</span>
+									<span class="game_title">${game.game_name}</span>
 								</div>
-								<div>
-									<span>-50%</span>
-								</div>
-								<div>
-									<span>₩18,000</span><span>₩9,000</span>
-								</div>
+								<c:choose>
+									<c:when test="${game.game_price == 0}">
+										<div>
+										</div>
+										<div>
+											<span></span>
+											<span>무료</span>
+										</div>
+									</c:when>
+									<c:when test="${game.discount == 0}">
+										<div>
+										</div>
+										<div>
+											<span></span>	
+											<span>
+												₩<fmt:formatNumber type="number"
+														maxFractionDigits="3" value="${game.discounted_price}" />
+											</span>
+										</div>	
+									</c:when>
+									<c:otherwise>
+										<div>
+											<span>-${game.discount}%</span>	
+										</div>
+										<div>
+											<span>
+												₩<fmt:formatNumber type="number" maxFractionDigits="3"
+													value="${game.game_price}" />	
+											</span>
+											<span>
+												₩<fmt:formatNumber type="number"
+														maxFractionDigits="3" value="${game.discounted_price}" />
+											</span>
+										</div>	
+									</c:otherwise>
+								</c:choose>        
 							</div>
 						</div>
 					</c:forEach>
@@ -126,16 +187,16 @@
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
 					<div id="genre-container" data-imgurl="${img}/genre">
-						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre1.png;">
+						<div class="genres toGenreBtn" data-id="캐주얼" style="background-image: url(${img}/genre/genre1.png;">
 							<span>캐주얼</span>
 						</div>
-						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre2.png;">
+						<div class="genres toGenreBtn" data-id="전략/시뮬" style="background-image: url(${img}/genre/genre2.png;">
 							<span>전략/시뮬</span>
 						</div>
-						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre3.png;">
+						<div class="genres toGenreBtn" data-id="RPG" style="background-image: url(${img}/genre/genre3.png;">
 							<span>RPG</span>
 						</div>
-						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre4.png;">
+						<div class="genres toGenreBtn" data-id="퍼즐" style="background-image: url(${img}/genre/genre4.png;">
 							<span>퍼즐</span>
 						</div>
 					</div>
@@ -153,35 +214,38 @@
 							많은 플레이어가 선택한 게임. </span>
 					</div>
 					<div id="hotgame_content">
-						<div class="game_item toDetailBtn">
+						<div class="game_item toDetailBtn" data-id="1015">
 							<div>
-								<img src="${img}/temp/Img1.png" alt="임시사진">
+								<img src="resources/img/banner_img/Overcooked_banner.jpg" alt="오버쿡드_사진">
 							</div>
 							<div class="item_text_box">
 								<div>
-									<span class="game_title">title</span>
+									<span class="game_title">오버쿡드</span>
 								</div>
 								<div>
-									<span>-50%</span>
 								</div>
 								<div>
-									<span>₩18,000</span><span>₩9,000</span>
+									<span></span>
+									<span>
+										₩<fmt:formatNumber type="number"	
+												maxFractionDigits="3" value="19900" />
+									</span>
 								</div>
 							</div>
 						</div>
-						<div class="game_item toDetailBtn">
+						<div class="game_item toDetailBtn" data-id="1021">
 							<div>
-								<img src="${img}/temp/Img2.png" alt="임시사진2">
+								<img src="resources/img/banner_img/Mabinogi_banner.jpg" alt="마비노기_사진">
 							</div>
 							<div class="item_text_box">
 								<div>
-									<span class="game_title">title</span>
+									<span class="game_title">마비노기</span>
 								</div>
 								<div>
-									<span>-50%</span>
 								</div>
 								<div>
-									<span>₩18,000</span> <span>₩9,000</span>
+									<span></span>
+									<span>무료</span>
 								</div>
 							</div>
 						</div>
@@ -195,86 +259,54 @@
 						<span class="title">큐레이터 추천. </span><span class="sub-title">몰랐던 띵작들을 만나보세요. </span>
 					</div>
 					<div id="curator-content">
-						<div class="game_item toDetailBtn" data-id="1012">
-							<div>
-								<img src="resources/img/banner_img/genshin_impact_banner.jpg" alt="원신사진">
-							</div>
-							<div class="item_text_box">
+						<c:forEach items="${curatorList}" var="game">
+							<div class="game_item toDetailBtn" data-id="${game.game_id}">
 								<div>
-									<span class="game_title">붕괴3rd</span>
+									<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
 								</div>
-								<div>
-									<span>-50%</span>
-								</div>
-								<div>
-									<span>₩49,900</span><span>₩24,950</span>
-								</div>
-							</div>
-						</div>
-						<div class="game_item toDetailBtn">
-							<div>
-								<img src="${img}/temp/Img1.png" alt="임시사진">
-							</div>
-							<div class="item_text_box">
-								<div>
-									<span class="game_title">title</span>
-								</div>
-								<div>
-									<span>-50%</span>
-								</div>
-								<div>
-									<span>₩18,000</span><span>₩9,000</span>
-								</div>
-							</div>
-						</div>
-						<div class="game_item toDetailBtn" data-id="1021">
-							<div>
-								<img src="resources/img/banner_img/Mabinogi_banner.jpg" alt="마비노기사진">
-							</div>
-							<div class="item_text_box">
-								<div>
-									<span class="game_title">마비노기</span>
-								</div>
-								<div style="display: none;">
-									<span>-0%</span>
-								</div>
-								<div>
-									<span style="display: none;">₩0</span><span>₩0</span>
-								</div>
-							</div>
-						</div>
-						<div class="game_item toDetailBtn">
-							<div>
-								<img src="${img}/temp/Img1.png" alt="임시사진">
-							</div>
-							<div class="item_text_box">
-								<div>
-									<span class="game_title">title</span>
-								</div>
-								<div>
-									<span>-50%</span>
-								</div>
-								<div>
-									<span>₩18,000</span><span>₩9,000</span>
+								<div class="item_text_box">
+									<div>
+										<span class="game_title">${game.game_name}</span>
+									</div>
+									<c:choose>
+										<c:when test="${game.game_price == 0}">
+											<div>
+											</div>
+											<div>
+												<span></span>
+												<span>무료</span>
+											</div>
+										</c:when>
+										<c:when test="${game.discount == 0}">
+											<div>
+											</div>
+											<div>
+												<span></span>	
+												<span>
+													₩<fmt:formatNumber type="number"
+															maxFractionDigits="3" value="${game.discounted_price}" />
+												</span>
+											</div>	
+										</c:when>
+										<c:otherwise>
+											<div>
+												<span>-${game.discount}%</span>	
+											</div>
+											<div>
+												<span>
+													₩<fmt:formatNumber type="number" maxFractionDigits="3"
+														value="${game.game_price}" />	
+												</span>
+												<span>
+													₩<fmt:formatNumber type="number"
+															maxFractionDigits="3" value="${game.discounted_price}" />
+												</span>
+											</div>	
+										</c:otherwise>
+									</c:choose>
 								</div>
 							</div>
-						</div>
-						<div class="game_item toDetailBtn">
-							<div>
-								<img src="${img}/temp/Img1.png" alt="임시사진">
-							</div>
-							<div class="item_text_box">
-								<div>
-									<span class="game_title">title</span>
-								</div>
-								<div>
-									<span>-50%</span>
-								</div>
-								<div>
-									<span>₩18,000</span><span>₩9,000</span>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>

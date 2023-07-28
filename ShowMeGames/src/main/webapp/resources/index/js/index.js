@@ -38,20 +38,16 @@ card_container.scroll(function() {
 	}, 100));
 });
 
-// toDetailBtn(detail Page 이동) 클릭시 동작
-let toDetailBtns = $('.toDetailBtn');
-toDetailBtns.on('click', function() {
+// toDetailBtn에 동적으로 이벤트 할당
+$(document).on('click', '.toDetailBtn', function() {
 	let id = $(this).data('id');
-
 	location.href = './detail?game=' + id;
 });
 
-// toGenreBtn 클릭시 동작 (수정해야됨)
-let toGenreBtns = $('.toGenreBtn');
-toGenreBtns.on('click', function() {
-	let id = $(this).data('id');
-
-	location.href = './detail?game=' + id;
+// toGenreBtn에 동적으로 이벤트 할당
+$(document).on('click', '.toGenreBtn', function() {
+	let id = $($(this)).data('id');
+	location.href = './genre?game_genre=' + id;
 });
 
 // 장르 이동 버튼
@@ -103,7 +99,8 @@ const nextBtn = $('#genre-div > .btn:last-child > i');
 // 이전버튼
 $(preBtn).click(function() {
 	$('#genre-container').prepend(
-		'<div class="genres toGenreBtn" style="background-image: url(' + genres[preBtnIndex].img + '">' +
+		'<div class="genres toGenreBtn" data-id="' + genres[preBtnIndex].text +
+			'" style="background-image: url(' + genres[preBtnIndex].img + '">' +
 			'<span>' + genres[preBtnIndex].text + '</span>' +
 		'</div>'
 	);
@@ -120,7 +117,8 @@ $(preBtn).click(function() {
 // 다음버튼
 $(nextBtn).click(function() {
 	$('#genre-container').append(
-		'<div class="genres toGenreBtn" style="background-image: url(' + genres[nextBtnIndex].img + '">' +
+		'<div class="genres toGenreBtn" data-id="' + genres[nextBtnIndex].text +
+			'" style="background-image: url(' + genres[nextBtnIndex].img + '">' +
 			'<span>' + genres[nextBtnIndex].text + '</span>' +
 		'</div>'
 	);
