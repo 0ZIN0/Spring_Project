@@ -20,4 +20,7 @@ banner_url from notices where to_char(trunc(write_date, 'month'), 'yyyy/mm') = #
  	<select id="getAllNotices" resultType="com.ezen.smg.dto.NoticeDTO">
  		SELECT * FROM notices order by write_date desc
  	</select>
+ 	<select id="getContent" resultType="com.ezen.smg.dto.NoticeDTO">
+ 		SELECT * FROM notices WHERE notice_id=#{id}
+ 	</select>
  </mapper>

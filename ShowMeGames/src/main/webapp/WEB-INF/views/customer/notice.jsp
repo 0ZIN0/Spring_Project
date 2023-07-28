@@ -54,7 +54,7 @@
 			<div id="notice-grid-content" class="notice-grid-view">
 				<div class="notice-date">전체</div>
 				<c:forEach items="${notices}" var="notice">
-					<a class="notice-content" id="notice-id" href="${conpath}detail?id=${notice.notice_id}">
+					<a class="notice-content" id="notice-id" href="${conpath}notice_detail?id=${notice.notice_id}">
 						<div class="notice-banner">
 							<img class="banner-img" alt=""
 								src="${notice_img}${notice.banner_url}">
