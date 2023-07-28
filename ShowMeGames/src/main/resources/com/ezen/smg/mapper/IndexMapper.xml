@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.smg.mapper.IndexMapper">
+	<select id="getLatestGameList" resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM (SELECT * FROM games ORDER BY release_date DESC) WHERE rownum &lt;= 4
+	</select>
+
+	<select id="getEditorRecmdList" resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM games WHERE editor = #{editor}
+	</select>
+	
+	<select id="getLargestDiscountList" resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM (SELECT * FROM games ORDER BY discount DESC) WHERE rownum &lt;= 10
+	</select>
+	
+	<select id="getEditors">
+		SELECT DISTINCT editor FROM games WHERE NOT editor IN('curator')
+	</select>
+</mapper> 
