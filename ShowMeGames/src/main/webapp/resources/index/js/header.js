@@ -109,7 +109,6 @@ $("#editor").on("click", (e) => {
 
 
 $('html').click(function (e) {
-  console.log(e.target);
   if ($(e.target).hasClass("sub-ul") || $(e.target).hasClass("title-div") || $(e.target).hasClass("bottom-btns") || $(e.target).hasClass("material-symbols-outlined")) {
     return;
   } else {
@@ -193,6 +192,7 @@ function openLoginPopup() {
 
         // 새로운 팝업을 열고, loginPopup 변수에 할당하여 저장
         loginPopup = window.open('./member/login', '_blank', popupFeatures);
+        
     }
 }
 

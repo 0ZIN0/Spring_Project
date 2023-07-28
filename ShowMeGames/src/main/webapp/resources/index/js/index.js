@@ -1,71 +1,135 @@
+// card scroll
 // 스크롤 이동 버튼
-
-$('#editer-next-button').on('click', () => {
-	$('.editer-container').scrollLeft($('.editer-container').scrollLeft() + 1600);	
+let isAnimating = false;
+const card_container = $('.card-container');
+const next_btn = $('.slider-next-btn');
+const prev_btn = $('.slider-prev-btn');
+next_btn.on('click', function() {
+  if(!isAnimating) {
+    $(this).parent().scrollLeft($(this).parent().scrollLeft() + 1600);
+  }
 });
-$('#editer-prev-button').on('click', () => {
-	$('.editer-container').scrollLeft($('.editer-container').scrollLeft() - 1600);	
+prev_btn.on('click', function() {
+  if(!isAnimating) {
+    $(this).parent().scrollLeft($(this).parent().scrollLeft() - 1600);
+  }
 });
 
-// 스크롤이 멈췄을 때 버튼 숨김
-$('.editer-container').scroll(() => {
-	var Top = $('.editer-container').scrollLeft();
-	var Width = $('.editer-container').width();
-	
+card_container.scroll(function() {
+  isAnimating = true;
+  var el = this;
+	var current = $(el).scrollLeft();
+	var width = $(el).prop('scrollWidth') - $(el).prop('clientWidth');
+
 	clearTimeout($.data(this, 'scrollTimer'));
 	
 	$.data(this, 'scrollTimer', setTimeout(() => {
-		
-		if (top <= 1700) {
-			$('#editer-next-button').css({
-				'visibility': 'hidden'
-			});
-		} else if (Top <= 30) {
-			$('#editer-prev-button').css({
-				'visibility': 'hidden'
-			});
+		if ((width - current) <= 50) {
+			$(el).find('.slider-next-btn').addClass('inactive');
+      $(el).find('.slider-prev-btn').removeClass('inactive');
+		} else if (current <= 30) {
+			$(el).find('.slider-prev-btn').addClass('inactive');
+      $(el).find('.slider-next-btn').removeClass('inactive');
 		} else {
-			$('#editer-next-button').css({
-				'visibility': 'visible'
-			});
-			$('#editer-prev-button').css({
-				'visibility': 'visible'
-			});
-		}	
-	}, 50));
+			$(el).find('.slider-next-btn').removeClass('inactive');
+			$(el).find('.slider-prev-btn').removeClass('inactive');
+		}
+    isAnimating = false;
+	}, 100));
 });
 
+// toDetailBtn(detail Page 이동) 클릭시 동작
+let toDetailBtns = $('.toDetailBtn');
+toDetailBtns.on('click', function() {
+	let id = $(this).data('id');
 
-
-$('#cms-next-button').on('click', () => {
-	$('.cms-container').scrollLeft($('.cms-container').scrollLeft() + 1600);	
+	location.href = './detail?game=' + id;
 });
-$('#cms-prev-button').on('click', () => {
-	$('.cms-container').scrollLeft($('.cms-container').scrollLeft() - 1600);	
+
+// toGenreBtn 클릭시 동작 (수정해야됨)
+let toGenreBtns = $('.toGenreBtn');
+toGenreBtns.on('click', function() {
+	let id = $(this).data('id');
+
+	location.href = './detail?game=' + id;
 });
 
-$('.cms-container').scroll(() => {
-	var Top = $('.cms-container').scrollLeft();
-	var Width = $('.cms-container').width();	
-	
-	clearTimeout($.data(this, 'scrollTimer'));
-	
-	$.data(this, 'scrollTimer', setTimeout(() => {
-		if ((Width - Top) <= 50) {
-			$('#cms-next-button').css({
-				'visibility': 'hidden'
-			});
-		} else if (Top <= 30) {
-			$('#cms-prev-button').css({
-				'visibility': 'hidden'
-			});
-		} else {
-			$('#cms-next-button').css({
-				'visibility': 'visible'
-			});
-			$('#cms-prev-button').css({
-				'visibility': 'visible'
-			});
-		}		
-	}, 50));
+// 장르 이동 버튼
+let genre_imgurl = $('#genre-container').data('imgurl');
+let genres = [
+	{
+		'text': '캐주얼',
+		'img' : genre_imgurl + '/genre1.png'
+	},
+	{
+		'text': '전략/시뮬',
+		'img' : genre_imgurl + '/genre2.png'
+	},
+	{
+		'text': 'RPG',
+		'img' : genre_imgurl + '/genre3.png'
+	},
+	{
+		'text': '퍼즐',
+		'img' : genre_imgurl + '/genre4.png'
+	},
+	{
+		'text': '액션/어드벤처',
+		'img' : genre_imgurl + '/genre5.png'
+	},
+	{
+		'text': '슈팅/FPS',
+		'img' : genre_imgurl + '/genre6.png'
+	},
+	{
+		'text': '멀티/협동',
+		'img' : genre_imgurl + '/genre7.png'
+	},
+	{
+		'text': '레이싱',
+		'img' : genre_imgurl + '/genre8.png'
+	},
+	{
+		'text': '스포츠',
+		'img' : genre_imgurl + '/genre9.png'
+	},
+];
+let lastIndex = genres.length - 1;
+let preBtnIndex = lastIndex;
+let nextBtnIndex = 4;
+const preBtn = $('#genre-div > .btn:first-child > i');
+const nextBtn = $('#genre-div > .btn:last-child > i');
+
+// 이전버튼
+$(preBtn).click(function() {
+	$('#genre-container').prepend(
+		'<div class="genres toGenreBtn" style="background-image: url(' + genres[preBtnIndex].img + '">' +
+			'<span>' + genres[preBtnIndex].text + '</span>' +
+		'</div>'
+	);
+	$('#genre-container > div:last-child').remove();
+	--preBtnIndex;
+	--nextBtnIndex;
+
+	if(preBtnIndex == -1) preBtnIndex = lastIndex;
+	if(nextBtnIndex == -1) nextBtnIndex = lastIndex;
+	if(preBtnIndex == 9) preBtnIndex = 0;
+	if(nextBtnIndex == 9) nextBtnIndex = 0;
+});
+
+// 다음버튼
+$(nextBtn).click(function() {
+	$('#genre-container').append(
+		'<div class="genres toGenreBtn" style="background-image: url(' + genres[nextBtnIndex].img + '">' +
+			'<span>' + genres[nextBtnIndex].text + '</span>' +
+		'</div>'
+	);
+	$('#genre-container > div:first-child').remove();
+	++preBtnIndex;
+	++nextBtnIndex;
+
+	if(preBtnIndex == -1) preBtnIndex = lastIndex;
+	if(nextBtnIndex == -1) nextBtnIndex = lastIndex;
+	if(preBtnIndex == 9) preBtnIndex = 0;
+	if(nextBtnIndex == 9) nextBtnIndex = 0;
 });

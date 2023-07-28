@@ -7,4 +7,6 @@ import com.ezen.smg.dto.Games;
 public interface GamesMapper {
 	
 	List<Games> getAllGames();
+	
+	Games getGame(int game_id);
 }

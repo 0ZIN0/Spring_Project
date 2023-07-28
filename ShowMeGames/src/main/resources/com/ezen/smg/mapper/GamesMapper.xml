@@ -6,4 +6,8 @@
 	<select id="getAllGames" resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM games
 	</select>
+
+	<select id="getGame" resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM games where game_id=#{game_id}
+	</select>
 </mapper> 

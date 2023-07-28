@@ -33,7 +33,32 @@ $("#check-out-btn").click(function (e) {
 });
 
 // platform select active 
-$('.plat-form-select').click(function (e) {
-    var option = $('.plat-form-options');
-    $(option.dataset.game_name).css('display', 'grid');
+$('.options-ok').click(function (e) {
+    const options = "#" + e.target.dataset.game;
+    $(options).addClass('display-grid');
+});
+
+$('html').click(function (e) {
+    if (!$(e.target).hasClass(e.target.dataset.game)) {
+        $('.plat-form-options').removeClass('display-grid');
+    }
+});
+
+const options = $('.option');
+options.click(function (e) {
+    if ($(e.target).hasClass(e.target.dataset.platform)) {
+        console.log(e.target.dataset.id);
+        $('#platform-view-' + e.target.dataset.id).text(e.target.dataset.platform);
+    }
+});
+
+// cart-list delete
+$('.cart-delete').click(function (e) {
+    $.ajax({
+        url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
+        method: 'GET',
+        success: () => {
+            location.href = "./cart";
+        }
+    })
 });

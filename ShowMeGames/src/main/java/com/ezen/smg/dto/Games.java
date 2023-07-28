@@ -8,7 +8,7 @@ import lombok.Data;
 public class Games {
 	private Integer game_id;
 	private String game_name;
-	private Integer game_genre;
+	private String game_genre;
 	private Integer game_price;
 	private String korean;
 	private Date date;
@@ -18,4 +18,6 @@ public class Games {
 	private String develop_company;
 	private Integer game_grade;
 	private String banner_img_url;
+	private	String editor;
+	private Integer discounted_price;
 }
