@@ -135,71 +135,78 @@
 		</div>
 	</div>
 	<div class="grid_container">
-		<div class="filter">
-			<div class="filter_header">
-				<div class="filter_header_title">
-					<h1>필터</h1>
-					<div class="search_result">
-						<p class="search">검색건수: 100건</p>				
+		<div class="secondary">
+			<div class="filter">
+				<div class="filter_header">
+					<div class="filter_header_title">
+						<h1>필터</h1>
+						<div class="search_result">
+							<p class="search">검색건수: 100건</p>				
+						</div>
+					</div>
+					<div class="tag_container">
 					</div>
 				</div>
-				<div class="tag_container">
-				</div>
-			</div>
+					<div class="filter_content">
+						<button class="filter_toggle">
+							<span class="filter_label">개인 맞춤 추천</span> 
+							<div class="arrow">
+								<span class="material-symbols-outlined">
+									expand_less 
+								</span>
+							</div>
+						</button>
+						<ul class="filter_list">
+							<li class="filter_item">
+								<input type="checkbox" value="개인맞춤추천"/> 
+								<label for="">개인 맞춤 추천</label>
+							</li>
+						</ul>
+					</div>
+				<hr />
 				<div class="filter_content">
 					<button class="filter_toggle">
-						<span class="filter_label">개인 맞춤 추천</span> 
+						<span class="filter_label">장르</span> 
 						<div class="arrow">
-							<span class="material-symbols-outlined">
-								expand_less 
-							</span>
+						<span class="material-symbols-outlined">
+							expand_less </span>
 						</div>
 					</button>
 					<ul class="filter_list">
-						<li class="filter_item">
-							<input type="checkbox" value="개인맞춤추천"/> 
-							<label for="">개인 맞춤 추천</label>
-						</li>
+						<li class="filter_item"><input type="checkbox" value="RPG"/><label for="">RPG</label></li>
+						<li class="filter_item"><input type="checkbox" value="슈팅"/><label for="">슈팅</label></li>
+						<li class="filter_item"><input type="checkbox" value="전략"/><label for="">전략</label></li>
+						<li class="filter_item"><input type="checkbox" value="시뮬레이션"/><label for="">시뮬레이션</label></li>
+						<li class="filter_item"><input type="checkbox" value="인디"/><label for="">인디</label></li>
+						<li class="filter_item"><input type="checkbox" value="레이싱"/><label for="">레이싱</label></li>
+						<li class="filter_item"><input type="checkbox" value="퍼즐"/><label for="">퍼즐</label></li>
 					</ul>
 				</div>
-			<hr />
-			<div class="filter_content">
-				<button class="filter_toggle">
-					<span class="filter_label">장르</span> 
-					<div class="arrow">
-					<span class="material-symbols-outlined">
-						expand_less </span>
-					</div>
-				</button>
-				<ul class="filter_list">
-					<li class="filter_item"><input type="checkbox" /></li>
-					<li class="filter_item"><input type="checkbox" /></li>
-				</ul>
-			</div>
-			<hr />
-				<div class="filter_content">
-					<button class="filter_toggle">
-						<span class="filter_label">에디터 추천</span> 
-						<div class="arrow">
-							<span class="material-symbols-outlined">
-								expand_less 
-							</span>
-						</div>
-					</button>
-					<ul class="filter_list">
-						<li class="filter_item"><input type="checkbox" value="chanwoo"/> <label
-							for="">Chanwoo's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" value="youngmin"/> <label
-							for="">youngmin's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" value="loa"/> <label
-							for="">Loa's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" value="jaehun"/> <label
-							for="">Jaehun's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" value="gicheul"/> <label
-							for="">Gicheul's Pick</label></li>
-						<li class="filter_item"><input type="checkbox" value="gitae"/> <label
-							for="">Gitae's Pick</label></li>
-					</ul>
+				<hr />
+					<div class="filter_content">
+						<button class="filter_toggle">
+							<span class="filter_label">에디터 추천</span> 
+							<div class="arrow">
+								<span class="material-symbols-outlined">
+									expand_less 
+								</span>
+							</div>
+						</button>
+						<ul class="filter_list">
+							<li class="filter_item"><input type="checkbox" value="chanwoo"/> <label
+								for="">Chanwoo's Pick</label></li>
+							<li class="filter_item"><input type="checkbox" value="youngmin"/> <label
+								for="">Youngmin's Pick</label></li>
+							<li class="filter_item"><input type="checkbox" value="roa"/> <label
+								for="">Roa's Pick</label></li>
+							<li class="filter_item"><input type="checkbox" value="jaehun"/> <label
+								for="">Jaehun's Pick</label></li>
+							<li class="filter_item"><input type="checkbox" value="gicheul"/> <label
+								for="">Gicheul's Pick</label></li>
+							<li class="filter_item"><input type="checkbox" value="gitae"/> <label
+								for="">Gitae's Pick</label></li>
+						</ul>
+				</div>
 			</div>
 		</div>
 		<div class="primary">
@@ -227,7 +234,7 @@
 				</div>
 			</div>
 			<div class="sort_result_content">
-				<div class="sort_result_list">1234
+				<div class="sort_result_list">
 					<c:forEach items="${games }" var="game">
 							<div class="sort_result_card">
 								<img src="${game.banner_img_url}" alt="banner_img"/>

@@ -115,8 +115,6 @@ body {
 	background-color: black;
 }
 
-
-
 .week_best_seller {
 	margin-left: 70px;
 	height: 100%;
@@ -142,7 +140,7 @@ body {
 .grid_container {
 	position: relative;
 	display : grid;
-	grid-template-columns: 300px 1fr;
+	grid-template-columns: 300px 1300px;
 	height: 100%;
 	margin-left: 100px;
 	padding-left: 40px;
@@ -150,12 +148,31 @@ body {
 	padding-bottom: 50px;
 }
 
-.filter {
+.secondary {
+	position: relative;
+	height: auto;
+}
+
+.fixed {
+	position: fixed;
+	bottom: 0;
+}
+
+.sticky {
 	position: sticky;
 	top: 100px;
+}
+
+.fixed-bottom {
+	position: absolute;
+	bottom: 80px;
+}
+
+.filter {
+	width: 300px;
 	border-radius: 10px / 10px;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-	height: min-content;
+	max-height: min-content;
 }
 
 .filter_header {
@@ -216,7 +233,7 @@ body {
 }
 
 .filter_content .filter_item:hover {
-  background: rgb(175, 93, 93);
+  background: #F22349;
 }
 
 .filter_label {
@@ -233,6 +250,8 @@ body {
 }
 
 .primary {
+	order: 2;
+	width: 100%;
 	margin-left: 50px;
 	padding-right: 40px;
 }
@@ -241,7 +260,7 @@ body {
 	display: flex;
 	padding-right: 30px;
 	height: 60px;
-	background-color: lightgray;
+	background-color: #F22349;
 	justify-content: flex-end;
 	align-items: center;
 	border-radius: 10px / 10px;
@@ -334,7 +353,7 @@ ul{
   top: 28px;
   left: 50px;
   width: 100%;
-  background: white;
+  background: black;
   list-style-type: none;
   padding: 0;
   border-radius: 6px;
@@ -354,7 +373,7 @@ ul{
 }
 
 .sort_selector .option_item:hover {
-  background: yellow;
+  background: #F22349;
 }
 
 .sort_selector .option_item:last-child {
@@ -375,7 +394,7 @@ ul{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	width: min-content;
-	background-color: plum;
+	background-color: #F22349;
 	border-radius: 50px;
 	padding: 10px;
 	margin: 8px;
