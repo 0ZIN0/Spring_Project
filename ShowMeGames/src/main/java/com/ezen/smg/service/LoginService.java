@@ -8,5 +8,6 @@ public interface LoginService {
 	
 	SmgUsersDTO getUser(String user_id);
 	
+	int getCheckUser(String social_key);
 	
 }

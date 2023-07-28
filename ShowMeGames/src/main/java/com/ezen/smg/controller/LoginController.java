@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.smg.service.LoginService;
 
@@ -23,7 +25,6 @@ public class LoginController {
 	public String loginCheck(String user_id, String user_pw, Model model, HttpServletRequest request) {
 		int result = loginService.getSelectUser(user_id, user_pw);
 		if (result == 1) {
-			
 			
 			System.out.println("로그인 성공");
 				
@@ -52,5 +53,28 @@ public class LoginController {
 	@GetMapping(value="/member/sessionLogout")
 	public void hello() {
 		log.info("로그아웃 페이지입니다.");
+	}
+	
+	@GetMapping(value="/member/naver_login")
+	public void naver_login() {
+		log.info("네이버 로그인");
+	}
+	
+	@GetMapping(value="/member/loginSuccess")
+	public void loginSuccess() {}
+	
+	@ResponseBody
+	@PostMapping(value="/member/naver_check", produces = "application/json")
+	public String naver_check(String id, String email, HttpServletRequest request) {
+		if(loginService.getCheckUser(id) == 1) {
+			HttpSession session = request.getSession();
+			
+			session.setAttribute("isLoggedIn", true);
+			session.setAttribute("user", loginService.getUser(email));
+			
+			return "Y";
+		} else {
+			return "N";
+		}
 	}
 }
