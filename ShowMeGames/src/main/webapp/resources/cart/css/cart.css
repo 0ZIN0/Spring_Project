@@ -169,7 +169,6 @@ h3 {
 	position: absolute;
 	font-weight: 100;
 	color:#636363;
-	display: none;
 	grid-template-rows: 2fr;
 	right: -10px;
     top: 40px;
@@ -194,10 +193,6 @@ h3 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-.plat-form-options > :first-child {
-	background-color: #35C1CF4D;
 }
 
 .plat-form-options > *:hover {
@@ -470,4 +465,12 @@ body {
 
 .refund-none {
 	display: none;
+}
+
+.display-none {
+	display: none;
+}
+
+.display-grid {
+	display: grid;
 }

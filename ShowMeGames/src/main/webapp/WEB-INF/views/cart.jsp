@@ -56,14 +56,14 @@
 										<c:choose>
 											<c:when test="${fn:length(platforms[status.index]) > 1}">
 												<div>플랫폼:</div>
-												<div class="plat-form-select options-ok" data-game="options-${game.game_id}">
-													<div id="platform-view" class="options-ok">${platforms[status.index][0]}</div>
-													<div class="option-open-btn options-ok">
-														<span class="material-symbols-outlined options-ok">expand_more</span>
-														<div class="plat-form-options" id="options-${game.game_id}">
+												<div class="plat-form-select options-ok options-${game.game_id}" data-game="options-${game.game_id}" data-id="${game.game_id}">
+													<div id="platform-view-${game.game_id}" class="options-ok options-${game.game_id}" data-game="options-${game.game_id}" data-id="${game.game_id}">${platforms[status.index][0]}</div>
+													<div class="option-open-btn options-ok options-${game.game_id}" data-game="options-${game.game_id}" data-id="${game.game_id}">
+														<span class="material-symbols-outlined options-ok options-${game.game_id}" data-game="options-${game.game_id}" data-id="${game.game_id}">expand_more</span>
+														<div class="plat-form-options display-none" id="options-${game.game_id}">
 															<c:forEach var="platformArr" items="${platforms[status.index]}">
 																<c:forEach items="${platformArr}" var="platform">
-																	<div class="option ${platform}">${platform}</div>
+																	<div class="option ${platform}" data-platform="${platform}" data-id="${game.game_id}">${platform}</div>
 																</c:forEach>
 															</c:forEach>
 														</div>
@@ -86,12 +86,12 @@
 										<div></div>
 										<div class="game-price price">
 											<c:choose>
-												<c:when test="${game.game_price > 0}">
-													￦ <fmt:formatNumber type="number" maxFractionDigits="3"
-														value="${game.game_price}" />
+												<c:when test="${game.discounted_price > 0}">
+													₩ <fmt:formatNumber type="number" maxFractionDigits="3"
+														value="${game.discounted_price}" />
 												</c:when>
 												<c:otherwise>
-													￦ 무료
+													₩ 무료
 												</c:otherwise>
 											</c:choose>
 										</div>
@@ -115,7 +115,7 @@
 								<div>
 									<div>소계 (${cart_len} 항목)</div>
 									<div class="price" id="lower-order">
-										￦
+										₩
 										<fmt:formatNumber type="number" maxFractionDigits="3"
 											value="${total_price}" />
 									</div>
@@ -125,7 +125,7 @@
 									<div>부가세 포함</div>
 									<div></div>
 									<div class="price" id="total-order">
-										￦
+										₩
 										<fmt:formatNumber type="number" maxFractionDigits="3"
 											value="${total_price}" />
 									</div>
@@ -133,7 +133,8 @@
 								<div>
 									<div>해당 구매로 획득하는 유닛</div>
 									<div class="price">
-										<i class="fa-brands fa-bitcoin"></i>100
+										<i class="fa-brands fa-bitcoin"></i>
+										${unit}
 									</div>
 								</div>
 								<div>

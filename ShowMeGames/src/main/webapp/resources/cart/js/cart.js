@@ -34,45 +34,31 @@ $("#check-out-btn").click(function (e) {
 
 // platform select active 
 $('.options-ok').click(function (e) {
-    const options = "#" + $('.options-ok').data('game');
-    $(options).css('display', 'grid');
+    const options = "#" + e.target.dataset.game;
+    $(options).addClass('display-grid');
 });
 
 $('html').click(function (e) {
-    console.log($(e.target));
-    if (!$(e.target).hasClass("options-ok")) {
-        $('.plat-form-options').hide();
+    if (!$(e.target).hasClass(e.target.dataset.game)) {
+        $('.plat-form-options').removeClass('display-grid');
     }
 });
 
 const options = $('.option');
 options.click(function (e) {
-    if ($(e.target).hasClass("PC")) {
-        $('#platform-view').text("PC");
-        options.css('background-color', 'transparent');
-        $('.PC').css('background-color', '#35C1CF4D');
-    } else if ($(e.target).hasClass("Xbox")) {
-        $('#platform-view').text("Xbox");
-        options.css('background-color', 'transparent');
-        $('.Xbox').css('background-color', '#35C1CF4D');
-    } else {
-        $('#platform-view').text("PlayStation");
-        options.css('background-color', 'transparent');
-        $('.PlayStation').css('background-color', '#35C1CF4D');
+    if ($(e.target).hasClass(e.target.dataset.platform)) {
+        console.log(e.target.dataset.id);
+        $('#platform-view-' + e.target.dataset.id).text(e.target.dataset.platform);
     }
 });
 
 // cart-list delete
 $('.cart-delete').click(function (e) {
-    const game_id = {
-        game_id: e.target.dataset.gameid,
-    };
     $.ajax({
-        url: `./cart-delete?game_id=./cart-delete?game_id=${e.target.dataset.gameid}`,
+        url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
         method: 'GET',
-        dataType: 'json',
         success: () => {
-            console.log('ajax put xhreq success');
+            location.href = "./cart";
         }
     })
 });
