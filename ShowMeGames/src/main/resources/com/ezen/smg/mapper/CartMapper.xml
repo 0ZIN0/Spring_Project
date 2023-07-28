@@ -6,4 +6,8 @@
 	<select id="getCartContent" resultType="String">
 		SELECT cart_content FROM carts where user_num=#{user_num}
 	</select>
+	
+	<update id="deleteGame" parameterType="String">
+		UPDATE carts SET cart_content=#{cart_content} WHERE user_num=#{user_num}
+	</update>
 </mapper> 

@@ -147,27 +147,31 @@ h3 {
 	grid-template-columns: 50px 1fr 80px;
 }
 
-.plat-form-select:hover {
+.options-ok:hover {
 	cursor: pointer;
 }
 
 .plat-form-select {
 	display: grid;
-	grid-template-columns: 80px 20px;
+	grid-template-columns: 70px 20px;
 	position: relative;
+}
+
+.plat-form-select > :first-child {
+	display: flex;
+	justify-content: center;
 }
 
 .plat-form-options {
 	box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 	background: #ffffff;
 	width: 150px;
-	height: 100px;
 	position: absolute;
 	font-weight: 100;
 	color:#636363;
 	display: none;
-	grid-template-rows: repeat(3, 1fr);
-	right: 10px;
+	grid-template-rows: 2fr;
+	right: -10px;
     top: 40px;
 }
 
@@ -208,6 +212,10 @@ h3 {
 .cart-delete {
 	display: grid;
 	grid-template-columns: 1fr 32px;
+}
+
+.cart-delete:hover {
+	cursor: pointer;
 }
 
 .cart-delete > * {
@@ -251,7 +259,7 @@ h3 {
 #summary-grid > :first-child {
 	display: grid;
 	grid-template-columns: 95px 1fr;
-	column-gap: 200px;
+	column-gap: 150px;
 	border-bottom: 1px black dashed;
 }
 

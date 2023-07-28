@@ -109,7 +109,6 @@ $("#editor").on("click", (e) => {
 
 
 $('html').click(function (e) {
-  console.log(e.target);
   if ($(e.target).hasClass("sub-ul") || $(e.target).hasClass("title-div") || $(e.target).hasClass("bottom-btns") || $(e.target).hasClass("material-symbols-outlined")) {
     return;
   } else {
