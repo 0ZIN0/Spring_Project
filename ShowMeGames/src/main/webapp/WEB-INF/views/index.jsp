@@ -34,7 +34,7 @@
 					</div>
 					<div id="newGame_container">
 						<c:forEach begin="1" end="4" varStatus="status">
-							<div class="newgames">
+							<div class="newgames toDetailBtn" data-id="1004">
 								<img src="${img}/temp/best${status.count}.png" alt="사진${status.count}">
 							</div>
 						</c:forEach>
@@ -57,7 +57,7 @@
 					</div>
 					<div class="blank"></div>
 					<c:forEach begin="1" end="10">
-						<div class="recmd-items">
+						<div class="recmd-items toDetailBtn">
 							<div>
 								<img src="${img}/temp/temp2.png" alt="사진">
 							</div>
@@ -92,7 +92,7 @@
 					</div>
 					<div class="blank"></div>
 					<c:forEach begin="1" end="8">
-						<div class="recmd-items">
+						<div class="recmd-items toDetailBtn">
 							<div>
 								<img src="${img}/temp/temp1.png" alt="사진">
 							</div>
@@ -126,16 +126,16 @@
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
 					<div id="genre-container" data-imgurl="${img}/genre">
-						<div class="genres" style="background-image: url(${img}/genre/genre1.png;">
+						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre1.png;">
 							<span>캐주얼</span>
 						</div>
-						<div class="genres" style="background-image: url(${img}/genre/genre2.png;">
+						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre2.png;">
 							<span>전략/시뮬</span>
 						</div>
-						<div class="genres" style="background-image: url(${img}/genre/genre3.png;">
+						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre3.png;">
 							<span>RPG</span>
 						</div>
-						<div class="genres" style="background-image: url(${img}/genre/genre4.png;">
+						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre4.png;">
 							<span>퍼즐</span>
 						</div>
 					</div>
@@ -153,7 +153,7 @@
 							많은 플레이어가 선택한 게임. </span>
 					</div>
 					<div id="hotgame_content">
-						<div class="game_item">
+						<div class="game_item toDetailBtn">
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
@@ -169,7 +169,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="game_item">
+						<div class="game_item toDetailBtn">
 							<div>
 								<img src="${img}/temp/Img2.png" alt="임시사진2">
 							</div>
@@ -195,7 +195,23 @@
 						<span class="title">큐레이터 추천. </span><span class="sub-title">몰랐던 띵작들을 만나보세요. </span>
 					</div>
 					<div id="curator-content">
-						<div class="game_item">
+						<div class="game_item toDetailBtn" data-id="1012">
+							<div>
+								<img src="resources/img/banner_img/genshin_impact_banner.jpg" alt="원신사진">
+							</div>
+							<div class="item_text_box">
+								<div>
+									<span class="game_title">붕괴3rd</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩49,900</span><span>₩24,950</span>
+								</div>
+							</div>
+						</div>
+						<div class="game_item toDetailBtn">
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
@@ -211,7 +227,23 @@
 								</div>
 							</div>
 						</div>
-						<div class="game_item">
+						<div class="game_item toDetailBtn" data-id="1021">
+							<div>
+								<img src="resources/img/banner_img/Mabinogi_banner.jpg" alt="마비노기사진">
+							</div>
+							<div class="item_text_box">
+								<div>
+									<span class="game_title">마비노기</span>
+								</div>
+								<div style="display: none;">
+									<span>-0%</span>
+								</div>
+								<div>
+									<span style="display: none;">₩0</span><span>₩0</span>
+								</div>
+							</div>
+						</div>
+						<div class="game_item toDetailBtn">
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
@@ -227,39 +259,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="game_item">
-							<div>
-								<img src="${img}/temp/Img1.png" alt="임시사진">
-							</div>
-							<div class="item_text_box">
-								<div>
-									<span class="game_title">title</span>
-								</div>
-								<div>
-									<span>-50%</span>
-								</div>
-								<div>
-									<span>₩18,000</span><span>₩9,000</span>
-								</div>
-							</div>
-						</div>
-						<div class="game_item">
-							<div>
-								<img src="${img}/temp/Img1.png" alt="임시사진">
-							</div>
-							<div class="item_text_box">
-								<div>
-									<span class="game_title">title</span>
-								</div>
-								<div>
-									<span>-50%</span>
-								</div>
-								<div>
-									<span>₩18,000</span><span>₩9,000</span>
-								</div>
-							</div>
-						</div>
-						<div class="game_item">
+						<div class="game_item toDetailBtn">
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
