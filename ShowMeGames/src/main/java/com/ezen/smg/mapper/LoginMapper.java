@@ -8,4 +8,6 @@ public interface LoginMapper {
 	
 	SmgUsersDTO getSelectUser(@Param("user_id") String user_id);
 	
+	int checkUser(@Param("key") String social_key);
+	
 }

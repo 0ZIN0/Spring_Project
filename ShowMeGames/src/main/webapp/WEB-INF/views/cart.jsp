@@ -157,7 +157,7 @@
 									<img alt=""
 										src="https://store.ubisoft.com/on/demandware.static/-/Library-Sites-shared-library-web/default/dw74531a5f/images/psp/Master_Card.svg">
 									<img alt=""
-										src="https://store.ubisoft.com/on/demandware.static/-/Library-Sites-shared-library-web/default/dw9599f331/images/psp/Amex.svg"">
+										src="https://store.ubisoft.com/on/demandware.static/-/Library-Sites-shared-library-web/default/dw9599f331/images/psp/Amex.svg">
 									<img alt=""
 										src="https://store.ubisoft.com/on/demandware.static/-/Library-Sites-shared-library-web/default/dw879a8b40/images/psp/Visa.svg">
 									<img alt=""
