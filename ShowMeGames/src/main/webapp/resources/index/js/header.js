@@ -1,3 +1,14 @@
+// 게임 호버기능
+$("#game-btn").on("mouseover", () => {
+  $("#game-btn-underline").css("backgroundColor", "white");
+  $("#game-btn-underline").css("transition", "background-color 0.3s ease");
+});
+
+$("#game-btn").on("mouseout", () => {
+  $("#game-btn-underline").css("backgroundColor", "");
+  $("#game-btn-underline").css("transition", "background-color 0.4s ease");
+});
+
 // 공지사항 호버기능
 $("#notices-btn").on("mouseover", () => {
   $("#notices-btn-underline").css("backgroundColor", "white");
@@ -192,7 +203,7 @@ function openLoginPopup() {
         var popupFeatures = 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + left + ',top=' + top;
 
         // 새로운 팝업을 열고, loginPopup 변수에 할당하여 저장
-        loginPopup = window.open('./member/login', '_blank', popupFeatures);
+        loginPopup = window.open('/smg/member/login', '_blank', popupFeatures);
         
     }
 }
@@ -204,4 +215,23 @@ $(window).scroll(function(){
 
 
 
+function toggleDropdown() {
+    var dropdownContent = document.getElementById("dropdown-content");
+    if (dropdownContent.style.display === "none") {
+      dropdownContent.style.display = "block";
+    } else {
+      dropdownContent.style.display = "none";
+    }
+  }
 
+  // 로그인 아이콘 클릭 시 드랍다운 열기
+  document.getElementById("login-icon2").addEventListener("click", toggleDropdown);
+
+  // 다른 곳을 클릭하면 드랍다운 닫기
+  document.addEventListener("click", function(event) {
+    var dropdownContent = document.getElementById("dropdown-content");
+    var loginIcon = document.getElementById("login-icon2");
+    if (event.target !== loginIcon) {
+      dropdownContent.style.display = "none";
+    }
+  });

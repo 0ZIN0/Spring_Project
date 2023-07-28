@@ -26,7 +26,7 @@ public class LoginService_Impl implements LoginService {
 			 * }
 			 */
 			
-			if (Encryption_SH256.encrypt(user.getUser_pw()).equals(Encryption_SH256.encrypt(user_pw))) {
+			if (user.getUser_pw().equals(Encryption_SH256.encrypt(user_pw))) {
 				return 1;
 			}
 		}

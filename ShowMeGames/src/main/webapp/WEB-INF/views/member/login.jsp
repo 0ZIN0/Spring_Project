@@ -79,12 +79,12 @@
 
 
 			<div id="remember-and-forget">
-				<div>
+				<!-- <div>
 					<input type="checkbox" id="rememberCheckbox" /> <label
 						for="rememberCheckbox" id="rememberLabel">저장</label>
-				</div>
+				</div> -->
 				<div>
-					<a role="button" href="null" id="forgetBtn"> 비밀번호를 잊으셨나요?</a>
+					<a role="button" href="./forgot" id="forgetBtn" > 비밀번호를 잊으셨나요?</a>
 				</div>
 
 			</div>
