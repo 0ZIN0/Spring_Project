@@ -73,9 +73,10 @@ public class CustomerController {
 	}
 	
 	@GetMapping(value="/notice/notice_detail")
-	String noticeDetail(Integer notice_id, Model model) {
-		log.info(noticeService.getContent(notice_id));
-		//model.addAttribute("notice_id", noticeService.getContent(notice_id));
+	String noticeDetail(Integer id, Model model) {
+		
+		model.addAttribute("detail", noticeService.getContent(id));
+		
 		return "customer/notice_detail";
 	}
 	

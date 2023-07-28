@@ -44,7 +44,7 @@ public class NoticeService_Impl implements NoticeService {
 	}
 	
 	@Override
-	public List<NoticeDTO> getContent(Integer notice_id) {
+	public NoticeDTO getContent(int notice_id) {
 		
 		return noticeMapper.getContent(notice_id);
 	}

@@ -16,5 +16,5 @@ public interface NoticeMapper {
 	
 	List<NoticeDTO> getSelectDateNotices(@Param("date") String selectDate);
 	
-	List<NoticeDTO> getContent(@Param("notice_id") Integer notice_id);
+	NoticeDTO getContent(@Param("id") int notice_id);
 }
