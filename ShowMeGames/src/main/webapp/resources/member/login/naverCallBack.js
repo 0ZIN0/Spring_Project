@@ -30,8 +30,17 @@ window.addEventListener('load', function () {
       xhr.onload = () => {
           //통신 성공
           if (xhr.status == 200) {
-              console.log(xhr.response);
-              console.log("통신 성공");
+              let result = xhr.response;
+              
+              if(result == "Y") {
+                location.href="./loginSuccess"
+              }
+
+              if(result == "N") {
+                alert('회원정보가 없습니다. 회원가입 페이지로 이동합니다.');
+                location.href="./naver_signup"
+              }
+
           } else {
               //통신 실패
               console.log("통신 실패");

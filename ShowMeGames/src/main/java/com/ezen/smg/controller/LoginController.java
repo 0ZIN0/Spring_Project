@@ -60,21 +60,21 @@ public class LoginController {
 		log.info("네이버 로그인");
 	}
 	
+	@GetMapping(value="/member/loginSuccess")
+	public void loginSuccess() {}
+	
 	@ResponseBody
 	@PostMapping(value="/member/naver_check", produces = "application/json")
 	public String naver_check(String id, String email, HttpServletRequest request) {
-		log.info(id);
-		log.info(email);
-
 		if(loginService.getCheckUser(id) == 1) {
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("isLoggedIn", true);
 			session.setAttribute("user", loginService.getUser(email));
 			
-			return "/member/loginSuccess";
+			return "Y";
 		} else {
-			return "/member/naver_signup";
+			return "N";
 		}
 	}
 }
