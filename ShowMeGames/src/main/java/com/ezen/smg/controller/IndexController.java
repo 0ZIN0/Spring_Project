@@ -32,8 +32,8 @@ public class IndexController {
 	}
 	
 	@GetMapping(value="/detail")
-	public String detail() {
-		return "games/detail";
+	public String detail(Integer game) {
+		return "games/" + game;
 	}
 	
 }
