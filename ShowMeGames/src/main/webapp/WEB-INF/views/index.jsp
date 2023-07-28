@@ -18,7 +18,7 @@
 	<%@ include file="/WEB-INF/views/include/header/header.jsp"%>
 
 	<div id="main" class="background_layer1">
-		<div class="background_layer1">
+		<div class="background_layer2">
 			<div id="mainBanner" class="banner">
 				<div>
 					<div>
@@ -27,24 +27,17 @@
 				</div>
 				<img src="${img}/HomeHero_SummerSale-June23_desk 1.png" alt="배너사진">
 			</div>
-			<div id="bestGame">
+			<div id="newGame">
 				<div>
-					<div id="bestGame_title">
+					<div id="newGame_title">
 						<span class="title">최신 게임.</span><span class="sub-title"> 따끈따끈한 새 게임의 세계로.</span>
 					</div>
-					<div id="bestGame_container">
-						<div class="best_games">
-							<img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
-						</div>
-						<div class="best_games">
-							<img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
-						</div>
-						<div class="best_games">
-							<img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
-						</div>
-						<div class="best_games">
-							<img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
-						</div>
+					<div id="newGame_container">
+						<c:forEach begin="1" end="4" varStatus="status">
+							<div class="newgames toDetailBtn" data-id="1004">
+								<img src="${img}/temp/best${status.count}.png" alt="사진${status.count}">
+							</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
@@ -63,39 +56,24 @@
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
 					<div class="blank"></div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${game_img}/Tekken7/Tekken5.jpg" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${game_img}/Forza_Horizon/Forza Horzon4.jpg" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
+					<c:forEach begin="1" end="10">
+						<div class="recmd-items toDetailBtn">
+							<div>
+								<img src="${img}/temp/temp2.png" alt="사진">
+							</div>
+							<div class="item_text_box">
+								<div>
+									<span class="game_title">로렘 Ipsum</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩18,000</span><span>₩9,000</span>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
 					<div class="slider-next-btn">
 						<i class="material-icons" id="editer-next-button"
 							style="font-size: 48px;">arrow_forward_ios</i>
@@ -113,21 +91,24 @@
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
 					<div class="blank"></div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="recmd-items">
-						<img src="${img}/black.png" alt="사진">
-					</div>
+					<c:forEach begin="1" end="8">
+						<div class="recmd-items toDetailBtn">
+							<div>
+								<img src="${img}/temp/temp1.png" alt="사진">
+							</div>
+							<div class="item_text_box">
+								<div>
+									<span class="game_title">로렘 Ipsum</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩18,000</span><span>₩9,000</span>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
 					<div class="slider-next-btn">
 						<i class="material-icons" id="cms-next-button"
 							style="font-size: 48px;">arrow_forward_ios</i>
@@ -144,18 +125,18 @@
 						<i class="material-icons" id="genre-prev-button"
 							style="font-size: 48px;">arrow_back_ios_new</i>
 					</div>
-					<div id="genre-container">
-						<div class="genres">
-							<img src="${img}/black.png" alt="사진">
+					<div id="genre-container" data-imgurl="${img}/genre">
+						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre1.png;">
+							<span>캐주얼</span>
 						</div>
-						<div class="genres">
-							<img src="${img}/black.png" alt="사진">
+						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre2.png;">
+							<span>전략/시뮬</span>
 						</div>
-						<div class="genres">
-							<img src="${img}/black.png" alt="사진">
+						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre3.png;">
+							<span>RPG</span>
 						</div>
-						<div class="genres">
-							<img src="${img}/black.png" alt="사진">
+						<div class="genres toGenreBtn" style="background-image: url(${img}/genre/genre4.png;">
+							<span>퍼즐</span>
 						</div>
 					</div>
 					<div class="btn">
@@ -172,11 +153,11 @@
 							많은 플레이어가 선택한 게임. </span>
 					</div>
 					<div id="hotgame_content">
-						<div class="game_item">
+						<div class="game_item toDetailBtn">
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -188,11 +169,11 @@
 								</div>
 							</div>
 						</div>
-						<div class="game_item">
+						<div class="game_item toDetailBtn">
 							<div>
 								<img src="${img}/temp/Img2.png" alt="임시사진2">
 							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -214,11 +195,27 @@
 						<span class="title">큐레이터 추천. </span><span class="sub-title">몰랐던 띵작들을 만나보세요. </span>
 					</div>
 					<div id="curator-content">
-						<div class="game_item">
+						<div class="game_item toDetailBtn" data-id="1012">
+							<div>
+								<img src="resources/img/banner_img/genshin_impact_banner.jpg" alt="원신사진">
+							</div>
+							<div class="item_text_box">
+								<div>
+									<span class="game_title">붕괴3rd</span>
+								</div>
+								<div>
+									<span>-50%</span>
+								</div>
+								<div>
+									<span>₩49,900</span><span>₩24,950</span>
+								</div>
+							</div>
+						</div>
+						<div class="game_item toDetailBtn">
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -230,11 +227,27 @@
 								</div>
 							</div>
 						</div>
-						<div class="game_item">
+						<div class="game_item toDetailBtn" data-id="1021">
+							<div>
+								<img src="resources/img/banner_img/Mabinogi_banner.jpg" alt="마비노기사진">
+							</div>
+							<div class="item_text_box">
+								<div>
+									<span class="game_title">마비노기</span>
+								</div>
+								<div style="display: none;">
+									<span>-0%</span>
+								</div>
+								<div>
+									<span style="display: none;">₩0</span><span>₩0</span>
+								</div>
+							</div>
+						</div>
+						<div class="game_item toDetailBtn">
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -246,43 +259,11 @@
 								</div>
 							</div>
 						</div>
-						<div class="game_item">
+						<div class="game_item toDetailBtn">
 							<div>
 								<img src="${img}/temp/Img1.png" alt="임시사진">
 							</div>
-							<div>
-								<div>
-									<span class="game_title">title</span>
-								</div>
-								<div>
-									<span>-50%</span>
-								</div>
-								<div>
-									<span>₩18,000</span><span>₩9,000</span>
-								</div>
-							</div>
-						</div>
-						<div class="game_item">
-							<div>
-								<img src="${img}/temp/Img1.png" alt="임시사진">
-							</div>
-							<div>
-								<div>
-									<span class="game_title">title</span>
-								</div>
-								<div>
-									<span>-50%</span>
-								</div>
-								<div>
-									<span>₩18,000</span><span>₩9,000</span>
-								</div>
-							</div>
-						</div>
-						<div class="game_item">
-							<div>
-								<img src="${img}/temp/Img1.png" alt="임시사진">
-							</div>
-							<div>
+							<div class="item_text_box">
 								<div>
 									<span class="game_title">title</span>
 								</div>
@@ -297,11 +278,10 @@
 					</div>
 				</div>
 			</div>
-
-			<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
 		</div>
 	</div>
 
+	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
 	<!-- js -->
 	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
 	<script src="./resources/index/js/index.js"></script>
