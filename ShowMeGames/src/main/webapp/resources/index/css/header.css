@@ -204,10 +204,7 @@ header {
 
 /*************** header-bottom *******************/
 
-
-
 #header-bottom-logo {
-
 	display: none;
 	margin-top: 15px;
 	text-align: center;
@@ -265,11 +262,11 @@ header {
 }
 
 .header-bottom-up {
-	grid-template-columns: 600px 510px 385px 455px;
+	grid-template-columns: 600px 510px 385px 140px;
 }
 
 .header-bottom-drop {
-	grid-template-columns: 250px 600px 240px 385px 455px;
+	grid-template-columns: 250px 600px 240px 385px 140px;
 }
 
 #header-bottom > * {
@@ -294,8 +291,6 @@ header {
 #editor {
    grid-template-columns: 130px 40px; 
 }
-
-
 
 #header-games-btn:hover {
 	cursor: pointer;
@@ -453,6 +448,9 @@ header {
 	transition: .3s ease-in;
 }
 
+#header-bottom.minicart-postition {
+   position: relative;
+}
 
 /* 장바구니 마우스 hover시 나오는 minicart */
 #minicart {
@@ -479,17 +477,9 @@ header {
    transform: translateY(0);
    visibility: visible;
    pointer-events: auto;
-}
-
-#minicart-arrow {
-   font-size: 80px;
-   color: #F22349;
    position: absolute;
-   top: -46px;
-   right: 42px;
-   z-index: 80;
+   top: 86px;
 }
-
 
 .minicart-common {
    display: flex;
@@ -507,6 +497,19 @@ header {
    position: relative;
 }
 
+.minicart-header:after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 80%;
+   width: 0;
+   height: 0;
+   border: 12px solid transparent;
+   border-bottom-color: #F22349;
+   border-top: 0;
+   margin-left: -12px;
+   margin-top: -12px;
+}
 .minicart-title {
    font-size: 24px;
    font-weight: bold;
@@ -533,4 +536,12 @@ header {
    border-radius: 30px;
    color: #F3EED9;
    font-weight: bold;
+}
+
+.empty-minicart-buttons:hover {
+	background-color: #fcee27;
+   color: black;
+   font-weight: bold;
+   transform: scale(1.1);
+	cursor: pointer;
 }

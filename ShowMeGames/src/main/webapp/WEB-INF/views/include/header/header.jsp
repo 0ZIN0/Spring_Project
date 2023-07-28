@@ -175,9 +175,7 @@
 			
 			<!-- 장바구니 마우스 오버 시 나올 MiniCart -->
 			<div id="minicart" class="minicart-common">
-
 				<div class="minicart-header minicart-common">
-					<span id="minicart-arrow" class="material-symbols-outlined">arrow_drop_up</span>
 					<div class="minicart-title">장바구니</div>
 				</div>
 				<div class="minicart-content">
@@ -188,8 +186,9 @@
 							<img alt="Empty Minicart"
 								src="resources/img/cart/SMG_EmptyMarket_img.jpg">
 						</div>
-						<div class="empty-minicart-buttons minicart-common">쇼핑하러
-							가기48</div>
+						<div class="empty-minicart-buttons minicart-common"
+							onclick="location.href='${conPath}games'">쇼핑하러 가기5
+						</div>
 					</div>
 				</div>
 			</div>

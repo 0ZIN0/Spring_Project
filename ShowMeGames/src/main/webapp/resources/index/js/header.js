@@ -201,65 +201,24 @@ $(window).scroll(function(){
   $('#header-bottom').css('left', 0-$(this).scrollLeft());
 });
 
-// #minicart Mouse Event 
 
-$(window).on('scroll', function () {
-  let scrollTop = $(this).scrollTop();
-
-  // minicart position update
-  if (scrollTop > lastScroll) {
-    //down
-    $('#minicart').css({ 'top': '0', 'transition': '0.3s' });
-  } else {
-    // up
-    $('#minicart').css({ 'top': '54px', 'transition': '0.3s' });
-  }
-
-  lastScroll = scrollTop;
-});
-
-
-
-
+// minicart Mouse Event
 $(document).ready(function() {
   // header-cart에 마우스를 올렸을 때
   $('#header-cart').mouseenter(function() {
+    $('header-cart').addClass('minicart-position');
     $('#minicart').addClass('minicart-active');
+  });
+
+  $('#header-cart').mouseleave(function() {
+    $('header-cart').removeClass('minicart-position');
+    $('#minicart').removeClass('minicart-active');
   });
 
   // minicart 영역을 벗어났을 때
   $('#minicart').mouseleave(function() {
+    $('header-cart').removeClass('minicart-position');
     $('#minicart').removeClass('minicart-active');
   });
 
-});
-
-// 마우스 스크롤 시 minicart 비활성화를 위하여 함수 선언
-$(window).on('scroll', function () {
-  let lastScroll = 0;
-
-  let scrollTop = $(this).scrollTop();
-
-  // minicart position update
-  if (scrollTop > lastScroll) {
-    //down
-    $('#minicart').css({ 'top': '86px', 'transition': '0.1s' });
-  } else {
-    // up
-    $('#minicart').css({ 'top': '140px', 'transition': '0.1s' });
-  }
-
-  lastScroll = scrollTop;
-});
-
-$(document).ready(function() {
-  // header-cart에 마우스를 올렸을 때
-  $('#header-cart').mouseenter(function() {
-    $('#minicart').addClass('minicart-active');
-  });
-
-  // minicart 영역을 벗어났을 때
-  $('#minicart').mouseleave(function() {
-    $('#minicart').removeClass('minicart-active');
-  });
 });
