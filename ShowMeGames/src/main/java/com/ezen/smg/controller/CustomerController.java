@@ -1,7 +1,6 @@
 package com.ezen.smg.controller;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
