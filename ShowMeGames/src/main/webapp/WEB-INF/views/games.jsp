@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:url value="resources/games/css/games.css" var="css1" />
 <c:url value="resources/games/js/games.js" var="js1" />
 <c:url value="resources/games/js/filter.js" var="js2" />
@@ -236,10 +237,53 @@
 			</div>
 			<div class="sort_result_content">
 				<div class="sort_result_list">
-					<c:forEach items="${games }" var="game">
-							<div class="sort_result_card">
-								<img src="${game.banner_img_url}" alt="banner_img"/>
+					<c:forEach items="${games}" var="game">
+						<div class="recmd-items toDetailBtn" data-id="${game.game_id}">
+							<div>
+								<img src="${game.banner_img_url}" alt="${game.game_name}_배너사진">
 							</div>
+							<div class="item_text_box">
+								<div>
+									<span class="game_title">${game.game_name}</span>
+								</div>
+								<c:choose>
+									<c:when test="${game.game_price == 0}">
+										<div>
+										</div>
+										<div>
+											<span></span>
+											<span>무료</span>
+										</div>
+									</c:when>
+									<c:when test="${game.discount == 0}">
+										<div>
+										</div>
+										<div>
+											<span></span>	
+											<span>
+												₩<fmt:formatNumber type="number"
+														maxFractionDigits="3" value="${game.discounted_price}" />
+											</span>
+										</div>	
+									</c:when>
+									<c:otherwise>
+										<div>
+											<span>-${game.discount}%</span>	
+										</div>
+										<div>
+											<span>
+												₩<fmt:formatNumber type="number" maxFractionDigits="3"
+													value="${game.game_price}" />	
+											</span>
+											<span>
+												₩<fmt:formatNumber type="number"
+														maxFractionDigits="3" value="${game.discounted_price}" />
+											</span>
+										</div>	
+									</c:otherwise>
+								</c:choose>
+							</div>
+						</div>
 					</c:forEach>
 				</div>
 			</div>

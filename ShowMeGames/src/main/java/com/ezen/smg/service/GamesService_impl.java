@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.mapper.GamesMapper;
 
@@ -18,8 +19,11 @@ public class GamesService_impl implements GamesService{
 	public List<Games> getAllGames(Integer sortBy) {
 		
 		String sortByString = sortByToString(sortBy);
-		
-		return gamesMapper.getAllGames(sortByString);
+		List<Games> result = gamesMapper.getAllGames(sortByString);
+		for(Games game : result) {
+			game.setDiscounted_price(CommonFunction.calDiscount(game.getGame_price(), game.getDiscount()));
+		}
+		return result;
 	}
 
 	@Override
