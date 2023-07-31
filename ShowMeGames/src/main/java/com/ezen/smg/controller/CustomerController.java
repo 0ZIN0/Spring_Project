@@ -1,6 +1,7 @@
 package com.ezen.smg.controller;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,7 @@ public class CustomerController {
 	@Autowired
 	FAQService faqService;
 	@Autowired
-	NoticeService noticeService;
-
-	
+	NoticeService noticeService;	
 	@Autowired
 	InquiriesMapper inquiriesMapper;
 			
@@ -75,7 +74,13 @@ public class CustomerController {
 	@GetMapping(value="/notice/notice_detail")
 	String noticeDetail(Integer id, Model model) {
 		
-		model.addAttribute("detail", noticeService.getContent(id));
+		NoticeDTO dto = noticeService.getContent(id);
+		String organize = "";
+		for (String content : dto.getNotice_content().split("\\.")) {
+			organize += content + ".<br>";
+		}
+		dto.setNotice_content(organize);
+		model.addAttribute("detail", dto);
 		
 		return "customer/notice_detail";
 	}
