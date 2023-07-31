@@ -1,4 +1,4 @@
-package com.ezen.smg.service;
+package com.ezen.smg.service.noticeService;
 
 import java.util.List;
 

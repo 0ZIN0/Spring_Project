@@ -540,8 +540,8 @@ header {
 
 .empty-minicart-buttons:hover {
 	background-color: #fcee27;
+   /* transform: scale(1.1); */
    color: black;
    font-weight: bold;
-   transform: scale(1.1);
 	cursor: pointer;
 }

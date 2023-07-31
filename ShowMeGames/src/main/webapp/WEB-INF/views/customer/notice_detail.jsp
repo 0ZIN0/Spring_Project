@@ -32,9 +32,7 @@
 		<div id="notice_title" style="height:70px;">${detail.notice_title}</div>
 		<div class="top_icon" >
 			<div>
-				<i style="font-size:12px;" class="fa-solid fa-eye"> ${detail.notice_viewcnt} </i>
 				<i style="font-size:12px;" class="fa-solid fa-calendar-days">  <fmt:formatDate pattern="yyyy년 MM월 dd일" value="${detail.write_date}"/></i>	
-				
 			</div>
 		</div>
 		<br>
@@ -43,7 +41,9 @@
 		</div>
 		<br>
 		<br>
-		<div class="notice_content">${detail.notice_content}</div>
+		<div class="notice_content">
+			${detail.notice_content}
+		</div>
 				
 	</div>
 		

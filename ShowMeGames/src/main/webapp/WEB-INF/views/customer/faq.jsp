@@ -15,7 +15,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
-	
+
     <div id="main">
     
 		<%@ include file="/WEB-INF/views/include/customer/main_header.jsp" %>
