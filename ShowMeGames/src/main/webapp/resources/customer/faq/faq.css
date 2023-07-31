@@ -196,7 +196,7 @@ img {
     text-decoration: none;
     height: 180px;
     padding: 16px;
-    
+    border-radius: 10px;
 }
 
 .thumbnail-topics {
@@ -262,7 +262,6 @@ img {
     margin: 0 8px;
     outline: 0;
     font-size: 24px;
-    background-color: #fff;
     border-style: none;
     color: inherit;
     cursor: pointer;
@@ -273,6 +272,10 @@ img {
 }
 #pageNav > div:last-child > button[id=now-page] {
     border-bottom: 3px solid #d80388;   
+}
+
+.btn {
+    background-color: transparent;
 }
 
 .qna_blank {

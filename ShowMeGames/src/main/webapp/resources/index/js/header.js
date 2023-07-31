@@ -109,7 +109,6 @@ $("#editor").on("click", (e) => {
 
 
 $('html').click(function (e) {
-  console.log(e.target);
   if ($(e.target).hasClass("sub-ul") || $(e.target).hasClass("title-div") || $(e.target).hasClass("bottom-btns") || $(e.target).hasClass("material-symbols-outlined")) {
     return;
   } else {
@@ -203,5 +202,23 @@ $(window).scroll(function(){
 });
 
 
+// minicart Mouse Event
+$(document).ready(function() {
+  // header-cart에 마우스를 올렸을 때
+  $('#header-cart').mouseenter(function() {
+    $('header-cart').addClass('minicart-position');
+    $('#minicart').addClass('minicart-active');
+  });
 
+  $('#header-cart').mouseleave(function() {
+    $('header-cart').removeClass('minicart-position');
+    $('#minicart').removeClass('minicart-active');
+  });
 
+  // minicart 영역을 벗어났을 때
+  $('#minicart').mouseleave(function() {
+    $('header-cart').removeClass('minicart-position');
+    $('#minicart').removeClass('minicart-active');
+  });
+
+});

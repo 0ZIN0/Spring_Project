@@ -5,6 +5,8 @@
 <c:url value="/" var="conPath" />
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
 	crossorigin="anonymous"></script>
+	
+	
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
@@ -170,27 +172,31 @@
 		<div id="header-cart" onclick="location.href='${conPath}cart'">
 			<a class="bottom-title" id="cart-btn" href="${conPath}cart"><i
 				id="cart-icon" class="fa-solid fa-cart-shopping"></i>장바구니</a>
-		</div>
-	</div>
-
-	<!-- 장바구니 마우스 오버 시 나올 MiniCart -->
-	<div id="minicart" class="minicart-common">
-		<div class="minicart-header minicart-common">장바구니</div>
-		<div class="minicart-content">
-			<div class="empty-minicart-content minicart-common">
-				<div class="empty-minicart-message minicart-common">
-					장바구니가 비어 있습니다.
+			
+			<!-- 장바구니 마우스 오버 시 나올 MiniCart -->
+			<div id="minicart" class="minicart-common">
+				<div class="minicart-header minicart-common">
+					<div class="minicart-title">장바구니</div>
 				</div>
-				<div class="empty-minicart-image minicart-common">
-					<img alt="Empty Minicart"src="https://store.ubisoft.com/on/demandware.static/-/Library-Sites-shared-library-web/default/dwedbef18c/Web_Revamp_Contribution/minicart/empty_minicart.png">
-				</div>
-				<div class="empty-minicart-buttons minicart-common">
-					쇼핑하러 가기1!.
+				<div class="minicart-content">
+					<div class="empty-minicart-content minicart-common">
+						<div class="empty-minicart-message minicart-common">장바구니가 비어
+							있습니다.</div>
+						<div class="empty-minicart-image minicart-common">
+							<img alt="Empty Minicart"
+								src="resources/img/cart/SMG_EmptyMarket_img.jpg">
+						</div>
+						<div class="empty-minicart-buttons minicart-common"
+							onclick="location.href='${conPath}games'">쇼핑하러 가기5
+						</div>
+					</div>
 				</div>
 			</div>
+			<!-- minicart Part End -->
 		</div>
+
 	</div>
-	<!-- minicart Part End -->
+
 
 
 </header>

@@ -8,5 +8,7 @@
  		select * from smg_users where user_id=#{user_id}
  		
  	</select>
-
+ 	<select id="checkUser" parameterType="String" resultType="int">
+		SELECT count(*) FROM smg_users WHERE social_key = #{key}
+	</select>
  </mapper>

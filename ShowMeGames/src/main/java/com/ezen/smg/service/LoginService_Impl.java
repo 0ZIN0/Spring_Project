@@ -9,9 +9,9 @@ import com.ezen.smg.mapper.LoginMapper;
 
 @Service
 public class LoginService_Impl implements LoginService {
+	
 	@Autowired
 	LoginMapper loginMapper;
-	
 	
 	@Override
 	public int getSelectUser(String user_id, String user_pw) {
@@ -37,5 +37,11 @@ public class LoginService_Impl implements LoginService {
 	@Override
 	public SmgUsersDTO getUser(String user_id) {
 		return loginMapper.getSelectUser(user_id);
+	}
+
+
+	@Override
+	public int getCheckUser(String social_key) {
+		return loginMapper.checkUser(social_key);
 	}
 }
