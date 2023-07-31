@@ -138,7 +138,7 @@
 									</div>
 								</div>
 								<div>
-									<a id="check-out-btn">체크 아웃</a>
+									<a href="./checkout" id="check-out-btn">체크 아웃</a>
 								</div>
 								<a href="./">쇼핑 계속하기</a>
 							</div>
