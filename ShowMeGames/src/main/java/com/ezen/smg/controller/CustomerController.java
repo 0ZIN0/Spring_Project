@@ -1,7 +1,6 @@
 package com.ezen.smg.controller;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -113,7 +112,7 @@ public class CustomerController {
 				log.error(e.getMessage());
 			}
 		model.addAttribute(inquiries);
-		inquiries.setFile_name(file_name);
+		inquiries.setFile_name(inquiries.getInquiry_id() + file_name);
 		log.info("업로드파일 : " + file_name);
 		log.info("파일크기 : " + inquiries.getAttachment().getSize());
 		inquiriesMapper.add(inquiries);		
