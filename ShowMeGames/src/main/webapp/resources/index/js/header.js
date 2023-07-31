@@ -220,5 +220,4 @@ $(document).ready(function() {
     $('header-cart').removeClass('minicart-position');
     $('#minicart').removeClass('minicart-active');
   });
-
 });
