@@ -26,6 +26,7 @@ options.click(function (e) {
     if ($(e.target).hasClass(e.target.dataset.platform)) {
         console.log(e.target.dataset.id);
         $('#platform-view-' + e.target.dataset.id).text(e.target.dataset.platform);
+        $('#select-platform-' + e.target.dataset.id).val(e.target.dataset.platform);
     }
 });
 
