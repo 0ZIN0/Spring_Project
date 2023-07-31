@@ -29,6 +29,7 @@ public class IndexService_Impl implements IndexService {
 		Collections.shuffle(editors);
 		
 		List<Games> result = mapper.getEditorRecmdList(editors.get(0)); 
+		result.addAll(mapper.getEditorRecmdList(editors.get(1)));
 		
 		for(Games game : result) {
 			game.setDiscounted_price(CommonFunction.calDiscount(game.getGame_price(), game.getDiscount()));
@@ -58,7 +59,9 @@ public class IndexService_Impl implements IndexService {
 			game.setDiscounted_price(CommonFunction.calDiscount(game.getGame_price(), game.getDiscount()));
 		}
 		
-		return result;
+		Collections.shuffle(result);
+		
+		return result.subList(0, 5);
 	}
 
 }
