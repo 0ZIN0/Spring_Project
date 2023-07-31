@@ -13,9 +13,6 @@ import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.service.CartService;
 
-import lombok.extern.log4j.Log4j;
-
-@Log4j
 @Controller
 public class CartController {
 	

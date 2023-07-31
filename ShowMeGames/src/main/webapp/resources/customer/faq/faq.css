@@ -281,14 +281,13 @@ img {
 .qna_blank {
     height: 110px;
     width: 100%;
-    background-color: #f1f3f4;
 }
 
 #qnaDiv {
     padding: 30px 0 30px 0;
     height: 220px;
     width: 100%;
-    background-color: #fff;
+    background-color: #f1f3f4;
     text-align: center;
 }
 
