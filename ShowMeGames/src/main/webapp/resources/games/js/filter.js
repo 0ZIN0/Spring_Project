@@ -136,34 +136,29 @@ $('.editor').on('click', function() {
   }
   console.log(editorList);
 });
+
 // remove filter
 $(document).on('click', '.remove_filter', function() {
   var remove_filter = this;
   var tag = $(remove_filter).parent();
   tag.remove();
-  $.each(genre_filter, function(index, el){
+  $.each(filter_item, function(index, el){
     var checkbox = $(el).find('input');
     if(checkbox.val() == tag.find('.tag_title').text()){
       checkbox.prop('checked', false);
       genreList.splice(genreList.indexOf(checkbox.val()), 1);
+      editorList.splice(editorList.indexOf(checkbox.val()), 1);
       getSearchList();
       return false;
     }
-    $.each(editer_filter, function(index, el){
-        var checkbox = $(el).find('input');
-        if(checkbox.val() == tag.find('.tag_title').text()){
-         checkbox.prop('checked', false);
-        genreList.splice(genreList.indexOf(checkbox.val()), 1);
-        getSearchList();
-        return false;
-        }
-    })
+  })
 });
-});
+
+
 // Search Logic
 const game_list = $('.sort_result_list');
 function getSearchList(){
-  var genre_toString = genreList.join('/');
+  var genre_toString = genreList.join('%7C');
   var editor_toString = editorList.join('/');
  $.ajax ({
   url: './games-filter?genre=' + genre_toString +'&editor=' + editor_toString,

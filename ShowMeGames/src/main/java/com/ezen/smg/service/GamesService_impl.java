@@ -21,13 +21,13 @@ public class GamesService_impl implements GamesService{
 	}
 
 	@Override
-	public List<Games> getFilteredGames(List<String> genres, List<String> editors) {
+	public List<Games> getFilteredGames(String genres, List<String> editors) {
 		
 		return gamesMapper.getFilteredGames(genres, editors);
 	}
 
 	@Override
-	public List<Games> getFilteredGenreOnly(List<String> genres) {
+	public List<Games> getFilteredGenreOnly(String genres) {
 		
 		return gamesMapper.getFilteredGenreOnly(genres);
 	}

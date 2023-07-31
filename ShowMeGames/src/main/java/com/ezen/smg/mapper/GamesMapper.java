@@ -12,9 +12,9 @@ public interface GamesMapper {
 	
 	Games getGame(int game_id);
 	
-	List<Games> getFilteredGames(@Param("genre") List<String> genres, @Param("editor") List<String> editors);
+	List<Games> getFilteredGames(@Param("genre") String genres, @Param("editor") List<String> editors);
 	
-	List<Games> getFilteredGenreOnly(List<String> genres);
+	List<Games> getFilteredGenreOnly(String genres);
 	
 	List<Games> getFilteredEditorOnly(List<String> editors);
 }

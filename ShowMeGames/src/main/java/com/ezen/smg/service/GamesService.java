@@ -8,9 +8,9 @@ public interface GamesService {
 	
 	List<Games> getAllGames();
 	
-	List<Games> getFilteredGames(List<String> genres, List<String> editors);
+	List<Games> getFilteredGames(String genres, List<String> editors);
 	
-	List<Games> getFilteredGenreOnly(List<String> genres);
+	List<Games> getFilteredGenreOnly(String genres);
 	
 	List<Games> getFilteredEditorOnly(List<String> editors);
 }
