@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.smg.mapper.GamesMapper">
 	<select id="getAllGames" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM games
+		SELECT * FROM games ORDER BY ${sort_by} DESC
 	</select>
 
 	<select id="getGame" resultType="com.ezen.smg.dto.Games">
@@ -18,12 +18,14 @@
    			#{editor}
   		</foreach>
  			AND REGEXP_LIKE(game_genre, #{genre})
+ 			ORDER BY ${sortBy} DESC
   		
 	</select>
 	
 	<select id="getFilteredGenreOnly" resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
   		SELECT * FROM games
   		WHERE REGEXP_LIKE(game_genre,#{genre})
+  		ORDER BY ${sortBy} DESC
 	</select>
 	
 	<select id="getFilteredEditorOnly" resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
@@ -32,5 +34,6 @@
   		<foreach collection="list" item="editor" separator="," open="(" close=")">
 			#{editor}
   		</foreach>
+  		ORDER BY ${sortBy} DESC
 	</select>
 </mapper> 

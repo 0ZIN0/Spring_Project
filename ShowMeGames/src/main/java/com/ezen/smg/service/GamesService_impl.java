@@ -15,26 +15,45 @@ public class GamesService_impl implements GamesService{
 	GamesMapper gamesMapper;
 	
 	@Override
-	public List<Games> getAllGames() {
+	public List<Games> getAllGames(Integer sortBy) {
 		
-		return gamesMapper.getAllGames();
+		String sortByString = sortByToString(sortBy);
+		
+		return gamesMapper.getAllGames(sortByString);
 	}
 
 	@Override
-	public List<Games> getFilteredGames(String genres, List<String> editors) {
+	public List<Games> getFilteredGames(String genres, List<String> editors, Integer sortBy) {
 		
-		return gamesMapper.getFilteredGames(genres, editors);
+		String sortByString = sortByToString(sortBy);
+		
+		return gamesMapper.getFilteredGames(genres, editors, sortByString);
 	}
 
 	@Override
-	public List<Games> getFilteredGenreOnly(String genres) {
+	public List<Games> getFilteredGenreOnly(String genres, Integer sortBy) {
 		
-		return gamesMapper.getFilteredGenreOnly(genres);
+		String sortByString = sortByToString(sortBy);
+		
+		return gamesMapper.getFilteredGenreOnly(genres, sortByString);
 	}
 
 	@Override
-	public List<Games> getFilteredEditorOnly(List<String> editors) {
+	public List<Games> getFilteredEditorOnly(List<String> editors, Integer sortBy) {
 		
-		return gamesMapper.getFilteredEditorOnly(editors);
+		String sortByString = sortByToString(sortBy);
+		
+		return gamesMapper.getFilteredEditorOnly(editors, sortByString);
+	}
+	
+	String sortByToString(Integer sortBy) {
+		
+		if(sortBy == 1) {
+			return "bestSeller";
+		} else if(sortBy == 3) {
+			return "game_name";
+		} else {
+			return "release_date";
+		}
 	}
 }

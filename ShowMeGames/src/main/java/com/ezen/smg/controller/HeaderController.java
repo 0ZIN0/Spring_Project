@@ -34,7 +34,7 @@ public class HeaderController {
 	public void gameList(Model model) {
 
 		System.out.println("목록을 가져옵니다");
-		model.addAttribute("games", gamesService.getAllGames());
+		model.addAttribute("games", gamesService.getAllGames(2));
 	}
 
 	@GetMapping(value="/cart")

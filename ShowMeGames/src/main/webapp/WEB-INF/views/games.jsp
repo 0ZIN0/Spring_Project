@@ -226,9 +226,9 @@
 								</div>
 							</button>
 							<ul class="option_list">
-								<li class="option_item">베스트셀러</li>
-								<li class="option_item">출시일</li>
-								<li class="option_item">이름순</li>
+								<li class="option_item" value="1">베스트셀러</li>
+								<li class="option_item" value="2">출시일</li>
+								<li class="option_item" value="3">이름순</li>
 							</ul>
 						</div>
 					</div>

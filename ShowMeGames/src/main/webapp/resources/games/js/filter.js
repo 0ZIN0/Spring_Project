@@ -1,3 +1,40 @@
+/*sort_selector*/ 
+const label = $('.label');
+const options = $('.option_item');
+const text = $('.label_text');
+const arrow = $('.arrow');
+var sortBy = 3;
+
+const handleSelect = (item) => {
+  label.parent().removeClass('active');
+  var itemText = $(item).text();
+  text.text(itemText);
+}
+
+options.on('click', function(e) {
+  var el = $(this); 
+  $('label .arrow').removeClass('reverse');
+  handleSelect(el);
+  sortBy = $(el).val();
+  getSearchList();
+});
+
+// 라벨을 클릭시 옵션 목록이 열림/닫힘
+label.on('click', () => {
+  if(label.parent().hasClass('active')) {
+  	label.parent().removeClass('active');
+    label.find('.arrow').removeClass('reverse');
+  } else {
+  	label.parent().addClass('active');
+    label.find('.arrow').addClass('reverse');
+  }
+});
+
+label.on('blur', function(e) {
+  $(this).parent().removeClass('active'); // 라벨(label) 요소의 부모에서 'active' 클래스를 제거합니다.
+  $(this).find('.arrow').removeClass('reverse'); // 라벨(label) 요소 내부에서 .arrow 클래스를 가진 요소의 'reverse' 클래스를 제거합니다.
+});
+
 /*filter logic*/
 const genreList = new Array();
 const editorList = new Array();
@@ -158,10 +195,10 @@ $(document).on('click', '.remove_filter', function() {
 // Search Logic
 const game_list = $('.sort_result_list');
 function getSearchList(){
-  var genre_toString = genreList.join('%7C');
+  var genre_toString = genreList.join('%7C'); // %7C == |
   var editor_toString = editorList.join('/');
  $.ajax ({
-  url: './games-filter?genre=' + genre_toString +'&editor=' + editor_toString,
+  url: './games-filter?genre=' + genre_toString +'&editor=' + editor_toString + '&sortBy=' + sortBy,
   type: 'GET',
   contentType: 'application/json',
   dataType: 'json',

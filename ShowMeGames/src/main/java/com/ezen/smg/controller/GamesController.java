@@ -28,7 +28,8 @@ public class GamesController {
 	@GetMapping("/games-filter")
 	public List<Games> gameListFilter(
 			@RequestParam(name = "genre") String genres,
-			@RequestParam(name = "editor") String editor
+			@RequestParam(name = "editor") String editor,
+			@RequestParam(name = "sortBy") Integer sortBy
 			) throws Exception {
 		
 		log.info("필터지나감");
@@ -36,21 +37,22 @@ public class GamesController {
 		List<String> editors = Arrays.asList(editor.split("/"));
 		log.info(editor);
 		log.info(genres);
+		log.info(sortBy);
 
 		List<Games> gameList = new ArrayList<Games>();
 		log.info(!(genres.equals("")));
 		if(!(genres.equals(""))
 				&& !editors.get(0).equals("")) {
-			gameList = gamesService.getFilteredGames(genres, editors);
+			gameList = gamesService.getFilteredGames(genres, editors, sortBy);
 			log.info(gameList);
 		} else if(!(genres.equals(""))) {
-			gameList = gamesService.getFilteredGenreOnly(genres);
+			gameList = gamesService.getFilteredGenreOnly(genres, sortBy);
 			log.info(gameList);
 		} else if(!editors.get(0).equals("")) {
-			gameList = gamesService.getFilteredEditorOnly(editors);
+			gameList = gamesService.getFilteredEditorOnly(editors, sortBy);
 			log.info(gameList);
 		} else {
-			gameList = gamesService.getAllGames();
+			gameList = gamesService.getAllGames(sortBy);
 		}
 		
 		return gameList;

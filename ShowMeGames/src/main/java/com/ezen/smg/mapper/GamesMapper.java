@@ -8,13 +8,18 @@ import com.ezen.smg.dto.Games;
 
 public interface GamesMapper {
 	
-	List<Games> getAllGames();
+	List<Games> getAllGames(String sortBy);
 	
 	Games getGame(int game_id);
 	
-	List<Games> getFilteredGames(@Param("genre") String genres, @Param("editor") List<String> editors);
+	List<Games> getFilteredGames(
+			@Param("genre") String genres,
+			@Param("editor") List<String> editors, 
+			@Param("sortBy") String sortBy);
 	
-	List<Games> getFilteredGenreOnly(String genres);
+	List<Games> getFilteredGenreOnly(
+			@Param("genre") String genres, 
+			@Param("sortBy") String sortBy);
 	
-	List<Games> getFilteredEditorOnly(List<String> editors);
+	List<Games> getFilteredEditorOnly(List<String> editors, String sortBy);
 }
