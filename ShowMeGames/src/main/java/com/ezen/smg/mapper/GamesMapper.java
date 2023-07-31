@@ -22,4 +22,12 @@ public interface GamesMapper {
 			@Param("sortBy") String sortBy);
 	
 	List<Games> getFilteredEditorOnly(List<String> editors, String sortBy);
+
+	List<Games> getLatestGameList();
+	
+	List<Games> getEditorRecmdList(@Param("editor") String editor);
+	
+	List<Games> getLargestDiscountList();
+	
+	List<String> getEditors();
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ezen.smg.service.LoginService;
+import com.ezen.smg.service.loginService.LoginService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -20,6 +20,11 @@ public class LoginController {
 	
 	@Autowired
 	LoginService loginService;
+	
+	@GetMapping(value="/member/login")
+	public void login() {
+		log.info("로그인 화면입니다.");
+	}
 	
 	@GetMapping("/member/check")
 	public String loginCheck(String user_id, String user_pw, Model model, HttpServletRequest request) {

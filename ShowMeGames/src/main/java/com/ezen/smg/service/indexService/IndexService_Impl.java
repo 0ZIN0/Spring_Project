@@ -1,4 +1,4 @@
-package com.ezen.smg.service;
+package com.ezen.smg.service.indexService;
 
 import java.util.Collections;
 import java.util.List;
@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.dto.Games;
-import com.ezen.smg.mapper.IndexMapper;
+import com.ezen.smg.mapper.GamesMapper;
 
 @Service
 public class IndexService_Impl implements IndexService {
 
 	@Autowired
-	IndexMapper mapper;
+	GamesMapper mapper;
 
 	List<String> editors;
 	

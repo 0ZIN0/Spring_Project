@@ -71,14 +71,13 @@ img {
 
 #main-body {
     width: 100%;
-    background-color: #f1f3f4;
     font-size: 18px;
 }
 
 #main-content {
     width: 70%;
     margin: auto;
-    background-color: #fff;
+    background-color: #f1f3f4;
     border-radius: 20px;
     min-height: 300px;
     padding: 48px 120px;
@@ -123,14 +122,13 @@ div[class=qna_blank]:first-of-type {
 .qna_blank {
     height: 110px;
     width: 100%;
-    background-color: #f1f3f4;
 }
 
 #qnaDiv {
     padding: 30px 0 30px 0;
     height: 220px;
     width: 100%;
-    background-color: #fff;
+    background-color: #f1f3f4;
     text-align: center;
 }
 
