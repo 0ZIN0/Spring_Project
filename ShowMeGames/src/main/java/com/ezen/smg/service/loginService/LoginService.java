@@ -1,4 +1,4 @@
-package com.ezen.smg.service;
+package com.ezen.smg.service.loginService;
 
 import com.ezen.smg.dto.SmgUsersDTO;
 

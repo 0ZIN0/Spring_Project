@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.smg.dto.SmgUsersDTO;
-import com.ezen.smg.service.MemberService;
+import com.ezen.smg.service.memberService.MemberService;
 
 import lombok.extern.log4j.Log4j;
 
