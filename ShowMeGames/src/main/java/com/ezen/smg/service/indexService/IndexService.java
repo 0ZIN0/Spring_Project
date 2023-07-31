@@ -1,4 +1,4 @@
-package com.ezen.smg.service;
+package com.ezen.smg.service.indexService;
 
 import java.util.List;
 

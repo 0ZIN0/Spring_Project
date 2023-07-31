@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ezen.smg.dto.Inquiries;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.mapper.InquiriesMapper;
-import com.ezen.smg.service.FAQService;
-import com.ezen.smg.service.NoticeService;
+import com.ezen.smg.service.faqService.FAQService;
+import com.ezen.smg.service.noticeService.NoticeService;
 
 import lombok.extern.log4j.Log4j;
 
