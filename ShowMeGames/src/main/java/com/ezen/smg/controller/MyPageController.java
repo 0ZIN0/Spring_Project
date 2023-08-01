@@ -10,8 +10,27 @@ public class MyPageController {
 	
 	@GetMapping("/my_account")
 	String accountInfo() {
-		
 		return "mypage/account-information";
+	}
+	
+	@GetMapping("/security")
+	String accountSecurity() {
+		return "mypage/account_security";
+	}
+	
+	@GetMapping("/inquiry")
+	String accountInquiry() {
+		return "mypage/account_inquiry";
+	}
+	
+	@GetMapping("/gamelist")
+	String accountGameList() {
+		return "mypage/account_gamelist";
+	}
+	
+	@GetMapping("/orders")
+	String accountOrders() {
+		return "mypage/account_orders";
 	}
 
 }

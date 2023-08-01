@@ -7,59 +7,95 @@
 	<meta charset="UTF-8">
 	<title>계정 정보</title>
 	<!-- mypage 공통 css -->
-	<link rel="stylesheet" href="${resource}/common.css">
+	<link rel="stylesheet" href="${resource}/css/common.css">
+	<!-- information css -->
+	<link rel="stylesheet" href="${resource}/css/account_information.css">
 	<!-- header, footer css -->
 	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-
-	<div id="top_bar">
-		<div id="top_bar_logo">로고</div>
-		<div></div>
-		<div id="top_bar_account">아이디</div>
-	</div>
+	
+	<!-- top_bar -->
+	<%@ include file="/WEB-INF/views/mypage/include/top_bar.jsp" %>
 
 	<main class="background_layer1">
-		<div class="background_layer2">
-			<div id="side_nav">
-				<div id="side_nav_logo">로고</div>
-				<a href="./my_account">
-					<div class="nav_item">
-						<div class="nav_item_wrapper">
-							<span class="material-icons">person</span> <span>계정 정보</span>
+		<div id="main_content_wrapper" class="background_layer2">
+			<!-- side_bar -->
+			<%@ include file="/WEB-INF/views/mypage/include/side_bar.jsp" %>
+			<div id="main_content">
+				<div id="account_content">
+					<h2 class="content_title">계정 정보</h2>
+					<div id="public_profile" class="content_item">
+						<div class="item_title">
+							<span>공개 프로필</span>
 						</div>
-					</div>
-				</a>
-				<a href="./my_account">
-					<div class="nav_item">
-						<div class="nav_item_wrapper">
-							<span class="material-icons">lock_person</span> <span>보안</span>
+						<div id="profile_content_wrapper">
+							<div id="profile_img">
+								이미지
+							</div>
+							<div id="profile_content">
+								<div>
+									<span id="nickname">사용자 이름</span>
+								</div>
+								<div>
+									<span id="user_nickname">닉네임&lt;변수&gt;</span>
+									<span id="nick_update_icon" class="material-icons">edit</span>
+								</div>
+							</div>
 						</div>
-					</div>
-				</a>
-				<a href="./my_account">
-					<div class="nav_item">
-						<div class="nav_item_wrapper">
-							<span class="material-icons">groups</span> <span>커뮤니케이션</span>
+					</div>	
+					<div id="personal_info" class="content_item">
+						<div class="item_title_wrapper">
+							<div class="item_title">
+								<span>개인 정보</span>
+							</div>
+							<div class="content_update_wrapper">
+								<button>편집</button>
+							</div>
+						</div> 
+						<div id="personal_info_wrapper">
+							<div id="personal_info_content">
+								<div>
+									<div class="info_title">이메일 주소</div>
+									<div class="info_content">내용</div>
+								</div>
+								<div>
+									<div class="info_title">이름</div>
+									<div class="info_content">내용</div>
+								</div>
+								<div>
+									<div class="info_title">성별</div>
+									<div class="info_content">내용</div>
+								</div>
+								<div>
+									<div class="info_title">생년월일</div>
+									<div class="info_content">내용</div>
+								</div>
+								<div>
+									<div class="info_title">전화번호</div>
+									<div class="info_content">내용</div>
+								</div>
+							</div>
 						</div>
-					</div>
-				</a>
-				<a href="./my_account">
-					<div class="nav_item">
-						<div class="nav_item_wrapper">
-							<span class="material-icons">sports_esports</span> <span>게임보유리스트</span>
+					</div>	
+					<div id="withdrawal" class="content_item">
+						<div class="item_title_wrapper">
+							<div class="item_title">
+								<span>회원 탈퇴</span>
+							</div>
+							<div class="content_update_wrapper">
+								<button>탈퇴</button>
+							</div>
 						</div>
-					</div>
-				</a>
-				<a href="./my_account">
-					<div class="nav_item">
-						<div class="nav_item_wrapper">
-							<span class="material-icons">payment</span> <span>구매내역</span>
-						</div>
-					</div>
-				</a>
+						<div id="withdrawal_content">
+							<span>
+							 	계정을 폐쇄하면 모든 쇼미게임즈 게임과 온라인 서비스에 접속할 수 없으며, 현재 쇼미게임즈에서 주문한 내역들도 취소됩니다. <br>
+							</span>
+						</div> 
+					</div>	
+				</div>
 			</div>
 		</div>
 	</main>

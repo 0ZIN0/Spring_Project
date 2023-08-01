@@ -1,0 +1,12 @@
+#password_content > div {
+    display: flex;
+}
+.pwd_dot {
+    display: block;
+    width: 8px;
+    border: 1px solid transparent;
+    height: 8px;
+    margin-right: 5.4px;
+    border-radius: 50%;
+    background-color: #99a1ba;
+}

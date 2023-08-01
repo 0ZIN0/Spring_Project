@@ -210,45 +210,58 @@
 			<div id="hotgame_container">
 				<div>
 					<div class="title_div">
-						<span class="title">이번주 HOT 게임. </span><span class="sub-title">수
-							많은 플레이어가 선택한 게임. </span>
+						<span class="title">이번주 HOT 게임. </span>
+						<span class="sub-title">수많은 플레이어가 선택한 게임. </span>
 					</div>
 					<div id="hotgame_content">
-						<div class="game_item toDetailBtn" data-id="1015">
-							<div>
-								<img src="resources/img/banner_img/Overcooked_banner.jpg" alt="오버쿡드_사진">
+						<c:forEach items="${hotgameList}" var="game">
+							<div class="game_item toDetailBtn" data-id="${game.game_id}">
+								<div>
+									<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
+								</div>
+								<div class="item_text_box">
+									<div>
+										<span class="game_title">${game.game_name}</span>
+									</div>
+									<c:choose>
+										<c:when test="${game.game_price == 0}">
+											<div>
+											</div>
+											<div>
+												<span></span>
+												<span>무료</span>
+											</div>
+										</c:when>
+										<c:when test="${game.discount == 0}">
+											<div>
+											</div>
+											<div>
+												<span></span>	
+												<span>
+													₩<fmt:formatNumber type="number"
+															maxFractionDigits="3" value="${game.discounted_price}" />
+												</span>
+											</div>	
+										</c:when>
+										<c:otherwise>
+											<div>
+												<span>-${game.discount}%</span>	
+											</div>
+											<div>
+												<span>
+													₩<fmt:formatNumber type="number" maxFractionDigits="3"
+														value="${game.game_price}" />	
+												</span>
+												<span>
+													₩<fmt:formatNumber type="number"
+															maxFractionDigits="3" value="${game.discounted_price}" />
+												</span>
+											</div>	
+										</c:otherwise>
+									</c:choose> 
+								</div>
 							</div>
-							<div class="item_text_box">
-								<div>
-									<span class="game_title">오버쿡드</span>
-								</div>
-								<div>
-								</div>
-								<div>
-									<span></span>
-									<span>
-										₩<fmt:formatNumber type="number"	
-												maxFractionDigits="3" value="19900" />
-									</span>
-								</div>
-							</div>
-						</div>
-						<div class="game_item toDetailBtn" data-id="1021">
-							<div>
-								<img src="resources/img/banner_img/Mabinogi_banner.jpg" alt="마비노기_사진">
-							</div>
-							<div class="item_text_box">
-								<div>
-									<span class="game_title">마비노기</span>
-								</div>
-								<div>
-								</div>
-								<div>
-									<span></span>
-									<span>무료</span>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>

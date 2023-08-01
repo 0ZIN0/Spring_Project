@@ -25,6 +25,7 @@ public class IndexController {
 		model.addAttribute("editorList", serv.getEditorRecmdList());
 		model.addAttribute("discountList", serv.getLargestDiscountList());
 		model.addAttribute("curatorList", serv.getCuratorRecmdList());
+		model.addAttribute("hotgameList", serv.getHotGameList());
 		
 		log.info("main 실행");
 		
