@@ -1,6 +1,7 @@
 package com.ezen.smg.controller;
 
 import java.io.File;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,10 +101,11 @@ public class CustomerController {
 		log.info("문의사항으로 갑니다");
 	}
 	
-	@PostMapping(value="/inquireis")
+	@PostMapping(value="/inquiries")
 	public String insert(Inquiries inquiries, Model model) {
+		
 		String uploadFolder = "C:\\javastudy\\spring-workspace\\Spring_Project\\ShowMeGames\\src\\main\\webapp\\resources\\img\\customer\\inquiries";
-		String file_name = inquiries.getAttachment().getOriginalFilename();
+		String file_name = inquiries.getUser_num() + inquiries.getAttachment().getOriginalFilename() + new Date();
 		log.info(inquiries);
 		File saveFile = new File(uploadFolder, file_name);
 			try {
@@ -112,7 +114,7 @@ public class CustomerController {
 				log.error(e.getMessage());
 			}
 		model.addAttribute(inquiries);
-		inquiries.setFile_name(inquiries.getInquiry_id() + file_name);
+		inquiries.setFile_name(file_name);
 		log.info("업로드파일 : " + file_name);
 		log.info("파일크기 : " + inquiries.getAttachment().getSize());
 		inquiriesMapper.add(inquiries);		
