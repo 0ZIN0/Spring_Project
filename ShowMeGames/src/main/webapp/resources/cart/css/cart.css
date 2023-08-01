@@ -325,6 +325,8 @@ h3 {
 	color: white;
 	border-radius: 30px;
 	font-weight: 600;
+	width: 100%;
+    border: 0;
 }
 
 #check-out-btn:hover {

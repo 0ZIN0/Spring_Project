@@ -91,20 +91,24 @@
 				</div>
 				<div id="checkout-form">
 					<div>
-						<label for="name">이름 *</label> <input id="name" type="text"
+						<label for="name">이름 *</label> <input class="input-ok checkout-input-form" id="first-name" type="text"
 							value="" />
+						<p id="first-name-p" class="input-p">다음 정보가 필요합니다.</p>
 					</div>
 					<div>
-						<label for="name">성 *</label> <input id="name" type="text"
+						<label for="name">성 *</label> <input class="input-ok checkout-input-form" id="last-name" type="text"
 							value="" />
+						<p id="last-name-p" class="input-p">다음 정보가 필요합니다.</p>
 					</div>
 					<div>
-						<label for="name">주소 *</label> <input id="name" type="text"
+						<label for="name">주소 *</label> <input class="input-ok checkout-input-form" id="address" type="text"
 							value="" />
+						<p id="address-p" class="input-p">다음 정보가 필요합니다.</p>
 					</div>
 					<div>
-						<label for="name">우편번호 *</label> <input id="name" type="text"
+						<label for="name">우편번호 *</label> <input class="input-ok checkout-input-form" id="post-num" type="text"
 							value="" />
+						<p id="post-num-p" class="input-p">다음 정보가 필요합니다.</p>
 					</div>
 					<div>
 						<button id="check-out-btn">결제하기</button>
@@ -122,7 +126,7 @@
 					</div>
 					<div id="top-cart-list">
 						<div id="checkout-cart-top">
-							<div>${cart_len}항목</div>
+							<div>${cart_len} 항목</div>
 							<div id="banner-list-div">
 								<c:forEach items="${cart_list}" var="game">
 									<img class="game_banner_img" alt=""
@@ -130,17 +134,32 @@
 								</c:forEach>
 							</div>
 						</div>
-						<div id="checkout-cart-mid">
-							<c:forEach items="${cart_list}" var="game">
-								<div id="game-detail-${game.game_id}">
-									<img class="game_detail_banner_img" alt="" src="${game.banner_img_url}">
-									
+						<div class="display-none" id="checkout-cart-mid">
+							<c:forEach items="${cart_list}" var="game" varStatus="status">
+								<div class="game-detail-grid" id="game-detail-${game.game_id}">
+									<img class="game_detail_banner_img" alt=""
+										src="${game.banner_img_url}">
+									<div class="game_detail_content-grid">
+										<div class="detail-game-name">${game.game_name}</div>
+										<div class="detail-game-platform">플랫폼: ${platforms[status.index]}</div>
+										<div class="detail-game-price">
+											<c:choose>
+												<c:when test="${game.discounted_price > 0}">
+													₩ <fmt:formatNumber type="number" maxFractionDigits="3"
+														value="${game.discounted_price}" />
+												</c:when>
+												<c:otherwise>
+													₩ 무료
+												</c:otherwise>
+											</c:choose>
+										</div>
+									</div>
 								</div>
 							</c:forEach>
 						</div>
 						<div id="checkout-cart-bottom">
 							<div>장바구니 상세정보</div>
-							<span class="material-symbols-outlined">expand_more</span>
+							<span class="material-symbols-outlined expand_more">expand_more</span>
 						</div>
 					</div>
 				</div>

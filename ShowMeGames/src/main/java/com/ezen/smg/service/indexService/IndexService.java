@@ -1,4 +1,4 @@
-package com.ezen.smg.service;
+package com.ezen.smg.service.indexService;
 
 import java.util.List;
 
@@ -10,5 +10,6 @@ public interface IndexService {
 	List<Games> getEditorRecmdList();
 	List<Games> getLargestDiscountList();
 	List<Games> getCuratorRecmdList();
+	List<Games> getHotGameList();
 	
 }

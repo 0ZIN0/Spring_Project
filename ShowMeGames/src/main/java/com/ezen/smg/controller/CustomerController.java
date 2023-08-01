@@ -1,6 +1,8 @@
 package com.ezen.smg.controller;
 
 import java.io.File;
+
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ezen.smg.dto.Inquiries;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.mapper.InquiriesMapper;
-import com.ezen.smg.service.FAQService;
-import com.ezen.smg.service.NoticeService;
+import com.ezen.smg.service.faqService.FAQService;
+import com.ezen.smg.service.noticeService.NoticeService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -27,9 +29,7 @@ public class CustomerController {
 	@Autowired
 	FAQService faqService;
 	@Autowired
-	NoticeService noticeService;
-
-	
+	NoticeService noticeService;	
 	@Autowired
 	InquiriesMapper inquiriesMapper;
 			
@@ -75,7 +75,13 @@ public class CustomerController {
 	@GetMapping(value="/notice/notice_detail")
 	String noticeDetail(Integer id, Model model) {
 		
-		model.addAttribute("detail", noticeService.getContent(id));
+		NoticeDTO dto = noticeService.getContent(id);
+		String organize = "";
+		for (String content : dto.getNotice_content().split("\\.")) {
+			organize += content + ".<br>";
+		}
+		dto.setNotice_content(organize);
+		model.addAttribute("detail", dto);
 		
 		return "customer/notice_detail";
 	}
@@ -96,10 +102,11 @@ public class CustomerController {
 		log.info("문의사항으로 갑니다");
 	}
 	
-	@PostMapping(value="/inquireis")
+	@PostMapping(value="/inquiries")
 	public String insert(Inquiries inquiries, Model model) {
+		
 		String uploadFolder = "C:\\javastudy\\spring-workspace\\Spring_Project\\ShowMeGames\\src\\main\\webapp\\resources\\img\\customer\\inquiries";
-		String file_name = inquiries.getAttachment().getOriginalFilename();
+		String file_name = inquiries.getUser_num() + inquiries.getAttachment().getOriginalFilename() + new Date();
 		log.info(inquiries);
 		File saveFile = new File(uploadFolder, file_name);
 			try {

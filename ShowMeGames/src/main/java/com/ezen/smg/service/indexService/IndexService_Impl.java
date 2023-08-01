@@ -1,5 +1,6 @@
-package com.ezen.smg.service;
+package com.ezen.smg.service.indexService;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,13 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.dto.Games;
-import com.ezen.smg.mapper.IndexMapper;
+import com.ezen.smg.mapper.GamesMapper;
 
 @Service
 public class IndexService_Impl implements IndexService {
 
 	@Autowired
-	IndexMapper mapper;
+	GamesMapper mapper;
 
 	List<String> editors;
 	
@@ -62,6 +63,23 @@ public class IndexService_Impl implements IndexService {
 		Collections.shuffle(result);
 		
 		return result.subList(0, 5);
+	}
+
+	@Override
+	public List<Games> getHotGameList() {
+
+		List<Games> list = new ArrayList<>();
+		
+		// 오버쿡드
+		list.add(mapper.getGame(1015));
+		// 마비노기
+		list.add(mapper.getGame(1021));
+		
+		for(Games game : list) {
+			game.setDiscounted_price(CommonFunction.calDiscount(game.getGame_price(), game.getDiscount()));
+		}
+		
+		return list;
 	}
 
 }

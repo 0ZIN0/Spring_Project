@@ -1,17 +1,17 @@
-package com.ezen.smg.service;
+package com.ezen.smg.service.memberService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.smg.common.Encryption_SH256;
 import com.ezen.smg.dto.SmgUsersDTO;
-import com.ezen.smg.mapper.MemberMapper;
+import com.ezen.smg.mapper.UsersMapper;
 
 @Service
 public class MemberService_Impl implements MemberService {
 
 	@Autowired
-	MemberMapper mapper;
+	UsersMapper mapper;
 	
 	@Override
 	public int signUp(SmgUsersDTO dto) {

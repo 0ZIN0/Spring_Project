@@ -55,15 +55,31 @@
 									<div class="game-select-form">
 										<c:choose>
 											<c:when test="${fn:length(platforms[status.index]) > 1}">
-												<div>플랫폼:</div>m
-												<div class="plat-form-select options-ok options-${game.game_id}" data-game="options-${game.game_id}" data-id="${game.game_id}">
-													<div id="platform-view-${game.game_id}" class="options-ok options-${game.game_id}" data-game="options-${game.game_id}" data-id="${game.game_id}">${platforms[status.index][0]}</div>
-													<div class="option-open-btn options-ok options-${game.game_id}" data-game="options-${game.game_id}" data-id="${game.game_id}">
-														<span class="material-symbols-outlined options-ok options-${game.game_id}" data-game="options-${game.game_id}" data-id="${game.game_id}">expand_more</span>
-														<div class="plat-form-options display-none" id="options-${game.game_id}">
-															<c:forEach var="platformArr" items="${platforms[status.index]}">
+												<div>플랫폼:</div>
+												<div
+													class="plat-form-select options-ok options-${game.game_id}"
+													data-game="options-${game.game_id}"
+													data-id="${game.game_id}">
+													<div id="platform-view-${game.game_id}"
+														class="options-ok options-${game.game_id}"
+														data-game="options-${game.game_id}"
+														data-id="${game.game_id}">${platforms[status.index][0]}</div>
+													<div
+														class="option-open-btn options-ok options-${game.game_id}"
+														data-game="options-${game.game_id}"
+														data-id="${game.game_id}">
+														<span
+															class="material-symbols-outlined options-ok options-${game.game_id}"
+															data-game="options-${game.game_id}"
+															data-id="${game.game_id}">expand_more</span>
+														<div class="plat-form-options display-none"
+															id="options-${game.game_id}">
+															<c:forEach var="platformArr"
+																items="${platforms[status.index]}">
+
 																<c:forEach items="${platformArr}" var="platform">
-																	<div class="option ${platform}" data-platform="${platform}" data-id="${game.game_id}">${platform}</div>
+																	<div class="option ${platform}"
+																		data-platform="${platform}" data-id="${game.game_id}">${platform}</div>
 																</c:forEach>
 															</c:forEach>
 														</div>
@@ -77,10 +93,14 @@
 												</div>
 											</c:otherwise>
 										</c:choose>
+										<input form="cart-form" id="select-platform-${game.game_id}" type="hidden"
+											name="platform"
+											value="${platforms[status.index][0]}" />
 									</div>
 									<div class="game-content-bottom">
 										<a class="cart-delete" data-gameid="${game.game_id}"> <span
-											class="material-symbols-outlined" data-gameid="${game.game_id}">delete</span>
+											class="material-symbols-outlined"
+											data-gameid="${game.game_id}">delete</span>
 											<div data-gameid="${game.game_id}">제거</div>
 										</a>
 										<div></div>
@@ -133,12 +153,13 @@
 								<div>
 									<div>해당 구매로 획득하는 유닛</div>
 									<div class="price">
-										<i class="fa-brands fa-bitcoin"></i>
-										${unit}
+										<i class="fa-brands fa-bitcoin"></i> ${unit}
 									</div>
 								</div>
 								<div>
-									<a href="./checkout" id="check-out-btn">체크 아웃</a>
+									<button id="check-out-btn" type="submit" form="cart-form">체크 아웃</button>
+									<form action="./checkout" id="cart-form" method="POST">
+									</form>
 								</div>
 								<a href="./">쇼핑 계속하기</a>
 							</div>

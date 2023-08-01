@@ -1,4 +1,4 @@
-package com.ezen.smg.service;
+package com.ezen.smg.service.inquiriesService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,0 +1,63 @@
+#profile_content_wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+#profile_img {
+    height: 112px;
+    width: 112px;
+}
+
+#profile_content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+#nickname {
+    color: gray;
+}
+
+#user_nickname {
+    font-size: 1.5em;
+    font-weight: 550;
+}
+
+#nick_update_icon {
+    background-color: blueviolet;
+    border-radius: 5px;
+    height: 25px;
+    width: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#personal_info_content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 20px;
+}
+
+#personal_info_content > div {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    column-gap: 10px;
+    border-bottom: 1px #E2E2E2 solid;
+    padding-bottom: 10px;
+}
+#personal_info_content > div:last-child {
+    border-bottom: none;
+}
+
+.info_title {
+    color: gray;
+}
+
+.info_content {
+    font-size: 1.2em;
+}
+
+#withdrawal_content > span {
+    color: gray;
+}
