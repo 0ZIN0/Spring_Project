@@ -24,7 +24,7 @@
 		</div>
 		<div class='qna-input'>
 			<div><h2>문의하기</h2></div>
-			<form method="POST" action="${pageContext.request.contextPath}/customer/inquireis" enctype="multipart/form-data">
+			<form method="POST" action="${pageContext.request.contextPath}/customer/inquiries" enctype="multipart/form-data">
 			<div>
 				<table class='qna-table'>
 					<tr>
