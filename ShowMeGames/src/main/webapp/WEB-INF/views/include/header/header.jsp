@@ -12,7 +12,7 @@
 
 <header>
 	<div id="header-top">
-		<div>
+		<div id="header-name">
 			<ul class="header-top-menu" id="header-top-ul">
 				<li class="clickable-li" onclick="window.location.href='${conPath}'">
 					<a id="logo-btn" href="${conPath}"></a> 로고
@@ -32,12 +32,38 @@
 				<c:if test="${not empty sessionScope.isLoggedIn}">
 					<li id="point-li">
 						<div id="point-div">
-							현재 보유량:&nbsp;<i class="fa-brands fa-bitcoin" id="point-i">&nbsp;&nbsp;${user.user_point} </i> 
+							현재 보유량:&nbsp;<i class="fa-brands fa-bitcoin" id="point-i">&nbsp;&nbsp;${user.user_point}
+							</i>
 							<div class="clickable-li" id="login-li">
 								<i class="fa-regular fa-circle-user fa-2xl" id="login-icon2"
-									style="color: #a1a1a1;"></i> <a id="login-btn"></a>
+									style="color: #a1a1a1;"></i>
 							</div>
-							
+
+						</div>
+
+						<div id="dropdown-content">
+							<div class="profile">
+								<div class="profile-left"></div>
+								<div class="profile-right">${user.nick_name}</div>
+							</div>
+							<div class="separator"></div>
+							<div class="rec-title">추천게임</div>
+							<div class="recommend"></div>
+							<div class="separator"></div>
+							<section>
+								<ul>
+									<li><a href="#">내 계정</a></li>
+									<li><a href="#">내 주문</a></li>
+									<li><a href="${conPath}customer/faq">고객 지원 <i
+											class="fa-solid fa-arrow-up-right-from-square"
+											style="color: #ffffff;"></i></a></li>
+									<li id="profile-logout"><a href="${conPath}member/sessionLogout">로그아웃
+											<i class="fa-solid fa-arrow-right-from-bracket fa-xl"
+											style="color: #1a91ff;"></i>
+									</a></li>
+								</ul>
+							</section>
+
 						</div>
 
 					</li>
@@ -65,16 +91,7 @@
 				<li></li>
 			</ul>
 		</div>
-		<div id="header-top-underline">
-			<ul id="header-top-ul-underline">
-				<li></li>
-				<li id="game-btn-underline"></li>
-				<li id="notices-btn-underline"></li>
-				<li id="customer-btn-underline"></li>
-				<li></li>
-				<li></li>
-			</ul>
-		</div>
+
 	</div>
 	<div id="header-bottom" class="header-bottom-up">
 		<div id="header-bottom-logo">로고</div>
