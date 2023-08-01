@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.ezen.smg.mapper.LoginMapper;
+
 import lombok.Data;
 
 @Data
@@ -23,4 +25,20 @@ public class SmgUsersDTO {
 	private String profile_url;
 	private String social_key;
 	private Integer gender;
+	
+//	public int pwUpdate_M(String newPassword) {
+//        String hashedPassword = PasswordUtils.hashPassword(newPassword);
+//        setUser_pw(hashedPassword);
+//
+//        // LoginMapper를 통해 비밀번호 업데이트 쿼리를 실행하도록 설정
+//        int result = LoginMapper.pwUpdate_M(this);
+//        
+//        // 성공적으로 비밀번호가 업데이트되었을 경우 1 반환, 실패한 경우 0 반환
+//        return result == 1 ? 1 : 0;
+//    }
+//
+//	public Object getEmail() {
+//		// TODO Auto-generated method stub
+//		return user_id;
+//	}
 }

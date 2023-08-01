@@ -1,35 +1,80 @@
-// 게임 호버기능
-$("#game-btn").on("mouseover", () => {
-  $("#game-btn-underline").css("backgroundColor", "white");
-  $("#game-btn-underline").css("transition", "background-color 0.3s ease");
-});
 
-$("#game-btn").on("mouseout", () => {
-  $("#game-btn-underline").css("backgroundColor", "");
-  $("#game-btn-underline").css("transition", "background-color 0.4s ease");
-});
+  // 현재 접속중인 페이지에 따라 다른 CSS 적용
+  const currentPath = window.location.pathname;
 
-// 공지사항 호버기능
-$("#notices-btn").on("mouseover", () => {
-  $("#notices-btn-underline").css("backgroundColor", "white");
-  $("#notices-btn-underline").css("transition", "background-color 0.3s ease");
-});
+  if (currentPath === "/smg/") {
+    $("#game-btn-underline").css("backgroundColor", "white");
 
-$("#notices-btn").on("mouseout", () => {
-  $("#notices-btn-underline").css("backgroundColor", "");
-  $("#notices-btn-underline").css("transition", "background-color 0.4s ease");
-});
+    $("#notices-btn").on("mouseover", () => {
+      $("#notices-btn-underline").css("backgroundColor", "white");
+      $("#notices-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#notices-btn").on("mouseout", () => {
+      $("#notices-btn-underline").css("backgroundColor", "");
+      $("#notices-btn-underline").css("transition", "background-color 0.4s ease");
+    });
+    
+    $("#customer-btn").on("mouseover", () => {
+      $("#customer-btn-underline").css("backgroundColor", "white");
+      $("#customer-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#customer-btn").on("mouseout", () => {
+      $("#customer-btn-underline").css("backgroundColor", "");
+      $("#customer-btn-underline").css("transition", "background-color 0.4s ease");
+    });
 
-// 고객지원 호버기능
-$("#customer-btn").on("mouseover", () => {
-  $("#customer-btn-underline").css("backgroundColor", "white");
-  $("#customer-btn-underline").css("transition", "background-color 0.3s ease");
-});
+  } else if (currentPath === "/smg/customer/notice") {
+    $("#notices-btn-underline").css("backgroundColor", "white");
 
-$("#customer-btn").on("mouseout", () => {
-  $("#customer-btn-underline").css("backgroundColor", "");
-  $("#customer-btn-underline").css("transition", "background-color 0.4s ease");
-});
+    $("#game-btn").on("mouseover", () => {
+      $("#game-btn-underline").css("backgroundColor", "white");
+      $("#game-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#game-btn").on("mouseout", () => {
+      $("#game-btn-underline").css("backgroundColor", "");
+      $("#game-btn-underline").css("transition", "background-color 0.4s ease");
+    });
+
+    $("#customer-btn").on("mouseover", () => {
+      $("#customer-btn-underline").css("backgroundColor", "white");
+      $("#customer-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#customer-btn").on("mouseout", () => {
+      $("#customer-btn-underline").css("backgroundColor", "");
+      $("#customer-btn-underline").css("transition", "background-color 0.4s ease");
+    });
+    
+  } else if (currentPath === "/smg/customer/faq") {
+
+    $("#customer-btn-underline").css("backgroundColor", "white");
+
+    $("#game-btn").on("mouseover", () => {
+      $("#game-btn-underline").css("backgroundColor", "white");
+      $("#game-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#game-btn").on("mouseout", () => {
+      $("#game-btn-underline").css("backgroundColor", "");
+      $("#game-btn-underline").css("transition", "background-color 0.4s ease");
+    });
+    
+    $("#notices-btn").on("mouseover", () => {
+      $("#notices-btn-underline").css("backgroundColor", "white");
+      $("#notices-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#notices-btn").on("mouseout", () => {
+      $("#notices-btn-underline").css("backgroundColor", "");
+      $("#notices-btn-underline").css("transition", "background-color 0.4s ease");
+    });
+  } 
+
+
+
 
 // 로그인 호버기능
 function changeIconColor(iconId, color) {
@@ -120,7 +165,6 @@ $("#editor").on("click", (e) => {
 
 
 $('html').click(function (e) {
-  console.log(e.target);
   if ($(e.target).hasClass("sub-ul") || $(e.target).hasClass("title-div") || $(e.target).hasClass("bottom-btns") || $(e.target).hasClass("material-symbols-outlined")) {
     return;
   } else {
@@ -235,3 +279,33 @@ function toggleDropdown() {
       dropdownContent.style.display = "none";
     }
   });
+
+
+
+
+
+$(window).scroll(function(){
+  $('#header-top').css('left', 0-$(this).scrollLeft());
+  $('#header-bottom').css('left', 0-$(this).scrollLeft());
+});
+
+
+// minicart Mouse Event
+$(document).ready(function() {
+  // header-cart에 마우스를 올렸을 때
+  $('#header-cart').mouseenter(function() {
+    $('header-cart').addClass('minicart-position');
+    $('#minicart').addClass('minicart-active');
+  });
+
+  $('#header-cart').mouseleave(function() {
+    $('header-cart').removeClass('minicart-position');
+    $('#minicart').removeClass('minicart-active');
+  });
+
+  // minicart 영역을 벗어났을 때
+  $('#minicart').mouseleave(function() {
+    $('header-cart').removeClass('minicart-position');
+    $('#minicart').removeClass('minicart-active');
+  });
+});

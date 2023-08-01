@@ -58,8 +58,10 @@ public class LoginController {
 		return "redirect:/member/sessionLogout"; 
 	}
 	
-	@GetMapping(value="/member/forgot")
+	@GetMapping(value="/member/pw_find")
 	public void forgot() {
 		log.info("비밀번호 재설정 페이지입니다.");
 	}
+	
+	
 }

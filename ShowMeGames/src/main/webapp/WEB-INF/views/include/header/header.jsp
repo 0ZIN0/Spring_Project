@@ -10,7 +10,7 @@
 
 <header>
 	<div id="header-top">
-		<div>
+		<div id="header-name">
 			<ul class="header-top-menu" id="header-top-ul">
 				<li class="clickable-li" onclick="window.location.href='${conPath}'">
 					<a id="logo-btn" href="${conPath}"></a> 로고
