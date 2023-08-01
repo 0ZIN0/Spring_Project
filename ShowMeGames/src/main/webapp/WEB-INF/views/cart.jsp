@@ -55,7 +55,7 @@
 									<div class="game-select-form">
 										<c:choose>
 											<c:when test="${fn:length(platforms[status.index]) > 1}">
-												<div>플랫폼:</div>
+												<div>플랫폼:</div>m
 												<div class="plat-form-select options-ok options-${game.game_id}" data-game="options-${game.game_id}" data-id="${game.game_id}">
 													<div id="platform-view-${game.game_id}" class="options-ok options-${game.game_id}" data-game="options-${game.game_id}" data-id="${game.game_id}">${platforms[status.index][0]}</div>
 													<div class="option-open-btn options-ok options-${game.game_id}" data-game="options-${game.game_id}" data-id="${game.game_id}">

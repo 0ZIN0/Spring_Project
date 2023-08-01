@@ -52,7 +52,11 @@ public class HeaderController {
 			return "cart";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "redirect:/"; // 로그인 팝업창 띄우기
+			model.addAttribute("isUserLoggedIn", user!=null); // 로그인 상태를 전달
+			return "cart";
+//			return "redirect:/"; // 로그인 팝업창 띄우기 (Roa 임시 코드)
 		}
 	}
+	
+	
 }

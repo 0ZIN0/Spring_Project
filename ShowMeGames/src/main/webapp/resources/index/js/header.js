@@ -203,21 +203,34 @@ $(window).scroll(function(){
 
 
 // minicart Mouse Event
-$(document).ready(function() {
+$(function() {
   // header-cart에 마우스를 올렸을 때
-  $('#header-cart').mouseenter(function() {
-    $('header-cart').addClass('minicart-position');
+  $('#cart-btn').mouseenter(function() {
+    $('#cart-btnt').addClass('minicart-position');
     $('#minicart').addClass('minicart-active');
   });
 
-  $('#header-cart').mouseleave(function() {
-    $('header-cart').removeClass('minicart-position');
-    $('#minicart').removeClass('minicart-active');
+  $('#cart-btn').mouseleave(function() {
+    $('#cart-btn').removeClass('minicart-position');
   });
 
   // minicart 영역을 벗어났을 때
   $('#minicart').mouseleave(function() {
-    $('header-cart').removeClass('minicart-position');
+    $('#cart-btn').removeClass('minicart-position');
     $('#minicart').removeClass('minicart-active');
   });
 });
+
+// Header 장바구니에 담겨있는 게임 수량 표시 
+$(document).ready(function() {
+  var cartLen = 0; 
+
+  var cartQuantityElement = $(".cart-quantity");
+  if (cartLen === 0) {
+    cartQuantityElement.hide();
+  } else {
+    cartQuantityElement.text("(" + cartLen + ")");
+  }
+});
+
+

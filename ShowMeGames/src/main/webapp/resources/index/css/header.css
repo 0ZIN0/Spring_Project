@@ -269,6 +269,7 @@ header {
 	grid-template-columns: 250px 600px 240px 385px 140px;
 }
 
+
 #header-bottom > * {
 	background-color: white;
 }
@@ -309,8 +310,8 @@ header {
 #header-bottom>:last-child {
    height: 100%;
 	display: flex;
-   padding-left: 20px;
-	justify-content: left;
+   margin-left: 20px;
+	justify-content: center;
 }
 
 .sub-ul>li {
@@ -354,11 +355,12 @@ header {
 #cart-btn {
    font-weight: bold;
    height: 50px;
-   width: 95px;
+   width: 120px;
    display: flex;
    align-items: center;
    justify-content: center;
    font-size: 16px;
+   flex-basis: content;
 }
 
 #cart-btn:hover {
@@ -455,7 +457,7 @@ header {
 /* 장바구니 마우스 hover시 나오는 minicart */
 #minicart {
    box-shadow: 9px 9px 20px rgba(0, 0, 0, .12);
-   background: linear-gradient(180deg, #F3F3F3 0%, #ECDDDD 100%);
+   background: #ECDDDD;
    position: fixed;
    top: 140px;
    right: 120px;
@@ -483,9 +485,9 @@ header {
 
 .minicart-common {
    display: flex;
-   flex-flow: column wrap;
    justify-content: center;
    align-items: center;
+   flex-flow: column nowrap;
 }
 
 .minicart-header {
@@ -497,11 +499,12 @@ header {
    position: relative;
 }
 
-.minicart-header:after {
+.minicart-header::before {
    content: '';
+   display: block;
    position: absolute;
    top: 0;
-   left: 80%;
+   left: 90%;
    width: 0;
    height: 0;
    border: 12px solid transparent;
@@ -510,13 +513,14 @@ header {
    margin-left: -12px;
    margin-top: -12px;
 }
+
 .minicart-title {
    font-size: 24px;
    font-weight: bold;
 }
 
 .empty-minicart-image {
-   flex-basis: auto;
+   flex-basis: content;
 }
 
 .empty-minicart-message {
@@ -545,3 +549,11 @@ header {
    font-weight: bold;
 	cursor: pointer;
 }
+
+img {
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   object-fit: cover;
+}
+
