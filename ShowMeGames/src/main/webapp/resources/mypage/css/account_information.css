@@ -61,3 +61,11 @@
 #withdrawal_content > span {
     color: gray;
 }
+
+#side_user_info {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+#side_user_info span.material-icons {
+    color: #eeab0a;
+}

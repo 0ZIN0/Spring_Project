@@ -1,3 +1,10 @@
+#side_security {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+#side_security span.material-icons {
+    color: #eeab0a;
+}
 #password_content > div {
     display: flex;
 }

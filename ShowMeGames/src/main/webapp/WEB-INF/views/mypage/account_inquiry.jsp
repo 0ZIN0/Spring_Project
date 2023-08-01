@@ -33,7 +33,7 @@
 						<div class="content_update_wrapper">
 							<button>버튼</button>
 						</div>
-					</div> 
+					</div>
 				</div>
 			</div>
 		</div>

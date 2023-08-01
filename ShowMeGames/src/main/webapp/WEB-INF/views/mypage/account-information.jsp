@@ -101,5 +101,6 @@
 	</main>
 
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
+	<script src="${resource}/js/common.js"></script>
 </body>
 </html>
