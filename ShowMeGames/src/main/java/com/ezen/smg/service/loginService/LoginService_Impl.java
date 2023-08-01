@@ -9,10 +9,12 @@ import com.ezen.smg.mapper.UsersMapper;
 
 @Service
 public class LoginService_Impl implements LoginService {
-	
+
 	@Autowired
 	UsersMapper loginMapper;
-	
+
+
+
 	@Override
 	public int getSelectUser(String user_id, String user_pw) {
 		SmgUsersDTO user = loginMapper.getSelectUser(user_id);
@@ -20,28 +22,27 @@ public class LoginService_Impl implements LoginService {
 			/*if (user.getUser_pw().equals(user_pw)) {
 				return 1;
 			}*/
-			
+
 			/*
 			 * if (user.getUser_pw().equals(Encryption_SH256.encrypt(user_pw))) { return 1;
 			 * }
 			 */
-			
-			if (Encryption_SH256.encrypt(user.getUser_pw()).equals(Encryption_SH256.encrypt(user_pw))) {
+
+			if (user.getUser_pw().equals(Encryption_SH256.encrypt(user_pw))) {
 				return 1;
 			}
 		}
 		return 0;
 	}
 
-
 	@Override
 	public SmgUsersDTO getUser(String user_id) {
 		return loginMapper.getSelectUser(user_id);
 	}
 
-
 	@Override
 	public int getCheckUser(String social_key) {
 		return loginMapper.checkUser(social_key);
 	}
+
 }

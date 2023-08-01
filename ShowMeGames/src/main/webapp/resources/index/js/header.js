@@ -1,24 +1,80 @@
-// 공지사항 호버기능
-$("#notices-btn").on("mouseover", () => {
-  $("#notices-btn-underline").css("backgroundColor", "white");
-  $("#notices-btn-underline").css("transition", "background-color 0.3s ease");
-});
 
-$("#notices-btn").on("mouseout", () => {
-  $("#notices-btn-underline").css("backgroundColor", "");
-  $("#notices-btn-underline").css("transition", "background-color 0.4s ease");
-});
+  // 현재 접속중인 페이지에 따라 다른 CSS 적용
+  const currentPath = window.location.pathname;
 
-// 고객지원 호버기능
-$("#customer-btn").on("mouseover", () => {
-  $("#customer-btn-underline").css("backgroundColor", "white");
-  $("#customer-btn-underline").css("transition", "background-color 0.3s ease");
-});
+  if (currentPath === "/smg/") {
+    $("#game-btn-underline").css("backgroundColor", "white");
 
-$("#customer-btn").on("mouseout", () => {
-  $("#customer-btn-underline").css("backgroundColor", "");
-  $("#customer-btn-underline").css("transition", "background-color 0.4s ease");
-});
+    $("#notices-btn").on("mouseover", () => {
+      $("#notices-btn-underline").css("backgroundColor", "white");
+      $("#notices-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#notices-btn").on("mouseout", () => {
+      $("#notices-btn-underline").css("backgroundColor", "");
+      $("#notices-btn-underline").css("transition", "background-color 0.4s ease");
+    });
+    
+    $("#customer-btn").on("mouseover", () => {
+      $("#customer-btn-underline").css("backgroundColor", "white");
+      $("#customer-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#customer-btn").on("mouseout", () => {
+      $("#customer-btn-underline").css("backgroundColor", "");
+      $("#customer-btn-underline").css("transition", "background-color 0.4s ease");
+    });
+
+  } else if (currentPath === "/smg/customer/notice") {
+    $("#notices-btn-underline").css("backgroundColor", "white");
+
+    $("#game-btn").on("mouseover", () => {
+      $("#game-btn-underline").css("backgroundColor", "white");
+      $("#game-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#game-btn").on("mouseout", () => {
+      $("#game-btn-underline").css("backgroundColor", "");
+      $("#game-btn-underline").css("transition", "background-color 0.4s ease");
+    });
+
+    $("#customer-btn").on("mouseover", () => {
+      $("#customer-btn-underline").css("backgroundColor", "white");
+      $("#customer-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#customer-btn").on("mouseout", () => {
+      $("#customer-btn-underline").css("backgroundColor", "");
+      $("#customer-btn-underline").css("transition", "background-color 0.4s ease");
+    });
+    
+  } else if (currentPath === "/smg/customer/faq") {
+
+    $("#customer-btn-underline").css("backgroundColor", "white");
+
+    $("#game-btn").on("mouseover", () => {
+      $("#game-btn-underline").css("backgroundColor", "white");
+      $("#game-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#game-btn").on("mouseout", () => {
+      $("#game-btn-underline").css("backgroundColor", "");
+      $("#game-btn-underline").css("transition", "background-color 0.4s ease");
+    });
+    
+    $("#notices-btn").on("mouseover", () => {
+      $("#notices-btn-underline").css("backgroundColor", "white");
+      $("#notices-btn-underline").css("transition", "background-color 0.3s ease");
+    });
+    
+    $("#notices-btn").on("mouseout", () => {
+      $("#notices-btn-underline").css("backgroundColor", "");
+      $("#notices-btn-underline").css("transition", "background-color 0.4s ease");
+    });
+  } 
+
+
+
 
 // 로그인 호버기능
 function changeIconColor(iconId, color) {
@@ -172,7 +228,6 @@ $(window).on('scroll', function () {
   lastScroll = scrollTop;
 });
 
-
  var loginPopup = null; // 전역 변수로 팝업 창을 저장하는 변수 선언
 
 function openLoginPopup() {
@@ -191,10 +246,35 @@ function openLoginPopup() {
         var popupFeatures = 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + left + ',top=' + top;
 
         // 새로운 팝업을 열고, loginPopup 변수에 할당하여 저장
-        loginPopup = window.open('./member/login', '_blank', popupFeatures);
+        loginPopup = window.open('/smg/member/login', '_blank', popupFeatures);
         
     }
 }
+
+function toggleDropdown() {
+    var dropdownContent = document.getElementById("dropdown-content");
+    if (dropdownContent.style.display === "none") {
+      dropdownContent.style.display = "block";
+    } else {
+      dropdownContent.style.display = "none";
+    }
+  }
+
+  // 로그인 아이콘 클릭 시 드랍다운 열기
+  document.getElementById("login-icon2").addEventListener("click", toggleDropdown);
+
+  // 다른 곳을 클릭하면 드랍다운 닫기
+  document.addEventListener("click", function(event) {
+    var dropdownContent = document.getElementById("dropdown-content");
+    var loginIcon = document.getElementById("login-icon2");
+    if (event.target !== loginIcon) {
+      dropdownContent.style.display = "none";
+    }
+  });
+
+
+
+
 
 $(window).scroll(function(){
   $('#header-top').css('left', 0-$(this).scrollLeft());
@@ -210,14 +290,10 @@ $(document).ready(function() {
     $('#minicart').addClass('minicart-active');
   });
 
-  $('#header-cart').mouseleave(function() {
-    $('header-cart').removeClass('minicart-position');
-    $('#minicart').removeClass('minicart-active');
-  });
-
   // minicart 영역을 벗어났을 때
   $('#minicart').mouseleave(function() {
     $('header-cart').removeClass('minicart-position');
     $('#minicart').removeClass('minicart-active');
   });
+
 });
