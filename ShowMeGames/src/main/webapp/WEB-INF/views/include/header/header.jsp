@@ -187,7 +187,16 @@
 							<img alt="Empty Minicart"src="resources/img/cart/SMG_EmptyMarket_img.jpg">
 						</div>
 						<div class="empty-minicart-buttons minicart-common" onclick="location.href='${conPath}games'">쇼핑하러 가기2</div>
-				</div>
+				</div> <!-- Empty-mini-cart -->
+				
+				<div class="minicart-content minicart-common">
+						<div class="empty-minicart-message minicart-common">장바구니가 비어있습니다.</div>
+						<div class="empty-minicart-image minicart-common">
+							<img alt="Empty Minicart"src="resources/img/cart/SMG_EmptyMarket_img.jpg">
+						</div>
+						<div class="empty-minicart-buttons minicart-common" onclick="location.href='${conPath}games'">쇼핑하러 가기2</div>
+				</div> <!-- Empty-mini-cart -->
+				
 			</div> <!-- minicart Part End -->
 		</div> <!-- header-cart Part End -->
 
