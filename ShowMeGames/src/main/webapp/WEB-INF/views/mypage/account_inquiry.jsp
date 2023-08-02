@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/resources/mypage" var="resource" />
 <c:url value="/resources/img/customer/inquiries/" var="inquiries_img"/>
+<c:url value="/resources/mypage/js/account_inquiry.js" var="account_inquiry"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -35,28 +36,37 @@
 							<button>버튼</button>
 						</div>
 					</div>
-					<div>
+					<div id="board_content">
 						<c:forEach items="${myContents}" var="myContent">
-							<div>${myContent.inquiry_subject}</div>
-							<div>
-								${myContent.inquiry_title}
-							</div>
-							<div>
-								${myContent.inquiry_content}
-							</div>
-							<div>
-								<div>첨부파일</div>
-								<div>
-									<img src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
+							<div id="board">
+								<div class="board_subject">${myContent.inquiry_subject}</div>
+								<div class="board_title">${myContent.inquiry_title}</div>
+								<div class="board_btn"><button class="btn">버튼</button></div>															
+								<div class="board_detail">
+									<div class="board_content">
+										<div>
+											내용  
+										</div>
+										<div>
+											${myContent.inquiry_content}
+										</div>
+									</div>
+									<div class="board_attachment">
+										<div>첨부파일</div>
+										<div>
+											<img src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
+										</div>
+									</div>
 								</div>
-							</div>							
+							</div>
 						</c:forEach>	
 					</div> 
 				</div>
 			</div>
 		</div>
-	</main>
-	
+	</main>						
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
+	
+	<script src="${account_inquiry}"></script>
 </body>
 </html>

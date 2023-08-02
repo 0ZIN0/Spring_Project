@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.service.mypageService.MyPageService;
 
-import lombok.extern.log4j.Log4j;
-
 @RequestMapping("/mypage")
-@Log4j
 @Controller
 public class MyPageController {
 	
@@ -32,9 +29,8 @@ public class MyPageController {
 	
 	@GetMapping("/inquiry")
 	String accountInquiry(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model) {
-		//log.info(user.getUser_num());
-		
-		model.addAttribute("myContents", mypageService.getContent(1));
+	
+		model.addAttribute("myContents", mypageService.getContent(9));
 		return "mypage/account_inquiry";
 	}
 	
