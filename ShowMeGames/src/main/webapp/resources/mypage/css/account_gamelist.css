@@ -1,0 +1,7 @@
+#side_gamelist {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+#side_gamelist span.material-icons {
+    color: #eeab0a;
+}

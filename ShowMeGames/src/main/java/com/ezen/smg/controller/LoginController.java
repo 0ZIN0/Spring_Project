@@ -56,7 +56,7 @@ public class LoginController {
 	}
 	
 	@GetMapping(value="/member/sessionLogout")
-	public void hello() {
+	public void logout() {
 		log.info("로그아웃 페이지입니다.");
 	}
 	
@@ -82,4 +82,17 @@ public class LoginController {
 			return "N";
 		}
 	}
+	
+	@GetMapping(value="/sessionLogout")
+	public String pofileLogout() {
+		log.info("프로필에서 로그아웃 페이지입니다.");
+		return "redirect:/member/sessionLogout"; 
+	}
+	
+	@GetMapping(value="/member/pw_find")
+	public void forgot() {
+		log.info("비밀번호 재설정 페이지입니다.");
+	}
+	
+	
 }

@@ -10,5 +10,6 @@ public interface IndexService {
 	List<Games> getEditorRecmdList();
 	List<Games> getLargestDiscountList();
 	List<Games> getCuratorRecmdList();
+	List<Games> getHotGameList();
 	
 }
