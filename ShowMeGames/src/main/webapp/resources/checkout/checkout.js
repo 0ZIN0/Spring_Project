@@ -37,8 +37,9 @@ $('#first-name-p').hide();
 $('#last-name-p').hide();
 $('#address-p').hide();
 $('#post-num-p').hide();
+$('#post-num-regex').hide();
 
-first_name.keydown(function(e) {
+first_name.keydown(function (e) {
     if (first_name.val() == "") {
         console.log('비어있음');
         $('#first-name-p').show();
@@ -52,7 +53,7 @@ first_name.keydown(function(e) {
     }
 });
 
-last_name.keydown(function(e) {
+last_name.keydown(function (e) {
     if (last_name.val() == "") {
         console.log('비어있음');
         $('#last-name-p').show();
@@ -66,7 +67,7 @@ last_name.keydown(function(e) {
     }
 });
 
-address.keydown(function(e) {
+address.keydown(function (e) {
     if (address.val() == "") {
         console.log('비어있음');
         $('#address-p').show();
@@ -80,7 +81,7 @@ address.keydown(function(e) {
     }
 });
 
-post_num.keydown(function(e) {
+post_num.keydown(function (e) {
     if (post_num.val() == "") {
         console.log('비어있음');
         $('#post-num-p').show();
@@ -94,53 +95,53 @@ post_num.keydown(function(e) {
     }
 });
 
-
-$('html').click(function (e) {
-
+first_name.blur(function (e) {
     if (first_name.val() == "") {
         $('#first-name-p').show();
         first_name.addClass('input-none');
         first_name.removeClass('input-ok');
     }
+});
+
+last_name.blur(function (e) {
     if (last_name.val() == "") {
         $('#last-name-p').show();
         last_name.addClass('input-none');
         last_name.removeClass('input-ok');
     }
+});
+
+address.blur(function (e) {
     if (address.val() == "") {
         $('#address-p').show();
         address.addClass('input-none');
         address.removeClass('input-ok');
     }
+});
+
+let is_post_ok = false;
+
+post_num.blur(function (e) {
     if (post_num.val() == "") {
         $('#post-num-p').show();
         post_num.addClass('input-none');
         post_num.removeClass('input-ok');
     }
-});
-
-// checkout api
-$("#check-out-btn").click(function (e) {
-
-    if ($('checkout-input-form').hasClass('input-none')) {
-        return;
+    let regex = /[0-6][0-3]\d{3}/;
+    if (!regex.test(post_num.val())) {
+        $('#post-num-regex').show();
+        is_post_ok = false;
+    } else {
+        $('#post-num-regex').hide();
+        is_post_ok = true;
     }
-    
-    IMP.init('imp10327314');
-
-    IMP.request_pay({
-        pg: "html5_inicis",
-        pay_method: "card",
-        merchant_uid: "2",   // 주문번호
-        name: "카트라이더",   // 상품명
-        amount: 1,                         // 숫자 타입 (가격)
-        buyer_email: "gildong@gmail.com", // 회원 아이디
-        buyer_name: "홍길동", // 회원 실제 이름
-        buyer_tel: "010-4242-4242", // 전화번호
-        buyer_addr: "서울특별시 강남구 신사동",  // null로도 테스트가 되는지 체크
-        buyer_postcode: "12345"
-    }, function (rsp) { // callback
-        //rsp.imp_uid 값으로 결제 단건조회 API를 호출하여 결제결과를 판단합니다.
-        console.log(rsp);
-    });
 });
+
+//point js
+function inputNumberOnly(el) {
+    let havePointVal = $('#have-unit').data('haveunit');
+    el.value = el.value.replace(/[^0-9]/g, '');
+    if (havePointVal < 1000) {
+        el.value = el.value.replace(/./, '');
+    }
+}

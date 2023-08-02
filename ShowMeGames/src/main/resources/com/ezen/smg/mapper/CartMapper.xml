@@ -10,4 +10,8 @@
 	<update id="deleteGame" parameterType="String">
 		UPDATE carts SET cart_content=#{cart_content} WHERE user_num=#{user_num}
 	</update>
+	
+	<delete id="deleteCart" parameterType="int">
+		DELETE FROM carts WHERE user_num=#{user_num}
+	</delete>
 </mapper> 

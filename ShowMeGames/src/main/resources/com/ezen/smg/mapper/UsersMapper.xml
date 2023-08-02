@@ -8,6 +8,11 @@
  		select * from smg_users where user_id=#{user_id}
  		
  	</select>
+ 	
+ 	<select id="getSelectNumUser" parameterType="int" resultType="com.ezen.smg.dto.SmgUsersDTO">
+ 		select * from smg_users where user_num=#{user_num}
+ 	</select>
+ 	
  	<select id="checkUser" parameterType="String" resultType="int">
 		SELECT count(*) FROM smg_users WHERE social_key = #{key}
 	</select>
@@ -41,4 +46,7 @@
 		SELECT count(*) FROM smg_users WHERE user_id = #{id}
 	</select>
 	
+	<update id="updateUserPoint" parameterType="com.ezen.smg.dto.SmgUsersDTO">
+		UPDATE smg_users SET user_point=#{dto.user_point} WHERE user_num=#{dto.user_num}
+	</update>
  </mapper>
