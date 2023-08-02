@@ -18,4 +18,5 @@ public interface UsersMapper {
 	
 	SmgUsersDTO getUser_social(@Param("key") String social_key);
 	
+	int updateProfile_img(@Param("user_num") int user_num, @Param("url") String profile_url);
 }

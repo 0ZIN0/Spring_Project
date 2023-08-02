@@ -44,5 +44,8 @@
 	<update id="updateNick_name">
 		UPDATE smg_users SET nick_name = #{nickname} WHERE user_num = #{user_num}
 	</update>
+	<update id="updateProfile_img">
+		UPDATE smg_users SET profile_url = #{url} WHERE user_num = #{user_num}
+	</update>
 	
  </mapper>

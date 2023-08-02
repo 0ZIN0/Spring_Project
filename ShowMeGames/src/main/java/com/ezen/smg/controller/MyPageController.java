@@ -1,8 +1,5 @@
 package com.ezen.smg.controller;
 
-import java.io.File;
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -28,8 +25,6 @@ public class MyPageController {
 	@Autowired
 	MyPageService mypageService;
 	
-	private final String uploadDir = "/resources/img/user_profile/";
-	
 	@GetMapping("/my_account")
 	String accountInfo(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
@@ -46,18 +41,10 @@ public class MyPageController {
 	}
 	
 	@PostMapping("/profile_img_update")
-	String profile_img_update(int user_num, MultipartFile img_file) throws IllegalStateException, IOException {
+	String profile_img_update(int user_num, MultipartFile img_file, HttpServletRequest request) {
 		
 		if(!img_file.isEmpty()) {
-            String filename = img_file.getOriginalFilename();
-            
-            log.info("file.getOriginalFilename = " + filename);
-
-            String fullPath = uploadDir + filename;
-            
-            log.info(fullPath);
-            
-            img_file.transferTo(new File(fullPath));			
+			mypageService.updateProfile_img(user_num, img_file);
 		} 
 		
 		return "redirect:/mypage/my_account"; 
