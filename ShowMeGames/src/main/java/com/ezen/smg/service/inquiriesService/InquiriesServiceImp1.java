@@ -13,8 +13,8 @@ public class InquiriesServiceImp1 implements InquiriesService {
 	InquiriesMapper inquiriesMapper;
 	
 	@Override
-	public int insert() {
-		Inquiries inquiries = new Inquiries();
+	public int insert(Inquiries inquiries) {
+		
 		return inquiriesMapper.add(inquiries);
 	}
 }

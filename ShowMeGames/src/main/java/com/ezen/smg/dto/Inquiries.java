@@ -11,6 +11,6 @@ public class Inquiries {
 	private String inquiry_title;
 	private String inquiry_content;	
 	private String inquiry_subject;
-	private String file_name;
-	private MultipartFile attachment;
+	private String attachment;
+	private MultipartFile imgFile;
 }
