@@ -20,7 +20,7 @@
   				#{dto.user_num},
   				#{dto.inquiry_title},
   				#{dto.inquiry_content},
-  				#{dto.file_name},
+  				#{dto.attachment},
   				#{dto.inquiry_subject}
   			)
   		</insert>

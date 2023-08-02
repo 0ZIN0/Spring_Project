@@ -15,8 +15,8 @@ public class MyPageServiceImp1 implements MyPageService{
 	InquiriesMapper inquiriesmapper;
 	
 	@Override
-	public List<Inquiries> getContent(int user_id) {
+	public List<Inquiries> getContent(int user_num) {
 			
-		return inquiriesmapper.getContent(user_id);
+		return inquiriesmapper.getContent(user_num);
 	}
 }

@@ -115,22 +115,21 @@ public class CustomerController {
 		String uploadFolder = "C:\\javastudy\\spring-workspace\\Spring_Project\\ShowMeGames\\src\\main\\webapp\\resources\\img\\customer\\inquiries";
 		
 		// 파일 이름 설정. 중복방지를 위해 뒤에 날짜 입력
-		String file_name = user.getUser_num()+ dateString + inquiries.getAttachment().getOriginalFilename();
+		String file_name = user.getUser_num()+ dateString + inquiries.getImgFile().getOriginalFilename();
 		
 		// 파일 저장
 		File saveFile = new File(uploadFolder, file_name);
 		try {
-			inquiries.getAttachment().transferTo(saveFile);
+			inquiries.getImgFile().transferTo(saveFile);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 		}
-		
-		
+				
 		model.addAttribute(inquiries);		
 		inquiries.setUser_num(user.getUser_num());
-		inquiries.setFile_name(file_name);
+		inquiries.setAttachment(file_name);
 		log.info("업로드파일 : " + file_name);
-		log.info("파일크기 : " + inquiries.getAttachment().getSize());
+		log.info("파일크기 : " + inquiries.getImgFile().getSize());
 		inquiriesService.insert(inquiries);		
 		
 		return "redirect:/customer/faq";
