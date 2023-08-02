@@ -13,4 +13,8 @@ public interface UsersMapper {
 	SmgUsersDTO getSelectUser(@Param("user_id") String user_id);
 	
 	int checkUser(@Param("key") String social_key);
+	
+	SmgUsersDTO getSelectNumUser(@Param("user_num") int user_num);
+	
+	int updateUserPoint(@Param("dto") SmgUsersDTO dto);
 }

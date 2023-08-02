@@ -1,5 +1,6 @@
 package com.ezen.smg.service.memberService;
 
+import com.ezen.smg.dto.Orders;
 import com.ezen.smg.dto.SmgUsersDTO;
 
 public interface MemberService {
@@ -8,4 +9,5 @@ public interface MemberService {
 
 	int idCheck(String userId);
 	
+	int updateUserPoint(Orders order);
 }
