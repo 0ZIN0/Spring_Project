@@ -17,9 +17,104 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-	
+		
 	<!-- top_bar -->
 	<%@ include file="/WEB-INF/views/mypage/include/top_bar.jsp" %>
+	
+	<!-- modal:profile_img -->
+	<div id="img_update_modal" class="modal_bg">
+		<div class="modal_container">
+			<div class="modal_content">
+				<div class="item_title_wrapper">
+					<div class="item_title">
+						<span>프로필 사진 변경</span>
+					</div>
+					<div id="img_modal_close" class="content_update_wrapper">
+						<button class="btn cancel">닫기</button>
+					</div>
+				</div>
+				<div id="img_update_content">
+					<form id="form_img_update" action="./profile_img_update" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="user_num" value="${user.user_num}"/>
+					</form>
+					<div>
+						<div class="modal_content_title">
+							프로필 사진 선택
+						</div>
+						<div id="img_select_div">
+							<div>
+								<div id="img_select_div_inner">
+									<img id="img_preview" src="${profile_img}" alt="프로필사진">
+								</div>
+							</div>
+							<div>
+								<div class="filebox">
+								    <label for="img_file">파일찾기</label> 
+								    <input id="img_file_name" class="upload-name" value="첨부파일" placeholder="첨부파일" readonly>
+								    <input type="file" id="img_file" name="img_file" accept="image/jpg, image/jpeg, image/png" form="form_img_update">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="modal_content_title">프로필 사진 관련 규정</div>
+						<div>
+		                    <ul>	
+		                        <li>jpg, png, jpeg 파일만 가능합니다.</li>
+		                        <li>프로필 사진은 가로, 세로 110px에 최적화되어 있습니다.</li>
+		                        <li>파일명에 언더바(_)를 제외한 특수문자가 포함되면 안됩니다.</li>
+	    	                </ul>
+						</div>
+					</div>
+					<div>
+						<button id="img_modal_close_btn" class="btn cancel">취소</button>
+						<button id="img_modal_comfirm_btn" type="submit" class="btn" form="form_img_update">변경</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- modal:nickname -->
+	<div id="nickname_update_modal" class="modal_bg">
+		<div class="modal_container">
+			<div class="modal_content">
+				<div class="item_title_wrapper">
+					<div class="item_title">
+						<span>사용자 이름 변경</span>
+					</div>
+					<div id="modal_close" class="content_update_wrapper">
+						<button class="btn cancel">닫기</button>
+					</div>
+				</div>
+				<div id="nickname_update_content">
+					<form id="form_nickname_update" action="./nickname_update">
+						<input type="hidden" name="user_num" value="${user.user_num}">
+					</form>
+					<div>
+						<div class="modal_content_title">
+							<label class="modal_label" for="username">사용자 이름</label>
+						</div>
+						<input id="username" name="username" type="text" spellcheck="false" value="${user.nick_name}" form="form_nickname_update">
+					</div>
+					<div>
+						<div class="modal_content_title">사용자 이름 관련 규정</div>
+						<div>
+		                    <ul>	
+		                        <li>3~15자 사이로 작성해야 합니다.</li>
+		                        <li>숫자, 영어, 한글, 대시(-), 밑줄(_)만 입력 가능합니다</li>
+		                        <li>남들에게 보여지는 이름입니다</li>
+	    	                </ul>
+						</div>
+					</div>
+					<div>
+						<button id="modal_close_btn" class="btn cancel">취소</button>
+						<button id="modal_comfirm_btn" type="submit" class="btn" form="form_nickname_update">변경</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<main class="background_layer1">
 		<div id="main_content_wrapper" class="background_layer2">
@@ -35,6 +130,9 @@
 						<div id="profile_content_wrapper">
 							<div id="profile_img">
 								<img src="${profile_img}" alt="프로필사진">
+								<div id="profile_update_div">
+									<span id="profile_update_icon" class="material-icons">edit</span>
+								</div>
 							</div>
 							<div id="profile_content">
 								<div>
@@ -108,8 +206,9 @@
 			</div>
 		</div>
 	</main>
-
+	
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
 	<script src="${resource}/js/common.js"></script>
+	<script src="${resource}/js/account_information.js"></script>
 </body>
 </html>
