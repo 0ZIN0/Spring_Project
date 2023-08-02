@@ -10,6 +10,8 @@ public interface GamesMapper {
 	
 	List<Games> getAllGames(String sortBy);
 	
+	List<Games> getAllGamesSortByName();
+	
 	Games getGame(int game_id);
 	
 	List<Games> getFilteredGames(
@@ -17,12 +19,6 @@ public interface GamesMapper {
 			@Param("editor") List<String> editors, 
 			@Param("sortBy") String sortBy);
 	
-	List<Games> getFilteredGenreOnly(
-			@Param("genre") String genres, 
-			@Param("sortBy") String sortBy);
-	
-	List<Games> getFilteredEditorOnly(List<String> editors, String sortBy);
-
 	List<Games> getLatestGameList();
 	
 	List<Games> getEditorRecmdList(@Param("editor") String editor);
@@ -30,4 +26,10 @@ public interface GamesMapper {
 	List<Games> getLargestDiscountList();
 	
 	List<String> getEditors();
+	
+	List<Games> getSearchGames(
+			@Param("game_name") String search,
+			@Param("genre") String genres,
+			@Param("editor") List<String> editors, 
+			@Param("sortBy") String sortBy);
 }

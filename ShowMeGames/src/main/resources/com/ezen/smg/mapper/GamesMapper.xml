@@ -4,38 +4,33 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.smg.mapper.GamesMapper">
 	<select id="getAllGames" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM games ORDER BY ${sort_by} DESC
+		SELECT * FROM games ORDER BY ${sort_by}
 	</select>
-
+	
 	<select id="getGame" resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM games where game_id=#{game_id}
 	</select>
 	
-	<select id="getFilteredGames" resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
-  		SELECT * FROM games
-  		WHERE editor IN
-  		<foreach collection="editor" item="editor" separator="," open="(" close=")">
-   			#{editor}
-  		</foreach>
- 			AND REGEXP_LIKE(game_genre, #{genre})
- 			ORDER BY ${sortBy} DESC
+	<select id="getFilteredGames"
+		resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
+		SELECT * FROM games
+		WHERE 1=1
+		<if test="editor != null and editor.size() > 0">
+			AND editor IN
+			<foreach collection="editor" item="editor" separator=","
+				open="(" close=")">
+				#{editor}
+			</foreach>
+		</if>
+		<if test="genre != null and !genre.isEmpty()">
+			AND REGEXP_LIKE(game_genre, #{genre})
+		</if>
+		<!-- <if test="game_name != null and !game_name.isEmpty()">
+			AND game_name LIKE '%' || #{game_name} || '%'
+		</if> -->
+		ORDER BY ${sortBy}
 	</select>
-	
-	<select id="getFilteredGenreOnly" resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
-  		SELECT * FROM games
-  		WHERE REGEXP_LIKE(game_genre,#{genre})
-  		ORDER BY ${sortBy} DESC
-	</select>
-	
-	<select id="getFilteredEditorOnly" resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
-  		SELECT * FROM games
-  		WHERE editor IN
-  		<foreach collection="list" item="editor" separator="," open="(" close=")">
-			#{editor}
-  		</foreach>
-  		ORDER BY ${sortBy} DESC
-	</select>
-	
+
 	<select id="getLatestGameList" resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM (SELECT * FROM games ORDER BY release_date DESC) WHERE rownum &lt;= 4
 	</select>
@@ -50,5 +45,25 @@
 	
 	<select id="getEditors">
 		SELECT DISTINCT editor FROM games WHERE NOT editor IN('curator')
+	</select>
+	
+	<select id="getSearchGames"
+		resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
+		SELECT * FROM games
+		WHERE 1=1
+		<if test="editor != null and editor.size() > 0">
+			AND editor IN
+			<foreach collection="editor" item="editor" separator=","
+				open="(" close=")">
+				#{editor}
+			</foreach>
+		</if>
+		<if test="genre != null and !genre.isEmpty()">
+			AND REGEXP_LIKE(game_genre, #{genre})
+		</if>
+		<if test="game_name != null and !game_name.isEmpty()">
+			AND game_name LIKE '%' || #{game_name} || '%'
+		</if>
+		ORDER BY ${sortBy}
 	</select>
 </mapper> 

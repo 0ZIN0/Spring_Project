@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:url value="resources/games/css/games.css" var="css1" />
 <c:url value="resources/games/js/games.js" var="js1" />
-<c:url value="resources/games/js/filter.js" var="js2" />
+<c:url value="resources/games/js/search.js" var="js2" />
 <c:url value="resources/img/index" var="img"/>
 <c:url value="resources/img/index/games" var="game_img"/>
 <!DOCTYPE html>
@@ -22,121 +22,6 @@
 	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	<div class="background_layer1">
 	<div class="background_layer2">
-	<div class="games_banner">
-		<div class="banner_textbox">
-			<h3>Show Me Games</h3>
-			<p>Show Me Games의 최신 게임, 베스트셀러들을 구매하시고 플레이하세요!</p>
-		</div>
-	</div>
-	<div class="editer_categories">
-		<div class="grid-x">
-			<c:forEach begin="1" end="5" var="1">
-					<div class="category_card"></div>
-			</c:forEach>
-		</div>
-	</div>
-	<div id=best-seller class="slider">
-            <div>
-            	<div class="bar"></div><div class="head-title"><span class="title">최고 인기 게임</span></div>
-            </div>
-            <div id=best-seller-card-container class="card-container editer-container">
-            	<div id=best-seller-prev-btn class="slider-prev-btn inactive">
-					<span class="material-symbols-outlined" style="font-size: 48px"> arrow_back_ios </span>
-				</div>
-                <div class="blank"></div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${game_img}/Tekken7/Tekken5.jpg" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${game_img}/Forza_Horizon/Forza Horzon4.jpg" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">                  
-                </div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-			<div id=best-seller-next-btn class="slider-next-btn">
-				<span class="material-symbols-outlined" style="font-size: 48px"> arrow_forward_ios </span>
-			</div>
-		</div>
-	</div>
-	<div class="pre_order">
-		<h1 class="section_header title">출시 임박</h1>
-			<div class="grid-x">
-				<c:forEach begin="1" end="6" var="1">
-					<div class="pre_order_card"></div>
-				</c:forEach>
-			</div>
-	</div>
-	<div id=week-best-seller class="slider">
-            <div>
-            	<div class="bar"></div><div><span class="title">이번주 베스트셀러</span></div>
-            </div>
-            <div id=week-best-seller-card-container class="card-container editer-container">
-            	<div id=week-best-seller-prev-btn class="slider-prev-btn inactive">
-					<span class="material-symbols-outlined" style="font-size: 48px"> arrow_back_ios </span>
-				</div>
-                <div class="blank"></div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${game_img}/Tekken7/Tekken5.jpg" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${game_img}/Forza_Horizon/Forza Horzon4.jpg" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">                  
-                </div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-                <div class="card">
-                    <img src="${img}/black.png" alt="사진">
-                </div>
-			<div id=week-best-seller-next-btn class="slider-next-btn">
-				<span class="material-symbols-outlined" style="font-size: 48px"> arrow_forward_ios </span>
-			</div>
-		</div>
-	</div>
 	<div class="grid_container">
 		<div class="secondary">
 			<div class="filter">

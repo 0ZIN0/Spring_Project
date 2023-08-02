@@ -24,43 +24,35 @@ public class GamesController {
 	GamesService gamesService;
 	
 	@GetMapping("/games")
-	public void gameList(Model model) {
-
-		System.out.println("목록을 가져옵니다");
-		model.addAttribute("games", gamesService.getAllGames(2));
-	}
-	
-	@ResponseBody
-	@GetMapping("/games-filter")
-	public List<Games> gameListFilter(
-			@RequestParam(name = "genre") String genres,
-			@RequestParam(name = "editor") String editor,
-			@RequestParam(name = "sortBy") Integer sortBy
-			) throws Exception {
-		
-		log.info("필터지나감");
-
-		List<String> editors = Arrays.asList(editor.split("/"));
+	public void gameList(
+			Model model,
+			@RequestParam(name = "genre", required=false)  String genres,
+			@RequestParam(name = "editor", required=false) String editor,
+			@RequestParam(name = "sortBy", required=false) Integer sortBy
+			) {
 		log.info(editor);
 		log.info(genres);
 		log.info(sortBy);
 
-		List<Games> gameList = new ArrayList<Games>();
-		log.info(!(genres.equals("")));
-		if(!(genres.equals(""))
-				&& !editors.get(0).equals("")) {
-			gameList = gamesService.getFilteredGames(genres, editors, sortBy);
-			log.info(gameList);
-		} else if(!(genres.equals(""))) {
-			gameList = gamesService.getFilteredGenreOnly(genres, sortBy);
-			log.info(gameList);
-		} else if(!editors.get(0).equals("")) {
-			gameList = gamesService.getFilteredEditorOnly(editors, sortBy);
-			log.info(gameList);
-		} else {
-			gameList = gamesService.getAllGames(sortBy);
-		}
-		
-		return gameList;
+		model.addAttribute("games", 
+				gamesService.getFilteredGames(genres, editor, sortBy));
 	}
+	
+	@GetMapping("/search")
+	public void search(
+			@RequestParam(name = "search") String search,
+			@RequestParam(name = "genre", required=false)  String genres,
+			@RequestParam(name = "editor", required=false) String editor,
+			@RequestParam(name = "sortBy", required=false) Integer sortBy,
+			Model model) {
+		
+		log.info(search);
+		log.info(editor);
+		log.info(genres);
+		log.info(sortBy);
+		
+		model.addAttribute("games", 
+				gamesService.getSearchGames(search, genres, editor, sortBy));
+	}
+	
 }

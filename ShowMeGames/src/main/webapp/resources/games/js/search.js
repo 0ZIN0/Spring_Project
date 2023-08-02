@@ -241,6 +241,9 @@ $(document).on("click", ".remove_filter", function () {
   });
 });
 
+var params = new URLSearchParams(location.search);
+var searchParam = params.get("search");
+
 // Search Logic
 function getSearchList() {
   sessionStorage.setItem("genreList", JSON.stringify(genreList));
@@ -248,7 +251,9 @@ function getSearchList() {
   var genre_toString = genreList.join("|");
   var editor_toString = editorList.join(",");
   location.href =
-    "./games?genre=" +
+    "./search?search=" +
+    searchParam +
+    "&genre=" +
     genre_toString +
     "&editor=" +
     editor_toString +
