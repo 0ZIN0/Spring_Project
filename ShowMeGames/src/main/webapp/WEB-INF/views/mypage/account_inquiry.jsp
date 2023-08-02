@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/resources/mypage" var="resource" />
+<c:url value="/resources/img/customer/inquiries/" var="inquiries_img"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -34,6 +35,23 @@
 							<button>버튼</button>
 						</div>
 					</div>
+					<div>
+						<c:forEach items="${myContents}" var="myContent">
+							<div>${myContent.inquiry_subject}</div>
+							<div>
+								${myContent.inquiry_title}
+							</div>
+							<div>
+								${myContent.inquiry_content}
+							</div>
+							<div>
+								<div>첨부파일</div>
+								<div>
+									<img src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
+								</div>
+							</div>							
+						</c:forEach>	
+					</div> 
 				</div>
 			</div>
 		</div>
