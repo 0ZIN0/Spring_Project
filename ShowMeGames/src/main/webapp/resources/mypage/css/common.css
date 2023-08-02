@@ -22,10 +22,13 @@ img {
     border-bottom: 2px solid #e9e9f2;
 }
 
-#top_bar > div:first-child {
+#top_bar_logo {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#top_bar_logo > a {
+    color: black;
 }
 
 #top_bar > div:nth-child(2) {
@@ -71,10 +74,16 @@ img {
     width: 85%;
     margin: auto;
 }
-#logout_button > span {
+#logout_button > a {
+    color: black;
+    display: flex;
+    column-gap: 10px;
+    padding-left: 10px;
+}
+#logout_button span {
     cursor: pointer;
 }
-#logout_button > span:last-child {
+#logout_button span:last-child {
     font-size: 0.9em;
 }
 

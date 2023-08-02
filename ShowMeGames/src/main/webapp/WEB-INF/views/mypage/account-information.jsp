@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:url value="/resources/mypage" var="resource" />
 <!DOCTYPE html>
 <html lang="ko">
@@ -33,14 +34,14 @@
 						</div>
 						<div id="profile_content_wrapper">
 							<div id="profile_img">
-								이미지
+								<img src="${profile_img}" alt="프로필사진">
 							</div>
 							<div id="profile_content">
 								<div>
 									<span id="nickname">사용자 이름</span>
 								</div>
 								<div>
-									<span id="user_nickname">닉네임&lt;변수&gt;</span>
+									<span id="user_nickname">${user.nick_name}</span>
 									<span id="nick_update_icon" class="material-icons">edit</span>
 								</div>
 							</div>
@@ -59,23 +60,31 @@
 							<div id="personal_info_content">
 								<div>
 									<div class="info_title">이메일 주소</div>
-									<div class="info_content">내용</div>
+									<div class="info_content">${user.user_id}</div>
 								</div>
 								<div>
 									<div class="info_title">이름</div>
-									<div class="info_content">내용</div>
+									<div class="info_content">${user.user_name}</div>
 								</div>
 								<div>
 									<div class="info_title">성별</div>
-									<div class="info_content">내용</div>
+									<div class="info_content">
+										<c:choose>
+											<c:when test="${user.gender == 1}">남</c:when>
+											<c:when test="${user.gender == 2}">여</c:when>
+											<c:otherwise>미정</c:otherwise>
+										</c:choose>
+									</div>
 								</div>
 								<div>
 									<div class="info_title">생년월일</div>
-									<div class="info_content">내용</div>
+									<div class="info_content">
+										<fmt:formatDate value="${user.birth_date}" pattern="yyyy년 MM월 dd일"/>
+									</div>
 								</div>
 								<div>
 									<div class="info_title">전화번호</div>
-									<div class="info_content">내용</div>
+									<div class="info_content">${user.phone_number}</div>
 								</div>
 							</div>
 						</div>

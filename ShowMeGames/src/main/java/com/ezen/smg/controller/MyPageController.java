@@ -1,15 +1,28 @@
 package com.ezen.smg.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ezen.smg.dto.SmgUsersDTO;
 
 @RequestMapping("/mypage")
 @Controller
 public class MyPageController {
 	
 	@GetMapping("/my_account")
-	String accountInfo() {
+	String accountInfo(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute("user") == null) return "/"; 
+		
+		SmgUsersDTO user = (SmgUsersDTO) session.getAttribute("user"); 
+		
+		user.getUser_num();
+		
 		return "mypage/account-information";
 	}
 	

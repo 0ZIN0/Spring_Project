@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:url value="${user.profile_url}" var="profile_img"/>
+<c:url value="/" var="toMain"/>
 	<div id="top_bar">
-		<div id="top_bar_logo">로고</div>
+		<div id="top_bar_logo">
+			<a href="${toMain}">로고</a>
+		</div>
 		<div></div>
 		<div>
 			<div id="top_bar_account">
 				<div>
-					<img src="${pageContext.request.contextPath}/resources/img/member/basic_member_img.png" alt="기본이미지">
+					<img src="${profile_img}" alt="프로필사진">
 				</div>
 				<div>
-					<span>아이디</span>
+					<span>${user.nick_name}</span>
 				</div>
 				<div>
 		            <svg id="arrow_icon" role="presentation" class="icon--arrow" width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -18,8 +23,10 @@
 				</div>
 			</div>
 			<div id="logout_button">
-				<span class="material-icons">logout</span>
-				<span>로그아웃</span> 
+				<a href="${pageContext.request.contextPath}/member/sessionLogout">
+					<span class="material-icons">logout</span>
+					<span>로그아웃</span>
+				</a> 
 			</div>
 		</div>
 	</div>

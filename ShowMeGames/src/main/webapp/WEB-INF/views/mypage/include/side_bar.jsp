@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
    			<div id="side_nav_wrapper">
 				<div id="side_nav">
-					<div id="side_nav_logo">로고</div>
+					<div id="side_nav_logo">
+						<a href="${toMain}">로고</a>
+					</div>
 					<a href="./my_account">
 						<div class="nav_item" id="side_user_info">
 							<div class="nav_item_wrapper">

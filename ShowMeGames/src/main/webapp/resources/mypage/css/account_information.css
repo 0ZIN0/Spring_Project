@@ -1,6 +1,7 @@
 #profile_content_wrapper {
     display: flex;
     flex-direction: row;
+    column-gap: 20px;
 }
 
 #profile_img {
