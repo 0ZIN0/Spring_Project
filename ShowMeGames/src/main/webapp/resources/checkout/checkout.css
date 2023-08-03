@@ -109,11 +109,12 @@ body {
 
 #checkout-content {
     width: 1200px;
-    margin: 40px auto;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 750px 1fr;
     column-gap: 40px;
     position: relative;
+	padding: 40px 0;
 }
 
 #checkout-main-content {
@@ -147,9 +148,9 @@ h3 {
     background-color: white;
     border-radius: 8px;
     display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    row-gap: 30px;
+    grid-template-rows: repeat(4, 1fr) 200px 1fr;
     padding: 24px;
+	row-gap: 20px;
 }
 
 #checkout-form > * {
@@ -157,9 +158,9 @@ h3 {
     display: flex;
     flex-direction: column;
     height: 100%;
-    row-gap: 10px;
     justify-content: center;
     padding: 0 40px;
+	row-gap: 5px;
 }
 
 #checkout-form > * > label {
@@ -178,6 +179,7 @@ h3 {
 .input-p {
 	margin: 5px 0 0 30px;
 	color: #960000;
+	font-size: 14px;
 }
 
 .input-none {
@@ -187,6 +189,81 @@ h3 {
 
 .input-ok {
 	border: 1px solid #646464;
+}
+
+.unit-label {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+#unit-title {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+#unit-form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+#unit-form > * {
+	font-size: 18px;
+}
+
+#use-unit, #unit {
+	color: #F22349;
+	opacity: 0.9;
+}
+
+#use-unit::placeholder {
+	color: #F22349;
+	opacity: 0.9;
+}
+
+.unit-input {
+	text-align: right;
+	border : 0;
+	border-bottom: 1px solid #646464;
+	font-size: 18px;
+	padding: 5px 10px 5px 0;
+	width: 200px;
+	margin: 0 0 0 10px;
+}
+
+#have-unit {
+	outline: none;
+}
+
+#all-unit-btn {
+	border: 0;
+	box-shadow: 0;
+	font-weight: 600;
+	width: 100px;
+	height: 30px;
+	border-radius: 8px;
+	margin-left: 10px;
+}
+
+.button-ok {
+	background-color: #dddddd;
+	color: rgb(0, 0, 0);
+}
+
+.button-none {
+	background-color: #ebebeb;
+	color: rgb(168, 168, 168);
+}
+
+#all-unit-btn:hover {
+	cursor: pointer;
+}
+
+#point-use-info {
+	margin-top: 5px;
+	font-size: 12px;
+	color: #F22349;
+	font-weight: 600;
 }
 
 /* nav bar */
@@ -330,6 +407,10 @@ h3 {
 	border-top: 2px solid black;
 }
 
+#checkout-cart-bottom > :first-child {
+	font-size: 16px;
+}
+
 #checkout-cart-bottom:hover {
 	cursor: pointer;
 }
@@ -414,7 +495,7 @@ h3 {
 
 #summary-grid > :nth-child(3) {
 	display: grid;
-	grid-template-columns: 200px 1fr;
+	grid-template-columns: 210px 1fr;
 	column-gap: 100px;
 }
 

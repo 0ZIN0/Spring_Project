@@ -8,6 +8,8 @@
 	<title>구매내역</title>
 	<!-- mypage 공통 css -->
 	<link rel="stylesheet" href="${resource}/css/common.css">
+	<!-- orders css -->
+	<link rel="stylesheet" href="${resource}/css/account_orders.css">
 	<!-- header, footer css -->
 	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
 	<!-- google font -->

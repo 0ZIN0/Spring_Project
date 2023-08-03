@@ -1,1 +1,7 @@
-@charset "UTF-8";
+#side_inquiry {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+#side_inquiry span.material-icons {
+    color: #eeab0a;
+}

@@ -30,7 +30,7 @@ public class CartService_Impl implements CartService {
 			String[] cartContent = cartMapper.getCartContent(user_num).split("/");
 			for (String game_id : cartContent) {
 				Games gameDTO = gamesMapper.getGame(Integer.parseInt(game_id));
-				int discount_price = CommonFunction.calDiscount(gameDTO.getGame_price(), 10);
+				int discount_price = CommonFunction.calDiscount(gameDTO.getGame_price(), gameDTO.getDiscount());
 				gameDTO.setDiscounted_price(discount_price); 
 				log.error(gameDTO.getDiscounted_price());
 				games.add(gameDTO);
@@ -38,7 +38,6 @@ public class CartService_Impl implements CartService {
 			
 			return games;
 		} catch (Exception e) {
-			e.printStackTrace();
 			return null;
 		}
 	}
@@ -90,5 +89,11 @@ public class CartService_Impl implements CartService {
 		} else {
 			return (int)(Math.floor(totalPrice * 0.02));
 		}
+	}
+
+	@Override
+	public int deleteCart(int user_num) {
+		
+		return cartMapper.deleteCart(user_num);
 	}
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.service.loginService.LoginService;
 
 import lombok.extern.log4j.Log4j;
@@ -70,12 +71,14 @@ public class LoginController {
 	
 	@ResponseBody
 	@PostMapping(value="/member/naver_check", produces = "application/json")
-	public String naver_check(String id, String email, HttpServletRequest request) {
-		if(loginService.getCheckUser(id) == 1) {
+	public String naver_check(String id, HttpServletRequest request) {
+		SmgUsersDTO user = loginService.getUser_Social(id);
+		
+		if(user != null) {
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("isLoggedIn", true);
-			session.setAttribute("user", loginService.getUser(email));
+			session.setAttribute("user", user);
 			
 			return "Y";
 		} else {

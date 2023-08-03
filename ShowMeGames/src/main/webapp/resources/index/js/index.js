@@ -47,7 +47,7 @@ $(document).on('click', '.toDetailBtn', function() {
 // toGenreBtn에 동적으로 이벤트 할당
 $(document).on('click', '.toGenreBtn', function() {
 	let id = $($(this)).data('id');
-	location.href = './genre?game_genre=' + id;
+	location.href = `./genre?game_genre=${id}#game_list`;
 });
 
 // 장르 이동 버튼

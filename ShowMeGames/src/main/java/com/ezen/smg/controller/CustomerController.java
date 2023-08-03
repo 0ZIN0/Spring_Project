@@ -1,26 +1,31 @@
 package com.ezen.smg.controller;
 
 import java.io.File;
-
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.ezen.smg.dto.Inquiries;
 import com.ezen.smg.dto.NoticeDTO;
-import com.ezen.smg.mapper.InquiriesMapper;
+import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.service.faqService.FAQService;
+import com.ezen.smg.service.inquiriesService.InquiriesService;
 import com.ezen.smg.service.noticeService.NoticeService;
 
 import lombok.extern.log4j.Log4j;
 
+@PropertySource(value = "classpath:application.properties", encoding = "UTF-8")
 @RequestMapping("/customer")
 @Log4j
 @Controller
@@ -31,8 +36,12 @@ public class CustomerController {
 	@Autowired
 	NoticeService noticeService;	
 	@Autowired
-	InquiriesMapper inquiriesMapper;
-			
+	InquiriesService inquiriesService;
+				
+	// 사진 파일 업로드시 저장될 주소
+	@Value("${spring.inquiry_img.path}")
+	String uploadFolder;
+	
 	@GetMapping(value="/faq")
 	String faq(Integer page, String topic, String search, Model model) {
 		if(page == null) page = 1;
@@ -103,22 +112,29 @@ public class CustomerController {
 	}
 	
 	@PostMapping(value="/inquiries")
-	public String insert(Inquiries inquiries, Model model) {
+	public String insert(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Inquiries inquiries, Model model) {
+		// 이미지 뒤에 붙여줄 날짜 포맷
+		Date nowDate = new Date();				
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+		String dateString = format.format(nowDate);
 		
-		String uploadFolder = "C:\\javastudy\\spring-workspace\\Spring_Project\\ShowMeGames\\src\\main\\webapp\\resources\\img\\customer\\inquiries";
-		String file_name = inquiries.getUser_num() + inquiries.getAttachment().getOriginalFilename() + new Date();
-		log.info(inquiries);
+		// 파일 이름 설정. 중복방지를 위해 뒤에 날짜 입력
+		String file_name = user.getUser_num()+ dateString + inquiries.getImgFile().getOriginalFilename();
+		
+		// 파일 저장
 		File saveFile = new File(uploadFolder, file_name);
-			try {
-				inquiries.getAttachment().transferTo(saveFile);
-			} catch (Exception e) {
-				log.error(e.getMessage());
-			}
-		model.addAttribute(inquiries);
-		inquiries.setFile_name(file_name);
+		try {
+			inquiries.getImgFile().transferTo(saveFile);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+				
+		model.addAttribute(inquiries);		
+		inquiries.setUser_num(user.getUser_num());
+		inquiries.setAttachment(file_name);
 		log.info("업로드파일 : " + file_name);
-		log.info("파일크기 : " + inquiries.getAttachment().getSize());
-		inquiriesMapper.add(inquiries);		
+		log.info("파일크기 : " + inquiries.getImgFile().getSize());
+		inquiriesService.insert(inquiries);		
 		
 		return "redirect:/customer/faq";
 	}	

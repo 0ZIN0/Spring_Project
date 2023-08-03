@@ -12,7 +12,7 @@
 		<!--
 		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@1.212.215.106:19000:XE"/>
 		-->
-		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.53:1521:XE"/>
+		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@1.212.215.106:19000:XE"/>
 		<property name="username" value="smg"/>
 		<property name="password" value="1234"/>
 		<property name="minimumIdle" value="3"/>

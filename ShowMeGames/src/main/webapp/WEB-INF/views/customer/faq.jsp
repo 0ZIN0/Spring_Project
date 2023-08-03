@@ -100,7 +100,7 @@
 				<div id="pageDiv">
 					<c:choose>
 						<c:when test="${prePage >= paging.firstPage}">
-							<button class="btn" onclick="location.href='./faq?page=${nextPage}&&${second_para}'">&#9664;</button> 
+							<button class="btn" onclick="location.href='./faq?page=${prePage}&&${second_para}'">&#9664;</button> 
 						</c:when>
 						<c:otherwise>
 							<button class="btn disabled" disabled>&#9664;</button> 

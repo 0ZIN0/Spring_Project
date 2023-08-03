@@ -8,6 +8,8 @@
 	<title>게임보유리스트</title>
 	<!-- mypage 공통 css -->
 	<link rel="stylesheet" href="${resource}/css/common.css">
+	<!-- gamelist css -->
+	<link rel="stylesheet" href="${resource}/css/account_gamelist.css">
 	<!-- header, footer css -->
 	<%@ include file="/WEB-INF/views/include/link/common.jsp" %>
 	<!-- google font -->

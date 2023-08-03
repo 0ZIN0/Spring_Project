@@ -4,14 +4,17 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="com.ezen.smg.mapper.UsersMapper">
  	<select id="getSelectUser" parameterType="String" resultType="com.ezen.smg.dto.SmgUsersDTO">
- 		
  		select * from smg_users where user_id=#{user_id}
- 		
  	</select>
- 	<select id="checkUser" parameterType="String" resultType="int">
-		SELECT count(*) FROM smg_users WHERE social_key = #{key}
+ 	<select id="getUserInfo" parameterType="int" resultType="com.ezen.smg.dto.SmgUsersDTO">
+ 		SELECT * FROM smg_users WHERE user_num=#{user_num}
+ 	</select>
+ 	<select id="getUser_social" parameterType="String" resultType="com.ezen.smg.dto.SmgUsersDTO">
+		SELECT * FROM smg_users WHERE social_key = #{key}
 	</select>
-	
+ 	<select id="getProfile_img_url">
+		SELECT profile_url FROM smg_users WHERE user_num=#{user_num}
+	</select>
 	<insert id="signUp" parameterType="com.ezen.smg.dto.SmgUsersDTO">
  		INSERT INTO smg_users(
  			user_num,
@@ -41,4 +44,41 @@
 		SELECT count(*) FROM smg_users WHERE user_id = #{id}
 	</select>
 	
+	<update id="updateNick_name">
+		UPDATE smg_users SET nick_name = #{nickname} WHERE user_num = #{user_num}
+	</update>
+	<update id="updateProfile_img">
+		UPDATE smg_users SET profile_url = #{url} WHERE user_num = #{user_num}
+	</update>
+	<update id="updateUserPoint" parameterType="com.ezen.smg.dto.SmgUsersDTO">
+		UPDATE smg_users SET user_point = #{dto.user_point} WHERE user_num = #{dto.user_num}
+	</update>
+	<update id="updateUserInfo" parameterType="com.ezen.smg.dto.SmgUsersDTO">
+		UPDATE smg_users 
+		SET user_id = #{dto.user_id}, 
+		 	user_name = #{dto.user_name}, 
+		 	phone_number = #{dto.phone_number}, 
+		 	birth_date = #{dto.birth_date}, 
+		 	gender = #{dto.gender} 
+		WHERE user_num = #{dto.user_num}
+	</update>
+	<update id="withdrawalUser" parameterType="com.ezen.smg.dto.SmgUsersDTO">
+		UPDATE smg_users 
+		SET 
+			user_id=#{dto.user_id}, 
+			user_pw=#{dto.user_pw, jdbcType=VARCHAR}, 
+			user_name=#{dto.user_name}, 
+			nick_name=#{dto.nick_name}, 
+			user_grade=#{dto.user_grade, jdbcType=VARCHAR}, 
+			phone_number=#{dto.phone_number}, 
+			favorite_genre=#{dto.favorite_genre, jdbcType=INTEGER}, 
+			user_point=#{dto.user_point, jdbcType=INTEGER}, 
+			birth_date=#{dto.birth_date}, 
+			login_type=#{dto.login_type, jdbcType=VARCHAR}, 
+			profile_url=#{dto.profile_url, jdbcType=VARCHAR}, 
+			social_key=#{dto.social_key, jdbcType=VARCHAR}, 
+			gender=#{dto.gender} 
+	  	WHERE 
+	  		user_num=#{dto.user_num}
+	</update>
  </mapper>
