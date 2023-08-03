@@ -83,6 +83,20 @@ public class MyPageController {
 		return "mypage/account_security";
 	}
 	
+	@PostMapping("/pwd_chk")
+	String accountPwd_chk(int user_num, String user_pw, Model model) {
+		
+		int result = mypageService.chkUser_pw(user_num, user_pw);
+	
+		if(result == 1) {
+			return "mypage/account_update_pw";
+		}
+		
+		model.addAttribute("try_count", 1);
+		
+		return "mypage/account_security";
+	}
+	
 	@GetMapping("/inquiry")
 	String accountInquiry(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model) {
 		//log.info(user.getUser_num());

@@ -15,4 +15,5 @@ public interface MyPageService {
 	int updateProfile_img(int user_num, MultipartFile img_file);
 	int updateUserInfo(SmgUsersDTO user);
 	int withdrawal_user(int user_num);
+	int chkUser_pw(int user_num, String user_pw);
 }
