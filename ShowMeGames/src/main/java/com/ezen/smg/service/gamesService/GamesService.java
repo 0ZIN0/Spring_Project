@@ -15,4 +15,8 @@ public interface GamesService {
 	List<Games> getLatestGameList();
 	
 	List<Games> getCuratorRecmdList();
+
+	List<Games> getNewSortGames(int countNum);
+	
+	List<Games> getGenreSameGames(List<Games> games, int countNum);
 }

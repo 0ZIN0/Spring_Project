@@ -62,6 +62,10 @@
 					<div class="orderfin-info-h3">결제 내역</div>
 					<div id="orderfin-payment-detail">
 						<div class="orderfin-detail-div">
+							<div class="orderfin-info-h4">결제 상품명</div>
+							<div class="orderfin-info-default">${order.order_product}</div>
+						</div>
+						<div class="orderfin-detail-div">
 							<div class="orderfin-info-h4">결제 금액</div>
 							<div id="orderfin-order-price">
 								<fmt:formatNumber type="number" maxFractionDigits="3" value="${order.order_price}" /> 원

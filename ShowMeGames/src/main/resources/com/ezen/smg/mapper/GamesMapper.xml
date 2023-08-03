@@ -7,6 +7,10 @@
 		SELECT * FROM games ORDER BY ${sort_by}
 	</select>
 	
+	<select id="getNewSortGames" resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a order by release_date desc) WHERE rn BETWEEN #{start} AND #{end}
+	</select>
+	
 	<select id="getGame" resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM games where game_id=#{game_id}
 	</select>
@@ -65,5 +69,9 @@
 			AND game_name LIKE '%' || #{game_name} || '%'
 		</if>
 		ORDER BY ${sortBy}
+	</select>
+	
+	<select id="getGenreSameGames" resultType="com.ezen.smg.dto.Games" parameterType="String">
+		SELECT * FROM games WHERE game_genre LIKE #{game_genre}
 	</select>
 </mapper> 

@@ -10,6 +10,8 @@ public interface GamesMapper {
 	
 	List<Games> getAllGames(String sortBy);
 	
+	List<Games> getNewSortGames(@Param("start") int start, @Param("end") int end);
+	
 	List<Games> getAllGamesSortByName();
 	
 	Games getGame(int game_id);
@@ -32,4 +34,6 @@ public interface GamesMapper {
 			@Param("genre") String genres,
 			@Param("editor") List<String> editors, 
 			@Param("sortBy") String sortBy);
+	
+	List<Games> getGenreSameGames(@Param("game_genre") String game_genre);
 }
