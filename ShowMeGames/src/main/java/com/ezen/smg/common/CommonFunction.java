@@ -39,5 +39,14 @@ public class CommonFunction {
 	    int posi = originalFilename.lastIndexOf(".");
 	    return originalFilename.substring(posi);
 	}
+
+	/**
+	 * url 전체를 넣어주면 확장자를 포함한 파일명을 추출해주는 메서드.
+	 * @param url 전체 경로
+	 * @return 확장자를 포함한 파일명
+	 */
+	public static String getFileName(String url) {
+		return url.substring(url.lastIndexOf("/") + 1);
+	}
 	
 }
