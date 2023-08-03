@@ -276,3 +276,11 @@ main {
     background-color: #fff;
     border: 1px blueviolet solid;
 } 
+.btn:disabled {
+    background-color: #7e8499;
+    border: none;
+    cursor: default;
+}
+.btn:disabled:hover {
+    filter: brightness(100%);
+}

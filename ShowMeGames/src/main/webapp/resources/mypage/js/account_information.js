@@ -1,3 +1,6 @@
+let chkEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+let chkName = /^[가-힣]{2,13}$/;
+let chkPhone = /^010-\d{4}-\d{4}$/
 let chkNick = /^[가-힣a-zA-Z0-9_-]{3,15}$/
 
 // 닉네임 변경 관련
@@ -85,3 +88,24 @@ $('#form_img_update').submit(function() {
 
 });
 
+// 개인 정보 업데이트 기능
+$('.info_input').change(function() {
+    
+    if(!chkEmail.test($('#user_id').val())) {
+        $('#userinfo_update_btn').attr('disabled', true);
+        return;
+    }
+
+    if(!chkName.test($('#user_name').val())) {
+        $('#userinfo_update_btn').attr('disabled', true);
+        return;
+    }
+
+    if(!chkPhone.test($('#phone_number').val())) {
+        $('#userinfo_update_btn').attr('disabled', true);
+        return;
+    }
+
+    $('#userinfo_update_btn').attr('disabled', false);
+
+});

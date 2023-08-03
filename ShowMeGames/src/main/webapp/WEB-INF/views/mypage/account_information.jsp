@@ -185,6 +185,63 @@
 									<div class="info_content">${user.phone_number}</div>
 								</div>
 							</div>
+							<form id="form_userinfo_update" action="">
+								<div id="personal_info_update_content">
+									<div>
+										<div class="info_title">이메일 주소</div>
+										<div class="info_content">
+											<input id="user_id" name="user_id" class="info_input" type="text" value="${user.user_id}"/>
+										</div>
+									</div>
+									<div>
+										<div class="info_title">이름</div>
+										<div class="info_content">
+											<input id="user_name" name="user_name" class="info_input" type="text" value="${user.user_name}"/>
+										</div>
+									</div>
+									<div>
+										<div class="info_title">성별</div>
+										<div class="info_content">
+											<select id="gender" name="gender" class="info_input">
+												<c:choose>
+													<c:when test="${user.gender == 1}">
+													    <option value="1" selected>남</option>
+													    <option value="2">여</option>
+													    <option value="0">미정</option>
+													</c:when>
+													<c:when test="${user.gender == 2}">
+													    <option value="1">남</option>
+													    <option value="2" selected>여</option>
+													    <option value="0">미정</option>
+													</c:when>
+													<c:otherwise>
+													    <option value="1">남</option>
+													    <option value="2">여</option>
+													    <option value="0" selected>미정</option>
+													</c:otherwise>
+												</c:choose>
+											</select>
+										</div>
+									</div>
+									<div>
+										<div class="info_title">생년월일</div>
+										<div class="info_content">
+											<fmt:formatDate var="birth_date_str" value="${user.birth_date}" pattern="yyyy-MM-dd"/>
+											<input id="birth_date" name="birth_date" class="info_input" type="date" value="${birth_date_str}"/>
+										</div>
+									</div>
+									<div>
+										<div class="info_title">전화번호</div>
+										<div class="info_content">
+											<input id="phone_number" name="phone_number" class="info_input" type="text" value="${user.phone_number}"/>
+										</div>
+									</div>
+									<div>
+										<button id="userinfo_cancel_btn" class="btn cancel" type="button">취소</button>
+										<button id="userinfo_update_btn" class="btn" type="submit" disabled="disabled">변경</button>
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>	
 					<div id="withdrawal" class="content_item">

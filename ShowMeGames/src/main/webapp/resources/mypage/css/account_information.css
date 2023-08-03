@@ -208,6 +208,37 @@
     font-size: 1.2em;
 }
 
+#personal_info_update_content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 20px;
+}
+#personal_info_update_content > div {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    column-gap: 10px;
+    padding-bottom: 10px;
+}
+#personal_info_update_content > div:last-child {
+    display: flex;
+    column-gap: 20px;
+    margin-top: 20px;
+    padding-left: 10%;
+}
+
+#personal_info_update_content input,
+#personal_info_update_content select {
+    width: 50%;
+    padding: 3px 0 3px 10px;
+    border-radius: 5px;
+    border: 1px solid #808080;
+}
+#personal_info_update_content option {
+    background-color: #252d3a;
+    color: #fff;
+}
+
 #withdrawal_content > span {
     color: gray;
 }
