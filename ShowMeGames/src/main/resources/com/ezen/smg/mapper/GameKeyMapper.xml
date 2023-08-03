@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.smg.mapper.GameKeyMapper">
+	<update id="updateUserNum" parameterType="int">
+		update game_key set user_num = #{user_num} where key_num =
+			(SELECT key_num FROM (
+				SELECT rownum AS rn, a.* 
+				FROM game_key a 
+				where game_id = #{game_id} and user_num is null) 
+		WHERE rn = 1)
+	</update>
+</mapper>
