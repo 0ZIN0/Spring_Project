@@ -35,6 +35,8 @@ public class CartController {
 				model.addAttribute("total_price", cartService.getTotalPrice(games));
 				model.addAttribute("platforms", cartService.getPlatforms(user_num));
 				model.addAttribute("unit", cartService.getUnit(user.getUser_grade(), cartService.getTotalPrice(games)));
+			} else {
+//				model.addAttribute("new_game", );
 			}
 			return "cart";
 		} catch (Exception e) {

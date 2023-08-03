@@ -211,11 +211,14 @@
 					<div id="cart-bottom-grid">
 						<h3>이번주 베스트 셀러</h3>
 						<div id="week-best-grid">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
+							<c:forEach begin="1" end="5" var="i">
+							<div>
+								<img class="week-best-img" alt="" src="">
+								<div class="week-best-info">
+									
+								</div>
+							</div>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
