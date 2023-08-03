@@ -1,0 +1,141 @@
+#orderfin-main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    width: 1400px;
+    margin: 40px auto;
+}
+
+#orderfin-title {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#orderfin-grid {
+    display: flex;
+    width: 100%;
+    height: 600px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px;
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+#orderfin-grid-top {
+    color: black;
+    font-size: 32px;
+    font-weight: 600;
+    height: 40px;
+    width: 100%;
+}
+
+#orderfin-grid-bottom {
+    height: 560px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #dddddd;
+}
+
+#orderfin-grid-title {
+    color: #F22349;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+#orderfin-info-grid {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 24px;
+}
+
+.orderfin-info-h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.orderfin-info-h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.orderfin-detail-div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+#order-imp-uid {
+    color: #F22349;
+    font-weight: 600;
+}
+
+#orderfin-point-info {
+    padding: 30px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+#orderfin-point-info-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#orderfin-payment-grid {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 24px;
+}
+
+#orderfin-point-info-grid {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+#orderfin-point-info-grid > :nth-child(3) {
+    border-top: 1px solid #dddddd;
+    padding-top: 16px;
+}
+
+.point-grid-div {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.point-grid-div > :nth-child(2) {
+    display: flex;
+    justify-content: center;
+}
+
+#orderfin-user-point {
+    color: #F22349;
+    font-weight: 600;
+}
+
+#orderfin-order-price {
+    color: #F22349;
+    font-weight: 600;
+}
+
+#orderfin-payment-detail {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.orderfin-info-default {
+    font-size: 16px;
+}

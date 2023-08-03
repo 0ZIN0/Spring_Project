@@ -13,7 +13,6 @@ window.addEventListener('load', function () {
     if (status) {
       /* console.log(naverLogin.user); */
       var id = naverLogin.user.getId();
-      var email = naverLogin.user.getEmail();
       
       var xhr = new XMLHttpRequest();
 
@@ -24,7 +23,7 @@ window.addEventListener('load', function () {
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
       //요청 전송
-      xhr.send("id=" + id + "&&email=" + email);
+      xhr.send("id=" + id);
 
       //통신후 작업
       xhr.onload = () => {

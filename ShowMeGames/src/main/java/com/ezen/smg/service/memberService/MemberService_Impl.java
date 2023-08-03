@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.smg.common.Encryption_SH256;
+import com.ezen.smg.dto.Orders;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.mapper.UsersMapper;
 
@@ -29,6 +30,13 @@ public class MemberService_Impl implements MemberService {
 		int chk = mapper.idCheck(userId);
 		
 		return chk;
+	}
+
+	@Override
+	public int updateUserPoint(Orders order) {
+		SmgUsersDTO user = mapper.getUserInfo(order.getUser_num());
+		user.setUser_point(order.getAdd_point() + user.getUser_point() - order.getUse_point());
+		return mapper.updateUserPoint(user);
 	}
 
 }

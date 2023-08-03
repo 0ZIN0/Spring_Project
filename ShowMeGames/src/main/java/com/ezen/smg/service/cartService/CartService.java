@@ -15,4 +15,6 @@ public interface CartService {
 	List<String[]> getPlatforms(int user_num);
 	
 	int deleteGame(int user_num, int game_id);
+	
+	int deleteCart(int user_num);
 }

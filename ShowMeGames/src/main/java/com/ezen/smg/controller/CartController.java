@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
+import com.ezen.smg.mapper.OrderMapper;
 import com.ezen.smg.service.cartService.CartService;
 
 @Controller
@@ -19,6 +20,9 @@ public class CartController {
 	
 	@Autowired
 	CartService cartService;
+	
+	@Autowired
+	OrderMapper orderMapper;
 	
 	@GetMapping(value="/cart")
 	public String cart(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model) {
@@ -50,6 +54,13 @@ public class CartController {
 			String[] platformArr = platform.split(",");
 			model.addAttribute("platforms", platformArr);
 			model.addAttribute("unit", cartService.getUnit(user.getUser_grade(), cartService.getTotalPrice(games)));
+			model.addAttribute("user", user);
+			Integer order_id = orderMapper.getDESCOrderId();
+			if (order_id == null) {
+				model.addAttribute("order_id", 0);
+			} else {
+				model.addAttribute("order_id", order_id);
+			}
 		}
 	}
 	

@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,7 @@ import com.ezen.smg.service.noticeService.NoticeService;
 
 import lombok.extern.log4j.Log4j;
 
+@PropertySource(value = "classpath:application.properties", encoding = "UTF-8")
 @RequestMapping("/customer")
 @Log4j
 @Controller
@@ -35,6 +38,10 @@ public class CustomerController {
 	@Autowired
 	InquiriesService inquiriesService;
 				
+	// 사진 파일 업로드시 저장될 주소
+	@Value("${spring.inquiry_img.path}")
+	String uploadFolder;
+	
 	@GetMapping(value="/faq")
 	String faq(Integer page, String topic, String search, Model model) {
 		if(page == null) page = 1;
@@ -110,9 +117,6 @@ public class CustomerController {
 		Date nowDate = new Date();				
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
 		String dateString = format.format(nowDate);
-		
-		// 사진 파일 업로드시 저장될 주소
-		String uploadFolder = "C:\\javastudy\\spring-workspace\\Spring_Project\\ShowMeGames\\src\\main\\webapp\\resources\\img\\customer\\inquiries";
 		
 		// 파일 이름 설정. 중복방지를 위해 뒤에 날짜 입력
 		String file_name = user.getUser_num()+ dateString + inquiries.getImgFile().getOriginalFilename();
