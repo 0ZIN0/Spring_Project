@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -78,7 +79,16 @@ public class CustomerController {
 
 	@GetMapping(value="/notice")
 	public void notice(Model model) {
-		model.addAttribute("notices", noticeService.getAllNotices());
+		model.addAttribute("notices", noticeService.getNotices(1, 10));
+	}
+	
+	@ResponseBody
+	@GetMapping(value="/notice-ajax")
+	public List<NoticeDTO> noticeAjax(Model model,
+			Integer num) {
+		log.info("응답");
+		log.info(num);
+		return noticeService.getNotices(num, 10);
 	}
 	
 	@GetMapping(value="/notice/notice_detail")
