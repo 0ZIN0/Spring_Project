@@ -20,4 +20,5 @@ public interface UsersMapper {
 	
 	int updateProfile_img(@Param("user_num") int user_num, @Param("url") String profile_url);
 	
+	int updateUserPoint(@Param("dto") SmgUsersDTO dto);
 }
