@@ -153,7 +153,7 @@
 						</div>
 						<div id="top-cart-list">
 							<div id="checkout-cart-top">
-								<div>${cart_len} 항목</div>
+								<div>${cart_len}항목</div>
 								<div id="banner-list-div">
 									<c:forEach items="${cart_list}" var="game">
 										<img class="game_banner_img" alt=""
