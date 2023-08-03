@@ -1,4 +1,5 @@
 let chkNick = /^[가-힣a-zA-Z0-9_-]{3,15}$/
+let chkPwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,16}$/;
 
 // birth 나타나게 하기
 $('#birth_input').css('opacity', 1);
@@ -35,6 +36,26 @@ $('#reg_input_nick').blur(function() {
     $(this).closest('.reg_input_div').addClass('valid');
 });
 
+// 비밀번호 검사
+$('#reg_input_pwd').blur(function() {
+    if(!$(this).val()) {
+        $(this).parent().prev('.reg_input_header').removeClass('focused');
+        $(this).closest('.reg_input_div').addClass('unvalid');
+        $(this).closest('.reg_input_div').next('.confirm_div').text('패스워드를 입력하세요');
+        $(this).closest('.reg_input_div').next('.confirm_div').show();
+        return;
+    };
+
+    if(!chkPwd.test($(this).val())) {
+        $(this).closest('.reg_input_div').addClass('unvalid');
+        $(this).closest('.reg_input_div').next('.confirm_div').text('패스워드가 형식에 맞지 않습니다.');
+        $(this).closest('.reg_input_div').next('.confirm_div').show();
+        return;
+    }
+
+    $(this).closest('.reg_input_div').addClass('valid');
+});
+
 // 규정 부분 동작 설정
 $('.accordion').click(function() {
     $(this).toggleClass('active');
@@ -52,6 +73,12 @@ $('#signup').submit(function() {
     if(!$("#reg_input_nick").closest('.reg_input_div').hasClass('valid')) {
         alert('닉네임 확인');
         $('#reg_input_nick').focus();
+        return false;
+    }
+
+    if(!$("#reg_input_pwd").closest('.reg_input_div').hasClass('valid')) {
+        alert('비밀번호확인');
+        $('#reg_input_pwd').focus();
         return false;
     }
 
