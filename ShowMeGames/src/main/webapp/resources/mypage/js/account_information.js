@@ -88,7 +88,23 @@ $('#form_img_update').submit(function() {
 
 });
 
-// 개인 정보 업데이트 기능
+/* 개인 정보 업데이트 기능 관련 */
+
+// 업데이트 form 보이기
+$('#personal_info_on_btn').click(function() {
+    $('#personal_info_content').hide();
+    $('#personal_info_on_btn').hide();
+    $('#form_userinfo_update').show();
+});
+
+// 업데이트 form 숨기기
+$('#userinfo_cancel_btn').click(function() {
+    $('#personal_info_content').show();
+    $('#personal_info_on_btn').show();
+    $('#form_userinfo_update').hide();
+});
+
+// 변경 버튼 on/off
 $('.info_input').change(function() {
     
     if(!chkEmail.test($('#user_id').val())) {
@@ -109,3 +125,77 @@ $('.info_input').change(function() {
     $('#userinfo_update_btn').attr('disabled', false);
 
 });
+
+// 개인정보 변경 버튼 눌렀을 때
+$('#form_userinfo_update').submit(function() {
+
+    if(!chkEmail.test($('#user_id').val())) {
+        alert('이메일확인');
+        $('#user_id').focus();        
+        return;
+    }
+
+    if(!chkName.test($('#user_name').val())) {
+        alert('이름확인');
+        $('#user_name').focus();
+        return;
+    }
+
+    if(!chkPhone.test($('#phone_number').val())) {
+        alert('전화번호확인');
+        $('#phone_number').focus();
+        return;
+    }
+
+    confirm('개인정보가 변경되었습니다.');
+});
+
+
+/* 탈퇴 관련 기능 */
+
+// 회원 탈퇴 모달 on/off
+function user_withdrawal_cancel() {
+    $('#user_withdrawal_modal').hide();
+    $('body').css('overflow', 'auto');
+}
+
+$('#user_withdrawal_modal_open').click(function() {
+    $('#user_withdrawal_modal').show();
+    $('body').css('overflow', 'hidden');
+});
+
+$('#user_withdrawal_modal_close').click(function() {
+    user_withdrawal_cancel();
+});
+
+$('#user_withdrawal_modal_close_btn').click(function() {
+    user_withdrawal_cancel();
+});
+
+$('#form_user_withdrawal').submit(function() {
+    let confirm_str = $('#withdrawal_confirm').data('str');
+
+    if($('#withdrawal_confirm').val() !== confirm_str) {
+        alert('확인문구를 정확하게 입력해주세요');
+        return false;
+    }
+
+    let final_answer = confirm('정말 탈퇴하시겠습니까?');
+
+    if(!final_answer) {
+        alert('회원탈퇴가 취소되었습니다.');
+        return false;
+    }
+    
+    alert('회원탈퇴가 완료되었습니다.');
+});
+
+
+
+
+
+
+
+
+
+

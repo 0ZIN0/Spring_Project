@@ -17,9 +17,11 @@ public class MemberService_Impl implements MemberService {
 	@Override
 	public int signUp(SmgUsersDTO dto) {
 		String origin_pw = dto.getUser_pw();
-		
-		// 사용자 입력 비밀번호 SHA-256 알고리즘으로 암호화 
-		dto.setUser_pw(Encryption_SH256.encrypt(origin_pw));
+
+		if(origin_pw != null && !origin_pw.equals("")) {
+			// 사용자 입력 비밀번호 SHA-256 알고리즘으로 암호화 
+			dto.setUser_pw(Encryption_SH256.encrypt(origin_pw));
+		}
 		
 		return mapper.signUp(dto);
 	}

@@ -116,6 +116,48 @@
 		</div>
 	</div>
 
+	<!-- modal:user_withdrawal -->
+	<div id="user_withdrawal_modal" class="modal_bg">
+		<div class="modal_container">
+			<div class="modal_content">
+				<div class="item_title_wrapper">
+					<div class="item_title">
+						<span>회원 탈퇴</span>
+					</div>
+					<div id="user_withdrawal_modal_close" class="content_update_wrapper">
+						<button class="btn cancel">닫기</button>
+					</div>
+				</div>
+				<div id="user_withdrawal_modal_content">
+					<form id="form_user_withdrawal" action="./withdrawal" method="POST">
+						<input type="hidden" name="user_num" value="${user.user_num}">
+					</form>
+					<div>
+						<c:set value="회원탈퇴에 동의합니다" var="confirm_str"/>
+						<div class="modal_content_title">
+							<label class="modal_label" for="withdrawal_confirm">최종확인</label>
+						</div>
+						<input id="withdrawal_confirm" type="text" spellcheck="false" placeholder="확인 문구 입력란" data-str="${confirm_str}"/>
+					</div>
+					<div>
+						<div class="modal_content_title">회원탈퇴 규정</div>
+						<div>
+		                    <ul>	
+		                        <li>"${confirm_str}"를 입력하세요.</li>
+		                        <li>회원탈퇴에 최종 동의 후에는 철회할 수 없습니다.</li>
+		                        <li>회원탈퇴로 인한 계정의 복구는 불가능합니다.</li>
+	    	                </ul>
+						</div>
+					</div>
+					<div>
+						<button id="user_withdrawal_modal_close_btn" class="btn cancel">취소</button>
+						<button id="user_withdrawal_modal_comfirm_btn" type="submit" class="btn" form="form_user_withdrawal">탈퇴</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<main class="background_layer1">
 		<div id="main_content_wrapper" class="background_layer2">
 			<!-- side_bar -->
@@ -151,7 +193,7 @@
 								<span>개인 정보</span>
 							</div>
 							<div class="content_update_wrapper">
-								<button>편집</button>
+								<button id="personal_info_on_btn">편집</button>
 							</div>
 						</div> 
 						<div id="personal_info_wrapper">
@@ -185,7 +227,8 @@
 									<div class="info_content">${user.phone_number}</div>
 								</div>
 							</div>
-							<form id="form_userinfo_update" action="">
+							<form id="form_userinfo_update" action="./userInfo_update" method="POST">
+								<input type="hidden" name="user_num" value="${user.user_num}">
 								<div id="personal_info_update_content">
 									<div>
 										<div class="info_title">이메일 주소</div>
@@ -250,12 +293,12 @@
 								<span>회원 탈퇴</span>
 							</div>
 							<div class="content_update_wrapper">
-								<button>탈퇴</button>
+								<button id="user_withdrawal_modal_open">탈퇴</button>
 							</div>
 						</div>
 						<div id="withdrawal_content">
 							<span>
-							 	계정을 폐쇄하면 모든 쇼미게임즈 게임과 온라인 서비스에 접속할 수 없으며, 현재 쇼미게임즈에서 주문한 내역들도 취소됩니다. <br>
+							 	계정을 폐쇄하면 모든 쇼미게임즈 게임과 온라인 서비스에 접속할 수 없으며, 현재 쇼미게임즈에서 주문한 내역들도 소멸됩니다. <br>
 							</span>
 						</div> 
 					</div>	

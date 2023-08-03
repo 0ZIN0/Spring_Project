@@ -59,6 +59,25 @@ public class MyPageController {
 		return "redirect:/mypage/my_account";
 	}
 	
+	@PostMapping("/userInfo_update")
+	String userInfo_update(SmgUsersDTO user) {
+		
+		mypageService.updateUserInfo(user);
+		
+		return "redirect:/mypage/my_account"; 
+	}
+	
+	@PostMapping("/withdrawal")
+	String user_withdrawal(int user_num) {
+		
+		log.info("탈퇴신청 user_num: " + user_num);
+
+		// 탈퇴한 회원으로 정보 덮어쓰기. delete가 아님.
+		mypageService.withdrawal_user(user_num);
+		
+		return "redirect:/member/sessionLogout";
+	}
+	
 	@GetMapping("/security")
 	String accountSecurity() {
 		return "mypage/account_security";

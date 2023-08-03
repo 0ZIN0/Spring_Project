@@ -53,4 +53,32 @@
 	<update id="updateUserPoint" parameterType="com.ezen.smg.dto.SmgUsersDTO">
 		UPDATE smg_users SET user_point = #{dto.user_point} WHERE user_num = #{dto.user_num}
 	</update>
+	<update id="updateUserInfo" parameterType="com.ezen.smg.dto.SmgUsersDTO">
+		UPDATE smg_users 
+		SET user_id = #{dto.user_id}, 
+		 	user_name = #{dto.user_name}, 
+		 	phone_number = #{dto.phone_number}, 
+		 	birth_date = #{dto.birth_date}, 
+		 	gender = #{dto.gender} 
+		WHERE user_num = #{dto.user_num}
+	</update>
+	<update id="withdrawalUser" parameterType="com.ezen.smg.dto.SmgUsersDTO">
+		UPDATE smg_users 
+		SET 
+			user_id=#{dto.user_id}, 
+			user_pw=#{dto.user_pw, jdbcType=VARCHAR}, 
+			user_name=#{dto.user_name}, 
+			nick_name=#{dto.nick_name}, 
+			user_grade=#{dto.user_grade, jdbcType=VARCHAR}, 
+			phone_number=#{dto.phone_number}, 
+			favorite_genre=#{dto.favorite_genre, jdbcType=INTEGER}, 
+			user_point=#{dto.user_point, jdbcType=INTEGER}, 
+			birth_date=#{dto.birth_date}, 
+			login_type=#{dto.login_type, jdbcType=VARCHAR}, 
+			profile_url=#{dto.profile_url, jdbcType=VARCHAR}, 
+			social_key=#{dto.social_key, jdbcType=VARCHAR}, 
+			gender=#{dto.gender} 
+	  	WHERE 
+	  		user_num=#{dto.user_num}
+	</update>
  </mapper>
