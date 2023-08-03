@@ -18,4 +18,5 @@ public class Orders {
 	private Integer add_point;
 	private String buyer_name;
 	private String address;
+	private String order_product;
 }

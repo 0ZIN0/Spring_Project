@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
+import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.OrderMapper;
 import com.ezen.smg.service.cartService.CartService;
+import com.ezen.smg.service.gamesService.GamesService;
 
 @Controller
 public class CartController {
@@ -24,19 +26,23 @@ public class CartController {
 	@Autowired
 	OrderMapper orderMapper;
 	
+	@Autowired
+	GamesService gamesService;
+	
 	@GetMapping(value="/cart")
 	public String cart(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model) {
 		try {
 			Integer user_num = user.getUser_num();
 			List<Games> games = cartService.getCartList(user_num);
 			if (games != null) {
-				model.addAttribute("cart_list", cartService.getCartList(user_num));
+				model.addAttribute("cart_list", games);
 				model.addAttribute("cart_len", cartService.getCartList(user_num).size());
 				model.addAttribute("total_price", cartService.getTotalPrice(games));
 				model.addAttribute("platforms", cartService.getPlatforms(user_num));
 				model.addAttribute("unit", cartService.getUnit(user.getUser_grade(), cartService.getTotalPrice(games)));
+				model.addAttribute("new_games", gamesService.getGenreSameGames(games, 3));
 			} else {
-//				model.addAttribute("new_game", );
+				model.addAttribute("new_games", gamesService.getNewSortGames(5));
 			}
 			return "cart";
 		} catch (Exception e) {

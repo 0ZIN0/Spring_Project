@@ -109,11 +109,12 @@ body {
 
 #checkout-content {
     width: 1200px;
-    margin: 40px auto;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 750px 1fr;
     column-gap: 40px;
     position: relative;
+	padding: 40px 0;
 }
 
 #checkout-main-content {
