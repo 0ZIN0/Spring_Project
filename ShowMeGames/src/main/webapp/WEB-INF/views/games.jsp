@@ -322,7 +322,7 @@
 								<li class="filter_item editor"><input type="checkbox"
 									value="gitae" /> <label for="">Gitae's Pick</label></li>
 									<li class="filter_item editor"><input type="checkbox"
-									value="curator" /> <label for="">Curator's Pick</label><
+									value="curator" /> <label for="">Curator's Pick</label>
 							</ul>
 						</div>
 					</div>

@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.smg.service.gamesService.GamesService;
-import com.ezen.smg.service.indexService.IndexService;
-
 import lombok.extern.log4j.Log4j;
 
 @Controller

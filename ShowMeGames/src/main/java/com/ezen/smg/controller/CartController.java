@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
-import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.OrderMapper;
 import com.ezen.smg.service.cartService.CartService;
 import com.ezen.smg.service.gamesService.GamesService;
