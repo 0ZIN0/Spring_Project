@@ -34,7 +34,7 @@ public class MemberService_Impl implements MemberService {
 
 	@Override
 	public int updateUserPoint(Orders order) {
-		SmgUsersDTO user = mapper.getSelectNumUser(order.getUser_num());
+		SmgUsersDTO user = mapper.getUserInfo(order.getUser_num());
 		user.setUser_point(order.getAdd_point() + user.getUser_point() - order.getUse_point());
 		return mapper.updateUserPoint(user);
 	}
