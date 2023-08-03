@@ -49,7 +49,12 @@ $(document).ready(function () {
   var savedEditorList = JSON.parse(sessionStorage.getItem("editorList")) || [];
   var savedSortBy = JSON.parse(sessionStorage.getItem("sortBy"));
   // 정렬 보기의 텍스트를 저장된 텍스트로 수정
-  text.text(savedSortBy);
+  if (savedSortBy == null) {
+    text.text("정렬보기");
+  } else {
+    text.text(savedSortBy);
+  }
+
   // list에 저장된 list 추가
   Array.prototype.push.apply(genreList, savedGenreList);
   Array.prototype.push.apply(editorList, savedEditorList);
@@ -253,7 +258,8 @@ function getSearchList() {
     "&editor=" +
     editor_toString +
     "&sortBy=" +
-    sortBy;
+    sortBy +
+    "#game_list";
   history.scrollRestoration = "auto";
 }
 
@@ -266,18 +272,18 @@ $(document).ready(function () {
 });
 
 // 페이지가 로드될 때 스크롤 위치를 복원합니다.
-window.onload = function () {
-  var scrollPos;
-  if (sessionStorage.getItem("scrollPos") !== null) {
-    scrollPos = sessionStorage.getItem("scrollPos");
-    window.scrollTo(0, scrollPos);
-  }
-};
+// window.onload = function () {
+//   var scrollPos;
+//   if (sessionStorage.getItem("scrollPos") !== null) {
+//     scrollPos = sessionStorage.getItem("scrollPos");
+//     window.scrollTo(0, scrollPos);
+//   }
+// };
 
 // 페이지가 언로드될 때 스크롤 위치를 저장합니다.
-window.onbeforeunload = function () {
-  sessionStorage.setItem(
-    "scrollPos",
-    document.documentElement.scrollTop || document.body.scrollTop
-  );
-};
+// window.onbeforeunload = function () {
+//   sessionStorage.setItem(
+//     "scrollPos",
+//     document.documentElement.scrollTop || document.body.scrollTop
+//   );
+// };

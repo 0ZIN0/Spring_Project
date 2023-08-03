@@ -22,6 +22,7 @@
 	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	<div class="background_layer1">
 	<div class="background_layer2">
+	<div class="margin_div"></div>
 	<div class="grid_container">
 		<div class="secondary">
 			<div class="filter">
@@ -123,6 +124,8 @@
 			</div>
 			<div class="sort_result_content">
 				<div class="sort_result_list">
+				<c:choose>
+ 					 <c:when test="${games != null and not empty games}">
 					<c:forEach items="${games}" var="game">
 						<div class="recmd-items toDetailBtn" data-id="${game.game_id}">
 							<div>
@@ -171,6 +174,11 @@
 							</div>
 						</div>
 					</c:forEach>
+			  	</c:when>
+			  <c:otherwise>
+				<span style="color: #fff; font-size: 30px;">검색 결과가 없습니다.</span>
+			  </c:otherwise>
+			</c:choose>
 				</div>
 			</div>
 		</div>

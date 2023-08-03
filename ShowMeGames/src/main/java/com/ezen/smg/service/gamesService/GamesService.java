@@ -11,4 +11,8 @@ public interface GamesService {
 	List<Games> getFilteredGames(String genres, String editor, Integer sortBy);
 	
 	List<Games> getSearchGames(String search, String genres, String editor, Integer sortBy);
+	
+	List<Games> getLatestGameList();
+	
+	List<Games> getCuratorRecmdList();
 }

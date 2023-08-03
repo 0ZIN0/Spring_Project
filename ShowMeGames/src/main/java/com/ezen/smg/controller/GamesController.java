@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.service.gamesService.GamesService;
+import com.ezen.smg.service.indexService.IndexService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -21,7 +22,7 @@ import lombok.extern.log4j.Log4j;
 public class GamesController {
 	
 	@Autowired
-	GamesService gamesService;
+	GamesService gamesService;	
 	
 	@GetMapping("/games")
 	public void gameList(
@@ -36,6 +37,8 @@ public class GamesController {
 
 		model.addAttribute("games", 
 				gamesService.getFilteredGames(genres, editor, sortBy));
+		model.addAttribute("lastestGames",gamesService.getLatestGameList());
+		model.addAttribute("curatorRecmd",gamesService.getCuratorRecmdList());
 	}
 	
 	@GetMapping("/search")

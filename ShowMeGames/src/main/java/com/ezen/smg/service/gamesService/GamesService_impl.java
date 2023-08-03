@@ -2,6 +2,7 @@ package com.ezen.smg.service.gamesService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,14 @@ public class GamesService_impl implements GamesService{
 	public List<Games> getFilteredGames(String genres, String editor, Integer sortBy) {
 		
 		if(genres != null|| editor != null || sortBy != null) {
-			
-			List<String> editors = Arrays.asList(editor.split(","));
-			String sortByString = sortByToString(sortBy);
+			List<String> editors = new ArrayList<String>();
+			if(editor != null && !editor.isEmpty()) {   // editor null check
+	            editors = Arrays.asList(editor.split(","));
+	        }
+	        String sortByString = "release_date DESC";
+	        if(sortBy != null) {   // sortBy null check
+	            sortByString = sortByToString(sortBy);
+	        }
 			List<Games> result = gamesMapper.
 					getFilteredGames(genres, editors, sortByString);
 			for(Games game : result) {
@@ -45,7 +51,7 @@ public class GamesService_impl implements GamesService{
 			}
 			return result;			
 		} else {
-			List<Games> result = gamesMapper.getAllGames("release_date");
+			List<Games> result = gamesMapper.getAllGames("release_date DESC");
 			for(Games game : result) {
 				game.setDiscounted_price(
 						CommonFunction.calDiscount(
@@ -81,7 +87,7 @@ public class GamesService_impl implements GamesService{
 			}
 			return result;			
 		} else {
-			List<Games> result = gamesMapper.getAllGames("release_date");
+			List<Games> result = gamesMapper.getAllGames("release_date DESC");
 			for(Games game : result) {
 				game.setDiscounted_price(
 						CommonFunction.calDiscount(
@@ -102,5 +108,31 @@ public class GamesService_impl implements GamesService{
 		} else {
 			return "release_date DESC";
 		}
+	}
+
+	@Override
+	public List<Games> getLatestGameList() {
+		List<Games> result = gamesMapper.getLatestGameList();
+		for(Games game : result) {
+			game.setDiscounted_price(
+					CommonFunction.calDiscount(
+							game.getGame_price(), 
+							game.getDiscount()
+							));
+		}
+		return result;
+	}
+
+	@Override
+	public List<Games> getCuratorRecmdList() {
+		List<Games> result = gamesMapper.getEditorRecmdList("curator");
+		
+		for(Games game : result) {
+			game.setDiscounted_price(CommonFunction.calDiscount(game.getGame_price(), game.getDiscount()));
+		}
+		
+		Collections.shuffle(result);
+		
+		return result.subList(0, 5);
 	}
 }
