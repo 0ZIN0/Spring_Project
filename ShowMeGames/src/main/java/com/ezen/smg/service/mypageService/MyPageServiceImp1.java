@@ -3,6 +3,7 @@ package com.ezen.smg.service.mypageService;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -102,6 +103,28 @@ public class MyPageServiceImp1 implements MyPageService {
 			e.printStackTrace();
 			return 0;
 		}
+	}
+
+	@Override
+	public int updateUserInfo(SmgUsersDTO user) {
+		return userMapper.updateUserInfo(user);
+	}
+
+	@Override
+	public int withdrawal_user(int user_num) {
+		SmgUsersDTO cover = new SmgUsersDTO();
+
+		String cover_id = CommonFunction.UUIDRandomCreate() + "@smg.com";
+	
+		cover.setUser_num(user_num);
+		cover.setUser_id(cover_id);
+		cover.setUser_name("탈퇴한회원");
+		cover.setNick_name("탈퇴한회원");
+		cover.setPhone_number("010-0000-0000");
+		cover.setBirth_date(new Date());
+		cover.setGender(0);
+		
+		return userMapper.withdrawalUser(cover);
 	}
 	
 }

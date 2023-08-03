@@ -13,4 +13,6 @@ public interface MyPageService {
 	SmgUsersDTO getUserInfo(int user_num);
 	int updateNick_name(String username, int user_num);
 	int updateProfile_img(int user_num, MultipartFile img_file);
+	int updateUserInfo(SmgUsersDTO user);
+	int withdrawal_user(int user_num);
 }
