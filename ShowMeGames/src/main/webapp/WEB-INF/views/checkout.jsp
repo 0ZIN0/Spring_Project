@@ -363,7 +363,7 @@
 																	- price,
 															"add_point" : addPoint,
 															"address" : rsp.buyer_addr,
-															"order_product" : rsp.game_name
+															"order_product" : rsp.name
 														}
 														console.log("결제성공 "
 																+ msg);
