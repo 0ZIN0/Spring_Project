@@ -1,6 +1,7 @@
 package com.ezen.smg.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -105,7 +106,8 @@ public class CustomerController {
 	}
 	
 	@PostMapping(value="/inquiries")
-	public String insert(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Inquiries inquiries, Model model) {
+	public String insert(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Inquiries inquiries, Model model) throws IOException {
+			
 		// 이미지 뒤에 붙여줄 날짜 포맷
 		Date nowDate = new Date();				
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -124,7 +126,7 @@ public class CustomerController {
 		} catch (Exception e) {
 			log.error(e.getMessage());
 		}
-				
+		log.info(saveFile.getCanonicalPath());		
 		model.addAttribute(inquiries);		
 		inquiries.setUser_num(user.getUser_num());
 		inquiries.setAttachment(file_name);

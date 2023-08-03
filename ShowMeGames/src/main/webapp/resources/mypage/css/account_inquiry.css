@@ -5,42 +5,50 @@
 #board_content {
 	box-sizing:border-box;
 	display:grid;
-	grid-template-columns:50px 1fr 100px
+	grid-template-columns:50px 1fr 100px;
+	
 }
 
 #board {
 	display:flex;
 	flex-wrap: wrap;
 	grid-column:1/4;
+	margin-bottom: 10px;
 	padding-top:10px;
-	border:solid 1px black;
-	padding-bottom:10px;	
+	border:solid 1px black;	
+	border-radius: 10px;
+	box-shadow: 10px gray;	
 }
 
 .board_subject {
 	width: 15%;
 	text-align: center;
+	padding-bottom:10px;
 }
 
 .board_title {
 	width: 70%;
+	padding-bottom:10px;
 }
 
 .board_btn {
 	width: 15%;
 	text-align: center;
+	padding-bottom:10px;
 }
 
 .board_detail{
 	width:100%;
+	transition: height 2s;
+	border-top: solid 1px black;
 }
 
 .board_content {
 	width:100%;
 	display:flex;
 	flex-wrap: wrap;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 .board_content > div:first-child {
@@ -51,11 +59,19 @@
 .board_content > div:last-child {
 	width: 85%;
 }
-		
+img {
+	max-height:100%;
+	max-width:100%;
+	height: auto;
+	width: auto;
+}		
 .board_attachment {
 	width: 100%;
 	display:flex;
-	flex-wrap: wrap;	
+	flex-wrap: wrap;
+	padding-top: 20px;
+	padding-bottom: 10px;	
+	border-top: solid 1px black;
 }
 
 .board_attachment > div:first-child {

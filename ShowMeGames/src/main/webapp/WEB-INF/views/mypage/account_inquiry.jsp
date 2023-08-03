@@ -38,10 +38,10 @@
 					</div>
 					<div id="board_content">
 						<c:forEach items="${myContents}" var="myContent">
-							<div id="board">
+							<div id="board" class="board">
 								<div class="board_subject">${myContent.inquiry_subject}</div>
 								<div class="board_title">${myContent.inquiry_title}</div>
-								<div class="board_btn"><button class="btn">버튼</button></div>															
+								<div class="board_btn"><button class="btn">답변</button></div>															
 								<div class="board_detail">
 									<div class="board_content">
 										<div>
