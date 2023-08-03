@@ -13,8 +13,6 @@ public class LoginService_Impl implements LoginService {
 	@Autowired
 	UsersMapper loginMapper;
 
-
-
 	@Override
 	public int getSelectUser(String user_id, String user_pw) {
 		SmgUsersDTO user = loginMapper.getSelectUser(user_id);
@@ -41,8 +39,8 @@ public class LoginService_Impl implements LoginService {
 	}
 
 	@Override
-	public int getCheckUser(String social_key) {
-		return loginMapper.checkUser(social_key);
+	public SmgUsersDTO getUser_Social(String social_key) {
+		return loginMapper.getUser_social(social_key);
 	}
 
 }

@@ -1,12 +1,158 @@
+#img_update_content > div {
+    margin-bottom: 40px;
+}
+#img_update_content > div:last-child {
+    display: flex;
+    margin-bottom: 0px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+
+#img_select_div {
+    display: flex;
+    flex-direction: row;
+}
+#img_select_div > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 150px;
+}
+#img_select_div_inner {
+    width: 110px;
+    height: 110px;
+    border: 1px #d8d8e8 solid;
+}
+#img_select_div > div:last-child {
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    width: 70%;
+}
+
+/* input file 커스텀 */
+.filebox {
+    width: 100%;
+    white-space: nowrap;
+}
+.filebox .upload-name {
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    color: #999999;
+    width: 60%;
+    border-radius: 8px;
+}
+.filebox label {
+    border-radius: 8px;
+    background-color: blueviolet;
+    width: 30%;
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 550;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 6px 40px;
+}
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+#img_update_content ul {
+    margin: 0;
+    margin-left: 30px;
+
+    list-style-type: circle;
+}
+#img_update_content li {
+    font-size: 1em;
+    margin-bottom: 7px;
+}
+
+
+#nickname_update_content > div {
+    margin-bottom: 40px;
+}
+#nickname_update_content > div:last-child {
+    display: flex;
+    margin-bottom: 0px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+#nickname_update_content ul {
+    margin: 0;
+    margin-left: 30px;
+
+    list-style-type: circle;
+}
+#nickname_update_content li {
+    font-size: 1em;
+    margin-bottom: 7px;
+}
+
+#nickname_update_content input {
+    color: #303a4b;
+    width: 50%;
+    border: 1px solid #d8d8e8;
+    height: auto;
+    padding: 10px 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
 #profile_content_wrapper {
     display: flex;
     flex-direction: row;
-    column-gap: 20px;
+    column-gap: 80px;
 }
 
 #profile_img {
+    position: relative;
     height: 112px;
     width: 112px;
+    border: 1px solid #d8d8e8;
+    border-radius: 5px;
+}
+
+#profile_update_div {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 0;
+    border-bottom: 20px solid #38a3d9;
+    border-top: 20px solid transparent;
+    border-right: 20px solid #38a3d9;
+    border-left: 20px solid transparent;
+}
+
+#profile_update_div:hover {
+    filter: brightness(90%);
+}
+
+#profile_update_icon {
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    right: -20px;
+    top: -5px;
+    user-select: none;    
 }
 
 #profile_content {
@@ -31,6 +177,9 @@
     width: 25px;
     color: #fff;
     cursor: pointer;
+}
+#nick_update_icon:hover {
+    filter: brightness(90%);
 }
 
 #personal_info_content {

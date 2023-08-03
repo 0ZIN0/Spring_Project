@@ -171,7 +171,6 @@ $('#gender_input').mouseleave(function() {
         $('#gender_ratio').css('opacity', 0);
         return;
     } 
-
     $(this).closest('#gender_input_div').addClass('valid');
 });
 
