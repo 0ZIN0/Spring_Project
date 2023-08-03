@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:url value="${user.profile_url}" var="profile_img"/>
+<c:url value="/" var="toMain"/>
 <c:url value="/" var="conPath" />
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
 	crossorigin="anonymous"></script>
@@ -43,7 +45,7 @@
 
 						<div id="dropdown-content">
 							<div class="profile">
-								<div class="profile-left"></div>
+								<div class="profile-left"><img src="${profile_img}" alt="프로필사진"></div>
 								<div class="profile-right">${user.nick_name}</div>
 							</div>
 							<div class="separator"></div>

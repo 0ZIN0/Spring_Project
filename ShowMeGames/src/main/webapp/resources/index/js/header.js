@@ -291,23 +291,26 @@ $(document).ready(function() {
 
 
 
-// 드랍다운이 열린 상태를 나타내는 변수
-var isDropdownOpen = false;
+// #login-icon2의 원래 색상 정의
+const loginIconOriginalColor = "#a1a1a1";
 
+// 드랍다운 토글 함수
 function toggleDropdown() {
   var dropdownContent = document.getElementById("dropdown-content");
+  var loginIcon = document.getElementById("login-icon2");
   if (dropdownContent.style.display === "none") {
     dropdownContent.style.display = "block";
-    isDropdownOpen = true; // 드랍다운이 열린 상태로 설정
+    loginIcon.style.transition = "color 0.5s ease"; // 드랍다운이 열릴 때 0.5초로 트랜지션 적용
+    loginIcon.style.color = "white"; // 색상을 흰색으로 변경
     // 장바구니 창 닫기
     $('header-cart').removeClass('minicart-position');
     $('#minicart').removeClass('minicart-active');
   } else {
     dropdownContent.style.display = "none";
-    isDropdownOpen = false; // 드랍다운이 닫힌 상태로 설정
+    loginIcon.style.transition = ""; // 드랍다운이 닫힐 때 트랜지션 제거
+    loginIcon.style.color = loginIconOriginalColor; // 원래 색상으로 변경
   }
 }
-
 
 // 로그인 아이콘 클릭 시 드랍다운 열기 또는 닫기
 document.getElementById("login-icon2").addEventListener("click", function(event) {
@@ -321,15 +324,18 @@ document.addEventListener("click", function(event) {
   var loginIcon = document.getElementById("login-icon2");
   if (event.target !== loginIcon) {
     dropdownContent.style.display = "none";
-    isDropdownOpen = false; // 드랍다운이 닫힌 상태로 설정
+    loginIcon.style.transition = ""; // 드랍다운이 닫힐 때 트랜지션 제거
+    loginIcon.style.color = loginIconOriginalColor; // 원래 색상으로 변경
   }
 });
 
 // 스크롤 시 드랍다운 닫기 
 $(window).scroll(function () {
   var dropdownContent = document.getElementById("dropdown-content");
-  if (isDropdownOpen) {
+  var loginIcon = document.getElementById("login-icon2");
+  if (dropdownContent.style.display === "block") {
     dropdownContent.style.display = "none";
-    isDropdownOpen = false; // 드랍다운이 닫힌 상태로 설정
+    loginIcon.style.transition = ""; // 드랍다운이 닫힐 때 트랜지션 제거
+    loginIcon.style.color = loginIconOriginalColor; // 원래 색상으로 변경
   }
 });
