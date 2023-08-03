@@ -251,26 +251,9 @@ function openLoginPopup() {
     }
 }
 
-function toggleDropdown() {
-    var dropdownContent = document.getElementById("dropdown-content");
-    if (dropdownContent.style.display === "none") {
-      dropdownContent.style.display = "block";
-    } else {
-      dropdownContent.style.display = "none";
-    }
-  }
 
-  // 로그인 아이콘 클릭 시 드랍다운 열기
-  document.getElementById("login-icon2").addEventListener("click", toggleDropdown);
 
-  // 다른 곳을 클릭하면 드랍다운 닫기
-  document.addEventListener("click", function(event) {
-    var dropdownContent = document.getElementById("dropdown-content");
-    var loginIcon = document.getElementById("login-icon2");
-    if (event.target !== loginIcon) {
-      dropdownContent.style.display = "none";
-    }
-  });
+
 
 
 
@@ -296,4 +279,57 @@ $(document).ready(function() {
     $('#minicart').removeClass('minicart-active');
   });
 
+});
+
+
+
+
+
+
+
+
+
+
+
+// 드랍다운이 열린 상태를 나타내는 변수
+var isDropdownOpen = false;
+
+function toggleDropdown() {
+  var dropdownContent = document.getElementById("dropdown-content");
+  if (dropdownContent.style.display === "none") {
+    dropdownContent.style.display = "block";
+    isDropdownOpen = true; // 드랍다운이 열린 상태로 설정
+    // 장바구니 창 닫기
+    $('header-cart').removeClass('minicart-position');
+    $('#minicart').removeClass('minicart-active');
+  } else {
+    dropdownContent.style.display = "none";
+    isDropdownOpen = false; // 드랍다운이 닫힌 상태로 설정
+  }
+}
+
+
+// 로그인 아이콘 클릭 시 드랍다운 열기 또는 닫기
+document.getElementById("login-icon2").addEventListener("click", function(event) {
+  event.stopPropagation(); // 이벤트 버블링을 막음
+  toggleDropdown();
+});
+
+// 다른 곳을 클릭하면 드랍다운 닫기
+document.addEventListener("click", function(event) {
+  var dropdownContent = document.getElementById("dropdown-content");
+  var loginIcon = document.getElementById("login-icon2");
+  if (event.target !== loginIcon) {
+    dropdownContent.style.display = "none";
+    isDropdownOpen = false; // 드랍다운이 닫힌 상태로 설정
+  }
+});
+
+// 스크롤 시 드랍다운 닫기 
+$(window).scroll(function () {
+  var dropdownContent = document.getElementById("dropdown-content");
+  if (isDropdownOpen) {
+    dropdownContent.style.display = "none";
+    isDropdownOpen = false; // 드랍다운이 닫힌 상태로 설정
+  }
 });
