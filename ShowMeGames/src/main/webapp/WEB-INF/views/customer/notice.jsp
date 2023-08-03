@@ -78,7 +78,7 @@
 					</a>
 				</c:forEach>
 			</div>
-			<div></div>
+			<div class="grid-end"></div>
 		</div>
 	</main>
 
