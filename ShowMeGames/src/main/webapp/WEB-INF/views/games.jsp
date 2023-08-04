@@ -312,7 +312,7 @@
 								<li class="filter_item editor"><input type="checkbox"
 									value="chanwoo" /> <label for="">Chanwoo's Pick</label></li>
 								<li class="filter_item editor"><input type="checkbox"
-									value="youngmin" /> <label for="">Youngmin's Pick</label></li>
+									value="yeoungmin" /> <label for="">Yeoungmin's Pick</label></li>
 								<li class="filter_item editor"><input type="checkbox"
 									value="roa" /> <label for="">Roa's Pick</label></li>
 								<li class="filter_item editor"><input type="checkbox"
