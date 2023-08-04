@@ -285,9 +285,7 @@ function toggleDropdown() {
 }
 
 // 로그인 아이콘 클릭 시 드랍다운 열기
-document
-  .getElementById("login-icon2")
-  .addEventListener("click", toggleDropdown);
+$('#login-icon2').click(toggleDropdown);
 
 // 다른 곳을 클릭하면 드랍다운 닫기
 document.addEventListener("click", function (event) {
