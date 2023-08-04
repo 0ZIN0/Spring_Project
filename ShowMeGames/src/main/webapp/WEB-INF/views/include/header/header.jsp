@@ -6,8 +6,8 @@
 <c:url value="/" var="conPath" />
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
 	crossorigin="anonymous"></script>
-	
-	
+
+
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
@@ -33,12 +33,13 @@
 				<c:if test="${not empty sessionScope.isLoggedIn}">
 					<li id="point-li">
 						<div id="point-div">
-							현재 보유량:&nbsp;<i class="fa-brands fa-bitcoin" id="point-i">&nbsp;&nbsp;${user.user_point} </i> 
+							현재 보유량:&nbsp;<i class="fa-brands fa-bitcoin" id="point-i">&nbsp;&nbsp;${user.user_point}
+							</i>
 							<div class="clickable-li" id="login-li">
 								<i class="fa-regular fa-circle-user fa-2xl" id="login-icon2"
 									style="color: #a1a1a1;"></i> <a id="login-btn"></a>
 							</div>
-							
+
 						</div>
 
 					</li>
@@ -171,30 +172,35 @@
 		</div>
 
 		<div id="header-cart">
-			<a class="bottom-title" id="cart-btn" href="${conPath}cart">
-				<i id="cart-icon" class="fa-solid fa-cart-shopping"></i>
-				<span id="cart-title">장바구니</span> <span class="cart-quantity"></span> 
+			<a class="bottom-title" id="cart-btn" href="${conPath}cart"> <i
+				id="cart-icon" class="fa-solid fa-cart-shopping"></i> <span
+				id="cart-title">장바구니</span> <span class="cart-quantity"></span>
 			</a>
-			
+
 			<!-- 장바구니 마우스 오버 시 나올 MiniCart -->
 			<div id="minicart" class="">
 				<div class="minicart-header minicart-common">
 					<div class="minicart-title">장바구니</div>
 				</div>
-				<div class="empty-minicart-content minicart-common">
-						<div class="empty-minicart-message minicart-common">장바구니가 비어있습니다.</div>
-						<div class="empty-minicart-image minicart-common">
-							<img alt="Empty Minicart"src="resources/img/cart/SMG_EmptyMarket_img.jpg">
+				
+				<div id="minicart-content" class="minicart-common">
+					<div class="empty-minicart-content minicart-common">
+						<div class="empty-minicart-message minicart-common">
+							장바구니가 비어있습니다.
 						</div>
-						<div class="empty-minicart-buttons minicart-common" onclick="location.href='${conPath}games'">쇼핑하러 가기2</div>
-				</div> <!-- Empty-mini-cart -->
-				
-				<div class="put-minicart-content minicart-common">
-					
-				</div> <!-- mini-cart -->
-				
-			</div> <!-- minicart Part End -->
-		</div> <!-- header-cart Part End -->
+						<div class="empty-minicart-image minicart-common">
+							<img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
+						</div>
+						<div class="empty-minicart-buttons minicart-common" onclick="location.href='${conPath}games'">
+							쇼핑하러 가기40
+						</div>	
+					</div>
+				</div>
+				<!-- minicart-content Part End -->
+			</div>
+			<!-- minicart Part End -->
+		</div>
+		<!-- header-cart Part End -->
 
 	</div>
 

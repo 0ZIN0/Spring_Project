@@ -200,36 +200,116 @@ $(window).scroll(function(){
   $('#header-bottom').css('left', 0-$(this).scrollLeft());
 });
 
-
 // minicart Mouse Event
-$(function() {
-  // header-cart에 마우스를 올렸을 때
-  $('#cart-btn').mouseenter(function() {
-    $('#cart-btnt').addClass('minicart-position');
-    $('#minicart').addClass('minicart-active');
-  });
 
-  $('#cart-btn').mouseleave(function() {
-    $('#cart-btn').removeClass('minicart-position');
-  });
 
-  // minicart 영역을 벗어났을 때
-  $('#minicart').mouseleave(function() {
-    $('#cart-btn').removeClass('minicart-position');
-    $('#minicart').removeClass('minicart-active');
-  });
+$('#header-cart').on({
+    mouseenter: function() {
+      $('#header-bottom').addClass('minicart-position');
+      $('#minicart').addClass('minicart-active');
+      updateMiniCart();
+    },
+    mouseleave: function() {
+      $('#header-bottom').removeClass('minicart-position');
+      $('#minicart').removeClass('minicart-active');
+    }
 });
 
-// Header 장바구니에 담겨있는 게임 수량 표시 
-$(document).ready(function() {
-  var cartLen = 0; 
-
-  var cartQuantityElement = $(".cart-quantity");
-  if (cartLen === 0) {
-    cartQuantityElement.hide();
-  } else {
-    cartQuantityElement.text("(" + cartLen + ")");
+$('#minicart').on({
+  mouseenter: function() {
+    $('#minicart').addClass('minicart-active');
+  },
+  mouseleave: function() {
+    $('#header-bottom').removeClass('minicart-position');
+    $('#minicart').removeClass('minicart-active');
   }
 });
 
 
+// minicart 내용 업데이트
+function updateMiniCart() {
+  $.ajax({
+    url: "./minicart",
+    type: "GET",
+    dataType: "json",
+    
+    success: function (data) {
+      console.log("성공")
+      var cartList = data.cart_list;
+      var cartLen = data.cart_len;
+      var totalPrice = data.total_price;
+      
+      var minicartContent = $("#minicart-content");
+
+      // 로그인 상태에 따라 보여줄 내용 결정
+      if (cartList != null && cartLen > 0) {
+        // 로그인 상태이고 장바구니에 내용이 있다면 put-minicart-content 내용을 보여주기
+        var putMinicartContent = `
+        <div class="put-minicart-content">
+          <!-- 각 상품 정보에 대한 리스트 생성 -->
+          ${cartList.map((game) => {
+            `<div class="minicart-list-top">
+              <div class="minicart-list-left">
+                <img src="${game.banner_img_url}" alt="">
+              </div>
+              <!--minicart-list-left Part End -->
+              <div class="minicart-list-right">
+                <div class="minicart-game-name">${game.game_name}</div>
+                <div class="minicart-game-price">${ game.discounted_price}</div>
+                <div class="minicart-list-delete">
+                  <a class="cart-delete" data-gameid="${game.game_id}">
+                    <span class="material-symbols-outlined" data-gameid="${game.game_id}">delete</span>
+                    <div data-gameid="${game.game_id}">제거</div>
+                  </a>
+                </div>
+                <!--minicart-list-delete Part End -->
+              </div>
+              <!--minicart-list-right Part End -->
+            </div>`
+          }).join("")}
+            <!--minicart-list-top Part End -->
+          
+          <div class="minicart-list-bottom">
+            <div class="price" id="total-order">
+              합계 : ₩ ${totalPrice > 0 ? new Intl.NumberFormat('en').format(totalPrice) : "무료"}
+            </div>
+            <div class="minicart-list-btns">
+              <div class="put-minicart-btn">
+                장바구니 보기
+              </div>
+              <div class="put-minicart-btn">
+                결제하기
+              </div>
+            </div>
+            <!-- minicart-list-btns Part End -->
+          </div>
+          <!-- minicart-list-bottom Part End -->
+        </div>
+        <!--put-minicart-content Part End -->`;
+        
+        minicartContent.append(putMinicartContent);
+        $(".put-minicart-content").show(); 
+        $(".empty-minicart-content").hide();
+        
+      } else {
+        // 로그인 상태이지만 장바구니가 비어있거나 로그인하지 않은 경우 empty-minicart-content 내용을 보여주기
+        $(".put-minicart-content").hide(); 
+        $(".empty-minicart-content").show(); 
+      }
+    },
+    error: function(xhr, status, error) {
+      console.error("AJAX 오류:", status, error);
+    },
+  });
+}
+
+// cart-list delete
+$('.cart-delete').click(function (e) {
+  $.ajax({
+      url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
+      method: 'GET',
+      success: () => {
+          location.href = "./cart";
+      }
+  })
+});
