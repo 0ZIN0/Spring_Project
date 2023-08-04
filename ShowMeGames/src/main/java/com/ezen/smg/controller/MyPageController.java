@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,8 +30,6 @@ public class MyPageController {
 	@GetMapping("/my_account")
 	String accountInfo(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
-		
-		if(session.getAttribute("user") == null) return "redirect:/"; 
 		
 		SmgUsersDTO session_user = (SmgUsersDTO) session.getAttribute("user"); 
 		
@@ -80,6 +80,47 @@ public class MyPageController {
 	
 	@GetMapping("/security")
 	String accountSecurity() {
+		return "mypage/account_security";
+	}
+	
+	@PostMapping("/pwd_chk")
+	String accountPwd_chk(int user_num, String user_pw, Model model) {
+		int result = mypageService.chkUser_pw(user_num, user_pw);
+	
+		if(result == 1) {
+			return "mypage/account_update_pw";
+		}
+		
+		model.addAttribute("try_result", 0);
+		
+		return "mypage/account_security";
+	}
+	
+	/**
+	 * 기존 비밀번호와 똑같은 비밀번호인지 검사.
+	 * @return 똑같은지 유무. 결과에 따라 같으면 Y, 다르면 N.
+	 */
+	@PostMapping("/pwd_dupl_chk")
+	@ResponseBody
+	String accountPwd_dupl_chk(@RequestParam("user_num") int user_num, @RequestParam("user_pw") String user_pw) {
+		int result = mypageService.chkUser_pw(user_num, user_pw);
+		
+		if(result == 1) {
+			return "Y";
+		}
+		
+		return "N";
+	}
+	
+	@PostMapping("/pwd_update")
+	String accountPwd_update(int user_num, String user_pw, Model model) {
+
+		log.info(user_num + "번 유저 user_pw 변경 실행");
+
+//		mypageService.updateUserPw(user_num, user_pw);
+		
+		model.addAttribute("try_result", 1);
+		
 		return "mypage/account_security";
 	}
 	

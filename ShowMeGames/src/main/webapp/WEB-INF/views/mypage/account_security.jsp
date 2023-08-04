@@ -18,7 +18,38 @@
 <body>
 	<!-- top_bar -->
 	<%@ include file="/WEB-INF/views/mypage/include/top_bar.jsp" %>
-
+	
+	<!-- modal:pwd -->
+	<div id="pwd_update_modal" class="modal_bg">
+		<div class="modal_container">
+			<div class="modal_content">
+				<div class="item_title_wrapper">
+					<div class="item_title">
+						<span>사용자 이름 변경</span>
+					</div>
+					<div id="modal_close" class="content_update_wrapper">
+						<button class="btn cancel">닫기</button>
+					</div>
+				</div>
+				<div id="pwd_update_content">
+					<form id="form_pwd_chk" action="./pwd_chk" method="POST">
+						<input type="hidden" name="user_num" value="${user.user_num}">
+					</form>
+					<div>
+						<div class="modal_content_title">
+							<label class="modal_label" for="pwd_chk_input">기존 비밀번호 입력</label>
+						</div>
+						<input id="pwd_chk_input" name="user_pw" type="password" form="form_pwd_chk">
+					</div>
+					<div>
+						<button id="modal_close_btn" class="btn cancel">취소</button>
+						<button id="modal_comfirm_btn" type="submit" class="btn" form="form_pwd_chk">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<main class="background_layer1">
 		<div id="main_content_wrapper" class="background_layer2">
 			<!-- side_bar -->
@@ -31,7 +62,7 @@
 							<span>암호</span>
 						</div>
 						<div class="content_update_wrapper">
-							<button>변경</button>
+							<button id="pwd_modal_open_btn">변경</button>
 						</div>
 					</div> 
 					<div id="password_content_wrapper">
@@ -47,6 +78,14 @@
 								<span class="pwd_dot"></span>
 							</div>
 						</div>
+						<div id="password_result_div">
+							<c:if test="${try_result eq 0}">
+								<span id="result_wrong">비밀번호를 잘못 입력하셨습니다.</span>
+							</c:if>
+							<c:if test="${try_result eq 1}">
+								<span id="result_confirm">비밀번호가 변경되었습니다.</span>
+							</c:if>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -54,5 +93,7 @@
 	</main>
 
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
+	<script src="${resource}/js/common.js"></script>
+	<script src="${resource}/js/account_security.js"></script>
 </body>
 </html>

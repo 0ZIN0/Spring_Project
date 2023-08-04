@@ -18,6 +18,8 @@ public interface UsersMapper {
 
 	String getProfile_img_url(@Param("user_num") int user_num);
 	
+	String getUser_pw(@Param("user_num") int user_num);
+	
 	int updateNick_name(@Param("nickname") String username, @Param("user_num") int user_num);
 	
 	int updateProfile_img(@Param("user_num") int user_num, @Param("url") String profile_url);
@@ -27,4 +29,6 @@ public interface UsersMapper {
 	int updateUserInfo(@Param("dto") SmgUsersDTO dto);
 	
 	int withdrawalUser(@Param("dto") SmgUsersDTO dto);
+	
+	int updateUserPw(@Param("user_num") int user_num, @Param("user_pw") String user_pw); 
 }

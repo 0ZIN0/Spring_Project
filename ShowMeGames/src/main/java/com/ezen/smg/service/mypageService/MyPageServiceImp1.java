@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.common.CommonFunction;
+import com.ezen.smg.common.Encryption_SH256;
 import com.ezen.smg.dto.Inquiries;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.mapper.InquiriesMapper;
@@ -125,6 +126,24 @@ public class MyPageServiceImp1 implements MyPageService {
 		cover.setGender(0);
 		
 		return userMapper.withdrawalUser(cover);
+	}
+
+	@Override
+	public int chkUser_pw(int user_num, String user_pw) {
+		
+		String encPw = Encryption_SH256.encrypt(user_pw);
+		
+		if(encPw.equals(userMapper.getUser_pw(user_num))) {
+			return 1;
+		} 
+		
+		return 0;
+	}
+
+	@Override
+	public int updateUserPw(int user_num, String user_pw) {
+		String encPw = Encryption_SH256.encrypt(user_pw);
+		return userMapper.updateUserPw(user_num, encPw);
 	}
 	
 }
