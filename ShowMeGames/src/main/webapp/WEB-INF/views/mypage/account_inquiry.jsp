@@ -53,7 +53,7 @@
 									</div>
 									<div class="board_attachment">
 										<div>첨부파일</div>
-										<div>
+										<div class="board_img">
 											<img src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
 										</div>
 									</div>
