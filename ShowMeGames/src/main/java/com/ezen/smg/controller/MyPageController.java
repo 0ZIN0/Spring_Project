@@ -152,4 +152,10 @@ public class MyPageController {
 		return "mypage/account_orders";
 	}
 
+	@GetMapping("/orders/detail")
+	String accountOrdersDetail(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model) {
+		log.info("디테일페이지입니다.");
+		return "mypage/detail/orders_detail";
+	}
+
 }

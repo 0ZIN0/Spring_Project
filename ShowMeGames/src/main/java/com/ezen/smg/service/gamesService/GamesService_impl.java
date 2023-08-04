@@ -149,7 +149,6 @@ public class GamesService_impl implements GamesService{
 			games1.get(i).setDiscounted_price(CommonFunction.calDiscount(games1.get(i).getGame_price(), games1.get(i).getDiscount()));
 			games2.add(games1.get(i));
 		}
-		
 		return games2;
 	}
 
