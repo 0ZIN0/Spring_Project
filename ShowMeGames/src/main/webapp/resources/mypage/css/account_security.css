@@ -40,3 +40,15 @@
     border-radius: 50%;
     background-color: #99a1ba;
 }
+
+#password_result_div {
+    margin-top: 30px;
+}
+#result_wrong {
+    color: red;
+    font-size: 1.2em;
+}
+#result_confirm {
+    color: green;
+    font-size: 1.2em;
+}

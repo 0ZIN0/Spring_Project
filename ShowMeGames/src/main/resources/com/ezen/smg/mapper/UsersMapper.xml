@@ -84,4 +84,11 @@
 	  	WHERE 
 	  		user_num=#{dto.user_num}
 	</update>
+	<update id="updateUserPw">
+		UPDATE smg_users 
+		SET 
+			user_pw=#{user_pw} 
+		WHERE 
+			user_num=#{user_num}
+	</update>
  </mapper>

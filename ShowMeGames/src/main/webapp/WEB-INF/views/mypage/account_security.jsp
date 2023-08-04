@@ -78,6 +78,14 @@
 								<span class="pwd_dot"></span>
 							</div>
 						</div>
+						<div id="password_result_div">
+							<c:if test="${try_result eq 0}">
+								<span id="result_wrong">비밀번호를 잘못 입력하셨습니다.</span>
+							</c:if>
+							<c:if test="${try_result eq 1}">
+								<span id="result_confirm">비밀번호가 변경되었습니다.</span>
+							</c:if>
+						</div>
 					</div>
 				</div>
 			</div>

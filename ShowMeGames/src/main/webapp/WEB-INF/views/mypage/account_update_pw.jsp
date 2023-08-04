@@ -32,10 +32,13 @@
 						</div>
 					</div> 
 					<div id="password_content_wrapper">
+						<form id="form_pwd_update" action="./pwd_update" method="POST">
+							<input type="hidden" id="input_user_num" name="user_num" value="${user.user_num}" data-user_num="${user.user_num}">
+						</form>
 						<div id="password_content">
 							<div>
 								<span>비밀번호 변경</span>
-								<input id="pw_input" name="user_pw" type="password" required/>
+								<input id="pw_input" name="user_pw" type="password" form="form_pwd_update" required/>
 								<span id="pw_span" class="chk_span">메세지</span>
 							</div>
 							<div>
@@ -59,7 +62,7 @@
 						</div>
 						<div>
 							<button id="pw_update_cancel_btn" class="btn cancel">취소</button>
-							<button id="pw_update_btn" class="btn">변경</button>
+							<button id="pw_update_btn" class="btn" type="submit" form="form_pwd_update">변경</button>
 						</div>
 					</div>
 				</div>

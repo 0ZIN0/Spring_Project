@@ -29,4 +29,6 @@ public interface UsersMapper {
 	int updateUserInfo(@Param("dto") SmgUsersDTO dto);
 	
 	int withdrawalUser(@Param("dto") SmgUsersDTO dto);
+	
+	int updateUserPw(@Param("user_num") int user_num, @Param("user_pw") String user_pw); 
 }

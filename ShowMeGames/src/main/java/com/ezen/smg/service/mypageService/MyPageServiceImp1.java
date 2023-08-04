@@ -139,5 +139,11 @@ public class MyPageServiceImp1 implements MyPageService {
 		
 		return 0;
 	}
+
+	@Override
+	public int updateUserPw(int user_num, String user_pw) {
+		String encPw = Encryption_SH256.encrypt(user_pw);
+		return userMapper.updateUserPw(user_num, encPw);
+	}
 	
 }
