@@ -264,11 +264,19 @@ header {
 
 .profile-right {
 	width: 70%;
-	text-align: left;
 	padding-left: 24px;
+}
+
+.profile-nick {
+	text-align: left;
 	font-size: 24px;
 	font-weight: 800;
 }
+
+.profile-grade {
+	margin-top: 20px;	
+}
+
 
 .recommend {
 	margin-top: 15px;

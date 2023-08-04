@@ -46,7 +46,19 @@
 						<div id="dropdown-content">
 							<div class="profile">
 								<div class="profile-left"><img src="${profile_img}" alt="프로필사진"></div>
-								<div class="profile-right">${user.nick_name}</div>
+								<div class="profile-right">
+								  <div class="profile-nick">${user.nick_name}</div>
+								  
+								  <c:choose>
+								  	<c:when test="${user.user_grade eq 'A'}">
+								    <div class="profile-grade">골드등급입니다</div>
+								  	</c:when>
+								  	<c:otherwise test=""> 
+								    <div class="profile-grade">else..${user.user_grade}</div>
+								  	</c:otherwise>
+								  </c:choose>
+								
+								</div>
 							</div>
 							<div class="separator"></div>
 							<div class="rec-title">추천게임</div>

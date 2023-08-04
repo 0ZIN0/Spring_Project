@@ -3,7 +3,7 @@
   const currentPath = window.location.pathname;
 
   if (currentPath === "/smg/") {
-    $("#game-btn-underline").css("backgroundColor", "white");
+    $("#game-btn-underline").css("backgroundColor", "green");
 
     $("#notices-btn").on("mouseover", () => {
       $("#notices-btn-underline").css("backgroundColor", "white");
@@ -81,6 +81,20 @@ function changeIconColor(iconId, color) {
   var icon = document.getElementById(iconId);
   icon.style.color = color;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // header-bottom list css active
@@ -339,3 +353,5 @@ $(window).scroll(function () {
     loginIcon.style.color = loginIconOriginalColor; // 원래 색상으로 변경
   }
 });
+
+
