@@ -148,7 +148,6 @@ public class MyPageController {
 	@GetMapping("/orders")
 	String accountOrders(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model) {
 		model.addAttribute("orders", orderService.getUserOrders(user.getUser_num()));
-		model.addAttribute("od", orderDetailService.getODList(user.getUser_num()));
 		
 		return "mypage/account_orders";
 	}
