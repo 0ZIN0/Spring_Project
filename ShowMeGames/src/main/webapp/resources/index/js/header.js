@@ -299,8 +299,6 @@ document.addEventListener("click", function (event) {
 });
 
 // minicart Mouse Event
-
-
 $('#header-cart').on({
     mouseenter: function() {
       $('#header-bottom').addClass('minicart-position');
