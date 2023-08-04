@@ -50,4 +50,9 @@ public class OrderService_Impl implements OrderService {
 		return orderMapper.getSelectOrder(order_id);
 	}
 
+	@Override
+	public List<Orders> getUserOrders(int user_num) {
+		return orderMapper.getUserOrders(user_num);
+	}
+
 }

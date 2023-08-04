@@ -86,8 +86,10 @@ public class CartService_Impl implements CartService {
 			return (int)(Math.floor(totalPrice * 0.04));
 		} else if (user_grade.equals("B")) {
 			return (int)(Math.floor(totalPrice * 0.03));
-		} else {
+		} else if (user_grade.equals("C")) {
 			return (int)(Math.floor(totalPrice * 0.02));
+		} else {
+			return (int)(Math.floor(totalPrice * 0.01));
 		}
 	}
 
