@@ -19,4 +19,8 @@
 	<select id="getSelectOrder" resultType="com.ezen.smg.dto.Orders" parameterType="int">
 		SELECT * FROM orders WHERE order_id=#{order_id}
 	</select>
+	
+	<select id="getUserOrders" resultType="com.ezen.smg.dto.Orders" parameterType="int">
+		SELECT * FROM orders WHERE order_id=#{user_num}
+	</select>
 </mapper>

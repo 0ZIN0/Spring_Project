@@ -14,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.service.mypageService.MyPageService;
+import com.ezen.smg.service.orderDetailService.OrderDetailService;
+import com.ezen.smg.service.orderService.OrderService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -24,6 +26,12 @@ public class MyPageController {
 	
 	@Autowired
 	MyPageService mypageService;
+	
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	OrderDetailService orderDetailService;
 	
 	@GetMapping("/my_account")
 	String accountInfo(HttpServletRequest request, Model model) {
@@ -97,7 +105,10 @@ public class MyPageController {
 	}
 	
 	@GetMapping("/orders")
-	String accountOrders() {
+	String accountOrders(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model) {
+		model.addAttribute("orders", orderService.getUserOrders(user.getUser_num()));
+		model.addAttribute("od", orderDetailService.getODList(user.getUser_num()));
+		
 		return "mypage/account_orders";
 	}
 
