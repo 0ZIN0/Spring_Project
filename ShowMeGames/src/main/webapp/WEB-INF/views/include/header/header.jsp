@@ -119,27 +119,27 @@
 						</div>
 					</div>
 					<ul id="category-li" class="sub-ul">
-						<li onclick="location.href='${conPath}category/best-sellers'"><a>베스트
+						<li onclick="location.href='${conPath}category/bestseller'"><a>베스트
 								셀러</a></li>
-						<li onclick="location.href='${conPath}category/chanwoo-pick'"><a>Chanwoo
+						<li onclick="location.href='${conPath}category/editor?editor=chanwoo'"><a>Chanwoo
 								Pick</a></li>
-						<li onclick="location.href='${conPath}category/latest-releases'"><a>최신
+						<li onclick="location.href='${conPath}category/lastest'"><a>최신
 								출시작</a></li>
-						<li onclick="location.href='${conPath}category/gicheol-pick'"><a>Gicheol
+						<li onclick="location.href='${conPath}category/editor?editor=gicheol'"><a>Gicheol
 								Pick</a></li>
-						<li onclick="location.href='${conPath}category/free-games'"><a>무료
+						<li onclick="location.href='${conPath}category/free'"><a>무료
 								게임</a></li>
-						<li onclick="location.href='${conPath}category/jaehun-pick'"><a>Jaehun
+						<li onclick="location.href='${conPath}category/editor?editor=jaehun'"><a>Jaehun
 								Pick</a></li>
-						<li onclick="location.href='${conPath}category/sale-games'"><a>할인중인
+						<li onclick="location.href='${conPath}category/discount'"><a>할인중인
 								게임</a></li>
-						<li onclick="location.href='${conPath}category/roa-pick'"><a>Roa
+						<li onclick="location.href='${conPath}category/editor?editor=roa'"><a>Roa
 								Pick</a></li>
 						<li></li>
-						<li onclick="location.href='${conPath}category/yeoungmin-pick'"><a>Yeoungmin
+						<li onclick="location.href='${conPath}category/editor?editor=yeoungmin'"><a>Yeoungmin
 								Pick</a></li>
 						<li></li>
-						<li onclick="location.href='${conPath}category/gitae-pick'"><a>Gitae
+						<li onclick="location.href='${conPath}category/editor?editor=gitae'"><a>Gitae
 								Pick</a></li>
 					</ul>
 				</li>
@@ -151,19 +151,19 @@
 						</div>
 					</div>
 					<ul id="genre-li" class="sub-ul">
-						<li onclick="location.href='${conPath}genre/rpg'"><a>RPG</a></li>
-						<li onclick="location.href='${conPath}genre/action-adventure'"><a>액션
+						<li onclick="location.href='${conPath}games?genre=RPG#game_list'"><a>RPG</a></li>
+						<li onclick="location.href='${conPath}games?genre=액션#game_list'"><a>액션
 								/ 어드벤처</a></li>
-						<li onclick="location.href='${conPath}genre/casual'"><a>캐주얼</a></li>
-						<li onclick="location.href='${conPath}genre/shooter-fps'"><a>슈팅
+						<li onclick="location.href='${conPath}games?genre=캐주얼#game_list'"><a>캐주얼</a></li>
+						<li onclick="location.href='${conPath}games?genre=슈팅#game_list'"><a>슈팅
 								/ FPS</a></li>
-						<li onclick="location.href='${conPath}genre/strategy-simulation'"><a>전략
+						<li onclick="location.href='${conPath}games?genre=전략#game_list'"><a>전략
 								/ 시뮬</a></li>
-						<li onclick="location.href='${conPath}genre/puzzle'"><a>퍼즐</a></li>
-						<li onclick="location.href='${conPath}genre/multi-coop'"><a>멀티
+						<li onclick="location.href='${conPath}games?genre=퍼즐#game_list'"><a>퍼즐</a></li>
+						<li onclick="location.href='${conPath}games?genre=멀티#game_list'"><a>멀티
 								/ 협동</a></li>
-						<li onclick="location.href='${conPath}genre/racing'"><a>레이싱</a></li>
-						<li onclick="location.href='${conPath}genre/sports'"><a>스포츠</a></li>
+						<li onclick="location.href='${conPath}games?genre=레이싱#game_list'"><a>레이싱</a></li>
+						<li onclick="location.href='${conPath}games?genre=스포츠#game_list'"><a>스포츠</a></li>
 					</ul>
 				</li>
 				<li class="title-div"><div class="header-bottom-btn"
