@@ -114,13 +114,16 @@ public class MyPageController {
 	
 	@PostMapping("/pwd_update")
 	String accountPwd_update(int user_num, String user_pw, Model model) {
-
 		log.info(user_num + "번 유저 user_pw 변경 실행");
 
-//		mypageService.updateUserPw(user_num, user_pw);
-		
+		mypageService.updateUserPw(user_num, user_pw);
+	
+		return "redirect:pwd";
+	}
+	
+	@GetMapping("/pwd")
+	String pwd(Model model) {
 		model.addAttribute("try_result", 1);
-		
 		return "mypage/account_security";
 	}
 	

@@ -3,6 +3,22 @@ let chkPwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,16}$/
 // 비밀번호 유효성 체크
 let validPwd = 0;
 
+/* 뒤로가기로 접근 방지 */
+
+// 페이지가 새로 열렸을 때 
+$(document).ready(function() {
+    if(performance.getEntriesByType("navigation")[0].type == 'back_forward') {
+        location.replace('./account_security');
+    }
+});
+
+// 잔여 캐시로 페이지가 로드됐을 때
+$(window).bind("pageshow", function(event) {
+    if(event.originalEvent.persisted) {
+        location.replace('./account_security');
+    }
+});
+
 // 비밀번호 입력 칸 기능
 $('#pw_input').change(function() {  
 
@@ -94,3 +110,4 @@ $('#form_pwd_update').submit(function() {
 $('#pw_update_cancel_btn').click(function() {
     location.href('./security');
 });
+
