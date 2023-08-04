@@ -75,7 +75,6 @@ header {
       
    width: 50px;
 } */
-
 #point-i {
   color: #edc800;
   font-size: 14px;
@@ -141,11 +140,9 @@ header {
    width: 30px;
    height: 30px;
 } */
-
 #header-top-underline {
   padding: 10px;
-  margin-left: 160px;
-  /* height: 15px; */
+  margin-left: 160px; /* height: 15px; */
 }
 
 #header-top-ul-underline {
@@ -198,18 +195,18 @@ header {
 }
 
 #dropdown-content {
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
-  border-bottom: 1px solid grey;
+  border-left: 1px solid #383838;
+  border-right: 1px solid #383838;
+  border-bottom: 1px solid #383838;
   display: none;
   position: fixed;
-  background-color: #131c27;
+  background-color: #101721;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   margin-top: 15px;
   margin-left: -145px;
-  height: 692px;
+  height: 759px;
   width: 300px;
-  border-top: 1px solid grey;
+  border-top: 2px solid #383838;
   color: white;
   font-size: 36px;
   z-index: 999;
@@ -234,6 +231,10 @@ header {
   filter: brightness(155%);
 }
 
+#login-icon2.dropdown-open {
+  color: white;
+}
+
 .profile-right,
 .fa-arrow-up-right-from-square,
 .fa-arrow-right-from-bracket {
@@ -253,7 +254,7 @@ header {
 }
 
 .profile-left {
-  width: 30%;
+  width: 95px;
   height: 95px;
   background-color: black;
   margin-left: 20px;
@@ -312,7 +313,6 @@ header {
 } */
 
 /*************** header-bottom *******************/
-
 #header-bottom-logo {
   display: none;
   margin-top: 15px;
@@ -503,7 +503,7 @@ header {
   right: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, 50px);
+  grid-template-rows: repeat(6, 35px);
   width: 1330px;
   height: 525px;
   z-index: 1;
@@ -571,7 +571,6 @@ header {
   margin: 0%;
   font-weight: bold;
   border-radius: 8px;
-
   /* #minicart Mouse Event  Default Hidden*/
   transform: translateY(5px);
   transition: all 0.2s linear;
@@ -617,6 +616,7 @@ header {
   margin-left: -12px;
   margin-top: -12px;
 }
+
 .minicart-title {
   font-size: 24px;
   font-weight: bold;

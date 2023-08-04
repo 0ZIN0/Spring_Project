@@ -29,13 +29,21 @@
 	color: #006EF5;
 }
 
+#email {
+	margin-bottom: -24px;	
+}
+
+#pw {
+	margin-bottom: -24px;	
+}
+
 #email-input {
 	border: none;
 	border-bottom: 2px solid #676767;
 	outline: none;
 	display: block;
 	width: 100%;
-	height: 55px; 
+	height: 47px; 
 	font-size: 16px; 
 	text-indent: 35px; 
 	margin-top: 42px;
@@ -49,7 +57,7 @@
 #email i {
 	position: relative;
 	right: -15px;
-	top: -30px;
+	top: -35px;
 }
 
 #email-guide {
@@ -97,10 +105,10 @@
 	outline: none;
 	display: block;
 	width: 100%;
-	height: 55px; 
+	height: 47px; 
 	font-size: 16px; 
 	text-indent: 35px; 
-	margin-top: 30px;
+	margin-top: 38px;
 	transition: border-color 0.3s;
 }
 
@@ -111,7 +119,7 @@
 #pw i {
 	position: relative;
 	right: -15px;
-	top: -30px;
+	top: -35px;
 }
 
 #pw-guide {

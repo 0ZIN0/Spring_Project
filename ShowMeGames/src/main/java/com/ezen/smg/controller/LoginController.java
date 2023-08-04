@@ -92,7 +92,7 @@ public class LoginController {
 		return "redirect:/member/sessionLogout"; 
 	}
 	
-	@GetMapping(value="/member/pw_find")
+	@GetMapping(value="/member/forgot")
 	public void forgot() {
 		log.info("비밀번호 재설정 페이지입니다.");
 	}
