@@ -3,11 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:url value="/resources/games/css/games.css" var="css1" />
-<c:url value="/resources/games/js/games.js" var="js1" />
-<c:url value="/resources/games/js/search.js" var="js2" />
-<c:url value="/resources/img/index" var="img"/>
-<c:url value="/resources/img/index/games" var="game_img"/>
+<c:url value="../resources/games/css/games.css" var="css1" />
+<c:url value="../resources/games/js/games.js" var="js1" />
+<c:url value="../resources/games/js/category.js" var="js2" />
+<c:url value="../resources/img/index" var="img"/>
+<c:url value="../resources/img/index/games" var="game_img"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,19 +16,24 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <%@ include file="/WEB-INF/views/include/link/common.jsp" %>
-<link rel="stylesheet" href="../${css1}">
+<link rel="stylesheet" href="${css1}">
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp" %>
 	<div class="background_layer1">
 	<div class="background_layer2">
-	<div class="margin_div"></div>
+	<div class="games_banner">
+				<div class="banner_textbox">
+					<h3>무료 게임</h3>
+					<p>무료가 최고입니다! SMG의 무료 게임들을 살펴보세요!</p>
+				</div>
+			</div>
 	<div class="grid_container">
 		<div class="secondary">
 			<div class="filter">
 				<div class="filter_header">
 					<div class="filter_header_title">
-						<h1>필터</h1>
+						<h1>무료 게임</h1>
 						<div class="search_result">
 							<p class="search">검색건수: ${fn:length(games)}건</p>				
 						</div>
@@ -129,7 +134,7 @@
 					<c:forEach items="${games}" var="game">
 						<div class="recmd-items toDetailBtn" data-id="${game.game_id}">
 							<div>
-								<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
+								<img src="../${game.banner_img_url}" alt="${game_name}_배너사진">
 							</div>
 							<div class="item_text_box">
 								<div>

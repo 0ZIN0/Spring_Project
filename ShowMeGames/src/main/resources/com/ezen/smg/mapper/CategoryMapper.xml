@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.smg.mapper.CategoryMapper">
+	<select id="getFreeGames"
+		resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
+		SELECT * FROM games
+		WHERE 1=1
+		AND game_price = 0
+		<if test="editor != null and !editor.empty">
+			AND editor IN
+			<foreach collection="editor" item="editor" separator=","
+				open="(" close=")">
+				#{editor}
+			</foreach>
+		</if>
+		<if test="genre != null and !genre.isEmpty()">
+			AND REGEXP_LIKE(game_genre, #{genre})
+		</if>
+		ORDER BY ${sortBy}
+	</select>
+	
+	<select id="getLastestGames"
+		resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
+		SELECT * FROM games
+		WHERE 1=1
+		AND release_date &gt; SYSDATE - INTERVAL '3' YEAR
+		<if test="editor != null and !editor.empty">
+			AND editor IN
+			<foreach collection="editor" item="editor" separator=","
+				open="(" close=")">
+				#{editor}
+			</foreach>
+		</if>
+		<if test="genre != null and !genre.isEmpty()">
+			AND REGEXP_LIKE(game_genre, #{genre})
+		</if>
+		ORDER BY ${sortBy}
+	</select>
+	
+	<select id="getDiscountGames"
+		resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
+		SELECT * FROM games
+		WHERE 1=1
+		AND discount &gt; 0
+		<if test="editor != null and !editor.empty">
+			AND editor IN
+			<foreach collection="editor" item="editor" separator=","
+				open="(" close=")">
+				#{editor}
+			</foreach>
+		</if>
+		<if test="genre != null and !genre.isEmpty()">
+			AND REGEXP_LIKE(game_genre, #{genre})
+		</if>
+		ORDER BY ${sortBy}
+	</select>
+	
+	<select id="getEditorRecmdGames" resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM games
+		WHERE 1=1
+		AND editor = #{editor}
+		<if test="genre != null and !genre.isEmpty()">
+			AND REGEXP_LIKE(game_genre, #{genre})
+		</if>
+		ORDER BY ${sortBy}
+	</select>
+</mapper> 
