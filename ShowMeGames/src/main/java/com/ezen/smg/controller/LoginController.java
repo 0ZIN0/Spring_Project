@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.service.loginService.LoginService;
 
 import lombok.extern.log4j.Log4j;
@@ -56,7 +57,7 @@ public class LoginController {
 	}
 	
 	@GetMapping(value="/member/sessionLogout")
-	public void hello() {
+	public void logout() {
 		log.info("로그아웃 페이지입니다.");
 	}
 	
@@ -70,16 +71,31 @@ public class LoginController {
 	
 	@ResponseBody
 	@PostMapping(value="/member/naver_check", produces = "application/json")
-	public String naver_check(String id, String email, HttpServletRequest request) {
-		if(loginService.getCheckUser(id) == 1) {
+	public String naver_check(String id, HttpServletRequest request) {
+		SmgUsersDTO user = loginService.getUser_Social(id);
+		
+		if(user != null) {
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("isLoggedIn", true);
-			session.setAttribute("user", loginService.getUser(email));
+			session.setAttribute("user", user);
 			
 			return "Y";
 		} else {
 			return "N";
 		}
 	}
+	
+	@GetMapping(value="/sessionLogout")
+	public String pofileLogout() {
+		log.info("프로필에서 로그아웃 페이지입니다.");
+		return "redirect:/member/sessionLogout"; 
+	}
+	
+	@GetMapping(value="/member/forgot")
+	public void forgot() {
+		log.info("비밀번호 재설정 페이지입니다.");
+	}
+	
+	
 }

@@ -1,97 +1,111 @@
 @charset "UTF-8";
 
 :root {
-	--body-background-layer: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, rgba(16, 7, 35, 0.89) 99.98%, rgba(29, 5, 81, 0.90) 100%, #3C0BAA 100%);
-	--main-background-layer1: linear-gradient(179deg, #090300 0%, rgba(9, 3, 0, 0.00) 100%);
-	--main-background-layer2: linear-gradient(135deg, rgba(9, 3, 0, 0.80) 0%, rgba(9, 3, 0, 0.00) 100%);
+  --body-background-layer: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(16, 7, 35, 0.89) 99.98%,
+    rgba(29, 5, 81, 0.9) 100%,
+    #3c0baa 100%
+  );
+  --main-background-layer1: linear-gradient(
+    179deg,
+    #090300 0%,
+    rgba(9, 3, 0, 0) 100%
+  );
+  --main-background-layer2: linear-gradient(
+    135deg,
+    rgba(9, 3, 0, 0.8) 0%,
+    rgba(9, 3, 0, 0) 100%
+  );
 }
 
 * {
-	font-family: SF Pro Display;
-	font-style: normal;
-	line-height: normal;
-	font-size: 18px;
-	letter-spacing: -0.54px;
+  font-family: SF Pro Display;
+  font-style: normal;
+  line-height: normal;
+  font-size: 18px;
+  letter-spacing: -0.54px;
 }
 
-body{
-	background: var(--body-background-layer);
+body {
+  background: var(--body-background-layer);
 }
 .background_layer1 {
-	background: var(--main-background-layer1);
+  background: var(--main-background-layer1);
 }
 .background_layer2 {
-	background: var(--main-background-layer2);
-	padding-bottom: 100px;
+  background: var(--main-background-layer2);
+  padding-bottom: 100px;
 }
 
 .title {
-	font-size: 60px;
-	letter-spacing: -1.8px;
-	font-weight: 600;
+  font-size: 50px;
+  letter-spacing: -1.8px;
+  font-weight: 600;
 }
 
 .sub-title {
-	color: #F22349;
-	font-size: 60px;
+  color: #f22349;
+  font-size: 60px;
 }
 
-.card_game_title  {
-	color: #FFF;
-	leading-trim: both;
-	text-edge: cap;
-	font-size: 30px;
-	letter-spacing: -0.6px;
+.card_game_title {
+  color: #fff;
+  leading-trim: both;
+  text-edge: cap;
+  font-size: 30px;
+  letter-spacing: -0.6px;
 }
 
 .card_discount_price {
-	color: #FFF;
-	leading-trim: both;
-	text-edge: cap;
-	font-family: SF Pro Display;
-	letter-spacing: -0.9px;
-	text-decoration-line: strikethrough;
+  color: #fff;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: SF Pro Display;
+  letter-spacing: -0.9px;
+  text-decoration-line: strikethrough;
 }
 
 .card_price {
-	color: #F22349;
-	leading-trim: both;
-	text-edge: cap;
-	font-size: 38px;
-	font-weight: 700;
-	line-height: normal;
-	letter-spacing: -1.14px;
+  color: #f22349;
+  leading-trim: both;
+  text-edge: cap;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -1.14px;
 }
 
 .card_discount_rate {
-	color: #F22349;
-	leading-trim: both;
-	text-edge: cap;
-	font-size: 30px;
-	font-weight: 600;
-	line-height: normal;
-	letter-spacing: -0.9px;
+  color: #f22349;
+  leading-trim: both;
+  text-edge: cap;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.9px;
 }
 
 .genre_title {
-	color: #FFF;
-	text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-	font-size: 60px;
-	font-weight: 600;
-	line-height: normal;
-	letter-spacing: -1.8px;
+  color: #fff;
+  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 60px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.8px;
 }
 
 .menu {
-	color: rgba(70, 70, 70, 0.93);
-	font-family: SF Pro Display;
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: normal;
-	letter-spacing: -0.54px;
+  color: rgba(70, 70, 70, 0.93);
+  font-family: SF Pro Display;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.54px;
 }
 
 .card_border {
-	border-radius: 20px;
+  border-radius: 20px;
 }

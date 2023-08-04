@@ -22,6 +22,9 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp"%>
+	<div class="background_layer1">
+		<div class="background_layer2">
+		
 	
 	<div id="conpath" style="visibility: hidden;" data-conpath="${notice_img}"></div>
 	
@@ -75,10 +78,12 @@
 					</a>
 				</c:forEach>
 			</div>
-			<div></div>
+			<div class="grid-end"></div>
 		</div>
 	</main>
 
+		</div>
+	</div>
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
 
 	<!-- js -->

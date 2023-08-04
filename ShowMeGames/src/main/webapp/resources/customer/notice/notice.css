@@ -1,143 +1,153 @@
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-	margin: 0;
+html,
+body {
+  margin: 0;
+}
+
+option {
+  color: black;
 }
 
 #notice-main {
-	display: grid;
-	grid-template-rows: 800px 100px 1fr;
-	width: 100%;
-	row-gap: 20px;
-	position: relative;
+  display: grid;
+  grid-template-rows: 800px 100px 1fr;
+  width: 100%;
+  row-gap: 20px;
+  position: relative;
 }
 
 #notice-text {
-	position: absolute;
-	color: #d80388;
-	top: -60px;
-	font-weight: 800;
-	left: 100px;
+  position: absolute;
+  color: #d80388;
+  top: -60px;
+  font-weight: 800;
+  left: 100px;
 }
 
 #notice-main-text {
-	font-size: 15rem;
+  font-size: 15rem;
 }
 
 #notice-main-img {
-	width: 100%;
-	height: 800px;
-	object-fit: cover;
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
 }
 
 #notice-sort {
-	display: flex;
-	justify-content: left;
-	align-items: center;
-	width: 100%;
-	padding: 0 50px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  padding: 0 50px;
+  color: #fff;
 }
 
 #notice-sort > h2 {
-	margin: 0 350px;
-	font-size: 24px;
+  margin: 0 350px;
+  font-size: 24px;
 }
 
-#notice-year-select, #notice-date-select {
-	height: 30px;
-	width: 235px;
-	border-radius: 0;
-	font-size: 16px;
-	font-weight: bold;
-	-webkit-appearance:none; /* for chrome */
-    -moz-appearance:none; /*for firefox*/
-    appearance:none;
-	padding-left: 10px;
-	margin-right: 250px;
+#notice-year-select,
+#notice-date-select {
+  height: 30px;
+  width: 235px;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: bold;
+  -webkit-appearance: none; /* for chrome */
+  -moz-appearance: none; /*for firefox*/
+  appearance: none;
+  padding-left: 10px;
+  margin-right: 250px;
 }
 
 .select-none {
-	color: #d80388;
-    background:url('../../img/customer/notice/select-arrow-none.png') no-repeat right center;
-	border: none;
-	border-bottom: 1px solid #d80388;
+  color: #d80388;
+  background: url("../../img/customer/notice/select-arrow-none.png") no-repeat
+    right center;
+  border: none;
+  border-bottom: 1px solid #d80388;
 }
 
 .select-click {
-	background:url('../../img/customer/notice/select-arrow-click.png') no-repeat right center;
-	color:black;
-	border: none;
-	border-bottom: 1px solid black;
+  background: url("../../img/customer/notice/select-arrow-click.png") no-repeat
+    right center;
+  color: #fff;
+  border: none;
+  border-bottom: 1px solid #fff;
 }
 
-#notice-sort>select::-ms-expand{
-   display:none;/*for IE10,11*/
+#notice-sort > select::-ms-expand {
+  display: none; /*for IE10,11*/
 }
 
 #notice-grid {
-	display: grid;
-    grid-template-columns: 10% 1200px 10%;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: 10% 1200px 10%;
+  justify-content: center;
 }
 
 #notice-grid-content {
-	grid-template-rows: 25px 170px;
-	row-gap: 40px;
-	margin-bottom: 40px;
+  grid-template-rows: 25px 170px;
+  row-gap: 40px;
+  margin-bottom: 40px;
 }
 
 .notice-date {
-	font-size: 20px;
+  font-size: 20px;
+  color: #fff;
 }
 
 .notice-banner {
-	display: grid;
-	height: 100%;
-	grid-template-columns: 300px 880px;
-	column-gap: 20px;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 300px 880px;
+  column-gap: 20px;
 }
 
 .banner-img {
-	width: 300px;
-	height: 170px;
-    object-fit: cover;
+  width: 300px;
+  height: 170px;
+  object-fit: cover;
 }
 
 .notice-detail-banner {
-	display: grid;
-	grid-template-rows: 21px 30px 21px 21px;
-	row-gap: 10px;
+  display: grid;
+  grid-template-rows: 21px 30px 21px 21px;
+  row-gap: 10px;
 }
 
 .notice-detail-banner > * {
-	color: black;
+  color: #fff;
 }
 
 .banner-title {
-	font-size: 20px;
-	font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .banner-content {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 .banner-others-btn {
-	display: grid;
-	grid-template-columns: 100px 5px;
+  display: grid;
+  grid-template-columns: 100px 5px;
 }
 
 .banner-others-btn > * {
-	color: #d80388;
-	font-size: 16px;
+  color: #d80388;
+  font-size: 16px;
 }
 
 .notice-grid-view {
-	display: grid;
+  display: grid;
 }
 
 .notice-grid-none {
-	display: none;
+  display: none;
 }

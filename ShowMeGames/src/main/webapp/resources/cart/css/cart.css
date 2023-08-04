@@ -3,7 +3,6 @@
     width: 100%;
     grid-template-columns: 1fr 1200px 1fr;
     padding: 80px 0;
-    background-color: #e5e8f0;
 }
 
 #nothing-main-grid {
@@ -35,6 +34,7 @@
 #nothing-title {
     font-size: 32px;
     font-weight: bold;
+	color: white;
 }
 
 #go-shopping-btn {
@@ -64,6 +64,7 @@
 h3 {
     margin: 0;
 	font-size: 24px;
+	color: white;
 }
 
 #week-best-grid { 
@@ -72,9 +73,78 @@ h3 {
     column-gap: 10px;
 }
 
+.new-game-link {
+	display: grid;
+	grid-template-rows: 330px 100px;
+}
+
+.week-best-img {
+	width: 100%;
+	height: 330px;
+	object-fit: cover;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+.week-best-info {
+	width: 100%;
+	height: 100px;
+	display: grid;
+	grid-template-rows: 24px 24px 1fr;
+	padding: 10px;
+}
+
 #week-best-grid > * {
-    background-color: #F22349;
+    background-color: #000000;
     border-radius: 20px;
+}
+
+.new-game-title {
+	color: white;
+	font-weight: 600;
+}
+
+.new-game-price-info {
+	display: grid;
+	column-gap: 10px;
+	grid-template-rows: 30px 1fr;
+}
+
+.new-game-price-info > * {
+	display: flex;
+	justify-content: right;
+}
+
+.new-game-price {
+	color: white;
+	font-size: 20px;
+	text-decoration: line-through;
+	align-items: flex-end;
+	display: flex;
+	padding-right: 10px;
+}
+
+.new-game-discount {
+	color: #F22349;
+	font-weight: 600;
+	display: flex;
+	justify-content: right;
+    align-items: center;
+}
+
+.new-game-discount > * {
+	width: 50px;
+	background-color: white;
+	border-radius: 8px;
+	align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.new-game-discount-price {
+	color: #F22349;
+	font-size: 24px;
+	font-weight: 600;
 }
 
 /* games cart css */
@@ -375,6 +445,7 @@ h3 {
 	align-items: center;
 	justify-content: center;
 	font-size: 16px;
+	color: white;
 }
 
 #cart-secured-payment {
@@ -392,7 +463,7 @@ h3 {
 }
 
 #cart-pick-grid > * {
-    background-color: #F22349;
+    background-color: #000000;
     border-radius: 20px;
 }
 

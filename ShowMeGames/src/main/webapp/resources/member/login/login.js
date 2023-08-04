@@ -1,6 +1,6 @@
    
     $(document).ready(function(){
-   	window.resizeTo(496, 850);
+   	window.resizeTo(496, 860);
    	}); 
   
    // 개인정보처리방침 확인하기 버튼 누르면 페이지 이동
@@ -128,7 +128,7 @@
     
    // 비밀번호는 한 글자만 입력해도 유효
     function isValidPw(pw) {
-       return true;
+       return pw.length >= 1;
     }
     
     // 입력값이 유효한지에 따른 변화
@@ -171,13 +171,48 @@
     });
     
     
-    // login-btn div 눌렀을 때 submit
-    const loginButton = document.querySelector('.login-btn');
-    loginButton.addEventListener('click', function() {
-        const form = document.forms.logining;
-        form.submit();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // submit 가능한지 확인하는 데 필요
+     function canSubmitForm() {
+        const emailInput = document.getElementById("email-input").value;
+        const pwInput = document.getElementById("pw-input").value;
+
+        const isValidEmailInput = isValidEmail(emailInput);
+        const isValidPwInput = isValidPw(pwInput);
+
+        return isValidEmailInput && isValidPwInput;
+    }
+    
+   // 	login-btn div 눌렀을 때 submit
+ 	 	const loginButton = document.querySelector('.login-btn');
+   	 	loginButton.addEventListener('click', function (event) {
+        if (!canSubmitForm()) {
+            event.preventDefault(); // 유효성 검사 실패 시 폼 제출을 막습니다.
+        } else {
+            const form = document.forms.logining;
+            form.submit(); // 유효성 검사 성공 시 폼을 제출합니다.
+        }
     });
-   
    
     // 로그인 실패 시 '이메일주소 또는 비밀번호가 잘못되었습니다.' 글자
     window.onload = function() {
@@ -186,4 +221,21 @@
             document.getElementById('login-failed').style.display = 'block';
         } 
     } 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     

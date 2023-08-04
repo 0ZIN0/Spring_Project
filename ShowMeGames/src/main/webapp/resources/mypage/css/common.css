@@ -3,11 +3,17 @@ a {
     color: #fff;
 }
 
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #top_bar {
     width: 100%;
     height: 50px;
     display: grid;
-    grid-template-columns: 200px 1fr 150px;
+    grid-template-columns: 200px 1fr 200px;
     z-index: 899;
     background-color: #fff;
     position: fixed;
@@ -16,9 +22,90 @@ a {
     border-bottom: 2px solid #e9e9f2;
 }
 
-#top_bar > div {
+#top_bar_logo {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+#top_bar_logo > a {
+    color: black;
+}
+
+#top_bar > div:nth-child(2) {
+    border-right: 2px #E2E2E2 solid;
+}
+
+#top_bar > div:last-child {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 900;
+    background-color: #fff;
+}
+
+#arrow_icon.active {
+    transform: rotateX(180deg);
+}
+
+#logout_button {
+    display: none;
+    align-items: center;
+    background-color: #fff;
+    position: absolute;
+    top: 50px;
+    width: 200px;
+    padding: 10px 10px 10px 20px;
+    border-bottom-left-radius: 5px;
+    font-weight: 650;
+    column-gap: 5px;
+    box-shadow: 0px 10px 12px #6f75871a;
+}
+
+#logout_button.active {
+    display: flex;
+}
+
+#logout_button::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    border-top: solid #E2E2E2 1px;
+    width: 85%;
+    margin: auto;
+}
+#logout_button > a {
+    color: black;
+    display: flex;
+    column-gap: 10px;
+    padding-left: 10px;
+}
+#logout_button span {
+    cursor: pointer;
+}
+#logout_button span:last-child {
+    font-size: 0.9em;
+}
+
+#top_bar_account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#top_bar_account > div:first-child {
+    height: 40px
+}
+
+#top_bar_account > div:nth-child(2) > span {
+    font-weight: 600;
+}
+
+#top_bar_account > div:last-child {
+    display: flex;
     align-items: center;
 }
 
@@ -47,6 +134,10 @@ a {
     display: flex;
     align-items: center;
     height: 60px;
+    transition: 0.4s;
+}
+.nav_item:hover{
+    background-color: #0984e2;
 }
 .nav_item_wrapper {
     display: grid;
@@ -124,4 +215,72 @@ main {
     font-size: 1.1em;
     font-weight: 550;
     cursor: pointer;
+}
+.content_update_wrapper > button:hover {
+    filter: brightness(90%);
+}
+
+.modal_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+
+    width: 100%;
+    height: 100%;
+    
+    padding-left: 18%;
+
+    display: none;
+    background-color: rgba(48, 58, 75, .8);
+}
+
+.modal_container {
+    margin: 15vh auto 0;
+    height: unset;
+    padding: 32px 42px;
+    box-shadow: 0 0 4px 0 rgba(111, 117, 135, 0.35);
+    border-radius: 3px;
+    background-color: #fff;
+    width: 900px;
+}
+
+.modal_label {
+    margin-bottom: 10px;
+    color: #7e8499;
+    font-size: 22px;
+}
+
+.modal_content_title {
+    height: 40px;
+    font-size: 1.2em;
+    font-weight: 450;
+}
+
+.btn {
+    border-radius: 8px;
+    background-color: blueviolet;
+    width: 160px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 550;
+    cursor: pointer;
+}
+.btn:hover {
+    filter: brightness(90%);
+}
+.btn.cancel {
+    color: blueviolet;
+    background-color: #fff;
+    border: 1px blueviolet solid;
+} 
+.btn:disabled {
+    background-color: #7e8499;
+    border: none;
+    cursor: default;
+}
+.btn:disabled:hover {
+    filter: brightness(100%);
 }

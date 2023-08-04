@@ -1,36 +1,53 @@
 package com.ezen.smg.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.ezen.smg.service.gamesService.GamesService;
-
 import lombok.extern.log4j.Log4j;
 
-@RestController
+@Controller
 @Log4j
 public class GamesController {
 	
 	@Autowired
-	GamesService gamesService;
+	GamesService gamesService;	
 	
 	@GetMapping("/games")
-	public void gameList(Model model) {
+	public void gameList(
+			Model model,
+			@RequestParam(name = "genre", required=false)  String genres,
+			@RequestParam(name = "editor", required=false) String editor,
+			@RequestParam(name = "sortBy", required=false) Integer sortBy
+			) {
+		log.info(editor);
+		log.info(genres);
+		log.info(sortBy);
 
-		System.out.println("목록을 가져옵니다");
-		model.addAttribute("games", gamesService.getAllGames());
+		model.addAttribute("games", 
+				gamesService.getFilteredGames(genres, editor, sortBy));
+		model.addAttribute("lastestGames",gamesService.getLatestGameList());
+		model.addAttribute("curatorRecmd",gamesService.getCuratorRecmdList());
 	}
 	
-	@ResponseBody
-	@GetMapping("/games-filter")
-	public void gameListFilter(@RequestParam(value = "filters[]") List<String> filters) {
-		log.info("필터지나감");
-		log.info(filters);
+	@GetMapping("/search")
+	public void search(
+			@RequestParam(name = "search") String search,
+			@RequestParam(name = "genre", required=false)  String genres,
+			@RequestParam(name = "editor", required=false) String editor,
+			@RequestParam(name = "sortBy", required=false) Integer sortBy,
+			Model model) {
+		
+		log.info(search);
+		log.info(editor);
+		log.info(genres);
+		log.info(sortBy);
+		
+		model.addAttribute("games", 
+				gamesService.getSearchGames(search, genres, editor, sortBy));
 	}
+	
 }

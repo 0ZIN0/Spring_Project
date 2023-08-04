@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:url value="${user.profile_url}" var="profile_img"/>
+<c:url value="/" var="toMain"/>
 <c:url value="/" var="conPath" />
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
 	crossorigin="anonymous"></script>
@@ -13,7 +14,7 @@
 
 <header>
 	<div id="header-top">
-		<div>
+		<div id="header-name">
 			<ul class="header-top-menu" id="header-top-ul">
 				<li class="clickable-li" onclick="window.location.href='${conPath}'">
 					<a id="logo-btn" href="${conPath}"></a> 로고
@@ -37,8 +38,33 @@
 							</i>
 							<div class="clickable-li" id="login-li">
 								<i class="fa-regular fa-circle-user fa-2xl" id="login-icon2"
-									style="color: #a1a1a1;"></i> <a id="login-btn"></a>
+									style="color: #a1a1a1;"></i>
 							</div>
+
+						</div>
+
+						<div id="dropdown-content">
+							<div class="profile">
+								<div class="profile-left"><img src="${profile_img}" alt="프로필사진"></div>
+								<div class="profile-right">${user.nick_name}</div>
+							</div>
+							<div class="separator"></div>
+							<div class="rec-title">추천게임</div>
+							<div class="recommend"></div>
+							<div class="separator"></div>
+							<section>
+								<ul>
+									<li><a href="${conPath}mypage/my_account">내 계정</a></li>
+									<li><a href="#">내 주문</a></li>
+									<li><a href="${conPath}customer/faq">고객 지원 <i
+											class="fa-solid fa-arrow-up-right-from-square"
+											style="color: #ffffff;"></i></a></li>
+									<li id="profile-logout"><a href="${conPath}member/sessionLogout">로그아웃
+											<i class="fa-solid fa-arrow-right-from-bracket fa-xl"
+											style="color: #1a91ff;"></i>
+									</a></li>
+								</ul>
+							</section>
 
 						</div>
 
@@ -67,16 +93,7 @@
 				<li></li>
 			</ul>
 		</div>
-		<div id="header-top-underline">
-			<ul id="header-top-ul-underline">
-				<li></li>
-				<li id="game-btn-underline"></li>
-				<li id="notices-btn-underline"></li>
-				<li id="customer-btn-underline"></li>
-				<li></li>
-				<li></li>
-			</ul>
-		</div>
+
 	</div>
 	<div id="header-bottom" class="header-bottom-up">
 		<div id="header-bottom-logo">로고</div>
@@ -90,27 +107,27 @@
 						</div>
 					</div>
 					<ul id="category-li" class="sub-ul">
-						<li onclick="location.href='${conPath}category/best-sellers'"><a>베스트
+						<li onclick="location.href='${conPath}category/bestseller'"><a>베스트
 								셀러</a></li>
-						<li onclick="location.href='${conPath}category/chanwoo-pick'"><a>Chanwoo
+						<li onclick="location.href='${conPath}category/editor?editor=chanwoo'"><a>Chanwoo
 								Pick</a></li>
-						<li onclick="location.href='${conPath}category/latest-releases'"><a>최신
+						<li onclick="location.href='${conPath}category/lastest'"><a>최신
 								출시작</a></li>
-						<li onclick="location.href='${conPath}category/gicheol-pick'"><a>Gicheol
+						<li onclick="location.href='${conPath}category/editor?editor=gicheol'"><a>Gicheol
 								Pick</a></li>
-						<li onclick="location.href='${conPath}category/free-games'"><a>무료
+						<li onclick="location.href='${conPath}category/free'"><a>무료
 								게임</a></li>
-						<li onclick="location.href='${conPath}category/jaehun-pick'"><a>Jaehun
+						<li onclick="location.href='${conPath}category/editor?editor=jaehun'"><a>Jaehun
 								Pick</a></li>
-						<li onclick="location.href='${conPath}category/sale-games'"><a>할인중인
+						<li onclick="location.href='${conPath}category/discount'"><a>할인중인
 								게임</a></li>
-						<li onclick="location.href='${conPath}category/roa-pick'"><a>Roa
+						<li onclick="location.href='${conPath}category/editor?editor=roa'"><a>Roa
 								Pick</a></li>
 						<li></li>
-						<li onclick="location.href='${conPath}category/yeoungmin-pick'"><a>Yeoungmin
+						<li onclick="location.href='${conPath}category/editor?editor=yeoungmin'"><a>Yeoungmin
 								Pick</a></li>
 						<li></li>
-						<li onclick="location.href='${conPath}category/gitae-pick'"><a>Gitae
+						<li onclick="location.href='${conPath}category/editor?editor=gitae'"><a>Gitae
 								Pick</a></li>
 					</ul>
 				</li>
@@ -122,19 +139,19 @@
 						</div>
 					</div>
 					<ul id="genre-li" class="sub-ul">
-						<li onclick="location.href='${conPath}genre/rpg'"><a>RPG</a></li>
-						<li onclick="location.href='${conPath}genre/action-adventure'"><a>액션
+						<li onclick="location.href='${conPath}games?genre=RPG#game_list'"><a>RPG</a></li>
+						<li onclick="location.href='${conPath}games?genre=액션#game_list'"><a>액션
 								/ 어드벤처</a></li>
-						<li onclick="location.href='${conPath}genre/casual'"><a>캐주얼</a></li>
-						<li onclick="location.href='${conPath}genre/shooter-fps'"><a>슈팅
+						<li onclick="location.href='${conPath}games?genre=캐주얼#game_list'"><a>캐주얼</a></li>
+						<li onclick="location.href='${conPath}games?genre=슈팅#game_list'"><a>슈팅
 								/ FPS</a></li>
-						<li onclick="location.href='${conPath}genre/strategy-simulation'"><a>전략
+						<li onclick="location.href='${conPath}games?genre=전략#game_list'"><a>전략
 								/ 시뮬</a></li>
-						<li onclick="location.href='${conPath}genre/puzzle'"><a>퍼즐</a></li>
-						<li onclick="location.href='${conPath}genre/multi-coop'"><a>멀티
+						<li onclick="location.href='${conPath}games?genre=퍼즐#game_list'"><a>퍼즐</a></li>
+						<li onclick="location.href='${conPath}games?genre=멀티#game_list'"><a>멀티
 								/ 협동</a></li>
-						<li onclick="location.href='${conPath}genre/racing'"><a>레이싱</a></li>
-						<li onclick="location.href='${conPath}genre/sports'"><a>스포츠</a></li>
+						<li onclick="location.href='${conPath}games?genre=레이싱#game_list'"><a>레이싱</a></li>
+						<li onclick="location.href='${conPath}games?genre=스포츠#game_list'"><a>스포츠</a></li>
 					</ul>
 				</li>
 				<li class="title-div"><div class="header-bottom-btn"

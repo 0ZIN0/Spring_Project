@@ -1,3 +1,33 @@
+#pwd_update_modal > div {
+    width: 650px;
+}
+
+#pwd_update_content > div:first-of-type {
+    margin-bottom: 60px;
+    margin-top: 20px;
+    padding-left: 15px;
+}
+#pwd_update_content > div:last-child {
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+}
+
+#pwd_chk_input {
+    width: 50%;
+    padding: 3px 0 3px 10px;
+    border-radius: 5px;
+    border: 1px solid #808080;
+    outline: none;
+}
+
+#side_security {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+#side_security span.material-icons {
+    color: #eeab0a;
+}
 #password_content > div {
     display: flex;
 }
@@ -9,4 +39,16 @@
     margin-right: 5.4px;
     border-radius: 50%;
     background-color: #99a1ba;
+}
+
+#password_result_div {
+    margin-top: 30px;
+}
+#result_wrong {
+    color: red;
+    font-size: 1.2em;
+}
+#result_confirm {
+    color: green;
+    font-size: 1.2em;
 }

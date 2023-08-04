@@ -1,0 +1,76 @@
+#side_orders {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+
+#side_orders span.material-icons {
+    color: #eeab0a;
+}
+
+#order-list {
+    display: flex;
+    flex-direction: column;
+    background-color: #dddddd;
+    border-radius: 3px;
+    row-gap: 10px;
+    padding: 16px;
+}
+
+.item_title_wrapper {
+    width: 100%;
+}
+
+#order-title {
+    display: grid;
+    grid-template-columns: 200px 150px 1fr 150px 150px;
+    padding: 10px 20px;
+}
+
+#order-title>* {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#order-content {
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+#order-list-div {
+    flex-direction: column;
+    row-gap: 30px;
+}
+
+#order_list>* {
+    display: flex;
+    align-items: center;
+}
+
+.order-content-front {
+    height: 100px;
+    display: grid;
+    grid-template-columns: 200px 150px 1fr 150px 150px;
+    background-color: white;
+    border-radius: 3px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.order-content-front>* {
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.order-content-front:hover {
+    background-color: rgba(202, 255, 252, 0.719);
+}
+
+.order-game {
+    color: #F22349;
+    font-weight: 600;
+}

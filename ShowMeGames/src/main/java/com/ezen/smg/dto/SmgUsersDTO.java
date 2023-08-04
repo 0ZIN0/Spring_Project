@@ -23,4 +23,5 @@ public class SmgUsersDTO {
 	private String profile_url;
 	private String social_key;
 	private Integer gender;
+	
 }
