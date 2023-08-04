@@ -503,7 +503,7 @@ header {
   right: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(6, 35px);
+  grid-template-rows: repeat(6, 50px);
   width: 1330px;
   height: 525px;
   z-index: 1;
