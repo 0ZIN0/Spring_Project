@@ -32,32 +32,52 @@
 				<div class="content_item">
 					<div id="order-list-div" class="item_title_wrapper">
 						<div class="item_title">
-							<span>게임리스트</span>
+							<span>구매내역</span>
 						</div>
-						<div id="order-list">
-							<div id="order-title">
-								<div>No.</div>
-								<div>날짜</div>
-								<div>상품명</div>
-								<div>가격</div>
-								<div>상태</div>
-							</div>
-							<div id="order-content">
-								<c:forEach begin="1" end="3" var="i">
-									<a href="./order/detail?id=${i}" class="order-content-front">
-										<div>imp12345</div>
-										<div>2023.02.28</div>
-										<div class="order-game">리그오브레전드 외 3</div>
-										<div>
-											₩
-											<fmt:formatNumber type="number" maxFractionDigits="3"
-												value="10000" />
-										</div>
-										<div class="order-status">구매함</div>
-									</a>
-								</c:forEach>
-							</div>
-						</div>
+						<c:choose>
+							<c:when test="${fn:length(orders) > 0}">
+								<div id="order-list">
+									<div id="order-title">
+										<div>No.</div>
+										<div>날짜</div>
+										<div>상품명</div>
+										<div>가격</div>
+										<div>상태</div>
+									</div>
+									<div id="order-content">
+										<c:forEach items="${orders}" var="order">
+											<a href="./order/detail?id=${order.order_id}"
+												class="order-content-front">
+												<div>${order.imp_uid}</div>
+												<div>
+													<fmt:formatDate var="date" value="${order.order_date}"
+														type="DATE" pattern="yyyy.MM.dd" />${date}
+												</div>
+												<div class="order-game">${order.order_product}</div>
+												<div>
+													₩
+													<fmt:formatNumber type="number" maxFractionDigits="3"
+														value="${order.order_price}" />
+												</div>
+												<div class="order-status">
+													<c:choose>
+														<c:when test="${order.order_status eq 'paid'}">
+														구매함
+													</c:when>
+													<c:otherwise>
+														환불 요청
+													</c:otherwise>
+													</c:choose>
+												</div>
+											</a>
+										</c:forEach>
+									</div>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div>구매 내역이 없습니다.</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>
