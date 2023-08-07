@@ -62,15 +62,15 @@
     font-weight: 600;
     width: 40px;
     border-radius: 3px;
-    background-color: #ffffff;
+    background-color: #2A2A2A;
     text-align: center;
+    color: #A0A2A0;
 }
 
 #game_detail_grid {
     display: grid;
     grid-template-columns: 70% 30%;
     width: 100%;
-    background-color: #f8a504;
     margin-top: 40px;
 }
 
