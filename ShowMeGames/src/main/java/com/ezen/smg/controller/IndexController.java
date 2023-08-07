@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ezen.smg.mapper.GamesMapper;
-import com.ezen.smg.service.gamesService.GamesService;
 import com.ezen.smg.service.indexService.IndexService;
 
 import lombok.extern.log4j.Log4j;
