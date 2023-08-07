@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.ezen.smg.dto.Games;
 import com.ezen.smg.mapper.GamesMapper;
+import com.ezen.smg.service.gamesService.GamesService;
 import com.ezen.smg.service.indexService.IndexService;
 
 import lombok.extern.log4j.Log4j;
@@ -26,6 +28,9 @@ public class IndexController {
 	
 	@Autowired
 	GamesMapper gamesMapper;
+	
+	@Autowired
+	GamesService gamesService;
 
 	public IndexController() {
 		detail_url_mapper = new HashMap<String, String>();
@@ -57,8 +62,10 @@ public class IndexController {
 		
 		String url = detail_url_mapper.get(layout);
 		
-		model.addAttribute("game", gamesMapper.getGame(game));
-
+		Games gameDTO = gamesMapper.getGame(game);
+		
+		model.addAttribute("game", gameDTO);
+		
 		if (url == null) {
 			return "/games/default";
 		}

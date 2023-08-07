@@ -1,0 +1,114 @@
+.background_layer2 {
+    padding: 50px 0;
+}
+
+#game_detail_div {
+    height: auto;
+    width: 1600px;
+    margin: 0 auto;
+}
+
+#game_title_div {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding-bottom: 30px;
+}
+
+#game_name_div {
+    font-size: 40px;
+    font-weight: 600;
+    color:white;
+}
+
+.stararea {
+    width: 100px;
+    height: 20px;
+    position: relative;
+}
+ 
+.stararea span {
+    width: 20%;
+    background-color: #f8a504;
+    height: 20px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+ 
+.stararea::after {
+    width: 100px;
+    height: 20px;
+    background: url(/smg/resources/img/games/star_bar.png) no-repeat;
+    background-size: 100%;
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+#game_grade_div {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+}
+
+#game_grade_content {
+    font-size: 14px;
+    font-weight: 600;
+    width: 40px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#game_detail_grid {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    width: 100%;
+    background-color: #f8a504;
+    margin-top: 40px;
+}
+
+#game_detail_img {
+    padding: 0 5px;
+}
+
+#game_img_selected {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#game_img_list {
+    display: grid;
+    grid-template-columns: 50px repeat(5, 1fr) 50px;
+}
+
+#game_img_list > * {
+    display: flex;
+    justify-content: center;
+}
+
+.game_img_dto {
+    width: 180px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.img-arrow {
+    display: flex;
+    align-items: center;
+}
+
+.img-arrow-btn {
+    text-align: center;
+}

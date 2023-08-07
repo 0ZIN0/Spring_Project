@@ -47,7 +47,7 @@
 								<div class="od-title">구매한 게임</div>
 								<div id="get-games">
 								<c:forEach items="${games}" var="game">
-									<a href="../../detail?game=${game.game_id}">${game.game_name}</a>
+									<a href="../../detail?game=${game.game_id}&&layout=${game.layout}">${game.game_name}</a>
 								</c:forEach>	
 								</div>
 							</div>
