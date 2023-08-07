@@ -46,7 +46,7 @@
 									</div>
 									<div id="order-content">
 										<c:forEach items="${orders}" var="order">
-											<a href="./order/detail?id=${order.order_id}"
+											<a href="./orders/detail?id=${order.order_id}"
 												class="order-content-front">
 												<div>${order.imp_uid}</div>
 												<div>
