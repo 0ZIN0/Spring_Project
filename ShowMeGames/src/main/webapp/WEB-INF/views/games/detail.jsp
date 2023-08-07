@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<h1>게임명${param.id}</h1>
+	<h1>게임명${param.game}</h1>
 	
 </body>
 </html>
