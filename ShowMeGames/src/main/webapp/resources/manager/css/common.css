@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0;
+}
+
+.item_title {
+    margin-bottom: 20px;
+}
+.item_title > span {
+    font-size: 1.5em;
+    font-weight: 450;
+}
+.item_title::after {
+    width: 32px;
+    height: 4px;
+    content: "";
+    display: block;
+    margin-top: 9px;
+    background-color: #eeab0a;
+}
+
+#main_wrapper {
+    height: 100vh;
+    padding: 0;
+    display: flex;
+}
+
+.content_title {
+    color: #fff;
+    font-size: 2em;
+}
+
+/* 버튼 관련 css */
+.btn {
+    border-radius: 8px;
+    background-color: blueviolet;
+    width: 160px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 550;
+    cursor: pointer;
+}
+.btn:hover {
+    filter: brightness(90%);
+}
+.btn.cancel {
+    color: blueviolet;
+    background-color: #fff;
+    border: 1px blueviolet solid;
+} 
+.btn:disabled {
+    background-color: #7e8499;
+    border: none;
+    cursor: default;
+}
+.btn:disabled:hover {
+    filter: brightness(100%);
+}
