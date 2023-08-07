@@ -1,4 +1,8 @@
 
+main {
+    margin-top: 0;
+}
+
 #form_wrapper_div {
     width: 500px;
     margin: auto;

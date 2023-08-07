@@ -60,4 +60,53 @@ public class ManagerController {
 		return "manager/admin_main";
 	}
 	
+	@GetMapping("/admin_game")
+	String adminGame() {
+		return "manager/admin_game";
+	}
+	
+	@GetMapping("/admin_user")
+	String adminUser() {
+		return "manager/admin_user";
+	}
+	
+	@GetMapping("/admin_chart")
+	String adminChart() {
+		return "manager/admin_chart";
+	}
+	
+	@GetMapping("/admin_inquiry")
+	String adminInquiry() {
+		return "manager/admin_inquiry";
+	}
+	
+	@GetMapping("/admin_notice")
+	String adminNotice() {
+		return "manager/admin_notice";
+	}
+	
+	@GetMapping("/admin_faq")
+	String adminFaq() {
+		return "manager/admin_faq";
+	}
+	
+	@GetMapping("/admin_key")
+	String adminKey() {
+		return "manager/admin_key";
+	}
+
+	@GetMapping("/admin_out")
+	String adminOut() {
+		return "manager/admin_out";
+	}
+	
+	@GetMapping("/sessionOut")
+	String adminOut(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+	
+		session.removeAttribute("manager_token");
+		
+		return "redirect:/";
+	}
+	
 }

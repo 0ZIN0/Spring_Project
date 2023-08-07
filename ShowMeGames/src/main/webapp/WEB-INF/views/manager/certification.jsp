@@ -1,19 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:url value="/resources/common/css/common.css" var="common_css" />
 <c:url value="/resources/manager" var="resource"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
 	<title>관리자 인증</title>
-	<!-- background css -->
-	<link rel="stylesheet" href="${common_css}">
-	<!-- manager css -->
-	<link rel="stylesheet" href="${resource}/css/common.css">
+	<%@ include file="/WEB-INF/views/manager/include/head_common.jsp" %>
+	<!-- page css -->
 	<link rel="stylesheet" href="${resource}/css/certification.css">
-	<!-- google_icons -->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 	
@@ -23,7 +18,7 @@
 				<div class="item_title">
 					<span>관리자 로그인</span>
 				</div>
-				<form action="./confirm" method="POST">
+				<form action="${pageContext.request.contextPath}/admin/confirm" method="POST">
 					<div id="form_content_div">		
 						<div class="input_title_div">
 							<label for="mng_id">
