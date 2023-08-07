@@ -153,8 +153,12 @@ public class MyPageController {
 	}
 
 	@GetMapping("/orders/detail")
-	String accountOrdersDetail(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model) {
-		log.info("디테일페이지입니다.");
+	String accountOrdersDetail(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model, Integer id) {
+		model.addAttribute("id", id);
+		model.addAttribute("order", orderService.getSelectOrder(id));
+		model.addAttribute("od", orderDetailService.getODList(id));
+		model.addAttribute("games", orderDetailService.getODSelectGames(id));
+		
 		return "mypage/detail/orders_detail";
 	}
 
