@@ -35,7 +35,7 @@
 					</div>
 					<div id="newGame_container">
 						<c:forEach items="${latestList}" var="game">
-							<div class="newgames toDetailBtn" data-id="${game.game_id}">
+							<div class="newgames toDetailBtn" data-id="${game.game_id}" data-layout="${game.layout}">
 								<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
 							</div>
 						</c:forEach>
@@ -58,7 +58,7 @@
 					</div>
 					<div class="blank"></div>
 					<c:forEach items="${editorList}" var="game">
-						<div class="recmd-items toDetailBtn" data-id="${game.game_id}">
+						<div class="recmd-items toDetailBtn" data-id="${game.game_id}" data-layout="${game.layout}">
 							<div>
 								<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
 							</div>
@@ -123,7 +123,7 @@
 					</div>
 					<div class="blank"></div>
 					<c:forEach items="${discountList}" var="game">
-						<div class="recmd-items toDetailBtn" data-id="${game.game_id}">
+						<div class="recmd-items toDetailBtn" data-id="${game.game_id}" data-layout="${game.layout}">
 							<div>
 								<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
 							</div>
@@ -215,7 +215,7 @@
 					</div>
 					<div id="hotgame_content">
 						<c:forEach items="${hotgameList}" var="game">
-							<div class="game_item toDetailBtn" data-id="${game.game_id}">
+							<div class="game_item toDetailBtn" data-id="${game.game_id}" data-layout="${game.layout}">
 								<div>
 									<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
 								</div>
@@ -273,7 +273,7 @@
 					</div>
 					<div id="curator-content">
 						<c:forEach items="${curatorList}" var="game">
-							<div class="game_item toDetailBtn" data-id="${game.game_id}">
+							<div class="game_item toDetailBtn" data-id="${game.game_id}" data-layout="${game.layout}">
 								<div>
 									<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
 								</div>

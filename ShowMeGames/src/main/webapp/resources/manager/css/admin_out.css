@@ -1,0 +1,21 @@
+/* 사이드바 설정 */
+#side_admin_out {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+#side_admin_out span.material-icons {
+    color: #eeab0a;
+}
+
+#admin_out_content > div:nth-child(2) ul {
+    list-style: none;
+    padding-left: 0;
+}
+#admin_out_content > div:nth-child(2) li {
+    font-weight: 550;
+    line-height: 2em;
+}
+
+#btn_div {
+	margin-top: 20px;
+}

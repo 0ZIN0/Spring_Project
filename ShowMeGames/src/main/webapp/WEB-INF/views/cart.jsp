@@ -52,7 +52,7 @@
 								<c:forEach items="${cart_list}" var="game" varStatus="status">
 									<img class="game-img" alt="" src="${game.banner_img_url}">
 									<div class="game-content">
-										<a class="game-name" href="./detail?game=${game.game_id}">${game.game_name}</a>
+										<a class="game-name" href="./detail?game=${game.game_id}&&layout=${game.layout}">${game.game_name}</a>
 										<div class="game-select-form">
 											<c:choose>
 												<c:when test="${fn:length(platforms[status.index]) > 1}">
@@ -123,7 +123,7 @@
 								<h3>이 상품을 구매한 분들은 이런 상품도 구매했습니다</h3>
 								<div id="cart-pick-grid">
 									<c:forEach items="${new_games}" var="game">
-										<a class="new-game-link" href="./detail?game=${game.game_id}">
+										<a class="new-game-link" href="./detail?game=${game.game_id}&&layout=${game.layout}">
 											<img class="week-best-img" alt=""
 											src="${game.banner_img_url}">
 											<div class="week-best-info">
@@ -263,7 +263,7 @@
 							<h3>이런 최신 게임은 어떠신가요?</h3>
 							<div id="week-best-grid">
 								<c:forEach items="${new_games}" var="game">
-									<a class="new-game-link" href="./detail?game=${game.game_id}">
+									<a class="new-game-link" href="./detail?game=${game.game_id}&&layout=${game.layout}">
 										<img class="week-best-img" alt="" src="${game.banner_img_url}">
 										<div class="week-best-info">
 											<div class="new-game-title">${game.game_name}</div>

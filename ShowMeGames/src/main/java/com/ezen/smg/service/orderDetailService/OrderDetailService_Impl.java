@@ -6,8 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.OrderDetail;
-import com.ezen.smg.dto.Orders;
+import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.OrderDetailMapper;
 import com.ezen.smg.service.orderService.OrderService;
 
@@ -19,6 +20,9 @@ public class OrderDetailService_Impl implements OrderDetailService {
 
 	@Autowired
 	OrderService orderService;
+	
+	@Autowired
+	GamesMapper gamesMapper;
 	
 	@Override
 	public void insertOrderDetail(int game_id, int order_id, String buyer_name) {
@@ -32,15 +36,21 @@ public class OrderDetailService_Impl implements OrderDetailService {
 	}
 
 	@Override
-	public List<List<OrderDetail>> getODList(int user_num) {
+	public List<OrderDetail> getODList(int order_id) {
+		return orderDetailMapper.getODList(order_id);
+	}
+
+	@Override
+	public List<Games> getODSelectGames(int order_id) {
+		List<OrderDetail> ods = orderDetailMapper.getODList(order_id);
+		List<Games> games = new ArrayList<>();
 		
-		List<Orders> orders = orderService.getUserOrders(user_num);
-		List<List<OrderDetail>> ods = new ArrayList<>();
-		
-		for (Orders order : orders) {
-			ods.add(orderDetailMapper.getODList(order.getOrder_id()));
+		for (OrderDetail od : ods) {
+			games.add(gamesMapper.getGame(od.getGame_id()));
 		}
 		
-		return ods;
+		return games;
 	}
+	
+	
 }
