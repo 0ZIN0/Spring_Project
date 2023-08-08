@@ -32,19 +32,73 @@
 						</div>
 						<div id="game_content_wrapper">
 							<div>
-								<div class="content_grid">
-									<div class="content_grid_item">ID</div>
-									<div class="content_grid_item">이름</div>
-									<div class="content_grid_item">가격</div>
-									<div class="content_grid_item">할인</div>
-									<div class="content_grid_item">수정</div>
+								<div id="content_grid_header" class="content_grid">
+									<div class="content_grid_item header">
+										<span>ID</span>
+									</div>
+									<div class="content_grid_item header">
+										<span>이름</span>
+									</div>
+									<div class="content_grid_item header">
+										<span>가격</span>
+									</div>
+									<div class="content_grid_item header">
+										<span>할인</span>
+									</div>
+									<div class="content_grid_item header">
+										<span>수정</span>
+									</div>
 								</div>
 								<div class="content_grid">
-									<div class="content_grid_item">1</div>
-									<div class="content_grid_item">2</div>
-									<div class="content_grid_item">3</div>
-									<div class="content_grid_item">4</div>
-									<div class="content_grid_item">5</div>
+									<div class="content_grid_item">
+										<span>1</span>
+									</div>
+									<div class="content_grid_item">
+										<span>2</span>
+									</div>
+									<div class="content_grid_item">
+										<span>3</span>
+									</div>
+									<div class="content_grid_item">
+										<span>4</span>
+									</div>
+									<div class="content_grid_item">
+										<button class="btn item_update_btn">수정</button>
+									</div>
+								</div>
+								<div class="content_grid">
+									<div class="content_grid_item">
+										<span>1</span>
+									</div>
+									<div class="content_grid_item">
+										<span>2</span>
+									</div>
+									<div class="content_grid_item">
+										<span>3</span>
+									</div>
+									<div class="content_grid_item">
+										<span>4</span>
+									</div>
+									<div class="content_grid_item">
+										<button class="btn item_update_btn">수정</button>
+									</div>
+								</div>
+								<div class="content_grid">
+									<div class="content_grid_item">
+										<span>1</span>
+									</div>
+									<div class="content_grid_item">
+										<span>2</span>
+									</div>
+									<div class="content_grid_item">
+										<span>3</span>
+									</div>
+									<div class="content_grid_item">
+										<span>4</span>
+									</div>
+									<div class="content_grid_item">
+										<button class="btn item_update_btn">수정</button>
+									</div>
 								</div>
 							</div>
 						</div>
