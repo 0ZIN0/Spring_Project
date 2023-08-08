@@ -52,7 +52,7 @@
 									<img src="${profile_img}" alt="프로필사진">
 								</div>
 								<div class="profile-right">
-									<div class="profile-nick">${user.nick_name}</div> 
+									<div class="profile-nick">${user.nick_name}</div>
 									<%-- <%
 									String id = (String) session.getAttribute("user_id");
 									%>
@@ -98,7 +98,7 @@
 
 								</div>
 							</div>
-							<div class="separator"></div>
+							<%-- <div class="separator"></div>
 							<div class="rec-title">추천게임</div>
 							<div class="recommend">
 
@@ -115,7 +115,7 @@
 									</c:forEach>
 								</div>
 
-							</div>
+							</div> --%>
 							<div class="separator"></div>
 							<section>
 								<ul>
@@ -131,6 +131,7 @@
 									</a></li>
 								</ul>
 							</section>
+							<div class="separator"></div>
 
 						</div>
 
@@ -286,7 +287,7 @@
 		</div>
 		<!-- header-cart Part End -->
 
-		
+
 	</div>
 
 
