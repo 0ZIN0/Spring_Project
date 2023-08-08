@@ -18,6 +18,8 @@ public class ManagerServiceImp1 implements ManagerService {
 	@Override
 	public ManagersDTO confirmManager(String mng_id, String mng_pw) {
 		
+		if(mng_id == null || mng_pw == null) return null;
+		
 		ManagersDTO manager = managerMapper.getMangerById(mng_id);
 		
 		if(!mng_pw.equals(manager.getMng_pw())) return null; 

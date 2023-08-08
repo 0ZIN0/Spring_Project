@@ -21,4 +21,5 @@ public class Games {
 	private	String editor;
 	private Integer discounted_price;
 	private String layout;
+	private String rated;
 }

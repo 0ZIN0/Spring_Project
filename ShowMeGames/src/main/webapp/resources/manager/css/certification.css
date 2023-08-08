@@ -42,6 +42,13 @@ main {
     border-radius: 4px;
 }
 
+#confirm_div {
+    margin-top: 10px;
+}
+#confirm_div > span {
+    color: red;
+}
+
 #btn_div {
     display: flex;
     align-items: center;
@@ -52,3 +59,4 @@ main {
 #submit_btn {
     width: 100px;
 }
+
