@@ -303,7 +303,7 @@ $(document).ready(function () {
 });
 
 // 로그인 아이콘 클릭 시 드랍다운 열기 또는 닫기
-document.getElementById("login-icon2").addEventListener("click", function(event) {
+$("login-icon2").on("click", function(event) {
   event.stopPropagation(); // 이벤트 버블링을 막음
   toggleDropdown();
 });
