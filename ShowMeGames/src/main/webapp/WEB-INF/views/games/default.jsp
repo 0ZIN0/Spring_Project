@@ -29,7 +29,7 @@
 						<div id="game_grade_div">
 							<div class="stararea">
 								<span class="starpoint"
-									style="width: ${100 * game.game_grade / 5}%;" />
+									style="width: ${100 * game.game_grade / 5}%;"></span>
 							</div>
 							<div id="game_grade_content">${game.game_grade}</div>
 						</div>

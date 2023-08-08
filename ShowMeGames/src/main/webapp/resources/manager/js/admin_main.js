@@ -3,5 +3,5 @@
 $(document).on("click", ".select_btn_div", function() {
     console.log('클릭');
     let id = $(this).data("id");
-    $(location).attr('href', `./${id}`);
+    $(location).attr('href', `./manage/${id}`);
 });
