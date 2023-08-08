@@ -28,6 +28,8 @@ public class CartController {
 	@Autowired
 	GamesService gamesService;
 	
+
+	
 	@GetMapping(value="/cart")
 	public String cart(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model) {
 		try {
@@ -49,6 +51,10 @@ public class CartController {
 			return "redirect:/"; // 로그인 팝업창 띄우기
 		}
 	}
+	
+	
+	 
+	
 	
 	@PostMapping(value="/checkout")
 	public void goCheckOut(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model, String platform) {
