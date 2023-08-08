@@ -286,3 +286,9 @@ window.onbeforeunload = function () {
     document.documentElement.scrollTop || document.body.scrollTop
   );
 };
+
+$(document).on("click", ".toDetailBtn", function () {
+  let id = $(this).data("id");
+  let layout = $(this).data("layout");
+  location.href = `./detail?game=${id}&&layout=${layout}`;
+});

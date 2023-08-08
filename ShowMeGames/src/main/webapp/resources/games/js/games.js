@@ -100,5 +100,6 @@ card_container.scroll(function () {
 // toDetailBtn에 동적으로 이벤트 할당
 $(document).on("click", ".toDetailBtn", function () {
   let id = $(this).data("id");
-  location.href = "./detail?game=" + id;
+  let layout = $(this).data("layout");
+  location.href = `./detail?game=${id}&&layout=${layout}`;
 });

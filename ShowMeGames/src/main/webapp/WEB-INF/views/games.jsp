@@ -46,9 +46,9 @@
 					</div>
 					<div class="blank"></div>
 					<c:forEach items="${curatorRecmd}" var="game">
-						<div class="recmd-items toDetailBtn" data-id="${game.game_id}">
+						<div class="recmd-items toDetailBtn" data-id="${game.game_id}" data-layout="${game.layout}">
 							<div>
-								<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
+								<img src="${game.banner_img_url}" alt="${game.game_name}_배너사진">
 							</div>
 							<div class="item_text_box">
 								<div>
@@ -155,9 +155,9 @@
 					</div>
 					<div class="blank"></div>
 					<c:forEach items="${lastestGames}" var="game">
-						<div class="recmd-items toDetailBtn" data-id="${game.game_id}">
+						<div class="recmd-items toDetailBtn" data-id="${game.game_id}" data-layout="${game.layout}">
 							<div>
-								<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
+								<img src="${game.banner_img_url}" alt="${game.game_name}_배너사진">
 							</div>
 							<div class="item_text_box">
 								<div>
@@ -354,9 +354,9 @@
 							<c:choose>
 								<c:when test="${games != null and not empty games}">
 									<c:forEach items="${games}" var="game">
-										<div class="recmd-items toDetailBtn" data-id="${game.game_id}">
+										<div class="recmd-items toDetailBtn" data-id="${game.game_id}" data-layout="${game.layout}">
 											<div>
-												<img src="${game.banner_img_url}" alt="${game_name}_배너사진">
+												<img src="${game.banner_img_url}" alt="${gmae.game_name}_배너사진">
 											</div>
 											<div class="item_text_box">
 												<div>
