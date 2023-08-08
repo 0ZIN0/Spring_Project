@@ -296,12 +296,13 @@ document.addEventListener("click", function (event) {
   }
 });
 
+
+
 // minicart Mouse Event
 $('#header-cart').on({
     mouseenter: function() {
       $('#header-bottom').addClass('minicart-position');
       $('#minicart').addClass('minicart-active');
-      updateMiniCart();
     },
     mouseleave: function() {
       $('#header-bottom').removeClass('minicart-position');
@@ -318,7 +319,6 @@ $('#minicart').on({
     $('#minicart').removeClass('minicart-active');
   }
 });
-
 
 // minicart 내용 업데이트
 function updateMiniCart() {
@@ -339,55 +339,75 @@ function updateMiniCart() {
       if (cartList != null && cartLen > 0) {
         // 로그인 상태이고 장바구니에 내용이 있다면 put-minicart-content 내용을 보여주기
         var putMinicartContent = `
-        <div class="put-minicart-content">
+        <div id="put-minicart-content">
           <!-- 각 상품 정보에 대한 리스트 생성 -->
+          <div id="minicart-list-top">
           ${cartList.map((game) => {
-            `<div class="minicart-list-top">
+            return`
+            <div class="minicart-game-list">
               <div class="minicart-list-left">
                 <img src="${game.banner_img_url}" alt="">
               </div>
               <!--minicart-list-left Part End -->
               <div class="minicart-list-right">
-                <div class="minicart-game-name">${game.game_name}</div>
-                <div class="minicart-game-price">${ game.discounted_price}</div>
+                <div class="minicart-list-details">
+                  <div class="minicart-game-name">${game.game_name}</div>
+                  <div class="pricing">
+                    ${( game.discount !== null && game.discount > 0) 
+                      ?
+                        `<div id="sales-price">
+                          <div class="price-percentage">-${game.discount}%</div>
+                          <div class="price-wrapper">
+                            <div class="discount-price">₩ ${new Intl.NumberFormat('ko-KR').format(game.discounted_price)}</div>
+                            <div class="product-price">₩ ${new Intl.NumberFormat('ko-KR').format(game.game_price)}</div>
+                          </div> 
+                        </div> <!-- sales-price Part End -->`
+                      :
+                        `<div id="standard-price">
+                          <div class="product-price">₩ ${new Intl.NumberFormat('ko-KR').format(game.game_price)}</div>
+                        </div> 
+                      <!-- 할인 없는 게임의 기본 가격-->`
+                    }  
+                  </div> 
+                  <!-- pricing Part End -->
+                </div>
+                <!--micart-list-details Part End-->
+              </div>
+                <!--minicart-list-right Part End -->
+
                 <div class="minicart-list-delete">
                   <a class="cart-delete" data-gameid="${game.game_id}">
                     <span class="material-symbols-outlined" data-gameid="${game.game_id}">delete</span>
-                    <div data-gameid="${game.game_id}">제거</div>
                   </a>
                 </div>
                 <!--minicart-list-delete Part End -->
-              </div>
-              <!--minicart-list-right Part End -->
-            </div>`
+            </div>
+            <!-- minicart-game-list End -->
+            `;
           }).join("")}
-            <!--minicart-list-top Part End -->
-          
-          <div class="minicart-list-bottom">
-            <div class="price" id="total-order">
-              합계 : ₩ ${totalPrice > 0 ? new Intl.NumberFormat('en').format(totalPrice) : "무료"}
-            </div>
-            <div class="minicart-list-btns">
-              <div class="put-minicart-btn">
-                장바구니 보기
-              </div>
-              <div class="put-minicart-btn">
-                결제하기
-              </div>
-            </div>
-            <!-- minicart-list-btns Part End -->
           </div>
-          <!-- minicart-list-bottom Part End -->
+          <!--minicart-list-top Part End -->   
+
+        <div id="minicart-list-bottom">
+          <div class="price" id="total-order">
+            합계 : ₩ ${totalPrice > 0 ? new Intl.NumberFormat('ko-KR').format(totalPrice) : "무료"}
+          </div>
+          <div class="minicart-list-btns">
+            <div class="put-minicart-btn">장바구니 보기</div>
+            <div class="put-minicart-btn">결제하기</div>
+          </div>
+          <!-- minicart-list-btns Part End -->
         </div>
-        <!--put-minicart-content Part End -->`;
+        <!-- minicart-list-bottom Part End -->
+  </div>
+  <!--put-minicart-content Part End --> `;
         
         minicartContent.append(putMinicartContent);
-        $(".put-minicart-content").show(); 
+        $("#put-minicart-content").show(); 
         $(".empty-minicart-content").hide();
         
       } else {
         // 로그인 상태이지만 장바구니가 비어있거나 로그인하지 않은 경우 empty-minicart-content 내용을 보여주기
-        $(".put-minicart-content").hide(); 
         $(".empty-minicart-content").show(); 
       }
     },
@@ -397,13 +417,18 @@ function updateMiniCart() {
   });
 }
 
-// cart-list delete
 $('.cart-delete').click(function (e) {
   $.ajax({
-      url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
-      method: 'GET',
-      success: () => {
-          location.href = "./cart";
-      }
-  })
+    url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
+    method: 'GET',
+    success: () => {
+      updateMiniCart(); // minicart 내용 업데이트
+    }
+  });
 });
+
+$(document).ready(function() {
+  // 페이지가 로드될 때 updateMiniCart() 실행
+  updateMiniCart();
+});
+

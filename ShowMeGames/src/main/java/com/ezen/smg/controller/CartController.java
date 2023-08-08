@@ -79,6 +79,7 @@ public class CartController {
 		cartService.deleteGame(user.getUser_num(), game_id);
 	}
 	
+	
 	@ResponseBody
 	@GetMapping(value = "/minicart", produces = "application/json")
 	public Map<String, Object> minicart(@SessionAttribute(name = "user", required = false) SmgUsersDTO user) {

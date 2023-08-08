@@ -189,7 +189,7 @@
 		</div>
 
 		<div id="header-cart">
-			<a class="bottom-title" id="cart-btn" href="${conPath}cart"> <i
+			<a class="bottom-title" id="cart-btn" onclick="Location.href='${conPath}cart'"> <i
 				id="cart-icon" class="fa-solid fa-cart-shopping"></i> <span
 				id="cart-title">장바구니</span> <span class="cart-quantity"></span>
 			</a>
@@ -199,8 +199,7 @@
 				<div class="minicart-header minicart-common">
 					<div class="minicart-title">장바구니</div>
 				</div>
-				
-				<div id="minicart-content" class="minicart-common">
+					<div id="minicart-content" class="minicart-common">
 					<div class="empty-minicart-content minicart-common">
 						<div class="empty-minicart-message minicart-common">
 							장바구니가 비어있습니다.
