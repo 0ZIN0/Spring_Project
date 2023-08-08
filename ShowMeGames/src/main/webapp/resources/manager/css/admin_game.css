@@ -6,3 +6,12 @@
 #side_admin_game span.material-icons {
     color: #eeab0a;
 }
+
+/* game_content 설정 */
+.content_grid {
+    display: grid;
+    grid-template-columns: 11% 40% 15% 15% 15%;
+    border-bottom: 1px solid black;
+    column-gap: 1%;
+    border-bottom: 3px;
+}

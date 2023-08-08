@@ -27,7 +27,7 @@
 							</label>
 						</div>
 						<div class="input_div">
-							<input id="mng_id" name="mng_id" type="text" autocomplete="off">
+							<input id="mng_id" name="mng_id" type="text" autocomplete="off" required>
 						</div>
 						<div class="input_title_div">
 							<label for="mng_pw">
@@ -36,8 +36,13 @@
 							</label>
 						</div>
 						<div class="input_div">
-							<input id="mng_pw" name="mng_pw" type="password">
+							<input id="mng_pw" name="mng_pw" type="password" required>
 						</div>
+					</div>
+					<div id="confirm_div">
+						<c:if test="${try_count eq 1}">
+							<span>ID 또는 PW를 확인해주세요.</span>
+						</c:if>
 					</div>
 					<div id="btn_div">
 						<button type="submit" id="submit_btn" class="btn">인증하기</button>

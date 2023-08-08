@@ -24,7 +24,11 @@ public class ManagerController {
 	ManagerService serv;
 	
 	@GetMapping("")
-	String certification() {
+	String certification(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute("manager_token") != null) return "redirect:main";
+		
 		return "manager/certification";
 	}
 	
@@ -60,47 +64,47 @@ public class ManagerController {
 		return "manager/admin_main";
 	}
 	
-	@GetMapping("/admin_game")
+	@GetMapping("/manage/admin_game")
 	String adminGame() {
 		return "manager/admin_game";
 	}
 	
-	@GetMapping("/admin_user")
+	@GetMapping("/manage/admin_user")
 	String adminUser() {
 		return "manager/admin_user";
 	}
 	
-	@GetMapping("/admin_chart")
+	@GetMapping("/manage/admin_chart")
 	String adminChart() {
 		return "manager/admin_chart";
 	}
 	
-	@GetMapping("/admin_inquiry")
+	@GetMapping("/manage/admin_inquiry")
 	String adminInquiry() {
 		return "manager/admin_inquiry";
 	}
 	
-	@GetMapping("/admin_notice")
+	@GetMapping("/manage/admin_notice")
 	String adminNotice() {
 		return "manager/admin_notice";
 	}
 	
-	@GetMapping("/admin_faq")
+	@GetMapping("/manage/admin_faq")
 	String adminFaq() {
 		return "manager/admin_faq";
 	}
 	
-	@GetMapping("/admin_key")
+	@GetMapping("/manage/admin_key")
 	String adminKey() {
 		return "manager/admin_key";
 	}
 
-	@GetMapping("/admin_out")
+	@GetMapping("/manage/admin_out")
 	String adminOut() {
 		return "manager/admin_out";
 	}
 	
-	@GetMapping("/sessionOut")
+	@GetMapping("/manage/sessionOut")
 	String adminOut(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 	

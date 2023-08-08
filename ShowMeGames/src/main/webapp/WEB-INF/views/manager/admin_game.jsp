@@ -21,11 +21,32 @@
 			<div id="main_content">
 				<div id="account_content">
 					<h2 class="content_title">게임 정보 관리</h2>
-					<div id="public_profile" class="content_item">
-						<div class="item_title">
-							<span>게임 리스트</span>
+					<div class="content_item">
+						<div class="item_title_wrapper">
+							<div class="item_title">
+								<span>게임 리스트</span>
+							</div>
+							<div class="content_update_wrapper">
+								<button class="btn">추가</button>
+							</div>
 						</div>
-						<div>
+						<div id="game_content_wrapper">
+							<div>
+								<div class="content_grid">
+									<div class="content_grid_item">ID</div>
+									<div class="content_grid_item">이름</div>
+									<div class="content_grid_item">가격</div>
+									<div class="content_grid_item">할인</div>
+									<div class="content_grid_item">수정</div>
+								</div>
+								<div class="content_grid">
+									<div class="content_grid_item">1</div>
+									<div class="content_grid_item">2</div>
+									<div class="content_grid_item">3</div>
+									<div class="content_grid_item">4</div>
+									<div class="content_grid_item">5</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
