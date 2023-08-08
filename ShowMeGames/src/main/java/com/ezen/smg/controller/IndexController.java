@@ -9,8 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.dto.Games;
+import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.service.gamesService.GamesService;
 import com.ezen.smg.service.indexService.IndexService;
@@ -58,13 +61,16 @@ public class IndexController {
 	}
 	
 	@GetMapping(value="/detail")
-	public String detail(Integer game, Model model, String layout) {
+	public String detail(Integer game, Model model, String layout, @SessionAttribute(name = "user", required = false) SmgUsersDTO user) {
 		
 		String url = detail_url_mapper.get(layout);
 		
 		Games gameDTO = gamesMapper.getGame(game);
+		gameDTO.setDiscounted_price(CommonFunction.calDiscount(gameDTO.getGame_price(), gameDTO.getDiscount()));
 		
 		model.addAttribute("game", gameDTO);
+		model.addAttribute("rateds", gameDTO.getRated().split("/"));
+		model.addAttribute("user", user);
 		
 		if (url == null) {
 			return "/games/default";
