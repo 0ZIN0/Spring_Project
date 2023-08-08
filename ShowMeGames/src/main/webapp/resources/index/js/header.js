@@ -288,13 +288,15 @@ function toggleDropdown() {
 $('#login-icon2').click(toggleDropdown);
 
 // 다른 곳을 클릭하면 드랍다운 닫기
-document.addEventListener("click", function (event) {
-  var dropdownContent = document.getElementById("dropdown-content");
-  var loginIcon = document.getElementById("login-icon2");
-  if (event.target !== loginIcon) {
-    dropdownContent.style.display = "none";
+$(document).on("click", function(event) {
+  var dropdownContent = $("#dropdown-content");
+  var loginIcon = $("#login-icon2");
+  
+  if (!loginIcon.is(event.target)) {
+      dropdownContent.css("display", "none");
   }
 });
+
 
 // minicart Mouse Event
 $('#header-cart').on({
@@ -316,6 +318,17 @@ $('#minicart').on({
     $('#header-bottom').removeClass('minicart-position');
     $('#minicart').removeClass('minicart-active');
   }
+});
+
+$('#minicart-delete').click(function (e) {
+  e.preventDefault();
+  $.ajax({
+    url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
+    method: 'GET',
+    success: () => {
+      updateMiniCart();
+    }
+  });
 });
 
 // minicart 내용 업데이트
@@ -374,7 +387,7 @@ function updateMiniCart() {
                 <!--minicart-list-right Part End -->
 
                 <div class="minicart-list-delete">
-                  <a class="cart-delete" data-gameid="${game.game_id}">
+                  <a id="minicart-delete" class="cart-delete" data-gameid="${game.game_id}">
                     <span class="material-symbols-outlined" data-gameid="${game.game_id}">delete</span>
                   </a>
                 </div>
@@ -415,15 +428,6 @@ function updateMiniCart() {
   });
 }
 
-$('.cart-delete').click(function (e) {
-  $.ajax({
-    url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
-    method: 'GET',
-    success: () => {
-      updateMiniCart(); // minicart 내용 업데이트
-    }
-  });
-});
 
 $(document).ready(function() {
   // 페이지가 로드될 때 updateMiniCart() 실행

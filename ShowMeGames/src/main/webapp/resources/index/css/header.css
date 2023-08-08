@@ -420,8 +420,10 @@ header {
 #header-bottom>:last-child {
    height: 100%;
 	display: flex;
-   margin-left: 20px;
-	justify-content: center;
+  margin-left: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .sub-ul > li {
@@ -723,11 +725,6 @@ img {
   align-items: center;
 }
 
-.cart-delete:hover {
+#minicart-delete:hover {
 	cursor: pointer;
-}
-
-.cart-delete > * {
-	font-size: 16px;
-	color: black;
 }

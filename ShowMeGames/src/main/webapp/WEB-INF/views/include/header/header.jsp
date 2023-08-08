@@ -2,12 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<script src="https://kit.fontawesome.com/c48a5ad62b.js"
+	crossorigin="anonymous"></script>
 <c:url value="${user.profile_url}" var="profile_img"/>
 <c:url value="/" var="toMain"/>
 <c:url value="/" var="conPath" />
-<script src="https://kit.fontawesome.com/c48a5ad62b.js"
-	crossorigin="anonymous"></script>
-
 
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -189,7 +188,7 @@
 		</div>
 
 		<div id="header-cart">
-			<a class="bottom-title" id="cart-btn" onclick="Location.href='${conPath}cart'"> <i
+			<a class="bottom-title" id="cart-btn" href="${conPath}cart"> <i
 				id="cart-icon" class="fa-solid fa-cart-shopping"></i> <span
 				id="cart-title">장바구니</span> <span class="cart-quantity"></span>
 			</a>
@@ -201,14 +200,12 @@
 				</div>
 					<div id="minicart-content" class="minicart-common">
 					<div class="empty-minicart-content minicart-common">
-						<div class="empty-minicart-message minicart-common">
-							장바구니가 비어있습니다.
-						</div>
+						<div class="empty-minicart-message minicart-common">장바구니가 비어있습니다.</div>
 						<div class="empty-minicart-image minicart-common">
 							<img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
 						</div>
 						<div class="empty-minicart-buttons minicart-common" onclick="location.href='${conPath}games'">
-							쇼핑하러 가기
+							쇼핑하러 가기 
 						</div>	
 					</div>
 				</div>

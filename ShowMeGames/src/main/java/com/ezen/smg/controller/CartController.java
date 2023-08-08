@@ -48,7 +48,7 @@ public class CartController {
 			return "cart";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "redirect:/"; // 로그인 팝업창 띄우기
+			return "cart"; // 로그인 팝업창 띄우기
 		}
 	}
 	
