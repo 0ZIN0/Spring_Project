@@ -296,8 +296,6 @@ document.addEventListener("click", function (event) {
   }
 });
 
-
-
 // minicart Mouse Event
 $('#header-cart').on({
     mouseenter: function() {
