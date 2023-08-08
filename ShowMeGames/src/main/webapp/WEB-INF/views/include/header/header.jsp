@@ -53,7 +53,7 @@
 								  	<c:when test="${user.user_grade eq 'A'}">
 								    <div class="profile-grade">골드등급입니다</div>
 								  	</c:when>
-								  	<c:otherwise test=""> 
+								  	<c:otherwise> 
 								    <div class="profile-grade">else..${user.user_grade}</div>
 								  	</c:otherwise>
 								  </c:choose>
