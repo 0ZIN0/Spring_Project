@@ -42,7 +42,6 @@ public class ManagerServiceImp1 implements ManagerService {
 		return managerMapper.getManager(mng_num);
 	}
 
-	/**  */
 	@Override
 	public Pagination getPagination(int currPage, int totalSize) {
 		Pagination paging = new Pagination(totalSize, pageNum);
@@ -51,6 +50,7 @@ public class ManagerServiceImp1 implements ManagerService {
 		
 		return paging;
 	}
+
 	/** admin_game 관련 서비스 */
 	@Override
 	public List<Games> getGameList(int currPage) {
@@ -60,10 +60,10 @@ public class ManagerServiceImp1 implements ManagerService {
 		return gamesMapper.getGameListForAdmin(firstGame, lastGame);
 	}
 
-
 	@Override
 	public int getGameListTotalSize() {
 		return gamesMapper.getGamesTotalSize();
 	}
+
 
 }

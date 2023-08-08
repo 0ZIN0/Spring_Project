@@ -49,58 +49,27 @@
 										<span>수정</span>
 									</div>
 								</div>
-								<div class="content_grid">
-									<div class="content_grid_item">
-										<span>1</span>
+								<c:forEach items="${gameList}" var="game">
+									<div class="content_grid">
+										<div class="content_grid_item">
+											<span>${game.game_id}</span>
+										</div>
+										<div class="content_grid_item">
+											<span>${game.game_name}</span>
+										</div>
+										<div class="content_grid_item">
+											<span>${game.game_price}</span>
+										</div>
+										<div class="content_grid_item">
+											<span>${game.discount}</span>
+										</div>
+										<div class="content_grid_item">
+											<button class="btn item_update_btn">수정</button>
+										</div>
 									</div>
-									<div class="content_grid_item">
-										<span>2</span>
-									</div>
-									<div class="content_grid_item">
-										<span>3</span>
-									</div>
-									<div class="content_grid_item">
-										<span>4</span>
-									</div>
-									<div class="content_grid_item">
-										<button class="btn item_update_btn">수정</button>
-									</div>
-								</div>
-								<div class="content_grid">
-									<div class="content_grid_item">
-										<span>1</span>
-									</div>
-									<div class="content_grid_item">
-										<span>2</span>
-									</div>
-									<div class="content_grid_item">
-										<span>3</span>
-									</div>
-									<div class="content_grid_item">
-										<span>4</span>
-									</div>
-									<div class="content_grid_item">
-										<button class="btn item_update_btn">수정</button>
-									</div>
-								</div>
-								<div class="content_grid">
-									<div class="content_grid_item">
-										<span>1</span>
-									</div>
-									<div class="content_grid_item">
-										<span>2</span>
-									</div>
-									<div class="content_grid_item">
-										<span>3</span>
-									</div>
-									<div class="content_grid_item">
-										<span>4</span>
-									</div>
-									<div class="content_grid_item">
-										<button class="btn item_update_btn">수정</button>
-									</div>
-								</div>
+								</c:forEach>
 							</div>
+							<%@ include file="/WEB-INF/views/manager/include/paging.jsp" %>
 						</div>
 					</div>
 				</div>

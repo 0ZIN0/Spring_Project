@@ -11,7 +11,7 @@ public interface ManagerService {
 	ManagersDTO confirmManager(String mng_id, String mng_pw);
 	ManagersDTO getManager(Integer mng_num);
 
-	// 게시판식 페이지 계산 기능
+	// 페이징을 위한 서비스
 	Pagination getPagination(int currPage, int totalSize);
 	
 	/** admin_game 관련 서비스 */

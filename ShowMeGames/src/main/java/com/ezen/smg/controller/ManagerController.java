@@ -27,7 +27,7 @@ public class ManagerController {
 	String certification(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		
-		if(session.getAttribute("manager_token") != null) return "redirect:main";
+		if(session.getAttribute("manager_token") != null) return "redirect:/admin/main";
 		
 		return "manager/certification";
 	}
@@ -65,8 +65,13 @@ public class ManagerController {
 	}
 	
 	@GetMapping("/manage/admin_game")
-	String adminGame(Model model) {
+	String adminGame(Integer page, Model model) {
+		if(page == null) page = 1;
 		
+		int totalSize = serv.getGameListTotalSize();
+		
+		model.addAttribute("paging", serv.getPagination(page, totalSize));
+		model.addAttribute("gameList", serv.getGameList(page));
 		
 		return "manager/admin_game";
 	}
