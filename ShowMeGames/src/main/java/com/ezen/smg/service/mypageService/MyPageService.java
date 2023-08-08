@@ -18,5 +18,5 @@ public interface MyPageService {
 	int updateUserInfo(SmgUsersDTO user);
 	int withdrawal_user(int user_num);
 	int updateUserPw(int user_num, String user_pw);
-	MyGameListDTO getMyGameKeyList(Integer user_num);
+	List<MyGameListDTO> getMyGameKeyList(Integer user_num);
 }

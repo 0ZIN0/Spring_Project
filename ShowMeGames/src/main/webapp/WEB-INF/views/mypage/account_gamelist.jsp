@@ -42,23 +42,25 @@
 								<div></div>
 							</div>
 							<div id="game-content">
-								<c:forEach items="myGameList" var="game">
+								<c:forEach items="${myGameList }" var="game">
 									<div class="game-content-front">
-										<div>${game.order_date }</div>
+										<div>
+											<fmt:formatDate  var="date" value="${game.order_date}" type="DATE" pattern="yyyy.MM.dd"/>${date}
+										</div>
 										<div class="game-title">${game.game_name}</div>
 										<div>
 											₩
 											<fmt:formatNumber type="number" maxFractionDigits="3"
-												value="10000" />
+												value="${game.game_price }" />
 										</div>
-										<div class="game-status">$</div>
+										<div class="game-status">${game.order_status }</div>
 										<div>
 											<button class="btn key-btn" data-key="key-${game.game_id}">키 확인</button>
 										</div>
 										<div id="key-${game.game_id}" class="game-content-back">
 											<div class="back-game-name">${game.game_name }</div>
 											<div class="back-game-key">
-												KEY : <span class="back-game-key-id">&nbsp;${game.game_key }</span>
+												KEY : <span class="back-game-key-id">&nbsp;${game.key_id }</span>
 											</div>
 											<div>
 												<button class="btn game-detail-btn" data-key="key-${game.game_id}">결제 내역</button>

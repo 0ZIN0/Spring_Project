@@ -36,8 +36,6 @@ public class MyPageController {
 	@Autowired
 	OrderDetailService orderDetailService;
 	
-	@Autowired
-	GameKeyMapper gameKeyMapper;
 	
 	@GetMapping("/my_account")
 	String accountInfo(HttpServletRequest request, Model model) {
@@ -149,8 +147,8 @@ public class MyPageController {
 	
 	@GetMapping("/gamelist")
 	String accountGameList(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model) {
-		log.info(gameKeyMapper.getUserGameKeyList(user.getUser_num()));
-		model.addAttribute("myGameList", gameKeyMapper.getUserGameKeyList(user.getUser_num()));
+		log.info(mypageService.getMyGameKeyList(user.getUser_num()));
+		model.addAttribute("myGameList", mypageService.getMyGameKeyList(user.getUser_num()));
 		return "mypage/account_gamelist";
 	}
 	

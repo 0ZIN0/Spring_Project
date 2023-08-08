@@ -12,6 +12,7 @@ public class MyGameListDTO {
 	private String buyer_name;
 	private String game_name;
 	private Integer game_price;
+	private String order_status;
 	private String key_id;
 	
 }
