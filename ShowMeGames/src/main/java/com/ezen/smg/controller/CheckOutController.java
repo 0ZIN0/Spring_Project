@@ -37,17 +37,17 @@ public class CheckOutController {
 	public void OrderFin(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model, Integer order_id) {
 		Orders order = new Orders();
 		
-		order.setImp_uid("imp12345");
-		order.setBuyer_name("이로아");
-		order.setAddress("경기도 남양주시 금곡동");
-		order.setAdd_point(10000);
-		order.setUse_point(5000);
-		order.setOrder_date(new Date());
-		order.setOrder_price(10000);
-		order.setOrder_product("두근두근 문예부");
+//		order.setImp_uid("imp12345");
+//		order.setBuyer_name("이로아");
+//		order.setAddress("경기도 남양주시 금곡동");
+//		order.setAdd_point(10000);
+//		order.setUse_point(5000);
+//		order.setOrder_date(new Date());
+//		order.setOrder_price(10000);
+//		order.setOrder_product("두근두근 문예부");
 		
 		model.addAttribute("user_point", user.getUser_point());
-		model.addAttribute("order", order);
-//		model.addAttribute("order", orderService.getSelectOrder(order_id));
+//		model.addAttribute("order", order);
+		model.addAttribute("order", orderService.getSelectOrder(order_id));
 	}
 }

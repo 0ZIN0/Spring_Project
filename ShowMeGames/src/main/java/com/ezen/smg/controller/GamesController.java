@@ -26,7 +26,9 @@ public class GamesController {
 		log.info(editor);
 		log.info(genres);
 		log.info(sortBy);
-
+		
+		model.addAttribute("bestSellers", gamesService.getBestSellers());
+		model.addAttribute("weeklyBestSellers", gamesService.getWeeklyBestSellers());
 		model.addAttribute("games", 
 				gamesService.getFilteredGames(genres, editor, sortBy));
 		model.addAttribute("lastestGames",gamesService.getLatestGameList());

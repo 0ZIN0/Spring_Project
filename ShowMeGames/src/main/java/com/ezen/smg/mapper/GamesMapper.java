@@ -36,4 +36,8 @@ public interface GamesMapper {
 			@Param("sortBy") String sortBy);
 	
 	List<Games> getGenreSameGames(@Param("game_genre") String game_genre);
+	
+	List<Games> getBestSellers();
+	
+	List<Games> getWeeklyBestSellers();
 }
