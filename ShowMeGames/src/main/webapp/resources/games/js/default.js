@@ -1,7 +1,27 @@
 $('#checkoutBtn').click(function (e) {
-    
-    if ($('#game_detail_btn_div').data('session') != "") {
-        location.href = "./cart";
+    const user = $('#game_detail_btn_div').data('session');
+    const user_num = $('#game_detail_btn_div').data('user');
+    const cart = $('#game_detail_btn_div').data('cart');
+    if (user != "") {
+        var result = {
+            "user_num" : user_num,
+            "cart_content" : cart
+        }
+
+        $.ajax({
+            url : './add-cart',
+			type : 'PUT',
+            data : JSON.stringify(result, ['user_num', 'cart_content']),
+            contentType : 'application/json;charset=utf-8',
+            dataType : 'json',
+            success : function(res) {
+                if (res == 1) {
+                    location.href = "./cart";
+                } else {
+                    console.log("Insert Fail!!!");
+                }
+            }
+        });
     } else {
         openLoginPopup();
     }

@@ -109,14 +109,14 @@
 									</div>
 								</c:forEach>
 							</div>
-							<div id="game_detail_btn_div" data-session="${user}">
+							<div id="game_detail_btn_div" data-session="${user}" data-user="${user.user_num}" data-cart="${game.game_id}">
 								<button id="checkoutBtn">지금 구매</button>
 								<button id="cartBtn">장바구니에 담기</button>
 							</div>
 						</div>
 					</div>
 				</div>
-
+				
 				<!-- 아래부터는 free layout -->
 			</div>
 		</div>

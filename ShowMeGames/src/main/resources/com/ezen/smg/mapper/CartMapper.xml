@@ -14,4 +14,14 @@
 	<delete id="deleteCart" parameterType="int">
 		DELETE FROM carts WHERE user_num=#{user_num}
 	</delete>
+	
+	<insert id="addCart" parameterType="com.ezen.smg.dto.Carts">
+		INSERT INTO carts (user_num, cart_content)values (
+    		#{dto.user_num}, #{dto.cart_content}
+		)
+	</insert>
+	
+	<update id="updateCart" parameterType="com.ezen.smg.dto.Carts">
+		UPDATE carts SET cart_content=#{dto.cart_content} WHERE user_num=#{dto.user_num}
+	</update>
 </mapper> 
