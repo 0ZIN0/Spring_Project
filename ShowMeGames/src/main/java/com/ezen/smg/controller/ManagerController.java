@@ -65,7 +65,9 @@ public class ManagerController {
 	}
 	
 	@GetMapping("/manage/admin_game")
-	String adminGame() {
+	String adminGame(Model model) {
+		
+		
 		return "manager/admin_game";
 	}
 	
