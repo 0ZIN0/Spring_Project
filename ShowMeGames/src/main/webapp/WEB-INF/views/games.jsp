@@ -101,39 +101,46 @@
 							arrow_back_ios </span>
 					</div>
 					<div class="blank"></div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${game_img}/Tekken7/Tekken5.jpg" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${game_img}/Forza_Horizon/Forza Horzon4.jpg" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
+					<c:forEach items="${bestSellers}" var="game">
+						<div class="recmd-items toDetailBtn" data-id="${game.game_id}" data-layout="${game.layout}">
+							<div>
+								<img src="${game.banner_img_url}" alt="${game.game_name}_배너사진">
+							</div>
+							<div class="item_text_box">
+								<div>
+									<span class="game_title">${game.game_name}</span>
+								</div>
+								<c:choose>
+									<c:when test="${game.game_price == 0}">
+										<div></div>
+										<div>
+											<span></span> <span>무료</span>
+										</div>
+									</c:when>
+									<c:when test="${game.discount == 0}">
+										<div></div>
+										<div>
+											<span></span> <span> ₩<fmt:formatNumber type="number"
+													maxFractionDigits="3" value="${game.discounted_price}" />
+											</span>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div>
+											<span>-${game.discount}%</span>
+										</div>
+										<div>
+											<span> ₩<fmt:formatNumber type="number"
+													maxFractionDigits="3" value="${game.game_price}" />
+											</span> <span> ₩<fmt:formatNumber type="number"
+													maxFractionDigits="3" value="${game.discounted_price}" />
+											</span>
+										</div>
+									</c:otherwise>
+								</c:choose>
+							</div>
+						</div>
+					</c:forEach>
 					<div id=best-seller-next-btn class="slider-next-btn">
 						<span class="material-symbols-outlined" style="font-size: 48px">
 							arrow_forward_ios </span>
@@ -194,6 +201,10 @@
 							</div>
 						</div>
 					</c:forEach>
+					<div id=best-seller-next-btn class="slider-next-btn">
+						<span class="material-symbols-outlined" style="font-size: 48px">
+							arrow_forward_ios </span>
+					</div>
 				</div>
 			</div>
 			<div id=week-best-seller class="slider">
@@ -210,39 +221,46 @@
 							arrow_back_ios </span>
 					</div>
 					<div class="blank"></div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${game_img}/Tekken7/Tekken5.jpg" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${game_img}/Forza_Horizon/Forza Horzon4.jpg" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${game_img}/Elden_Ring/EldenRing8.jpeg" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${game_img}/DarkSouls3/DarkSoul3_5.jpeg" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${game_img}/CyberPunk/CyberPunk8.jpeg" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
-					<div class="card">
-						<img src="${img}/black.png" alt="사진">
-					</div>
+					<c:forEach items="${weeklyBestSellers}" var="game">
+						<div class="recmd-items toDetailBtn" data-id="${game.game_id}" data-layout="${game.layout}">
+							<div>
+								<img src="${game.banner_img_url}" alt="${game.game_name}_배너사진">
+							</div>
+							<div class="item_text_box">
+								<div>
+									<span class="game_title">${game.game_name}</span>
+								</div>
+								<c:choose>
+									<c:when test="${game.game_price == 0}">
+										<div></div>
+										<div>
+											<span></span> <span>무료</span>
+										</div>
+									</c:when>
+									<c:when test="${game.discount == 0}">
+										<div></div>
+										<div>
+											<span></span> <span> ₩<fmt:formatNumber type="number"
+													maxFractionDigits="3" value="${game.discounted_price}" />
+											</span>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div>
+											<span>-${game.discount}%</span>
+										</div>
+										<div>
+											<span> ₩<fmt:formatNumber type="number"
+													maxFractionDigits="3" value="${game.game_price}" />
+											</span> <span> ₩<fmt:formatNumber type="number"
+													maxFractionDigits="3" value="${game.discounted_price}" />
+											</span>
+										</div>
+									</c:otherwise>
+								</c:choose>
+							</div>
+						</div>
+					</c:forEach>
 					<div id=week-best-seller-next-btn class="slider-next-btn">
 						<span class="material-symbols-outlined" style="font-size: 48px">
 							arrow_forward_ios </span>

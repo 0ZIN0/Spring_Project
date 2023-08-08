@@ -10,6 +10,35 @@
 	<select id="getNewSortGames" resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a order by release_date desc) WHERE rn BETWEEN #{start} AND #{end}
 	</select>
+
+	<select id="getBestSellers" resultType="com.ezen.smg.dto.Games">
+		SELECT games.*
+		FROM (
+		SELECT a.game_id, count(*) AS cnt,
+		ROW_NUMBER() OVER (ORDER BY count(*) DESC) as rn
+		FROM order_detail a
+		GROUP BY a.game_id
+		) od, games
+		WHERE rn BETWEEN 1 AND 10
+		AND od.game_id = games.game_id
+		ORDER BY cnt DESC
+	</select>
+	
+	<select id="getWeeklyBestSellers"
+	resultType="com.ezen.smg.dto.Games">
+		SELECT games.*, od.*
+		FROM (
+		SELECT a.game_id, count(*) AS cnt,
+		ROW_NUMBER() OVER (ORDER BY count(*) DESC) as rn
+		FROM order_detail a, orders o
+		WHERE a.order_id = o.order_id
+		AND o.order_date > sysdate - 7
+		GROUP BY a.game_id
+		) od, games
+		WHERE rn BETWEEN 1 AND 10
+		AND od.game_id = games.game_id
+		ORDER BY cnt DESC
+	</select>
 	
 	<select id="getGame" resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM games where game_id=#{game_id}
