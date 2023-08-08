@@ -6,7 +6,7 @@
 <!-- c:url settings -->
 <c:url value="/resources/games/css/default.css" var="default_css" />
 <c:url value="/resources/games/js/default.js" var="default_js" />
-<c:url value="/resources/img/games/" var="img" />
+<c:url value="/resources/img/games/rated/" var="rated_img" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,41 +105,7 @@
 							<div id="game_age_grade_div">
 								<c:forEach items="${rateds}" var="rated">
 									<div class="game_age_grade_content">
-										<c:choose>
-											<c:when test="${rated eq '12'}">
-												<img class="game_age_grade" alt="" src="${img}age12.svg">
-											</c:when>
-											<c:when test="${rated eq '15'}">
-												<img class="game_age_grade" alt="" src="${img}age15.svg">
-											</c:when>
-											<c:when test="${rated eq '18'}">
-												<img class="game_age_grade" alt="" src="${img}age18.svg">
-											</c:when>
-											<c:when test="${rated eq '0'}">
-												<img class="game_age_grade" alt="" src="${img}ageAll.svg">
-											</c:when>
-											<c:when test="${rated eq 'cr'}">
-												<img class="game_age_grade" alt="" src="${img}crime.svg">
-											</c:when>
-											<c:when test="${rated eq 'dr'}">
-												<img class="game_age_grade" alt="" src="${img}drug.svg">
-											</c:when>
-											<c:when test="${rated eq 'fe'}">
-												<img class="game_age_grade" alt="" src="${img}fear.svg">
-											</c:when>
-											<c:when test="${rated eq 'ga'}">
-												<img class="game_age_grade" alt="" src="${img}gambling.svg">
-											</c:when>
-											<c:when test="${rated eq 'se'}">
-												<img class="game_age_grade" alt="" src="${img}sensuality.svg">
-											</c:when>
-											<c:when test="${rated eq 'vi'}">
-												<img class="game_age_grade" alt="" src="${img}violent.svg">
-											</c:when>
-											<c:when test="${rated eq 'wr'}">
-												<img class="game_age_grade" alt="" src="${img}wrongword.svg">
-											</c:when>
-										</c:choose>
+										<img class="game_age_grade" alt="" src="${rated_img}${rated}.svg">
 									</div>
 								</c:forEach>
 							</div>
