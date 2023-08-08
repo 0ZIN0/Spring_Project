@@ -9,10 +9,10 @@
 
 	<insert id="insertPay" parameterType="com.ezen.smg.dto.Orders">
 		insert into orders (
-			order_id, user_num, order_price, order_date, pay_method, order_status, imp_uid, buyer_email, use_point, add_point, buyer_name, address
+			order_id, user_num, order_price, order_date, pay_method, order_status, imp_uid, buyer_email, use_point, add_point, buyer_name, address, order_product
 		)
 		values(
-			#{order.order_id}, #{order.user_num}, #{order.order_price}, #{order.order_date}, #{order.pay_method}, #{order.order_status}, #{order.imp_uid}, #{order.buyer_email}, #{order.use_point}, #{order.add_point}, #{order.buyer_name}, #{order.address}
+			#{order.order_id}, #{order.user_num}, #{order.order_price}, #{order.order_date}, #{order.pay_method}, #{order.order_status}, #{order.imp_uid}, #{order.buyer_email}, #{order.use_point}, #{order.add_point}, #{order.buyer_name}, #{order.address}, #{order.order_product}
 		)
 	</insert>
 	
