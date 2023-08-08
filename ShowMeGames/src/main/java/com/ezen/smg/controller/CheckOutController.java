@@ -1,7 +1,5 @@
 package com.ezen.smg.controller;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +11,8 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.ezen.smg.dto.Orders;
 import com.ezen.smg.dto.SmgUsersDTO;
+import com.ezen.smg.mapper.UsersMapper;
+import com.ezen.smg.service.memberService.MemberService;
 import com.ezen.smg.service.orderService.OrderService;
 
 import lombok.extern.log4j.Log4j;
@@ -23,6 +23,9 @@ public class CheckOutController {
 	
 	@Autowired
 	OrderService orderService;
+	
+	@Autowired
+	UsersMapper usersMapper;
 	
 	@ResponseBody
 	@RequestMapping(value = "/checkout-success")
@@ -35,19 +38,19 @@ public class CheckOutController {
 	
 	@GetMapping(value = "/orderfin")
 	public void OrderFin(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model, Integer order_id) {
-		Orders order = new Orders();
+//		Orders order = new Orders();
 		
-		order.setImp_uid("imp12345");
-		order.setBuyer_name("이로아");
-		order.setAddress("경기도 남양주시 금곡동");
-		order.setAdd_point(10000);
-		order.setUse_point(5000);
-		order.setOrder_date(new Date());
-		order.setOrder_price(10000);
-		order.setOrder_product("두근두근 문예부");
+//		order.setImp_uid("imp12345");
+//		order.setBuyer_name("이로아");
+//		order.setAddress("경기도 남양주시 금곡동");
+//		order.setAdd_point(10000);
+//		order.setUse_point(5000);
+//		order.setOrder_date(new Date());
+//		order.setOrder_price(10000);
+//		order.setOrder_product("두근두근 문예부");
 		
-		model.addAttribute("user_point", user.getUser_point());
-		model.addAttribute("order", order);
-//		model.addAttribute("order", orderService.getSelectOrder(order_id));
+		model.addAttribute("user_point", usersMapper.getUserInfo(user.getUser_num()).getUser_point());
+//		model.addAttribute("order", order);
+		model.addAttribute("order", orderService.getSelectOrder(order_id));
 	}
 }
