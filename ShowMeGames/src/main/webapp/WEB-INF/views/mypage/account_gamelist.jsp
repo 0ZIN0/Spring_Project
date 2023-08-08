@@ -29,39 +29,39 @@
 				<h2 class="content_title">게임보유리스트</h2>
 				<div class="content_item">
 					<div class="item_title_wrapper">
-						<div id="order-list-div" class="item_title_wrapper">
+						<div id="game-list-div" class="item_title_wrapper">
 						<div class="item_title">
 							<span>게임리스트</span>
 						</div>
-						<div id="order-list">
-							<div id="order-title">
-								<div>날짜</div>
+						<div id="game-list">
+							<div id="game-title">
+								<div>구매일</div>
 								<div>게임명</div>
 								<div>가격</div>
 								<div>상태</div>
 								<div></div>
 							</div>
-							<div id="order-content">
-								<c:forEach begin="1" end="3" var="i">
-									<div class="order-content-front">
-										<div>2023.02.28</div>
-										<div class="order-game">리그오브레전드</div>
+							<div id="game-content">
+								<c:forEach items="myGameList" var="game">
+									<div class="game-content-front">
+										<div>${game.order_date }</div>
+										<div class="game-title">${game.game_name}</div>
 										<div>
 											₩
 											<fmt:formatNumber type="number" maxFractionDigits="3"
 												value="10000" />
 										</div>
-										<div class="order-status">구매함</div>
+										<div class="game-status">$</div>
 										<div>
-											<button class="btn key-btn" data-key="key-${i}">키 확인</button>
+											<button class="btn key-btn" data-key="key-${game.game_id}">키 확인</button>
 										</div>
-										<div id="key-${i}" class="order-content-back">
-											<div class="back-game-name">리그오브레전드</div>
+										<div id="key-${game.game_id}" class="game-content-back">
+											<div class="back-game-name">${game.game_name }</div>
 											<div class="back-game-key">
-												KEY : <span class="back-game-key-id">&nbsp;2NCU-JRTW-56VO-7S68</span>
+												KEY : <span class="back-game-key-id">&nbsp;${game.game_key }</span>
 											</div>
 											<div>
-												<button class="btn order-detail-btn" data-key="key-${i}">결제 내역</button>
+												<button class="btn game-detail-btn" data-key="key-${game.game_id}">결제 내역</button>
 											</div>
 										</div>
 									</div>

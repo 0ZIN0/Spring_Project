@@ -11,4 +11,14 @@
 				where game_id = #{game_id} and user_num is null) 
 		WHERE rn = 1)
 	</update>
+	
+	<select id="getUserGameKeyList" resultType="com.ezen.smg.dto.MyGameListDTO">
+		SELECT o.order_date, u.user_num, od.game_id, g.game_name, game_price, key_num, key_id  
+		FROM orders o, order_detail od, games g, game_key gk, smg_users u 
+		where od.game_id = g.game_id
+		AND u.user_num = gk.user_num
+		AND o.order_id = od.order_id
+		AND gk.game_id = g.game_id
+		AND u.user_num = #{user_num}
+	</select>
 </mapper>
