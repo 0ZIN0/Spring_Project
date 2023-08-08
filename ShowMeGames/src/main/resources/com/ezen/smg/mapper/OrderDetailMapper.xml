@@ -10,4 +10,7 @@
 		od_id_seq.nextval, #{dto.order_id}, #{dto.game_id}, #{dto.buyer_name}
 		)
 	</insert>
+	<select id="getODList" resultType="com.ezen.smg.dto.OrderDetail">
+		SELECT * FROM order_detail WHERE order_id=#{order_id}
+	</select>
 </mapper> 

@@ -1,0 +1,59 @@
+#main_content {
+    margin: 0 auto;
+}
+
+.order-list-btn {
+    width: 120px;
+}
+
+#order-list-btn-div {
+    width: auto;
+}
+
+.item_title {
+    width: 500px;
+}
+
+#order-list-btn-div {
+    display: flex;
+    justify-content: right;
+    width: -webkit-fill-available;
+}
+
+#od-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    margin: 20px 0;
+    padding: 30px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+}
+
+#od-left, #od-right {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.od-row {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.od-title {
+    font-weight: 600;
+}
+
+#get-games {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+#get-games > * {
+    color: #F22349;
+    font-weight: 600;
+    text-decoration: underline;
+    font-size: 18px;
+}

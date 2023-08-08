@@ -15,6 +15,9 @@
  	<select id="getProfile_img_url">
 		SELECT profile_url FROM smg_users WHERE user_num=#{user_num}
 	</select>
+ 	<select id="getUser_pw">
+		SELECT user_pw FROM smg_users WHERE user_num=#{user_num}
+	</select>
 	<insert id="signUp" parameterType="com.ezen.smg.dto.SmgUsersDTO">
  		INSERT INTO smg_users(
  			user_num,
@@ -80,5 +83,12 @@
 			gender=#{dto.gender} 
 	  	WHERE 
 	  		user_num=#{dto.user_num}
+	</update>
+	<update id="updateUserPw">
+		UPDATE smg_users 
+		SET 
+			user_pw=#{user_pw} 
+		WHERE 
+			user_num=#{user_num}
 	</update>
  </mapper>

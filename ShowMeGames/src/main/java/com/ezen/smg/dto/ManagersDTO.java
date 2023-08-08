@@ -3,7 +3,7 @@ package com.ezen.smg.dto;
 import lombok.Data;
 
 @Data
-public class Managers {
+public class ManagersDTO {
 	private Integer mng_num;
 	private String mng_id;
 	private String mng_pw;

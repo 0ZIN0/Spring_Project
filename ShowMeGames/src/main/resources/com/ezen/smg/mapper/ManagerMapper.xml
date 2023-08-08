@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.ezen.smg.mapper.ManagerMapper">
+ 	<select id="getMangerById" resultType="com.ezen.smg.dto.ManagersDTO">
+ 		SELECT * FROM managers WHERE mng_id=#{mng_id}
+ 	</select>
+ 	<select id="getManager" resultType="com.ezen.smg.dto.ManagersDTO">
+ 		SELECT * FROM managers WHERE mng_num=#{mng_num}
+ 	</select>
+ </mapper>

@@ -21,8 +21,25 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- 인터셉터 객체 생성 --> 
+	<beans:bean id="authenticationInterceptor" class="com.ezen.smg.interceptor.AuthenticationInterceptor">
+    </beans:bean>
+    
+   	<beans:bean id="adminInterceptor" class="com.ezen.smg.interceptor.AdminInterceptor">
+    </beans:bean>
+    
+	<!-- Interceptor 설정 -->
+    <interceptors>
+        <interceptor>
+            <mapping path="/mypage/*" />
+            <beans:ref bean="authenticationInterceptor"/>
+        </interceptor>
+        <interceptor>
+            <mapping path="/admin/manage/*" />
+            <beans:ref bean="adminInterceptor"/>
+        </interceptor>
+    </interceptors>
+	
 	<context:component-scan base-package="com.ezen.smg" />
-	
-	
 	
 </beans:beans>

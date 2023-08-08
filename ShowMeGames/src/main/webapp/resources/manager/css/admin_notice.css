@@ -1,0 +1,8 @@
+/* 사이드바 설정 */
+#side_admin_notice {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+#side_admin_notice span.material-icons {
+    color: #eeab0a;
+}

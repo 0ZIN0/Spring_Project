@@ -20,4 +20,6 @@ public class Games {
 	private String banner_img_url;
 	private	String editor;
 	private Integer discounted_price;
+	private String layout;
+	private String rated;
 }
