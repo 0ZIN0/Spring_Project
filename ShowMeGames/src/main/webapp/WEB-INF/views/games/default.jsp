@@ -41,10 +41,10 @@
 								<div class="img-arrow">
 									<span class="material-symbols-outlined img-arrow-btn">arrow_back_ios</span>
 								</div>
-								<c:forEach begin="1" end="5" var="i">
+								<c:forEach begin="0" end="4" var="i" varStatus="status">
 									<div>
-										<img id="game_img_${i}" class="game_img_dto" alt=""
-											src="${game.banner_img_url}">
+										<img id="game_img_${status.index}" class="game_img_dto" alt=""
+											src="">
 									</div>
 								</c:forEach>
 								<div class="img-arrow">
