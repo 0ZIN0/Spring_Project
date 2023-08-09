@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.dto.SmgUsersDTO;
-import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.service.mypageService.MyPageService;
 import com.ezen.smg.service.orderDetailService.OrderDetailService;
 import com.ezen.smg.service.orderService.OrderService;
