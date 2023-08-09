@@ -105,7 +105,7 @@ public class GamesService_impl implements GamesService{
 	String sortByToString(Integer sortBy) {
 		
 		if(sortBy == 1) {
-			return "bestSeller DESC";
+			return "bestSeller";
 		} else if(sortBy == 3) {
 			return "game_name ASC";
 		} else {

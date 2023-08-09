@@ -4,103 +4,174 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.smg.mapper.GamesMapper">
 	<select id="getAllGames" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM games ORDER BY ${sort_by}
+		SELECT * FROM games ORDER BY
+		${sort_by}
 	</select>
-	
+
 	<select id="getNewSortGames" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a order by release_date desc) WHERE rn BETWEEN #{start} AND #{end}
+		SELECT * FROM (SELECT
+		rownum AS rn, a.* FROM games a order by release_date desc) WHERE rn
+		BETWEEN #{start} AND #{end}
 	</select>
 
 	<select id="getBestSellers" resultType="com.ezen.smg.dto.Games">
 		SELECT games.*
 		FROM (
 		SELECT a.game_id, count(*) AS cnt,
-		ROW_NUMBER() OVER (ORDER BY count(*) DESC) as rn
+		ROW_NUMBER() OVER (ORDER BY count(*)
+		DESC) as rn
 		FROM order_detail a
 		GROUP BY a.game_id
 		) od, games
-		WHERE rn BETWEEN 1 AND 10
+		WHERE rn
+		BETWEEN 1 AND 10
 		AND od.game_id = games.game_id
 		ORDER BY cnt DESC
 	</select>
-	
+
 	<select id="getWeeklyBestSellers"
-	resultType="com.ezen.smg.dto.Games">
+		resultType="com.ezen.smg.dto.Games">
 		SELECT games.*, od.*
 		FROM (
-		SELECT a.game_id, count(*) AS cnt,
+		SELECT a.game_id, count(*) AS
+		cnt,
 		ROW_NUMBER() OVER (ORDER BY count(*) DESC) as rn
-		FROM order_detail a, orders o
+		FROM order_detail
+		a, orders o
 		WHERE a.order_id = o.order_id
 		AND o.order_date > sysdate - 7
 		GROUP BY a.game_id
 		) od, games
 		WHERE rn BETWEEN 1 AND 10
-		AND od.game_id = games.game_id
+		AND od.game_id =
+		games.game_id
 		ORDER BY cnt DESC
 	</select>
-	
+
 	<select id="getGame" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM games where game_id=#{game_id}
+		SELECT * FROM games where
+		game_id=#{game_id}
 	</select>
-	
+
 	<select id="getFilteredGames"
 		resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
-		SELECT * FROM games
-		WHERE 1=1
-		<if test="editor != null and editor.size() > 0">
-			AND editor IN
-			<foreach collection="editor" item="editor" separator=","
-				open="(" close=")">
-				#{editor}
-			</foreach>
-		</if>
-		<if test="genre != null and !genre.isEmpty()">
-			AND REGEXP_LIKE(game_genre, #{genre})
-		</if>
-		<!-- <if test="game_name != null and !game_name.isEmpty()">
-			AND game_name LIKE '%' || #{game_name} || '%'
-		</if> -->
-		ORDER BY ${sortBy}
+		<choose>
+			<when test='sortBy.equals("bestSeller")'>
+				SELECT g.*, NVL(c.cnt, 0) AS sales_count
+				FROM games g
+				LEFT JOIN (
+				SELECT game_id, COUNT(*) AS cnt
+				FROM order_detail
+				GROUP BY game_id
+				) c ON g.game_id = c.game_id
+				WHERE 1=1
+				<if test="editor != null and editor.size() > 0">
+					AND g.editor IN
+					<foreach collection="editor" item="editor" separator=","
+						open="(" close=")">
+						#{editor}
+					</foreach>
+				</if>
+				<if test="genre != null and !genre.isEmpty()">
+					AND REGEXP_LIKE(g.game_genre, #{genre})
+				</if>
+				ORDER BY sales_count DESC
+			</when>
+			<otherwise>
+				SELECT * FROM games
+				WHERE 1=1
+				<if test="editor != null and editor.size() > 0">
+					AND editor IN
+					<foreach collection="editor" item="editor" separator=","
+						open="(" close=")">
+						#{editor}
+					</foreach>
+				</if>
+				<if test="genre != null and !genre.isEmpty()">
+					AND REGEXP_LIKE(game_genre, #{genre})
+				</if>
+				<!-- <if test="game_name != null and !game_name.isEmpty()"> AND game_name 
+					LIKE '%' || #{game_name} || '%' </if> -->
+				ORDER BY ${sortBy}
+			</otherwise>
+		</choose>
 	</select>
 
-	<select id="getLatestGameList" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM (SELECT * FROM games ORDER BY release_date DESC) WHERE rownum &lt;= 4
+	<select id="getLatestGameList"
+		resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM (SELECT * FROM games ORDER BY release_date
+		DESC) WHERE rownum &lt;= 4
 	</select>
 
-	<select id="getEditorRecmdList" resultType="com.ezen.smg.dto.Games">
+	<select id="getEditorRecmdList"
+		resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM games WHERE editor = #{editor}
 	</select>
-	
-	<select id="getLargestDiscountList" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM (SELECT * FROM games ORDER BY discount DESC) WHERE rownum &lt;= 10
+
+	<select id="getLargestDiscountList"
+		resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM (SELECT * FROM games ORDER BY discount DESC)
+		WHERE rownum &lt;= 10
 	</select>
-	
+
 	<select id="getEditors">
-		SELECT DISTINCT editor FROM games WHERE NOT editor IN('curator')
+		SELECT DISTINCT editor FROM games WHERE NOT editor
+		IN('curator')
 	</select>
-	
-	<select id="getSearchGames"
-		resultType="com.ezen.smg.dto.Games" parameterType="java.util.List">
+
+	<select id="getSearchGames" resultType="com.ezen.smg.dto.Games"
+		parameterType="java.util.List">
+		<choose>
+			<when test='sortBy.equals("bestSeller")'>
+				SELECT g.*, NVL(c.cnt, 0) AS sales_count
+				FROM games g
+				LEFT JOIN (
+				SELECT game_id, COUNT(*) AS cnt
+				FROM order_detail
+				GROUP BY game_id
+				) c ON g.game_id = c.game_id
+				WHERE 1=1
+				<if test="editor != null and editor.size() > 0">
+					AND g.editor IN
+					<foreach collection="editor" item="editor" separator=","
+						open="(" close=")">
+						#{editor}
+					</foreach>
+				</if>
+				<if test="genre != null and !genre.isEmpty()">
+					AND REGEXP_LIKE(g.game_genre, #{genre})
+				</if>
+				<if test="game_name != null and !game_name.isEmpty()">
+					AND game_name LIKE '%' || #{game_name} || '%'
+				</if>
+				ORDER BY sales_count DESC
+			</when>
+			<otherwise>
+				SELECT * FROM games
+				WHERE 1=1
+				<if test="editor != null and editor.size() > 0">
+					AND editor IN
+					<foreach collection="editor" item="editor" separator=","
+						open="(" close=")">
+						#{editor}
+					</foreach>
+				</if>
+				<if test="genre != null and !genre.isEmpty()">
+					AND REGEXP_LIKE(game_genre, #{genre})
+				</if>
+				<if test="game_name != null and !game_name.isEmpty()">
+					AND game_name LIKE '%' || #{game_name} || '%'
+				</if>
+
+				ORDER BY ${sortBy}
+			</otherwise>
+		</choose>
+	</select>
+
+
+	<select id="getGenreSameGames"
+		resultType="com.ezen.smg.dto.Games" parameterType="String">
 		SELECT * FROM games
-		WHERE 1=1
-		<if test="editor != null and editor.size() > 0">
-			AND editor IN
-			<foreach collection="editor" item="editor" separator=","
-				open="(" close=")">
-				#{editor}
-			</foreach>
-		</if>
-		<if test="genre != null and !genre.isEmpty()">
-			AND REGEXP_LIKE(game_genre, #{genre})
-		</if>
-		<if test="game_name != null and !game_name.isEmpty()">
-			AND game_name LIKE '%' || #{game_name} || '%'
-		</if>
-		ORDER BY ${sortBy}
-	</select>
-	
-	<select id="getGenreSameGames" resultType="com.ezen.smg.dto.Games" parameterType="String">
-		SELECT * FROM games WHERE game_genre LIKE #{game_genre}
+		WHERE game_genre LIKE #{game_genre}
 	</select>
 </mapper> 
