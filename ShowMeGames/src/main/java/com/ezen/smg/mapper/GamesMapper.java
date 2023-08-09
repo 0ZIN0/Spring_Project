@@ -40,4 +40,9 @@ public interface GamesMapper {
 	List<Games> getBestSellers();
 	
 	List<Games> getWeeklyBestSellers();
+	
+	int getGamesTotalSize();
+	
+	List<Games> getGameListForAdmin(@Param("start") int firstGame, @Param("end") int lastGame);
+	
 }
