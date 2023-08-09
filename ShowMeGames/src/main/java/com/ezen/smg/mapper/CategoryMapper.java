@@ -10,8 +10,7 @@ public interface CategoryMapper {
 	
 	List<Games> getBestsellers(
 			@Param("editor") List<String> editor, 
-			@Param("genre") String genre, 
-			@Param("sortBy") String sortBy);
+			@Param("genre") String genre);
 	
 	List<Games> getFreeGames(
 			@Param("editor") List<String> editor, 

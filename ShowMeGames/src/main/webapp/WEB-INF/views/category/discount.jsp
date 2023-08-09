@@ -106,25 +106,7 @@
 		<div class="primary">
 			<div class="sort">
 				<div class="sort_by">
-					<span class="material-symbols-outlined"> sort </span>
-					<label>정렬 기준:</label>
-					<div class="sort_by_inner">
-						<div class="sort_selector">
-							<button class="label">
-								<span class="label_text">정렬보기</span>
-								<div class="arrow">
-									<span class="material-symbols-outlined">
-										expand_less 
-									</span>								
-								</div>
-							</button>
-							<ul class="option_list">
-								<li class="option_item" value="1">베스트셀러</li>
-								<li class="option_item" value="2">출시일</li>
-								<li class="option_item" value="3">이름순</li>
-							</ul>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 			<div class="sort_result_content">

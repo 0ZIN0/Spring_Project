@@ -272,6 +272,7 @@ $(document).ready(function () {
     // '/games'가 아닐 경우 로컬 스토리지 항목 삭제
     sessionStorage.removeItem("genreList");
     sessionStorage.removeItem("editorList");
+    sessionStorage.removeItem("sortBy");
   }
 });
 

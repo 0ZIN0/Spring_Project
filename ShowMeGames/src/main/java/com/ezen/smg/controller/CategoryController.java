@@ -20,15 +20,13 @@ public class CategoryController {
 	public void bestseller(
 			Model model,
 			@RequestParam(name = "genre", required=false)  String genres,
-			@RequestParam(name = "editor", required=false) String editor,
-			@RequestParam(name = "sortBy", required=false) Integer sortBy
+			@RequestParam(name = "editor", required=false) String editor
 			) {
 		log.info(editor);
 		log.info(genres);
-		log.info(sortBy);
 
 		model.addAttribute("games", 
-				service.getBestsellers(genres, editor, sortBy));
+				service.getBestsellers(genres, editor));
 	}
 	
 	@GetMapping("/category/free")

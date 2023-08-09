@@ -11,7 +11,7 @@ public class Games {
 	private String game_genre;
 	private Integer game_price;
 	private String korean;
-	private Date date;
+	private Date release_date;
 	private String platform;
 	private Integer discount;
 	private String game_mode;
