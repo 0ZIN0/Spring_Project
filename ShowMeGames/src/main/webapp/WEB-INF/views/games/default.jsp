@@ -36,25 +36,29 @@
 					</div>
 					<div id="game_detail_grid">
 						<div id="game_detail_img">
-							<img id="game_img_selected" alt="" src="${game.banner_img_url}">
+							<c:forEach items="${images}" var="image" varStatus="status">
+									<div class="imgSlides">
+										<img id="game_img_selected" alt="" src="${image.image_url}">
+									</div>
+							</c:forEach>
 							<div id="game_img_list">
-								<div class="img-arrow">
+								<div id="prev-btn" class="img-arrow" onclick="plusSlides(-1)">
 									<span class="material-symbols-outlined img-arrow-btn">arrow_back_ios</span>
 								</div>
-								<c:forEach begin="0" end="4" var="i" varStatus="status">
+								<c:forEach items="${images}" var="image" varStatus="status">
 									<div>
-										<img id="game_img_${status.index}" class="game_img_dto" alt=""
-											src="">
+										<img data-id="img_${image.image_id}" id="img_${image.image_id}" class="demo cursor game_img_dto" alt=""
+											src="${image.image_url}" onclick="currentSlide(${status.index + 1})">
 									</div>
 								</c:forEach>
-								<div class="img-arrow">
+								<div id="next-btn" class="img-arrow" onclick="plusSlides(1)">
 									<span class="material-symbols-outlined img-arrow-btn">arrow_forward_ios</span>
 								</div>
 							</div>
 						</div>
 						<div id="game_detail_right">
 							<div id="game_detail_img_div">
-								<img id="right_img" alt="" src="${game.banner_img_url}">
+								<img id="right_img" alt="" src="${sub_banner.image_url}">
 							</div>
 							<c:choose>
 								<c:when test="${game.discount > 0}">
