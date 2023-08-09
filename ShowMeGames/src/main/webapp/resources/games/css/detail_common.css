@@ -1,0 +1,284 @@
+.background_layer2 {
+    padding: 50px 0;
+}
+
+#game_detail_div {
+    height: auto;
+    width: 1600px;
+    margin: 0 auto;
+}
+
+#game_title_div {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding-bottom: 30px;
+}
+
+#game_name_div {
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+}
+
+.stararea {
+    width: 100px;
+    height: 20px;
+    position: relative;
+}
+
+.stararea span {
+    width: 20%;
+    background-color: #f8a504;
+    height: 20px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.stararea::after {
+    width: 100px;
+    height: 20px;
+    background: url(/smg/resources/img/games/star_bar.png) no-repeat;
+    background-size: 100%;
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+#game_grade_div {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+}
+
+#game_grade_content {
+    font-size: 14px;
+    font-weight: 600;
+    width: 40px;
+    border-radius: 3px;
+    background-color: #2A2A2A;
+    text-align: center;
+    color: #A0A2A0;
+}
+
+#game_detail_grid {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    width: 100%;
+    margin-top: 40px;
+    column-gap: 20px;
+}
+
+#game_detail_img {
+    padding: 0 5px;
+}
+
+#game_img_selected {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#game_img_list {
+    display: grid;
+    grid-template-columns: 50px repeat(5, 1fr) 50px;
+}
+
+#game_img_list>* {
+    display: flex;
+    justify-content: center;
+}
+
+.game_img_dto {
+    width: 180px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.img-arrow {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.img-arrow:hover>.img-arrow-btn {
+    color: #2A2A2A;
+}
+
+.img-arrow-btn {
+    text-align: center;
+    color: #A0A2A0;
+}
+
+#game_detail_right {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    border: #A0A2A0 1px solid;
+    border-radius: 8px;
+}
+
+#game_detail_img_div {
+    width: 100%;
+    height: 200px;
+}
+
+#right_img {
+    object-fit: cover;
+    border-radius: 8px;
+    width: 440px;
+    height: 200px;
+}
+
+.game_price_div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 10px;
+}
+
+#right-price-div {
+    border-top: 1px solid #A0A2A0;
+    padding-top: 20px;
+}
+
+#right-discount-price-div {
+    border-bottom: 1px solid #A0A2A0;
+    padding-bottom: 20px;
+}
+
+.right-price-title {
+    color: white;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+#none-price-div {
+    border-top: 1px solid #A0A2A0;
+}
+
+#game_price {
+    color: white;
+    text-decoration: line-through;
+}
+
+.game_price_div>* {
+    display: flex;
+    align-items: center;
+}
+
+#game_discount {
+    background-color: #F3EED9;
+    color: #F22349;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 3px 5px;
+    font-size: 14px;
+}
+
+#game_discounted_price {
+    font-size: 32px;
+    color: #ff950b;
+    font-weight: 600;
+}
+
+#game_detail_btn_div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: end;
+}
+
+#game_age_grade_div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #A0A2A0;
+    border-bottom: 1px solid #A0A2A0;
+    column-gap: 10px;
+}
+
+#game_age_grade_content {
+    display: flex;
+    align-items: center;
+}
+
+#checkoutBtn {
+    height: 60px;
+    border-radius: 8px;
+    background-color: #F22349;
+    color: white;
+    font-weight: 600;
+    border: 0;
+    cursor: pointer;
+}
+
+#cartBtn {
+    height: 60px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #A0A2A0;
+}
+
+#game_detail_btn_div>*:hover {
+    color: black;
+    background-color: #f8a504;
+}
+
+.game_age_grade {
+    width: 60px;
+    height: auto;
+}
+
+#game_detail_point_div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#game_detail_point_div>* {
+    display: flex;
+    align-items: flex-end;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#point_title {
+    color: white;
+}
+
+#add_point {
+    justify-content: right;
+    color: #F22349;
+}
+
+.selected {
+    border: 1px solid #A0A2A0;
+}
+
+.imgSlides {
+    display: none;
+}
+
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
