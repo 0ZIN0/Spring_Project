@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!-- common url settings -->
+<!-- common url settings 각자 디테일 페이지에 추가해야함 -->
 <c:url value="/resources/games/css/detail_common.css" var="detail_common_css" />
 <c:url value="/resources/games/js/detail_common.js" var="detail_common_js" />
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 <title>${game.game_name}</title>
 <!-- header, footer css -->
 <%@ include file="/WEB-INF/views/include/link/common.jsp"%>
-<!-- common css -->
+<!-- common css 각자 디테일 페이지에 추가해야함 -->
 <link rel="stylesheet" href="${detail_common_css}">
 </head>
 <body>
