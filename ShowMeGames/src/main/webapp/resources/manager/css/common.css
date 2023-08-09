@@ -172,17 +172,6 @@ main {
 .content_update_wrapper {
     margin-left: auto;
 }
-.content_update_wrapper > button {
-    border-radius: 8px;
-    background-color: blueviolet;
-    width: 160px;
-    height: 40px;
-    border: none;
-    color: #fff;
-    font-size: 1.1em;
-    font-weight: 550;
-    cursor: pointer;
-}
 .content_update_wrapper > button:hover {
     filter: brightness(90%);
 }

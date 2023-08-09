@@ -6,3 +6,17 @@
 #side_admin_game span.material-icons {
     color: #eeab0a;
 }
+
+.input_container_div {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+.input_container_div.upper {
+    column-gap: 20px;
+}
+
+.input_title_div {
+    display: flex;
+    align-items: center;
+}
