@@ -93,9 +93,18 @@ public class CartController {
 	public int checkoutSuccess(@RequestBody Carts carts, @SessionAttribute(name = "user", required = false) SmgUsersDTO user) {
 		
 		List<Games> games = cartService.getCartList(user.getUser_num());
+		
 		if (games == null) {
 			return cartMapper.addCart(carts);
 		} else {
+			if (games.size() == 6) {
+				return 0;
+			}
+			
+			if (cartMapper.getCartContent(user.getUser_num()).contains(carts.getCart_content())) {
+				return 2;
+			}
+			
 			carts.setCart_content(cartMapper.getCartContent(carts.getUser_num()) + "/" + carts.getCart_content());
 			return cartMapper.updateCart(carts);
 		}
