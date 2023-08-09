@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.mapper.NoticeMapper;
 import com.ezen.smg.service.managerService.ManagerService;
@@ -78,6 +79,25 @@ public class ManagerController {
 		model.addAttribute("gameList", serv.getGameList(page));
 
 		return "manager/admin_game";
+	}
+	
+	@GetMapping("/manage/admin_game_detail")
+	String adminGameDetail(Integer game_id, Model model) {
+		
+		Games game = serv.getGameDetail(game_id); 
+		
+		model.addAttribute("game", game);
+		model.addAttribute("rated", game.getRated().split("/"));
+		
+		return "manager/admin_game_detail";
+	}
+	
+	@GetMapping("/manage/admin_game_update")
+	String adminGameUpdate(Integer game_id, Model model) {
+	
+		model.addAttribute("game", serv.getGameDetail(game_id));
+		
+		return "manager/admin_game_update";
 	}
 
 	@GetMapping("/manage/admin_user")

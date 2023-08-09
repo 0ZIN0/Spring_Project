@@ -17,5 +17,6 @@ public interface ManagerService {
 	/** admin_game 관련 서비스 */
 	List<Games> getGameList(int currPage);
 	int getGameListTotalSize();
+	Games getGameDetail(int game_id);
 	
 }

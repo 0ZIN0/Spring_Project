@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
@@ -65,5 +66,13 @@ public class ManagerServiceImp1 implements ManagerService {
 		return gamesMapper.getGamesTotalSize();
 	}
 
-	
+	@Override
+	public Games getGameDetail(int game_id) {
+		Games game = gamesMapper.getGame(game_id); 
+		
+		game.setDiscounted_price(CommonFunction.calDiscount(game.getGame_price(), game.getDiscount()));
+		
+		return game;
+	}
+
 }
