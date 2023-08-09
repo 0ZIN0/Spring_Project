@@ -3,6 +3,7 @@ package com.ezen.smg.service.managerService;
 import java.util.List;
 
 import com.ezen.smg.common.Pagination;
+import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 
@@ -17,5 +18,8 @@ public interface ManagerService {
 	/** admin_game 관련 서비스 */
 	List<Games> getGameList(int currPage);
 	int getGameListTotalSize();
+	
+	/*게임 키 관리*/
+	List<GameKeyDTO> getAllKey();
 	
 }

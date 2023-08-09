@@ -22,4 +22,8 @@
 	AND u.user_num
 	= #{user_num}
 	</select>
+	
+	<select id="getAllKeys" resultType="com.ezen.smg.dto.GameKeyDTO">
+		SELECT * FROM game_key
+	</select>
 </mapper>

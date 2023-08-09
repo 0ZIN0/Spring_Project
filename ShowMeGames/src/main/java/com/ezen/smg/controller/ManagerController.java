@@ -102,7 +102,8 @@ public class ManagerController {
 	}
 	
 	@GetMapping("/manage/admin_key")
-	String adminKey() {
+	String adminKey(Model model) {
+		model.addAttribute("gameKeys", serv.getAllKey());
 		return "manager/admin_key";
 	}
 

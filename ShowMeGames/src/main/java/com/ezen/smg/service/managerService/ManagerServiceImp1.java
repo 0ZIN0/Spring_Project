@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.smg.common.Pagination;
+import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
+import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.ManagerMapper;
 
@@ -19,6 +21,9 @@ public class ManagerServiceImp1 implements ManagerService {
 
 	@Autowired
 	GamesMapper gamesMapper;
+	
+	@Autowired
+	GameKeyMapper gameKeyMapper;
 	
 	private int pageNum = 10;
 	
@@ -63,6 +68,12 @@ public class ManagerServiceImp1 implements ManagerService {
 	@Override
 	public int getGameListTotalSize() {
 		return gamesMapper.getGamesTotalSize();
+	}
+
+	@Override
+	public List<GameKeyDTO> getAllKey() {
+		
+		return gameKeyMapper.getAllKeys();
 	}
 
 
