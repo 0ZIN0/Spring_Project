@@ -16,7 +16,7 @@ public class Games {
 	private Integer discount;
 	private String game_mode;
 	private String develop_company;
-	private Integer game_grade;
+	private Double game_grade;
 	private String banner_img_url;
 	private	String editor;
 	private Integer discounted_price;
