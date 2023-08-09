@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
-
 import com.ezen.smg.mapper.GamesMapper;
+import com.ezen.smg.mapper.ImagesMapper;
 import com.ezen.smg.service.gamesService.GamesService;
 import com.ezen.smg.service.indexService.IndexService;
 
@@ -35,7 +35,10 @@ public class IndexController {
 	
 	@Autowired
 	GamesService gamesService;
-
+	
+	@Autowired
+	ImagesMapper imagesMapper;
+	
 	public IndexController() {
 		detail_url_mapper = new HashMap<String, String>();
 		
@@ -72,6 +75,7 @@ public class IndexController {
 		model.addAttribute("game", gameDTO);
 		model.addAttribute("rateds", gameDTO.getRated().split("/"));
 		model.addAttribute("user", user);
+		model.addAttribute("images", imagesMapper.getImages(game));
 		
 		if (url == null) {
 			return "/games/default";
