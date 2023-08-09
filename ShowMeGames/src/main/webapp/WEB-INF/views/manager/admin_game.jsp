@@ -46,7 +46,7 @@
 										<span>할인</span>
 									</div>
 									<div class="content_grid_item header">
-										<span>수정</span>
+										<span>표시타입</span>
 									</div>
 								</div>
 								<c:forEach items="${gameList}" var="game">
@@ -64,7 +64,7 @@
 											<span>${game.discount}</span>
 										</div>
 										<div class="content_grid_item">
-											<button class="btn item_update_btn">수정</button>
+											<span>${game.layout}</span>
 										</div>
 									</div>
 								</c:forEach>

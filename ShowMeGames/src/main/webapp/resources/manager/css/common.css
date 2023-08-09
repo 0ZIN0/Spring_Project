@@ -270,6 +270,7 @@ main {
 #pageDiv button {
     font-size: 1.2em;
     width: 35px;
+    cursor: pointer;
 }
 
 .navi_btn {
@@ -283,13 +284,15 @@ main {
     background-color: transparent;
 }
 
-#nowPage {
+#now-page {
     background-color: blueviolet;
     border-radius: 50%;
     color: #fff;
 }
 
-
+#pageDiv button:disabled {
+    cursor: default;
+}
 
 
 
