@@ -103,3 +103,12 @@ $(document).on("click", ".toDetailBtn", function () {
   let layout = $(this).data("layout");
   location.href = `./detail?game=${id}&&layout=${layout}`;
 });
+
+$(document).ready(
+  $.each(card_container, function () {
+    var el = this;
+    if ($(el).find(".recmd-items").length < 5) {
+      $(el).find(".slider-next-btn").addClass("inactive");
+    }
+  })
+);

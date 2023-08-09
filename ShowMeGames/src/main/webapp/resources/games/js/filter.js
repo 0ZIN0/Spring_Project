@@ -3,7 +3,8 @@ const label = $(".label");
 const options = $(".option_item");
 const text = $(".label_text");
 const arrow = $(".arrow");
-var sortBy = 3;
+const searchParams = new URLSearchParams(location.search);
+var sortBy = searchParams.get("sortBy");
 
 // add filter-container
 const handleSelect = (item) => {
@@ -250,6 +251,9 @@ $(document).on("click", ".remove_filter", function () {
 function getSearchList() {
   sessionStorage.setItem("genreList", JSON.stringify(genreList));
   sessionStorage.setItem("editorList", JSON.stringify(editorList));
+  if (sortBy == null) {
+    sortBy = 3;
+  }
   var genre_toString = genreList.join("|");
   var editor_toString = editorList.join(",");
   location.href =
