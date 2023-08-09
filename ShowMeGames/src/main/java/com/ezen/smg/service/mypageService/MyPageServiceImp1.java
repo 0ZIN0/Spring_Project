@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.common.Encryption_SH256;
-import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.Inquiries;
 import com.ezen.smg.dto.MyGameListDTO;
 import com.ezen.smg.dto.SmgUsersDTO;
