@@ -5,6 +5,7 @@ import java.util.List;
 import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
+import com.ezen.smg.dto.SmgUsersDTO;
 
 public interface ManagerService {
 	
@@ -17,5 +18,9 @@ public interface ManagerService {
 	/** admin_game 관련 서비스 */
 	List<Games> getGameList(int currPage);
 	int getGameListTotalSize();
+	
+	/** admin_user 관련 서비스 */
+	 List<SmgUsersDTO> getUserList(int page, int itemsPerPage);
+	int getUserListTotalSize();
 	
 }

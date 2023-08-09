@@ -181,4 +181,8 @@
 	<select id="getGameListForAdmin" resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a ORDER BY game_id DESC) WHERE rn BETWEEN #{start} AND #{end}
 	</select>
+
+	
+	
+	
 </mapper> 

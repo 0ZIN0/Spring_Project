@@ -91,4 +91,12 @@
 		WHERE 
 			user_num=#{user_num}
 	</update>
+	
+		<select id="getUsersTotalSize">
+		SELECT count(*) FROM smg_users
+	</select>
+	<select id="getUsersListForAdmin" resultType="com.ezen.smg.dto.SmgUsersDTO">
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM smg_users a ORDER BY user_num DESC) WHERE rn BETWEEN #{start} AND #{end}
+	</select>
+	
  </mapper>

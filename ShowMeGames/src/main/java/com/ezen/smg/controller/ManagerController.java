@@ -1,5 +1,7 @@
 package com.ezen.smg.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,8 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.ManagersDTO;
+import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.service.managerService.ManagerService;
 
 import lombok.extern.log4j.Log4j;
@@ -20,6 +25,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 public class ManagerController {
 
+	
 	@Autowired
 	ManagerService serv;
 	
@@ -76,10 +82,18 @@ public class ManagerController {
 		return "manager/admin_game";
 	}
 	
-	@GetMapping("/manage/admin_user")
-	String adminUser() {
-		return "manager/admin_user";
-	}
+	/*
+	 * @GetMapping("/manage/admin_user") String adminUser(Integer page, Model model)
+	 * { if (page == null) page = 1;
+	 * 
+	 * int totalSizeUser = serv.getUserListTotalSize();
+	 * 
+	 * model.addAttribute("paging", serv.getPagination(page, totalSizeUser));
+	 * model.addAttribute("userList", serv.getUserList(page));
+	 * 
+	 * 
+	 * return "manager/admin_user"; }
+	 */
 	
 	@GetMapping("/manage/admin_chart")
 	String adminChart() {
@@ -120,4 +134,17 @@ public class ManagerController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/manage/admin_user")
+	public String userList(Model model, @RequestParam(name = "page", required = false, defaultValue = "1") int page) {
+	    int itemsPerPage = 10; // 페이지당 표시할 사용자 수
+	    List<SmgUsersDTO> userList = serv.getUserList(page, itemsPerPage); // 사용자 리스트 가져오기
+
+	    int totalSize = serv.getUserListTotalSize();
+	    Pagination pagination = serv.getPagination(page, totalSize);
+
+	    model.addAttribute("userList", userList);
+	    model.addAttribute("pagination", pagination);
+	    
+	    return "manager/admin_user";
+	}
 }

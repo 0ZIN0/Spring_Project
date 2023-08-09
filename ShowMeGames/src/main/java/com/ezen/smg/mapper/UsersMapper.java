@@ -1,7 +1,10 @@
 package com.ezen.smg.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
+import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
 
 public interface UsersMapper {
@@ -30,5 +33,9 @@ public interface UsersMapper {
 	
 	int withdrawalUser(@Param("dto") SmgUsersDTO dto);
 	
-	int updateUserPw(@Param("user_num") int user_num, @Param("user_pw") String user_pw); 
+	int updateUserPw(@Param("user_num") int user_num, @Param("user_pw") String user_pw);
+	
+	int getUsersTotalSize();
+
+	List<SmgUsersDTO> getUserListForAdmin(@Param("start") int firstUser, @Param("end") int lastUser);	
 }

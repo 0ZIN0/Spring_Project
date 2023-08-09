@@ -4,33 +4,50 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<title>유저 정보 관리</title>
-	<%@ include file="/WEB-INF/views/manager/include/head_common.jsp" %>
-	<!-- page css -->
-	<link rel="stylesheet" href="${resource}/css/admin_user.css">
+    <meta charset="UTF-8">
+    <title>유저 정보 관리</title>
+    <%@ include file="/WEB-INF/views/manager/include/head_common.jsp" %>
+    <!-- page css -->
+    <link rel="stylesheet" href="${resource}/css/admin_user.css">
 </head>
 <body>
-	<!-- top_bar -->
-	<%@ include file="/WEB-INF/views/manager/include/top_bar.jsp" %>
-	
-	<main class="background_layer1">
-		<div id="main_content_wrapper" class="background_layer2">
-			<!-- side_bar -->
-			<%@ include file="/WEB-INF/views/manager/include/side_bar.jsp" %>
-			<div id="main_content">
-				<div id="account_content">
-					<h2 class="content_title">유저 정보 관리</h2>
-					<div id="public_profile" class="content_item">
-						<div class="item_title">
-							<span>유저 리스트</span>
-						</div>
-						<div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
+    <!-- top_bar -->
+    <%@ include file="/WEB-INF/views/manager/include/top_bar.jsp" %>
+
+    <main class="background_layer1">
+        <div id="main_content_wrapper" class="background_layer2">
+            <!-- side_bar -->
+            <%@ include file="/WEB-INF/views/manager/include/side_bar.jsp" %>
+            <div id="main_content">
+                <div id="account_content">
+                    <h2 class="content_title">유저 정보 관리</h2>
+                    <div id="public_profile" class="content_item">
+                        <div class="item_title">
+                            <span>유저 리스트</span>
+                        </div>
+                        <div>
+                            <c:forEach items="${userList}" var="user">
+                                <div class="content_grid">
+                                    <div class="content_grid_item">
+                                        <span>ID: ${user.user_id}</span>
+                                    </div>
+                                    <div class="content_grid_item">
+                                        <span>이름: ${user.user_name}</span>
+                                    </div>
+                                    <div class="content_grid_item">
+                                        <span>닉네임: ${user.nick_name}</span>
+                                    </div>
+                                    
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>  console.log("${gameList}");
+    	console.log("ㅎㅇ2");
+   </script>
 </body>
 </html>

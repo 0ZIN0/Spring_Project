@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
+import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.ManagerMapper;
+import com.ezen.smg.mapper.UsersMapper;
 
 @Service
 public class ManagerServiceImp1 implements ManagerService {
@@ -19,6 +21,9 @@ public class ManagerServiceImp1 implements ManagerService {
 
 	@Autowired
 	GamesMapper gamesMapper;
+	
+	@Autowired
+	UsersMapper usersMapper;
 	
 	private int pageNum = 10;
 	
@@ -63,6 +68,18 @@ public class ManagerServiceImp1 implements ManagerService {
 	@Override
 	public int getGameListTotalSize() {
 		return gamesMapper.getGamesTotalSize();
+	}
+	
+	/* admin_user 관련 서비스 */
+	@Override
+	public List<SmgUsersDTO> getUserList(int page, int itemsPerPage) {
+		return null;
+		
+	}
+
+	@Override
+	public int getUserListTotalSize() {
+		return usersMapper.getUsersTotalSize();
 	}
 
 
