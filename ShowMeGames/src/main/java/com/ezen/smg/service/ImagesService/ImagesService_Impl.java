@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.ezen.smg.dto.Images;
 import com.ezen.smg.mapper.ImagesMapper;
 
-import lombok.extern.log4j.Log4j;
-
 @Service
 public class ImagesService_Impl implements ImagesService {
 
