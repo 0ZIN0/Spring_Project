@@ -8,5 +8,7 @@ import com.ezen.smg.dto.Images;
 
 public interface ImagesMapper {
 	
-	List<Images> getImages(@Param("game_id") int game_id);
+	List<Images> getImages(@Param("game_id") int game_id, @Param("start")int start, @Param("end")int end);
+	
+	Images getSubBanner(@Param("game_id") int game_id);
 }
