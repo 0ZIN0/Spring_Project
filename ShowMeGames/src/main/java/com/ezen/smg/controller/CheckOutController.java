@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import com.ezen.smg.dto.Orders;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.mapper.UsersMapper;
-import com.ezen.smg.service.memberService.MemberService;
 import com.ezen.smg.service.orderService.OrderService;
 
 import lombok.extern.log4j.Log4j;
