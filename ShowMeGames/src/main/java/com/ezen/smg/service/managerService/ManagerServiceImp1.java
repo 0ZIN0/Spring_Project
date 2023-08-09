@@ -65,5 +65,5 @@ public class ManagerServiceImp1 implements ManagerService {
 		return gamesMapper.getGamesTotalSize();
 	}
 
-
+	
 }
