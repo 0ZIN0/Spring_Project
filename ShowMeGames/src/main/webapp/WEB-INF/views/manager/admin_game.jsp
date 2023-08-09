@@ -55,7 +55,7 @@
 											<span>${game.game_id}</span>
 										</div>
 										<div class="content_grid_item">
-											<span>${game.game_name}</span>
+											<span class="game_name_span" data-id="${game.game_id}">${game.game_name}</span>
 										</div>
 										<div class="content_grid_item">
 											<span>${game.game_price}</span>
