@@ -7,10 +7,10 @@
 <div id="pageDiv">
 	<c:choose>
 		<c:when test="${prePage >= paging.firstPage}">
-		<button id="prePageBtn" class="navi_btn" data-prePage="${prePage}">&#9664;</button> 
+		<button id="prePageBtn" class="navi_btn" data-page="${prePage}">&#9664;</button> 
 	</c:when>
 	<c:otherwise>
-		<button id="prePageBtn" class="navi_btn disabled" disabled>&#9664;</button> 
+		<button id="prePageBtn" class="navi_btn" disabled>&#9664;</button> 
 	</c:otherwise>
 </c:choose>		
 <c:forEach items="${paging.pageList}" var="pageNum">
@@ -25,10 +25,10 @@
 </c:forEach>
 <c:choose>
 	<c:when test="${nextPage <= paging.lastPage}">
-		<button id="nextPageBtn" class="navi_btn" data-nextPage="${nextPage}">&#9654;</button>
+		<button id="nextPageBtn" class="navi_btn" data-page="${nextPage}">&#9654;</button>
 		</c:when>
 		<c:otherwise>
-			<button id="nextPageBtn" class="navi_btn disabled" disabled>&#9654;</button> 
+			<button id="nextPageBtn" class="navi_btn" disabled>&#9654;</button> 
 		</c:otherwise>
 	</c:choose>
 </div>

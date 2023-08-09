@@ -63,9 +63,18 @@
 										<div class="content_grid_item">
 											<span>${game.discount}</span>
 										</div>
-										<div class="content_grid_item">
-											<span>${game.layout}</span>
-										</div>
+										<c:choose>
+											<c:when test="${game.layout eq null}">
+												<div class="content_grid_item">
+													<span>Default</span>
+												</div>
+											</c:when>
+											<c:otherwise>
+												<div class="content_grid_item">
+													<span>${game.layout}</span>
+												</div>
+											</c:otherwise>
+										</c:choose>
 									</div>
 								</c:forEach>
 							</div>
@@ -77,5 +86,7 @@
 		</div>
 	</main>
 	
+	<script src="${resource}/js/admin_game.js"></script>
+	<script src="${resource}/js/paging.js"></script>
 </body>
 </html>
