@@ -13,7 +13,7 @@ public interface ManagerService {
 	ManagersDTO getManager(Integer mng_num);
 
 	// 페이징을 위한 서비스
-	Pagination getPagination(int currPage, int totalSize);
+	Pagination getPagination(int currPage, int totalSize, int itemsPerPage);
 	
 	/** admin_game 관련 서비스 */
 	List<Games> getGameList(int currPage);

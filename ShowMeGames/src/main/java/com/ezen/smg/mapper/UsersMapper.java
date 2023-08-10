@@ -37,5 +37,6 @@ public interface UsersMapper {
 	
 	int getUsersTotalSize();
 
-	List<SmgUsersDTO> getUserListForAdmin(@Param("start") int firstUser, @Param("end") int lastUser);	
+	List<SmgUsersDTO> getUserListForAdmin(@Param("start") int firstUser, @Param("end") int lastUser);
+
 }

@@ -48,7 +48,7 @@ public class ManagerServiceImp1 implements ManagerService {
 	}
 
 	@Override
-	public Pagination getPagination(int currPage, int totalSize) {
+	public Pagination getPagination(int currPage, int totalSize, int itemsPerPage) {
 		Pagination paging = new Pagination(totalSize, pageNum);
 		
 		paging.setCurrPage(currPage);
@@ -73,8 +73,10 @@ public class ManagerServiceImp1 implements ManagerService {
 	/* admin_user 관련 서비스 */
 	@Override
 	public List<SmgUsersDTO> getUserList(int page, int itemsPerPage) {
-		return null;
-		
+	    int start = (page - 1) * itemsPerPage;
+	    int end = start + itemsPerPage;
+
+	    return usersMapper.getUserListForAdmin(start, end);
 	}
 
 	@Override

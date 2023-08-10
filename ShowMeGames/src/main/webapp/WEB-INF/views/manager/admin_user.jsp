@@ -28,16 +28,37 @@
                         <div>
                             <c:forEach items="${userList}" var="user">
                                 <div class="content_grid">
-                                    <div class="content_grid_item">
-                                        <span>ID: ${user.user_id}</span>
+                                	<div class="content_grid_item">
+                                        <span>${user.user_num}</span>
                                     </div>
                                     <div class="content_grid_item">
-                                        <span>이름: ${user.user_name}</span>
+                                        <span>${user.user_id}</span>
                                     </div>
                                     <div class="content_grid_item">
-                                        <span>닉네임: ${user.nick_name}</span>
+                                        <span>${user.user_name}</span>
+                                    </div>
+                                    <div class="content_grid_item">
+                                        <span>${user.nick_name}</span>
+                                    </div>
+                                    <div class="content_grid_item">
+                                        <span>${user.user_grade}</span>
+                                    </div>
+                                    <div class="content_grid_item">
+                                        <span>${user.phone_number}</span>
+                                    </div>
+                                    <div class="content_grid_item">
+                                        <span>${user.user_point}</span>
+                                    </div>
+                                    <div class="content_grid_item">
+                                        <span>${user.birth_date}</span>
+                                    </div>
+                                    <div class="content_grid_item">
+                                        <span>${user.gender}</span>
                                     </div>
                                     
+                                    <%-- <div class="content_grid_item">
+                                        <span>${user.user_pw}</span>
+                                    </div> --%>
                                 </div>
                             </c:forEach>
                         </div>

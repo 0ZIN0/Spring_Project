@@ -76,7 +76,7 @@ public class ManagerController {
 		
 		int totalSize = serv.getGameListTotalSize();
 		
-		model.addAttribute("paging", serv.getPagination(page, totalSize));
+		model.addAttribute("paging", serv.getPagination(page, totalSize, totalSize));
 		model.addAttribute("gameList", serv.getGameList(page));
 		
 		return "manager/admin_game";
@@ -136,11 +136,15 @@ public class ManagerController {
 	
 	@GetMapping("/manage/admin_user")
 	public String userList(Model model, @RequestParam(name = "page", required = false, defaultValue = "1") int page) {
+		
+		
+		
 	    int itemsPerPage = 10; // 페이지당 표시할 사용자 수
 	    List<SmgUsersDTO> userList = serv.getUserList(page, itemsPerPage); // 사용자 리스트 가져오기
 
 	    int totalSize = serv.getUserListTotalSize();
-	    Pagination pagination = serv.getPagination(page, totalSize);
+	    Pagination pagination = serv.getPagination(page, totalSize, itemsPerPage);
+	    
 
 	    model.addAttribute("userList", userList);
 	    model.addAttribute("pagination", pagination);
