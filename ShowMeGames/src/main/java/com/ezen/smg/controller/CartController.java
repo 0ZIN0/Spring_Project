@@ -9,11 +9,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.ezen.smg.dto.Carts;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
+import com.ezen.smg.mapper.CartMapper;
 import com.ezen.smg.mapper.OrderMapper;
 import com.ezen.smg.service.cartService.CartService;
 import com.ezen.smg.service.gamesService.GamesService;
@@ -29,6 +33,9 @@ public class CartController {
 	
 	@Autowired
 	GamesService gamesService;
+	
+	@Autowired
+	CartMapper cartMapper;
 	
 	@GetMapping(value="/cart")
 	public String cart(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model) {
@@ -51,6 +58,10 @@ public class CartController {
 			return "cart"; // 로그인 팝업창 띄우기
 		}
 	}
+	
+	
+	 
+	
 	
 	@PostMapping(value="/checkout")
 	public void goCheckOut(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model, String platform) {
@@ -108,4 +119,16 @@ public class CartController {
 	
 	
 	
+	@ResponseBody
+	@RequestMapping(value = "/add-cart")
+	public int checkoutSuccess(@RequestBody Carts carts, @SessionAttribute(name = "user", required = false) SmgUsersDTO user) {
+		
+		List<Games> games = cartService.getCartList(user.getUser_num());
+		if (games == null) {
+			return cartMapper.addCart(carts);
+		} else {
+			carts.setCart_content(cartMapper.getCartContent(carts.getUser_num()) + "/" + carts.getCart_content());
+			return cartMapper.updateCart(carts);
+		}
+	}
 }

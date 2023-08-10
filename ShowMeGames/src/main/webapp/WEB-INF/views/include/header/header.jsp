@@ -2,11 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:url value="${user.profile_url}" var="profile_img" />
+<c:url value="/" var="toMain" />
+<c:url value="/" var="conPath" />
+<c:url value="/resources/img/member" var="member_img" />
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
 	crossorigin="anonymous"></script>
-<c:url value="${user.profile_url}" var="profile_img"/>
-<c:url value="/" var="toMain"/>
-<c:url value="/" var="conPath" />
+
+
 
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -30,7 +33,8 @@
 				<li></li>
 
 				<!-- 사용자가 로그인한 경우 이 li 요소를 보여줍니다. -->
-				<c:if test="${not empty sessionScope.isLoggedIn}">
+				<%-- <c:if test="${not empty sessionScope.isLoggedIn}"> --%>
+				<c:if test="${not empty user.nick_name}">
 					<li id="point-li">
 						<div id="point-div">
 							현재 보유량:&nbsp;<i class="fa-brands fa-bitcoin" id="point-i">&nbsp;&nbsp;${user.user_point}
@@ -44,12 +48,76 @@
 
 						<div id="dropdown-content">
 							<div class="profile">
-								<div class="profile-left"><img src="${profile_img}" alt="프로필사진"></div>
-								<div class="profile-right">${user.nick_name}</div>
+								<div class="profile-left">
+									<img src="${profile_img}" alt="프로필사진">
+								</div>
+								<div class="profile-right">
+
+									<div class="profile-nick">${user.nick_name}</div>
+									<%-- <%
+									String id = (String) session.getAttribute("user_id");
+									%>
+									<%= id%> --%>
+
+
+									<c:choose>
+										<c:when test="${user.user_grade eq 'S'}">
+											<div class="profile-grade">
+												<span class="diamond-text">다이아몬드</span> <img
+													class="grade-image"
+													src="${member_img}/grade/diamond_icon.png" alt="다이아몬드 이미지">
+											</div>
+										</c:when>
+										<c:when test="${user.user_grade eq 'A'}">
+											<div class="profile-grade">
+												<span class="platinum-text">플래티넘</span> <img
+													class="grade-image"
+													src="${member_img}/grade/platinum_icon.png" alt="플래티넘 이미지">
+											</div>
+										</c:when>
+										<c:when test="${user.user_grade eq 'B'}">
+											<div class="profile-grade">
+												<span class="gold-text">골드</span> <img class="grade-image"
+													src="${member_img}/grade/gold_icon.png" alt="골드 이미지">
+											</div>
+										</c:when>
+										<c:when test="${user.user_grade eq 'C'}">
+											<div class="profile-grade">
+												<span class="silver-text">실버</span> <img class="grade-image"
+													src="${member_img}/grade/silver_icon.png" alt="실버 이미지">
+											</div>
+										</c:when>
+										<c:when test="${user.user_grade eq 'D'}">
+											<div class="profile-grade">
+												<span class="bronze-text">브론즈</span> <img
+													class="grade-image"
+													src="${member_img}/grade/bronze_icon.png" alt="등급 이미지">
+											</div>
+										</c:when>
+
+									</c:choose>
+
+
+								</div>
 							</div>
-							<div class="separator"></div>
+							<%-- <div class="separator"></div>
 							<div class="rec-title">추천게임</div>
-							<div class="recommend"></div>
+							<div class="recommend">
+
+								<div id="week-best-grid">
+									<c:forEach items="${new_games}" var="game">
+										<a class="new-game-link" href="./detail?game=${game.game_id}">
+											<img class="week-best-img" alt=""
+											src="${game.banner_img_url}">
+											<div class="week-best-info">
+												<div class="new-game-title">${game.game_name}</div>
+
+											</div>
+										</a>
+									</c:forEach>
+								</div>
+
+							</div> --%>
 							<div class="separator"></div>
 							<section>
 								<ul>
@@ -58,12 +126,14 @@
 									<li><a href="${conPath}customer/faq">고객 지원 <i
 											class="fa-solid fa-arrow-up-right-from-square"
 											style="color: #ffffff;"></i></a></li>
-									<li id="profile-logout"><a href="${conPath}member/sessionLogout">로그아웃
-											<i class="fa-solid fa-arrow-right-from-bracket fa-xl"
+									<li id="profile-logout"><a
+										href="${conPath}member/sessionLogout">로그아웃 <i
+											class="fa-solid fa-arrow-right-from-bracket fa-xl"
 											style="color: #1a91ff;"></i>
 									</a></li>
 								</ul>
 							</section>
+							<div class="separator"></div>
 
 						</div>
 
@@ -71,7 +141,8 @@
 				</c:if>
 
 				<!-- 사용자가 로그인하지 않은 경우 이 li 요소를 보여줍니다. -->
-				<c:if test="${empty sessionScope.isLoggedIn}">
+				<%-- <c:if test="${empty sessionScope.isLoggedIn}"> --%>
+				<c:if test="${empty user.nick_name}">
 					<li class="clickable-li" id="login-li" onclick="openLoginPopup()"
 						onmouseover="changeIconColor('login-icon', 'white')"
 						onmouseout="changeIconColor('login-icon', '#a1a1a1')"><i
@@ -108,25 +179,30 @@
 					<ul id="category-li" class="sub-ul">
 						<li onclick="location.href='${conPath}category/bestseller'"><a>베스트
 								셀러</a></li>
-						<li onclick="location.href='${conPath}category/editor?editor=chanwoo'"><a>Chanwoo
+						<li
+							onclick="location.href='${conPath}category/editor?editor=chanwoo'"><a>Chanwoo
 								Pick</a></li>
 						<li onclick="location.href='${conPath}category/lastest'"><a>최신
 								출시작</a></li>
-						<li onclick="location.href='${conPath}category/editor?editor=gicheol'"><a>Gicheol
+						<li
+							onclick="location.href='${conPath}category/editor?editor=gicheol'"><a>Gicheol
 								Pick</a></li>
 						<li onclick="location.href='${conPath}category/free'"><a>무료
 								게임</a></li>
-						<li onclick="location.href='${conPath}category/editor?editor=jaehun'"><a>Jaehun
+						<li
+							onclick="location.href='${conPath}category/editor?editor=jaehun'"><a>Jaehun
 								Pick</a></li>
 						<li onclick="location.href='${conPath}category/discount'"><a>할인중인
 								게임</a></li>
 						<li onclick="location.href='${conPath}category/editor?editor=roa'"><a>Roa
 								Pick</a></li>
 						<li></li>
-						<li onclick="location.href='${conPath}category/editor?editor=yeoungmin'"><a>Yeoungmin
+						<li
+							onclick="location.href='${conPath}category/editor?editor=yeoungmin'"><a>Yeoungmin
 								Pick</a></li>
 						<li></li>
-						<li onclick="location.href='${conPath}category/editor?editor=gitae'"><a>Gitae
+						<li
+							onclick="location.href='${conPath}category/editor?editor=gitae'"><a>Gitae
 								Pick</a></li>
 					</ul>
 				</li>
@@ -200,7 +276,8 @@
 				</div>
 					<div id="minicart-content" class="minicart-common">
 					<div class="empty-minicart-content minicart-common">
-						<div class="empty-minicart-message minicart-common">장바구니가 비어있습니다.</div>
+						<div class="empty-minicart-message minicart-common">장바구니가
+							비어있습니다.</div>
 						<div class="empty-minicart-image minicart-common">
 							<img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
 						</div>

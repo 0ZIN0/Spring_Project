@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.dto.SmgUsersDTO;
+import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.service.mypageService.MyPageService;
 import com.ezen.smg.service.orderDetailService.OrderDetailService;
 import com.ezen.smg.service.orderService.OrderService;
@@ -34,6 +35,7 @@ public class MyPageController {
 	
 	@Autowired
 	OrderDetailService orderDetailService;
+	
 	
 	@GetMapping("/my_account")
 	String accountInfo(HttpServletRequest request, Model model) {
@@ -144,7 +146,9 @@ public class MyPageController {
 	}
 	
 	@GetMapping("/gamelist")
-	String accountGameList() {
+	String accountGameList(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model) {
+		log.info(mypageService.getMyGameKeyList(user.getUser_num()));
+		model.addAttribute("myGameList", mypageService.getMyGameKeyList(user.getUser_num()));
 		return "mypage/account_gamelist";
 	}
 	

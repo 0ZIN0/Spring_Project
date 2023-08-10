@@ -16,8 +16,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.common.Encryption_SH256;
+import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.Inquiries;
+import com.ezen.smg.dto.MyGameListDTO;
 import com.ezen.smg.dto.SmgUsersDTO;
+import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.mapper.InquiriesMapper;
 import com.ezen.smg.mapper.UsersMapper;
 
@@ -39,6 +42,9 @@ public class MyPageServiceImp1 implements MyPageService {
 	
 	@Autowired
 	ServletContext servletContext;
+	
+	@Autowired
+	GameKeyMapper gameKeyMapper;
 	
 	@Override
 	public List<Inquiries> getContent(int user_num) {
@@ -144,6 +150,17 @@ public class MyPageServiceImp1 implements MyPageService {
 	public int updateUserPw(int user_num, String user_pw) {
 		String encPw = Encryption_SH256.encrypt(user_pw);
 		return userMapper.updateUserPw(user_num, encPw);
+	}
+
+	@Override
+	public List<MyGameListDTO> getMyGameKeyList(Integer user_num) {
+		List<MyGameListDTO> result = gameKeyMapper.getUserGameKeyList(user_num);
+		for(MyGameListDTO game : result) {
+			if(game.getOrder_status().equals("paid")) {
+				game.setOrder_status("결제완료");
+			};
+		}
+		return result;
 	}
 	
 }

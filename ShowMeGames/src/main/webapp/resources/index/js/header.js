@@ -3,7 +3,7 @@ const currentPath = window.location.pathname;
 
 if (currentPath === "/smg/") {
   $("#game-btn-underline").css("backgroundColor", "white");
-
+  
   $("#notices-btn").on("mouseover", () => {
     $("#notices-btn-underline").css("backgroundColor", "white");
     $("#notices-btn-underline").css("transition", "background-color 0.3s ease");
@@ -86,6 +86,7 @@ function changeIconColor(iconId, color) {
   var icon = document.getElementById(iconId);
   icon.style.color = color;
 }
+
 
 // header-bottom list css active
 function openOthers(list) {
@@ -275,28 +276,66 @@ function openLoginPopup() {
   }
 }
 
+// #login-icon2의 원래 색상 정의
+const loginIconOriginalColor = "#a1a1a1";
+
+// 드랍다운 토글 함수
 function toggleDropdown() {
   var dropdownContent = document.getElementById("dropdown-content");
+  var loginIcon = document.getElementById("login-icon2");
   if (dropdownContent.style.display === "none") {
     dropdownContent.style.display = "block";
+    loginIcon.style.transition = "color 0.5s ease"; // 드랍다운이 열릴 때 0.5초로 트랜지션 적용
+    loginIcon.style.color = "white"; // 색상을 흰색으로 변경
+    // 장바구니 창 닫기
+    $('header-cart').removeClass('minicart-position');
+    $('#minicart').removeClass('minicart-active');
   } else {
     dropdownContent.style.display = "none";
+    loginIcon.style.transition = ""; // 드랍다운이 닫힐 때 트랜지션 제거
+    loginIcon.style.color = loginIconOriginalColor; // 원래 색상으로 변경
   }
 }
 
-// 로그인 아이콘 클릭 시 드랍다운 열기
-$('#login-icon2').click(toggleDropdown);
+$(document).ready(function () {
+  // 페이지가 로드될 때 login2 버튼을 자동으로 클릭(최초 두번눌러야하는 버그...)
+  $("#login-icon2").trigger("click");
+});
+
+// 로그인 아이콘 클릭 시 드랍다운 열기 또는 닫기
+document.getElementById("login-icon2").addEventListener("click", function(event) {
+  event.stopPropagation(); // 이벤트 버블링을 막음
+  toggleDropdown();
+});
 
 // 다른 곳을 클릭하면 드랍다운 닫기
 $(document).on("click", function(event) {
   var dropdownContent = $("#dropdown-content");
   var loginIcon = $("#login-icon2");
-  
-  if (!loginIcon.is(event.target)) {
-      dropdownContent.css("display", "none");
+  if (!$(event.target).is(loginIcon)) {
+    dropdownContent.hide();
+    loginIcon.css("transition", ""); // 드랍다운이 닫힐 때 트랜지션 제거
+    loginIcon.css("color", loginIconOriginalColor); // 원래 색상으로 변경
   }
 });
 
+// 스크롤 시 드랍다운 닫기 
+$(window).scroll(function () {
+  var dropdownContent = document.getElementById("dropdown-content");
+  var loginIcon = document.getElementById("login-icon2");
+  if (dropdownContent.style.display === "block") {
+    dropdownContent.style.display = "none";
+    loginIcon.style.transition = ""; // 드랍다운이 닫힐 때 트랜지션 제거
+    loginIcon.style.color = loginIconOriginalColor; // 원래 색상으로 변경
+  }
+});
+
+
+
+$(window).scroll(function () {
+  $("#header-top").css("left", 0 - $(this).scrollLeft());
+  $("#header-bottom").css("left", 0 - $(this).scrollLeft());
+});
 
 // minicart Mouse Event
 $('#header-cart').on({
