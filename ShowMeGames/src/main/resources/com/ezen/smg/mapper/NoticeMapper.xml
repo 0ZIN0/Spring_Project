@@ -2,25 +2,40 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="com.ezen.smg.mapper.NoticeMapper">
- 	<select id="getNotices" parameterType="int" resultType="com.ezen.smg.dto.NoticeDTO">
- 		SELECT * FROM (SELECT rownum AS rn, a.* FROM notices a order by write_date desc) WHERE rn BETWEEN ${start} AND ${end}
- 	</select>
- 	
- 	<select id="getSelectYearNotices" parameterType="String" resultType="com.ezen.smg.dto.NoticeDTO">
- 		select notice_id, mng_num, notice_title , write_date, short_content, 
-banner_url from notices where to_char(trunc(write_date, 'month'), 'yyyy') = #{date} order by write_date desc
- 	</select>
- 	
- 	<select id="getSelectDateNotices" parameterType="String" resultType="com.ezen.smg.dto.NoticeDTO">
- 		select notice_id, mng_num, notice_title , write_date, short_content, 
-banner_url from notices where to_char(trunc(write_date, 'month'), 'yyyy/mm') = #{date} order by write_date desc
- 	</select>
- 	
- 	<select id="getAllNotices" resultType="com.ezen.smg.dto.NoticeDTO">
- 		SELECT * FROM notices order by write_date desc
- 	</select>
- 	<select id="getContent" resultType="com.ezen.smg.dto.NoticeDTO">
- 		SELECT * FROM notices WHERE notice_id=#{id}
- 	</select>
- </mapper>
+<mapper namespace="com.ezen.smg.mapper.NoticeMapper">
+	<select id="getNotices" parameterType="int"
+		resultType="com.ezen.smg.dto.NoticeDTO">
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM (select * from notices order by write_date desc) a) WHERE rn BETWEEN #{start} AND #{end}
+	</select>
+
+	<select id="getSelectYearNotices" parameterType="String"
+		resultType="com.ezen.smg.dto.NoticeDTO">
+		select notice_id, mng_num, notice_title , write_date, short_content,
+		banner_url from notices where to_char(trunc(write_date, 'month'),
+		'yyyy') = #{date} order by write_date desc
+	</select>
+
+	<select id="getSelectDateNotices" parameterType="String"
+		resultType="com.ezen.smg.dto.NoticeDTO">
+		select notice_id, mng_num, notice_title , write_date, short_content,
+		banner_url from notices where to_char(trunc(write_date, 'month'),
+		'yyyy/mm') = #{date} order by write_date desc
+	</select>
+
+	<select id="getAllNotices"
+		resultType="com.ezen.smg.dto.NoticeDTO">
+		SELECT * FROM notices order by write_date desc
+	</select>
+	<select id="getContent" resultType="com.ezen.smg.dto.NoticeDTO">
+		SELECT * FROM notices WHERE notice_id=#{id}
+	</select>
+	<update id="noticeUpdate" parameterType="com.ezen.smg.dto.NoticeDTO">
+		UPDATE notices SET notice_title=#{dto.notice_title}, short_content=#{dto.short_content}, notice_content=#{dto.notice_content}, banner_url=#{dto.banner_url}
+		WHERE notice_id=#{dto.notice_id}
+	</update>
+	<insert id="addNotice" parameterType="com.ezen.smg.dto.NoticeDTO">
+		INSERT INTO notices (notice_id, mng_num, notice_title, notice_content, notice_viewcnt, write_date, short_content, banner_url) values (
+			notices_id_seq.nextval, #{dto.mng_num}, #{dto.notice_title}, #{dto.notice_content}, 0, sysdate, #{dto.short_content}, #{dto.banner_url}
+		)
+	</insert>
+</mapper>

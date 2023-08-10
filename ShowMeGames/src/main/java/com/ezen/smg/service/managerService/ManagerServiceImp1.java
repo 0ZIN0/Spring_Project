@@ -9,14 +9,19 @@ import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
+import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.ManagerMapper;
+import com.ezen.smg.mapper.NoticeMapper;
 
 @Service
 public class ManagerServiceImp1 implements ManagerService {
 
 	@Autowired
 	ManagerMapper managerMapper;
+
+	@Autowired
+	NoticeMapper noticeMapper;
 
 	@Autowired
 	GamesMapper gamesMapper;
@@ -75,4 +80,11 @@ public class ManagerServiceImp1 implements ManagerService {
 		return game;
 	}
 
+	@Override
+	public List<NoticeDTO> getNoticeList(int currPage) {
+		int lastGame = currPage * pageNum;
+		int firstGame = lastGame - 9;
+		
+		return noticeMapper.getNotices(firstGame, lastGame);
+	}
 }

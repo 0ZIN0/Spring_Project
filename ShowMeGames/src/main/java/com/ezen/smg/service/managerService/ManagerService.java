@@ -5,6 +5,7 @@ import java.util.List;
 import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
+import com.ezen.smg.dto.NoticeDTO;
 
 public interface ManagerService {
 	
@@ -18,5 +19,7 @@ public interface ManagerService {
 	List<Games> getGameList(int currPage);
 	int getGameListTotalSize();
 	Games getGameDetail(int game_id);
-	
+
+	/** admin_notice 관련 서비스 */
+	List<NoticeDTO> getNoticeList(int currPage);
 }

@@ -2,6 +2,8 @@ package com.ezen.smg.dto;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -14,4 +16,5 @@ public class NoticeDTO {
 	private Date write_date;
 	private String short_content;
 	private String banner_url;
+	private MultipartFile imgFile;
 }
