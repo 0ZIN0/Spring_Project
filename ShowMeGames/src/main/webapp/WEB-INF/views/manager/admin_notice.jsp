@@ -33,25 +33,22 @@
 						</div>
 						<div id="notice-content">
 							<div id="notice-content-title">
-								<div>No.</div>
+								<div>ID</div>
 								<div>날짜</div>
 								<div>제목</div>
 								<div>게시자</div>
-								<div></div>
 							</div>
 							<div id="notice-list">
 							<c:forEach items="${notices}" var="notice" varStatus="status">
-								<div class="notice-div">
-									<div>${status.count}</div>
+								<a href="./admin_notice_detail?id=${notice.notice_id}" class="notice-div">
+									<div>${notice.notice_id}</div>
 									<div><fmt:formatDate pattern="yyyy. MM. dd" value="${notice.write_date}"/></div>
 									<div class="notice-title">${notice.notice_title}</div>
 									<div>${notice.mng_num} 관리자님</div>
-									<div>
-										<button class="btn notice-change-btn">수정</button>
-									</div>
-								</div>
+								</a>
 							</c:forEach>
 							</div>
+							<div id="pagingDiv" data-id="admin_notice"></div>
 							<%@ include file="/WEB-INF/views/manager/include/paging.jsp" %>
 						</div>
 					</div>
@@ -59,6 +56,9 @@
 			</div>
 		</div>
 	</main>
+	
+	<!-- js -->
+	<script src="${resource}/js/paging.js"></script>
 	
 </body>
 </html>

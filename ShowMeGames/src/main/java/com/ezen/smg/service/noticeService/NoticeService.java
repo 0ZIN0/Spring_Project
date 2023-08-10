@@ -15,4 +15,6 @@ public interface NoticeService {
 	List<NoticeDTO> getSelectDateNotices(int year);
 	
 	NoticeDTO getContent(int notice_id);
+	
+	int noticeUpdate(NoticeDTO dto);
 }
