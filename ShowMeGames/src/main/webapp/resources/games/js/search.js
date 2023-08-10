@@ -50,7 +50,11 @@ $(document).ready(function () {
   var savedEditorList = JSON.parse(sessionStorage.getItem("editorList")) || [];
   var savedSortBy = JSON.parse(sessionStorage.getItem("sortBy"));
   // 정렬 보기의 텍스트를 저장된 텍스트로 수정
-  text.text(savedSortBy);
+  if (savedSortBy == null) {
+    text.text("정렬보기");
+  } else {
+    text.text(savedSortBy);
+  }
   // list에 저장된 list 추가
   Array.prototype.push.apply(genreList, savedGenreList);
   Array.prototype.push.apply(editorList, savedEditorList);
@@ -267,10 +271,11 @@ function getSearchList() {
 }
 
 $(document).ready(function () {
-  if (window.location.pathname !== "/games") {
+  if (window.location.pathname !== "/search") {
     // '/games'가 아닐 경우 로컬 스토리지 항목 삭제
     sessionStorage.removeItem("genreList");
     sessionStorage.removeItem("editorList");
+    sessionStorage.removeItem("sortBy");
   }
 });
 

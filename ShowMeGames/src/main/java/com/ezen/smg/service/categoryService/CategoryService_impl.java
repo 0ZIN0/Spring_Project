@@ -13,31 +13,29 @@ import com.ezen.smg.mapper.CategoryMapper;
 
 @Service
 public class CategoryService_impl implements CategoryService{
-	
+
 	@Autowired
 	CategoryMapper mapper;
-	
+
+
 	@Override
-	public List<Games> getBestsellers(String genre, String editor, Integer sortBy) {
+	public List<Games> getBestsellers(String genre, String editor) {
 
 		List<Games> result = new ArrayList<Games>();
-		String sortByString = sortByToString(sortBy);
 
-		if(genre != null|| editor != null || sortBy != null) {
-			List<String> editors = new ArrayList<String>();
-			if(editor != null && !editor.isEmpty()) {   // editor null check
-				editors = Arrays.asList(editor.split(","));
-			}
-			result = mapper.getBestsellers(
-					editors, genre, sortByString);
+		List<String> editors = new ArrayList<String>();
+		if(editor != null && !editor.isEmpty()) {   // editor null check
+			editors = Arrays.asList(editor.split(","));
+		}
+		result = mapper.getBestsellers(
+				editors, genre);
 
-			for(Games game : result) {
-				game.setDiscounted_price(
-						CommonFunction.calDiscount(
-								game.getGame_price(), 
-								game.getDiscount()
-								));
-			}
+		for(Games game : result) {
+			game.setDiscounted_price(
+					CommonFunction.calDiscount(
+							game.getGame_price(), 
+							game.getDiscount()
+							));
 		}
 		return result;
 	}
@@ -72,18 +70,18 @@ public class CategoryService_impl implements CategoryService{
 		List<Games> result = new ArrayList<Games>();
 		List<String> editors = new ArrayList<String>();
 		String sortByString;
-		
+
 		if(editor != null && !editor.isEmpty()) {   // editor null check
 			editors = Arrays.asList(editor.split(","));
 		}
-		
-		
+
+
 		if(sortBy != null) {
 			sortByString = sortByToString(sortBy);			
 		} else {
 			sortByString = "discount DESC";
 		}
-		
+
 		result = mapper.getDiscountGames(
 				editors, genre, sortByString);
 
@@ -102,13 +100,13 @@ public class CategoryService_impl implements CategoryService{
 
 		List<Games> result = new ArrayList<Games>();
 		String sortByString = sortByToString(sortBy);
-		
+
 		List<String> editors = new ArrayList<String>();
 		if(editor != null && !editor.isEmpty()) {   // editor null check
 			System.out.println("통과");
 			editors = Arrays.asList(editor.split(","));
 		}
-		
+
 		result = mapper.getLastestGames(
 				editors, genre, sortByString);
 
@@ -121,17 +119,17 @@ public class CategoryService_impl implements CategoryService{
 		}
 		return result;
 	}
-	
+
 	@Override
 	public List<Games> getEditorRecmdGames(String editor, String genres, Integer sortBy) {
-		
+
 		List<Games> result = new ArrayList<Games>();
-		
+
 		String sortByString = sortByToString(sortBy);
-		
+
 		result = mapper.getEditorRecmdGames(
 				editor, genres, sortByString);
-		
+
 		for(Games game : result) {
 			game.setDiscounted_price(
 					CommonFunction.calDiscount(
@@ -143,7 +141,7 @@ public class CategoryService_impl implements CategoryService{
 	}
 
 	String sortByToString(Integer sortBy) {
-	
+
 		try {
 			if(sortBy == 1) {
 				return "bestSeller DESC";

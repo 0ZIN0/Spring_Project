@@ -3,7 +3,8 @@ const label = $(".label");
 const options = $(".option_item");
 const text = $(".label_text");
 const arrow = $(".arrow");
-var sortBy = 3;
+const searchParams = new URLSearchParams(location.search);
+var sortBy = searchParams.get("sortBy");
 
 // add filter-container
 const handleSelect = (item) => {
@@ -49,7 +50,11 @@ $(document).ready(function () {
   var savedEditorList = JSON.parse(sessionStorage.getItem("editorList")) || [];
   var savedSortBy = JSON.parse(sessionStorage.getItem("sortBy"));
   // 정렬 보기의 텍스트를 저장된 텍스트로 수정
-  text.text(savedSortBy);
+  if (savedSortBy == null) {
+    text.text("정렬보기");
+  } else {
+    text.text(savedSortBy);
+  }
   // list에 저장된 list 추가
   Array.prototype.push.apply(genreList, savedGenreList);
   Array.prototype.push.apply(editorList, savedEditorList);
@@ -246,6 +251,9 @@ var baseUrl = url.origin + url.pathname;
 
 // Search Logic
 function getSearchList() {
+  if (sortBy == null) {
+    sortBy = 3;
+  }
   sessionStorage.setItem("genreList", JSON.stringify(genreList));
   sessionStorage.setItem("editorList", JSON.stringify(editorList));
   var genre_toString = genreList.join("|");
@@ -262,10 +270,11 @@ function getSearchList() {
 }
 
 $(document).ready(function () {
-  if (window.location.pathname !== "/games") {
+  if (window.location.pathname !== "/category") {
     // '/games'가 아닐 경우 로컬 스토리지 항목 삭제
     sessionStorage.removeItem("genreList");
     sessionStorage.removeItem("editorList");
+    sessionStorage.removeItem("sortBy");
   }
 });
 
