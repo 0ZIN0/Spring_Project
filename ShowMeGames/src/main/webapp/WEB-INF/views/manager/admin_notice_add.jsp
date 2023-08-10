@@ -64,7 +64,7 @@
 									</div>
 								</div>
 								<div id="submit-btn-div">
-									<button type="submit" class="btn">확인</button>
+									<button id="submit-btn" type="submit" class="btn">확인</button>
 								</div>
 							</form>
 						</div>
@@ -73,6 +73,9 @@
 			</div>
 		</div>
 	</main>
-
+	
+	<!-- js -->
+	<script src="${resource}/js/admin_notice_add.js"></script>
+	
 </body>
 </html>

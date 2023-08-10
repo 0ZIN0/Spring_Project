@@ -31,7 +31,7 @@
 								<span>수정하기</span>
 							</div>
 							<div class="content_update_wrapper">
-								<button class="btn cancel" onclick="location.href='./admin_notice'">뒤로가기</button>
+								<button id="back-link-btn" class="btn cancel" onclick="location.href='./admin_notice'">뒤로가기</button>
 							</div>
 						</div>
 						<div id="notice-content">
@@ -69,6 +69,9 @@
 			</div>
 		</div>
 	</main>
-
+	
+	<!-- js -->
+	<script src="${resource}/js/admin_notice_update.js"></script>
+	
 </body>
 </html>
