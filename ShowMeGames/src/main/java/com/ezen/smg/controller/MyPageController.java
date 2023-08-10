@@ -28,8 +28,12 @@ public class MyPageController {
 	}
 	
 	@GetMapping("/inquiry")
-	String accountInquiry(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model) {
-	
+	String accountInquiry(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model, Integer page) {
+		if(page == null) page = 1;
+		int totalSize = mypageService.getTotalSize(9);
+		
+		model.addAttribute("paging", mypageService.getPagination(page, totalSize));
+		model.addAttribute("totalSize", totalSize);
 		model.addAttribute("myContents", mypageService.getContent(9));
 		return "mypage/account_inquiry";
 	}

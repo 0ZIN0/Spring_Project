@@ -54,12 +54,19 @@
 									<div class="board_attachment">
 										<div>첨부파일</div>
 										<div class="board_img">
-											<img src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
+											<img class="myImg"src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
 										</div>
 									</div>
 								</div>
+								<div id="myModal" class="modal">
+								  <!-- The Close Button -->
+								  <span class="close">&times;</span>										
+								  <!-- Modal Content (The Image) -->
+								  <img class="modal-content" id="img01" src="${inquiries_img}${myContent.attachment}"/>										
+								</div>
 							</div>
 						</c:forEach>
+					</div> 
 						<svg role="presentation" class="icon--arrow" width="40" height="50" viewBox="0 0 40 40" fill="none"
                      	xmlns="http://www.w3.org/2000/svg">
                       	<path d="M24 17H15L19.6957 23L24 17Z" fill="#767676" />
@@ -68,19 +75,11 @@
 			            <div aria-live="polite" aria-atomic="true">${totalSize}개</div>
 						<c:set var="nextPage" value="${paging.currPage + 1}" scope="page" />
 						<c:set var="prePage" value="${paging.currPage - 1}" scope="page" />
-						
-						<c:if test="${search == null}">
-							<c:set var="second_para" value="topic=${topic}" />
-						</c:if>
-						
-						<c:if test="${search != null}">
-							<c:set var="second_para" value="search=${search}" />
-						</c:if>
-						
+												
 						<div id="pageDiv">
 							<c:choose>
 								<c:when test="${prePage >= paging.firstPage}">
-									<button class="btn" onclick="location.href='./faq?page=${nextPage}&&${second_para}'">&#9664;</button> 
+									<button class="btn" onclick="location.href='./inquiry?page=${nextPage}&&${second_para}'">&#9664;</button> 
 								</c:when>
 								<c:otherwise>
 									<button class="btn disabled" disabled>&#9664;</button> 
@@ -89,23 +88,22 @@
 							<c:forEach items="${paging.pageList}" var="pageNum">
 								<c:choose>
 									<c:when test="${pageNum == paging.currPage}">
-										<button id="now-page" class="btn" onclick="location.href='./faq?page=${pageNum}&&${second_para}'">${pageNum}</button> 
+										<button id="now-page" class="btn" onclick="location.href='./inquiry?page=${pageNum}&&${second_para}'">${pageNum}</button> 
 									</c:when>
 									<c:otherwise>
-										<button class="btn" onclick="location.href='./faq?page=${pageNum}&&${second_para}'">${pageNum}</button>
+										<button class="btn" onclick="location.href='./inquiry?page=${pageNum}&&${second_para}'">${pageNum}</button>
 									</c:otherwise>
 								</c:choose>		
 							</c:forEach>
 							<c:choose>
 								<c:when test="${nextPage <= paging.lastPage}">
-									<button class="btn" onclick="location.href='./faq?page=${nextPage}&&${second_para}'">&#9654;</button>
+									<button class="btn" onclick="location.href='./inquiry?page=${nextPage}&&${second_para}'">&#9654;</button>
 								</c:when>
 								<c:otherwise>
 									<button class="btn disabled" disabled>&#9654;</button> 
 								</c:otherwise>
 							</c:choose>
 						</div>	
-					</div> 
 				</div>
 			</div>
 		</div>
