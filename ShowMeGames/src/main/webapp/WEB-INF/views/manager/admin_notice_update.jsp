@@ -35,7 +35,7 @@
 							</div>
 						</div>
 						<div id="notice-content">
-							<form action="./admin_notice_update?id=${param.id}" method="POST">
+							<form action="./admin_notice_update?id=${param.id}" method="POST" enctype="multipart/form-data">
 								<input type="hidden" name="notice_id" value="${param.id}"/>
 								<div id="input-div">
 									<div class="notice-input-grid">
@@ -44,15 +44,19 @@
 									</div>
 									<div class="notice-input-grid">
 										<div class="notice-input-title">간단 소개</div>
-										<input class="input-notice" id="short_content" type="text" name="notice_short_content" value="${notice.short_content}" />
+										<input class="input-notice" id="short_content" type="text" name="short_content" value="${notice.short_content}" />
 									</div>
 									<div class="notice-input-grid">
 										<div class="notice-input-title">내용</div>	
 										<textarea class="input-notice" id="notice-text" rows="50" cols="10" name="notice_content">${notice.notice_content}</textarea>
 									</div>
 									<div class="notice-input-grid">
-										<div class="notice-input-title">Banner URL</div>
-										<input class="input-notice" id="banner_url" type="text" name="banner_url" value="${notice.banner_url}" />
+										<div class="notice-input-title">첨부파일</div>
+										<input type="file" name="imgFile" accept="image/jpeg image/png image/gif"/>
+									</div>
+									<div class="notice-input-grid">
+										<div></div>
+										<div id="url-comment">첨부파일은 최대 2MB입니다. (사용가능 파일 형식 - jpg / gif / png )</div>
 									</div>
 								</div>
 								<div id="submit-btn-div">

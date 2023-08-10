@@ -92,3 +92,8 @@
     border-radius: 3px;
     font-size: 24px;
 }
+
+#url-comment {
+    font-size: 14px;
+    font-weight: 600;
+}

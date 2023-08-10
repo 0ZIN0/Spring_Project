@@ -17,7 +17,7 @@
 <body>
 	<!-- top_bar -->
 	<%@ include file="/WEB-INF/views/manager/include/top_bar.jsp"%>
-	
+
 	<main class="background_layer1">
 		<div id="main_content_wrapper" class="background_layer2">
 			<!-- side_bar -->
@@ -31,27 +31,36 @@
 								<span>새 글 작성하기</span>
 							</div>
 							<div class="content_update_wrapper">
-								<button class="btn cancel" onclick="location.href='./admin_notice'">뒤로가기</button>
+								<button class="btn cancel"
+									onclick="location.href='./admin_notice'">뒤로가기</button>
 							</div>
 						</div>
 						<div id="notice-content">
-							<form action="./admin_notice_add" method="POST">
+							<form action="./admin_notice_add" method="POST" enctype="multipart/form-data">
 								<div id="input-div">
 									<div class="notice-input-grid">
 										<div class="notice-input-title">제목</div>
-										<input class="input-notice" id="notice-title" type="text" name="notice_title" placeholder="제목을 입력하세요."/>
+										<input class="input-notice" id="notice-title" type="text"
+											name="notice_title" placeholder="제목을 입력하세요." />
 									</div>
 									<div class="notice-input-grid">
 										<div class="notice-input-title">간단 소개</div>
-										<input class="input-notice" id="short_content" type="text" name="notice_short_content" placeholder="간단한 소개 글을 입력하세요."/>
+										<input class="input-notice" id="short_content" type="text"
+											name="short_content" placeholder="간단한 소개 글을 입력하세요." />
 									</div>
 									<div class="notice-input-grid">
-										<div class="notice-input-title">내용</div>	
-										<textarea class="input-notice" id="notice-text" rows="50" cols="10" name="notice_content" placeholder="내용을 입력하세요."></textarea>
+										<div class="notice-input-title">내용</div>
+										<textarea class="input-notice" id="notice-text" rows="50"
+											cols="10" name="notice_content" placeholder="내용을 입력하세요."></textarea>
 									</div>
 									<div class="notice-input-grid">
-										<div class="notice-input-title">Banner URL</div>
-										<input class="input-notice" id="banner_url" type="text" name="banner_url" placeholder="URL을 입력하세요."/>
+										<div class="notice-input-title">첨부파일</div>
+										<input type="file" name="imgFile" accept="image/jpeg image/png image/gif"/>
+									</div>
+									<div class="notice-input-grid">
+										<div></div>
+										<div id="url-comment">첨부파일은 최대 2MB입니다. (사용가능 파일 형식 - jpg
+											/ gif / png )</div>
 									</div>
 								</div>
 								<div id="submit-btn-div">
