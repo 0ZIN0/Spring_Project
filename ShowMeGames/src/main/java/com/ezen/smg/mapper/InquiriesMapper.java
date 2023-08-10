@@ -12,4 +12,5 @@ public interface InquiriesMapper {
 	
 	List<Inquiries> getContent(@Param("user_num") int user_num);
 	
+	int getTotalNum();
 }

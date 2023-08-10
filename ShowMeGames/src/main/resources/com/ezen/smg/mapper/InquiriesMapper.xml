@@ -3,7 +3,9 @@
   PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.ezen.smg.mapper.InquiriesMapper">
-  		  		
+  		<select id="getTotalNum">
+  			SELECT count(*) FROM inquiries
+  		</select>
   		<select id="getContent" resultType="com.ezen.smg.dto.Inquiries">
   			SELECT * FROM inquiries WHERE user_num = #{user_num}
   		</select>
