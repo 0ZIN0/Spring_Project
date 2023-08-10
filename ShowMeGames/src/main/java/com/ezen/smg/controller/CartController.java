@@ -116,9 +116,7 @@ public class CartController {
 	    return response;
 	}
 
-	
-	
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/add-cart")
 	public int checkoutSuccess(@RequestBody Carts carts, @SessionAttribute(name = "user", required = false) SmgUsersDTO user) {

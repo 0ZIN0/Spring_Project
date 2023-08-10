@@ -331,44 +331,28 @@ $(window).scroll(function () {
 });
 
 
-
 $(window).scroll(function () {
   $("#header-top").css("left", 0 - $(this).scrollLeft());
   $("#header-bottom").css("left", 0 - $(this).scrollLeft());
 });
 
 // minicart Mouse Event
-$('#header-cart').on({
-    mouseenter: function() {
-      $('#header-bottom').addClass('minicart-position');
-      $('#minicart').addClass('minicart-active');
-    },
-    mouseleave: function() {
-      $('#header-bottom').removeClass('minicart-position');
-      $('#minicart').removeClass('minicart-active');
-    }
-});
+$('#header-cart').mouseenter(function() {
+  $('#header-bottom').addClass('minicart-position');
+  $('#minicart').addClass('minicart-active');
+})
+$('#header-cart').mouseleave(function() {
+  $('#header-bottom').removeClass('minicart-position');
+  $('#minicart').removeClass('minicart-active');
+})
 
-$('#minicart').on({
-  mouseenter: function() {
-    $('#minicart').addClass('minicart-active');
-  },
-  mouseleave: function() {
-    $('#header-bottom').removeClass('minicart-position');
-    $('#minicart').removeClass('minicart-active');
-  }
-});
-
-$('#minicart-delete').click(function (e) {
-  e.preventDefault();
-  $.ajax({
-    url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
-    method: 'GET',
-    success: () => {
-      updateMiniCart();
-    }
-  });
-});
+$('#minicart').mouseenter(function() {
+  $('#minicart').addClass('minicart-active');
+})
+$('#minicart').mouseleave(function() {
+  $('#header-bottom').removeClass('minicart-position');
+  $('#minicart').removeClass('minicart-active');
+})
 
 // minicart 내용 업데이트
 function updateMiniCart() {
@@ -406,15 +390,17 @@ function updateMiniCart() {
                     ${( game.discount !== null && game.discount > 0) 
                       ?
                         `<div id="sales-price">
-                          <div class="price-percentage">-${game.discount}%</div>
+                          <div class="price-percentage-wrapper">
+                            <div class="price-percentage">-${game.discount}%</div>
+                          </div>
                           <div class="price-wrapper">
                             <div class="discount-price">₩ ${new Intl.NumberFormat('ko-KR').format(game.discounted_price)}</div>
-                            <div class="product-price">₩ ${new Intl.NumberFormat('ko-KR').format(game.game_price)}</div>
+                            <div class="sales-product-price">₩ ${new Intl.NumberFormat('ko-KR').format(game.game_price)}</div>
                           </div> 
                         </div> <!-- sales-price Part End -->`
                       :
                         `<div id="standard-price">
-                          <div class="product-price">₩ ${new Intl.NumberFormat('ko-KR').format(game.game_price)}</div>
+                          <div class="product-price">₩ ${game.game_price > 0 ? new Intl.NumberFormat('ko-KR').format(game.game_price) : "무료"}</div>
                         </div> 
                       <!-- 할인 없는 게임의 기본 가격-->`
                     }  
@@ -439,8 +425,15 @@ function updateMiniCart() {
           <!--minicart-list-top Part End -->   
 
         <div id="minicart-list-bottom">
-          <div class="price" id="total-order">
-            합계 : ₩ ${totalPrice > 0 ? new Intl.NumberFormat('ko-KR').format(totalPrice) : "무료"}
+        <!-- minicart Sub Total -->
+          <div class="minicart-sub-total" id="total-order">
+              <div class="sub-left">
+                <span class="sub-total-title">total price : </span>
+              </div>
+              <div class="sub-right">
+                <span class="sub-total-price">₩ ${totalPrice > 0 ? new Intl.NumberFormat('ko-KR').format(totalPrice) : "무료"}</span>
+                <span class="sub-total-notice">※ 부가세 포함</span>
+              </div>
           </div>
           <div class="minicart-list-btns">
             <div class="put-minicart-btn">장바구니 보기</div>
@@ -466,6 +459,17 @@ function updateMiniCart() {
     },
   });
 }
+
+// cart-list delete
+$('#minicart-delete').click(function (e) {
+  $.ajax({
+      url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
+      method: 'GET',
+      success: () => {
+        updateMiniCart();
+      }
+  })
+});
 
 
 $(document).ready(function() {
