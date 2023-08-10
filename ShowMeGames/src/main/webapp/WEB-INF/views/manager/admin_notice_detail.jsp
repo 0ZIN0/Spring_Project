@@ -7,7 +7,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>${param.id}번공지사항</title>
+<title>${param.id}번 공지사항</title>
 <%@ include file="/WEB-INF/views/manager/include/head_common.jsp"%>
 <!-- page css -->
 <link rel="stylesheet" href="${resource}/css/admin_notice_detail.css">

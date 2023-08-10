@@ -19,4 +19,6 @@ public interface NoticeMapper {
 	NoticeDTO getContent(@Param("id") int notice_id);
 	
 	int noticeUpdate(@Param("dto")NoticeDTO dto);
+	
+	int addNotice(@Param("dto")NoticeDTO dto);
 }

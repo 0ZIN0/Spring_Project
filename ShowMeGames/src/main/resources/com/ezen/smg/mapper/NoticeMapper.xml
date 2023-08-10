@@ -5,8 +5,7 @@
 <mapper namespace="com.ezen.smg.mapper.NoticeMapper">
 	<select id="getNotices" parameterType="int"
 		resultType="com.ezen.smg.dto.NoticeDTO">
-		SELECT * FROM (SELECT rownum AS rn, a.* FROM notices a order by write_date
-		desc) WHERE rn BETWEEN ${start} AND ${end}
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM (select * from notices order by write_date desc) a) WHERE rn BETWEEN #{start} AND #{end}
 	</select>
 
 	<select id="getSelectYearNotices" parameterType="String"
@@ -34,4 +33,9 @@
 		UPDATE notices SET notice_title=#{dto.notice_title}, short_content=#{dto.short_content}, notice_content=#{dto.notice_content}, banner_url=#{dto.banner_url}
 		WHERE notice_id=#{dto.notice_id}
 	</update>
+	<insert id="addNotice" parameterType="com.ezen.smg.dto.NoticeDTO">
+		INSERT INTO notices (notice_id, mng_num, notice_title, notice_content, notice_viewcnt, write_date, short_content, banner_url) values (
+			notices_id_seq.nextval, #{dto.mng_num}, #{dto.notice_title}, #{dto.notice_content}, 0, sysdate, #{dto.short_content}, #{dto.banner_url}
+		)
+	</insert>
 </mapper>

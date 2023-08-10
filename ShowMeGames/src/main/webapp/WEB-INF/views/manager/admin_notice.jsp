@@ -28,7 +28,7 @@
 								<span>공지사항 리스트</span>
 							</div>
 							<div class="content_update_wrapper">
-								<button class="add-notice-btn">추가</button>
+								<button class="add-notice-btn" onclick="location.href='./admin_notice_add_page'">추가</button>
 							</div>
 						</div>
 						<div id="notice-content">
