@@ -103,9 +103,24 @@ public class ManagerController {
 		return "manager/admin_game_update";
 	}
 	
+//	@GetMapping("/manage/admin_user")
+//	String adminUser() {
+//		return "manager/admin_user";
+//	}
+	
 	@GetMapping("/manage/admin_user")
-	String adminUser() {
-		return "manager/admin_user";
+	public String userList(Model model, @RequestParam(name = "page", required = false, defaultValue = "1") int page) {
+		
+	    int itemsPerPage = 10; // 페이지당 표시할 사용자 수
+	    List<SmgUsersDTO> userList = serv.getUserList(page, itemsPerPage); // 사용자 리스트 가져오기
+
+	    int totalSize = serv.getUserListTotalSize();
+	    Pagination pagination = serv.getPagination(page, totalSize, itemsPerPage);
+	    
+	    model.addAttribute("userList", userList);
+	    model.addAttribute("pagination", pagination);
+	    
+	    return "manager/admin_user";
 	}
 	
 	@GetMapping("/manage/admin_chart")
@@ -147,21 +162,5 @@ public class ManagerController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/manage/admin_user")
-	public String userList(Model model, @RequestParam(name = "page", required = false, defaultValue = "1") int page) {
-		
-		
-		
-	    int itemsPerPage = 10; // 페이지당 표시할 사용자 수
-	    List<SmgUsersDTO> userList = serv.getUserList(page, itemsPerPage); // 사용자 리스트 가져오기
-
-	    int totalSize = serv.getUserListTotalSize();
-	    Pagination pagination = serv.getPagination(page, totalSize, itemsPerPage);
-	    
-
-	    model.addAttribute("userList", userList);
-	    model.addAttribute("pagination", pagination);
-	    
-	    return "manager/admin_user";
-	}
+	
 }

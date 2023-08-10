@@ -107,13 +107,21 @@
 	<select id="getUsersTotalSize">
 		SELECT count(*) FROM smg_users
 	</select>
-	<select id="getUserListForAdmin"
-		resultType="com.ezen.smg.dto.SmgUsersDTO">
-		SELECT * FROM (
-		SELECT rownum AS rn, u.*
-		FROM smg_users u
-		ORDER BY user_id DESC
-		) WHERE rn BETWEEN #{start} AND #{end}
-	</select>
-
+	<select id="getUserListForAdmin" resultType="com.ezen.smg.dto.SmgUsersDTO">
+    SELECT * FROM (
+        SELECT rownum AS rn, 
+               u.user_num, 
+               SUBSTR(u.user_pw, 1, 20) AS user_pw, 
+               SUBSTR(u.user_id, 1, 20) AS user_id,
+               u.user_name,
+               u.nick_name,
+               u.user_grade,
+               u.phone_number,
+               u.user_point,
+               u.birth_date,
+               u.gender
+        FROM smg_users u
+        ORDER BY user_num DESC
+    ) WHERE rn BETWEEN #{start} AND #{end}
+</select>
 </mapper>

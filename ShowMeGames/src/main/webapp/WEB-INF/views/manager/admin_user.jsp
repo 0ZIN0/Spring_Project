@@ -56,9 +56,9 @@
                                         <span>${user.gender}</span>
                                     </div>
                                     
-                                    <%-- <div class="content_grid_item">
+                                   <div class="content_grid_item">
                                         <span>${user.user_pw}</span>
-                                    </div> --%>
+                                    </div> 
                                 </div>
                             </c:forEach>
                         </div>
