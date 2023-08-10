@@ -1,4 +1,4 @@
-/* 사이드바 설정 */
+/* �궗�씠�뱶諛� �꽕�젙 */
 #side_admin_user {
     border-left: 3px solid #eeab0a;
     background-color: #0e151d;
@@ -7,7 +7,7 @@
     color: #eeab0a;
 }
 
-/* game_content 설정 */
+/* game_content �꽕�젙 */
 .content_grid {
     display: grid;
     grid-template-columns: 11% 40% 15% 15% 15%;
@@ -47,3 +47,15 @@
     width: 60px;
     height: 30px;
 }
+  .input-group {
+    display: flex;
+    align-items: center; /* 수직 정렬 */
+  }
+  
+  #search-input {
+  margin-left: 1091px;
+  }
+  #search-button {
+  width: 35px;
+  height: 35px;
+  }
