@@ -1,17 +1,42 @@
 const inputField = $('#notice-title');
-const submitButton = $('#submit-btn');
+const noticeText = $('#notice-text');
+const imgFile = $('#imp-file');
+const submitBtn = $('#submit-btn');
 
-console.log("input: ", inputField);
-console.log("h1");
+submitBtn.attr('disabled', 'disabled');
 
-submitButton.disabled = true;
-
-inputField.on('input', function() {
-  if (inputField.val() !== '') {
+inputField.on('keyup', function () {
+  if (noticeText.val() !== '' && inputField.val() !== '' && imgFile.val() !== '') {
+    console.log("input: ", inputField.val());
     console.log('1');
-    submitButton.disabled = false;
-} else {
+    submitBtn.removeAttr("disabled");
+  } else {
     console.log('2');
-    submitButton.disabled = true;
+    console.log("input none: ", inputField.val());
+    submitBtn.attr('disabled', 'disabled');
+  }
+});
+
+noticeText.on('keyup', function () {
+  if (noticeText.val() !== '' && inputField.val() !== '' && imgFile.val() !== '') {
+    console.log("text: ", noticeText.val());
+    console.log('1');
+    submitBtn.removeAttr("disabled");
+  } else {
+    console.log('2');
+    console.log("text none: ", noticeText.val());
+    submitBtn.attr('disabled', 'disabled');
+  }
+});
+
+imgFile.on('input', function () {
+  if (noticeText.val() !== '' && inputField.val() !== '' && imgFile.val() !== '') {
+    console.log("img: ", imgFile.val());
+    console.log('1');
+    submitBtn.removeAttr("disabled");
+  } else {
+    console.log('2');
+    console.log("img none: ", imgFile.val());
+    submitBtn.attr('disabled', 'disabled');
   }
 });
