@@ -8,4 +8,5 @@ public class GameKeyDTO {
 	private String key_id;
 	private Integer user_num;
 	private Integer game_id;
+	private String nick_name;
 }
