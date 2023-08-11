@@ -8,20 +8,23 @@ import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.SmgUsersDTO;
 
 public interface ManagerService {
-	
+
 	ManagersDTO confirmManager(String mng_id, String mng_pw);
 	ManagersDTO getManager(Integer mng_num);
 
 	// 페이징을 위한 서비스
 	Pagination getPagination(int currPage, int totalSize, int itemsPerPage);
-	
+
 	/** admin_game 관련 서비스 */
 	List<Games> getGameList(int currPage);
 	int getGameListTotalSize();
 	Games getGameDetail(int game_id);
-	
+
 	/** admin_user 관련 서비스 */
-	 List<SmgUsersDTO> getUserList(int page, int itemsPerPage);
+
+	List<SmgUsersDTO> getUserListWithPagination(int page, int itemsPerPage);
 	int getUserListTotalSize();
-	
+
+	SmgUsersDTO getUserByUserNum(Long userNum);
+
 }

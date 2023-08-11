@@ -13,6 +13,7 @@ import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.ManagerMapper;
 import com.ezen.smg.mapper.UsersMapper;
+import com.ezen.smg.service.memberService.MemberService;
 
 @Service
 public class ManagerServiceImp1 implements ManagerService {
@@ -22,24 +23,27 @@ public class ManagerServiceImp1 implements ManagerService {
 
 	@Autowired
 	GamesMapper gamesMapper;
-	
+
 	@Autowired
 	UsersMapper usersMapper;
-	
+
+	@Autowired
+	MemberService memberService;
+
 	private int pageNum = 10;
-	
+
 	/**
 	 *	관리자 정보가 있고 비밀번호가 일치하면 해당 관리자 정보를 return함. 그 외엔 null 리턴.
 	 */
 	@Override
 	public ManagersDTO confirmManager(String mng_id, String mng_pw) {
-		
+
 		if(mng_id == null || mng_pw == null) return null;
-		
+
 		ManagersDTO manager = managerMapper.getMangerById(mng_id);
-		
+
 		if(!mng_pw.equals(manager.getMng_pw())) return null; 
-		
+
 		return manager;
 	}
 
@@ -51,9 +55,9 @@ public class ManagerServiceImp1 implements ManagerService {
 	@Override
 	public Pagination getPagination(int currPage, int totalSize, int itemsPerPage) {
 		Pagination paging = new Pagination(totalSize, pageNum);
-		
+
 		paging.setCurrPage(currPage);
-		
+
 		return paging;
 	}
 
@@ -62,7 +66,7 @@ public class ManagerServiceImp1 implements ManagerService {
 	public List<Games> getGameList(int currPage) {
 		int lastGame = currPage * pageNum;
 		int firstGame = lastGame - 9;
-		
+
 		return gamesMapper.getGameListForAdmin(firstGame, lastGame);
 	}
 
@@ -70,14 +74,16 @@ public class ManagerServiceImp1 implements ManagerService {
 	public int getGameListTotalSize() {
 		return gamesMapper.getGamesTotalSize();
 	}
-	
-	/* admin_user 관련 서비스 */
-	@Override
-	public List<SmgUsersDTO> getUserList(int page, int itemsPerPage) {
-	    int start = (page - 1) * itemsPerPage;
-	    int end = start + itemsPerPage;
 
-	    return usersMapper.getUserListForAdmin(start, end);
+	/* admin_user 관련 서비스 */
+
+
+	@Override
+	public List<SmgUsersDTO> getUserListWithPagination(int page, int itemsPerPage) {
+		int start = (page - 1) * itemsPerPage;
+		int end = start + itemsPerPage;
+
+		return usersMapper.getUserListForAdmin(start, end);
 	}
 
 	@Override
@@ -86,11 +92,16 @@ public class ManagerServiceImp1 implements ManagerService {
 	}
 
 	@Override
+	public SmgUsersDTO getUserByUserNum(Long userNum) {
+		return memberService.getUserByUserNum(userNum);
+	}
+
+	@Override
 	public Games getGameDetail(int game_id) {
 		Games game = gamesMapper.getGame(game_id); 
-		
+
 		game.setDiscounted_price(CommonFunction.calDiscount(game.getGame_price(), game.getDiscount()));
-		
+
 		return game;
 	}
 

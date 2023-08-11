@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:url value="/resources/manager" var="resource" />
 <!DOCTYPE html>
@@ -31,27 +30,28 @@
 						<div class="input-group">
 							<div class="form-outline">
 								<input id="search-input" type="search" name="title"
-									class="form-control" placeholder="검색왜안돼"
+									class="form-control" placeholder="이름으로 검색"
 									onkeypress="if(event.keyCode=='13'){event.preventDefault(); searchEvt();}" />
-							</div>
-							<button id="search-button" class="btn btn-primary"
+								<button id="search-button" class="btn btn-primary"
 								onclick="searchBoard()">
 								<i class="fa-solid fa-magnifying-glass"></i>
 							</button>
+							</div>
 						</div>
 						<div>
+						<hr />
 							<c:forEach items="${userList}" var="user">
 								<div class="content_grid">
 									<div class="content_grid_item">
 										<span>${user.user_num}</span>
 									</div>
+								   <div class="content_grid_item">
+										<span class="user_name_span" data-id="${user.user_num}">${user.user_name}</span>
+									</div>
 									<div class="content_grid_item">
 										<span>${user.user_id}</span>
 									</div>
-									<div class="content_grid_item">
-										<span>${user.user_name}</span>
-									</div>
-									<div class="content_grid_item">
+							       <div class="content_grid_item">
 										<span>${user.nick_name}</span>
 									</div>
 									<div class="content_grid_item">
@@ -76,13 +76,15 @@
 								</div>
 							</c:forEach>
 						</div>
+						
 					</div>
+					
 				</div>
 			</div>
 		</div>
 	</main>
-	<script>  console.log("${gameList}");
-    	console.log("ㅎㅇ2");
-   </script>
+	
+	<script src="${resource}/js/admin_user.js"></script>
+  
 </body>
 </html>

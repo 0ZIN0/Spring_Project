@@ -1,0 +1,59 @@
+/* 사이드바 설정 */
+#side_admin_game {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+#side_admin_game span.material-icons {
+    color: #eeab0a;
+}
+
+.item_div {
+    display: flex;
+    flex-direction: column;
+	row-gap: 5px;
+}
+
+.item_layer_div {
+	margin-bottom: 70px;
+}
+.item_layer_div.item2 {
+	display: grid;
+	grid-template-columns: 440px 1fr;
+}
+
+.item_layer_div.item3 {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.game_detail_img_div {
+	width: 400px;
+	height: 350px;
+	margin: auto;
+}
+
+#game_title {
+	font-size: 1.3em;
+}
+
+.item_span_title {
+	font-size: 1.4em;
+	font-weight: 550;
+}
+
+.item_span_title::after {
+	width: 28px;
+    height: 3px;
+    content: "";
+    display: block;
+    margin-top: 3px;
+    background-color: blueviolet;
+}
+
+.item_span_content {
+	font-size: 1.2em;
+}
+
+.content-item {
+	background-color: #fff;
+}

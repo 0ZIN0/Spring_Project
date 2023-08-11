@@ -110,7 +110,7 @@
 	<select id="getUserListForAdmin" resultType="com.ezen.smg.dto.SmgUsersDTO">
     SELECT * FROM (
         SELECT rownum AS rn, 
-               u.user_num, 
+               <!-- u.user_num, 
                SUBSTR(u.user_pw, 1, 20) AS user_pw, 
                SUBSTR(u.user_id, 1, 20) AS user_id,
                u.user_name,
@@ -119,9 +119,16 @@
                u.phone_number,
                u.user_point,
                u.birth_date,
-               u.gender
+               u.gender -->
+                u.user_num, 
+                SUBSTR(u.user_id, 1, 20) AS user_id,
+                u.user_name
         FROM smg_users u
         ORDER BY user_num DESC
     ) WHERE rn BETWEEN #{start} AND #{end}
 </select>
+
+ <select id="getUserByUserNum" parameterType="Long" resultType="com.ezen.smg.dto.SmgUsersDTO">
+        SELECT * FROM smg_users WHERE user_num = #{user_num}
+    </select>
 </mapper>
