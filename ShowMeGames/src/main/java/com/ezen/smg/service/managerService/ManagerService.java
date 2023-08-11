@@ -5,6 +5,7 @@ import java.util.List;
 import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
+import com.ezen.smg.dto.Inquiries;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 
@@ -30,4 +31,8 @@ public interface ManagerService {
 	List<GameKeyDTO> getKeys(int page);
 	List<GameKeyDTO> getSearchResults(String search, String search_tag, int page);
 	int[] ModifyKey(String key_id, String nick_name, int key_num);
+	
+	/*admin_inquiry 관련 서비스*/
+	List<Inquiries> getContent(int currPage);	
+	int getTotalNum();
 }

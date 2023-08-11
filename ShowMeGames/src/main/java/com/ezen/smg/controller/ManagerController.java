@@ -129,7 +129,14 @@ public class ManagerController {
 	}
 
 	@GetMapping("/manage/admin_inquiry")
-	String adminInquiry() {
+	String adminInquiry(Model model, Integer page) {
+		if(page == null) page = 1;
+		
+		int totalSize = serv.getTotalNum();
+		
+		model.addAttribute("paging", serv.getPagination(page, totalSize));
+		model.addAttribute("contents", serv.getContent(page));
+		
 		return "manager/admin_inquiry";
 	}
 
