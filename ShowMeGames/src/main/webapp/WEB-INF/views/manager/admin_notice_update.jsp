@@ -31,7 +31,7 @@
 								<span>수정하기</span>
 							</div>
 							<div class="content_update_wrapper">
-								<button class="btn cancel" onclick="location.href='./admin_notice'">뒤로가기</button>
+								<button id="back-link-btn" class="btn cancel" onclick="location.href='./admin_notice'">뒤로가기</button>
 							</div>
 						</div>
 						<div id="notice-content">
@@ -52,7 +52,7 @@
 									</div>
 									<div class="notice-input-grid">
 										<div class="notice-input-title">첨부파일</div>
-										<input type="file" name="imgFile" accept="image/jpeg image/png image/gif"/>
+										<input id="img-file" type="file" name="imgFile" accept="image/jpeg image/png image/gif"/>
 									</div>
 									<div class="notice-input-grid">
 										<div></div>
@@ -60,7 +60,7 @@
 									</div>
 								</div>
 								<div id="submit-btn-div">
-									<button type="submit" class="btn">확인</button>
+									<button id="submit-btn" type="submit" class="btn">확인</button>
 								</div>
 							</form>
 						</div>
@@ -69,6 +69,9 @@
 			</div>
 		</div>
 	</main>
-
+	
+	<!-- js -->
+	<script src="${resource}/js/admin_notice_update.js"></script>
+	
 </body>
 </html>
