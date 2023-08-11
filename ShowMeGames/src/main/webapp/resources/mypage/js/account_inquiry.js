@@ -3,10 +3,13 @@ $(".board").on('click', function(e) {
 });
 
 $(".myImg").on('click', function(e) {
-	$(this).find('.modal').css('display', 'block');
+	$(this).parent().next().show();
+	e.stopPropagation();
+	console.log($(this).parent());
 });
 
 $(".close").on('click', function(e) {
-	$(this).find('.modal').css('display', 'none');
+	$(this).parent().hide();
+	e.stopPropagation();
+	console.log($(this).parent());
 });
-

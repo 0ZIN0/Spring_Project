@@ -41,7 +41,11 @@
 							<div id="board" class="board">
 								<div class="board_subject">${myContent.inquiry_subject}</div>
 								<div class="board_title">${myContent.inquiry_title}</div>
-								<div class="board_btn"><button class="btn">답변</button></div>															
+								<div class="board_btn">
+									<div class="board_check">
+										검토중
+									</div>
+								</div>															
 								<div class="board_detail">
 									<div class="board_content">
 										<div>
@@ -56,13 +60,13 @@
 										<div class="board_img">
 											<img class="myImg"src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
 										</div>
+										<div id="myModal" class="modal">
+										  <!-- The Close Button -->
+										  <span class="close">&times;</span>										
+										  <!-- Modal Content (The Image) -->
+										  <img class="modal-content" id="img01" src="${inquiries_img}${myContent.attachment}"/>										
+										</div>
 									</div>
-								</div>
-								<div id="myModal" class="modal">
-								  <!-- The Close Button -->
-								  <span class="close">&times;</span>										
-								  <!-- Modal Content (The Image) -->
-								  <img class="modal-content" id="img01" src="${inquiries_img}${myContent.attachment}"/>										
 								</div>
 							</div>
 						</c:forEach>
