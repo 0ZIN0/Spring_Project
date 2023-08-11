@@ -21,4 +21,8 @@ public interface FAQmapper {
 	int getTopicNum(@Param("topic") String topic);
 
 	int getSearchNum(@Param("search") String search);
+	
+	int updateFAQ(@Param("dto") QnADTO dto);
+	
+	int addFAQ(@Param("dto") QnADTO dto);
 }

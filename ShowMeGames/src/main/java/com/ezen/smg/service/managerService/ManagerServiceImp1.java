@@ -12,10 +12,13 @@ import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
+import com.ezen.smg.dto.QnADTO;
+import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.ManagerMapper;
 import com.ezen.smg.mapper.NoticeMapper;
+import com.ezen.smg.service.faqService.FAQService;
 
 @Service
 public class ManagerServiceImp1 implements ManagerService {
@@ -31,6 +34,9 @@ public class ManagerServiceImp1 implements ManagerService {
 	
 	@Autowired
 	GameKeyMapper gameKeyMapper;
+	
+	@Autowired
+	FAQmapper faQmapper;
 	
 	private int pageNum = 10;
 	
@@ -129,5 +135,13 @@ public class ManagerServiceImp1 implements ManagerService {
 		int firstGame = lastGame - 9;
 		
 		return noticeMapper.getNotices(firstGame, lastGame);
+	}
+
+	@Override
+	public List<QnADTO> getQnAList(int currPage) {
+		int lastGame = currPage * pageNum;
+		int firstGame = lastGame - 9;
+		
+		return faQmapper.getFAQList(firstGame, lastGame);
 	}
 }

@@ -7,6 +7,7 @@ import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
+import com.ezen.smg.dto.QnADTO;
 
 public interface ManagerService {
 	
@@ -24,7 +25,9 @@ public interface ManagerService {
 
 	/** admin_notice 관련 서비스 */
 	List<NoticeDTO> getNoticeList(int currPage);
-
+	
+	/** admin_faq 관련 서비스 */
+	List<QnADTO> getQnAList(int currPage);
 	
 	/*게임 키 관리*/
 	List<GameKeyDTO> getKeys(int page);

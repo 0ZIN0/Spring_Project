@@ -24,4 +24,12 @@
  	<select id="getFAQ" parameterType="int" resultType="com.ezen.smg.dto.QnADTO">
  		SELECT * FROM qna WHERE qna_id = #{id}
  	</select>
+ 	<update id="updateFAQ" parameterType="com.ezen.smg.dto.QnADTO">
+ 		UPDATE qna SET qna_title=#{dto.qna_title}, qna_content=#{dto.qna_content}, qna_topic=#{dto.qna_topic} WHERE qna_id=#{dto.qna_id}
+ 	</update>
+ 	<insert id="addFAQ" parameterType="com.ezen.smg.dto.QnADTO">
+ 		INSERT INTO qna (qna_id, qna_title, qna_content, qna_topic) VALUES (
+ 			qna_id_seq.nextval, #{dto.qna_title}, #{dto.qna_content}, #{dto.qna_topic}
+ 		)
+ 	</insert>
  </mapper>
