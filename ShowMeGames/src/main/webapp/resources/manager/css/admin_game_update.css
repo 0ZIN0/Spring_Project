@@ -11,12 +11,16 @@
     display: flex;
     flex-direction: row;
     column-gap: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 5px;
+    padding: 15px 20px;
 }
 
 .input_container_div.large {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+    width: 980px;
 }
 
 .input_layer_div {
@@ -26,19 +30,28 @@
     margin-bottom: 30px;
 }
 
-.input_title_span {
-    white-space: nowrap;
-}
-
 .input_title_div {
     display: flex;
     align-items: center;
+}
+.input_title_div::before {
+    width: 3px;
+    height: 16px;
+    content: "";
+    display: block;
+    margin-right: 3px;
+    background-color: blueviolet;
+}
+
+.input_title_span {
+    white-space: nowrap;
 }
 
 #discounted_price_span:disabled {
     background-color: #fff;
     border-radius: 2px;
     border: 1px solid rgb(118, 118, 118);
+    color: black;
 }
 
 .input_content_div.radio > label {
@@ -53,5 +66,73 @@
 
 #input_rated_wrapper label {
     width: 50px;
+    display: inline-block;
+}
+
+div.desc_span_div{
+    display: flex;
+    flex-direction: column;
+}
+span.desc_span {
+    font-size: 0.8em;
+}
+
+#input_korean_container {
+    width: 460px;
+}
+
+#input_game_mode_container {
+    width: 500px;
+}
+
+#input_develop_container {
+    width: 460px;
+}
+
+#input_release_date_container {
+    width: 250px;
+}
+
+#input_game_grade_container {
+    width: 230px;
+}
+
+#input_game_name {
+    width: 535px;
+}
+
+#input_develop_company {
+    width: 305px;
+}
+
+#input_game_grade {
+    width: 50px;
+    text-align: right;
+}
+
+#final_btn_div {
+    width: 980px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+#input_game_grade_content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.stararea_wrapper {
+	display: flex;
+	flex-direction: row;
+	column-gap: 10px;
+}
+
+.starpoint {
+	color: #fbbc05;
+    overflow: hidden;
     display: inline-block;
 }

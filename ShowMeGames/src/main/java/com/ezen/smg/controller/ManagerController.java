@@ -1,5 +1,7 @@
 package com.ezen.smg.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
@@ -93,7 +96,29 @@ public class ManagerController {
 	
 		model.addAttribute("game", serv.getGameDetail(game_id));
 		
+		List<String[]> propList = serv.getPropList();
+		
+		model.addAttribute("genreArr", propList.get(0));
+		model.addAttribute("editorArr", propList.get(1));
+		model.addAttribute("platformArr", propList.get(2));
+		model.addAttribute("layoutArr", propList.get(3));
+		model.addAttribute("ratedArr", propList.get(4));
+		
 		return "manager/admin_game_update";
+	}
+	
+	@PostMapping("/manage/admin_game_update")
+	String adminGameUpdatePost(Games game, MultipartFile img_file) {
+
+		int game_id = game.getGame_id(); 
+		
+		if(img_file != null) {
+			
+		}
+		
+		serv.updateGame(game);
+		
+		return "redirect:./admin_game_detail?game_id=" + game_id;
 	}
 	
 	@GetMapping("/manage/admin_user")

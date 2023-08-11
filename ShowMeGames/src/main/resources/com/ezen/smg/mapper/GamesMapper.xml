@@ -178,7 +178,28 @@
 	<select id="getGamesTotalSize">
 		SELECT count(*) FROM games
 	</select>
+	
 	<select id="getGameListForAdmin" resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a ORDER BY game_id DESC) WHERE rn BETWEEN #{start} AND #{end}
 	</select>
+	
+	<update id="updateGame" parameterType="com.ezen.smg.dto.Games">
+		UPDATE games SET 
+			game_name=#{game.game_name}, 
+			game_genre=#{game.game_genre}, 
+			game_price=#{game.game_price},  
+			korean=#{game.korean}, 
+			release_date=#{game.release_date}, 
+			platform=#{game.platform}, 
+			discount=#{game.discount}, 
+			game_mode=#{game.game_mode}, 
+			develop_company=#{game.develop_company}, 
+			game_grade=#{game.game_grade}, 
+			editor=#{game.editor, jdbcType=VARCHAR}, 
+			layout=#{game.layout, jdbcType=VARCHAR}, 
+			rated=#{game.rated} 
+		WHERE 
+			game_id=#{game.game_id} 
+	</update>
+	
 </mapper> 

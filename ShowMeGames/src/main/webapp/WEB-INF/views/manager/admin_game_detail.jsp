@@ -126,7 +126,10 @@
 								</div>
 								<div class="item_div">
 									<span class="item_span_title">게임페이지 표시타입</span>
-									<span class="item_span_content">${game.layout}</span>
+									<span class="item_span_content">
+										<c:if test="${game.layout == null}">Default</c:if>
+										${game.layout}
+									</span>
 								</div>
 							</div>
 

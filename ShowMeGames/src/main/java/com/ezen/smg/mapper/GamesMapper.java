@@ -45,4 +45,6 @@ public interface GamesMapper {
 	
 	List<Games> getGameListForAdmin(@Param("start") int firstGame, @Param("end") int lastGame);
 	
+	int updateGame(@Param("game") Games game);
+	
 }
