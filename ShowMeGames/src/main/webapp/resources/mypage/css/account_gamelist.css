@@ -6,7 +6,7 @@
   color: #eeab0a;
 }
 
-#order-list {
+#game-list {
   display: flex;
   flex-direction: column;
   background-color: #dddddd;
@@ -19,30 +19,30 @@
   width: 100%;
 }
 
-#order-title {
+#game-title {
   display: grid;
   grid-template-columns: 150px 1fr 150px 100px 100px;
   padding: 10px 20px;
 }
 
-#order-title > * {
+#game-title > * {
   font-size: 16px;
   font-weight: 600;
 }
 
-#order-content {
+#game-content {
   border-radius: 3px;
   display: flex;
   flex-direction: column;
   row-gap: 5px;
 }
 
-#order-list-div {
+#game-list-div {
   flex-direction: column;
   row-gap: 30px;
 }
 
-.order-game {
+.game-game {
   color: #f22349;
   font-weight: 600;
 }
@@ -54,12 +54,12 @@
   justify-content: center;
 }
 
-#order_list > * {
+#game_list > * {
   display: flex;
   align-items: center;
 }
 
-.order-content-front {
+.game-content-front {
   height: 100px;
   display: grid;
   grid-template-columns: 150px 1fr 150px 100px 100px;
@@ -71,12 +71,12 @@
   overflow: hidden;
 }
 
-.order-content-front > * {
+.game-content-front > * {
   display: flex;
   align-items: center;
 }
 
-.order-content-back {
+.game-content-back {
   top: 100%;
   width: 100%;
   height: 100px;
@@ -90,7 +90,7 @@
   position: absolute;
 }
 
-.order-content-back > * {
+.game-content-back > * {
   display: flex;
   align-items: center;
 }
@@ -104,9 +104,27 @@
   font-weight: 600;
 }
 
-.order-detail-btn {
+.game-detail-btn {
   width: 100%;
   height: 30px;
   font-size: 16px;
+  justify-content: center;
+}
+
+.empty {
+  height: 100px;
+  background-color: white;
+  border-radius: 3px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.empty > * {
+  font-size: 30px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }

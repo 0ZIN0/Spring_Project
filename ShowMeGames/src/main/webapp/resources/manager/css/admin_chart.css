@@ -1,8 +1,8 @@
 /* 사이드바 설정 */
 #side_admin_chart {
-    border-left: 3px solid #eeab0a;
-    background-color: #0e151d;
+  border-left: 3px solid #eeab0a;
+  background-color: #0e151d;
 }
 #side_admin_chart span.material-icons {
-    color: #eeab0a;
+  color: #eeab0a;
 }
