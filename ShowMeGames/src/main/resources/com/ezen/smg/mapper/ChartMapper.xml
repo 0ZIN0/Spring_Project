@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.smg.mapper.ChartMapper">
+	<select id="getWeeklySales" resultType="com.ezen.smg.dto.SalesDTO">
+		WITH DateGenerator AS (
+		SELECT TRUNC(SYSDATE) - LEVEL + 1 AS order_date
+		FROM dual
+		CONNECT BY LEVEL &lt;= 7
+		)
+		SELECT
+		d.order_date,
+		COALESCE(SUM(s.order_price), 0) AS total_sales
+		FROM
+		DateGenerator d
+		LEFT JOIN orders s ON TRUNC(s.order_date) = d.order_date
+		GROUP BY
+		d.order_date
+		ORDER BY
+		d.order_date
+	</select>
+	<select id="getManager"
+		resultType="com.ezen.smg.dto.ManagersDTO">
+		SELECT * FROM managers WHERE mng_num=#{mng_num}
+	</select>
+</mapper>

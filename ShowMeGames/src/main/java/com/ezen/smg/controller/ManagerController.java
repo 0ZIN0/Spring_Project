@@ -17,14 +17,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
-import com.ezen.smg.dto.Games;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.ezen.smg.dto.GameKeyDTO;
+import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
+import com.ezen.smg.dto.SalesDTO;
 import com.ezen.smg.mapper.NoticeMapper;
 import com.ezen.smg.service.managerService.ManagerService;
 
@@ -126,6 +126,13 @@ public class ManagerController {
 	@GetMapping("/manage/admin_chart")
 	String adminChart() {
 		return "manager/admin_chart";
+	}
+	
+	@ResponseBody
+	@GetMapping("/manage/admin_chart_ajax")
+	List<SalesDTO> getChart(String tag) {
+		
+		return serv.getWeeklySales();
 	}
 
 	@GetMapping("/manage/admin_inquiry")

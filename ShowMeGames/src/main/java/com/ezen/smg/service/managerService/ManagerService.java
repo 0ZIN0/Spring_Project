@@ -7,6 +7,7 @@ import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
+import com.ezen.smg.dto.SalesDTO;
 
 public interface ManagerService {
 	
@@ -30,4 +31,7 @@ public interface ManagerService {
 	List<GameKeyDTO> getKeys(int page);
 	List<GameKeyDTO> getSearchResults(String search, String search_tag, int page);
 	int[] ModifyKey(String key_id, String nick_name, int key_num);
+	
+	/*chart*/
+	List<SalesDTO> getWeeklySales();
 }

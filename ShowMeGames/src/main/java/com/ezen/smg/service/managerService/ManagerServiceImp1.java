@@ -12,6 +12,8 @@ import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
+import com.ezen.smg.dto.SalesDTO;
+import com.ezen.smg.mapper.ChartMapper;
 import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.ManagerMapper;
@@ -31,6 +33,9 @@ public class ManagerServiceImp1 implements ManagerService {
 	
 	@Autowired
 	GameKeyMapper gameKeyMapper;
+	
+	@Autowired
+	ChartMapper chartMapper;
 	
 	private int pageNum = 10;
 	
@@ -129,5 +134,11 @@ public class ManagerServiceImp1 implements ManagerService {
 		int firstGame = lastGame - 9;
 		
 		return noticeMapper.getNotices(firstGame, lastGame);
+	}
+
+	@Override
+	public List<SalesDTO> getWeeklySales() {
+		
+		return chartMapper.getWeeklySales();
 	}
 }
