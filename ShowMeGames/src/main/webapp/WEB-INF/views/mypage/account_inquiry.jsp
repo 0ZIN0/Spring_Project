@@ -113,6 +113,10 @@
 		</div>
 	</main>						
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
+<<<<<<< Updated upstream
+=======
+	<script src="${resource}/js/common.js"></script>
+>>>>>>> Stashed changes
 	
 	<script src="${account_inquiry}"></script>
 </body>

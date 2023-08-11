@@ -164,7 +164,11 @@
 }
 
 /* 100% Image Width on Smaller Screens */
+<<<<<<< Updated upstream
 @media only screen and (max-width: 700px max-height: 700px){
+=======
+@media only screen and (max-width: 700px){
+>>>>>>> Stashed changes
   .modal-content {
     width: 100%;
     height: 100%;
