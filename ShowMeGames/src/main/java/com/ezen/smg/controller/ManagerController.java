@@ -240,6 +240,14 @@ public class ManagerController {
 
 		return "redirect:/admin/manage/admin_notice";
 	}
+	
+	@GetMapping(value = "/manage/admin_notice_delete")
+	String adminNoticeDelete(int id) {
+		
+		noticeMapper.deleteNotice(id);
+
+		return "redirect:/admin/manage/admin_notice";
+	}
 
 	@GetMapping("/manage/admin_faq")
 	String adminFaq(Model model, Integer page, String search, String topic) {
@@ -279,6 +287,14 @@ public class ManagerController {
 	String adminFaqUpdate(QnADTO dto) {
 
 		faQmapper.updateFAQ(dto);
+
+		return "redirect:/admin/manage/admin_faq";
+	}
+	
+	@GetMapping(value = "/manage/admin_faq_delete")
+	String adminFaqDelete(int id) {
+
+		faQmapper.deleteFAQ(id);
 
 		return "redirect:/admin/manage/admin_faq";
 	}

@@ -32,4 +32,7 @@
  			qna_id_seq.nextval, #{dto.qna_title}, #{dto.qna_content}, #{dto.qna_topic}
  		)
  	</insert>
+ 	<delete id="deleteFAQ" parameterType="int">
+ 		DELETE FROM qna WHERE qna_id=#{qna_id}
+ 	</delete>
  </mapper>

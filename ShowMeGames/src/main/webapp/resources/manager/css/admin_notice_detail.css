@@ -85,3 +85,81 @@
     width: 600px;
     height: auto;
 }
+
+#delete-popup {
+	height: 100%;
+	width: 100%;
+	z-index: 90;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.60);
+}
+
+#delete-content {
+	width: 650px;
+	height: 600px;
+	background-color: white;
+	display: grid;
+	margin: 140px auto;
+	border-radius: 10px;
+	grid-template-rows: 20% 80%;
+}
+
+#delete-top {
+	position: relative;
+}
+
+#delete-big-icon  {
+	height: 100%;
+	font-size: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#delete-close-btn:hover {
+	cursor: pointer;
+}
+
+#delete-bottom {
+	padding: 35px;
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+}
+
+#delete-bottom > :first-child {
+	font-size: 24px;
+	font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+#popup-btns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 10px;
+}
+
+.delete_innder > * {
+	font-size: 16px;
+	margin-bottom: 30px;
+	line-height : 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.delete_innder > :nth-child(3) {
+	color:#9d9d9d;
+}
+
+.delete-none {
+	display: none;
+}
+
+.display-none {
+	display: none;
+}
+
+.display-grid {
+	display: grid;
+}

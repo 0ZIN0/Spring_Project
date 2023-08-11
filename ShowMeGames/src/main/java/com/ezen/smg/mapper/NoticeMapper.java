@@ -21,4 +21,6 @@ public interface NoticeMapper {
 	int noticeUpdate(@Param("dto")NoticeDTO dto);
 	
 	int addNotice(@Param("dto")NoticeDTO dto);
+	
+	int deleteNotice(@Param("notice_id") int notice_id);
 }

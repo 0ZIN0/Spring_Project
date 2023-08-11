@@ -25,4 +25,6 @@ public interface FAQmapper {
 	int updateFAQ(@Param("dto") QnADTO dto);
 	
 	int addFAQ(@Param("dto") QnADTO dto);
+	
+	int deleteFAQ(@Param("qna_id") int qna_id);
 }

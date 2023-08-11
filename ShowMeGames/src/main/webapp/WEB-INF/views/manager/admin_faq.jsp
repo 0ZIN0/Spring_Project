@@ -47,8 +47,7 @@
 								</form>
 							</div>
 							<div class="content_update_wrapper">
-								<button class="add-notice-btn"
-									onclick="location.href='./admin_faq_add_page'">추가</button>
+								<button class="add-notice-btn" onclick="location.href='./admin_faq_add_page'">추가</button>
 							</div>
 						</div>
 						<div id="notice-content">

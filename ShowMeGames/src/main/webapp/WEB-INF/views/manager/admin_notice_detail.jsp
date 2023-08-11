@@ -13,8 +13,27 @@
 <link rel="stylesheet" href="${resource}/css/admin_notice_detail.css">
 <script src="https://kit.fontawesome.com/e49f385ff0.js"
 	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body>
+	<div id="delete-popup" class="delete-none">
+		<div id="delete-content">
+			<div id="delete-top">
+				<i id="delete-big-icon" class="fa-solid fa-trash-can">&nbsp;</i>
+			</div>
+			<div id="delete-bottom">
+				<div>${param.id}번 공지사항 삭제</div>
+				<div class="delete_innder">
+					<p>선택한 게시글을 정말 삭제하시겠습니까?</p>
+					<p>한 번 삭제한 게시글은 복구할 수 없습니다.</p>
+					<div id="popup-btns">
+						<button id="delete-close-btn" class="btn cancel">취소</button>
+						<button class="btn" onclick="location.href='./admin_notice_delete?id=${param.id}'">삭제</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- top_bar -->
 	<%@ include file="/WEB-INF/views/manager/include/top_bar.jsp"%>
 
@@ -31,8 +50,11 @@
 								<span>상세 정보</span>
 							</div>
 							<div class="content_update_wrapper">
-								<button class="btn cancel" onclick="location.href='./admin_notice'">뒤로가기</button>
-								<button class="change-notice-btn" onclick="location.href='./admin_notice_update_page?id=${notice.notice_id}'">수정</button>
+								<button class="btn cancel"
+									onclick="location.href='./admin_notice'">목록</button>
+								<button class="change-notice-btn"
+									onclick="location.href='./admin_notice_update_page?id=${notice.notice_id}'">수정</button>
+								<button id="delete-btn" class="btn cancel">삭제</button>
 							</div>
 						</div>
 						<div id="notice-content">
@@ -61,6 +83,8 @@
 			</div>
 		</div>
 	</main>
-
+	
+	<script src="${resource}/js/admin_notice_detail.js"></script>
+	
 </body>
 </html>
