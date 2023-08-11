@@ -19,4 +19,8 @@ public interface GamesService {
 	List<Games> getNewSortGames(int countNum);
 	
 	List<Games> getGenreSameGames(List<Games> games, int countNum);
+	
+	List<Games> getBestSellers();
+	
+	List<Games> getWeeklyBestSellers();
 }

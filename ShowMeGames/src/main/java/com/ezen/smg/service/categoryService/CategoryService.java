@@ -6,7 +6,7 @@ import com.ezen.smg.dto.Games;
 
 public interface CategoryService {
 
-	List<Games> getBestsellers(String genres, String editor, Integer sortBy);
+	List<Games> getBestsellers(String genres, String editor);
 
 	List<Games> getFreeGames(String genres, String editor, Integer sortBy);
 

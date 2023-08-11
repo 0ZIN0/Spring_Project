@@ -1,8 +1,136 @@
 /* 사이드바 설정 */
 #side_admin_key {
-    border-left: 3px solid #eeab0a;
-    background-color: #0e151d;
+  border-left: 3px solid #eeab0a;
+  background-color: #0e151d;
 }
 #side_admin_key span.material-icons {
-    color: #eeab0a;
+  color: #eeab0a;
+}
+
+#key-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #dddddd;
+  border-radius: 3px;
+  row-gap: 10px;
+  padding: 16px;
+}
+
+.item_title_wrapper {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.game_search {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.game_search > span {
+  margin-right: 10px;
+}
+
+.game_search > * {
+  font-size: 18px;
+  align-content: center;
+}
+
+.result {
+  display: flex;
+  justify-content: end;
+}
+
+.result > * {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+#column-title {
+  display: grid;
+  grid-template-columns: 100px 150px 1fr 200px 150px;
+  padding: 10px 20px;
+}
+
+#column-title > * {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#row-content {
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+#key-list-div {
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.order-game {
+  color: #f22349;
+  font-weight: 600;
+}
+
+.key-btn {
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  justify-content: center;
+}
+
+.row-content {
+  height: 100px;
+  display: grid;
+  grid-template-columns: 100px 150px 1fr 200px 150px;
+  background-color: white;
+  border-radius: 3px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.empty {
+  height: 100px;
+  background-color: white;
+  border-radius: 3px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.empty > * {
+  font-size: 30px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row-content > * {
+  display: flex;
+  align-items: center;
+}
+
+.row-content > input {
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.order-detail-btn {
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  justify-content: center;
 }

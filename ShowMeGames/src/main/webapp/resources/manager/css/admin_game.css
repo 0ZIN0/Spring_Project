@@ -42,8 +42,11 @@
     margin-bottom: 0;
 }
 
-.btn.item_update_btn {
-    font-size: 1em;
-    width: 60px;
-    height: 30px;
+.game_name_span {
+    cursor: pointer;
+}
+
+.game_name_span:hover {
+    text-decoration-line: underline;
+    color: blue;
 }

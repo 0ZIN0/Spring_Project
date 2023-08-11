@@ -64,7 +64,7 @@
   display: grid;
   grid-template-columns: 150px 1fr 150px 100px 100px;
   background-color: white;
-  bgame-radius: 3px;
+  border-radius: 3px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   position: relative;
@@ -95,7 +95,7 @@
   align-items: center;
 }
 
-/* .game-content-front:hover > .game-content-back{
+/* .order-content-front:hover > .order-content-back{
     top: 0;
   } */
 
