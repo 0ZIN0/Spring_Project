@@ -1,5 +1,7 @@
 package com.ezen.smg.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.service.managerService.ManagerService;
 
@@ -102,9 +106,37 @@ public class ManagerController {
 	}
 	
 	@GetMapping("/manage/admin_key")
-	String adminKey(Model model) {
-		model.addAttribute("gameKeys", serv.getAllKey());
+	String adminKey(Model model, String search, String search_tag) {
+		if(search != null && !search.isEmpty()) {
+			model.addAttribute("search", search);
+			model.addAttribute("gameKeys", serv.getSearchResults(search, search_tag, 1));
+		} else {
+			model.addAttribute("gameKeys", serv.getKeys(1));			
+		}
 		return "manager/admin_key";
+	}
+	
+	@ResponseBody
+	@GetMapping(value="/manage/admin_key_ajax")
+	public List<GameKeyDTO> ajaxKey(int num, String search, String search_tag) {
+
+		if(search !=null && !search.isEmpty()
+				&& search_tag != null && !search_tag.isEmpty()) {
+			return serv.getSearchResults(search, search_tag, num);
+		} else {
+			return serv.getKeys(num);
+		}
+	}
+	
+	@PostMapping("/manage/key_modify")
+	String keyModify(Model model, String key_id, String nick_name, int key_num) {
+		
+		int[] results = serv.ModifyKey(key_id, nick_name, key_num);
+		//results[0] == nick_name
+		//results[1] == key_id
+		model.addAttribute("modifyAccount", results[0]);
+		model.addAttribute("modifyKey", results[1]);
+		return "manager/key_modify";
 	}
 
 	@GetMapping("/manage/admin_out")

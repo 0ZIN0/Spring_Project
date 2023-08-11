@@ -13,5 +13,19 @@ public interface GameKeyMapper {
 	
 	List<MyGameListDTO> getUserGameKeyList(@Param("user_num") Integer user_num);
 	
-	List<GameKeyDTO> getAllKeys();
+	List<GameKeyDTO> getKeys(@Param("begin") int begin, @Param("end") int end);
+	
+	List<GameKeyDTO> getSearchResults(
+			@Param("search")String search, 
+			@Param("search_tag") String search_tag,
+			@Param("begin") int begin,
+			@Param("end") int end);
+	
+	int modifyKeyId(
+			@Param("key_id") String key_id,
+			@Param("key_num") int key_num);
+	
+	int modifyKeyAccount(
+			@Param("nick_name") String nick_name,
+			@Param("key_num") int key_num);
 }

@@ -20,6 +20,7 @@ public interface ManagerService {
 	int getGameListTotalSize();
 	
 	/*게임 키 관리*/
-	List<GameKeyDTO> getAllKey();
-	
+	List<GameKeyDTO> getKeys(int page);
+	List<GameKeyDTO> getSearchResults(String search, String search_tag, int page);
+	int[] ModifyKey(String key_id, String nick_name, int key_num);
 }

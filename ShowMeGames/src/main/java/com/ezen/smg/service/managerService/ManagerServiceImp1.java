@@ -1,6 +1,7 @@
 package com.ezen.smg.service.managerService;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,9 +72,41 @@ public class ManagerServiceImp1 implements ManagerService {
 	}
 
 	@Override
-	public List<GameKeyDTO> getAllKey() {
+	public List<GameKeyDTO> getKeys(int page) {
+		int scope = 30;
+		int end = scope * page;
+		int begin = end - scope + 1;
+		return gameKeyMapper.getKeys(begin, end);
+	}
+
+	@Override
+	public List<GameKeyDTO> getSearchResults(String search, String search_tag, int page) {
+		int scope = 30;
+		int end = scope * page;
+		int begin = end - scope + 1;
+		return gameKeyMapper.getSearchResults(search, search_tag, begin, end);
+	}
+
+	@Override
+	public int[] ModifyKey(String key_id, String nick_name, int key_num) {
+		int[] results = new int[2];
+		int result1 = 1;
+		int result2 = 0;
+				
+		if(nick_name != null && !nick_name.isEmpty()) {
+			result1 = gameKeyMapper.modifyKeyAccount(nick_name, key_num);			
+		}
 		
-		return gameKeyMapper.getAllKeys();
+		String pattern = "\\w{4}-\\w{4}-\\w{4}-\\w{4}";
+		boolean result = Pattern.matches(pattern, key_id);
+		if(result) {
+			result2 = gameKeyMapper.modifyKeyId(key_id, key_num);			
+		}
+		//result1 = nick_name
+		//result2 = key_id
+		results[0] = result1;
+		results[1] = result2;
+		return results;
 	}
 
 

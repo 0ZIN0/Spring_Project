@@ -22,8 +22,36 @@
 	AND u.user_num
 	= #{user_num}
 	</select>
-	
-	<select id="getAllKeys" resultType="com.ezen.smg.dto.GameKeyDTO">
-		SELECT * FROM game_key
+
+	<select id="getKeys" resultType="com.ezen.smg.dto.GameKeyDTO">
+		SELECT *
+		FROM (
+		SELECT ROWNUM rnum, k.*, nick_name
+		FROM game_key k
+		LEFT JOIN smg_users u ON k.user_num = u.user_num
+		)
+		WHERE rnum BETWEEN ${begin} AND ${end}
+
 	</select>
+	
+	<select id="getSearchResults" resultType="com.ezen.smg.dto.GameKeyDTO">
+		SELECT * FROM (select ROWNUM rnum, k.*, nick_name from game_key k left join smg_users u on (k.user_num = u.user_num)
+		where LOWER(${search_tag}) LIKE LOWER('%${search}%'))
+		WHERE rnum BETWEEN ${begin} AND ${end}
+		ORDER BY ${search_tag} ASC
+	</select>
+	
+	<update id="modifyKeyId">
+		update game_key set key_id = #{key_id}
+		where key_num = ${key_num}
+	</update>
+	
+	<update id="modifyKeyAccount">
+		update game_key 
+		set user_num = (select user_num from smg_users where nick_name = #{nick_name})  
+		where key_num = ${key_num}
+        AND (select user_num from smg_users where nick_name = #{nick_name}) IS NOT NULL
+	</update>
+	
+	
 </mapper>
