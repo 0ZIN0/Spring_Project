@@ -411,12 +411,12 @@ function updateMiniCart() {
               </div>
                 <!--minicart-list-right Part End -->
 
-                <div class="minicart-list-delete">
-                  <a id="minicart-delete" class="cart-delete" data-gameid="${game.game_id}">
-                    <span class="material-symbols-outlined" data-gameid="${game.game_id}">delete</span>
-                  </a>
-                </div>
-                <!--minicart-list-delete Part End -->
+              <div class="minicart-list-delete">
+                <div id="minicart-delete" class="cart-delete" data-gameid="${game.game_id}">
+                  <span class="material-symbols-outlined" data-gameid="${game.game_id}">delete</span>
+                </div>  
+              </div>
+              <!--minicart-list-delete Part End -->
             </div>
             <!-- minicart-game-list End -->
             `;
@@ -435,9 +435,17 @@ function updateMiniCart() {
                 <span class="sub-total-notice">※ 부가세 포함</span>
               </div>
           </div>
-          <div class="minicart-list-btns">
-            <div class="put-minicart-btn">장바구니 보기</div>
-            <div class="put-minicart-btn">결제하기</div>
+          <div id="minicart-list-btns">
+            <div id="put-minicart-btn" class="button-wrapper">
+              <a>
+                <span>장바구니 보기</span>
+              </a>
+            </div>
+            <div id="minicart-checkout-btn" class="button-wrapper">
+              <a>
+                <span>결제하기</span>
+              </a>
+            </div>
           </div>
           <!-- minicart-list-btns Part End -->
         </div>
@@ -461,19 +469,34 @@ function updateMiniCart() {
 }
 
 // cart-list delete
-$('#minicart-delete').click(function (e) {
-  $.ajax({
-      url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
-      method: 'GET',
-      success: () => {
-        updateMiniCart();
-      }
-  })
-});
+  $(document).on("click", "#minicart-delete", function(e){
+    $.ajax({
+       url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
+        type: "GET",
+        success: () => {
+        },
+        error:() =>{
+          console.log("Error");
+        }
+    })
+  });
 
+  // Minicart-Checkout-btn
+  $(document).on("click", "#minicart-checkout-btn", function(e){
+    $.ajax({
+       url: "/checkout",
+        type: "POST",
+        success: () => {
+          location.href = "./checkout";
+        },
+        error:() =>{
+          console.log("Error");
+        }
+    })
+  });
 
-$(document).ready(function() {
-  // 페이지가 로드될 때 updateMiniCart() 실행
-  updateMiniCart();
-});
+  $(document).ready(function() {
+    // 페이지가 로드될 때 updateMiniCart() 실행
+    updateMiniCart();
+  });
 

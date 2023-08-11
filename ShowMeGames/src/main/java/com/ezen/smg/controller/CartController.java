@@ -59,10 +59,6 @@ public class CartController {
 		}
 	}
 	
-	
-	 
-	
-	
 	@PostMapping(value="/checkout")
 	public void goCheckOut(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model, String platform) {
 		Integer user_num = user.getUser_num();
