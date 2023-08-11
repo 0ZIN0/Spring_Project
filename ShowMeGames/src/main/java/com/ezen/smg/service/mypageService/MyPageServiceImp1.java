@@ -14,8 +14,14 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+
 import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.common.Encryption_SH256;
+
+import com.ezen.smg.common.CommonFunction;
+import com.ezen.smg.common.Encryption_SH256;
+
+import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.Inquiries;
 import com.ezen.smg.dto.MyGameListDTO;
 import com.ezen.smg.dto.SmgUsersDTO;
@@ -44,11 +50,14 @@ public class MyPageServiceImp1 implements MyPageService {
 	
 	@Autowired
 	GameKeyMapper gameKeyMapper;
+	private int pageNum = 9;
+
 	
 	@Override
 	public List<Inquiries> getContent(int user_num) {
 		return inquiriesmapper.getContent(user_num);
 	}
+
 
 	@Override
 	public SmgUsersDTO getUserInfo(int user_num) {
@@ -145,6 +154,22 @@ public class MyPageServiceImp1 implements MyPageService {
 		return 0;
 	}
 
+	
+	@Override
+	public Pagination getPagination(int currPage, int totalSize) {
+		Pagination paging = new Pagination(totalSize, pageNum);
+		
+		paging.setCurrPage(currPage);
+		
+		return paging;
+	}
+
+	@Override
+	public int getTotalSize(int user_num) {
+		
+		return inquiriesmapper.getTotalNum(user_num);
+	}
+
 	@Override
 	public int updateUserPw(int user_num, String user_pw) {
 		String encPw = Encryption_SH256.encrypt(user_pw);
@@ -162,4 +187,20 @@ public class MyPageServiceImp1 implements MyPageService {
 		return result;
 	}
 	
+	
+	@Override
+	public Pagination getPagination(int currPage, int totalSize) {
+		Pagination paging = new Pagination(totalSize, pageNum);
+		
+		paging.setCurrPage(currPage);
+		
+		return paging;
+	}
+
+	@Override
+	public int getTotalSize(int user_num) {
+		
+		return inquiriesmapper.getTotalNum(user_num);
+	}
+
 }
