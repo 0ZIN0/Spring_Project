@@ -51,4 +51,6 @@ public interface GamesMapper {
 	
 	String getBanner_imgUrl(@Param("game_id") int game_id);
 	
+	List<Games> getCuratorGames();
+	
 }

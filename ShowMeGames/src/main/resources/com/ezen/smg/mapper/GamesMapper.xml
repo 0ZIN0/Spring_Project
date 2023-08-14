@@ -210,4 +210,8 @@
 			game_id=#{game.game_id} 
 	</update>
 	
+	<select id="getCuratorGames">
+		select * from games where editor = 'curator'
+	</select>
+	
 </mapper> 
