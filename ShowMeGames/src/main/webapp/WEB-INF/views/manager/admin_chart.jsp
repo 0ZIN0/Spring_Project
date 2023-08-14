@@ -35,6 +35,7 @@
 								<option value="1">2</option>
 								<option value="1">3</option>
 							</select>
+							</div>
 						<div>
 							매출
 							<canvas id="bar-chart" width="800" height="450"></canvas>
@@ -46,7 +47,6 @@
 						</div>
 						<div></div>
 					</div>
-				</div>
 				</div>
 			</div>
 		</div>
