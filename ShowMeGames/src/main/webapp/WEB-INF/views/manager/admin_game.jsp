@@ -78,6 +78,7 @@
 									</div>
 								</c:forEach>
 							</div>
+							<div id="pagingDiv" data-id="admin_game"></div>
 							<%@ include file="/WEB-INF/views/manager/include/paging.jsp" %>
 						</div>
 					</div>

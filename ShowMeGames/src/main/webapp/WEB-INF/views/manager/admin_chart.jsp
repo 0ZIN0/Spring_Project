@@ -35,6 +35,11 @@
 								<option value="1">2</option>
 								<option value="1">3</option>
 							</select>
+						<div>
+							매출
+							<canvas id="bar-chart" width="800" height="450"></canvas>
+						</div>
+						<div>
 						</div>
 						<div class="sales-container">
 							<canvas id="bar-chart"></canvas>
@@ -47,6 +52,7 @@
 	</main>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 	<script src="${resource}/js/admin_chart.js"></script>
 </body>
 </html>

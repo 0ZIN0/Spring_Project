@@ -32,7 +32,7 @@
 							</div>
 							<div class="content_update_wrapper">
 								<button class="btn cancel"
-									onclick="location.href='./admin_notice'">뒤로가기</button>
+									onclick="location.href='./admin_notice'">취소</button>
 							</div>
 						</div>
 						<div id="notice-content">

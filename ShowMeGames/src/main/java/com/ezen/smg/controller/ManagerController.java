@@ -1,6 +1,5 @@
 package com.ezen.smg.controller;
 
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.ezen.smg.dto.GameKeyDTO;
@@ -25,7 +25,10 @@ import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.SalesDTO;
+import com.ezen.smg.dto.QnADTO;
+import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.NoticeMapper;
+import com.ezen.smg.service.faqService.FAQService;
 import com.ezen.smg.service.managerService.ManagerService;
 
 import lombok.extern.log4j.Log4j;
@@ -45,6 +48,12 @@ public class ManagerController {
 
 	@Autowired
 	NoticeMapper noticeMapper;
+
+	@Autowired
+	FAQService faqService;
+
+	@Autowired
+	FAQmapper faQmapper;
 
 	@GetMapping("")
 	String certification(HttpServletRequest request) {
@@ -114,10 +123,32 @@ public class ManagerController {
 	String adminGameUpdate(Integer game_id, Model model) {
 
 		model.addAttribute("game", serv.getGameDetail(game_id));
-
+		
+		List<String[]> propList = serv.getPropList();
+		
+		model.addAttribute("genreArr", propList.get(0));
+		model.addAttribute("editorArr", propList.get(1));
+		model.addAttribute("platformArr", propList.get(2));
+		model.addAttribute("layoutArr", propList.get(3));
+		model.addAttribute("ratedArr", propList.get(4));
+		
 		return "manager/admin_game_update";
 	}
+	
+	@PostMapping("/manage/admin_game_update")
+	String adminGameUpdatePost(Games game, MultipartFile img_file) {
 
+		int game_id = game.getGame_id(); 
+		
+		if(img_file != null) {
+			
+		}
+		
+		serv.updateGame(game);
+		
+		return "redirect:./admin_game_detail?game_id=" + game_id;
+	}
+	
 	@GetMapping("/manage/admin_user")
 	String adminUser() {
 		return "manager/admin_user";
@@ -170,11 +201,11 @@ public class ManagerController {
 		Date nowDate = new Date();				
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
 		String dateString = format.format(nowDate);
-		
-		
+
+
 		// 파일 이름 설정. 중복방지를 위해 뒤에 날짜 입력
 		String file_name = dateString + dto.getImgFile().getOriginalFilename();
-		
+
 		// 파일 저장
 		File saveFile = new File(notice_uploadFolder, file_name);
 		try {
@@ -182,9 +213,9 @@ public class ManagerController {
 		} catch (Exception e) {
 			log.error(e.getMessage());
 		}
-		
+
 		dto.setBanner_url(file_name);
-		
+
 		noticeMapper.noticeUpdate(dto);
 
 		return "redirect:/admin/manage/admin_notice";
@@ -228,19 +259,93 @@ public class ManagerController {
 		} catch (Exception e) {
 			log.error(e.getMessage());
 		}
-		
+
 		dto.setMng_num(mng_num);
 		dto.setBanner_url(file_name);
-			
+
 		noticeMapper.addNotice(dto);
 
 
 		return "redirect:/admin/manage/admin_notice";
 	}
+	
+	@GetMapping(value = "/manage/admin_notice_delete")
+	String adminNoticeDelete(int id) {
+		
+		noticeMapper.deleteNotice(id);
+
+		return "redirect:/admin/manage/admin_notice";
+	}
 
 	@GetMapping("/manage/admin_faq")
-	String adminFaq() {
+	String adminFaq(Model model, Integer page, String search, String topic) {
+		if(page == null) page = 1;
+
+		if(topic == null || topic.equals("")) topic = "all";
+
+		int totalSize;
+
+		if(search == null || search.equals("")) {
+			totalSize = topic.equals("all") ? faqService.getTotalSize() : faqService.getTopicSize(topic);
+
+			model.addAttribute("faqs", faqService.getList(page, topic));
+			model.addAttribute("topic", topic);
+		} else {
+			totalSize = faqService.getSearchSize(search);
+
+			model.addAttribute("faqs", faqService.getSearchList(page, search));
+			model.addAttribute("search", search);
+		}
+
+		model.addAttribute("paging", faqService.getPagination(page, totalSize)); 
+		model.addAttribute("totalSize", totalSize);
+
 		return "manager/admin_faq";
+	}
+
+	@GetMapping("/manage/admin_faq_update_page")
+	String adminFaqUpdatePage(Model model, Integer id) {
+
+		model.addAttribute("faq", faqService.getDetail(id));
+
+		return "manager/admin_faq_update";
+	}
+
+	@PostMapping(value = "/manage/admin_faq_update")
+	String adminFaqUpdate(QnADTO dto) {
+
+		faQmapper.updateFAQ(dto);
+
+		return "redirect:/admin/manage/admin_faq";
+	}
+	
+	@GetMapping(value = "/manage/admin_faq_delete")
+	String adminFaqDelete(int id) {
+
+		faQmapper.deleteFAQ(id);
+
+		return "redirect:/admin/manage/admin_faq";
+	}
+
+	@GetMapping("/manage/admin_faq_detail")
+	String adminFaqDetail(Model model, Integer id) {
+
+		model.addAttribute("faq", faqService.getDetail(id));
+
+		return "manager/admin_faq_detail";
+	}
+
+	@GetMapping("/manage/admin_faq_add_page")
+	String adminFaqAddPage() {
+		return "manager/admin_faq_add";
+	}
+
+	@PostMapping("/manage/admin_faq_add")
+	String adminFaqAdd(QnADTO dto) {
+
+		faQmapper.addFAQ(dto);
+
+		return "redirect:/admin/manage/admin_faq";
 	}
 
 	@GetMapping("/manage/admin_key")
@@ -253,7 +358,7 @@ public class ManagerController {
 		}
 		return "manager/admin_key";
 	}
-	
+
 	@ResponseBody
 	@GetMapping(value="/manage/admin_key_ajax")
 	public List<GameKeyDTO> ajaxKey(int num, String search, String search_tag) {
@@ -265,10 +370,10 @@ public class ManagerController {
 			return serv.getKeys(num);
 		}
 	}
-	
+
 	@PostMapping("/manage/key_modify")
 	String keyModify(Model model, String key_id, String nick_name, int key_num) {
-		
+
 		int[] results = serv.ModifyKey(key_id, nick_name, key_num);
 		//results[0] == nick_name
 		//results[1] == key_id

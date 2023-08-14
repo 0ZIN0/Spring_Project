@@ -38,4 +38,7 @@
 			notices_id_seq.nextval, #{dto.mng_num}, #{dto.notice_title}, #{dto.notice_content}, 0, sysdate, #{dto.short_content}, #{dto.banner_url}
 		)
 	</insert>
+	<delete id="deleteNotice" parameterType="int">
+ 		DELETE FROM notices WHERE notice_id=#{notice_id}
+ 	</delete>
 </mapper>
