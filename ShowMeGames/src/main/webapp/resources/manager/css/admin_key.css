@@ -120,12 +120,17 @@
 .row-content > * {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .row-content > input {
   text-align: center;
   border: none;
   cursor: pointer;
+}
+
+.game-id {
+  text-align: center;
 }
 
 .order-detail-btn {

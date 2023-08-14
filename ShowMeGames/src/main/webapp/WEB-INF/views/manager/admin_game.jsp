@@ -26,8 +26,21 @@
 							<div class="item_title">
 								<span>게임 리스트</span>
 							</div>
+							<div class="search_div">
+								<form action="./admin_game">
+									<select name="type" id="select_search">
+										<option value="game_id">게임ID</option>
+										<option value="game_name">게임명</option>
+										<option value="layout">표시타입</option>
+									</select>
+									<input id="input_search" type="number" name="key" required/>
+									<button type="submit" class="btn">
+										<span class="material-icons">search</span>
+									</button>
+								</form>
+							</div>
 							<div class="content_update_wrapper">
-								<button class="btn">추가</button>
+								<button id="game_add_btn" class="btn">추가</button>
 							</div>
 						</div>
 						<div id="game_content_wrapper">
@@ -78,6 +91,7 @@
 									</div>
 								</c:forEach>
 							</div>
+							<div id="pagingDiv" data-id="admin_game" data-type="${param.type}" data-key="${param.key}"></div> 
 							<%@ include file="/WEB-INF/views/manager/include/paging.jsp" %>
 						</div>
 					</div>
@@ -87,6 +101,6 @@
 	</main>
 	
 	<script src="${resource}/js/admin_game.js"></script>
-	<script src="${resource}/js/paging.js"></script>
+	<script src="${resource}/js/paging_game.js"></script>
 </body>
 </html>

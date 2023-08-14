@@ -136,3 +136,40 @@ span.desc_span {
     overflow: hidden;
     display: inline-block;
 }
+
+#input_file_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#input_file_name_wrapper {
+    margin-top: 20px;
+}
+
+#img_file_name {
+    width: 400px;
+}
+
+#thumbnail_container {
+    position: relative;
+    width: 350px;
+    height: 300px;
+    margin: 0 auto 20px;
+    border-radius: 5px;
+    border: 1px solid #a0a0a0;
+    padding: 5px;
+    overflow: hidden;
+}
+
+#thumbnail_title {
+    position: relative;
+    z-index: 1;
+}
+
+#img_preview {
+    position: absolute;
+    z-index: 2;
+    display: none;
+    top: 0;
+    left: 0;
+}

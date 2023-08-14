@@ -48,5 +48,14 @@ public class CommonFunction {
 	public static String getFileName(String url) {
 		return url.substring(url.lastIndexOf("/") + 1);
 	}
+
+	/**
+	 * url 전체를 넣어주면 확장자를 제외한 파일명만 추출해주는 메서드.
+	 * @param url 전체 경로
+	 * @return 확장자를 제외한 파일명
+	 */
+	public static String getFileNameWithoutExt(String url) {
+		return url.substring(url.lastIndexOf("/") + 1, url.lastIndexOf("."));
+	}
 	
 }

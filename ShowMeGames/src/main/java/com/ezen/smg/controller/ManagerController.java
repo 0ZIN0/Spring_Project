@@ -1,6 +1,5 @@
 package com.ezen.smg.controller;
 
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,16 +16,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
-
-import com.ezen.smg.dto.Games;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.GameKeyDTO;
+import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
+import com.ezen.smg.dto.chart.SalesDTO;
+import com.ezen.smg.dto.chart.GenderDTO;
+import com.ezen.smg.dto.chart.GenreDTO;
 import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.NoticeMapper;
 import com.ezen.smg.service.faqService.FAQService;
@@ -98,17 +99,55 @@ public class ManagerController {
 	}
 
 	@GetMapping("/manage/admin_game")
-	String adminGame(Integer page, Model model) {
+	String adminGame(Integer page, String type, String key, Model model) {
 		if(page == null) page = 1;
-
-		int totalSize = serv.getGameListTotalSize();
-
+		
+		int totalSize;
+		
+		switch(type != null ? type: "NULL") {
+			case "game_id": 
+				totalSize = serv.getGameListByGame_idSize(key);
+				model.addAttribute("gameList", serv.getGameListByGame_id(page, key));
+				break;
+			case "game_name":	
+				totalSize = serv.getGameListByGame_nameSize(key);
+				model.addAttribute("gameList", serv.getGameListByGame_name(page, key));
+				break;
+			case "layout":
+				totalSize = serv.getGameListByLayoutSize(key);
+				model.addAttribute("gameList", serv.getGameListByLayout(page, key));
+				break;
+			default:
+				totalSize = serv.getGameListTotalSize();
+				model.addAttribute("gameList", serv.getGameList(page));
+		}
+		
 		model.addAttribute("paging", serv.getPagination(page, totalSize));
-		model.addAttribute("gameList", serv.getGameList(page));
-
+		
 		return "manager/admin_game";
 	}
 
+	@GetMapping("/manage/admin_game_add")
+	String adminGameAdd(Model model) {
+		List<String[]> propList = serv.getPropList();
+		
+		model.addAttribute("genreArr", propList.get(0));
+		model.addAttribute("editorArr", propList.get(1));
+		model.addAttribute("platformArr", propList.get(2));
+		model.addAttribute("layoutArr", propList.get(3));
+		model.addAttribute("ratedArr", propList.get(4));
+		
+		return "manager/admin_game_add";
+	}
+	
+	@PostMapping("/manage/admin_game_add")
+	String adminGameAdd_post(Games game, String file_name, MultipartFile img_file) {
+
+		serv.insertNewGame(game, file_name, img_file);
+		
+		return "redirect:admin_game";
+	}
+	
 	@GetMapping("/manage/admin_game_detail")
 	String adminGameDetail(Integer game_id, Model model) {
 
@@ -124,10 +163,32 @@ public class ManagerController {
 	String adminGameUpdate(Integer game_id, Model model) {
 
 		model.addAttribute("game", serv.getGameDetail(game_id));
-
+		
+		List<String[]> propList = serv.getPropList();
+		
+		model.addAttribute("genreArr", propList.get(0));
+		model.addAttribute("editorArr", propList.get(1));
+		model.addAttribute("platformArr", propList.get(2));
+		model.addAttribute("layoutArr", propList.get(3));
+		model.addAttribute("ratedArr", propList.get(4));
+		
 		return "manager/admin_game_update";
 	}
+	
+	@PostMapping("/manage/admin_game_update")
+	String adminGameUpdatePost(Games game, MultipartFile img_file) {
 
+		int game_id = game.getGame_id(); 
+		
+		if(!img_file.isEmpty()) {
+			serv.updateBanner_img(game_id, img_file);
+		}
+		
+		serv.updateGame(game);
+		
+		return "redirect:./admin_game_detail?game_id=" + game_id;
+	}
+	
 	@GetMapping("/manage/admin_user")
 	String adminUser() {
 		return "manager/admin_user";
@@ -136,6 +197,35 @@ public class ManagerController {
 	@GetMapping("/manage/admin_chart")
 	String adminChart() {
 		return "manager/admin_chart";
+	}
+	
+	@ResponseBody
+	@GetMapping("/manage/admin_chart_ajax")
+	List<SalesDTO> getChart(String tag, Integer year) {
+		
+		return serv.getSalesData(tag, year);
+	}
+	
+	@ResponseBody
+	@GetMapping("/manage/admin_chart_ajax/gender")
+	List<GenderDTO> getGenderRate() {
+		
+
+		return serv.getGenderData();
+	}
+	
+	@ResponseBody
+	@GetMapping("/manage/admin_chart_ajax/genre")
+	List<GenreDTO> getGenreRate() {
+		
+		return serv.getGenreData();
+	}
+	
+	@ResponseBody
+	@GetMapping("/manage/admin_chart_ajax/editorSales")
+	List<GenreDTO> getEditorSales() {
+		
+		return serv.getEditorSales();
 	}
 
 	@GetMapping("/manage/admin_inquiry")
@@ -322,7 +412,8 @@ public class ManagerController {
 
 	@GetMapping("/manage/admin_key")
 	String adminKey(Model model, String search, String search_tag) {
-		if(search != null && !search.isEmpty()) {
+		if(search != null && !search.isEmpty()
+				&& search_tag != null && !search_tag.isEmpty()) {
 			model.addAttribute("search", search);
 			model.addAttribute("gameKeys", serv.getSearchResults(search, search_tag, 1));
 		} else {
@@ -335,8 +426,10 @@ public class ManagerController {
 	@GetMapping(value="/manage/admin_key_ajax")
 	public List<GameKeyDTO> ajaxKey(int num, String search, String search_tag) {
 
-		if(search !=null && !search.isEmpty()
-				&& search_tag != null && !search_tag.isEmpty()) {
+		if(!search.equals("null") && !search.isEmpty()
+				&& !search_tag.equals("null") && !search_tag.isEmpty()) {
+			log.info(search);
+			log.info(search_tag);
 			return serv.getSearchResults(search, search_tag, num);
 		} else {
 			return serv.getKeys(num);
