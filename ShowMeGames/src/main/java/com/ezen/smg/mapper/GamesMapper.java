@@ -67,4 +67,6 @@ public interface GamesMapper {
 
 	int insertNewGame(@Param("game") Games game);
 	
+	List<Games> getCuratorGames();
+	
 }
