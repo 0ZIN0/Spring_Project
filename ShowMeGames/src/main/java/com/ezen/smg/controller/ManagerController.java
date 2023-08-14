@@ -130,9 +130,9 @@ public class ManagerController {
 	
 	@ResponseBody
 	@GetMapping("/manage/admin_chart_ajax")
-	List<SalesDTO> getChart(String tag) {
+	List<SalesDTO> getChart(String tag, int year) {
 		
-		return serv.getWeeklySales();
+		return serv.getSalesData(tag, year);
 	}
 
 	@GetMapping("/manage/admin_inquiry")

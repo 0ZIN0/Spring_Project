@@ -120,6 +120,7 @@
 .row-content > * {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .row-content > input {

@@ -137,8 +137,20 @@ public class ManagerServiceImp1 implements ManagerService {
 	}
 
 	@Override
-	public List<SalesDTO> getWeeklySales() {
-		
-		return chartMapper.getWeeklySales();
+	public List<SalesDTO> getSalesData(String tag, int year) {
+		if(tag.equals("weekly")) {
+			
+			return chartMapper.getWeeklySales();
+		} else if (tag.equals("month")) {
+			
+			return chartMapper.getMonthSales();
+		} else if(tag.equals("year")) {
+			
+			return chartMapper.getYearSales(year);
+		} else {
+			
+			return chartMapper.getWeeklySales();
+		}
 	}
+
 }

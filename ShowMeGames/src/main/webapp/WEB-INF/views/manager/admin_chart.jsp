@@ -36,7 +36,7 @@
 								<option value="1">3</option>
 							</select>
 						</div>
-						<div>
+						<div class="sales-container">
 							<canvas id="bar-chart"></canvas>
 						</div>
 						<div></div>

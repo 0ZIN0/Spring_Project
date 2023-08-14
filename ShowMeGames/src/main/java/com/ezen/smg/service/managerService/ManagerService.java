@@ -33,5 +33,5 @@ public interface ManagerService {
 	int[] ModifyKey(String key_id, String nick_name, int key_num);
 	
 	/*chart*/
-	List<SalesDTO> getWeeklySales();
+	List<SalesDTO> getSalesData(String tag, int year);
 }

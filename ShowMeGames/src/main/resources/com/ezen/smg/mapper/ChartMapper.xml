@@ -3,9 +3,11 @@
   PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.smg.mapper.ChartMapper">
-	<select id="getWeeklySales" resultType="com.ezen.smg.dto.SalesDTO">
+	<select id="getWeeklySales"
+		resultType="com.ezen.smg.dto.SalesDTO">
 		WITH DateGenerator AS (
-		SELECT TRUNC(SYSDATE) - LEVEL + 1 AS order_date
+		SELECT TRUNC(SYSDATE) - LEVEL + 1 AS
+		order_date
 		FROM dual
 		CONNECT BY LEVEL &lt;= 7
 		)
@@ -14,15 +16,52 @@
 		COALESCE(SUM(s.order_price), 0) AS total_sales
 		FROM
 		DateGenerator d
-		LEFT JOIN orders s ON TRUNC(s.order_date) = d.order_date
+		LEFT
+		JOIN orders s ON TRUNC(s.order_date) = d.order_date
 		GROUP BY
 		d.order_date
 		ORDER BY
 		d.order_date
 	</select>
-	
-	<select id="getManager"
-		resultType="com.ezen.smg.dto.ManagersDTO">
-		SELECT * FROM managers WHERE mng_num=#{mng_num}
+
+	<select id="getYearsSales"
+		resultType="com.ezen.smg.dto.SalesDTO">
+		WITH YearsGenerator AS (
+		SELECT ADD_MONTHS(TRUNC(SYSDATE, 'YEAR'), -(LEVEL - 1) * 12) AS order_year
+		FROM dual
+		CONNECT BY LEVEL &lt;= 5
+		)
+		SELECT
+		TO_CHAR(y.order_year, 'YYYY') AS period,
+		COALESCE(SUM(o.order_price), 0) AS total_sales
+		FROM
+		YearsGenerator y
+		LEFT JOIN
+		orders o ON TRUNC(o.order_date, 'YEAR') = y.order_year
+		GROUP BY
+		y.order_year
+		ORDER BY
+		period
+	</select>
+
+	<select id="getMonthSales"
+		resultType="com.ezen.smg.dto.SalesDTO">
+		WITH MonthsGenerator AS (
+		SELECT ADD_MONTHS(TRUNC(TO_DATE(${year} || '-01-01'), 'MONTH'), LEVEL - 1) AS
+		order_month
+		FROM dual
+		CONNECT BY LEVEL &lt;= 12
+		)
+		SELECT
+		TO_CHAR(m.order_month, 'YYYY-MM') AS period,
+		COALESCE(SUM(o.order_price), 0) AS total_sales
+		FROM
+		MonthsGenerator m
+		LEFT JOIN
+		orders o ON TRUNC(o.order_date, 'MONTH') = m.order_month
+		GROUP BY
+		m.order_month
+		ORDER BY
+		period
 	</select>
 </mapper>
