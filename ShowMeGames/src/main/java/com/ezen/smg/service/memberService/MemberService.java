@@ -10,4 +10,5 @@ public interface MemberService {
 	int idCheck(String userId);
 	
 	int updateUserPoint(Orders order);
+
 }

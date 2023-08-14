@@ -35,4 +35,5 @@ public interface ManagerService {
 	/*admin_inquiry 관련 서비스*/
 	List<Inquiries> getContent(int currPage);	
 	int getTotalNum();
+	int updateAnswer(int inquiry_id, String inquiry_answer);
 }

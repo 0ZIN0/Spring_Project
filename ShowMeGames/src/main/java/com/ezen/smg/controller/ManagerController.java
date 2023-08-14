@@ -139,7 +139,13 @@ public class ManagerController {
 		
 		return "manager/admin_inquiry";
 	}
-
+	
+	@PostMapping("/manage/admin_inquiry")
+	String adminInquiry(int inquiry_id, String inquiry_answer) {
+		serv.updateAnswer(inquiry_id, inquiry_answer);
+		return "redirect:/admin/manage/admin_inquiry";
+	};
+	
 	@GetMapping("/manage/admin_notice")
 	String adminNotice(Model model, Integer page) {
 

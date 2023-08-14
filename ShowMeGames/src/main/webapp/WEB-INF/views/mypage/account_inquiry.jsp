@@ -58,7 +58,7 @@
 									<div class="board_attachment">
 										<div>첨부파일</div>
 										<div class="board_img">
-											<img class="myImg"src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
+											<img class="myImg" src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
 										</div>
 										<div id="myModal" class="modal">
 										  <!-- The Close Button -->

@@ -7,80 +7,184 @@
     color: #eeab0a;
 }
 #board_content {
-	box-sizing:border-box;
-	display:grid;
-	grid-template-columns:50px 1fr 100px;
+	display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: #eeab0a;
+    border-radius: 3px;
+    padding: 20px 10px;
 	
 }
 
-#board {
-	display:flex;
-	flex-wrap: wrap;
-	grid-column:1/4;
-	margin-bottom: 10px;
-	padding-top:10px;
-	border:solid 2px black;	
-	border-radius: 10px;
+
+#board_main {
+	display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.board {
+ 	display: grid;
+    grid-template-columns: 100px 150px 1fr 150px 150px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 	cursor: pointer;
 	
 }
 
-.board_subject {
-	width: 15%;
-	text-align: center;
-	padding-bottom:10px;
+.board:hover {
+	background-color: #dcefff;
+    cursor: pointer;
+}
+
+.board > * {
+	font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    color: #0e151d;
+}
+
+#board_content_title {
+	display: grid;
+    grid-template-columns: 100px 150px 1fr 150px 150px;
+}
+
+#board_content_title > * {
+	font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board_header {
+	height:70px;
 }
 
 .board_title {
-	width: 70%;
-	padding-bottom:10px;
+	color: #F22349;
+    font-weight: 600;
 }
 
-.board_btn {
-	width: 15%;
+.board_answer > button {
+	border-radius: 8px;   
+    width: 130px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+.board_answer > button:hover {
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.answer {
+	background-color: blueviolet;
+}
+
+.answer_edit {
+	background-color: #f32349;
+}
+
+.board_content {
+	display:grid;
+	grid-template-columns: 100px 150px 1fr 150px 150px;
+	width:100%;	
+	justify-content: center;
+    align-items: center;
+    border-top: solid 1px black;
+}
+
+.admin_answer {
+	display:grid;
+	grid-template-columns: 100px 150px 1fr 150px 150px;
+	width:100%;	
+	justify-content: center;
+    align-items: center;
+    border-top: solid 1px black;
+    transition: max-height 300ms ease-in-out;	
+	max-height: 0px;
+	overflow:hidden;
+}
+
+
+.detail_first {
+	grid-column: 1/3;	
 	text-align: center;
-	margin-bottom : 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #F22349;
+    font-weight: 600;
 }
 
-.board_check {
-	margin:auto;
-	width: 70%;
-	border: solid 2px black;
-	border-radius: 15px;
+.detail_last {
+	grid-column: 3/6;	
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.answer_detail {
+	background-color: #cecece;
 }
 
 .board_detail{	
+	grid-template-columns: 100px 150px 1fr 150px 150px;
+	grid-column: 1/6;	
+	flex-direction: column;
 	width:100%;		
 	transition: max-height 300ms ease-in-out;	
 	max-height: 0px;
 	overflow:hidden;		
 }
 
-.show {	
+.save_btn {
+	grid-column: 4/5;
+	padding:10px;
+}
+
+.cancle_btn {
+	grid-column: 5/6;
+	padding:10px;
+}
+
+.save_btn > button {
+	border-radius: 8px;   
+    width: 130px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 550;
+    cursor: pointer;
+    background-color: blueviolet;
+}
+
+.cancle_btn > button {
+	border-radius: 8px;   
+    width: 130px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 550;
+    cursor: pointer;
+    background-color: blueviolet;
+}
+
+.show {
+	width:100%;
 	max-height: 100vh;		
 }
 .board:hover {
 	
 	box-shadow: 0px 0px 5px 5px gray;
 }
-.board_content {	
-	width:100%;
-	display:flex;
-	flex-wrap: wrap;	
-	padding-top: 30px;
-	padding-bottom: 30px;
-	border-top:solid 1px black;
-}
 
-.board_content > div:first-child {
-	width: 15%;
-	text-align: center;
-	
-}
-
-.board_content > div:last-child {
-	width: 85%;
-}
 .myImg {
 	position:absolute;	
 	max-height:100%;
@@ -89,22 +193,14 @@
 	width: auto;	
 }		
 .board_attachment {	
+	grid-template-columns: 100px 150px 1fr 150px 150px;
 	width: 100%;
-	display:flex;
+	display:grid;
+	grid-column: 1/6;
 	overflow:hidden;
-	flex-wrap: wrap;
-	padding:10px;	
 	border-top: solid 1px black;	
 	height:230px;
 	position:relative;
-}
-
-.board_attachment > div:first-child {
-	width: 15%;
-	text-align: center;
-}
-.board_attachment > div:last-child {
-	width: 85%;	
 }
 
 #pageDiv {
@@ -124,22 +220,26 @@
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 100px; /* Location of the box */
-  left: 300px;
-  top: 50px;
-  width: 100%; /* Full width */
+  left: 287px;
+  top: 0px;
+  width: 87%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
+img {
+	object-fit:contain;
+}
+
 /* Modal Content (Image) */
 .modal-content {
   margin: auto;
   display: block;
-  width: 80%;
-  max-width: 700px;
-  max-height: 700px;
+  width: 100%;
+  max-width: 1000px;
+  height:95%;
 }
 
 /* Add Animation - Zoom in the Modal */
@@ -156,8 +256,8 @@
 /* The Close Button */
 .close {
   position: absolute;
-  top: 15px;
-  right: 35px;
+  top: 30px;
+  right: 70px;
   color: #f1f1f1;
   font-size: 60px;
   font-weight: bold;
@@ -173,7 +273,7 @@
 
 /* 100% Image Width on Smaller Screens */
 
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 1000px){
   .modal-content {
     width: 100%;
     height: 100%;

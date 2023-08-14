@@ -17,4 +17,7 @@
   			(SELECT * FROM(SELECT rownum AS rn, a.* FROM inquiries a order by inquiry_id desc) WHERE rn BETWEEN#{start} AND #{end}) 
   				inq , smg_users suser WHERE inq.user_num = suser.user_num
   	 </select>
+  	 <update id="answer">
+  	 	UPDATE inquiries SET inquiry_answer = #{inquiry_answer} WHERE inquiry_id = #{inquiry_id}
+  	 </update>
  </mapper>

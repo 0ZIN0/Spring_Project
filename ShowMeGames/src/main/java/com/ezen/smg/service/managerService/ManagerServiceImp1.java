@@ -143,4 +143,9 @@ public class ManagerServiceImp1 implements ManagerService {
 		
 		return managerMapper.getTotalNum();
 	}
+	
+	@Override
+	public int updateAnswer(int inquiry_id, String inquiry_answer) {
+		return managerMapper.answer(inquiry_id, inquiry_answer);
+	}
 }

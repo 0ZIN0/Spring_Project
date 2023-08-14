@@ -39,6 +39,6 @@ public class MemberService_Impl implements MemberService {
 		SmgUsersDTO user = mapper.getUserInfo(order.getUser_num());
 		user.setUser_point(order.getAdd_point() + user.getUser_point() - order.getUse_point());
 		return mapper.updateUserPoint(user);
-	}
-
+	}	
+	
 }
