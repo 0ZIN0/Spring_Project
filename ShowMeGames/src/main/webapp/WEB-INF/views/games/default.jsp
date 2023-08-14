@@ -125,47 +125,49 @@
 									</form>
 								</c:when>
 							</c:choose>
-							<div id="comment_cnt">리뷰 (총 1000개)</div>
-							<div id="comment_grid">
+							<div id="comment_cnt">리뷰 (총 ${comment_len}개)</div>
+							<c:choose>
+								<c:when test="${comment_len > 0}">
+									<div id="comment_grid">
 								<div id="comment_best_grid">
 									<div class="comment_grid_title">베스트 리뷰</div>
-									<c:forEach begin="1" end="10">
+									<c:forEach items="${comments}" var="com">
 										<div class="comment_div">
 											<div class="comment_div_left">
 												<div>
 													<img class="comment_user_profile" alt="유저의 프로필"
-														src="/smg${user.profile_url}">
+														src="/smg${com.profile_url}">
 												</div>
 												<div class="comment_user_nick_div">
 													<div class="comment_user_grade">
 														<c:choose>
-															<c:when test="${user.user_grade eq 'S'}">
+															<c:when test="${com.user_grade eq 'S'}">
 																<div class="profile-grade">
 																	<img class="comment-grade-image"
 																		src="${member_img}/grade/diamond_icon.png"
 																		alt="다이아몬드 이미지">
 																</div>
 															</c:when>
-															<c:when test="${user.user_grade eq 'A'}">
+															<c:when test="${com.user_grade eq 'A'}">
 																<div class="profile-grade">
 																	<img class="comment-grade-image"
 																		src="${member_img}/grade/platinum_icon.png"
 																		alt="플래티넘 이미지">
 																</div>
 															</c:when>
-															<c:when test="${user.user_grade eq 'B'}">
+															<c:when test="${com.user_grade eq 'B'}">
 																<div class="profile-grade">
 																	<img class="comment-grade-image"
 																		src="${member_img}/grade/gold_icon.png" alt="골드 이미지">
 																</div>
 															</c:when>
-															<c:when test="${user.user_grade eq 'C'}">
+															<c:when test="${com.user_grade eq 'C'}">
 																<div class="profile-grade">
 																	<img class="comment-grade-image"
 																		src="${member_img}/grade/silver_icon.png" alt="실버 이미지">
 																</div>
 															</c:when>
-															<c:when test="${user.user_grade eq 'D'}">
+															<c:when test="${com.user_grade eq 'D'}">
 																<div class="profile-grade">
 																	<img class="comment-grade-image"
 																		src="${member_img}/grade/bronze_icon.png" alt="등급 이미지">
@@ -173,16 +175,16 @@
 															</c:when>
 														</c:choose>
 													</div>
-													<div class="comment_user_nick">${user.nick_name}</div>
+													<div class="comment_user_nick">${com.nick_name}</div>
 												</div>
 											</div>
 											<div class="comment_div_right">
 												<div class="comment_write_date">
 													게시 일시:
 													<fmt:formatDate pattern="yyyy. MM. dd"
-														value="${game.release_date}" />
+														value="${com.write_date}" />
 												</div>
-												<div class="comment_content">안녕하세요~</div>
+												<div class="comment_content">${com.comment_content}</div>
 											</div>
 											<div class="up_down_div">
 												<div class="up_btn">
@@ -241,6 +243,11 @@
 							<div id="comment_all_div">
 								<a id="comment_all_btn">모든 평가 보기</a>
 							</div>
+								</c:when>
+								<c:otherwise>
+									<div class="comment_grid_title">아직 리뷰가 없습니다.</div>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<!-- 시스템 요구사항 -->
 						<div class="game_detail_divs" id="game_detail_req_div">

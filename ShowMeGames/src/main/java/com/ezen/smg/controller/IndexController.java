@@ -97,6 +97,7 @@ public class IndexController {
 			model.addAttribute("is_use", memberService.isUseKey(user.getUser_num(), game));
 		}
 		model.addAttribute("comments", commentsService.getGameComment(game));
+		model.addAttribute("comment_len", commentsService.getGameComment(game).size());
 		
 		if (url == null) {
 			return "/games/default";
