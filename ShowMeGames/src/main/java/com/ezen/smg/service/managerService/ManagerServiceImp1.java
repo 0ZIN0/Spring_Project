@@ -46,8 +46,10 @@ public class ManagerServiceImp1 implements ManagerService {
 	@Autowired
 	ServletContext servletContext;
 
-	@Value("${spring.user_profile.path}")
+	@Value("${spring.banner_img.path}")
 	private String absolutePath; 
+	
+	@Autowired
 	GameKeyMapper gameKeyMapper;
 	
 	@Autowired
@@ -150,23 +152,23 @@ public class ManagerServiceImp1 implements ManagerService {
         String realPath = servletContext.getRealPath("/resources/img/banner_img/"); 
         String tempPath = realPath + newFileName;
         
-        log.info("프로젝트 폴더 내 저장 경로: " + realPath);
+        log.info("프로젝트 폴더 내 저장 경로: " + fullPath);
         log.info("톰캣 서버 내 저장 경로: " + tempPath);
         
         try {
 			// DB에 저장된 원래 파일 이름 추출
-			String existingFileName =  CommonFunction.getFileName(gamesMapper.getBanner_imgUrl(game_id));
+			String existingFileName =  CommonFunction.getFileName(originUrl);
 			File existingFile = new File(absolutePath + "/" + existingFileName);
 			File serverFile = new File(realPath + existingFileName); // 톰캣에 있을 임시 파일
 			
 			// 파일이 존재할 경우 삭제
 			if(existingFile.exists()) {
 				existingFile.delete();
-				log.info("기존 프로필 이미지 삭제됨");
+				log.info("기존 프로필 이미지 삭제됨 : " + existingFile);
 			}
 			if(serverFile.exists()) {
 				serverFile.delete();
-				log.info("톰캣서버의 기존 프로필 이미지 캐시 삭제됨");
+				log.info("톰캣서버의 기존 프로필 이미지 캐시 삭제됨 : " + serverFile);
 			}
 			
         	File file = new File(tempPath);

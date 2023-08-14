@@ -166,4 +166,19 @@ $('#game_update_form').submit(function() {
     $('#hidden_rated').val(rated_str);
 
 });
-    
+
+// 이미지 확장자 검사
+function isImageFile(file) {
+    let ext = file.name.split(".").pop().toLowerCase(); // 파일명에서 확장자를 가져온다. 
+    return ($.inArray(ext, ["jpg", "jpeg", "png"]) === -1) ? false : true;
+}
+// 이미지 파일 선택 함수
+$('#img_file').on('change', function() {
+    let file = $(this)[0].files[0];
+
+    if(!isImageFile(file)) {
+        alert('파일 확장자를 확인해주세요. jpg/jpeg/png 파일 사용 가능.');
+        $(this).val("");
+    } 
+
+});

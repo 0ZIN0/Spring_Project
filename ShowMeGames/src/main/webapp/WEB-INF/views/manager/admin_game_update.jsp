@@ -210,7 +210,7 @@
 										<span class="input_title_span">게임 배너 사진 수정</span>
 									</div>
 									<div id="input_banner_img_wrapper" class="input_content_div">
-										<input type="file" form="game_update_form"/>
+										<input type="file" id="img_file" name="img_file" accept="image/jpg, image/jpeg, image/png" form="game_update_form">
 									</div>
 									<div class="desc_span_div">
 										<span class="desc_span">※ 파일을 선택하지 않으면 이전 배너 사진으로 유지됩니다.</span>

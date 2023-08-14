@@ -140,7 +140,7 @@ public class ManagerController {
 
 		int game_id = game.getGame_id(); 
 		
-		if(img_file != null) {
+		if(!img_file.isEmpty()) {
 			serv.updateBanner_img(game_id, img_file);
 		}
 		
