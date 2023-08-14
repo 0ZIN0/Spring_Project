@@ -40,6 +40,7 @@
 									<span id="game_title" class="item_span_content">${game.game_name}</span>
 								</div>
 								<div class="item_div">
+									<span class="item_span_title">섬네일 미리보기</span>
 									<div class="game_detail_img_div">
 										<img src="${pageContext.request.contextPath}/${game.banner_img_url}" alt="${game.game_name}_섬네일">
 									</div>
@@ -114,7 +115,7 @@
 							</div>
 							<div class="item_layer_div">
 								<div class="item_div">
-									<span class="item_span_title">섬네일</span>
+									<span class="item_span_title">섬네일 경로</span>
 									<span class="item_span_content">${game.banner_img_url}</span>
 								</div>
 							</div>
@@ -125,7 +126,10 @@
 								</div>
 								<div class="item_div">
 									<span class="item_span_title">게임페이지 표시타입</span>
-									<span class="item_span_content">${game.layout}</span>
+									<span class="item_span_content">
+										<c:if test="${game.layout == null}">Default</c:if>
+										${game.layout}
+									</span>
 								</div>
 							</div>
 

@@ -2,6 +2,8 @@ package com.ezen.smg.dto;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
@@ -11,6 +13,7 @@ public class Games {
 	private String game_genre;
 	private Integer game_price;
 	private String korean;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date release_date;
 	private String platform;
 	private Integer discount;

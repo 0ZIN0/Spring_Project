@@ -50,7 +50,7 @@ public class MyPageController {
 	}
 	
 	@PostMapping("/profile_img_update")
-	String profile_img_update(int user_num, MultipartFile img_file, HttpServletRequest request) {
+	String profile_img_update(int user_num, MultipartFile img_file) {
 		
 		if(!img_file.isEmpty()) {
 			mypageService.updateProfile_img(user_num, img_file);
