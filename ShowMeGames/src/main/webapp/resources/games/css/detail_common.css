@@ -54,7 +54,7 @@
 #game_grade_div {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 10px;
+    column-gap: 12px;
 }
 
 #game_grade_content {
@@ -72,11 +72,10 @@
     grid-template-columns: 70% 30%;
     width: 100%;
     margin-top: 40px;
-    column-gap: 20px;
 }
 
 #game_detail_img {
-    padding: 0 5px;
+    padding-right: 25px;
 }
 
 #game_img_selected {
@@ -124,7 +123,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 12px;
     border: #A0A2A0 1px solid;
     border-radius: 8px;
 }
@@ -145,7 +144,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    column-gap: 10px;
+    column-gap: 12px;
 }
 
 #right-price-div {
@@ -155,7 +154,7 @@
 
 #right-discount-price-div {
     border-bottom: 1px solid #A0A2A0;
-    padding-bottom: 20px;
+    padding-bottom: 12px;
 }
 
 .right-price-title {
@@ -196,7 +195,7 @@
 #game_detail_btn_div {
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 12px;
     justify-content: end;
 }
 
@@ -206,7 +205,7 @@
     align-items: center;
     border-top: 1px solid #A0A2A0;
     border-bottom: 1px solid #A0A2A0;
-    column-gap: 10px;
+    column-gap: 12px;
 }
 
 #game_age_grade_content {
@@ -281,4 +280,25 @@
 .active,
 .demo:hover {
     opacity: 1;
+}
+
+#game_info_div {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #A0A2A0;
+}
+
+.game_info_grid {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding-top: 12px;
+    row-gap: 5px;
+}
+
+.game_info_grid >* {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
 }

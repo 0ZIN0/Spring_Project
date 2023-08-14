@@ -1,5 +1,7 @@
 package com.ezen.smg.dto;
 
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -8,6 +10,9 @@ public class Comments {
 	private Integer game_id;
 	private Integer user_num;
 	private String comment_content;
-	private Integer good_cnt;
-	private Integer bad_cnt;
+	private Date write_date;
+	
+	private String nick_name;
+	private String profile_url;
+	private String user_grade;
 }

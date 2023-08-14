@@ -51,5 +51,4 @@ public class GamesController {
 		model.addAttribute("games", 
 				gamesService.getSearchGames(search, genres, editor, sortBy));
 	}
-	
 }

@@ -28,4 +28,6 @@ public interface GameKeyMapper {
 	int modifyKeyAccount(
 			@Param("nick_name") String nick_name,
 			@Param("key_num") int key_num);
+	
+	int isUseGameKey(@Param("user_num") int user_num, @Param("game_id") int game_id);
 }
