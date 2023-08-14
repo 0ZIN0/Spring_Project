@@ -224,7 +224,7 @@
 									<button type="submit" class="btn" form="game_update_form">변경</button>
 								</div>
 							</div>
-							<form id="game_update_form" action="./admin_game_update" method="POST">
+							<form id="game_update_form" action="./admin_game_update" method="POST" enctype="multipart/form-data">
 								<input type="hidden" name="game_id" value="${game.game_id}"/>
 								<input type="hidden" id="hidden_platform" name="platform"/>
 								<input type="hidden" id="hidden_genre" name="game_genre"/>

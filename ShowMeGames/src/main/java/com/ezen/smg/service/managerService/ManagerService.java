@@ -15,7 +15,7 @@ import com.ezen.smg.dto.QnADTO;
 @PropertySource(value = "classpath:application.properties", encoding = "UTF-8")
 public interface ManagerService {
 
-	static String[] genreArr = {"RPG", "슈팅", "전략", "호러", "인디", "레이싱", "퍼즐", "스포츠", "시뮬레이션"};
+	static String[] genreArr = {"RPG", "FPS", "슈팅", "전략", "호러", "인디", "레이싱", "퍼즐", "스포츠", "시뮬레이션"};
 	static String[] editorArr = {"curator", "jaehun", "gicheol", "roa", "gitae", "chanwoo", "yeoungmin"};
 	static String[] platformArr = {"PC", "WiiU", "Mobile", "Xbox", "Playstation", "NintendoSwitch"};
 	static String[] layoutArr = {"LRA", "JYM", "HGT", "KCW", "SJH", "BGC"};
