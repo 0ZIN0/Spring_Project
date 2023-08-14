@@ -1,5 +1,6 @@
 package com.ezen.smg.controller;
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +23,9 @@ import com.ezen.smg.mapper.OrderMapper;
 import com.ezen.smg.service.cartService.CartService;
 import com.ezen.smg.service.gamesService.GamesService;
 
+import lombok.extern.log4j.Log4j;
+
+@Log4j
 @Controller
 public class CartController {
 	
@@ -97,8 +101,11 @@ public class CartController {
 	            List<Games> games = cartService.getCartList(user_num);
 	            if (games != null) {
 	                response.put("cart_list", cartService.getCartList(user_num));
+	                log.info(cartService.getCartList(user_num));
 	                response.put("cart_len", cartService.getCartList(user_num).size());
+	                log.info(cartService.getCartList(user_num).size());
 	                response.put("total_price", cartService.getTotalPrice(games));
+	                log.info(cartService.getTotalPrice(games));
 	            }
 	        } else {
 	            // 로그인되지 않은 상태의 경우

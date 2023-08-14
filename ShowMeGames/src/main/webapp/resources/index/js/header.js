@@ -3,7 +3,7 @@ const currentPath = window.location.pathname;
 
 if (currentPath === "/smg/") {
   $("#game-btn-underline").css("backgroundColor", "white");
-  
+
   $("#notices-btn").on("mouseover", () => {
     $("#notices-btn-underline").css("backgroundColor", "white");
     $("#notices-btn-underline").css("transition", "background-color 0.3s ease");
@@ -303,13 +303,13 @@ $(document).ready(function () {
 });
 
 // 로그인 아이콘 클릭 시 드랍다운 열기 또는 닫기
-document.getElementById("login-icon2").addEventListener("click", function(event) {
+document.getElementById("login-icon2").addEventListener("click", function (event) {
   event.stopPropagation(); // 이벤트 버블링을 막음
   toggleDropdown();
 });
 
 // 다른 곳을 클릭하면 드랍다운 닫기
-$(document).on("click", function(event) {
+$(document).on("click", function (event) {
   var dropdownContent = $("#dropdown-content");
   var loginIcon = $("#login-icon2");
   if (!$(event.target).is(loginIcon)) {
@@ -337,19 +337,19 @@ $(window).scroll(function () {
 });
 
 // minicart Mouse Event
-$('#header-cart').mouseenter(function() {
+$('#header-cart').mouseenter(function () {
   $('#header-bottom').addClass('minicart-position');
   $('#minicart').addClass('minicart-active');
 })
-$('#header-cart').mouseleave(function() {
+$('#header-cart').mouseleave(function () {
   $('#header-bottom').removeClass('minicart-position');
   $('#minicart').removeClass('minicart-active');
 })
 
-$('#minicart').mouseenter(function() {
+$('#minicart').mouseenter(function () {
   $('#minicart').addClass('minicart-active');
 })
-$('#minicart').mouseleave(function() {
+$('#minicart').mouseleave(function () {
   $('#header-bottom').removeClass('minicart-position');
   $('#minicart').removeClass('minicart-active');
 })
@@ -360,14 +360,22 @@ function updateMiniCart() {
     url: "./minicart",
     type: "GET",
     dataType: "json",
-    
+
     success: function (data) {
-      console.log("성공")
+      console.log("성공");
+      console.log(data);
       var cartList = data.cart_list;
       var cartLen = data.cart_len;
       var totalPrice = data.total_price;
-      
+      console.log(cartList);
+      console.log(cartLen);
+      console.log(totalPrice);
+
       var minicartContent = $("#minicart-content");
+      var minicartEmptyContent = $(".empty-minicart-content");
+
+      // 미니카트 내용을 초기화하고 다시 추가
+      minicartContent.empty();
 
       // 로그인 상태에 따라 보여줄 내용 결정
       if (cartList != null && cartLen > 0) {
@@ -377,7 +385,7 @@ function updateMiniCart() {
           <!-- 각 상품 정보에 대한 리스트 생성 -->
           <div id="minicart-list-top">
           ${cartList.map((game) => {
-            return`
+          return `
             <div class="minicart-game-list">
               <div class="minicart-list-left">
                 <img src="${game.banner_img_url}" alt="">
@@ -387,9 +395,9 @@ function updateMiniCart() {
                 <div class="minicart-list-details">
                   <div class="minicart-game-name">${game.game_name}</div>
                   <div class="pricing">
-                    ${( game.discount !== null && game.discount > 0) 
-                      ?
-                        `<div id="sales-price">
+                    ${(game.discount !== null && game.discount > 0)
+              ?
+              `<div id="sales-price">
                           <div class="price-percentage-wrapper">
                             <div class="price-percentage">-${game.discount}%</div>
                           </div>
@@ -398,12 +406,12 @@ function updateMiniCart() {
                             <div class="sales-product-price">₩ ${new Intl.NumberFormat('ko-KR').format(game.game_price)}</div>
                           </div> 
                         </div> <!-- sales-price Part End -->`
-                      :
-                        `<div id="standard-price">
-                          <div class="product-price">₩ ${game.game_price > 0 ? new Intl.NumberFormat('ko-KR').format(game.game_price) : "무료"}</div>
+              :
+              `<div id="standard-price">
+                          <div class="product-price">${game.game_price > 0 ? '₩ ' + new Intl.NumberFormat('ko-KR').format(game.game_price) : "무료"}</div>
                         </div> 
                       <!-- 할인 없는 게임의 기본 가격-->`
-                    }  
+            }  
                   </div> 
                   <!-- pricing Part End -->
                 </div>
@@ -420,7 +428,7 @@ function updateMiniCart() {
             </div>
             <!-- minicart-game-list End -->
             `;
-          }).join("")}
+        }).join("")}
           </div>
           <!--minicart-list-top Part End -->   
 
@@ -431,20 +439,16 @@ function updateMiniCart() {
                 <span class="sub-total-title">total price : </span>
               </div>
               <div class="sub-right">
-                <span class="sub-total-price">₩ ${totalPrice > 0 ? new Intl.NumberFormat('ko-KR').format(totalPrice) : "무료"}</span>
+                <span class="sub-total-price">${totalPrice > 0 ? '₩ ' + new Intl.NumberFormat('ko-KR').format(totalPrice) : "무료"}</span>
                 <span class="sub-total-notice">※ 부가세 포함</span>
               </div>
           </div>
           <div id="minicart-list-btns">
-            <div id="put-minicart-btn" class="button-wrapper">
-              <a>
-                <span>장바구니 보기</span>
-              </a>
+            <div id="move-to-cart-btn" class="SMN_effect-76 button-wrapper">
+                <span class="minicart-btn-text">장바구니 보기</span>
             </div>
-            <div id="minicart-checkout-btn" class="button-wrapper">
-              <a>
-                <span>결제하기</span>
-              </a>
+            <div id="minicart-checkout-btn" class="SMN_effect-77 button-wrapper">
+                <span class="minicart-btn-text">결제하기</span>
             </div>
           </div>
           <!-- minicart-list-btns Part End -->
@@ -452,51 +456,77 @@ function updateMiniCart() {
         <!-- minicart-list-bottom Part End -->
   </div>
   <!--put-minicart-content Part End --> `;
-        
+
         minicartContent.append(putMinicartContent);
-        $("#put-minicart-content").show(); 
+        $("#put-minicart-content").show();
         $(".empty-minicart-content").hide();
-        
+
       } else {
         // 로그인 상태이지만 장바구니가 비어있거나 로그인하지 않은 경우 empty-minicart-content 내용을 보여주기
-        $(".empty-minicart-content").show(); 
+        // else if => 
+        minicartContent.append(`<div class="empty-minicart-content minicart-common">
+        <div class="empty-minicart-message minicart-common">장바구니가
+          비어있습니다.</div>
+        <div class="empty-minicart-image minicart-common">
+          <img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
+        </div>
+      </div>`);
+         console.log("미니카트 비어있을때 나와야하는데 왜 안나옴");
       }
     },
-    error: function(xhr, status, error) {
+    error: function (xhr, status, error) {
       console.error("AJAX 오류:", status, error);
     },
   });
 }
 
 // cart-list delete
-  $(document).on("click", "#minicart-delete", function(e){
-    $.ajax({
-       url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
-        type: "GET",
-        success: () => {
-        },
-        error:() =>{
-          console.log("Error");
-        }
-    })
-  });
+$(document).on("click", "#minicart-delete", function (e) {
+  $.ajax({
+    url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
+    type: "GET",
+    success: () => {
+      updateMiniCart();
+    },
+    error: () => {
+      console.log("Error");
+    }
+  })
+});
 
-  // Minicart-Checkout-btn
-  $(document).on("click", "#minicart-checkout-btn", function(e){
-    $.ajax({
-       url: "/checkout",
-        type: "POST",
-        success: () => {
-          location.href = "./checkout";
-        },
-        error:() =>{
-          console.log("Error");
-        }
-    })
-  });
+// Move to Cart Button
+$(document).on("click", "#move-to-cart-btn", function () {
+  $.ajax({
+    url: "./cart",
+    type: "GET",
+    success: () => {
+      console.log("Move to Cart Success");
+      location.href = "./cart";
+    },
+    error: () => {
+      console.log("Error");
+    }
+  })
+});
 
-  $(document).ready(function() {
-    // 페이지가 로드될 때 updateMiniCart() 실행
-    updateMiniCart();
-  });
+// Minicart checkout Button
+$(document).on("click", "#minicart-checkout-btn", function () {
+  $.ajax({
+    url: "./cart",
+    type: "GET",
+    success: () => {
+      console.log("Checkout Success");
+      location.href = "./cart";
+    },
+    error: () => {
+      console.log("Error");
+    }
+  })
+});
+
+$(document).ready(function () {
+  // 페이지가 로드될 때 updateMiniCart() 실행
+  updateMiniCart();
+
+});
 

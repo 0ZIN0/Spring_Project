@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 }
 
-#header-top>a:not( "#logo-btn "):hover {
+#header-top>a:not("#logo-btn "):hover {
 	color: black;
 }
 
@@ -71,6 +71,7 @@ header {
 	color: white;
 	font-weight: bold;
 }
+
 /* #point-amount {
       
    width: 50px;
@@ -149,7 +150,8 @@ header {
 } */
 #header-top-underline {
 	padding: 10px;
-	margin-left: 160px; /* height: 15px; */
+	margin-left: 160px;
+	/* height: 15px; */
 }
 
 #header-top-ul-underline {
@@ -243,8 +245,9 @@ header {
 	color: white;
 }
 
-.profile-right, .fa-arrow-up-right-from-square,
-	.fa-arrow-right-from-bracket {
+.profile-right,
+.fa-arrow-up-right-from-square,
+.fa-arrow-right-from-bracket {
 	float: right;
 }
 
@@ -292,11 +295,16 @@ header {
 
 .grade-image {
 	position: absolute;
-	top: 75px; /* 이미지가 글자 위로 올라갈 거리 */
-	left: 143px; /* 이미지가 글자 왼쪽으로 옮겨질 거리 */
-	width: 31px; /* 이미지 너비 */
-	height: 31px; /* 이미지 높이 */
-	z-index: -1; /* 이미지를 글자 뒤로 보내기 */
+	top: 75px;
+	/* 이미지가 글자 위로 올라갈 거리 */
+	left: 143px;
+	/* 이미지가 글자 왼쪽으로 옮겨질 거리 */
+	width: 31px;
+	/* 이미지 너비 */
+	height: 31px;
+	/* 이미지 높이 */
+	z-index: -1;
+	/* 이미지를 글자 뒤로 보내기 */
 }
 
 .diamond-text {
@@ -375,8 +383,10 @@ header {
 } */
 #week-best-grid {
 	display: grid;
-	grid-template-columns: 1fr; /* 1열로 설정 */
-	grid-template-rows: 1fr; /* 1행으로 설정 */
+	grid-template-columns: 1fr;
+	/* 1열로 설정 */
+	grid-template-rows: 1fr;
+	/* 1행으로 설정 */
 	column-gap: 10px;
 }
 
@@ -402,7 +412,9 @@ header {
 }
 
 #week-best-grid>* {
-	background-color: /* #000000; */ #1a2635;
+	background-color:
+		/* #000000; */
+		#1a2635;
 	border-radius: 20px;
 }
 
@@ -461,7 +473,8 @@ header {
 	text-align: center;
 }
 
-.title-div, .bottom-title {
+.title-div,
+.bottom-title {
 	font-size: 1.02rem;
 	color: #008aa4;
 }
@@ -548,7 +561,8 @@ header {
 	border-radius: 10px;
 }
 
-#header-bottom-ul>li>div>*, #header-games-btn {
+#header-bottom-ul>li>div>*,
+#header-games-btn {
 	margin: 0;
 	padding-top: 13px;
 	text-align: center;
@@ -557,12 +571,12 @@ header {
 }
 
 #header-bottom>:last-child {
-   height: 100%;
+	height: 100%;
 	display: flex;
-  margin-left: 20px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+	margin-left: 20px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .sub-ul>li {
@@ -601,13 +615,13 @@ header {
 }
 
 #cart-btn {
-   font-weight: bold;
-   height: 50px;
-   width: 120px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   font-size: 16px;
+	font-weight: bold;
+	height: 50px;
+	width: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
 }
 
 #cart-btn:hover {
@@ -703,22 +717,22 @@ header {
 
 /* 장바구니 마우스 hover시 나오는 minicart */
 #minicart {
-   box-shadow: 9px 9px 20px rgba(0, 0, 0, .12);
-   background: #ECDDDD;
-   position: fixed;
-   top: 140px;
-   right: 120px;
-   z-index: 60;
-   width: 480px;
-   height: 696px;
-   margin: 0%;
-   font-weight: bold;
-   border-radius: 8px;
+	box-shadow: 9px 9px 20px rgba(0, 0, 0, .12);
+	background: #ECDDDD;
+	position: fixed;
+	top: 140px;
+	right: 120px;
+	z-index: 60;
+	width: 480px;
+	height: 696px;
+	margin: 0%;
+	font-weight: bold;
+	border-radius: 8px;
 
-   /* #minicart Mouse Event  Default Hidden*/
-   transform: translateY(5px);
-   transition: all .2s linear;
-   visibility: hidden;
+	/* #minicart Mouse Event  Default Hidden*/
+	transform: translateY(5px);
+	transition: all .2s linear;
+	visibility: hidden;
 }
 
 /* MiniCart Mouse Event */
@@ -732,16 +746,16 @@ header {
 }
 
 #minicart-content {
-  width: 480px;
-  height: 632px;
-  display: flex;
+	width: 480px;
+	height: 632px;
+	display: flex;
 }
 
 .minicart-common {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column nowrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column nowrap;
 }
 
 .minicart-header {
@@ -754,18 +768,18 @@ header {
 }
 
 .minicart-header::before {
-   content: '';
-   display: block;
-   position: absolute;
-   top: 0;
-   left: 90%;
-   width: 0;
-   height: 0;
-   border: 12px solid transparent;
-   border-bottom-color: #F22349;
-   border-top: 0;
-   margin-left: -12px;
-   margin-top: -12px;
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 90%;
+	width: 0;
+	height: 0;
+	border: 12px solid transparent;
+	border-bottom-color: #F22349;
+	border-top: 0;
+	margin-left: -12px;
+	margin-top: -12px;
 }
 
 .minicart-title {
@@ -774,96 +788,98 @@ header {
 }
 
 .empty-minicart-image {
-   flex-basis: content;
+	flex-basis: content;
 }
 
 .empty-minicart-message {
-  margin-top: 40px;
-  font-weight: bold;
-  font-size: 22px;
-  border-bottom: 1px solid black;
+	margin-top: 40px;
+	font-weight: bold;
+	font-size: 22px;
+	border-bottom: 1px solid black;
 }
 
 .empty-minicart-buttons {
-  width: 200px;
-  height: 60px;
-  margin-bottom:  20px;
-  background-color: #f22349;
-  border-radius: 30px;
-  color: #f3eed9;
-  font-weight: bold;
+	width: 200px;
+	height: 60px;
+	margin-bottom: 20px;
+	background-color: #f22349;
+	border-radius: 30px;
+	color: #f3eed9;
+	font-weight: bold;
 }
 
 .empty-minicart-buttons:hover {
 	background-color: #fcee27;
-   color: black;
-   font-weight: bold;
+	color: black;
+	font-weight: bold;
 	cursor: pointer;
 }
 
 img {
-   width: 100%;
-   height: 100%;
-   text-align: center;
-   object-fit: cover;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	object-fit: cover;
 }
 
 #put-minicart-content {
-  width: 480px;
-  height: 632px;
-  display: flex;
-  flex-direction: column;
+	width: 480px;
+	height: 632px;
+	display: flex;
+	flex-direction: column;
 }
 
 #minicart-list-top {
-  width: 480px;
-  height: 442px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 20px;
-  row-gap: 20px;
+	width: 480px;
+	height: 442px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding: 20px;
+	row-gap: 20px;
 }
 
 .minicart-game-list {
-    width: 420px;
-    height: 180px;
-    display: flex;
-    align-items: center;
+	width: 420px;
+	height: 180px;
+	display: flex;
+	align-items: center;
 	background-color: rgba(255, 255, 255, 0.60);
-    border-radius: 0px 16px 16px 0px;
+	border-radius: 0px 16px 16px 0px;
 	box-shadow: 9px 10px 12px -6px rgba(0, 0, 0, 0.14);
 }
 
 .minicart-list-left {
 	display: flex;
 	flex-direction: column;
-  	width: 136px;
- 	 height: 180px;
+	width: 136px;
+	height: 180px;
 }
 
 .minicart-list-right {
-  width: 254px;
-  height: 180px;
-  display: flex;
-  flex-direction: column;
-  padding-left: 20px;
+	width: 254px;
+	height: 180px;
+	display: flex;
+	flex-direction: column;
+	padding-left: 20px;
 }
 
 .minicart-list-details {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  gap: 20px;
-  justify-content: space-around;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	gap: 20px;
+	justify-content: space-around;
+	color: #929db6;
+	cursor: pointer;
 }
 
 .minicart-game-name {
 	color: #000;
 	font-size: 1.2rem;
-    font-weight: 600;
+	font-weight: 600;
 }
 
 .pricing {
@@ -873,33 +889,33 @@ img {
 
 #sales-price {
 	display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: flex-start;
+	flex-direction: column;
+	justify-content: left;
+	align-items: flex-start;
 	gap: 2px;
-    margin-top: 58px;
+	margin-top: 58px;
 }
 
 .price-percentage {
 	height: auto;
-    display: inline-block;
-    vertical-align: middle;
-    background: #ff8300;
-    color: #fff;
-    font-size: .9375rem;
-    text-align: center;
-    z-index: 10;
-    line-height: normal;
-    text-transform: uppercase;
-    padding: 5px 20px 5px 10px;
-    border-radius: 0 26px 26px 0;
+	display: inline-block;
+	vertical-align: middle;
+	background: #ff8300;
+	color: #fff;
+	font-size: .9375rem;
+	text-align: center;
+	z-index: 10;
+	line-height: normal;
+	text-transform: uppercase;
+	padding: 5px 20px 5px 10px;
+	border-radius: 0 26px 26px 0;
 }
 
 .price-wrapper {
-    display: flex;
-    flex-direction: row;
-    font-weight: 500;
-    align-items: flex-end;
+	display: flex;
+	flex-direction: row;
+	font-weight: 500;
+	align-items: flex-end;
 	gap: 8px;
 }
 
@@ -911,25 +927,26 @@ img {
 
 .sales-product-price {
 	color: #637395;
-    font-size: 1.25rem;
-    text-decoration: line-through;
+	font-size: 1.25rem;
+	text-decoration: line-through;
 	order: 1;
 }
 
 #standard-price {
+	color: #101721;
 	display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: flex-start;
-    margin-top: 90px;
+	flex-direction: column;
+	justify-content: left;
+	align-items: flex-start;
+	margin-top: 90px;
 }
 
 .product-price {
 	display: flex;
-    flex-direction: row;
+	flex-direction: row;
 	font-size: 1.4rem;
-    font-weight: 500;
-    align-items: flex-end;
+	font-weight: 500;
+	align-items: flex-end;
 	gap: 6px;
 }
 
@@ -938,16 +955,16 @@ img {
 }
 
 #minicart-list-bottom {
-  width: 480px;
-  height: 160px;
-  display: flex;
-  flex-direction: column;
+	width: 480px;
+	height: 160px;
+	display: flex;
+	flex-direction: column;
 }
 
 .minicart-list-btns {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
 }
 
 #minicart-delete:hover {
@@ -956,20 +973,19 @@ img {
 
 .sub-left {
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 }
 
 .sub-right {
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 }
 
 .minicart-sub-total {
 	display: flex;
 	justify-content: space-between;
 	padding: 20px;
-    background: #cdcdcd
-	
+	background: #cdcdcd
 }
 
 .sub-total-title {
@@ -986,37 +1002,126 @@ img {
 
 .sub-total-notice {
 	font-size: 0.9rem;
-    text-align: right;
+	text-align: right;
 }
 
-#minicart-list-btns   {
+#minicart-list-btns {
 	display: flex;
 	flex-direction: row;
 	padding: 20px 10px;
 }
 
-.button-wrapper{
-    display: inline-block;
-    width: 200px;
-    color: #35c1cf;
-    align-items: center;
-    border-radius: 26px;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 1.2rem;
-    justify-content: center;
-    line-height: 1.3;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 10px 0;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-}
-#put-minicart-btn {
-	border: 2px solid #ff8300;
+.button-wrapper {
+	display: inline-block;
+	width: 200px;
+	border-radius: 26px;
+	cursor: pointer;
+	line-height: 1.3;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 10px 0;
+	text-align: center;
+	text-decoration: none;
+	border: 2px solid;
 }
 
-#minicart-checkout-btn {
-	border: 2px solid #f22349;
+.minicart-btn-text {
+	color: #000;
+	font-weight: bold;
+}
+
+.minicart-btn-text:hover {
+	color: #fff;
+}
+
+.SMN_effect-76 {
+	border-color: #ff8300;
+	position: relative;
+}
+
+.SMN_effect-76 ::before {
+	content: '';
+	position: absolute;
+	top: -15px;
+	left: -15px;
+	bottom: -15px;
+	right: -15px;
+	z-index: -1;
+	opacity: 1;
+	transform: scale3d(0.8, 0.5, 1);
+}
+
+.SMN_effect-76:hover {
+	background-color: #ff8300;
+}
+
+.SMN_effect-76:hover::before {
+	animation: anim-moema-2 0.3s 0.3s forwards;
+}
+
+.SMN_effect-76:hover {
+	transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+	background-color: #ff8300;
+	animation: anim-moema-1 0.3s forwards;
+}
+
+@keyframes anim-moema-2 {
+	to {
+		opacity: 0;
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes anim-moema-1 {
+	60% {
+		transform: scale3d(0.8, 0.8, 1);
+	}
+
+	85% {
+		transform: scale3d(1.1, 1.1, 1);
+	}
+
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+.SMN_effect-77 {
+	border-color: #f22349;
+	position: relative;
+}
+
+.SMN_effect-77:hover {
+	background-color: #f22349;
+}
+
+.SMN_effect-77:hover::before {
+	animation: anim-moema-2 0.3s 0.3s forwards;
+}
+
+.SMN_effect-77:hover {
+	transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+	background-color: #f22349;
+	animation: anim-moema-1 0.3s forwards;
+}
+
+@keyframes anim-moema-2 {
+	to {
+		opacity: 0;
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes anim-moema-1 {
+	60% {
+		transform: scale3d(0.8, 0.8, 1);
+	}
+
+	85% {
+		transform: scale3d(1.1, 1.1, 1);
+	}
+
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
 }
