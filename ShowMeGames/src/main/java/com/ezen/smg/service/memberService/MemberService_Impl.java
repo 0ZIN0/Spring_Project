@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.ezen.smg.common.Encryption_SH256;
 import com.ezen.smg.dto.Orders;
 import com.ezen.smg.dto.SmgUsersDTO;
+import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.mapper.UsersMapper;
 
 @Service
@@ -13,6 +14,9 @@ public class MemberService_Impl implements MemberService {
 
 	@Autowired
 	UsersMapper mapper;
+	
+	@Autowired
+	GameKeyMapper gameKeyMapper;
 	
 	@Override
 	public int signUp(SmgUsersDTO dto) {
@@ -41,4 +45,12 @@ public class MemberService_Impl implements MemberService {
 		return mapper.updateUserPoint(user);
 	}
 
+	@Override
+	public boolean isUseKey(int user_num, int game_id) {
+		
+		if (gameKeyMapper.isUseGameKey(user_num, game_id) != 0) {
+			return true;
+		}
+		return false;
+	}
 }

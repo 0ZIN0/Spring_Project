@@ -22,7 +22,8 @@
 		<div id="game_detail_img">
 			<c:forEach items="${images}" var="image" varStatus="status">
 				<div class="imgSlides">
-					<img id="game_img_selected" alt="${image.image_name}" src="${game_img}${image.image_url}">
+					<img id="game_img_selected" alt="${image.image_name}"
+						src="${game_img}${image.image_url}">
 				</div>
 			</c:forEach>
 			<div id="game_img_list">
@@ -32,7 +33,8 @@
 				<c:forEach items="${images}" var="image" varStatus="status">
 					<div>
 						<img data-id="img_${image.image_id}" id="img_${image.image_id}"
-							class="demo cursor game_img_dto" alt="${image.image_name}" src="${game_img}${image.image_url}"
+							class="demo cursor game_img_dto" alt="${image.image_name}"
+							src="${game_img}${image.image_url}"
 							onclick="currentSlide(${status.index + 1})">
 					</div>
 				</c:forEach>
@@ -43,7 +45,8 @@
 		</div>
 		<div id="game_detail_right">
 			<div id="game_detail_img_div">
-				<img id="right_img" alt="${sub_banner.image_name}" src="${game_img}${sub_banner.image_url}">
+				<img id="right_img" alt="${sub_banner.image_name}"
+					src="${game_img}${sub_banner.image_url}">
 			</div>
 			<c:choose>
 				<c:when test="${game.discount > 0}">
@@ -91,6 +94,19 @@
 					</c:choose>
 				</div>
 			</div>
+			<div id="game_info_div">
+				<div class="game_info_grid">
+					<div>출시일</div>
+					<div>
+						<fmt:formatDate pattern="yyyy. MM. dd"
+							value="${game.release_date}" />
+					</div>
+					<div>장르</div>
+					<div>${game.game_genre}</div>
+					<div>개발사</div>
+					<div>${game.develop_company}</div>
+				</div>
+			</div>
 			<div id="game_age_grade_div">
 				<c:forEach items="${rateds}" var="rated">
 					<div class="game_age_grade_content">
@@ -100,8 +116,15 @@
 			</div>
 			<div id="game_detail_btn_div" data-session="${user}"
 				data-user="${user.user_num}" data-cart="${game.game_id}">
-				<button id="checkoutBtn">지금 구매</button>
-				<button id="cartBtn">장바구니에 담기</button>
+				<c:choose>
+				<c:when test="${is_use == true}">
+					<button id="checkoutBtn" disabled="disabled">이미 구매한 상품입니다.</button>
+				</c:when>
+				<c:otherwise>
+					<button id="checkoutBtn">지금 구매</button>
+					<button id="cartBtn">장바구니에 담기</button>
+				</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</div>

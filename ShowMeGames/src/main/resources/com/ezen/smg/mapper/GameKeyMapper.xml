@@ -53,5 +53,8 @@
         AND (select user_num from smg_users where nick_name = #{nick_name}) IS NOT NULL
 	</update>
 	
+	<select id="isUseGameKey" parameterType="int">
+		select count(*) from game_key where game_id=#{game_id} and user_num=#{user_num}
+	</select>
 	
 </mapper>
