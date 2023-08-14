@@ -11,6 +11,9 @@ import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
+import com.ezen.smg.dto.chart.GenderDTO;
+import com.ezen.smg.dto.chart.GenreDTO;
+import com.ezen.smg.dto.chart.SalesDTO;
 
 @PropertySource(value = "classpath:application.properties", encoding = "UTF-8")
 public interface ManagerService {
@@ -49,4 +52,10 @@ public interface ManagerService {
 	List<GameKeyDTO> getKeys(int page);
 	List<GameKeyDTO> getSearchResults(String search, String search_tag, int page);
 	int[] ModifyKey(String key_id, String nick_name, int key_num);
+	
+	/*chart*/
+	List<SalesDTO> getSalesData(String tag, int year);
+	List<GenderDTO> getGenderData();
+	List<GenreDTO> getGenreData();
+	List<GenreDTO> getEditorSales();
 }

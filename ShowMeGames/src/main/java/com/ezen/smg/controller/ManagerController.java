@@ -16,16 +16,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.bind.annotation.SessionAttribute;
-
-import com.ezen.smg.dto.Games;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.dto.GameKeyDTO;
+import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
+import com.ezen.smg.dto.chart.SalesDTO;
+import com.ezen.smg.dto.chart.GenderDTO;
+import com.ezen.smg.dto.chart.GenreDTO;
 import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.NoticeMapper;
 import com.ezen.smg.service.faqService.FAQService;
@@ -157,6 +159,35 @@ public class ManagerController {
 	@GetMapping("/manage/admin_chart")
 	String adminChart() {
 		return "manager/admin_chart";
+	}
+	
+	@ResponseBody
+	@GetMapping("/manage/admin_chart_ajax")
+	List<SalesDTO> getChart(String tag, Integer year) {
+		
+		return serv.getSalesData(tag, year);
+	}
+	
+	@ResponseBody
+	@GetMapping("/manage/admin_chart_ajax/gender")
+	List<GenderDTO> getGenderRate() {
+		
+
+		return serv.getGenderData();
+	}
+	
+	@ResponseBody
+	@GetMapping("/manage/admin_chart_ajax/genre")
+	List<GenreDTO> getGenreRate() {
+		
+		return serv.getGenreData();
+	}
+	
+	@ResponseBody
+	@GetMapping("/manage/admin_chart_ajax/editorSales")
+	List<GenreDTO> getEditorSales() {
+		
+		return serv.getEditorSales();
 	}
 
 	@GetMapping("/manage/admin_inquiry")
@@ -343,7 +374,8 @@ public class ManagerController {
 
 	@GetMapping("/manage/admin_key")
 	String adminKey(Model model, String search, String search_tag) {
-		if(search != null && !search.isEmpty()) {
+		if(search != null && !search.isEmpty()
+				&& search_tag != null && !search_tag.isEmpty()) {
 			model.addAttribute("search", search);
 			model.addAttribute("gameKeys", serv.getSearchResults(search, search_tag, 1));
 		} else {
@@ -356,8 +388,10 @@ public class ManagerController {
 	@GetMapping(value="/manage/admin_key_ajax")
 	public List<GameKeyDTO> ajaxKey(int num, String search, String search_tag) {
 
-		if(search !=null && !search.isEmpty()
-				&& search_tag != null && !search_tag.isEmpty()) {
+		if(!search.equals("null") && !search.isEmpty()
+				&& !search_tag.equals("null") && !search_tag.isEmpty()) {
+			log.info(search);
+			log.info(search_tag);
 			return serv.getSearchResults(search, search_tag, num);
 		} else {
 			return serv.getKeys(num);
