@@ -21,14 +21,17 @@ import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
-import com.ezen.smg.dto.SalesDTO;
-import com.ezen.smg.mapper.ChartMapper;
 import com.ezen.smg.dto.QnADTO;
+import com.ezen.smg.dto.chart.GenderDTO;
+import com.ezen.smg.dto.chart.GenreDTO;
+import com.ezen.smg.dto.chart.SalesDTO;
+import com.ezen.smg.mapper.ChartMapper;
 import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.ManagerMapper;
 import com.ezen.smg.mapper.NoticeMapper;
+
 import lombok.extern.log4j.Log4j;
 
 @PropertySource(value = "classpath:application.properties", encoding = "UTF-8")
@@ -50,6 +53,8 @@ public class ManagerServiceImp1 implements ManagerService {
 
 	@Value("${spring.user_profile.path}")
 	private String absolutePath; 
+	
+	@Autowired
 	GameKeyMapper gameKeyMapper;
 	
 	@Autowired
@@ -246,10 +251,10 @@ public class ManagerServiceImp1 implements ManagerService {
 			return chartMapper.getWeeklySales();
 		} else if (tag.equals("month")) {
 			
-			return chartMapper.getMonthSales();
+			return chartMapper.getMonthSales(2023);
 		} else if(tag.equals("year")) {
 			
-			return chartMapper.getYearSales(year);
+			return chartMapper.getYearsSales();
 		} else {
 			
 			return chartMapper.getWeeklySales();
@@ -262,4 +267,23 @@ public class ManagerServiceImp1 implements ManagerService {
 		
 		return faQmapper.getFAQList(firstGame, lastGame);
 	}
+
+	@Override
+	public List<GenderDTO> getGenderData() {
+			
+		return chartMapper.getGenderRate();
+	}
+
+	@Override
+	public List<GenreDTO> getGenreData() {
+
+		return chartMapper.getGenreRate();
+	}
+
+	@Override
+	public List<GenreDTO> getEditorSales() {
+		
+		return chartMapper.getEditorSales();
+	}
+	
 }

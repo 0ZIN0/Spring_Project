@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:url value="/resources/manager" var="resource" />
+<c:set var="now" value="<%=new java.util.Date()%>" />
+<c:set var="sysYear">
+	<fmt:formatDate value="${now}" pattern="yyyy" />
+</c:set>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -30,22 +35,34 @@
 							<button id="day">일별</button>
 							<button id="month">월별</button>
 							<button id="year">년별</button>
-							<select name="" id="selector">
-								<option value="1">1</option>
-								<option value="1">2</option>
-								<option value="1">3</option>
-							</select>
-							</div>
+						</div>
 						<div>
-							매출
 							<canvas id="bar-chart" width="800" height="450"></canvas>
 						</div>
+					</div>
+					<div id="public_profile" class="content_item">
+						<div class="item_title">
+							<span>에디터별 판매량</span>
+						</div>
 						<div>
+							<canvas id="editorSales-chart" width="800" height="450"></canvas>
 						</div>
-						<div class="sales-container">
-							<canvas id="bar-chart"></canvas>
+					</div>
+					<div id="public_profile" class="content_item">
+						<div class="item_title">
+							<span>성별 비율</span>
 						</div>
-						<div></div>
+						<div>
+							<canvas id="gender-chart" width="800" height="450"></canvas>
+						</div>
+					</div>
+					<div id="public_profile" class="content_item">
+						<div class="item_title">
+							<span>장르 선호도</span>
+						</div>
+						<div>
+							<canvas id="genre-chart" width="800" height="450"></canvas>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -53,7 +70,8 @@
 	</main>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 	<script src="${resource}/js/admin_chart.js"></script>
 </body>
 </html>

@@ -55,6 +55,7 @@ let observer = new IntersectionObserver(function (entries, observer) {
             if (nick_name == null) {
               nick_name = "";
             }
+            console.log(key);
             content_div.append(
               `<form id="key_modify ${key.key_num}" action="./key_modify" method="POST">
               <div class="row-content" data-key="key-${key.key_num}">

@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.smg.mapper.ChartMapper">
 	<select id="getWeeklySales"
-		resultType="com.ezen.smg.dto.SalesDTO">
+		resultType="com.ezen.smg.dto.chart.SalesDTO">
 		WITH DateGenerator AS (
 		SELECT TRUNC(SYSDATE) - LEVEL + 1 AS
 		order_date
@@ -12,7 +12,7 @@
 		CONNECT BY LEVEL &lt;= 7
 		)
 		SELECT
-		d.order_date,
+		TO_CHAR(d.order_date, 'YY-MM-DD') AS order_date,
 		COALESCE(SUM(s.order_price), 0) AS total_sales
 		FROM
 		DateGenerator d
@@ -25,35 +25,39 @@
 	</select>
 
 	<select id="getYearsSales"
-		resultType="com.ezen.smg.dto.SalesDTO">
+		resultType="com.ezen.smg.dto.chart.SalesDTO">
 		WITH YearsGenerator AS (
-		SELECT ADD_MONTHS(TRUNC(SYSDATE, 'YEAR'), -(LEVEL - 1) * 12) AS order_year
+		SELECT ADD_MONTHS(TRUNC(SYSDATE,
+		'YEAR'), -(LEVEL - 1) * 12) AS order_year
 		FROM dual
-		CONNECT BY LEVEL &lt;= 5
+		CONNECT BY LEVEL
+		&lt;= 5
 		)
 		SELECT
-		TO_CHAR(y.order_year, 'YYYY') AS period,
+		TO_CHAR(y.order_year, 'YYYY') AS order_date,
 		COALESCE(SUM(o.order_price), 0) AS total_sales
 		FROM
 		YearsGenerator y
 		LEFT JOIN
 		orders o ON TRUNC(o.order_date, 'YEAR') = y.order_year
-		GROUP BY
+		GROUP
+		BY
 		y.order_year
 		ORDER BY
-		period
+		order_date
 	</select>
 
 	<select id="getMonthSales"
-		resultType="com.ezen.smg.dto.SalesDTO">
+		resultType="com.ezen.smg.dto.chart.SalesDTO">
 		WITH MonthsGenerator AS (
-		SELECT ADD_MONTHS(TRUNC(TO_DATE(${year} || '-01-01'), 'MONTH'), LEVEL - 1) AS
+		SELECT
+		ADD_MONTHS(TRUNC(TO_DATE(${year} || '-01-01'), 'MONTH'), LEVEL - 1) AS
 		order_month
 		FROM dual
 		CONNECT BY LEVEL &lt;= 12
 		)
 		SELECT
-		TO_CHAR(m.order_month, 'YYYY-MM') AS period,
+		TO_CHAR(m.order_month, 'YYYY-MM') AS order_date,
 		COALESCE(SUM(o.order_price), 0) AS total_sales
 		FROM
 		MonthsGenerator m
@@ -62,6 +66,39 @@
 		GROUP BY
 		m.order_month
 		ORDER BY
-		period
+		order_date
+	</select>
+
+	<select id="getGenderRate"
+		resultType="com.ezen.smg.dto.chart.GenderDTO">
+		select gender, (count(gender) / 20 * 100) AS rate from
+		smg_users group by gender
+	</select>
+
+	<select id="getGenreRate"
+		resultType="com.ezen.smg.dto.chart.GenreDTO">
+		SELECT genre, rate
+		FROM (
+		SELECT
+		genre,
+		COUNT(genre) AS rate
+		FROM (
+		SELECT REGEXP_SUBSTR(g.game_genre, '[^ ]+', 1, LEVEL) AS genre
+		FROM order_detail o
+		JOIN games g ON g.game_id = o.game_id
+		CONNECT BY
+		REGEXP_SUBSTR(g.game_genre, '[^ ]+', 1, LEVEL) IS NOT NULL
+		AND PRIOR g.game_id = g.game_id
+		AND PRIOR o.od_id = o.od_id
+		AND PRIOR SYS_GUID() IS NOT NULL
+		)
+		GROUP BY genre
+		ORDER BY rate DESC
+		)
+		WHERE ROWNUM &lt;= 10
+	</select>
+	
+	<select id="getEditorSales" resultType="com.ezen.smg.dto.chart.GenreDTO">
+		select g.editor AS genre, count(editor) AS rate from order_detail o join games g on(o.game_id = g.game_id) group by editor
 	</select>
 </mapper>
