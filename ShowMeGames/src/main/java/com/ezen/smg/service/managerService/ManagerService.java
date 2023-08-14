@@ -16,7 +16,7 @@ public interface ManagerService {
 	Pagination getPagination(int currPage, int totalSize, int itemsPerPage);
 
 	/** admin_game 관련 서비스 */
-	List<Games> getGameList(int currPage);
+	List<Games> getGameList(int currPage);	
 	int getGameListTotalSize();
 	Games getGameDetail(int game_id);
 
@@ -25,6 +25,8 @@ public interface ManagerService {
 	List<SmgUsersDTO> getUserListWithPagination(int page, int itemsPerPage);
 	int getUserListTotalSize();
 
-	SmgUsersDTO getUserByUserNum(Long userNum);
+	SmgUsersDTO getUserByUserNum(Integer userNum);
+	
+	int managerUpdateUserInfo(SmgUsersDTO user, String newPassword);
 
 }

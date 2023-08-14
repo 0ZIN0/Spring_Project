@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ezen.smg.common.Encryption_SH256;
 import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.service.managerService.ManagerService;
+import com.ezen.smg.service.mypageService.MyPageService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -25,7 +27,6 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/admin")
 @Controller
 public class ManagerController {
-
 
 	@Autowired
 	ManagerService serv;
@@ -103,13 +104,9 @@ public class ManagerController {
 		return "manager/admin_game_update";
 	}
 
-	//	@GetMapping("/manage/admin_user")
-	//	String adminUser() {
-	//		return "manager/admin_user";
-	//	}
-
 	@GetMapping("/manage/admin_user")
 	public String userList(Model model, @RequestParam(name = "page", required = false, defaultValue = "1") int page) {
+		
 		int itemsPerPage = 200; // 페이지당 아이템 수
 		List<SmgUsersDTO> userList = serv.getUserListWithPagination(page, itemsPerPage);
 		int totalSize = serv.getUserListTotalSize();
@@ -123,7 +120,7 @@ public class ManagerController {
 	}
 
 	@GetMapping("/manage/admin_user_edit")
-	String adminUserEdit(@RequestParam("userNum") Long userNum, Model model) {
+	String adminUserEdit(Integer userNum, Model model) {
 		SmgUsersDTO user = serv.getUserByUserNum(userNum);
 
 		// 가져온 유저 정보를 모델에 추가합니다.
@@ -131,7 +128,19 @@ public class ManagerController {
 
 		return "manager/admin_user_edit";
 	}
+	
+	 
+	// 회원정보 수정
+	@PostMapping("/manage/update_info")
+	String updateInfo(SmgUsersDTO user) {
+	    String newPassword = user.getNewPassword();  
 
+	    serv.managerUpdateUserInfo(user, newPassword);
+
+	    return "redirect:/admin/manage/admin_user";  
+	}
+	 
+	
 
 	@GetMapping("/manage/admin_chart")
 	String adminChart() {

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
 
 public interface UsersMapper {
@@ -17,6 +16,8 @@ public interface UsersMapper {
 
 	SmgUsersDTO getUserInfo(@Param("user_num") int user_num);
 
+	SmgUsersDTO getUserByUserNum(@Param("user_num") long user_num);
+	
 	SmgUsersDTO getUser_social(@Param("key") String social_key);
 
 	String getProfile_img_url(@Param("user_num") int user_num);
@@ -30,6 +31,8 @@ public interface UsersMapper {
 	int updateUserPoint(@Param("dto") SmgUsersDTO dto);
 
 	int updateUserInfo(@Param("dto") SmgUsersDTO dto);
+	
+	int managerUpdateUserInfo(@Param("dto") SmgUsersDTO dto);
 
 	int withdrawalUser(@Param("dto") SmgUsersDTO dto);
 
@@ -39,5 +42,4 @@ public interface UsersMapper {
 
 	List<SmgUsersDTO> getUserListForAdmin(@Param("start") int firstUser, @Param("end") int lastUser);
 
-	SmgUsersDTO getUserByUserNum(@Param("user_num") Long userNum);
 }

@@ -11,6 +11,9 @@
 		resultType="com.ezen.smg.dto.SmgUsersDTO">
 		SELECT * FROM smg_users WHERE user_num=#{user_num}
 	</select>
+	<select id="getUserByUserNum" parameterType="long" resultType="com.ezen.smg.dto.SmgUsersDTO">
+		SELECT * FROM smg_users WHERE user_num=#{user_num}
+	</select>
 	<select id="getUser_social" parameterType="String"
 		resultType="com.ezen.smg.dto.SmgUsersDTO">
 		SELECT * FROM smg_users WHERE social_key = #{key}
@@ -70,11 +73,14 @@
 		parameterType="com.ezen.smg.dto.SmgUsersDTO">
 		UPDATE smg_users
 		SET user_id = #{dto.user_id},
-		user_name = #{dto.user_name},
+		user_name =
+		#{dto.user_name},
 		phone_number = #{dto.phone_number},
-		birth_date = #{dto.birth_date},
+		birth_date =
+		#{dto.birth_date},
 		gender = #{dto.gender}
-		WHERE user_num = #{dto.user_num}
+		WHERE user_num =
+		#{dto.user_num}
 	</update>
 	<update id="withdrawalUser"
 		parameterType="com.ezen.smg.dto.SmgUsersDTO">
@@ -84,12 +90,14 @@
 		user_pw=#{dto.user_pw, jdbcType=VARCHAR},
 		user_name=#{dto.user_name},
 		nick_name=#{dto.nick_name},
-		user_grade=#{dto.user_grade, jdbcType=VARCHAR},
+		user_grade=#{dto.user_grade,
+		jdbcType=VARCHAR},
 		phone_number=#{dto.phone_number},
 		favorite_genre=#{dto.favorite_genre, jdbcType=INTEGER},
 		user_point=#{dto.user_point, jdbcType=INTEGER},
 		birth_date=#{dto.birth_date},
-		login_type=#{dto.login_type, jdbcType=VARCHAR},
+		login_type=#{dto.login_type,
+		jdbcType=VARCHAR},
 		profile_url=#{dto.profile_url, jdbcType=VARCHAR},
 		social_key=#{dto.social_key, jdbcType=VARCHAR},
 		gender=#{dto.gender}
@@ -107,28 +115,46 @@
 	<select id="getUsersTotalSize">
 		SELECT count(*) FROM smg_users
 	</select>
-	<select id="getUserListForAdmin" resultType="com.ezen.smg.dto.SmgUsersDTO">
-    SELECT * FROM (
-        SELECT rownum AS rn, 
-               <!-- u.user_num, 
-               SUBSTR(u.user_pw, 1, 20) AS user_pw, 
-               SUBSTR(u.user_id, 1, 20) AS user_id,
-               u.user_name,
-               u.nick_name,
-               u.user_grade,
-               u.phone_number,
-               u.user_point,
-               u.birth_date,
-               u.gender -->
-                u.user_num, 
-                SUBSTR(u.user_id, 1, 20) AS user_id,
-                u.user_name
-        FROM smg_users u
-        ORDER BY user_num DESC
-    ) WHERE rn BETWEEN #{start} AND #{end}
-</select>
+	<select id="getUserListForAdmin"
+		resultType="com.ezen.smg.dto.SmgUsersDTO">
+		SELECT * FROM (
+		SELECT rownum AS rn,
+		<!--
+		 u.user_num, 
+		 SUBSTR(u.user_pw, 1, 20) AS user_pw, 
+		 SUBSTR(u.user_id, 
+			1, 20) AS user_id, 
+			u.user_name,
+			u.nick_name,
+			u.user_grade, 
+			u.phone_number, 
+			u.user_point, 
+			u.birth_date, 
+			u.gender,
+		-->
+		u.user_num,
+		SUBSTR(u.user_id, 1, 20) AS user_id,
+		u.user_name
+		FROM smg_users u
+		ORDER BY user_num DESC
+		) WHERE rn BETWEEN #{start} AND #{end}
+	</select>
+	
+	<update id="managerUpdateUserInfo"
+		parameterType="com.ezen.smg.dto.SmgUsersDTO">
+		UPDATE smg_users
+		SET user_id = #{dto.user_id},
+		user_pw = #{dto.user_pw},
+		user_name = #{dto.user_name},
+		nick_name = #{dto.nick_name},
+		user_grade = #{dto.user_grade},
+		phone_number = #{dto.phone_number},
+		<!-- favorite_genre = #{dto.favorite_genre}, -->
+		user_point = #{dto.user_point},
+		birth_date = #{dto.birth_date},
+		gender = #{dto.gender}
+		WHERE user_num =
+		#{dto.user_num}
+	</update>
 
- <select id="getUserByUserNum" parameterType="Long" resultType="com.ezen.smg.dto.SmgUsersDTO">
-        SELECT * FROM smg_users WHERE user_num = #{user_num}
-    </select>
 </mapper>

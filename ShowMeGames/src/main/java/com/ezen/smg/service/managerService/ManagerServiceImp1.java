@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.smg.common.CommonFunction;
+import com.ezen.smg.common.Encryption_SH256;
 import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
@@ -13,7 +14,6 @@ import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.ManagerMapper;
 import com.ezen.smg.mapper.UsersMapper;
-import com.ezen.smg.service.memberService.MemberService;
 
 @Service
 public class ManagerServiceImp1 implements ManagerService {
@@ -26,9 +26,6 @@ public class ManagerServiceImp1 implements ManagerService {
 
 	@Autowired
 	UsersMapper usersMapper;
-
-	@Autowired
-	MemberService memberService;
 
 	private int pageNum = 10;
 
@@ -92,8 +89,16 @@ public class ManagerServiceImp1 implements ManagerService {
 	}
 
 	@Override
-	public SmgUsersDTO getUserByUserNum(Long userNum) {
-		return memberService.getUserByUserNum(userNum);
+	public SmgUsersDTO getUserByUserNum(Integer userNum) {
+		return usersMapper.getUserInfo(userNum);
+	}
+	
+	@Override
+	public int managerUpdateUserInfo(SmgUsersDTO user, String newPassword) {
+	    String encPw = Encryption_SH256.encrypt(newPassword);
+	    user.setUser_pw(encPw);  // 암호화된 비밀번호로 설정
+
+	    return usersMapper.managerUpdateUserInfo(user);
 	}
 
 	@Override
@@ -104,5 +109,7 @@ public class ManagerServiceImp1 implements ManagerService {
 
 		return game;
 	}
+
+	
 
 }
