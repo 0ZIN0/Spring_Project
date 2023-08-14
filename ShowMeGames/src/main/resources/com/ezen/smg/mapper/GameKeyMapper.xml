@@ -31,7 +31,6 @@
 		LEFT JOIN smg_users u ON k.user_num = u.user_num
 		)
 		WHERE rnum BETWEEN ${begin} AND ${end}
-
 	</select>
 	
 	<select id="getSearchResults" resultType="com.ezen.smg.dto.GameKeyDTO">
