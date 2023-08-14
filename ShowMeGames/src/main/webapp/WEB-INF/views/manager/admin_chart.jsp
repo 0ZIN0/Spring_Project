@@ -26,12 +26,17 @@
 							<span>매출 통계</span>
 						</div>
 						<div>
+							매출
+							<canvas id="bar-chart" width="800" height="450"></canvas>
+						</div>
+						<div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</main>
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script src="${resource}/js/admin_chart.js"></script>
 </body>
 </html>

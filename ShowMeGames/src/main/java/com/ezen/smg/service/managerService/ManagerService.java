@@ -6,8 +6,11 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.common.Pagination;
+import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
+import com.ezen.smg.dto.NoticeDTO;
+import com.ezen.smg.dto.QnADTO;
 
 @PropertySource(value = "classpath:application.properties", encoding = "UTF-8")
 public interface ManagerService {
@@ -29,9 +32,21 @@ public interface ManagerService {
 	/** admin_game 관련 서비스 */
 	List<Games> getGameList(int currPage);
 	int getGameListTotalSize();
+
 	Games getGameDetail(int game_id);
 	List<String[]> getPropList();
 	
 	int updateGame(Games game);
 	int updateBanner_img(int game_id, MultipartFile img_file);
+
+	/** admin_notice 관련 서비스 */
+	List<NoticeDTO> getNoticeList(int currPage);
+	
+	/** admin_faq 관련 서비스 */
+	List<QnADTO> getQnAList(int currPage);
+	
+	/*게임 키 관리*/
+	List<GameKeyDTO> getKeys(int page);
+	List<GameKeyDTO> getSearchResults(String search, String search_tag, int page);
+	int[] ModifyKey(String key_id, String nick_name, int key_num);
 }

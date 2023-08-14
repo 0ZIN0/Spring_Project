@@ -223,7 +223,7 @@ h3 {
 
 .plat-form-select {
 	display: grid;
-	grid-template-columns: 70px 20px;
+	grid-template-columns: 100px 20px;
 	position: relative;
 }
 
