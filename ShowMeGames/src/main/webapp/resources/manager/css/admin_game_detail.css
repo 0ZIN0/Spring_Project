@@ -7,6 +7,10 @@
     color: #eeab0a;
 }
 
+#layout_btn_wrapper {
+	margin-left: 15px;
+}
+
 .item_div {
     display: flex;
     flex-direction: column;

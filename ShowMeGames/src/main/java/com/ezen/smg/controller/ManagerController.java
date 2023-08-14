@@ -159,6 +159,12 @@ public class ManagerController {
 		return "manager/admin_game_detail";
 	}
 
+	@GetMapping("/manage/admin_game_delete")
+	String adminGameDelete(Integer game_id) {
+		
+		return "redirect:admin_game";
+	}
+	
 	@GetMapping("/manage/admin_game_update")
 	String adminGameUpdate(Integer game_id, Model model) {
 
