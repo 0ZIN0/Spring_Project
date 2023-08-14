@@ -102,12 +102,53 @@ public class ManagerServiceImp1 implements ManagerService {
 		
 		return gamesMapper.getGameListForAdmin(firstGame, lastGame);
 	}
-
+	
 	@Override
 	public int getGameListTotalSize() {
 		return gamesMapper.getGamesTotalSize();
 	}
+	
+	@Override
+	public List<Games> getGameListByGame_id(int currPage, String game_id) {
+		int lastGame = currPage * pageNum;
+		int firstGame = lastGame - 9;
+		
+		return gamesMapper.getGameListByGame_id(firstGame, lastGame, game_id);
+	}
 
+	@Override
+	public int getGameListByGame_idSize(String game_id_str) {
+		int game_id = Integer.parseInt(game_id_str);
+		
+		return gamesMapper.getGamesByIdSize(game_id);
+	}
+
+	@Override
+	public List<Games> getGameListByGame_name(int currPage, String game_name) {
+		int lastGame = currPage * pageNum;
+		int firstGame = lastGame - 9;
+		
+		return gamesMapper.getGameListByName(firstGame, lastGame, game_name);
+	}
+
+	@Override
+	public int getGameListByGame_nameSize(String game_name) {
+		return gamesMapper.getGamesByName(game_name);
+	}
+
+	@Override
+	public List<Games> getGameListByLayout(int currPage, String layout) {
+		int lastGame = currPage * pageNum;
+		int firstGame = lastGame - 9;
+		
+		return gamesMapper.getGameListByLayout(firstGame, lastGame, layout);
+	}
+
+	@Override
+	public int getGameListByLayoutSize(String layout) {
+		return gamesMapper.getGamesByLayout(layout);
+	}
+	
 	@Override
 	public Games getGameDetail(int game_id) {
 		Games game = gamesMapper.getGame(game_id); 
@@ -199,6 +240,63 @@ public class ManagerServiceImp1 implements ManagerService {
         
 	}
 
+	@Override
+	public int insertNewGame(Games game, String file_name, MultipartFile img_file) {
+		
+		int game_id = gamesMapper.getLastGameNum() + 1;
+		game.setGame_id(game_id);
+
+		String fileName = file_name + CommonFunction.extractExt(img_file.getOriginalFilename());
+		String banner_url = "resources/img/banner_img/" + fileName;
+		
+		game.setBanner_img_url(banner_url);
+		
+		int insert = gamesMapper.insertNewGame(game); 
+		
+		if(insert == 1) {
+			
+			String fullPath = absolutePath + "/" + fileName;
+			
+			// 업데이트를 톰캣폴더로 바로 반영해주기 위한 경로
+			String realPath = servletContext.getRealPath("/resources/img/banner_img/"); 
+			String tempPath = realPath + fileName;
+			
+			log.info("프로젝트 폴더 내 저장 경로: " + fullPath);
+			log.info("톰캣 서버 내 저장 경로: " + tempPath);
+			
+			try {
+				File file = new File(tempPath);
+				
+				// 중복명이 있을 경우
+				if(file.exists()) {
+					fileName = file_name + 1 + CommonFunction.extractExt(img_file.getOriginalFilename());
+					tempPath = realPath + fileName;
+					file = new File(tempPath);
+					fullPath = absolutePath + "/" + fileName;
+				}
+				
+				file.createNewFile();
+				
+				FileOutputStream fos = new FileOutputStream(file);
+				fos.write(img_file.getBytes());
+				fos.close();
+				
+				img_file.transferTo(new File(fullPath));
+				
+				return insert;
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+				return 0;
+			} catch (IOException e) {
+				e.printStackTrace();
+				return 0;
+			}
+			
+		};
+		
+		return insert;
+	}
+	
 	public List<GameKeyDTO> getKeys(int page) {
 		int scope = 30;
 		int end = scope * page;

@@ -34,7 +34,14 @@ public interface ManagerService {
 	
 	/** admin_game 관련 서비스 */
 	List<Games> getGameList(int currPage);
+	List<Games> getGameListByGame_id(int currPage, String game_id);
+	List<Games> getGameListByGame_name(int currPage, String game_name);
+	List<Games> getGameListByLayout(int currPage, String layout);
+	
 	int getGameListTotalSize();
+	int getGameListByGame_idSize(String game_id);
+	int getGameListByGame_nameSize(String game_name);
+	int getGameListByLayoutSize(String layout);
 
 	Games getGameDetail(int game_id);
 	List<String[]> getPropList();
@@ -42,6 +49,8 @@ public interface ManagerService {
 	int updateGame(Games game);
 	int updateBanner_img(int game_id, MultipartFile img_file);
 
+	int insertNewGame(Games game, String file_name, MultipartFile img_file);
+	
 	/** admin_notice 관련 서비스 */
 	List<NoticeDTO> getNoticeList(int currPage);
 	

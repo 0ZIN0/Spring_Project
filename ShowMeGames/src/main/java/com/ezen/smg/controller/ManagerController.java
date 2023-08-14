@@ -99,17 +99,55 @@ public class ManagerController {
 	}
 
 	@GetMapping("/manage/admin_game")
-	String adminGame(Integer page, Model model) {
+	String adminGame(Integer page, String type, String key, Model model) {
 		if(page == null) page = 1;
-
-		int totalSize = serv.getGameListTotalSize();
-
+		
+		int totalSize;
+		
+		switch(type != null ? type: "NULL") {
+			case "game_id": 
+				totalSize = serv.getGameListByGame_idSize(key);
+				model.addAttribute("gameList", serv.getGameListByGame_id(page, key));
+				break;
+			case "game_name":	
+				totalSize = serv.getGameListByGame_nameSize(key);
+				model.addAttribute("gameList", serv.getGameListByGame_name(page, key));
+				break;
+			case "layout":
+				totalSize = serv.getGameListByLayoutSize(key);
+				model.addAttribute("gameList", serv.getGameListByLayout(page, key));
+				break;
+			default:
+				totalSize = serv.getGameListTotalSize();
+				model.addAttribute("gameList", serv.getGameList(page));
+		}
+		
 		model.addAttribute("paging", serv.getPagination(page, totalSize));
-		model.addAttribute("gameList", serv.getGameList(page));
-
+		
 		return "manager/admin_game";
 	}
 
+	@GetMapping("/manage/admin_game_add")
+	String adminGameAdd(Model model) {
+		List<String[]> propList = serv.getPropList();
+		
+		model.addAttribute("genreArr", propList.get(0));
+		model.addAttribute("editorArr", propList.get(1));
+		model.addAttribute("platformArr", propList.get(2));
+		model.addAttribute("layoutArr", propList.get(3));
+		model.addAttribute("ratedArr", propList.get(4));
+		
+		return "manager/admin_game_add";
+	}
+	
+	@PostMapping("/manage/admin_game_add")
+	String adminGameAdd_post(Games game, String file_name, MultipartFile img_file) {
+
+		serv.insertNewGame(game, file_name, img_file);
+		
+		return "redirect:admin_game";
+	}
+	
 	@GetMapping("/manage/admin_game_detail")
 	String adminGameDetail(Integer game_id, Model model) {
 
