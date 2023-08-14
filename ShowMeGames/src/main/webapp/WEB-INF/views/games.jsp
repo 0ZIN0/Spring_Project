@@ -316,6 +316,8 @@
 									value="퍼즐" /><label for="">퍼즐</label></li>
 								<li class="filter_item genre"><input type="checkbox"
 									value="호러" /><label for="">호러</label></li>
+									<li class="filter_item genre"><input type="checkbox"
+									value="호러" /><label for="">스포츠</label></li>
 							</ul>
 						</div>
 						<hr />
