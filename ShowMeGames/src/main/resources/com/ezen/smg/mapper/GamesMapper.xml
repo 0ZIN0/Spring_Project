@@ -183,6 +183,14 @@
 		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a ORDER BY game_id DESC) WHERE rn BETWEEN #{start} AND #{end}
 	</select>
 	
+	<select id="getBanner_imgUrl">
+		SELECT banner_img_url FROM games WHERE game_id=#{game_id}
+	</select>
+	
+	<update id="updateBanner_img">
+		UPDATE games SET banner_img_url=#{path} WHERE game_id=#{game_id}
+	</update>
+	
 	<update id="updateGame" parameterType="com.ezen.smg.dto.Games">
 		UPDATE games SET 
 			game_name=#{game.game_name}, 

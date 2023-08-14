@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -31,6 +33,9 @@ public class ManagerServiceImp1 implements ManagerService {
 
 	@Autowired
 	GamesMapper gamesMapper;
+	
+	@Autowired
+	ServletContext servletContext;
 
 	@Value("${spring.user_profile.path}")
 	private String absolutePath; 
@@ -116,30 +121,26 @@ public class ManagerServiceImp1 implements ManagerService {
 	public int updateBanner_img(int game_id, MultipartFile img_file) {
 		
         String filename = img_file.getOriginalFilename();
-        String newFileName = CommonFunction.UUIDRandomCreate() + CommonFunction.extractExt(filename); 
+        String ext = CommonFunction.extractExt(filename);
         
-        String DBSavePath = "/resources/img/user_profile/" + newFileName; 
+        String originUrl = gamesMapper.getBanner_imgUrl(game_id);
+        String originFileName = CommonFunction.getFileNameWithoutExt(originUrl);  
+        
+        String newFileName = originFileName + ext;
+        
+        String DBSavePath = "resources/img/banner_img/" + newFileName; 
         String fullPath = absolutePath + "/" + newFileName;
 
         // 업데이트를 톰캣폴더로 바로 반영해주기 위한 경로
-        String realPath = servletContext.getRealPath("/resources/img/user_profile/"); 
+        String realPath = servletContext.getRealPath("/resources/img/banner_img/"); 
         String tempPath = realPath + newFileName;
         
         log.info("프로젝트 폴더 내 저장 경로: " + realPath);
         log.info("톰캣 서버 내 저장 경로: " + tempPath);
         
         try {
-        	File file = new File(tempPath);
-        	file.createNewFile();
-        	
-        	FileOutputStream fos = new FileOutputStream(file);
-        	fos.write(img_file.getBytes());
-        	fos.close();
-        	
-			img_file.transferTo(new File(fullPath));
-			
 			// DB에 저장된 원래 파일 이름 추출
-			String existingFileName =  CommonFunction.getFileName(userMapper.getProfile_img_url(user_num));
+			String existingFileName =  CommonFunction.getFileName(gamesMapper.getBanner_imgUrl(game_id));
 			File existingFile = new File(absolutePath + "/" + existingFileName);
 			File serverFile = new File(realPath + existingFileName); // 톰캣에 있을 임시 파일
 			
@@ -153,7 +154,16 @@ public class ManagerServiceImp1 implements ManagerService {
 				log.info("톰캣서버의 기존 프로필 이미지 캐시 삭제됨");
 			}
 			
-			return userMapper.updateProfile_img(user_num, DBSavePath);
+        	File file = new File(tempPath);
+        	file.createNewFile();
+        	
+        	FileOutputStream fos = new FileOutputStream(file);
+        	fos.write(img_file.getBytes());
+        	fos.close();
+        	
+			img_file.transferTo(new File(fullPath));
+			
+			return gamesMapper.updateBanner_img(game_id, DBSavePath);
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 			return 0;
@@ -162,7 +172,6 @@ public class ManagerServiceImp1 implements ManagerService {
 			return 0;
 		}
         
-		return 0;
 	}
 
 }

@@ -47,4 +47,8 @@ public interface GamesMapper {
 	
 	int updateGame(@Param("game") Games game);
 	
+	int updateBanner_img(@Param("game_id") int game_id, @Param("path") String DBSavePath);
+	
+	String getBanner_imgUrl(@Param("game_id") int game_id);
+	
 }
