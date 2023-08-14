@@ -31,8 +31,9 @@
 }
 
 .game_detail_img_div {
-	width: 400px;
-	height: 350px;
+	height: 600px;
+    width: 450px;
+    margin: auto;
 }
 
 #game_title {
