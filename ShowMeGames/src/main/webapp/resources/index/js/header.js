@@ -471,7 +471,7 @@ function updateMiniCart() {
           <img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
         </div>
       </div>`);
-         console.log("미니카트 비어있을때 나와야하는데 왜 안나옴");
+        console.log("EmptyCart Success");
       }
     },
     error: function (xhr, status, error) {
@@ -489,7 +489,7 @@ $(document).on("click", "#minicart-delete", function (e) {
       updateMiniCart();
     },
     error: () => {
-      console.log("Error");
+      console.log("MiniCart List Delete Error");
     }
   })
 });
