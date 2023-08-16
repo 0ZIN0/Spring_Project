@@ -335,7 +335,7 @@ $(window).scroll(function () {
 });
 
 // minicart Mouse Event
-$("#header-cart").mouseenter(function () {
+$("#cart-btn").mouseenter(function () {
   $("#header-bottom").addClass("minicart-position");
   $("#minicart").addClass("minicart-active");
 });
