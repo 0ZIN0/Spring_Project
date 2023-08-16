@@ -115,7 +115,7 @@ header {
 }
 
 #point-li {
-	margin-left: -80px;
+  margin-left: -80px;
 }
 
 .clickable-li a {
@@ -462,8 +462,8 @@ header {
 /*************** header-bottom *******************/
 #header-bottom-logo {
   display: none;
-  margin-top: 15px;
   text-align: center;
+  margin-top: 0 !important;
 }
 
 .title-div,
@@ -510,7 +510,11 @@ header {
   background-color: white;
 }
 
-#header-bottom > * {
+#header-bottom-logo {
+	margin-top: 0 !important;
+}
+
+#header-bottom > :not(:first-child) {
   padding-top: 25px;
 }
 
@@ -1115,3 +1119,10 @@ img {
     transform: scale3d(1, 1, 1);
   }
 }
+
+#header-bottom-logo > img {
+	object-fit: contain;
+}
+
+
+

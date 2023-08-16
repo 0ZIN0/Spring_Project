@@ -2,7 +2,9 @@
    			<div id="side_nav_wrapper">
 				<div id="side_nav">
 					<div id="side_nav_logo">
-						<a href="${toMain}">로고</a>
+						<a href="${toMain}">
+							<img src="${logo_img }/smg_verticalLogo.png" alt="세로 로고" />
+						</a>
 					</div>
 					<a href="./admin_game">
 						<div class="nav_item" id="side_admin_game">
