@@ -39,7 +39,7 @@
 								<div id="board_main">								
 									<c:forEach items="${contents}" var="content">
 										<div id="board" class="board">
-											<div class="board_id board_header">${content.inquiry_id}</div>
+											<div class="board_id board_header" >${content.inquiry_id}</div>
 											<div class="board_subject board_header">${content.inquiry_subject}</div>
 											<div class="board_title board_header">${content.inquiry_title}</div>
 											<div class="board_writer board_header">${content.nick_name}</div>
@@ -52,7 +52,7 @@
 												</c:if>
 											</div>															
 											<div class="board_detail">
-												<div class="board_content">
+												<div class="board_content paddingTopBottom">
 													<div class="detail_first">
 														내용  
 													</div>
@@ -60,26 +60,43 @@
 														${content.inquiry_content}
 													</div>
 												</div>
-												<form method="POST" action="${pageContext.request.contextPath}/admin/manage/admin_inquiry">
-													<div class="admin_answer">
-														<div class="detail_first">답변</div>
-														<c:if test="${not empty content.inquiry_answer}">
+												<form method="POST" action="./admin_inquiry" id="form">
+													<c:if test="${not empty content.inquiry_answer}">
+														<div class="admin_answer">
+															<div class="detail_first">답변</div>
 															<div class="detail_last answer_detail">${content.inquiry_answer}</div>
-														</c:if>
-														<c:if test="${empty content.inquiry_answer}">
+														</div>
+														<div class="admin_edit">
+															<div class="detail_first">답변</div>
+															<input type="hidden" name="inquiry_id" value="${content.inquiry_id}"/>
+															<div class="detail_last edit_detail">
+																<textarea name="inquiry_answer" class="textarea"rows="10" cols="68" maxlength="1000"  placeholder="${content.inquiry_answer}" style="resize: none;"></textarea>
+															</div>
+															<div class="save_btn edit_detail">
+																<button class="save_btn" type="submit">수정</button>
+															</div>
+															<div class="cancle edit_detail">
+																<button type="reset"class="cancle">취소</button>
+															</div>													
+														</div>
+													</c:if>
+													<c:if test="${empty content.inquiry_answer}">
+														<div class="admin_answer ">
+															<div class="detail_first">답변</div>
+															<input type="hidden" name="inquiry_id" value="${content.inquiry_id}"/>
 															<div class="detail_last">
-																<textarea class="textarea"rows="10" cols="65" maxlength="1000"  placeholder="내용을 입력해 주세요." style="resize: none;"></textarea>
+																<textarea name="inquiry_answer" class="textarea"rows="10" cols="68" maxlength="1000"  placeholder="내용을 입력해 주세요." style="resize: none;"></textarea>
 															</div>
 															<div class="save_btn">
 																<button class="save_btn" type="submit">저장</button>
 															</div>
 															<div class="cancle_btn">
-																<button class="cancle_btn">취소</button>
-															</div>														
-														</c:if>
-													</div>
+																<button type="reset"class="cancle_btn">취소</button>
+															</div>													
+														</div>
+													</c:if>
 												</form>
-												<div class="board_attachment">
+												<div class="board_attachment paddingTopBottom">
 													<div class="detail_first">첨부파일</div>
 													<div class="board_img detail_last">
 														<img class="myImg"src="${inquiries_img}${content.attachment}" alt="첨부파일" />

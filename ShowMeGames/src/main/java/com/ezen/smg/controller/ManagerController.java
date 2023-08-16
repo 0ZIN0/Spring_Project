@@ -141,7 +141,8 @@ public class ManagerController {
 	}
 	
 	@PostMapping("/manage/admin_inquiry")
-	String adminInquiry(int inquiry_id, String inquiry_answer) {
+	String adminInquiry(Integer inquiry_id, String inquiry_answer) {
+		
 		serv.updateAnswer(inquiry_id, inquiry_answer);
 		return "redirect:/admin/manage/admin_inquiry";
 	};

@@ -17,5 +17,5 @@ public interface ManagerMapper {
 	
 	List<Inquiries> getContents(@Param("start") int start, @Param("end") int end);
 	
-	int answer(@Param("inquiry_id") Integer inquiry_id, @Param("inquiry_answer") String inquiry_answer);
+	int answer(@Param("inquiry_id") int inquiry_id, @Param("inquiry_answer") String inquiry_answer);
 }
