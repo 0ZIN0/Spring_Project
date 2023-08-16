@@ -1022,11 +1022,6 @@ img {
 	color: #fff;
 }
 
-.SMN_effect-76 {
-	border-color: #ff8300;
-	position: relative;
-}
-
 .SMN_effect-76 ::before {
 	content: '';
 	position: absolute;
@@ -1051,6 +1046,7 @@ img {
 	transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
 	background-color: #ff8300;
 	animation: anim-moema-1 0.3s forwards;
+	color: #fff;
 }
 
 @keyframes anim-moema-2 {
@@ -1091,6 +1087,7 @@ img {
 	transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
 	background-color: #f22349;
 	animation: anim-moema-1 0.3s forwards;
+	color: #fff;
 }
 
 @keyframes anim-moema-2 {
