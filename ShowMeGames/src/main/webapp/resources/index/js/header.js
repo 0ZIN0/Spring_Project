@@ -87,7 +87,6 @@ function changeIconColor(iconId, color) {
   icon.style.color = color;
 }
 
-
 // header-bottom list css active
 function openOthers(list) {
   var tablinks = $(".sub-ul");
@@ -288,8 +287,8 @@ function toggleDropdown() {
     loginIcon.style.transition = "color 0.5s ease"; // 드랍다운이 열릴 때 0.5초로 트랜지션 적용
     loginIcon.style.color = "white"; // 색상을 흰색으로 변경
     // 장바구니 창 닫기
-    $('header-cart').removeClass('minicart-position');
-    $('#minicart').removeClass('minicart-active');
+    $("header-cart").removeClass("minicart-position");
+    $("#minicart").removeClass("minicart-active");
   } else {
     dropdownContent.style.display = "none";
     loginIcon.style.transition = ""; // 드랍다운이 닫힐 때 트랜지션 제거
@@ -303,10 +302,18 @@ $(document).ready(function () {
 });
 
 // 로그인 아이콘 클릭 시 드랍다운 열기 또는 닫기
+<<<<<<< HEAD
 document.getElementById("login-icon2").addEventListener("click", function (event) {
+=======
+$("#login-icon2").on("click", function (event) {
+>>>>>>> develop
   event.stopPropagation(); // 이벤트 버블링을 막음
   toggleDropdown();
 });
+// document.getElementById("login-icon2").addEventListener("click", function(event) {
+//   event.stopPropagation(); // 이벤트 버블링을 막음
+//   toggleDropdown();
+// });
 
 // 다른 곳을 클릭하면 드랍다운 닫기
 $(document).on("click", function (event) {
@@ -319,7 +326,7 @@ $(document).on("click", function (event) {
   }
 });
 
-// 스크롤 시 드랍다운 닫기 
+// 스크롤 시 드랍다운 닫기
 $(window).scroll(function () {
   var dropdownContent = document.getElementById("dropdown-content");
   var loginIcon = document.getElementById("login-icon2");
@@ -330,7 +337,10 @@ $(window).scroll(function () {
   }
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
 $(window).scroll(function () {
   $("#header-top").css("left", 0 - $(this).scrollLeft());
   $("#header-bottom").css("left", 0 - $(this).scrollLeft());
@@ -493,6 +503,7 @@ $(document).on("click", "#minicart-delete", function (e) {
     }
   })
 });
+<<<<<<< HEAD
 
 // Move to Cart Button
 $(document).on("click", "#move-to-cart-btn", function () {
@@ -530,3 +541,5 @@ $(document).ready(function () {
 
 });
 
+=======
+>>>>>>> develop
