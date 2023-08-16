@@ -16,12 +16,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.common.CommonFunction;
+import com.ezen.smg.common.Encryption_SH256;
 import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
+import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
 import com.ezen.smg.dto.chart.SalesDTO;
@@ -31,6 +33,7 @@ import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.ManagerMapper;
 import com.ezen.smg.mapper.NoticeMapper;
+import com.ezen.smg.mapper.UsersMapper;
 
 import lombok.extern.log4j.Log4j;
 
@@ -49,6 +52,9 @@ public class ManagerServiceImp1 implements ManagerService {
 	GamesMapper gamesMapper;
 	
 	@Autowired
+	UsersMapper usersMapper;
+
+	@Autowired
 	ServletContext servletContext;
 
 	@Value("${spring.banner_img.path}")
@@ -64,19 +70,19 @@ public class ManagerServiceImp1 implements ManagerService {
 	FAQmapper faQmapper;
 	
 	private int pageNum = 10;
-	
+
 	/**
 	 *	관리자 정보가 있고 비밀번호가 일치하면 해당 관리자 정보를 return함. 그 외엔 null 리턴.
 	 */
 	@Override
 	public ManagersDTO confirmManager(String mng_id, String mng_pw) {
-		
+
 		if(mng_id == null || mng_pw == null) return null;
-		
+
 		ManagersDTO manager = managerMapper.getMangerById(mng_id);
-		
+
 		if(!mng_pw.equals(manager.getMng_pw())) return null; 
-		
+
 		return manager;
 	}
 
@@ -88,9 +94,9 @@ public class ManagerServiceImp1 implements ManagerService {
 	@Override
 	public Pagination getPagination(int currPage, int totalSize) {
 		Pagination paging = new Pagination(totalSize, pageNum);
-		
+
 		paging.setCurrPage(currPage);
-		
+
 		return paging;
 	}
 
@@ -99,7 +105,7 @@ public class ManagerServiceImp1 implements ManagerService {
 	public List<Games> getGameList(int currPage) {
 		int lastGame = currPage * pageNum;
 		int firstGame = lastGame - 9;
-		
+
 		return gamesMapper.getGameListForAdmin(firstGame, lastGame);
 	}
 	
@@ -114,6 +120,35 @@ public class ManagerServiceImp1 implements ManagerService {
 		int firstGame = lastGame - 9;
 		
 		return gamesMapper.getGameListByGame_id(firstGame, lastGame, game_id);
+	}
+
+	/* admin_user 관련 서비스 */
+
+
+	@Override
+	public List<SmgUsersDTO> getUserListWithPagination(int page, int itemsPerPage) {
+		int start = (page - 1) * itemsPerPage;
+		int end = start + itemsPerPage;
+
+		return usersMapper.getUserListForAdmin(start, end);
+	}
+
+	@Override
+	public int getUserListTotalSize() {
+		return usersMapper.getUsersTotalSize();
+	}
+
+	@Override
+	public SmgUsersDTO getUserByUserNum(Integer userNum) {
+		return usersMapper.getUserInfo(userNum);
+	}
+	
+	@Override
+	public int managerUpdateUserInfo(SmgUsersDTO user, String newPassword) {
+	    String encPw = Encryption_SH256.encrypt(newPassword);
+	    user.setUser_pw(encPw);  // 암호화된 비밀번호로 설정
+
+	    return usersMapper.managerUpdateUserInfo(user);
 	}
 
 	@Override
@@ -152,9 +187,9 @@ public class ManagerServiceImp1 implements ManagerService {
 	@Override
 	public Games getGameDetail(int game_id) {
 		Games game = gamesMapper.getGame(game_id); 
-		
+
 		game.setDiscounted_price(CommonFunction.calDiscount(game.getGame_price(), game.getDiscount()));
-		
+
 		return game;
 	}
 

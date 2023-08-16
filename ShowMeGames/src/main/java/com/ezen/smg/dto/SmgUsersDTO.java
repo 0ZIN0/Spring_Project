@@ -24,4 +24,16 @@ public class SmgUsersDTO {
 	private String social_key;
 	private Integer gender;
 	
+	 private String newPassword;  // 새로운 비밀번호 필드 추가
+
+	    public String getNewPassword() {
+	        return newPassword;
+	    }
+
+	    public void setNewPassword(String newPassword) {
+	        this.newPassword = newPassword;
+	    }
+	
+	
+	
 }

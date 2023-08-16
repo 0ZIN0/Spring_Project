@@ -26,15 +26,15 @@ public class MemberService_Impl implements MemberService {
 			// 사용자 입력 비밀번호 SHA-256 알고리즘으로 암호화 
 			dto.setUser_pw(Encryption_SH256.encrypt(origin_pw));
 		}
-		
+
 		return mapper.signUp(dto);
 	}
 
 	@Override
 	public int idCheck(String userId) {
-		
+
 		int chk = mapper.idCheck(userId);
-		
+
 		return chk;
 	}
 
@@ -46,6 +46,10 @@ public class MemberService_Impl implements MemberService {
 	}
 
 	@Override
+	public SmgUsersDTO getUserByUserNum(Long userNum) {
+		return mapper.getUserByUserNum(userNum);
+	}
+
 	public boolean isUseKey(int user_num, int game_id) {
 		
 		if (gameKeyMapper.isUseGameKey(user_num, game_id) != 0) {

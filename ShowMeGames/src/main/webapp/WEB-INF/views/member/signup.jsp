@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/resources/member/signup" var="resource"/>
 <c:url value="/resources/img/member" var="img"/>
+<c:url value="/resources/img/logo" var="logo_img" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,7 +17,7 @@
 <body>
     <div id="reg_main">
         <div id="reg_banner">
-            <img src="${img}/login_img.png" alt="배너사진">
+            <img src="${logo_img}/smg_mainLogo.png" alt="배너사진">
         </div>
         <div id="reg_header">
             <span>계정생성</span>

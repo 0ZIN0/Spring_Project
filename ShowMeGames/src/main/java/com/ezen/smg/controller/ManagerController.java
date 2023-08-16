@@ -1,5 +1,6 @@
 package com.ezen.smg.controller;
 
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,6 +29,7 @@ import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
 import com.ezen.smg.dto.chart.SalesDTO;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
+import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
 import com.ezen.smg.mapper.FAQmapper;
@@ -86,6 +89,7 @@ public class ManagerController {
 
 		HttpSession session = request.getSession();
 
+
 		log.info("매니저 로그인, 고유NUM: " + manager.getMng_num());
 
 		session.setAttribute("manager_token", manager.getMng_num());
@@ -107,6 +111,7 @@ public class ManagerController {
 	@GetMapping("/manage/admin_game")
 	String adminGame(Integer page, String type, String key, Model model) {
 		if(page == null) page = 1;
+
 		
 		int totalSize;
 		
@@ -225,6 +230,7 @@ public class ManagerController {
 	String adminGameUpdate(Integer game_id, Model model) {
 
 		model.addAttribute("game", serv.getGameDetail(game_id));
+
 		
 		List<String[]> propList = serv.getPropList();
 		
@@ -252,9 +258,38 @@ public class ManagerController {
 	}
 	
 	@GetMapping("/manage/admin_user")
-	String adminUser() {
+	public String userList(Model model, @RequestParam(name = "page", required = false, defaultValue = "1") int page) {
+		
+		int itemsPerPage = 200; // 페이지당 아이템 수
+		List<SmgUsersDTO> userList = serv.getUserListWithPagination(page, itemsPerPage);
+
+		model.addAttribute("userList", userList);
+
 		return "manager/admin_user";
 	}
+
+	@GetMapping("/manage/admin_user_edit")
+	String adminUserEdit(Integer userNum, Model model) {
+		SmgUsersDTO user = serv.getUserByUserNum(userNum);
+
+		// 가져온 유저 정보를 모델에 추가합니다.
+		model.addAttribute("user", user);
+
+		return "manager/admin_user_edit";
+	}
+	
+	 
+	// 회원정보 수정
+	@PostMapping("/manage/update_info")
+	String updateInfo(SmgUsersDTO user) {
+	    String newPassword = user.getNewPassword();  
+
+	    serv.managerUpdateUserInfo(user, newPassword);
+
+	    return "redirect:/admin/manage/admin_user";  
+	}
+	 
+	
 
 	@GetMapping("/manage/admin_chart")
 	String adminChart() {
@@ -307,6 +342,7 @@ public class ManagerController {
 
 		return "manager/admin_notice";
 	}
+
 
 	@GetMapping("/manage/admin_notice_update_page")
 	String adminNoticeUpdatePage(Model model, Integer id) {
