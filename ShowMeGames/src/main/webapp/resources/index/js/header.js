@@ -302,11 +302,7 @@ $(document).ready(function () {
 });
 
 // 로그인 아이콘 클릭 시 드랍다운 열기 또는 닫기
-<<<<<<< HEAD
-document.getElementById("login-icon2").addEventListener("click", function (event) {
-=======
 $("#login-icon2").on("click", function (event) {
->>>>>>> develop
   event.stopPropagation(); // 이벤트 버블링을 막음
   toggleDropdown();
 });
@@ -337,10 +333,6 @@ $(window).scroll(function () {
   }
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> develop
 $(window).scroll(function () {
   $("#header-top").css("left", 0 - $(this).scrollLeft());
   $("#header-bottom").css("left", 0 - $(this).scrollLeft());
@@ -503,43 +495,3 @@ $(document).on("click", "#minicart-delete", function (e) {
     }
   })
 });
-<<<<<<< HEAD
-
-// Move to Cart Button
-$(document).on("click", "#move-to-cart-btn", function () {
-  $.ajax({
-    url: "./cart",
-    type: "GET",
-    success: () => {
-      console.log("Move to Cart Success");
-      location.href = "./cart";
-    },
-    error: () => {
-      console.log("Move to Cart Btn Error");
-    }
-  })
-});
-
-// Minicart checkout Button
-$(document).on("click", "#minicart-checkout-btn", function () {
-  $.ajax({
-    url: "./cart",
-    type: "GET",
-    success: () => {
-      console.log("Checkout Success");
-      location.href = "./cart";
-    },
-    error: () => {
-      console.log("Minicart Chk Btn Error");
-    }
-  })
-});
-
-$(document).ready(function () {
-  // 페이지가 로드될 때 updateMiniCart() 실행
-  updateMiniCart();
-
-});
-
-=======
->>>>>>> develop
