@@ -51,6 +51,7 @@ public interface GamesMapper {
 	
 	List<Games> getGameListForAdmin(@Param("start") int firstGame, @Param("end") int lastGame);
 	
+
 	List<Games> getGameListByGame_id(@Param("start") int firstGame, @Param("end") int lastGame, @Param("game_id") String game_id);
 	
 	List<Games> getGameListByName(@Param("start") int firstGame, @Param("end") int lastGame, @Param("game_name") String game_name);
@@ -68,5 +69,7 @@ public interface GamesMapper {
 	int insertNewGame(@Param("game") Games game);
 	
 	List<Games> getCuratorGames();
+
+	int deleteGame(@Param("game_id") int game_id);
 	
 }

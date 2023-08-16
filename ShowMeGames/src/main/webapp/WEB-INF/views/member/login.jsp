@@ -4,6 +4,7 @@
 <c:url value="/resources/member/login/login.css" var="css1" />
 <c:url value="/resources/img/index" var="img" />
 <c:url value="/resources/img/member" var="member_img" />
+<c:url value="/resources/img/logo" var="logo_img" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,7 +20,7 @@
 		<div class="main-container">
 			<div class="logo-container">
 				<div id="login_logo">
-					<img src="${member_img}/login_img.png" alt="배너사진" class="login-image">
+					<img src="${logo_img}/smg_mainLogo.png" alt="배너사진" class="login-image">
 				</div>
 			</div>
 			<section class="loginAndSignUp-container">

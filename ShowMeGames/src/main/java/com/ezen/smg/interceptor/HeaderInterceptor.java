@@ -1,4 +1,4 @@
-package com.ezen.smg.common;
+package com.ezen.smg.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

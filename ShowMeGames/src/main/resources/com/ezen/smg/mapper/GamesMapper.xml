@@ -239,7 +239,7 @@
 	</update>
 	
 	<insert id="insertNewGame" parameterType="com.ezen.smg.dto.Games">
-		INSERT INTO 
+		INSERT INTO games(
 			game_id, 
 			game_name, 
 			game_genre, 
@@ -254,7 +254,7 @@
 			banner_img_url, 
 			editor, 
 			layout, 
-			rated 
+			rated)
 		VALUES(
 			#{game.game_id}, 
 			#{game.game_name}, 
@@ -270,13 +270,14 @@
 			#{game.banner_img_url}, 
 			#{game.editor}, 
 			#{game.layout}, 
-			#{game.rated}
-		)	
+			#{game.rated})
 	</insert>
 
 	<select id="getCuratorGames">
 		select * from games where editor = 'curator'
 	</select>
 
-	
+	<delete id="deleteGame">
+		DELETE games WHERE game_id=#{game_id}
+	</delete>	
 </mapper> 

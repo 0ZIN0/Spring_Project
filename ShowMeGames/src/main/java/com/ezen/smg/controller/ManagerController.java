@@ -1,5 +1,6 @@
 package com.ezen.smg.controller;
 
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,11 +28,15 @@ import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
 import com.ezen.smg.dto.chart.SalesDTO;
+import com.ezen.smg.dto.layout.LayoutDefaultDTO;
+import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
 import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.NoticeMapper;
 import com.ezen.smg.service.faqService.FAQService;
+import com.ezen.smg.service.managerService.LayoutService;
+import com.ezen.smg.service.managerService.LayoutType;
 import com.ezen.smg.service.managerService.ManagerService;
 
 import lombok.extern.log4j.Log4j;
@@ -57,6 +63,9 @@ public class ManagerController {
 	@Autowired
 	FAQmapper faQmapper;
 
+	@Autowired
+	LayoutService layoutServ;
+	
 	@GetMapping("")
 	String certification(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -80,6 +89,7 @@ public class ManagerController {
 
 		HttpSession session = request.getSession();
 
+
 		log.info("매니저 로그인, 고유NUM: " + manager.getMng_num());
 
 		session.setAttribute("manager_token", manager.getMng_num());
@@ -101,6 +111,7 @@ public class ManagerController {
 	@GetMapping("/manage/admin_game")
 	String adminGame(Integer page, String type, String key, Model model) {
 		if(page == null) page = 1;
+
 		
 		int totalSize;
 		
@@ -151,7 +162,9 @@ public class ManagerController {
 	@GetMapping("/manage/admin_game_detail")
 	String adminGameDetail(Integer game_id, Model model) {
 
-		Games game = serv.getGameDetail(game_id); 
+		Games game = serv.getGameDetail(game_id);
+		
+		model.addAttribute("layout_chk", layoutServ.getLayoutCheck(game_id, game.getLayout()));
 
 		model.addAttribute("game", game);
 		model.addAttribute("rated", game.getRated().split("/"));
@@ -159,10 +172,65 @@ public class ManagerController {
 		return "manager/admin_game_detail";
 	}
 
+	@GetMapping("/manage/admin_game_delete")
+	String adminGameDelete(Integer game_id) {
+
+		serv.deleteGame(game_id);
+		
+		return "redirect:admin_game";
+	}
+	
+	@GetMapping("/manage/admin_game_layout")
+	String adminSetLayout(Integer game_id, String layout, Model model) {
+
+		if(layout == null) layout = "NULL";
+
+		model.addAttribute("game_id", game_id);
+		
+		switch(layout) {
+			case "LRA":
+				return "manager/admin_layout/layout_lra";
+			case "JYM":
+				return "manager/admin_layout/layout_jym";
+			case "HGT":
+				return "manager/admin_layout/layout_hgt";
+			case "KCW":
+				return "manager/admin_layout/layout_kcw";
+			case "SJH":
+				return "manager/admin_layout/layout_sjh";
+			case "BGC":
+				return "manager/admin_layout/layout_bgc";
+			default:
+				model.addAttribute("layout", layoutServ.getLayoutDefault(game_id));
+				return "manager/admin_layout/layout_default";
+		}
+		
+	}
+	
+	@PostMapping("/manage/layout_update_default")
+	String layoutDefaultUpdate(Integer origin_game_id, LayoutDefaultDTO dto, MultipartFile img_file) {
+		
+		// insert로
+		if(dto.getGame_id() == null) {
+			dto.setGame_id(origin_game_id);
+			layoutServ.insertLayoutDefault(dto);
+		// update로
+		} else {
+			layoutServ.updateLayoutDefault(dto);
+		}
+		
+		if(!img_file.isEmpty()) {
+			layoutServ.updateImg_url_Default(origin_game_id, LayoutType.DEFAULT, img_file);
+		}
+			
+		return "redirect:admin_game_detail?game_id=" + origin_game_id;
+	}
+	
 	@GetMapping("/manage/admin_game_update")
 	String adminGameUpdate(Integer game_id, Model model) {
 
 		model.addAttribute("game", serv.getGameDetail(game_id));
+
 		
 		List<String[]> propList = serv.getPropList();
 		
@@ -190,9 +258,38 @@ public class ManagerController {
 	}
 	
 	@GetMapping("/manage/admin_user")
-	String adminUser() {
+	public String userList(Model model, @RequestParam(name = "page", required = false, defaultValue = "1") int page) {
+		
+		int itemsPerPage = 200; // 페이지당 아이템 수
+		List<SmgUsersDTO> userList = serv.getUserListWithPagination(page, itemsPerPage);
+
+		model.addAttribute("userList", userList);
+
 		return "manager/admin_user";
 	}
+
+	@GetMapping("/manage/admin_user_edit")
+	String adminUserEdit(Integer userNum, Model model) {
+		SmgUsersDTO user = serv.getUserByUserNum(userNum);
+
+		// 가져온 유저 정보를 모델에 추가합니다.
+		model.addAttribute("user", user);
+
+		return "manager/admin_user_edit";
+	}
+	
+	 
+	// 회원정보 수정
+	@PostMapping("/manage/update_info")
+	String updateInfo(SmgUsersDTO user) {
+	    String newPassword = user.getNewPassword();  
+
+	    serv.managerUpdateUserInfo(user, newPassword);
+
+	    return "redirect:/admin/manage/admin_user";  
+	}
+	 
+	
 
 	@GetMapping("/manage/admin_chart")
 	String adminChart() {
@@ -245,6 +342,7 @@ public class ManagerController {
 
 		return "manager/admin_notice";
 	}
+
 
 	@GetMapping("/manage/admin_notice_update_page")
 	String adminNoticeUpdatePage(Model model, Integer id) {

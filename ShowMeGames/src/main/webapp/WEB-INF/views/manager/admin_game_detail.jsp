@@ -16,7 +16,7 @@
 	<!-- top_bar -->
 	<%@ include file="/WEB-INF/views/manager/include/top_bar.jsp" %>
 	
-	<main class="background_layer1">
+	<main class="background_layer1" data-id="${game.game_id}">
 		<div id="main_content_wrapper" class="background_layer2">
 			<!-- side_bar -->
 			<%@ include file="/WEB-INF/views/manager/include/side_bar.jsp" %>
@@ -28,9 +28,21 @@
 							<div class="item_title">
 								<span>${game.game_id}번 게임</span>
 							</div>
+							<div id="layout_btn_wrapper">
+								<button id="game_layout_btn" class="btn" data-layout="${game.layout}">상세페이지 설정</button>
+								<c:choose>
+									<c:when test="${layout_chk eq 1}">
+										<span id="layout_check_span" class="layout_check chk">설정됨</span>
+									</c:when>
+									<c:otherwise>
+										<span id="layout_check_span" class="layout_check">미설정</span>
+									</c:otherwise>
+								</c:choose>
+							</div>
 							<div class="content_update_wrapper">
-								<button onclick="location.href = './admin_game_update?game_id=${game.game_id}';"
-									 class="btn">수정</button>
+								<button id="game_delete_btn" class="btn">삭제</button> 
+								<button id="admin_update_btn" class="btn">수정</button>
+								<button id="admin_cancel_btn" class="btn cancel">뒤로가기</button>
 							</div>
 						</div>
 						<div id="content_container_wrapper">
@@ -140,5 +152,6 @@
 		</div>
 	</main>
 	
+	<script src="${resource}/js/admin_game_detail.js"></script>
 </body>
 </html>

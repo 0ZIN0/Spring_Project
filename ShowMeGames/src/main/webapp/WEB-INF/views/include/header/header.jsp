@@ -6,6 +6,7 @@
 <c:url value="/" var="toMain" />
 <c:url value="/" var="conPath" />
 <c:url value="/resources/img/member" var="member_img" />
+<c:url value="/resources/img/logo" var="logo_img" />
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
 	crossorigin="anonymous"></script>
 
@@ -19,7 +20,9 @@
 		<div id="header-name">
 			<ul class="header-top-menu" id="header-top-ul">
 				<li class="clickable-li" onclick="window.location.href='${conPath}'">
-					<a id="logo-btn" href="${conPath}"></a> 로고
+					<a id="logo-btn" href="${conPath}">
+						<img src="${logo_img }/smg_mainLogo.png" alt="메인로고" />
+					</a>
 				</li>
 				<li class="clickable-li" onclick="window.location.href='${conPath}'">
 					<a id="game-btn" href="${conPath}"></a> 게임
@@ -166,7 +169,9 @@
 
 	</div>
 	<div id="header-bottom" class="header-bottom-up">
-		<div id="header-bottom-logo">로고</div>
+		<div id="header-bottom-logo">
+			<img src="${logo_img }/smg_subLogo.png" alt="서브로고" />
+		</div>
 		<div>
 			<ul id="header-bottom-ul">
 				<li class="title-div">
@@ -262,11 +267,20 @@
 		</div>
 
 		<div id="header-cart">
+		<c:choose>
+		<c:when test="${not empty user.nick_name}">
 			<a class="bottom-title" id="cart-btn" href="${conPath}cart"> <i
 				id="cart-icon" class="fa-solid fa-cart-shopping"></i> <span
 				id="cart-title">장바구니</span> <span class="cart-quantity"></span>
 			</a>
-
+		</c:when>
+		<c:otherwise>
+		<a class="bottom-title" id="cart-btn" onclick="openLoginPopup()"> <i
+				id="cart-icon" class="fa-solid fa-cart-shopping"></i> <span
+				id="cart-title">장바구니</span> <span class="cart-quantity"></span>
+			</a>
+		</c:otherwise>
+		</c:choose>
 			<!-- 장바구니 마우스 오버 시 나올 MiniCart -->
 			<div id="minicart" class="">
 				<div class="minicart-header minicart-common">

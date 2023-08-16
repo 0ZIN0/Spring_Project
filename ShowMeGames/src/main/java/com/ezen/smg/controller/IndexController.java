@@ -23,7 +23,6 @@ import com.ezen.smg.service.commentService.CommentsService;
 import com.ezen.smg.service.gamesService.GamesService;
 import com.ezen.smg.service.indexService.IndexService;
 import com.ezen.smg.service.memberService.MemberService;
-
 import lombok.extern.log4j.Log4j;
 
 @Log4j

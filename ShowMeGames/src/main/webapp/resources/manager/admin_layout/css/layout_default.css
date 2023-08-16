@@ -1,0 +1,46 @@
+#input_layers_wrapper {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 30px;
+    min-height: 600px;
+}
+
+#input_warn_content {
+    width: 100%;
+}
+
+#war_content {
+    color: #f8a504;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#war_content input {
+    width: 100%;
+}
+
+#game_info_title_1 {
+    padding-top: 100px;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 55px;
+    white-space: pre-line;
+}
+
+#game_info_content_1 {
+    padding-top: 100px;
+    white-space: pre-line;
+}
+
+#game_info_img {
+    margin-top: 30px;
+    object-fit: contain;
+    max-height: 500px;
+    display: none;
+}
+
+#game_story_1 {
+    font-size: 16px;
+    margin-top: 20px;
+    white-space: pre-line;
+}
