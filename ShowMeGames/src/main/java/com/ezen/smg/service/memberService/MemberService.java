@@ -10,6 +10,8 @@ public interface MemberService {
 	int idCheck(String userId);
 	
 	int updateUserPoint(Orders order);
+
+	SmgUsersDTO getUserByUserNum(Long userNum);
 	
 	boolean isUseKey(int user_num, int game_id);
 }

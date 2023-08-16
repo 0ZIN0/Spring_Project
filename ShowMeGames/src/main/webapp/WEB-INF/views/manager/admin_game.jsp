@@ -4,13 +4,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<title>게임 정보 관리</title>
-	<%@ include file="/WEB-INF/views/manager/include/head_common.jsp" %>
-	<!-- page css -->
-	<link rel="stylesheet" href="${resource}/css/admin_game.css">
+   <meta charset="UTF-8">
+   <title>게임 정보 관리</title>
+   <%@ include file="/WEB-INF/views/manager/include/head_common.jsp" %>
+   <!-- page css -->
+   <link rel="stylesheet" href="${resource}/css/admin_game.css">
 </head>
 <body>
+
 	<!-- top_bar -->
 	<%@ include file="/WEB-INF/views/manager/include/top_bar.jsp" %>
 	

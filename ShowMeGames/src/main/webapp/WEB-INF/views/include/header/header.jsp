@@ -262,11 +262,20 @@
 		</div>
 
 		<div id="header-cart">
+		<c:choose>
+		<c:when test="${not empty user.nick_name}">
 			<a class="bottom-title" id="cart-btn" href="${conPath}cart"> <i
 				id="cart-icon" class="fa-solid fa-cart-shopping"></i> <span
 				id="cart-title">장바구니</span> <span class="cart-quantity"></span>
 			</a>
-
+		</c:when>
+		<c:otherwise>
+		<a class="bottom-title" id="cart-btn" onclick="openLoginPopup()"> <i
+				id="cart-icon" class="fa-solid fa-cart-shopping"></i> <span
+				id="cart-title">장바구니</span> <span class="cart-quantity"></span>
+			</a>
+		</c:otherwise>
+		</c:choose>
 			<!-- 장바구니 마우스 오버 시 나올 MiniCart -->
 			<div id="minicart" class="">
 				<div class="minicart-header minicart-common">

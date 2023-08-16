@@ -11,6 +11,7 @@ import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
+import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
 import com.ezen.smg.dto.chart.SalesDTO;
@@ -30,8 +31,8 @@ public interface ManagerService {
 	ManagersDTO getManager(Integer mng_num);
 
 	// 페이징을 위한 서비스
-	Pagination getPagination(int currPage, int totalSize);
-	
+	Pagination getPagination(int page, int totalSize);
+
 	/** admin_game 관련 서비스 */
 	List<Games> getGameList(int currPage);
 	List<Games> getGameListByGame_id(int currPage, String game_id);
@@ -50,6 +51,14 @@ public interface ManagerService {
 	int updateBanner_img(int game_id, MultipartFile img_file);
 
 	int insertNewGame(Games game, String file_name, MultipartFile img_file);
+	
+	/** admin_user 관련 서비스 */
+	List<SmgUsersDTO> getUserListWithPagination(int page, int itemsPerPage);
+	int getUserListTotalSize();
+
+	SmgUsersDTO getUserByUserNum(Integer userNum);
+	
+	int managerUpdateUserInfo(SmgUsersDTO user, String newPassword);
 	
 	/** admin_notice 관련 서비스 */
 	List<NoticeDTO> getNoticeList(int currPage);
