@@ -1,0 +1,89 @@
+/* 사이드바 설정 */
+#side_admin_game {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+#side_admin_game span.material-icons {
+    color: #eeab0a;
+}
+
+#input_container_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+    margin-bottom: 30px;
+}
+
+#preview_layout_div {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 5px;
+    padding: 15px 20px;
+}
+
+.input_layer_div {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.input_container_div {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 5px;
+    padding: 15px 20px;
+}
+
+.input_container_div.large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 100%;
+}
+
+.input_title_div {
+    display: flex;
+    align-items: center;
+}
+.input_title_div::before {
+    width: 3px;
+    height: 16px;
+    content: "";
+    display: block;
+    margin-right: 3px;
+    background-color: blueviolet;
+}
+
+.input_title_span {
+    white-space: nowrap;
+}
+
+#final_btn_div {
+    width: 980px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+#des_div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.des_span {
+    font-size: 0.9em;
+}
+
+.textarea-custom {
+    width: 100%;
+    height: 100%;
+    min-height: 60px;
+    resize: none;
+}
+
+.input_content_div {
+    height: 100%;
+}

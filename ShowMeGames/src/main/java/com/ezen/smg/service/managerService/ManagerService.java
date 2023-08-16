@@ -51,6 +51,7 @@ public interface ManagerService {
 	int updateBanner_img(int game_id, MultipartFile img_file);
 
 	int insertNewGame(Games game, String file_name, MultipartFile img_file);
+	int deleteGame(Integer game_id);
 	
 	/** admin_user 관련 서비스 */
 	List<SmgUsersDTO> getUserListWithPagination(int page, int itemsPerPage);
@@ -76,4 +77,5 @@ public interface ManagerService {
 	List<GenderDTO> getGenderData();
 	List<GenreDTO> getGenreData();
 	List<GenreDTO> getEditorSales();
+	
 }

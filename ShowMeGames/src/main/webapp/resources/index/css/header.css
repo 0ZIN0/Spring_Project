@@ -48,7 +48,7 @@ header {
 #header-top-ul {
   display: grid;
   list-style-type: none;
-  grid-template-columns: 250px 115px 115px 115px 777px 115px;
+  grid-template-columns: 250px 115px 115px 115px 770px 200px;
   column-gap: 20px;
   text-align: center;
   position: relative;
@@ -66,7 +66,6 @@ header {
 
 #point-div {
   font-size: 14px;
-  margin-left: -200px;
   margin-top: -2px;
   color: white;
   font-weight: bold;
@@ -113,6 +112,10 @@ header {
 
 .point-li {
   margin-bottom: 10px;
+}
+
+#point-li {
+  margin-left: -80px;
 }
 
 .clickable-li a {
@@ -459,8 +462,8 @@ header {
 /*************** header-bottom *******************/
 #header-bottom-logo {
   display: none;
-  margin-top: 15px;
   text-align: center;
+  margin-top: 0 !important;
 }
 
 .title-div,
@@ -507,7 +510,11 @@ header {
   background-color: white;
 }
 
-#header-bottom > * {
+#header-bottom-logo {
+	margin-top: 0 !important;
+}
+
+#header-bottom > :not(:first-child) {
   padding-top: 25px;
 }
 
@@ -1099,6 +1106,7 @@ img {
 		opacity: 0.8;
 		transform: scale3d(0.8, 0.5, 1);
 	  }
+	  
 	  .button-effect-moema2:hover {
 		transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
 		color: #fff;
@@ -1109,6 +1117,7 @@ img {
 	  .button-effect-moema2:hover::before {
 		animation: anim-moema-2 0.3s 0.3s forwards;
 	  }
+
 	  @keyframes anim-moema-1 {
 		60% {
 		  transform: scale3d(0.8, 0.8, 1);
@@ -1120,9 +1129,18 @@ img {
 		  transform: scale3d(1, 1, 1);
 		}
 	  }
+
 	  @keyframes anim-moema-2 {
 		to {
 		  opacity: 0;
 		  transform: scale3d(1, 1, 1);
 		}
 	  }
+
+
+#header-bottom-logo > img {
+	object-fit: contain;
+}
+
+
+

@@ -58,4 +58,17 @@ public class CommonFunction {
 		return url.substring(url.lastIndexOf("/") + 1, url.lastIndexOf("."));
 	}
 	
+	/** 
+	 * 입력받은 text의 엔터키를 <br>태그로 변환해주는 메서드
+	 * @param text textarea로 입력받은 String
+	 * @return 변환 후 String
+	 */
+	public static String handleCrlfToBr(String text) {
+		return text.replaceAll("\r\n", "<br>");
+	};
+	
+	public static String handleBrToCrlf(String text) {
+		return text.replaceAll("<br>", "\r\n");
+	}
+	
 }
