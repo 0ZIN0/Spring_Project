@@ -3,26 +3,62 @@
   PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.smg.mapper.CommentsMapper">
-	<select id="getGameCommentList" parameterType="int" resultType="com.ezen.smg.dto.Comments">
-		select * from comments inner join smg_users using(user_num) where game_id=#{game_id}
+	<select id="getGameCommentList" parameterType="int"
+		resultType="com.ezen.smg.dto.Comments">
+		select * from comments inner join smg_users using(user_num)
+		where game_id=#{game_id}
 	</select>
-	<select id="getBestCommentList" parameterType="int" resultType="com.ezen.smg.dto.Comments">
-		SELECT * FROM 
+	<select id="getBestCommentList" parameterType="int"
+		resultType="com.ezen.smg.dto.Comments">
+		SELECT * FROM
 		(
 		SELECT rownum AS rn, a.*
 		FROM (
-		    select * from comments inner join smg_users using(user_num) where game_id=#{game_id} and (good_cnt - bad_cnt) != 0 order by (good_cnt - bad_cnt)
-		) a)
-		WHERE rn BETWEEN #{start} AND #{end}	
-	</select>	
-	<select id="getNewCommentList" parameterType="int" resultType="com.ezen.smg.dto.Comments">
-		SELECT * FROM 
-		(
-		SELECT rownum AS rn, a.*
-		FROM (
-		    select * from comments inner join smg_users using(user_num) where game_id=#{game_id} order by write_date desc
+		select * from comments inner join smg_users using(user_num) where
+		game_id=#{game_id} and (good_cnt - bad_cnt) != 0 order by (good_cnt -
+		bad_cnt)
 		) a)
 		WHERE rn BETWEEN #{start} AND #{end}
-	</select>	
-	
+	</select>
+	<select id="getNewCommentList" parameterType="int"
+		resultType="com.ezen.smg.dto.Comments">
+		SELECT * FROM
+		(
+		SELECT rownum AS rn, a.*
+		FROM (
+		select * from comments inner join smg_users using(user_num) where
+		game_id=#{game_id} order by write_date desc
+		) a)
+		WHERE rn BETWEEN
+		#{start} AND #{end}
+	</select>
+	<select id="findGAB" parameterType="int"
+		resultType="com.ezen.smg.dto.GoodAndBadDTO">
+		select * from good_and_bad where user_num=#{user_num} and
+		comment_id=#{comment_id}
+	</select>
+	<insert id="addGAB" parameterType="com.ezen.smg.dto.GoodAndBadDTO">
+		insert into good_and_bad (
+			gab_id, comment_id, user_num, status 
+		) values(
+			gab_id_seq.nextval, #{dto.comment_id}, #{dto.user_num}, #{dto.status}
+		)
+	</insert>
+	<delete id="deleteGAB" parameterType="int">
+		delete from good_and_bad where gab_id=#{gab_id}
+	</delete>
+	<update id="updateGood" parameterType="com.ezen.smg.dto.GoodAndBadDTO">
+		update comments set good_cnt=#{dto.good_cnt} where comment_id=#{dto.comment_id}
+	</update>
+	<update id="updateBad" parameterType="com.ezen.smg.dto.GoodAndBadDTO">
+		update comments set bad_cnt=#{dto.bad_cnt} where comment_id=#{dto.comment_id}
+	</update>
+	<select id="getComment" parameterType="int"
+		resultType="com.ezen.smg.dto.Comments">
+		select * from comments where comment_id=#{comment_id}
+	</select>
+	<select id="getMyGABList" parameterType="int"
+		resultType="com.ezen.smg.dto.GoodAndBadDTO">
+		select comment_id from good_and_bad where user_num=#{user_num}
+	</select>
 </mapper> 

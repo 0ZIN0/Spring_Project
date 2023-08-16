@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -97,6 +98,7 @@ public class IndexController {
 		} else {
 			model.addAttribute("user", usersMapper.getUserInfo(user.getUser_num()));
 			model.addAttribute("is_use", memberService.isUseKey(user.getUser_num(), game));
+			model.addAttribute("my_gab_list", commentsMapper.getMyGABList(user.getUser_num()));
 		}
 		
 		// 댓글 model
@@ -112,6 +114,5 @@ public class IndexController {
 		
 		return url;
 	}
-	
 }
 
