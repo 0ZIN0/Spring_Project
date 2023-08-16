@@ -1,6 +1,9 @@
 package com.ezen.smg.controller;
 
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +22,7 @@ import com.ezen.smg.mapper.CartMapper;
 import com.ezen.smg.mapper.OrderMapper;
 import com.ezen.smg.service.cartService.CartService;
 import com.ezen.smg.service.gamesService.GamesService;
+
 
 @Controller
 public class CartController {
@@ -53,13 +57,9 @@ public class CartController {
 			return "cart";
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "redirect:/"; // 로그인 팝업창 띄우기
+			return "cart"; // 로그인 팝업창 띄우기
 		}
 	}
-	
-	
-	 
-	
 	
 	@PostMapping(value="/checkout")
 	public void goCheckOut(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model, String platform) {
@@ -88,6 +88,33 @@ public class CartController {
 		cartService.deleteGame(user.getUser_num(), game_id);
 	}
 	
+	
+	@ResponseBody
+	@GetMapping(value = "/minicart", produces = "application/json")
+	public Map<String, Object> minicart(@SessionAttribute(name = "user", required = false) SmgUsersDTO user) {
+	    Map<String, Object> response = new HashMap<>();
+	    try {
+	        if (user != null) {
+	            Integer user_num = user.getUser_num();
+	            List<Games> games = cartService.getCartList(user_num);
+	            if (games != null) {
+	                response.put("cart_list", cartService.getCartList(user_num));
+	                response.put("cart_len", cartService.getCartList(user_num).size());
+	                response.put("total_price", cartService.getTotalPrice(games));
+	            }
+	        } else {
+	            // 로그인되지 않은 상태의 경우
+	            response.put("cart_list", null);
+	            response.put("cart_len", 0);
+	            response.put("total_price", 0);
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return response;
+	}
+
+
 	@ResponseBody
 	@RequestMapping(value = "/add-cart")
 	public int checkoutSuccess(@RequestBody Carts carts, @SessionAttribute(name = "user", required = false) SmgUsersDTO user) {
