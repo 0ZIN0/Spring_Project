@@ -17,3 +17,10 @@ $('#game_delete_btn').click(function() {
 
     location.href = `./admin_game_delete?game_id=${game_id}`;
 });
+
+// 상세페이지 설정 버튼
+const layout = $('#game_layout_btn').data('layout');
+$('#game_layout_btn').click(function() {
+    location.href = `./admin_game_layout?game_id=${game_id}&&layout=${layout}`;
+});
+

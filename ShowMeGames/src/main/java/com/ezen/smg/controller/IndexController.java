@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
-import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.UsersMapper;
 import com.ezen.smg.service.ImagesService.ImagesService;
@@ -22,8 +21,6 @@ import com.ezen.smg.service.commentService.CommentsService;
 import com.ezen.smg.service.gamesService.GamesService;
 import com.ezen.smg.service.indexService.IndexService;
 import com.ezen.smg.service.memberService.MemberService;
-import com.ezen.smg.service.orderService.OrderService;
-
 import lombok.extern.log4j.Log4j;
 
 @Log4j

@@ -29,7 +29,15 @@
 								<span>${game.game_id}번 게임</span>
 							</div>
 							<div id="layout_btn_wrapper">
-								<button class="btn">상세페이지 설정</button>
+								<button id="game_layout_btn" class="btn" data-layout="${game.layout}">상세페이지 설정</button>
+								<c:choose>
+									<c:when test="${layout_chk eq 1}">
+										<span id="layout_check_span" class="layout_check chk">설정됨</span>
+									</c:when>
+									<c:otherwise>
+										<span id="layout_check_span" class="layout_check">미설정</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="content_update_wrapper">
 								<button id="game_delete_btn" class="btn">삭제</button> 

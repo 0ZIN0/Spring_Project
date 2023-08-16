@@ -383,5 +383,10 @@ public class ManagerServiceImp1 implements ManagerService {
 		
 		return chartMapper.getEditorSales();
 	}
+
+	@Override
+	public int deleteGame(Integer game_id) {
+		return gamesMapper.deleteGame(game_id);
+	}
 	
 }
