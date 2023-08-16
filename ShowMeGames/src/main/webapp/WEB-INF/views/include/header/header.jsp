@@ -289,7 +289,7 @@
 							<img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
 						</div>
 						<div class="empty-minicart-buttons minicart-common" onclick="location.href='${conPath}games'">
-							쇼핑하러 가기S
+							쇼핑하러 가기
 						</div>	
 					</div>
 				</div>
