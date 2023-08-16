@@ -262,31 +262,33 @@
 		</div>
 
 		<div id="header-cart">
-			<a class="bottom-title" id="cart-btn" href="${conPath}cart"><i
-				id="cart-icon" class="fa-solid fa-cart-shopping"></i>장바구니</a>
+			<a class="bottom-title" id="cart-btn" href="${conPath}cart"> <i
+				id="cart-icon" class="fa-solid fa-cart-shopping"></i> <span
+				id="cart-title">장바구니</span> <span class="cart-quantity"></span>
+			</a>
 
 			<!-- 장바구니 마우스 오버 시 나올 MiniCart -->
-			<div id="minicart" class="minicart-common">
+			<div id="minicart" class="">
 				<div class="minicart-header minicart-common">
 					<div class="minicart-title">장바구니</div>
 				</div>
-				<div class="minicart-content">
+					<div id="minicart-content" class="minicart-common">
 					<div class="empty-minicart-content minicart-common">
 						<div class="empty-minicart-message minicart-common">장바구니가
 							비어있습니다.</div>
 						<div class="empty-minicart-image minicart-common">
-							<img alt="Empty Minicart"
-								src="resources/img/cart/SMG_EmptyMarket_img.jpg">
+							<img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
 						</div>
-						<div class="empty-minicart-buttons minicart-common"
-							onclick="location.href='${conPath}games' ">쇼핑하러 가기</div>
+						<div class="empty-minicart-buttons minicart-common" onclick="location.href='${conPath}games'">
+							쇼핑하러 가기S
+						</div>	
 					</div>
 				</div>
+				<!-- minicart-content Part End -->
 			</div>
 			<!-- minicart Part End -->
 		</div>
 		<!-- header-cart Part End -->
-
 
 	</div>
 
