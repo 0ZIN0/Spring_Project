@@ -23,7 +23,7 @@
 			<div id="game_detail_div">
 				<%@ include file="/WEB-INF/views/games/include/detail_top.jsp"%>
 				<!-- 아래부터는 free layout -->
-
+				검은사막 나오냐
 			</div>
 		</div>
 	</main>
