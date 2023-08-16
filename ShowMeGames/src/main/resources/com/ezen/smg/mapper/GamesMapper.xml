@@ -273,5 +273,10 @@
 			#{game.rated}
 		)	
 	</insert>
+
+	<select id="getCuratorGames">
+		select * from games where editor = 'curator'
+	</select>
+
 	
 </mapper> 
