@@ -105,7 +105,7 @@ public class GamesService_impl implements GamesService{
 	String sortByToString(Integer sortBy) {
 		
 		if(sortBy == 1) {
-			return "bestSeller DESC";
+			return "bestSeller";
 		} else if(sortBy == 3) {
 			return "game_name ASC";
 		} else {
@@ -184,5 +184,23 @@ public class GamesService_impl implements GamesService{
 		}
 		
 		return games2;
+	}
+
+	@Override
+	public List<Games> getBestSellers() {
+		List<Games> result = gamesMapper.getBestSellers();
+		for(Games game : result) {
+			game.setDiscounted_price(CommonFunction.calDiscount(game.getGame_price(), game.getDiscount()));
+		}
+		return result;
+	}
+
+	@Override
+	public List<Games> getWeeklyBestSellers() {
+		List<Games> result = gamesMapper.getWeeklyBestSellers();
+		for(Games game : result) {
+			game.setDiscounted_price(CommonFunction.calDiscount(game.getGame_price(), game.getDiscount()));
+		}
+		return result;
 	}
 }

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.dto.SmgUsersDTO;
-import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.service.mypageService.MyPageService;
 import com.ezen.smg.service.orderDetailService.OrderDetailService;
 import com.ezen.smg.service.orderService.OrderService;
@@ -51,7 +50,7 @@ public class MyPageController {
 	}
 	
 	@PostMapping("/profile_img_update")
-	String profile_img_update(int user_num, MultipartFile img_file, HttpServletRequest request) {
+	String profile_img_update(int user_num, MultipartFile img_file) {
 		
 		if(!img_file.isEmpty()) {
 			mypageService.updateProfile_img(user_num, img_file);
@@ -138,10 +137,13 @@ public class MyPageController {
 	}
 	
 	@GetMapping("/inquiry")
-	String accountInquiry(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model) {
-		//log.info(user.getUser_num());
+	String accountInquiry(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Model model, Integer page) {
+		if(page == null) page = 1;
+		int totalSize = mypageService.getTotalSize(9);
 		
-		model.addAttribute("myContents", mypageService.getContent(1));
+		model.addAttribute("paging", mypageService.getPagination(page, totalSize));
+		model.addAttribute("totalSize", totalSize);
+		model.addAttribute("myContents", mypageService.getContent(9));
 		return "mypage/account_inquiry";
 	}
 	

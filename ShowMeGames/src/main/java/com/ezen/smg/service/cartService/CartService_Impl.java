@@ -70,6 +70,10 @@ public class CartService_Impl implements CartService {
 	public int deleteGame(int user_num, int game_id) {
 		String cartContent = cartMapper.getCartContent(user_num);
 		
+		if (cartContent.equals(String.valueOf(game_id)) || cartContent.equals(String.valueOf(game_id) + "/")) {
+			cartMapper.deleteCart(user_num);
+		}
+		
 		if (cartContent.contains(String.valueOf(game_id) + "/")) {
 			cartContent = cartContent.replace(String.valueOf(game_id) + "/", "");
 		} else {

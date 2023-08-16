@@ -81,25 +81,7 @@
 		<div class="primary">
 			<div class="sort">
 				<div class="sort_by">
-					<span class="material-symbols-outlined"> sort </span>
-					<label>정렬 기준:</label>
-					<div class="sort_by_inner">
-						<div class="sort_selector">
-							<button class="label">
-								<span class="label_text">정렬보기</span>
-								<div class="arrow">
-									<span class="material-symbols-outlined">
-										expand_less 
-									</span>								
-								</div>
-							</button>
-							<ul class="option_list">
-								<li class="option_item" value="1">베스트셀러</li>
-								<li class="option_item" value="2">출시일</li>
-								<li class="option_item" value="3">이름순</li>
-							</ul>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 			<div class="sort_result_content">
@@ -107,9 +89,9 @@
 				<c:choose>
  					 <c:when test="${games != null and not empty games}">
 					<c:forEach items="${games}" var="game">
-						<div class="recmd-items toDetailBtn" data-id="${game.game_id}">
+						<div class="recmd-items toDetailBtn" data-id="${game.game_id}" data-layout="${game.layout}">
 							<div>
-								<img src="../${game.banner_img_url}" alt="${game_name}_배너사진">
+								<img src="../${game.banner_img_url}" alt="${game.game_name}_배너사진">
 							</div>
 							<div class="item_text_box">
 								<div>

@@ -237,14 +237,12 @@
 						</div>
 					</div>
 					<ul id="editor-pink-li" class="sub-ul">
-						<li><a>젤다의 전설</a></li>
-						<li><a>슬레이 더 스파이어</a></li>
-						<li><a>마리오 카트</a></li>
-						<li><a>포탈</a></li>
-						<li><a>하프라이프</a></li>
-						<li><a>카운터스트라이크</a></li>
-						<li><a>레인보우6</a></li>
-						<li><a>에이펙스</a></li>
+						<c:forEach items="${headerData }" var="game" >
+							<li onclick="location.href='${conPath}detail?game=${game.game_id }&layout=${game.layout }'">
+							<a>${game.game_name }</a>
+							</li>
+						</c:forEach>
+						
 					</ul></li>
 				<li><div class="bottom-title" id="header-games-btn"
 						onclick="location.href='${conPath}games'">모든 게임 보기</div></li>

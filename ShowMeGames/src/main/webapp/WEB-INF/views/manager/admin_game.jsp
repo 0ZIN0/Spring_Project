@@ -26,8 +26,21 @@
 							<div class="item_title">
 								<span>게임 리스트</span>
 							</div>
+							<div class="search_div">
+								<form action="./admin_game">
+									<select name="type" id="select_search">
+										<option value="game_id">게임ID</option>
+										<option value="game_name">게임명</option>
+										<option value="layout">표시타입</option>
+									</select>
+									<input id="input_search" type="number" name="key" required/>
+									<button type="submit" class="btn">
+										<span class="material-icons">search</span>
+									</button>
+								</form>
+							</div>
 							<div class="content_update_wrapper">
-								<button class="btn">추가</button>
+								<button id="game_add_btn" class="btn">추가</button>
 							</div>
 						</div>
 						<div id="game_content_wrapper">
@@ -46,61 +59,40 @@
 										<span>할인</span>
 									</div>
 									<div class="content_grid_item header">
-										<span>수정</span>
+										<span>표시타입</span>
 									</div>
 								</div>
-								<div class="content_grid">
-									<div class="content_grid_item">
-										<span>1</span>
+								<c:forEach items="${gameList}" var="game">
+									<div class="content_grid">
+										<div class="content_grid_item">
+											<span>${game.game_id}</span>
+										</div>
+										<div class="content_grid_item">
+											<span class="game_name_span" data-id="${game.game_id}">${game.game_name}</span>
+										</div>
+										<div class="content_grid_item">
+											<span>${game.game_price}</span>
+										</div>
+										<div class="content_grid_item">
+											<span>${game.discount}</span>
+										</div>
+										<c:choose>
+											<c:when test="${game.layout eq null}">
+												<div class="content_grid_item">
+													<span>Default</span>
+												</div>
+											</c:when>
+											<c:otherwise>
+												<div class="content_grid_item">
+													<span>${game.layout}</span>
+												</div>
+											</c:otherwise>
+										</c:choose>
 									</div>
-									<div class="content_grid_item">
-										<span>2</span>
-									</div>
-									<div class="content_grid_item">
-										<span>3</span>
-									</div>
-									<div class="content_grid_item">
-										<span>4</span>
-									</div>
-									<div class="content_grid_item">
-										<button class="btn item_update_btn">수정</button>
-									</div>
-								</div>
-								<div class="content_grid">
-									<div class="content_grid_item">
-										<span>1</span>
-									</div>
-									<div class="content_grid_item">
-										<span>2</span>
-									</div>
-									<div class="content_grid_item">
-										<span>3</span>
-									</div>
-									<div class="content_grid_item">
-										<span>4</span>
-									</div>
-									<div class="content_grid_item">
-										<button class="btn item_update_btn">수정</button>
-									</div>
-								</div>
-								<div class="content_grid">
-									<div class="content_grid_item">
-										<span>1</span>
-									</div>
-									<div class="content_grid_item">
-										<span>2</span>
-									</div>
-									<div class="content_grid_item">
-										<span>3</span>
-									</div>
-									<div class="content_grid_item">
-										<span>4</span>
-									</div>
-									<div class="content_grid_item">
-										<button class="btn item_update_btn">수정</button>
-									</div>
-								</div>
+								</c:forEach>
 							</div>
+							<div id="pagingDiv" data-id="admin_game" data-type="${param.type}" data-key="${param.key}"></div> 
+							<%@ include file="/WEB-INF/views/manager/include/paging.jsp" %>
 						</div>
 					</div>
 				</div>
@@ -108,5 +100,7 @@
 		</div>
 	</main>
 	
+	<script src="${resource}/js/admin_game.js"></script>
+	<script src="${resource}/js/paging_game.js"></script>
 </body>
 </html>

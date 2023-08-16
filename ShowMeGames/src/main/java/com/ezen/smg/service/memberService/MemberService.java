@@ -10,4 +10,6 @@ public interface MemberService {
 	int idCheck(String userId);
 	
 	int updateUserPoint(Orders order);
+	
+	boolean isUseKey(int user_num, int game_id);
 }

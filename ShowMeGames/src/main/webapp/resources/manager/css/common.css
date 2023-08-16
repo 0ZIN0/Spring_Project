@@ -132,7 +132,7 @@ main {
 #main_content {
     position: relative;
     width: 100%;
-    padding: 2% 5%;
+    padding: 0 5%;
 }
 
 .content_item {
@@ -171,17 +171,6 @@ main {
 }
 .content_update_wrapper {
     margin-left: auto;
-}
-.content_update_wrapper > button {
-    border-radius: 8px;
-    background-color: blueviolet;
-    width: 160px;
-    height: 40px;
-    border: none;
-    color: #fff;
-    font-size: 1.1em;
-    font-weight: 550;
-    cursor: pointer;
 }
 .content_update_wrapper > button:hover {
     filter: brightness(90%);
@@ -258,15 +247,58 @@ main {
     display: flex;
 }
 
+#pageDiv {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    padding: 5px 0;
+}   
 
+#pageDiv button {
+    font-size: 1.2em;
+    width: 35px;
+    cursor: pointer;
+}
 
+.navi_btn {
+    border: none;
+    background-color: transparent;
+    padding-bottom: 3px;
+}
 
+.page_btn {
+	border: none;
+    background-color: transparent;
+}
 
+#now-page {
+    background-color: blueviolet;
+    border-radius: 50%;
+    color: #fff;
+}
 
+#pageDiv button:disabled {
+    cursor: default;
+}
 
+/* 검색창 css */
+.search_div {
+    margin-left: 10px;
+    margin-top: 5px;
+}
 
+.search_div > form {
+    display: flex;
+    column-gap: 5px;
+}
 
-
+.search_div > form > button {
+    width: 40px;
+    height: 30px;
+    padding: 3px;
+}
 
 
 

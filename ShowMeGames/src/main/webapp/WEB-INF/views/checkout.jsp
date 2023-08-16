@@ -363,7 +363,7 @@
 																	- price,
 															"add_point" : addPoint,
 															"address" : rsp.buyer_addr,
-															"order_product" : rsp.name
+															"order_product" : game_name
 														}
 														console.log("결제성공 "
 																+ msg);
@@ -392,7 +392,7 @@
 																	success : function(
 																			res) {
 																		if (res == 1) {
-																			location.href = `./orderfin?order_id=${order_id}`;
+																			location.href = `./orderfin?order_id=${order_id + 1}`;
 																		} else {
 																			console
 																					.log("Insert Fail!!!");

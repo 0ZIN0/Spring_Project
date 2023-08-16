@@ -47,18 +47,18 @@
 					<tr>
 						<td class='qna-text'>제목</td>
 						<td>
-							<input type="text" value="제목을 입력해주세요" name="inquiry_title" style="width: 863px; height: 35px;"/>
+							<input type="text" value="제목을 입력해주세요" name="inquiry_title" maxlength="100" style="width: 863px; height: 35px;"/>
 						</td>					
 					</tr>
 					<tr>
 						<td class='qna-text textarea'>내용</td>
 						<td>
-							<textarea id="" name="inquiry_content" cols="100" rows="28"  style="resize: none;"></textarea>
+							<textarea id="" name="inquiry_content" cols="100" rows="28" maxlength="1000" placeholder="내용을 입력해 주세요." style="resize: none;"></textarea>
 						</td>				
 					</tr>
 					<tr>
 						<td class='qna-text'>첨부파일</td>
-						<td><input type="file" name="attachment" accept="image/jpeg image/png image/gif"/></td>
+						<td><input type="file" name="imgFile" accept="image/jpeg image/png image/gif"/></td>
 					</tr>
 					<tr>
 						<td></td>

@@ -1,0 +1,165 @@
+/* 사이드바 설정 */
+#side_admin_notice {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+
+#side_admin_notice span.material-icons {
+    color: #eeab0a;
+}
+
+.item_title_wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.content_update_wrapper {
+    margin-left: auto;
+}
+
+.content_update_wrapper>button {
+    border-radius: 8px;
+    background-color: blueviolet;
+    width: 160px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+#notice-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #dddddd;
+    border-radius: 3px;
+    padding: 20px 10px;
+}
+
+#notice-content-title {
+    display: flex;
+    padding-left: 20px;
+}
+
+#notice-title {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+#notice-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.notice-div {
+    display: grid;
+    grid-template-columns: 100px 150px 1fr 150px;
+    background-color: white;
+    border-radius: 3px;
+    height: 70px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.notice-div>* {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0e151d;
+}
+
+.top_icon {
+    text-align: right;
+    color: #c0c0c0;
+    border-bottom: solid 1px rgb(41, 40, 41);
+}
+
+#notice-write-date {
+    font-size: 12px;
+    color: black;
+}
+
+.img {
+    width: 600px;
+    height: auto;
+}
+
+#delete-popup {
+	height: 100%;
+	width: 100%;
+	z-index: 90;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.60);
+}
+
+#delete-content {
+	width: 650px;
+	height: 600px;
+	background-color: white;
+	display: grid;
+	margin: 140px auto;
+	border-radius: 10px;
+	grid-template-rows: 20% 80%;
+}
+
+#delete-top {
+	position: relative;
+}
+
+#delete-big-icon  {
+	height: 100%;
+	font-size: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#delete-close-btn:hover {
+	cursor: pointer;
+}
+
+#delete-bottom {
+	padding: 35px;
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+}
+
+#delete-bottom > :first-child {
+	font-size: 24px;
+	font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+#popup-btns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 10px;
+}
+
+.delete_innder > * {
+	font-size: 16px;
+	margin-bottom: 30px;
+	line-height : 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.delete_innder > :nth-child(3) {
+	color:#9d9d9d;
+}
+
+.delete-none {
+	display: none;
+}
+
+.display-none {
+	display: none;
+}
+
+.display-grid {
+	display: grid;
+}
