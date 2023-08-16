@@ -48,7 +48,7 @@ header {
 #header-top-ul {
   display: grid;
   list-style-type: none;
-  grid-template-columns: 250px 115px 115px 115px 777px 115px;
+  grid-template-columns: 250px 115px 115px 115px 770px 200px;
   column-gap: 20px;
   text-align: center;
   position: relative;
@@ -66,7 +66,6 @@ header {
 
 #point-div {
   font-size: 14px;
-  margin-left: -200px;
   margin-top: -2px;
   color: white;
   font-weight: bold;
@@ -113,6 +112,10 @@ header {
 
 .point-li {
   margin-bottom: 10px;
+}
+
+#point-li {
+	margin-left: -80px;
 }
 
 .clickable-li a {
