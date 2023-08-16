@@ -178,11 +178,105 @@
 	<select id="getGamesTotalSize">
 		SELECT count(*) FROM games
 	</select>
+	
 	<select id="getGameListForAdmin" resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a ORDER BY game_id DESC) WHERE rn BETWEEN #{start} AND #{end}
 	</select>
+	
+	<select id="getGamesByIdSize">
+		SELECT count(*) FROM games WHERE game_id LIKE '%'||#{game_id}||'%'
+	</select>
+	
+	<select id="getGameListByGame_id" resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a WHERE game_id LIKE '%'||#{game_id}||'%' ORDER BY game_id) WHERE rn BETWEEN #{start} AND #{end} 	
+	</select>
+	
+	<select id="getGamesByName">
+		SELECT count(*) FROM games WHERE game_name LIKE '%'||#{game_name}||'%'
+	</select>
+	
+	<select id="getGameListByName" resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a WHERE LOWER(game_name) LIKE LOWER('%'||#{game_name}||'%') ORDER BY game_id DESC) WHERE rn BETWEEN #{start} AND #{end} 	
+	</select>
+	
+	<select id="getGamesByLayout">
+		SELECT count(*) FROM games WHERE layout LIKE '%'||#{layout}||'%'
+	</select>
+	
+	<select id="getGameListByLayout" resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a WHERE LOWER(layout) LIKE LOWER('%'||#{layout}||'%') ORDER BY game_id DESC) WHERE rn BETWEEN #{start} AND #{end} 	
+	</select>
+	
+	<select id="getLastGameNum">
+		SELECT game_id FROM (SELECT rownum rm, game_id FROM games ORDER BY game_id DESC) WHERE rm = 1
+	</select>
+	
+	<select id="getBanner_imgUrl">
+		SELECT banner_img_url FROM games WHERE game_id=#{game_id}
+	</select>
+	
+	<update id="updateBanner_img">
+		UPDATE games SET banner_img_url=#{path} WHERE game_id=#{game_id}
+	</update>
+	
+	<update id="updateGame" parameterType="com.ezen.smg.dto.Games">
+		UPDATE games SET 
+			game_name=#{game.game_name}, 
+			game_genre=#{game.game_genre}, 
+			game_price=#{game.game_price},  
+			korean=#{game.korean}, 
+			release_date=#{game.release_date}, 
+			platform=#{game.platform}, 
+			discount=#{game.discount}, 
+			game_mode=#{game.game_mode}, 
+			develop_company=#{game.develop_company}, 
+			game_grade=#{game.game_grade}, 
+			editor=#{game.editor, jdbcType=VARCHAR}, 
+			layout=#{game.layout, jdbcType=VARCHAR}, 
+			rated=#{game.rated} 
+		WHERE 
+			game_id=#{game.game_id} 
+	</update>
+	
+	<insert id="insertNewGame" parameterType="com.ezen.smg.dto.Games">
+		INSERT INTO 
+			game_id, 
+			game_name, 
+			game_genre, 
+			game_price, 
+			korean, 
+			release_date, 
+			platform, 
+			discount, 
+			game_mode, 
+			develop_company, 
+			game_grade, 
+			banner_img_url, 
+			editor, 
+			layout, 
+			rated 
+		VALUES(
+			#{game.game_id}, 
+			#{game.game_name}, 
+			#{game.game_genre}, 
+			#{game.game_price}, 
+			#{game.korean}, 
+			#{game.release_date}, 
+			#{game.platform}, 
+			#{game.discount}, 
+			#{game.game_mode}, 
+			#{game.develop_company}, 
+			#{game.game_grade}, 
+			#{game.banner_img_url}, 
+			#{game.editor}, 
+			#{game.layout}, 
+			#{game.rated}
+		)	
+	</insert>
 
-	
-	
+	<select id="getCuratorGames">
+		select * from games where editor = 'curator'
+	</select>
+
 	
 </mapper> 

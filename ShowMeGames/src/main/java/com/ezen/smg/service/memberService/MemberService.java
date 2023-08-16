@@ -12,4 +12,6 @@ public interface MemberService {
 	int updateUserPoint(Orders order);
 
 	SmgUsersDTO getUserByUserNum(Long userNum);
+	
+	boolean isUseKey(int user_num, int game_id);
 }

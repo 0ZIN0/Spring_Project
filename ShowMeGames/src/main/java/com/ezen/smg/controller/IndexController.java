@@ -14,10 +14,15 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
+import com.ezen.smg.mapper.GameKeyMapper;
 import com.ezen.smg.mapper.GamesMapper;
+import com.ezen.smg.mapper.UsersMapper;
 import com.ezen.smg.service.ImagesService.ImagesService;
+import com.ezen.smg.service.commentService.CommentsService;
 import com.ezen.smg.service.gamesService.GamesService;
 import com.ezen.smg.service.indexService.IndexService;
+import com.ezen.smg.service.memberService.MemberService;
+import com.ezen.smg.service.orderService.OrderService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -38,6 +43,15 @@ public class IndexController {
 	
 	@Autowired
 	ImagesService imagesService;
+	
+	@Autowired
+	UsersMapper usersMapper;
+	
+	@Autowired
+	MemberService memberService;
+	
+	@Autowired
+	CommentsService commentsService;
 	
 	public IndexController() {
 		detail_url_mapper = new HashMap<String, String>();
@@ -74,11 +88,16 @@ public class IndexController {
 		
 		model.addAttribute("game", gameDTO);
 		model.addAttribute("rateds", gameDTO.getRated().split("/"));
-		model.addAttribute("user", user);
 		model.addAttribute("images", imagesService.getNomalImages(game, 1, 5));
 		model.addAttribute("sub_banner", imagesService.getSubBanner(game));
-		
-		log.error(imagesService.getSubBanner(game));
+		if (user == null) {
+			model.addAttribute("is_use", false);
+		} else {
+			model.addAttribute("user", usersMapper.getUserInfo(user.getUser_num()));
+			model.addAttribute("is_use", memberService.isUseKey(user.getUser_num(), game));
+		}
+		model.addAttribute("comments", commentsService.getGameComment(game));
+		model.addAttribute("comment_len", commentsService.getGameComment(game).size());
 		
 		if (url == null) {
 			return "/games/default";
