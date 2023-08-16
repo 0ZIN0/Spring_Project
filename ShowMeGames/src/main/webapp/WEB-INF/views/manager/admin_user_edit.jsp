@@ -127,7 +127,7 @@
 												type="text" value="${user.user_point}" />
 										</div>
 									</div>
-									<div>
+									<div id="btnDiv">
 										<button id="userinfo_cancel_btn" class="btn cancel"
 											type="button">취소</button>
 										<button id="userinfo_update_btn" class="btn" type="submit">변경</button>
