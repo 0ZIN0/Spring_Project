@@ -504,7 +504,7 @@ $(document).on("click", "#move-to-cart-btn", function () {
       location.href = "./cart";
     },
     error: () => {
-      console.log("Error");
+      console.log("Move to Cart Btn Error");
     }
   })
 });
@@ -519,7 +519,7 @@ $(document).on("click", "#minicart-checkout-btn", function () {
       location.href = "./cart";
     },
     error: () => {
-      console.log("Error");
+      console.log("Minicart Chk Btn Error");
     }
   })
 });
