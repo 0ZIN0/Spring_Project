@@ -133,7 +133,7 @@
 			u.gender,
 		-->
 		u.user_num,
-		SUBSTR(u.user_id, 1, 20) AS user_id,
+		SUBSTR(u.user_id, 1, 30) AS user_id, <!-- user_id는 30글자 이후로는 생략 -->  
 		u.user_name
 		FROM smg_users u
 		ORDER BY user_num DESC
