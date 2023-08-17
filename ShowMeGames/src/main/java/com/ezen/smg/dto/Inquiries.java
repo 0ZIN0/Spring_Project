@@ -13,4 +13,6 @@ public class Inquiries {
 	private String inquiry_subject;
 	private String attachment;
 	private MultipartFile imgFile;
+	private String inquiry_answer;
+	private String nick_name;
 }

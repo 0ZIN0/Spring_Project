@@ -58,7 +58,7 @@
 									<div class="board_attachment">
 										<div>첨부파일</div>
 										<div class="board_img">
-											<img class="myImg"src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
+											<img class="myImg" src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
 										</div>
 										<div id="myModal" class="modal">
 										  <!-- The Close Button -->
@@ -71,44 +71,8 @@
 							</div>
 						</c:forEach>
 					</div> 
-						<svg role="presentation" class="icon--arrow" width="40" height="50" viewBox="0 0 40 40" fill="none"
-                     	xmlns="http://www.w3.org/2000/svg">
-                      	<path d="M24 17H15L19.6957 23L24 17Z" fill="#767676" />
-                 		</svg>
-                 		<div role="navigation" id="pageNav">
-			            <div aria-live="polite" aria-atomic="true">${totalSize}개</div>
-						<c:set var="nextPage" value="${paging.currPage + 1}" scope="page" />
-						<c:set var="prePage" value="${paging.currPage - 1}" scope="page" />
-												
-						<div id="pageDiv">
-							<c:choose>
-								<c:when test="${prePage >= paging.firstPage}">
-									<button class="btn" onclick="location.href='./inquiry?page=${nextPage}&&${second_para}'">&#9664;</button> 
-								</c:when>
-								<c:otherwise>
-									<button class="btn disabled" disabled>&#9664;</button> 
-								</c:otherwise>
-							</c:choose>		
-							<c:forEach items="${paging.pageList}" var="pageNum">
-								<c:choose>
-									<c:when test="${pageNum == paging.currPage}">
-										<button id="now-page" class="btn" onclick="location.href='./inquiry?page=${pageNum}&&${second_para}'">${pageNum}</button> 
-									</c:when>
-									<c:otherwise>
-										<button class="btn" onclick="location.href='./inquiry?page=${pageNum}&&${second_para}'">${pageNum}</button>
-									</c:otherwise>
-								</c:choose>		
-							</c:forEach>
-							<c:choose>
-								<c:when test="${nextPage <= paging.lastPage}">
-									<button class="btn" onclick="location.href='./inquiry?page=${nextPage}&&${second_para}'">&#9654;</button>
-								</c:when>
-								<c:otherwise>
-									<button class="btn disabled" disabled>&#9654;</button> 
-								</c:otherwise>
-							</c:choose>
-						</div>	
-					</div>
+					<div id="pagingDiv" data-id="account_inquiry"></div>
+					<%@ include file="/WEB-INF/views/manager/include/paging.jsp" %>	
 				</div>
 			</div>
 		</div>
@@ -116,7 +80,7 @@
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
 
 	<script src="${resource}/js/common.js"></script>	
-	
+	<script src="${resource}/js/paging.js"></script>
 	<script src="${account_inquiry}"></script>
 
 </body>

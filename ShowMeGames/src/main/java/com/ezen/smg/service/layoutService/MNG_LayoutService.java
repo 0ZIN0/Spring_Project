@@ -1,10 +1,10 @@
-package com.ezen.smg.service.managerService;
+package com.ezen.smg.service.layoutService;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 
-public interface LayoutService {
+public interface MNG_LayoutService {
 
 	int insertLayoutDefault(LayoutDefaultDTO dto);
 	LayoutDefaultDTO getLayoutDefault(Integer game_id);

@@ -1,4 +1,4 @@
-package com.ezen.smg.service.managerService;
+package com.ezen.smg.service.layoutService;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,7 +18,7 @@ import com.ezen.smg.mapper.LayoutMapper;
 
 @PropertySource(value = "classpath:application.properties", encoding = "UTF-8")
 @Service
-public class LayoutServiceImp1 implements LayoutService {
+public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 
 	@Autowired
 	LayoutMapper mapper;

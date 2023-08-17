@@ -9,4 +9,15 @@
  	<select id="getManager" resultType="com.ezen.smg.dto.ManagersDTO">
  		SELECT * FROM managers WHERE mng_num=#{mng_num}
  	</select>
+ 	<select id="getTotalNum">
+  		SELECT count(*) FROM inquiries
+  	</select>
+  	<select id="getContents" resultType="com.ezen.smg.dto.Inquiries">
+  		SELECT inquiry_id, inq.user_num, inquiry_title, nick_name, inquiry_content, attachment, inquiry_subject, inquiry_answer  FROM 
+  			(SELECT * FROM(SELECT rownum AS rn, a.* FROM inquiries a order by inquiry_id desc) WHERE rn BETWEEN#{start} AND #{end}) 
+  				inq , smg_users suser WHERE inq.user_num = suser.user_num
+  	 </select>
+  	 <update id="answer">
+  	 	UPDATE inquiries SET inquiry_answer = #{inquiry_answer} WHERE inquiry_id = #{inquiry_id}
+  	 </update>
  </mapper>
