@@ -35,8 +35,8 @@ import com.ezen.smg.dto.chart.GenreDTO;
 import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.NoticeMapper;
 import com.ezen.smg.service.faqService.FAQService;
-import com.ezen.smg.service.managerService.LayoutService;
-import com.ezen.smg.service.managerService.LayoutType;
+import com.ezen.smg.service.layoutService.MNG_LayoutService;
+import com.ezen.smg.service.layoutService.LayoutType;
 import com.ezen.smg.service.managerService.ManagerService;
 
 import lombok.extern.log4j.Log4j;
@@ -64,7 +64,7 @@ public class ManagerController {
 	FAQmapper faQmapper;
 
 	@Autowired
-	LayoutService layoutServ;
+	MNG_LayoutService layoutServ;
 	
 	@GetMapping("")
 	String certification(HttpServletRequest request) {

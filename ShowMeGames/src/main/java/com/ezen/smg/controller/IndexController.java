@@ -1,9 +1,6 @@
 package com.ezen.smg.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +14,9 @@ import com.ezen.smg.dto.Comments;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.mapper.CommentsMapper;
+import com.ezen.smg.mapper.GameSpecificationsMapper;
 import com.ezen.smg.mapper.GamesMapper;
+import com.ezen.smg.mapper.LayoutMapper;
 import com.ezen.smg.mapper.UsersMapper;
 import com.ezen.smg.service.ImagesService.ImagesService;
 import com.ezen.smg.service.commentService.CommentsService;
@@ -31,23 +30,15 @@ import lombok.extern.log4j.Log4j;
 @Controller
 public class IndexController {
 	
-	Map<String, String> detail_url_mapper; 
-	
 	@Autowired
 	IndexService serv;
-	
-	@Autowired
-	GamesMapper gamesMapper;
 	
 	@Autowired
 	GamesService gamesService;
 	
 	@Autowired
 	ImagesService imagesService;
-	
-	@Autowired
-	UsersMapper usersMapper;
-	
+
 	@Autowired
 	MemberService memberService;
 	
@@ -57,16 +48,17 @@ public class IndexController {
 	@Autowired
 	CommentsMapper commentsMapper;
 	
-	public IndexController() {
-		detail_url_mapper = new HashMap<String, String>();
-		
-		detail_url_mapper.put("LRA", "/games/layout/type_lra");
-		detail_url_mapper.put("KCW", "/games/layout/type_kcw");
-		detail_url_mapper.put("HGT", "/games/layout/type_hgt");
-		detail_url_mapper.put("BGC", "/games/layout/type_bgc");
-		detail_url_mapper.put("SJH", "/games/layout/type_sjh");
-		detail_url_mapper.put("JYM", "/games/layout/type_jym");
-	}
+	@Autowired
+	GamesMapper gamesMapper;
+	
+	@Autowired
+	UsersMapper usersMapper;
+	
+	@Autowired
+	LayoutMapper layoutMapper;
+	
+	@Autowired
+	GameSpecificationsMapper specMapper;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
@@ -84,8 +76,6 @@ public class IndexController {
 	
 	@GetMapping(value="/detail")
 	public String detail(Integer game, Model model, String layout, @SessionAttribute(name = "user", required = false) SmgUsersDTO user) {
-		
-		String url = detail_url_mapper.get(layout);
 		
 		Games gameDTO = gamesMapper.getGame(game);
 		gameDTO.setDiscounted_price(CommonFunction.calDiscount(gameDTO.getGame_price(), gameDTO.getDiscount()));
@@ -116,11 +106,26 @@ public class IndexController {
 		List<Comments> new_coms = commentsMapper.getNewCommentList(game, 1, 5);
 		model.addAttribute("new_comments", new_coms);
 		
-		if (url == null) {
-			return "/games/default";
+		model.addAttribute("spec", specMapper.getSpec(game));
+		
+		switch(layout != null ? layout: "NULL") {
+		case "LRA":
+			return "games/layout/type_lra";
+		case "JYM":
+			return "games/layout/type_jym";
+		case "HGT":
+			return "games/layout/type_hgt";
+		case "KCW":
+			return "games/layout/type_kcw";
+		case "SJH":
+			return "games/layout/type_sjh";
+		case "BGC":
+			return "games/layout/type_bgc";
+		default:
+			model.addAttribute("layout", layoutMapper.getLayoutDefault(game));
+			return "games/default";
 		}
 		
-		return url;
 	}
 }
 
