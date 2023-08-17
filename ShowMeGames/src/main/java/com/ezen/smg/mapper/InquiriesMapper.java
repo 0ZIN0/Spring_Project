@@ -10,7 +10,7 @@ public interface InquiriesMapper {
 	
 	int add(@Param("dto") Inquiries inquiries);
 	
-	List<Inquiries> getContent(@Param("user_num") int user_num);
+	List<Inquiries> getContent(@Param("user_num") int user_num, @Param("start") int start, @Param("end") int end);
 	
 	int getTotalNum(@Param("user_num") int user_num);
 }
