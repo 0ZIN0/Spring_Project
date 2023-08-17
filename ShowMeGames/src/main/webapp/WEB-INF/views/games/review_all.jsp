@@ -33,7 +33,7 @@
 					<h3 style="color: #fff; font-size: 30px">
 						${game.game_name}
 					</h3>
-					<button>
+					<button onclick="location.href='./?game=${game.game_id}'">
 						게임 페이지
 					</button>
 				</div>
@@ -125,7 +125,7 @@
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
 
 	<!-- js -->
-	<script src="${reivew_all_js }"></script>
+	<script src="${review_all_js }"></script>
 	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp"%>
 </body>
 </html>

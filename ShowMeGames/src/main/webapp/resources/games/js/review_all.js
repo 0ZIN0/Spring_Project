@@ -112,7 +112,7 @@ function openLoginPopup() {
     loginPopup = window.open("/smg/member/login", "_blank", popupFeatures);
   }
 }
-const currUrl = new URL(location.search);
+const currUrl = new URLSearchParams(location.search);
 const game = currUrl.get("game");
 
 // infinity scroll
@@ -129,7 +129,7 @@ let observer = new IntersectionObserver(function (entries, observer) {
     // 타겟 요소와 루트 요소가 교차하면
     if (entry.isIntersecting) {
       $.ajax({
-        url: `./detail/review_all_ajax?game=${game}&page=${index}`,
+        url: `./review_all_ajax?game=${game}&page=${index}`,
         type: "GET",
         dataType: "json", // 받는 데이터의 타입
         success: (comments, state, xhttp) => {

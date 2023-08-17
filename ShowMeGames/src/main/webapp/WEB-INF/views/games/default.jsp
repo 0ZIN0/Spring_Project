@@ -277,7 +277,7 @@
 								</div>
 							</div>
 							<div id="comment_all_div">
-								<a id="comment_all_btn" href="./detail/review_all?game=${game.game_id }">모든 평가 보기</a>
+								<a id="comment_all_btn" href="./review_all?game=${game.game_id }">모든 평가 보기</a>
 							</div>
 								</c:when>
 								<c:otherwise>
