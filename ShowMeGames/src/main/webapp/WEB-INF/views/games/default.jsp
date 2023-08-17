@@ -274,9 +274,11 @@
 											</div>
 										</div>
 									</div>
-									<div id="comment_all_div">
-										<a id="comment_all_btn">모든 평가 보기</a>
-									</div>
+								</div>
+							</div>
+							<div id="comment_all_div">
+								<a id="comment_all_btn" href="./review_all?game=${game.game_id }">모든 평가 보기</a>
+							</div>
 								</c:when>
 								<c:otherwise>
 									<div class="comment_grid_title">아직 리뷰가 없습니다.</div>

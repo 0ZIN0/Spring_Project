@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.ezen.smg.common.CommonFunction;
@@ -126,6 +128,27 @@ public class IndexController {
 			return "games/default";
 		}
 		
+	}
+	
+	@GetMapping(value="/detail/review_all")
+	public String reviewAll(Model model, Integer game, @SessionAttribute(name = "user", required = false) SmgUsersDTO user) {
+		Games gameDTO = gamesMapper.getGame(game);
+		List<Comments> comments = commentsService.getNewComments(game, 1, 40);
+		model.addAttribute("game", gameDTO);
+		model.addAttribute("comments", comments);
+		model.addAttribute("comment_len", commentsService.getGameComment(game).size());
+		log.info(comments.size());
+		return "games/review_all";
+	}
+	
+	@ResponseBody
+	@GetMapping(value="/detail/review_all_ajax")
+	public List<Comments> reviewAll(@RequestParam("game") Integer game,
+			@RequestParam("page") Integer index) {
+		
+		log.info(game);
+		log.info(index);
+		return commentsService.getNewComments(game, index, 40);
 	}
 }
 

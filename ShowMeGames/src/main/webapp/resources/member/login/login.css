@@ -205,6 +205,7 @@ h2 > * {
 #remember-and-forget {
   display: flex;
   align-items: center;
+  justify-content: end;
   margin-top: 27px;
   margin-left: 269px;
 }
@@ -268,7 +269,7 @@ h2 > * {
   color: black;
   font-size: 16px;
   margin: 0px 0px;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .easyLogin::before {
@@ -293,10 +294,10 @@ h2 > * {
 
 .private-div {
   margin-top: 23px;
+  text-align: center;
 }
 
 #private-btn {
-  margin-left: 120px;
   color: #006ef5;
   text-decoration: none;
 }

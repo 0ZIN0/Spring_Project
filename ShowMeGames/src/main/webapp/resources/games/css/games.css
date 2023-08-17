@@ -457,7 +457,11 @@ ul {
   color: #fff;
 }
 
-.material-symbols-outlined {
+#game_list > .material-symbols-outlined {
+  color: #fff;
+}
+
+.arrow {
   color: #fff;
 }
 

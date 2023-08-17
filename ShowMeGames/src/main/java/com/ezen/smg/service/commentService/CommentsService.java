@@ -15,4 +15,6 @@ public interface CommentsService {
 	void goodService(GoodAndBadDTO dto, int result, int comment_id);
 	
 	void badService(GoodAndBadDTO dto, int result, int comment_id);
+	
+	List<Comments> getNewComments(int game_id, int page, int scope);
 }
