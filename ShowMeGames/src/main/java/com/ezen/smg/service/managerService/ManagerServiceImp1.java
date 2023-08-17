@@ -20,6 +20,7 @@ import com.ezen.smg.common.Encryption_SH256;
 import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
+import com.ezen.smg.dto.Inquiries;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
@@ -418,5 +419,27 @@ public class ManagerServiceImp1 implements ManagerService {
 		
 		return chartMapper.getEditorSales();
 	}
+
+	@Override
+	public int deleteGame(Integer game_id) {
+		return gamesMapper.deleteGame(game_id);
+	}
 	
+	
+	@Override
+	public List<Inquiries> getContent(int currPage) {
+		int lastInquiries = currPage * pageNum;
+		int firstInquiries = lastInquiries - 9;
+		return managerMapper.getContents(firstInquiries, lastInquiries);
+	}
+	@Override
+	public int getTotalNum() {
+		
+		return managerMapper.getTotalNum();
+	}
+	
+	@Override
+	public int updateAnswer(int inquiry_id, String inquiry_answer) {
+		return managerMapper.answer(inquiry_id, inquiry_answer);
+	}
 }

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.mapper.GamesMapper;
-import com.ezen.smg.service.gamesService.GamesService;
 
 @ControllerAdvice
 public class GlobalControllerAdivce {

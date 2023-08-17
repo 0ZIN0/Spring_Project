@@ -11,6 +11,8 @@ public class Comments {
 	private Integer user_num;
 	private String comment_content;
 	private Date write_date;
+	private Integer good_cnt;
+	private Integer bad_cnt;
 	
 	private String nick_name;
 	private String profile_url;

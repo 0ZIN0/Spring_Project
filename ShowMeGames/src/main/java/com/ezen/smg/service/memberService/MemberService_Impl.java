@@ -56,5 +56,6 @@ public class MemberService_Impl implements MemberService {
 			return true;
 		}
 		return false;
-	}
+	}		
+	
 }

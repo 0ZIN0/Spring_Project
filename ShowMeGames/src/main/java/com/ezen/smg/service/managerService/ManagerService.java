@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ezen.smg.common.Pagination;
 import com.ezen.smg.dto.GameKeyDTO;
 import com.ezen.smg.dto.Games;
+import com.ezen.smg.dto.Inquiries;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
@@ -51,6 +52,7 @@ public interface ManagerService {
 	int updateBanner_img(int game_id, MultipartFile img_file);
 
 	int insertNewGame(Games game, String file_name, MultipartFile img_file);
+	int deleteGame(Integer game_id);
 	
 	/** admin_user 관련 서비스 */
 	List<SmgUsersDTO> getUserListWithPagination(int page, int itemsPerPage);
@@ -76,4 +78,9 @@ public interface ManagerService {
 	List<GenderDTO> getGenderData();
 	List<GenreDTO> getGenreData();
 	List<GenreDTO> getEditorSales();
+	
+	/*admin_inquiry 관련 서비스*/
+	List<Inquiries> getContent(int currPage);	
+	int getTotalNum();
+	int updateAnswer(int inquiry_id, String inquiry_answer);
 }

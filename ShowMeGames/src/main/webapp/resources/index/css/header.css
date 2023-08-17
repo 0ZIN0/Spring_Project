@@ -953,7 +953,7 @@ img {
 
 #minicart-list-bottom {
   width: 480px;
-  height: 160px;
+  height: 190px;
   display: flex;
   flex-direction: column;
 }
@@ -979,6 +979,8 @@ img {
 }
 
 .minicart-sub-total {
+	width: 100%;
+	height: 90px;
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -986,139 +988,155 @@ img {
 }
 
 .sub-total-title {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   text-transform: capitalize;
   font-weight: 600;
 }
 
 .sub-total-price {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   text-align: right;
   font-weight: 600;
 }
 
 .sub-total-notice {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-align: right;
 }
 
 #minicart-list-btns {
   display: flex;
+  width: 100%;
+  height: 100px;
   flex-direction: row;
-  padding: 20px 10px;
+  padding: 20px;
+  justify-content: space-around;
 }
 
 .button-wrapper {
-  display: inline-block;
-  width: 200px;
-  border-radius: 26px;
-  cursor: pointer;
-  line-height: 1.3;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 10px 0;
-  text-align: center;
-  text-decoration: none;
-  border: 2px solid;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	width: 200px;
+	border-radius: 50px;
+	border: 3px solid;
+	background: #ecdddd;
+	/* margin: 0 auto; */
+	/* padding: 10px 0; */
+	
+	font-size: 1.2em;
+	font-weight: 600;
+	text-align: center;
+	color: #37474f;
+	cursor: pointer;
+	backface-visibility: hidden;
 }
 
-.minicart-btn-text {
-  color: #000;
-  font-weight: bold;
-}
-
-.minicart-btn-text:hover {
-  color: #fff;
-}
-
-.SMN_effect-76 ::before {
-  content: "";
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  bottom: -15px;
-  right: -15px;
-  z-index: -1;
-  opacity: 1;
-  transform: scale3d(0.8, 0.5, 1);
-}
-
-.SMN_effect-76:hover {
-  background-color: #ff8300;
-}
-
-.SMN_effect-76:hover::before {
-  animation: anim-moema-2 0.3s 0.3s forwards;
-}
-
-.SMN_effect-76:hover {
-  transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
-  background-color: #ff8300;
-  animation: anim-moema-1 0.3s forwards;
-  color: #fff;
-}
-
-@keyframes anim-moema-2 {
-  to {
-    opacity: 0;
-    transform: scale3d(1, 1, 1);
-  }
-}
-
-@keyframes anim-moema-1 {
-  60% {
-    transform: scale3d(0.8, 0.8, 1);
+.button-wrapper:focus {
+	outline: none;
   }
 
-  85% {
-    transform: scale3d(1.1, 1.1, 1);
+  /* Move to Cart Page Btn Effect */
+  .button-effect-moema {
+	border-radius: 50px;
+	color: #37474F;
+	border-color: #ff8300;
+	transition: background-color 0.3s, color 0.3s;
   }
-
-  100% {
-    transform: scale3d(1, 1, 1);
+  
+  .button-effect-moema::before {
+	content: '';
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	bottom: -20px;
+	right: -20px;
+	background: inherit;
+	border-radius: 50px;
+	z-index: -1;
+	opacity: 0.8;
+	transform: scale3d(0.8, 0.5, 1);
   }
-}
-
-.SMN_effect-77 {
-  border-color: #f22349;
-  position: relative;
-}
-
-.SMN_effect-77:hover {
-  background-color: #f22349;
-}
-
-.SMN_effect-77:hover::before {
-  animation: anim-moema-2 0.3s 0.3s forwards;
-}
-
-.SMN_effect-77:hover {
-  transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
-  background-color: #f22349;
-  animation: anim-moema-1 0.3s forwards;
-  color: #fff;
-}
-
-@keyframes anim-moema-2 {
-  to {
-    opacity: 0;
-    transform: scale3d(1, 1, 1);
+  .button-effect-moema:hover {
+	transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+	color: #fff;
+	background-color: #ff8300;
+	animation: anim-moema-1 0.3s forwards;
   }
-}
-
-@keyframes anim-moema-1 {
-  60% {
-    transform: scale3d(0.8, 0.8, 1);
+  
+  .button-effect-moema:hover::before {
+	animation: anim-moema-2 0.3s 0.3s forwards;
   }
-
-  85% {
-    transform: scale3d(1.1, 1.1, 1);
+  @keyframes anim-moema-1 {
+	60% {
+	  transform: scale3d(0.8, 0.8, 1);
+	}
+	85% {
+	  transform: scale3d(1.1, 1.1, 1);
+	}
+	100% {
+	  transform: scale3d(1, 1, 1);
+	}
   }
-
-  100% {
-    transform: scale3d(1, 1, 1);
+  @keyframes anim-moema-2 {
+	to {
+	  opacity: 0;
+	  transform: scale3d(1, 1, 1);
+	}
   }
-}
+  
+    /* Move to Checkout Page Btn Effect */
+	.button-effect-moema2 {
+		border-radius: 50px;
+		color: #37474F;
+		transition: background-color 0.3s, color 0.3s;
+		border-color: #f22349;
+	  }
+	  
+	  .button-effect-moema2::before {
+		content: '';
+		position: absolute;
+		top: -20px;
+		left: -20px;
+		bottom: -20px;
+		right: -20px;
+		background: inherit;
+		border-radius: 50px;
+		z-index: -1;
+		opacity: 0.8;
+		transform: scale3d(0.8, 0.5, 1);
+	  }
+	  
+	  .button-effect-moema2:hover {
+		transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+		color: #fff;
+		background-color: #f22349;
+		animation: anim-moema-1 0.3s forwards;
+	  }
+	  
+	  .button-effect-moema2:hover::before {
+		animation: anim-moema-2 0.3s 0.3s forwards;
+	  }
+
+	  @keyframes anim-moema-1 {
+		60% {
+		  transform: scale3d(0.8, 0.8, 1);
+		}
+		85% {
+		  transform: scale3d(1.1, 1.1, 1);
+		}
+		100% {
+		  transform: scale3d(1, 1, 1);
+		}
+	  }
+
+	  @keyframes anim-moema-2 {
+		to {
+		  opacity: 0;
+		  transform: scale3d(1, 1, 1);
+		}
+	  }
+
 
 #header-bottom-logo > img {
 	object-fit: contain;

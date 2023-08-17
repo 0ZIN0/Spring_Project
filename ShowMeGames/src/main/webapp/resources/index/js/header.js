@@ -431,7 +431,7 @@ function updateMiniCart() {
                 <!--minicart-list-right Part End -->
 
               <div class="minicart-list-delete">
-                <div id="minicart-delete" class="cart-delete" data-gameid="${
+                <div id="minicart-delete"  data-gameid="${
                   game.game_id
                 }">
                   <span class="material-symbols-outlined" data-gameid="${
@@ -464,12 +464,8 @@ function updateMiniCart() {
               </div>
           </div>
           <div id="minicart-list-btns">
-            <div id="move-to-cart-btn" class="SMN_effect-76 button-wrapper">
-                <span class="minicart-btn-text">장바구니 보기</span>
-            </div>
-            <div id="minicart-checkout-btn" class="SMN_effect-77 button-wrapper">
-                <span class="minicart-btn-text">결제하기</span>
-            </div>
+            <button class="button-wrapper button-effect-moema">장바구니 보기 </button>
+            <button class="button-wrapper button-effect-moema2">결제하기 </button>
           </div>
           <!-- minicart-list-btns Part End -->
         </div>
@@ -482,13 +478,15 @@ function updateMiniCart() {
         $(".empty-minicart-content").hide();
       } else {
         // 로그인 상태이지만 장바구니가 비어있거나 로그인하지 않은 경우 empty-minicart-content 내용을 보여주기
-        // else if =>
-        minicartContent.append(`<div class="empty-minicart-content minicart-common">
-        <div class="empty-minicart-message minicart-common">장바구니가
-          비어있습니다.</div>
-        <div class="empty-minicart-image minicart-common">
-          <img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
-        </div>
+        minicartContent.append(`
+        <div class="empty-minicart-content minicart-common">
+          <div class="empty-minicart-message minicart-common">장바구니가 비어있습니다.</div>
+          <div class="empty-minicart-image minicart-common">
+            <img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
+          </div>
+          <div class="empty-minicart-buttons minicart-common" onclick="location.href='./games'">
+            쇼핑하러 가기
+          </div>	
       </div>`);
         console.log("EmptyCart Success");
       }
@@ -506,9 +504,44 @@ $(document).on("click", "#minicart-delete", function (e) {
     type: "GET",
     success: () => {
       updateMiniCart();
+      location.href = "./cart";
     },
     error: () => {
       console.log("MiniCart List Delete Error");
+    }
+  })
+});
+
+// Move to Cart Button
+$(document).on("click", "#move-to-cart-btn", function () {
+  $.ajax({
+    url: "./cart",
+    type: "GET",
+    success: () => {
+      console.log("Move to Cart Success");
+      location.href = "./cart";
     },
   });
 });
+
+// Minicart checkout Button
+$(document).on("click", "#minicart-checkout-btn", function () {
+  $.ajax({
+    url: "./cart",
+    type: "GET",
+    success: () => {
+      console.log("Checkout Success");
+      location.href = "./cart";
+    },
+    error: () => {
+      console.log("Minicart Chk Btn Error");
+    }
+  })
+});
+
+$(document).ready(function () {
+  // 페이지가 로드될 때 updateMiniCart() 실행
+  updateMiniCart();
+
+});
+

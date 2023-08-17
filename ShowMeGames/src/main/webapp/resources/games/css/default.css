@@ -326,3 +326,17 @@
     background-color: rgba(255, 255, 255, 0.055);
     cursor: pointer;
 }
+
+.comment_none {
+    margin-top: 20px;
+    color: white;
+    font-size: 20px;
+}
+
+.good_select {
+    color: #F22349;
+}
+
+.gab_btn {
+    font-size: 14px;
+}

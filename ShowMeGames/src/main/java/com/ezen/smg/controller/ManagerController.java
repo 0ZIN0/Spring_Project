@@ -27,13 +27,16 @@ import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
+import com.ezen.smg.dto.chart.SalesDTO;
+import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
-import com.ezen.smg.dto.chart.SalesDTO;
 import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.NoticeMapper;
 import com.ezen.smg.service.faqService.FAQService;
+import com.ezen.smg.service.layoutService.MNG_LayoutService;
+import com.ezen.smg.service.layoutService.LayoutType;
 import com.ezen.smg.service.managerService.ManagerService;
 
 import lombok.extern.log4j.Log4j;
@@ -60,6 +63,9 @@ public class ManagerController {
 	@Autowired
 	FAQmapper faQmapper;
 
+	@Autowired
+	MNG_LayoutService layoutServ;
+	
 	@GetMapping("")
 	String certification(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -156,7 +162,9 @@ public class ManagerController {
 	@GetMapping("/manage/admin_game_detail")
 	String adminGameDetail(Integer game_id, Model model) {
 
-		Games game = serv.getGameDetail(game_id); 
+		Games game = serv.getGameDetail(game_id);
+		
+		model.addAttribute("layout_chk", layoutServ.getLayoutCheck(game_id, game.getLayout()));
 
 		model.addAttribute("game", game);
 		model.addAttribute("rated", game.getRated().split("/"));
@@ -164,6 +172,60 @@ public class ManagerController {
 		return "manager/admin_game_detail";
 	}
 
+	@GetMapping("/manage/admin_game_delete")
+	String adminGameDelete(Integer game_id) {
+
+		serv.deleteGame(game_id);
+		
+		return "redirect:admin_game";
+	}
+	
+	@GetMapping("/manage/admin_game_layout")
+	String adminSetLayout(Integer game_id, String layout, Model model) {
+
+		if(layout == null) layout = "NULL";
+
+		model.addAttribute("game_id", game_id);
+		
+		switch(layout) {
+			case "LRA":
+				return "manager/admin_layout/layout_lra";
+			case "JYM":
+				return "manager/admin_layout/layout_jym";
+			case "HGT":
+				return "manager/admin_layout/layout_hgt";
+			case "KCW":
+				return "manager/admin_layout/layout_kcw";
+			case "SJH":
+				return "manager/admin_layout/layout_sjh";
+			case "BGC":
+				return "manager/admin_layout/layout_bgc";
+			default:
+				model.addAttribute("layout", layoutServ.getLayoutDefault(game_id));
+				return "manager/admin_layout/layout_default";
+		}
+		
+	}
+	
+	@PostMapping("/manage/layout_update_default")
+	String layoutDefaultUpdate(Integer origin_game_id, LayoutDefaultDTO dto, MultipartFile img_file) {
+		
+		// insert로
+		if(dto.getGame_id() == null) {
+			dto.setGame_id(origin_game_id);
+			layoutServ.insertLayoutDefault(dto);
+		// update로
+		} else {
+			layoutServ.updateLayoutDefault(dto);
+		}
+		
+		if(!img_file.isEmpty()) {
+			layoutServ.updateImg_url_Default(origin_game_id, LayoutType.DEFAULT, img_file);
+		}
+			
+		return "redirect:admin_game_detail?game_id=" + origin_game_id;
+	}
+	
 	@GetMapping("/manage/admin_game_update")
 	String adminGameUpdate(Integer game_id, Model model) {
 
@@ -200,8 +262,6 @@ public class ManagerController {
 		
 		int itemsPerPage = 200; // 페이지당 아이템 수
 		List<SmgUsersDTO> userList = serv.getUserListWithPagination(page, itemsPerPage);
-		int totalSize = serv.getUserListTotalSize();
-
 
 		model.addAttribute("userList", userList);
 
@@ -266,10 +326,24 @@ public class ManagerController {
 	}
 
 	@GetMapping("/manage/admin_inquiry")
-	String adminInquiry() {
+	String adminInquiry(Model model, Integer page) {
+		if(page == null) page = 1;
+		
+		int totalSize = serv.getTotalNum();
+		
+		model.addAttribute("paging", serv.getPagination(page, totalSize));
+		model.addAttribute("contents", serv.getContent(page));
+		
 		return "manager/admin_inquiry";
 	}
-
+	
+	@PostMapping("/manage/admin_inquiry")
+	String adminInquiry(Integer inquiry_id, String inquiry_answer) {
+		
+		serv.updateAnswer(inquiry_id, inquiry_answer);
+		return "redirect:/admin/manage/admin_inquiry";
+	};
+	
 	@GetMapping("/manage/admin_notice")
 	String adminNotice(Model model, Integer page) {
 
