@@ -35,31 +35,31 @@
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">운영체제</span>
-										<span class="system_item_content">Windows </span>
+										<span class="system_item_content">${spec.min_os}</span>
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">프로세서</span>
-										<span class="system_item_content">4690k</span>
+										<span class="system_item_content">${spec.min_processor}</span>
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">메모리</span>
-										<span class="system_item_content">8GB</span>
+										<span class="system_item_content">${spec.min_memory}</span>
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">스토리지</span>
-										<span class="system_item_content">12GB</span>
+										<span class="system_item_content">${spec.min_storage}</span>
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">DirectX</span>
-										<span class="system_item_content">11</span>
+										<span class="system_item_content">${spec.min_directx}</span>
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">그래픽카드</span>
-										<span class="system_item_content">GTX 1050 Ti(4GB VRAM)</span>
+										<span class="system_item_content">${spec.min_graphics_card}</span>
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">로그인</span>
-										<span class="system_item_content">GTX 1050 Ti(4GB VRAM)</span>
+										<span class="system_item_content">${spec.login_method}</span>
 									</div>
 								</div>
 								<div class="system_item_container">
@@ -68,61 +68,60 @@
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">운영체제</span>
-										<span class="system_item_content"></span>
+										<span class="system_item_content">${spec.rec_os}</span>
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">프로세서</span>
-										<span class="system_item_content"></span>
+										<span class="system_item_content">${spec.rec_processor}</span>
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">메모리</span>
-										<span class="system_item_content"></span>
+										<span class="system_item_content">${spec.rec_memory}</span>
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">스토리지</span>
-										<span class="system_item_content"></span>
+										<span class="system_item_content">${spec.rec_storage}</span>
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">DirectX</span>
-										<span class="system_item_content"></span>
+										<span class="system_item_content">${spec.rec_directx}</span>
 									</div>
 									<div class="system_item_layer">
 										<span class="system_item_title">그래픽카드</span>
-										<span class="system_item_content"></span>
+										<span class="system_item_content">${spec.rec_graphics_card}</span>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div id="game_detail_content">
-						<div id="warn_content"></div>
+						<div id="warn_content">${layout.warn_content}</div>
 						<div id="detail_img_1">
-							<img src="${hgt_img}1016/1016_1.gif" alt="1016_1_이미지">
+							<img src="${hgt_img}${layout.game_img_1}" alt="${layout.game_id}_1_이미지">
 						</div>
 						<div id="detail_main_title" class="desc_text">
-							미지를 탐험하세요!
+							${layout.game_main_title}
 						</div>
 						<div id="detail_main_text" class="desc_text">
-							자원을 찾아 행성을 개발하고 생존하기에 충분한 기술을 개발하세요! <br>
-							당신은 항상 배고프고, 부족하고, 피곤한 상태에 놓일 것입니다.
+							${layout.game_main_text}
 						</div>
 						<div id="detail_img_2">
-							<img src="${hgt_img}1016/1016_2.gif" alt="1016_2_이미지">
+							<img src="${hgt_img}${layout.game_img_2}" alt="${layout.game_id}_2_이미지">
 						</div>
 						<div id="detail_sub_title" class="desc_text">
-							자원을 적절히 활용하세요!
+							${layout.game_sub_title}
 						</div>
 						<div id="detail_sub_text" class="desc_text">
-							기체, 고체, 액체로 이루어진 다양한 자원들이 당신을 기다립니다.
+							${layout.game_sub_text}
 						</div>
 						<div id="detail_img_3">
-							<img src="${hgt_img}1016/1016_3.gif" alt="1016_3_이미지">
+							<img src="${hgt_img}${layout.game_img_3}" alt="${layout.game_id}_3_이미지">
 						</div>
 						<div id="detail_story_title" class="desc_text">
-							미지의 미개발 행성에 불시착한 듀플리칸트들의 생존을 도모해보세요.
+							${layout.game_story_title}
 						</div>
 						<div id="detail_story_text" class="desc_text">
-							당신은 안전하지 않습니다
+							${layout.game_story_text}
 						</div>
 					</div>		
 				</div>
