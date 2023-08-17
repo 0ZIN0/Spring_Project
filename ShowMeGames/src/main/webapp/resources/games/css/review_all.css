@@ -1,3 +1,17 @@
+button {
+  background-color: #f22349;
+  height: 50px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.title {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #game_bottom_div {
   display: flex;
   flex-direction: column;
@@ -89,17 +103,14 @@
   color: white;
   font-size: 24px;
   font-weight: 600;
+  margin-bottom: 20px;
 }
 
 #comment_grid {
-  display: grid;
-  grid-template-columns: 60% 40%;
-}
-
-#comment_best_grid {
   display: flex;
-  flex-direction: column;
-  row-gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 2%;
 }
 
 .comment_grid_title {
@@ -115,7 +126,8 @@
   background-color: rgba(255, 255, 255, 0.055);
   border-radius: 8px;
   padding: 16px;
-  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 49%;
 }
 
 .comment_user_nick {
@@ -127,8 +139,6 @@
 }
 
 .comment-grade-image {
-  position: absolute;
-  left: 143px;
   width: 31px;
   height: 31px;
   margin-top: 5px;

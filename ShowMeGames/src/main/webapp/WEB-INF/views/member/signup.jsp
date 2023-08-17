@@ -17,7 +17,7 @@
 <body>
     <div id="reg_main">
         <div id="reg_banner">
-            <img src="${logo_img}/smg_mainLogo.png" alt="배너사진">
+            <img src="${logo_img}/smg_loginLogo.png" alt="배너사진">
         </div>
         <div id="reg_header">
             <span>계정생성</span>

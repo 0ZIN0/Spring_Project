@@ -106,5 +106,24 @@ public class IndexController {
 		return url;
 	}
 	
+	@GetMapping(value="/detail/review_all")
+	public String reviewAll(Model model, Integer game, @SessionAttribute(name = "user", required = false) SmgUsersDTO user) {
+		Games gameDTO = gamesMapper.getGame(game);
+		model.addAttribute("game", gameDTO);
+		model.addAttribute("rateds", gameDTO.getRated().split("/"));
+		model.addAttribute("images", imagesService.getNomalImages(game, 1, 5));
+		model.addAttribute("sub_banner", imagesService.getSubBanner(game));
+		if (user == null) {
+			model.addAttribute("is_use", false);
+		} else {
+			model.addAttribute("user", usersMapper.getUserInfo(user.getUser_num()));
+			model.addAttribute("is_use", memberService.isUseKey(user.getUser_num(), game));
+		}
+		model.addAttribute("comments", commentsService.getGameComment(game));
+		model.addAttribute("comment_len", commentsService.getGameComment(game).size());
+		
+		return "games/review_all";
+	}
+	
 }
 

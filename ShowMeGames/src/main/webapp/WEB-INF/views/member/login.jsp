@@ -20,7 +20,7 @@
 		<div class="main-container">
 			<div class="logo-container">
 				<div id="login_logo">
-					<img src="${logo_img}/smg_mainLogo.png" alt="배너사진" class="login-image">
+					<img src="${logo_img}/smg_loginLogo.png" alt="배너사진" class="login-image">
 				</div>
 			</div>
 			<section class="loginAndSignUp-container">
