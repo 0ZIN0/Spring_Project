@@ -1,6 +1,7 @@
 package com.ezen.smg.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.ezen.smg.common.CommonFunction;
+import com.ezen.smg.dto.Comments;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.SmgUsersDTO;
+import com.ezen.smg.mapper.CommentsMapper;
 import com.ezen.smg.mapper.GamesMapper;
 import com.ezen.smg.mapper.UsersMapper;
 import com.ezen.smg.service.ImagesService.ImagesService;
@@ -21,6 +24,7 @@ import com.ezen.smg.service.commentService.CommentsService;
 import com.ezen.smg.service.gamesService.GamesService;
 import com.ezen.smg.service.indexService.IndexService;
 import com.ezen.smg.service.memberService.MemberService;
+
 import lombok.extern.log4j.Log4j;
 
 @Log4j
@@ -49,6 +53,9 @@ public class IndexController {
 	
 	@Autowired
 	CommentsService commentsService;
+	
+	@Autowired
+	CommentsMapper commentsMapper;
 	
 	public IndexController() {
 		detail_url_mapper = new HashMap<String, String>();
@@ -92,9 +99,22 @@ public class IndexController {
 		} else {
 			model.addAttribute("user", usersMapper.getUserInfo(user.getUser_num()));
 			model.addAttribute("is_use", memberService.isUseKey(user.getUser_num(), game));
+			model.addAttribute("my_gab_list", commentsService.getMyGABList(user.getUser_num(), "comment_id"));
+			model.addAttribute("my_status_list", commentsService.getMyGABList(user.getUser_num(), "status"));
+			model.addAttribute("my_com", commentsMapper.getMyComment(user.getUser_num(), game));
 		}
+		
+		// 댓글 model
 		model.addAttribute("comments", commentsService.getGameComment(game));
 		model.addAttribute("comment_len", commentsService.getGameComment(game).size());
+		
+		List<Comments> coms = commentsMapper.getBestCommentList(game, 1, 10);
+		model.addAttribute("best_comments", coms);
+		model.addAttribute("best_comment_len", commentsMapper.getBestCommentList(game, 1, 10).size());
+		
+		// new 댓글
+		List<Comments> new_coms = commentsMapper.getNewCommentList(game, 1, 5);
+		model.addAttribute("new_comments", new_coms);
 		
 		if (url == null) {
 			return "/games/default";
@@ -102,6 +122,5 @@ public class IndexController {
 		
 		return url;
 	}
-	
 }
 

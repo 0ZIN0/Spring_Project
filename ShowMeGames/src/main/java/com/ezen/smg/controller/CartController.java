@@ -23,7 +23,9 @@ import com.ezen.smg.mapper.OrderMapper;
 import com.ezen.smg.service.cartService.CartService;
 import com.ezen.smg.service.gamesService.GamesService;
 
+import lombok.extern.log4j.Log4j;
 
+@Log4j
 @Controller
 public class CartController {
 	
