@@ -116,6 +116,7 @@ public class IndexController {
 		case "JYM":
 			return "games/layout/type_jym";
 		case "HGT":
+			model.addAttribute("layout", layoutMapper.getLayoutHGT(game));
 			return "games/layout/type_hgt";
 		case "KCW":
 			return "games/layout/type_kcw";
