@@ -7,6 +7,7 @@
 <c:url value="/" var="conPath" />
 <c:url value="/resources/img/member" var="member_img" />
 <c:url value="/resources/img/logo" var="logo_img" />
+<c:url value="/resources/img/cart" var="cart_img" />
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
 	crossorigin="anonymous"></script>
 
@@ -291,7 +292,7 @@
 						<div class="empty-minicart-message minicart-common">장바구니가
 							비어있습니다.</div>
 						<div class="empty-minicart-image minicart-common">
-							<img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
+							<img alt="Empty Minicart" src="${cart_img }/SMG_EmptyMarket_img.jpg">
 						</div>
 						<div class="empty-minicart-buttons minicart-common" onclick="location.href='${conPath}games'">
 							쇼핑하러 가기

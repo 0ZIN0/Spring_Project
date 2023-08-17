@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.ezen.smg.common.CommonFunction;
@@ -127,19 +128,18 @@ public class IndexController {
 	public String reviewAll(Model model, Integer game, @SessionAttribute(name = "user", required = false) SmgUsersDTO user) {
 		Games gameDTO = gamesMapper.getGame(game);
 		model.addAttribute("game", gameDTO);
-		model.addAttribute("rateds", gameDTO.getRated().split("/"));
-		model.addAttribute("images", imagesService.getNomalImages(game, 1, 5));
-		model.addAttribute("sub_banner", imagesService.getSubBanner(game));
-		if (user == null) {
-			model.addAttribute("is_use", false);
-		} else {
-			model.addAttribute("user", usersMapper.getUserInfo(user.getUser_num()));
-			model.addAttribute("is_use", memberService.isUseKey(user.getUser_num(), game));
-		}
 		model.addAttribute("comments", commentsService.getGameComment(game));
 		model.addAttribute("comment_len", commentsService.getGameComment(game).size());
 		
 		return "games/review_all";
+	}
+	
+	@ResponseBody
+	@GetMapping(value="/detail/review_all_ajax")
+	public List<Comments> reviewAll(Integer game, Integer index) {
+		
+		
+		return commentsService.getNewComments(game, index, 40);
 	}
 }
 

@@ -11,7 +11,7 @@
 <c:url value="/resources/img/games" var="game_img" />
 <!-- default resources -->
 <c:url value="/resources/games/css/review_all.css" var="review_all_css" />
-<c:url value="/resources/games/js/default.js" var="default_js" />
+<c:url value="/resources/games/js/review_all.js" var="review_all_js" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,59 +38,6 @@
 					</button>
 				</div>
 				<div class="game_detail_divs" id="game_detail_comment_div">
-					<c:choose>
-						<c:when test="${is_use == true}">
-							<form action="" method="POST">
-								<div id="my_comment_grid">
-									<div class="comment_div_left">
-										<div>
-											<img class="comment_user_profile" alt="유저의 프로필"
-												src="/smg${user.profile_url}">
-										</div>
-										<div class="comment_user_nick_div">
-											<div class="comment_user_grade">
-												<c:choose>
-													<c:when test="${user.user_grade eq 'S'}">
-														<div class="profile-grade">
-															<img class="comment-grade-image"
-																src="${member_img}/grade/diamond_icon.png"
-																alt="다이아몬드 이미지">
-														</div>
-													</c:when>
-													<c:when test="${user.user_grade eq 'A'}">
-														<div class="profile-grade">
-															<img class="comment-grade-image"
-																src="${member_img}/grade/platinum_icon.png"
-																alt="플래티넘 이미지">
-														</div>
-													</c:when>
-													<c:when test="${user.user_grade eq 'B'}">
-														<div class="profile-grade">
-															<img class="comment-grade-image"
-																src="${member_img}/grade/gold_icon.png" alt="골드 이미지">
-														</div>
-													</c:when>
-													<c:when test="${user.user_grade eq 'C'}">
-														<div class="profile-grade">
-															<img class="comment-grade-image"
-																src="${member_img}/grade/silver_icon.png" alt="실버 이미지">
-														</div>
-													</c:when>
-													<c:when test="${user.user_grade eq 'D'}">
-														<div class="profile-grade">
-															<img class="comment-grade-image"
-																src="${member_img}/grade/bronze_icon.png" alt="등급 이미지">
-														</div>
-													</c:when>
-												</c:choose>
-											</div>
-											<div class="comment_user_nick">${user.nick_name}</div>
-										</div>
-									</div>
-								</div>
-							</form>
-						</c:when>
-					</c:choose>
 					<div id="comment_cnt">리뷰 (총 ${comment_len}개)</div>
 					<c:choose>
 						<c:when test="${comment_len > 0}">
@@ -178,6 +125,7 @@
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp"%>
 
 	<!-- js -->
+	<script src="${reivew_all_js }"></script>
 	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp"%>
 </body>
 </html>

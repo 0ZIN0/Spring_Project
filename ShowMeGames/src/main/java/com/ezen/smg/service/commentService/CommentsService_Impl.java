@@ -111,4 +111,11 @@ public class CommentsService_Impl implements CommentsService{
 		return sb.toString();
 	}
 
+	@Override
+	public List<Comments> getNewComments(int page, int scope, int game_id) {
+		int end = page * scope;
+		int begin = end - scope + 1; 
+		return commentsMapper.getNewCommentList(game_id, begin, end);
+	}
+
 }
