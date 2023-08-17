@@ -160,3 +160,31 @@ function openLoginPopup() {
     loginPopup = window.open("/smg/member/login", "_blank", popupFeatures);
   }
 }
+
+// my comment 기능
+const myComUpdateBtn = $('#my_com_update_btn');
+const myComDeleteBtn = $('#my_com_delete_btn');
+
+const game = myComDeleteBtn.data('game');
+const layout = myComDeleteBtn.data('layout');
+const content = myComDeleteBtn.data('content');
+const comment_id = myComDeleteBtn.data('comid');
+
+myComUpdateBtn.click(function (e) {
+    $('.my_com_content').remove();
+    $('.my_com_gab_div').remove();
+    $('#my_com_btns_div').remove();
+    $('.my_com_div_right').append(`
+        <input type="hidden" name="comment_id" value="${comment_id}" />
+        <textarea id="input_comment_content"
+        name="comment_content" placeholder="리뷰를 작성하세요.">${content}</textarea>
+    `);
+});
+
+myComDeleteBtn.click(function (e) {
+    if (confirm("리뷰를 삭제하시겠습니까?") == true){
+        location.href = `./detail?game=${game}&&layout=${layout}`;
+      }else{
+        console.log("취소되었습니다");
+      }
+});
