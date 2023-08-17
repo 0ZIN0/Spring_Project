@@ -69,7 +69,7 @@
 							data-gab="${my_gab_list}" data-status="${my_status_list}">
 							<c:choose>
 								<c:when test="${is_use == true}">
-									<div id="my_com_grid" class="comment_cnt">MY 리뷰</div>
+							<div id="my_com_grid" class="comment_cnt">MY 리뷰</div>
 									<c:choose>
 										<c:when test="${empty my_com}">
 											<form action="" method="POST">
@@ -122,8 +122,7 @@
 														</div>
 													</div>
 													<div class="comment_div_right">
-														<input type="hidden" name="comment_id"
-															value="${my_com.comment_id}" />
+														<input type="hidden" name="comment_id" value="${my_com.comment_id}" />
 														<textarea id="input_comment_content"
 															name="comment_content" placeholder="리뷰를 작성하세요."></textarea>
 													</div>
@@ -207,16 +206,8 @@
 													</div>
 												</div>
 												<div id="my_com_btns_div">
-													<button class="my_com_btn" id="my_com_update_btn">
-														<span class="my_com_btns material-symbols-outlined">edit</span>
-													</button>
-													<button data-game="${param.game}"
-														data-layout="${param.layout}"
-														data-content="${my_com.comment_content}"
-														data-comid="${my_com.comment_id}" class="my_com_btn"
-														id="my_com_delete_btn">
-														<span class="my_com_btns material-symbols-outlined">close</span>
-													</button>
+													<button class="my_com_btn" id="my_com_update_btn"><span class="my_com_btns material-symbols-outlined">edit</span></button>
+													<button data-game="${param.game}" data-layout="${param.layout}" data-content="${my_com.comment_content}" data-comid="${my_com.comment_id}" class="my_com_btn" id="my_com_delete_btn"><span class="my_com_btns material-symbols-outlined">close</span></button>
 												</div>
 											</div>
 										</c:otherwise>
@@ -357,87 +348,84 @@
 											</div>
 										</div>
 									</div>
+									<div id="comment_all_div">
+										<a id="comment_all_btn">모든 평가 보기</a>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div class="comment_grid_title">아직 리뷰가 없습니다.</div>
+								</c:otherwise>
+							</c:choose>
+						</div>
+						<!-- 시스템 요구사항 -->
+						<div class="game_detail_divs" id="game_detail_req_div">
+							<div id="game_req_title">사양</div>
+							<div id="game_req_grid">
+								<div id="game_req_min">
+									<div class="req_sub_title">최소</div>
+								</div>
+								<div id="game_req_rev">
+									<div class="req_sub_title">권장</div>
+								</div>
+								<div>
+									<div class="req_sub_title">운영체제</div>
+									<div class="req_content">Windows 10</div>
+								</div>
+								<div>
+									<div class="req_sub_title">운영체제</div>
+									<div class="req_content">Windows 10</div>
+								</div>
+								<div>
+									<div class="req_sub_title">프로세서</div>
+									<div class="req_content">i5 4690k</div>
+								</div>
+								<div>
+									<div class="req_sub_title">프로세서</div>
+									<div class="req_content">i5 9400F</div>
+								</div>
+								<div>
+									<div class="req_sub_title">메모리</div>
+									<div class="req_content">8GB</div>
+								</div>
+								<div>
+									<div class="req_sub_title">메모리</div>
+									<div class="req_content">16GB</div>
+								</div>
+								<div>
+									<div class="req_sub_title">스토리지</div>
+									<div class="req_content">12GB</div>
+								</div>
+								<div>
+									<div class="req_sub_title">스토리지</div>
+									<div class="req_content">12GB</div>
+								</div>
+								<div>
+									<div class="req_sub_title">DirectX</div>
+									<div class="req_content">11</div>
+								</div>
+								<div>
+									<div class="req_sub_title">DirectX</div>
+									<div class="req_content">11</div>
+								</div>
+								<div>
+									<div class="req_sub_title">그래픽 카드</div>
+									<div class="req_content">GTX 1050 Ti(4GB VRAM)</div>
+								</div>
+								<div>
+									<div class="req_sub_title">그래픽 카드</div>
+									<div class="req_content">GTX 1070(8GB VRAM)</div>
+								</div>
+								<div>
+									<div class="req_sub_title">로그인</div>
+									<div class="req_content">Show Me Games 계정 필요</div>
+								</div>
+							</div>
+							<div id="req_bottom_content">※ 시스템 요구 사항은 출시 버전을 기준으로 하며,
+								컨텐츠 추가와 업데이트로 인한 변경 사항이 있을 수 있습니다.</div>
 						</div>
 					</div>
-					<div id="comment_all_div">
-						<a id="comment_all_btn" href="./review_all?game=${game.game_id }">모든
-							평가 보기</a>
-					</div>
-					</c:when>
-					<c:otherwise>
-						<div class="comment_grid_title">아직 리뷰가 없습니다.</div>
-					</c:otherwise>
-					</c:choose>
-				</div>
-				<!-- 시스템 요구사항 -->
-				<div class="game_detail_divs" id="game_detail_req_div">
-					<div id="game_req_title">사양</div>
-					<div id="game_req_grid">
-						<div id="game_req_min">
-							<div class="req_sub_title">최소</div>
-						</div>
-						<div id="game_req_rev">
-							<div class="req_sub_title">권장</div>
-						</div>
-						<div>
-							<div class="req_sub_title">운영체제</div>
-							<div class="req_content">Windows 10</div>
-						</div>
-						<div>
-							<div class="req_sub_title">운영체제</div>
-							<div class="req_content">Windows 10</div>
-						</div>
-						<div>
-							<div class="req_sub_title">프로세서</div>
-							<div class="req_content">i5 4690k</div>
-						</div>
-						<div>
-							<div class="req_sub_title">프로세서</div>
-							<div class="req_content">i5 9400F</div>
-						</div>
-						<div>
-							<div class="req_sub_title">메모리</div>
-							<div class="req_content">8GB</div>
-						</div>
-						<div>
-							<div class="req_sub_title">메모리</div>
-							<div class="req_content">16GB</div>
-						</div>
-						<div>
-							<div class="req_sub_title">스토리지</div>
-							<div class="req_content">12GB</div>
-						</div>
-						<div>
-							<div class="req_sub_title">스토리지</div>
-							<div class="req_content">12GB</div>
-						</div>
-						<div>
-							<div class="req_sub_title">DirectX</div>
-							<div class="req_content">11</div>
-						</div>
-						<div>
-							<div class="req_sub_title">DirectX</div>
-							<div class="req_content">11</div>
-						</div>
-						<div>
-							<div class="req_sub_title">그래픽 카드</div>
-							<div class="req_content">GTX 1050 Ti(4GB VRAM)</div>
-						</div>
-						<div>
-							<div class="req_sub_title">그래픽 카드</div>
-							<div class="req_content">GTX 1070(8GB VRAM)</div>
-						</div>
-						<div>
-							<div class="req_sub_title">로그인</div>
-							<div class="req_content">Show Me Games 계정 필요</div>
-						</div>
-					</div>
-					<div id="req_bottom_content">※ 시스템 요구 사항은 출시 버전을 기준으로 하며, 컨텐츠
-						추가와 업데이트로 인한 변경 사항이 있을 수 있습니다.</div>
 				</div>
 			</div>
-		</div>
-		</div>
 		</div>
 	</main>
 
