@@ -65,7 +65,7 @@
 		select count(*) from good_and_bad where comment_id=#{comment_id} and status=#{status}
 	</select>
 	<select id="getMyComment" parameterType="int">
-		select * from comments where game_id=#{game_id} and user_num=#{user_num}
+		select * from comments inner join smg_users using(user_num) where game_id=#{game_id} and user_num=#{user_num}
 	</select>
 	
 </mapper> 

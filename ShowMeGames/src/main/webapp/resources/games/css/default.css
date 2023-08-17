@@ -85,10 +85,10 @@
   font-size: 16px;
 }
 
-#comment_cnt {
-  color: white;
-  font-size: 24px;
-  font-weight: 600;
+.comment_cnt {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 #comment_grid {
@@ -342,5 +342,42 @@
 }
 
 .gab_btn {
-  font-size: 14px;
+    font-size: 14px;
+}
+
+.my_comment_div {
+    display: grid;
+    grid-template-columns: 25% 1fr 6% 10%;
+    height: auto;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.055);
+    border-radius: 8px;
+    padding: 16px;
+    margin-right: 20px;
+}
+
+#my_com_btns_div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    column-gap: 3px;
+}
+
+.my_com_btn {
+    border: 0;
+    background-color: transparent;
+    align-items: right;
+    display: flex;
+    height: fit-content;
+}
+
+.my_com_btns {
+    color: #A0A2A0;
+    border: 1px solid #A0A2A0;
+    cursor: pointer;
+}
+
+.my_com_btns:hover {
+    color: #eeeeee;
+    border: 2px solid #eeeeee;
 }
