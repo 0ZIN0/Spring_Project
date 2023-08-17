@@ -47,6 +47,32 @@ reqBtn.click(function (e) {
 });
 
 // comment 기능
+const gab = $('#game_detail_comment_div').data('gab') + "";
+console.log(gab);
+if (gab.includes('/')) {
+    const gabStr = $('#game_detail_comment_div').data('gab').split('/');
+    const statusStr = $('#game_detail_comment_div').data('status').split('/');
+    
+    let i = 0;
+    gabStr.forEach(function(gab) {
+        if (statusStr[i] == 'G') {
+            $(`.good-${gab}`).addClass('good_select');
+        } else if (statusStr[i] == 'B') {
+            $(`.bad-${gab}`).addClass('good_select');
+        }
+        ++i;
+    });
+} else {
+    const status =  $('#game_detail_comment_div').data('status');
+    if (status == 'G') {
+        $(`.good-${gab}`).addClass('good_select');
+    } else if (status == 'B') {
+        $(`.bad-${gab}`).addClass('good_select');
+    }
+}
+
+
+// comment btn
 const upBtn = $('.up_btn');
 const downBtn = $('.down_btn');
 
@@ -60,13 +86,20 @@ upBtn.click(function (e) {
         contentType : 'application/json;charset=utf-8',
         dataType : 'json',
         success : function(res) {
-            if (res == 1) {
+            console.log(res);
+            if (res[0] == 1) {
+                console.log("1번도착");
                 $(`.good-${comment_id}`).addClass('good_select');
-            } else if (res == 2) {
-                $(`.good-${comment_id}`).removeClassClass('good_select');
-            } else if (res == 3) {
-                alert("\'좋아요\'한 리뷰입니다.\n취소 후 수정해주세요.");
-            } else {  
+                $(`.g-${comment_id}`).text(res[1]);
+            } else if (res[0] == 2) {
+                console.log("2번도착");
+                $(`.good-${comment_id}`).removeClass('good_select');
+                $(`.g-${comment_id}`).text(res[1]);
+            } else if (res[0] == 3) {
+                console.log("3번도착");
+                alert("\'싫어요\'한 리뷰입니다.\n취소 후 수정해주세요.");
+            } else { 
+                console.log("0번도착");
                 openLoginPopup();
             }
         }
@@ -83,12 +116,14 @@ downBtn.click(function (e) {
         contentType : 'application/json;charset=utf-8',
         dataType : 'json',
         success : function(res) {
-            if (res == 1) {
+            if (res[0] == 1) {
                 $(`.bad-${comment_id}`).addClass('good_select');
-            } else if (res == 2) {
-                $(`.bad-${comment_id}`).removeClassClass('good_select');
-            } else if (res == 3) {
-                alert("\'싫어요\'한 리뷰입니다.\n취소 후 수정해주세요.");
+                $(`.b-${comment_id}`).text(res[1]);
+            } else if (res[0] == 2) {
+                $(`.bad-${comment_id}`).removeClass('good_select');
+                $(`.b-${comment_id}`).text(res[1]);
+            } else if (res[0] == 3) {
+                alert("\'좋아요\'한 리뷰입니다.\n취소 후 수정해주세요.");
             } else {  
                 openLoginPopup();
             }

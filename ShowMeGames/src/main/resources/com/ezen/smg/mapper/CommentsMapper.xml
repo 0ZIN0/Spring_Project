@@ -59,6 +59,13 @@
 	</select>
 	<select id="getMyGABList" parameterType="int"
 		resultType="com.ezen.smg.dto.GoodAndBadDTO">
-		select comment_id from good_and_bad where user_num=#{user_num}
+		select * from good_and_bad where user_num=#{user_num}
 	</select>
+	<select id="commentGABCnt" parameterType="String">
+		select count(*) from good_and_bad where comment_id=#{comment_id} and status=#{status}
+	</select>
+	<select id="getMyComment" parameterType="int">
+		select * from comments where game_id=#{game_id} and user_num=#{user_num}
+	</select>
+	
 </mapper> 

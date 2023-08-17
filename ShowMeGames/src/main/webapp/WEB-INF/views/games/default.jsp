@@ -65,7 +65,7 @@
 							</div>
 						</div>
 						<!-- 리뷰 -->
-						<div class="game_detail_divs" id="game_detail_comment_div">
+						<div class="game_detail_divs" id="game_detail_comment_div" data-gab="${my_gab_list}" data-status="${my_status_list}">
 							<c:choose>
 								<c:when test="${is_use == true}">
 									<form action="" method="POST">
@@ -116,8 +116,18 @@
 												</div>
 											</div>
 											<div class="comment_div_right">
-												<textarea id="input_comment_content" name="comment_content"
-													placeholder="리뷰를 작성하세요."></textarea>
+												<c:choose>
+													<c:when test="${empty my_com}">
+														<textarea id="input_comment_content" name="comment_content"
+															placeholder="리뷰를 작성하세요."></textarea>
+													
+													</c:when>
+													<c:otherwise>
+														<div>
+															
+														</div>
+													</c:otherwise>
+												</c:choose>
 											</div>
 											<div id="comment_submit_div">
 												<button type="submit" id="comment_submit_btn">등록</button>
@@ -192,72 +202,24 @@
 																</div>
 																<div class="comment_content">${com.comment_content}</div>
 															</div>
-															<c:choose>
-																<c:when test="${!empty my_gab_list}">
-																	<c:forEach items="${my_gab_list}" var="gab">
-																		<c:choose>
-																			<c:when test="${gab.comment_id == com.comment_id}">
-																				<c:choose>
-																					<c:when test="${gab.status eq 'G'}">
-																						<div class="up_down_div">
-																							<div
-																								class="up_btn good-${new_com.comment_id} good_select"
-																								data-id="${new_com.comment_id}">
-																								<span data-id="${new_com.comment_id}"
-																									id="thumb_up"
-																									class="material-symbols-outlined up_down_btn">thumb_up</span>
-																								${com.good_cnt}
-																							</div>
-																							<div class="down_btn bad-${new_com.comment_id}"
-																								data-id="${new_com.comment_id}">
-																								<span data-id="${new_com.comment_id}"
-																									id="thumb_down"
-																									class="material-symbols-outlined up_down_btn">thumb_down</span>
-																								${com.bad_cnt}
-																							</div>
-																						</div>
-																					</c:when>
-																					<c:when test="${gab.status eq 'B'}">
-																						<div class="up_down_div">
-																							<div class="up_btn good-${new_com.comment_id}"
-																								data-id="${new_com.comment_id}">
-																								<span data-id="${new_com.comment_id}"
-																									id="thumb_up"
-																									class="material-symbols-outlined up_down_btn">thumb_up</span>
-																								${com.good_cnt}
-																							</div>
-																							<div
-																								class="down_btn bad-${com.comment_id} good_select"
-																								data-id="${com.comment_id}">
-																								<span data-id="${com.comment_id}"
-																									id="thumb_down"
-																									class="material-symbols-outlined up_down_btn">thumb_down</span>
-																								${com.bad_cnt}
-																							</div>
-																						</div>
-																					</c:when>
-																				</c:choose>
-																			</c:when>
-																		</c:choose>
-																	</c:forEach>
-																</c:when>
-																<c:otherwise>
-																	<div class="up_down_div">
-																		<div class="up_btn good-${com.comment_id}"
-																			data-id="${com.comment_id}">
-																			<span data-id="${com.comment_id}" id="thumb_up"
-																				class="material-symbols-outlined up_down_btn">thumb_up</span>
-																			${com.good_cnt}
-																		</div>
-																		<div class="down_btn bad-${com.comment_id}"
-																			data-id="${com.comment_id}">
-																			<span data-id="${com.comment_id}" id="thumb_down"
-																				class="material-symbols-outlined up_down_btn">thumb_down</span>
-																			${com.bad_cnt}
-																		</div>
-																	</div>
-																</c:otherwise>
-															</c:choose>
+															<div class="up_down_div">
+																<div class="up_btn good-${com.comment_id}"
+																	data-id="${com.comment_id}">
+																	<span data-id="${com.comment_id}" id="thumb_up"
+																		class="material-symbols-outlined up_down_btn">thumb_up</span>
+																	<span class="gab_btn g-${com.comment_id}">
+																		${com.good_cnt}
+																	</span>
+																</div>
+																<div class="down_btn bad-${com.comment_id}"
+																	data-id="${com.comment_id}">
+																	<span data-id="${com.comment_id}" id="thumb_down"
+																		class="material-symbols-outlined up_down_btn">thumb_down</span>
+																	<span class="gab_btn b-${com.comment_id}">
+																		${com.bad_cnt}
+																	</span>
+																</div>
+															</div>
 														</div>
 													</c:forEach>
 												</c:when>
@@ -288,74 +250,25 @@
 															</div>
 															<div class="new_comment_content">${new_com.comment_content}</div>
 														</div>
-														<c:choose>
-															<c:when test="${!empty my_gab_list}">
-																<c:forEach items="${my_gab_list}" var="gab">
-																	<c:choose>
-																		<c:when test="${gab.comment_id == new_com.comment_id}">
-																			<c:choose>
-																				<c:when test="${gab.status eq 'G'}">
-																					<div class="up_down_div">
-																						<div class="up_btn good-${new_com.comment_id} good_select"
-																							data-id="${new_com.comment_id}">
-																							<span data-id="${new_com.comment_id}"
-																								id="new_thumb_up"
-																								class="material-symbols-outlined new_up_down_btn">thumb_up</span>
-																							${new_com.good_cnt}
-																						</div>
-																						<div
-																							class="down_btn bad-${new_com.comment_id}"
-																							data-id="${new_com.comment_id}">
-																							<span data-id="${new_com.comment_id}"
-																								id="new_thumb_down"
-																								class="material-symbols-outlined new_up_down_btn">thumb_down</span>
-																							${new_com.bad_cnt}
-																						</div>
-																					</div>
-																				</c:when>
-																				<c:when test="${gab.status eq 'B'}">
-																					<div class="up_down_div">
-																						<div class="up_btn good-${new_com.comment_id}"
-																							data-id="${new_com.comment_id}">
-																							<span data-id="${new_com.comment_id}"
-																								id="new_thumb_up"
-																								class="material-symbols-outlined new_up_down_btn">thumb_up</span>
-																							${new_com.good_cnt}
-																						</div>
-																						<div
-																							class="down_btn bad-${new_com.comment_id} good_select"
-																							data-id="${new_com.comment_id}">
-																							<span data-id="${new_com.comment_id}"
-																								id="new_thumb_down"
-																								class="material-symbols-outlined new_up_down_btn">thumb_down</span>
-																							${new_com.bad_cnt}
-																						</div>
-																					</div>
-																				</c:when>
-																			</c:choose>
-																		</c:when>
-																	</c:choose>
-																</c:forEach>
-															</c:when>
-															<c:otherwise>
-																<div class="up_down_div">
-																	<div class="up_btn good-${new_com.comment_id}"
-																		data-id="${new_com.comment_id}">
-																		<span data-id="${new_com.comment_id}"
-																			id="new_thumb_up"
-																			class="material-symbols-outlined new_up_down_btn">thumb_up</span>
-																		${new_com.good_cnt}
-																	</div>
-																	<div class="down_btn bad-${new_com.comment_id}"
-																		data-id="${new_com.comment_id}">
-																		<span data-id="${new_com.comment_id}"
-																			id="new_thumb_down"
-																			class="material-symbols-outlined new_up_down_btn">thumb_down</span>
-																		${new_com.bad_cnt}
-																	</div>
-																</div>
-															</c:otherwise>
-														</c:choose>
+														<div class="up_down_div">
+															<div class="up_btn good-${new_com.comment_id}"
+																data-id="${new_com.comment_id}">
+																<span data-id="${new_com.comment_id}" id="new_thumb_up"
+																	class="material-symbols-outlined new_up_down_btn">thumb_up</span>
+																<span class="gab_btn g-${new_com.comment_id}">
+																	${new_com.good_cnt}
+																</span>
+															</div>
+															<div class="down_btn bad-${new_com.comment_id}"
+																data-id="${new_com.comment_id}">
+																<span data-id="${new_com.comment_id}"
+																	id="new_thumb_down"
+																	class="material-symbols-outlined new_up_down_btn">thumb_down</span>
+																<span class="gab_btn b-${new_com.comment_id}">
+																	${new_com.bad_cnt}
+																</span>
+															</div>
+														</div>
 													</div>
 												</c:forEach>
 											</div>

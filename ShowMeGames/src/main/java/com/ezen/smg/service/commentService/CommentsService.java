@@ -10,7 +10,9 @@ public interface CommentsService {
 	
 	int findGAB(int user_num, int comment_id);
 	
-	void goodService(GoodAndBadDTO dto, int result,int comment_id);
+	String getMyGABList(int user_num, String column);
+	
+	void goodService(GoodAndBadDTO dto, int result, int comment_id);
 	
 	void badService(GoodAndBadDTO dto, int result, int comment_id);
 }

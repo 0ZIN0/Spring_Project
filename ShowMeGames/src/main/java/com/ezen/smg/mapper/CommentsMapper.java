@@ -27,5 +27,9 @@ public interface CommentsMapper {
 	
 	int updateBad(@Param("dto") Comments dto);
 	
+	int commentGABCnt(@Param("comment_id") String comment_id, @Param("status") String status);
+	
 	List<GoodAndBadDTO> getMyGABList(@Param("user_num") int user_num);
+	
+	int getMyComment(@Param("user_num") int user_num, @Param("game_id") int game_id);
 }
