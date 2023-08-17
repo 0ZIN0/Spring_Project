@@ -40,7 +40,7 @@ $('#cartBtn').click(function (e) {
       }
       $.ajax({
           url : './add-cart',
-    type : 'PUT',
+          type : 'PUT',
           data : JSON.stringify(result, ['user_num', 'cart_content']),
           contentType : 'application/json;charset=utf-8',
           dataType : 'json',

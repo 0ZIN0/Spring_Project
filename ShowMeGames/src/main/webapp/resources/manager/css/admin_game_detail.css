@@ -7,6 +7,10 @@
     color: #eeab0a;
 }
 
+#layout_btn_wrapper {
+	margin-left: 15px;
+}
+
 .item_div {
     display: flex;
     flex-direction: column;
@@ -80,4 +84,12 @@
 	width: 50px;
 	border-radius: 3px;
     overflow: hidden;
+}
+
+.layout_check {
+	color: red;
+}
+
+.layout_check.chk {
+	color: green;
 }
