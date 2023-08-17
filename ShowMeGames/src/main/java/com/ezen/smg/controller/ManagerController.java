@@ -326,10 +326,24 @@ public class ManagerController {
 	}
 
 	@GetMapping("/manage/admin_inquiry")
-	String adminInquiry() {
+	String adminInquiry(Model model, Integer page) {
+		if(page == null) page = 1;
+		
+		int totalSize = serv.getTotalNum();
+		
+		model.addAttribute("paging", serv.getPagination(page, totalSize));
+		model.addAttribute("contents", serv.getContent(page));
+		
 		return "manager/admin_inquiry";
 	}
-
+	
+	@PostMapping("/manage/admin_inquiry")
+	String adminInquiry(Integer inquiry_id, String inquiry_answer) {
+		
+		serv.updateAnswer(inquiry_id, inquiry_answer);
+		return "redirect:/admin/manage/admin_inquiry";
+	};
+	
 	@GetMapping("/manage/admin_notice")
 	String adminNotice(Model model, Integer page) {
 
