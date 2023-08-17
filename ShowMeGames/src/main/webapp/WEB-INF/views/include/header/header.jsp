@@ -170,7 +170,7 @@
 
 	</div>
 	<div id="header-bottom" class="header-bottom-up">
-		<div id="header-bottom-logo">
+		<div id="header-bottom-logo" onclick="location.href='/smg/'">
 			<img src="${logo_img }/smg_subLogo.png" alt="서브로고" />
 		</div>
 		<div>
