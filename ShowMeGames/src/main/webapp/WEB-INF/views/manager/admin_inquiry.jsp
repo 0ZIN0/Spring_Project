@@ -52,7 +52,7 @@
 												</c:if>
 											</div>															
 											<div class="board_detail">
-												<div class="board_content paddingTopBottom">
+												<div class="board_content">
 													<div class="detail_first">
 														내용  
 													</div>
@@ -62,7 +62,7 @@
 												</div>
 												<form method="POST" action="./admin_inquiry" id="form">
 													<c:if test="${not empty content.inquiry_answer}">
-														<div class="admin_answer">
+														<div class="admin_answer" style="max-height:100vh">
 															<div class="detail_first">답변</div>
 															<div class="detail_last answer_detail">${content.inquiry_answer}</div>
 														</div>
@@ -70,12 +70,12 @@
 															<div class="detail_first">답변</div>
 															<input type="hidden" name="inquiry_id" value="${content.inquiry_id}"/>
 															<div class="detail_last edit_detail">
-																<textarea name="inquiry_answer" class="textarea"rows="10" cols="68" maxlength="1000"  placeholder="${content.inquiry_answer}" style="resize: none;"></textarea>
+																<textarea name="inquiry_answer" class="textarea"rows="10" cols="121" maxlength="1000"  placeholder="${content.inquiry_answer}" style="resize: none;"></textarea>
 															</div>
 															<div class="save_btn edit_detail">
 																<button class="save_btn" type="submit">수정</button>
 															</div>
-															<div class="cancle edit_detail">
+															<div class="edit_cancle edit_detail">
 																<button type="reset"class="cancle">취소</button>
 															</div>													
 														</div>
@@ -85,7 +85,7 @@
 															<div class="detail_first">답변</div>
 															<input type="hidden" name="inquiry_id" value="${content.inquiry_id}"/>
 															<div class="detail_last">
-																<textarea name="inquiry_answer" class="textarea"rows="10" cols="68" maxlength="1000"  placeholder="내용을 입력해 주세요." style="resize: none;"></textarea>
+																<textarea name="inquiry_answer" class="textarea"rows="10" cols="121" maxlength="1000"  placeholder="내용을 입력해 주세요." style="resize: none;"></textarea>
 															</div>
 															<div class="save_btn">
 																<button class="save_btn" type="submit">저장</button>
@@ -96,7 +96,7 @@
 														</div>
 													</c:if>
 												</form>
-												<div class="board_attachment paddingTopBottom">
+												<div class="board_attachment">
 													<div class="detail_first">첨부파일</div>
 													<div class="board_img detail_last">
 														<img class="myImg"src="${inquiries_img}${content.attachment}" alt="첨부파일" />

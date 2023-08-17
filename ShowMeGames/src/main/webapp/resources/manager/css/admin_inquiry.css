@@ -101,11 +101,6 @@
    
 }
 
-.paddingTopBottom {
-	padding-top:10px;
-	padding-bottom:10px;
-}
-
 .admin_answer {
 	display:grid;
 	grid-template-columns: 100px 150px 1fr 150px 150px;
@@ -115,7 +110,7 @@
     transition: max-height 300ms ease-in-out;	
 	max-height: 0px;
 	overflow:hidden;
-	background-color: #cecece;
+	background-color: #cecece;	
 }
 
 .admin_edit {
@@ -185,7 +180,7 @@
     background-color: blueviolet;
 }
 
-.cancle_btn, .cancle > button {
+.cancle_btn, .edit_cancle > button {
 	border-radius: 8px;   
     width: 130px;
     height: 40px;
@@ -222,7 +217,8 @@
 	overflow:hidden;
 	height:230px;
 	position:relative;
-	
+	padding-top:10px;
+	padding-bottom:10px;
 }
 
 #pageDiv {
