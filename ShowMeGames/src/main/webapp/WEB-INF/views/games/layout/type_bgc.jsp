@@ -6,6 +6,8 @@
 <!-- common url settings 각자 디테일 페이지에 추가해야함 -->
 <c:url value="/resources/games/css/detail_common.css" var="detail_common_css" />
 <c:url value="/resources/games/js/detail_common.js" var="detail_common_js" />
+<c:url value="/resources/games/css/type_bgc.css" var="type_bgc_css" />
+<c:url value="/resources/games/js/type_bgc.js" var="type_bgc_js" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +17,7 @@
 <%@ include file="/WEB-INF/views/include/link/common.jsp"%>
 <!-- common css 각자 디테일 페이지에 추가해야함 -->
 <link rel="stylesheet" href="${detail_common_css}">
+<link rel="stylesheet" href="${type_bgc_css}">
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp"%>
@@ -33,5 +36,7 @@
 	<!-- js -->
 	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp"%>
 	<script src="${detail_common_js}"></script>
+	<script src="${type_bgc_js}"></script>
+	
 </body>
 </html>
