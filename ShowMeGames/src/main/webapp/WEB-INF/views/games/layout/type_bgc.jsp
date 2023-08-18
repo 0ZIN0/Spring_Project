@@ -8,6 +8,7 @@
 <c:url value="/resources/games/js/detail_common.js" var="detail_common_js" />
 <c:url value="/resources/games/css/type_bgc.css" var="type_bgc_css" />
 <c:url value="/resources/games/js/type_bgc.js" var="type_bgc_js" />
+<c:url value="/resources/img/games/gicheol/" var="img_path"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,78 @@
 			<div id="game_detail_div">
 				<%@ include file="/WEB-INF/views/games/include/detail_top.jsp"%>
 				<!-- 아래부터는 free layout -->
-
+				<div>
+					<video controls	width="500" height="350" poster>
+						<source src="${bgc_imgs}apex/movie480_vp9.webm" type="video/webm"></source>
+					</video>
+				</div>
+				<div class="main_contents">
+					<img id=main_img alt="" src="${img_path}apex/EA_APEX_STEAM-PDP_KO (1).jpg">
+				</div>
+				
+				<div class="specifications">
+					<div style="color:#c0c0c0; border-bottom:solid 3px #c0c0c0;"><h2>시스템 사양</h2></div>
+					<div class="specs">
+						<div>
+							<span class="span1">최소</span>
+							<span class="span2"></span>					
+						</div>
+						<div>
+							<span class="span1">권장</span>
+							<span class="span2"></span>
+						</div>
+					</div>					
+					<div class="specs">
+						<div>
+							<span class="span1">운영체제</span>
+							<span class="span2">${spec.min_os}</span>
+						</div>
+						<div>
+							<span class="span1">운영체제</span>
+							<span class="span2">${spec.rec_os}</span>
+						</div>
+					</div>
+					<div class="specs">
+						<div>
+							<span class="span1">프로세서</span>
+							<span class="span2">${spec.min_processor}</span>
+						</div>
+						<div>
+							<span class="span1">프로세서</span>
+							<span class="span2">${spec.rec_processor}</span>
+						</div>
+					</div>
+					<div class="specs">
+						<div>
+							<span class="span1">메모리</span>
+							<span class="span2">${spec.min_memory}</span>
+						</div>
+						<div>
+							<span class="span1">메모리</span>
+							<span class="span2">${spec.rec_memory}</span>
+						</div>
+					</div>
+					<div class="specs">
+						<div>
+							<span class="span1">스토리지</span>
+							<span class="span2">${spec.min_storage}</span>
+						</div>
+						<div>
+							<span class="span1">스토리지</span>
+							<span class="span2">${spec.rec_storage}</span>
+						</div>
+					</div>
+					<div class="specs">
+						<div>
+							<span class="span1">그래픽 카드</span>
+							<span class="span2">${spec.min_graphics_card}</span>
+						</div>
+						<div>
+							<span class="span1">그래픽 카드</span>
+							<span class="span2">${spec.rec_graphics_card}</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</main>
