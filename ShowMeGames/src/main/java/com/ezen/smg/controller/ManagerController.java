@@ -198,6 +198,7 @@ public class ManagerController {
 		switch(layout) {
 			case "LRA":
 				return "manager/admin_layout/layout_lra";
+				
 			case "JYM":
 				return "manager/admin_layout/layout_jym";
 			case "HGT":

@@ -81,34 +81,34 @@
 														<div class="comment_user_grade">
 															<c:choose>
 																<c:when test="${user.user_grade eq 'S'}">
-																	<div class="profile-grade">
+																	<div class="com-profile-grade">
 																		<img class="comment-grade-image"
 																			src="${member_img}/grade/diamond_icon.png"
 																			alt="다이아몬드 이미지">
 																	</div>
 																</c:when>
 																<c:when test="${user.user_grade eq 'A'}">
-																	<div class="profile-grade">
+																	<div class="com-profile-grade">
 																		<img class="comment-grade-image"
 																			src="${member_img}/grade/platinum_icon.png"
 																			alt="플래티넘 이미지">
 																	</div>
 																</c:when>
 																<c:when test="${user.user_grade eq 'B'}">
-																	<div class="profile-grade">
+																	<div class="com-profile-grade">
 																		<img class="comment-grade-image"
 																			src="${member_img}/grade/gold_icon.png" alt="골드 이미지">
 																	</div>
 																</c:when>
 																<c:when test="${user.user_grade eq 'C'}">
-																	<div class="profile-grade">
+																	<div class="com-profile-grade">
 																		<img class="comment-grade-image"
 																			src="${member_img}/grade/silver_icon.png"
 																			alt="실버 이미지">
 																	</div>
 																</c:when>
 																<c:when test="${user.user_grade eq 'D'}">
-																	<div class="profile-grade">
+																	<div class="com-profile-grade">
 																		<img class="comment-grade-image"
 																			src="${member_img}/grade/bronze_icon.png"
 																			alt="등급 이미지">
@@ -156,34 +156,34 @@
 														<div class="comment_user_grade">
 															<c:choose>
 																<c:when test="${my_com.user_grade eq 'S'}">
-																	<div class="profile-grade">
+																	<div class="com-profile-grade">
 																		<img class="comment-grade-image"
 																			src="${member_img}/grade/diamond_icon.png"
 																			alt="다이아몬드 이미지">
 																	</div>
 																</c:when>
 																<c:when test="${my_com.user_grade eq 'A'}">
-																	<div class="profile-grade">
+																	<div class="com-profile-grade">
 																		<img class="comment-grade-image"
 																			src="${member_img}/grade/platinum_icon.png"
 																			alt="플래티넘 이미지">
 																	</div>
 																</c:when>
 																<c:when test="${my_com.user_grade eq 'B'}">
-																	<div class="profile-grade">
+																	<div class="com-profile-grade">
 																		<img class="comment-grade-image"
 																			src="${member_img}/grade/gold_icon.png" alt="골드 이미지">
 																	</div>
 																</c:when>
 																<c:when test="${my_com.user_grade eq 'C'}">
-																	<div class="profile-grade">
+																	<div class="com-profile-grade">
 																		<img class="comment-grade-image"
 																			src="${member_img}/grade/silver_icon.png"
 																			alt="실버 이미지">
 																	</div>
 																</c:when>
 																<c:when test="${my_com.user_grade eq 'D'}">
-																	<div class="profile-grade">
+																	<div class="com-profile-grade">
 																		<img class="comment-grade-image"
 																			src="${member_img}/grade/bronze_icon.png"
 																			alt="등급 이미지">
@@ -265,35 +265,35 @@
 																	<div class="comment_user_grade">
 																		<c:choose>
 																			<c:when test="${com.user_grade eq 'S'}">
-																				<div class="profile-grade">
+																				<div class="com-profile-grade">
 																					<img class="comment-grade-image"
 																						src="${member_img}/grade/diamond_icon.png"
 																						alt="다이아몬드 이미지">
 																				</div>
 																			</c:when>
 																			<c:when test="${com.user_grade eq 'A'}">
-																				<div class="profile-grade">
+																				<div class="com-profile-grade">
 																					<img class="comment-grade-image"
 																						src="${member_img}/grade/platinum_icon.png"
 																						alt="플래티넘 이미지">
 																				</div>
 																			</c:when>
 																			<c:when test="${com.user_grade eq 'B'}">
-																				<div class="profile-grade">
+																				<div class="com-profile-grade">
 																					<img class="comment-grade-image"
 																						src="${member_img}/grade/gold_icon.png"
 																						alt="골드 이미지">
 																				</div>
 																			</c:when>
 																			<c:when test="${com.user_grade eq 'C'}">
-																				<div class="profile-grade">
+																				<div class="com-profile-grade">
 																					<img class="comment-grade-image"
 																						src="${member_img}/grade/silver_icon.png"
 																						alt="실버 이미지">
 																				</div>
 																			</c:when>
 																			<c:when test="${com.user_grade eq 'D'}">
-																				<div class="profile-grade">
+																				<div class="com-profile-grade">
 																					<img class="comment-grade-image"
 																						src="${member_img}/grade/bronze_icon.png"
 																						alt="등급 이미지">
