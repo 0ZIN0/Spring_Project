@@ -126,8 +126,10 @@
 							${layout.game_story_text}</div>
 					</div>
 				</div>
-				<!-- 리뷰 -->
-				<%@ include file="/WEB-INF/views/games/include/review.jsp" %>
+				<div id="reivew_outline_wrapper">
+					<!-- 리뷰 -->
+					<%@ include file="/WEB-INF/views/games/include/review.jsp" %>
+				</div>
 			</div>
 		</div>
 	</main>
