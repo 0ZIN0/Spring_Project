@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.dto.GameKeyDTO;
+import com.ezen.smg.dto.GameSpecificationsDTO;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
@@ -34,6 +35,7 @@ import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
 import com.ezen.smg.mapper.FAQmapper;
+import com.ezen.smg.mapper.GameSpecificationsMapper;
 import com.ezen.smg.mapper.NoticeMapper;
 import com.ezen.smg.service.faqService.FAQService;
 import com.ezen.smg.service.layoutService.MNG_LayoutService;
@@ -56,16 +58,19 @@ public class ManagerController {
 	ManagerService serv;
 
 	@Autowired
+	FAQService faqService;
+	
+	@Autowired
+	MNG_LayoutService layoutServ;
+	
+	@Autowired
 	NoticeMapper noticeMapper;
 
 	@Autowired
-	FAQService faqService;
-
-	@Autowired
 	FAQmapper faQmapper;
-
+	
 	@Autowired
-	MNG_LayoutService layoutServ;
+	GameSpecificationsMapper specMapper;
 	
 	@GetMapping("")
 	String certification(HttpServletRequest request) {
@@ -169,6 +174,8 @@ public class ManagerController {
 
 		model.addAttribute("game", game);
 		model.addAttribute("rated", game.getRated().split("/"));
+		
+		model.addAttribute("spec", specMapper.getSpec(game_id));
 
 		return "manager/admin_game_detail";
 	}
@@ -206,7 +213,30 @@ public class ManagerController {
 				model.addAttribute("layout", layoutServ.getLayoutDefault(game_id));
 				return "manager/admin_layout/layout_default";
 		}
+	}
+	
+	@GetMapping("/manage/admin_game_req")
+	String adminSetGameReq(Integer game_id, Model model) {
 		
+		model.addAttribute("game_id", game_id);
+		model.addAttribute("spec", specMapper.getSpec(game_id));
+		
+		return "manager/admin_game_req_update";
+	}
+	
+	@PostMapping("/manage/admin_game_req")
+	String adminSetGameReqPost(Integer origin_game_id, GameSpecificationsDTO dto) {
+		
+		// insert로
+		if(dto.getGame_id() == null) {
+			dto.setGame_id(origin_game_id);
+			specMapper.insertSpec(dto);
+		// update로
+		} else {
+			specMapper.updateSpec(dto);
+		}
+		
+		return "redirect:admin_game_detail?game_id=" + origin_game_id;
 	}
 	
 	@PostMapping("/manage/layout_update_default")
