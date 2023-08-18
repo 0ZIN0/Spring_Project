@@ -32,4 +32,12 @@ public interface CommentsMapper {
 	List<GoodAndBadDTO> getMyGABList(@Param("user_num") int user_num);
 	
 	Comments getMyComment(@Param("user_num") int user_num, @Param("game_id") int game_id);
+	
+	int deleteMyCommentGAB(@Param("comment_id") int comment_id);
+	
+	int deleteMyComment(@Param("comment_id") int comment_id);
+	
+	int addMyComment(@Param("dto") Comments dto);
+	
+	double getGameGrade(@Param("game_id") int game_id);
 }

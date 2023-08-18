@@ -67,5 +67,20 @@
 	<select id="getMyComment" parameterType="int">
 		select * from comments inner join smg_users using(user_num) where game_id=#{game_id} and user_num=#{user_num}
 	</select>
-	
+	<delete id="deleteMyCommentGAB" parameterType="int">
+		delete good_and_bad where comment_id=#{comment_id}
+	</delete>
+	<delete id="deleteMyComment" parameterType="int">
+		delete comments where comment_id=#{comment_id}
+	</delete>
+	<insert id="addMyComment" parameterType="com.ezen.smg.dto.GoodAndBadDTO">
+		insert into comments(
+			comment_id, game_id, user_num, comment_content, write_date, good_cnt, bad_cnt, grade
+		) values(
+			comment_id_seq.nextval, #{dto.game_id}, #{dto.user_num}, #{dto.comment_content}, sysdate, 0, 0, #{dto.grade}
+		)
+	</insert>
+	<select id="getGameGrade" parameterType="int" resultType="double">
+		select trunc(avg(grade), 1) from comments where game_id=#{game_id}
+	</select>
 </mapper> 
