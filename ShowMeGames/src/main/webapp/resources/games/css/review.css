@@ -17,6 +17,7 @@ div.game_detail_divs {
     border-radius: 8px;
     padding: 16px;
     margin-right: 20px;
+    position: relative;
 }
 
 .comment_div_left {
@@ -135,7 +136,7 @@ div.game_detail_divs {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.good_select {
+.good_select span {
     color: #f22349;
 }
 

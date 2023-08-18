@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- 리뷰 -->
+<input id="com_id_data" type="hidden" data-mycom="${my_com.comment_id}" data-bestcom="${best_com_id}" data-newcom="${new_com_id}"/>
 <div class="game_detail_divs" id="game_detail_comment_div"
 	data-gab="${my_gab_list}" data-status="${my_status_list}">
 	<c:choose>
@@ -130,13 +131,13 @@
 								게시 일시: <fmt:formatDate pattern="yyyy. MM. dd" value="${my_com.write_date}" />
 							</div>
 							<div class="input_game_grade_content">
-								<input type="hidden" class="input_game_grade"
+								<input type="hidden" class="input_game_grade input_game_grade_${my_com.comment_id}"
 									name="game_grade" step="0.1" max="5.0" min="0"
 									value="${my_com.grade}" required />
 								<div class="comment_grade">
 									<div class="starpoint_title">별점&nbsp;</div>
 									<div class="my_rating">
-										★★★★★ <span class="starpoint">★★★★★</span>
+										★★★★★ <span class="starpoint starpoint_${my_com.comment_id}">★★★★★</span>
 									</div>
 								</div>
 							</div>

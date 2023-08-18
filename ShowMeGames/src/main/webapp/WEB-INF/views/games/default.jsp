@@ -26,8 +26,6 @@
 <link rel="stylesheet" href="${resource}/css/review.css">
 </head>
 <body>
-	<input id="com_id_data" type="hidden" data-mycom="${my_com.comment_id}" data-bestcom="${best_com_id}" data-newcom="${new_com_id}"/>
-	
 	<%@ include file="/WEB-INF/views/include/header/header.jsp"%>
 	<main class="background_layer1">
 		<div class="background_layer2">

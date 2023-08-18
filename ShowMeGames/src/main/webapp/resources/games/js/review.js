@@ -1,5 +1,5 @@
 // comment 기능
-const gab = $('#game_detail_comment_div').data('gab') + "";
+const gab = String($('#game_detail_comment_div').data('gab'));
 console.log(gab);
 if (gab.includes('/')) {
     const gabStr = $('#game_detail_comment_div').data('gab').split('/');
@@ -177,6 +177,11 @@ $('#comment_submit_btn').click(function (e) {
 // 별점 기능들
 const my_com_id = $('#com_id_data').data('mycom');
 let best_com_id = $('#com_id_data').data('bestcom') + "";
+
+function bestStarCal(span, game_grade) {
+    span.css('width', `${100 * game_grade/5}%`);    
+}
+
 if (best_com_id.includes('/')) {
     best_com_id = $('#com_id_data').data('bestcom').split('/');
 
@@ -184,23 +189,16 @@ if (best_com_id.includes('/')) {
         let best_star_span = $(`.starpoint_${com}`);
         let best_game_grade = $(`.input_game_grade_${com}`).val();
         console.log(`#best_starpoint_${com}`);
-        function bestStarCal(game_grade) {
-            best_star_span.css('width', `${100 * best_game_grade/5}%`);    
-        }
 
         console.log("best_grade: "+ best_game_grade);
-        bestStarCal(best_game_grade);
+        bestStarCal(best_star_span, best_game_grade);
     });
 } else {
     let best_star_span = $(`.starpoint_${best_com_id}`);
     let best_game_grade = $(`.input_game_grade_${best_com_id}`).val();
 
-    function bestStarCal(game_grade) {
-        best_star_span.css('width', `${100 * best_game_grade/5}%`);    
-    }
-
     console.log("best_grade: "+ best_game_grade);
-    bestStarCal(best_game_grade);
+    bestStarCal(best_star_span, best_game_grade);
 }
 
 let new_com_id = $('#com_id_data').data('newcom') + "";
@@ -214,10 +212,8 @@ if (new_com_id.includes('/')) {
 
         console.log("최신 리뷰 별점: " + new_game_grade);
 
-        function newStarCal(game_grade) {
-            new_star_span.css('width', `${100 * new_game_grade/5}%`);    
-        }
-        newStarCal(new_game_grade);
+        bestStarCal(new_star_span, new_game_grade);
+
     });
 } else {
     let new_star_span = $(`.starpoint_${new_com_id}`);
@@ -225,10 +221,8 @@ if (new_com_id.includes('/')) {
     
     console.log("최신 리뷰 별점: " + new_game_grade);
 
-    function newStarCal(game_grade) {
-        $(new_star_span).css('width', `${100 * new_game_grade/5}%`);    
-    }
-    newStarCal(new_game_grade);
+    bestStarCal(new_star_span, new_game_grade);
+
 }
 
 console.log("my: " + my_com_id);
