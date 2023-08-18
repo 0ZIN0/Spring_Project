@@ -16,7 +16,7 @@
 	<!-- top_bar -->
 	<%@ include file="/WEB-INF/views/manager/include/top_bar.jsp" %>
 	
-	<main class="background_layer1" data-id="${game.game_id}">
+	<main class="background_layer1" data-id="${game.game_id}" data-prePageInfo="${prePageInfo}">
 		<div id="main_content_wrapper" class="background_layer2">
 			<!-- side_bar -->
 			<%@ include file="/WEB-INF/views/manager/include/side_bar.jsp" %>

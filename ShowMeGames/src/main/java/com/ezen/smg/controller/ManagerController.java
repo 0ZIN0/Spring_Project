@@ -117,7 +117,6 @@ public class ManagerController {
 	@GetMapping("/manage/admin_game")
 	String adminGame(Integer page, String type, String key, Model model) {
 		if(page == null) page = 1;
-
 		
 		int totalSize;
 		
@@ -140,10 +139,6 @@ public class ManagerController {
 		}
 		
 		model.addAttribute("paging", serv.getPagination(page, totalSize));
-		
-		String[] pageInfoArr = {String.valueOf(page), type, key}; 
-				
-		model.addAttribute("prePageInfo", );
 		
 		return "manager/admin_game";
 	}
@@ -170,7 +165,7 @@ public class ManagerController {
 	}
 	
 	@GetMapping("/manage/admin_game_detail")
-	String adminGameDetail(Integer game_id, Model model) {
+	String adminGameDetail(Integer game_id, String prePageInfo, Model model) {
 
 		Games game = serv.getGameDetail(game_id);
 		
@@ -180,6 +175,8 @@ public class ManagerController {
 		model.addAttribute("rated", game.getRated().split("/"));
 		
 		model.addAttribute("spec", specMapper.getSpec(game_id));
+		
+		model.addAttribute("prePageInfo", prePageInfo);
 
 		return "manager/admin_game_detail";
 	}

@@ -70,5 +70,5 @@ public class CommonFunction {
 	public static String handleBrToCrlf(String text) {
 		return text.replaceAll("<br>", "\r\n");
 	}
-	
+
 }
