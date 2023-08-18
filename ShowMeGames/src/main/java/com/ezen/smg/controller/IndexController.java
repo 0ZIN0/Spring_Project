@@ -86,6 +86,7 @@ public class IndexController {
 		model.addAttribute("rateds", gameDTO.getRated().split("/"));
 		model.addAttribute("images", imagesService.getNomalImages(game, 1, 5));
 		model.addAttribute("sub_banner", imagesService.getSubBanner(game));
+		model.addAttribute("layout", layoutMapper.getLayoutDefault(game));
 		if (user == null) {
 			model.addAttribute("is_use", false);
 		} else {
