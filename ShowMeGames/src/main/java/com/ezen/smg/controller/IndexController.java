@@ -81,6 +81,7 @@ public class IndexController {
 		
 		Games gameDTO = gamesMapper.getGame(game);
 		gameDTO.setDiscounted_price(CommonFunction.calDiscount(gameDTO.getGame_price(), gameDTO.getDiscount()));
+		gameDTO.setGame_grade(commentsMapper.getGameGrade(game));
 		
 		model.addAttribute("game", gameDTO);
 		model.addAttribute("rateds", gameDTO.getRated().split("/"));

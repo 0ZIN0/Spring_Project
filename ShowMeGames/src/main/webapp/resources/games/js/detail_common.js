@@ -121,3 +121,12 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+
+const game_star_span = $('#game_starpoint');
+let game_total_grade = $('#input_game_total_grade').val();
+
+// 리뷰 작성할때
+function writeStarCal(game_grade) {
+    $(game_star_span).css('width', `${100 * game_total_grade/5}%`);    
+}
+writeStarCal(game_total_grade);
