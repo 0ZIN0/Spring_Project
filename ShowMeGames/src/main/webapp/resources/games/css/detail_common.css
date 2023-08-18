@@ -38,6 +38,17 @@
     cursor: pointer;
 }
 
+.starpoint {
+    color: #fbbc05;
+    display: inline-block;
+    width: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
 #game_grade_div {
     display: flex;
     flex-wrap: wrap;

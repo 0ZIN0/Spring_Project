@@ -39,5 +39,5 @@ public interface CommentsMapper {
 	
 	int addMyComment(@Param("dto") Comments dto);
 	
-	double getGameGrade(@Param("game_id") int game_id);
+	Double getGameGrade(@Param("game_id") int game_id);
 }

@@ -80,7 +80,7 @@
 			comment_id_seq.nextval, #{dto.game_id}, #{dto.user_num}, #{dto.comment_content}, sysdate, 0, 0, #{dto.grade}
 		)
 	</insert>
-	<select id="getGameGrade" parameterType="int" resultType="double">
+	<select id="getGameGrade" parameterType="int" resultType="Double">
 		select trunc(avg(grade), 1) from comments where game_id=#{game_id}
 	</select>
 </mapper> 
