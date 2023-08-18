@@ -97,4 +97,8 @@
 	<select id="getLayoutKCW" resultType="com.ezen.smg.dto.layout.LayoutKCWDTO">
 		SELECT * FROM kcw_layout WHERE game_id=#{id}
 	</select>
+	
+	<select id="getLayoutCheck_kcw">
+		SELECT count(*) FROM kcw_layout WHERE game_id=#{id}
+	</select>
 </mapper>

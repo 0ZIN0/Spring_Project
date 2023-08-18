@@ -159,7 +159,7 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 			case "HGT":
 				return mapper.getLayoutCheck_hgt(game_id);
 			case "KCW":
-				return 0;
+				return mapper.getLayoutCheck_kcw(game_id);
 			case "SJH":
 				return 0;
 			case "BGC":

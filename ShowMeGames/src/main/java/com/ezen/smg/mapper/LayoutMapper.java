@@ -22,6 +22,7 @@ public interface LayoutMapper {
 	int getLayoutCheck_default(@Param("id") Integer game_id);
 	int getLayoutCheck_hgt(@Param("id") Integer game_id);
 	
-	LayoutKCWDTO getLayoutKCW(@Param("id") Integer game_id);
+	LayoutKCWDTO getLayoutKCW(@Param("id") int game_id);
+	int getLayoutCheck_kcw(@Param("id") Integer game_id);
 
 }
