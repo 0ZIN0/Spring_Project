@@ -33,7 +33,7 @@
 					<h3 style="color: #fff; font-size: 30px">
 						${game.game_name}
 					</h3>
-					<button onclick="location.href='./?game=${game.game_id}'">
+					<button onclick="window.history.back()">
 						게임 페이지
 					</button>
 				</div>

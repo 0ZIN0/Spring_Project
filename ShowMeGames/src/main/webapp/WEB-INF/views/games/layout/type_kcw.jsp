@@ -6,6 +6,7 @@
 <!-- common url settings 각자 디테일 페이지에 추가해야함 -->
 <c:url value="/resources/games/css/detail_common.css" var="detail_common_css" />
 <c:url value="/resources/games/js/detail_common.js" var="detail_common_js" />
+<c:url value="/resources/games/layout/kcw" var="img"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,9 @@
 		<div class="background_layer2">
 			<div id="game_detail_div">
 				<%@ include file="/WEB-INF/views/games/include/detail_top.jsp"%>
-				<!-- 아래부터는 free layout -->
+				<div class="content_div">
+					<img src="./" alt="" />
+				</div>
 
 			</div>
 		</div>
