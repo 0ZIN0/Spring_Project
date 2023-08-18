@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+.detail_div {
+	
+}
+
+.content_div {
+	position: sticky;
+	top: 100px;
+}
+
+.overflow {
+	position: sticky;
+	top: 100px;
+}
+
+.first {
+	z-index: 1;
+}
+
+.second {
+	z-index: 2;
+}
+
+.third {
+	z-index: 3;
+}
+
+.forth {
+	z-index: 4;
+}
+
+.detail_text {
+	position: absolute; /* Position the background text */
+	background: rgb(0, 0, 0); /* Fallback color */
+	background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+	color: #f1f1f1; /* Grey text */
+	width: 500px;
+	padding: 20px; /* Some padding */
+	
+}
+
+
+.second > .detail_text {
+	top: 100px;
+	right: 100px;	
+}
+
+.third > .detail_text {
+	top: 100px;
+	left: 100px;	
+}
+
+.forth > .detail_text {
+	top: 100px;
+	right: 100px;	
+}
+
+.detail_text>p {
+	font-size: 24px;
+}
