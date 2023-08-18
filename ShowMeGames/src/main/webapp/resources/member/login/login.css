@@ -21,12 +21,10 @@ h2 > * {
 }
 
 .main-container {
-  padding: 10px;
-}
-
-.logo-container {
-  position: relative;
-  margin-right: 10px;
+  margin: auto;
+  width: 480px;
+  height: auto;
+  padding: 15px;
 }
 
 .loginAndSignUp-container {
@@ -34,15 +32,16 @@ h2 > * {
 }
 
 #IdLoginText {
+	font-size: 30px;
   text-decoration: none;
 }
 
 .title-link {
   margin-left: 215px;
-  font-size: 23px;
+  font-size: 30px;
   font-weight: 400;
   text-decoration: none;
-  color: inherit;
+  color: gray;
 }
 
 .title-link:hover {

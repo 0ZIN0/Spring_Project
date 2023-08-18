@@ -266,10 +266,9 @@ header {
 }
 
 .profile-left {
-  width: 95px;
+  width: 110px;
   height: 95px;
   background-color: black;
-  margin-left: 20px;
 }
 
 .profile-left img {
@@ -281,29 +280,30 @@ header {
 .profile-right {
   width: 70%;
   padding-left: 24px;
+  display: grid;
+  grid-template-rows: 30% 70%;
 }
 
 .profile-nick {
-  margin-left: 5px;
-  text-align: left;
   font-size: 24px;
   font-weight: 800;
   text-align: left;
 }
 
 .profile-grade {
-  margin-top: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+  align-items: center;
+  column-gap: 5px;
 }
 
 .grade-image {
-  position: absolute;
-  top: 75px; /* 이미지가 글자 위로 올라갈 거리 */
-  left: 143px; /* 이미지가 글자 왼쪽으로 옮겨질 거리 */
   width: 31px; /* 이미지 너비 */
   height: 31px; /* 이미지 높이 */
   z-index: -1; /* 이미지를 글자 뒤로 보내기 */
 }
-
+/* 
 .diamond-text {
   font-size: 15px;
   margin-left: -3px;
@@ -327,6 +327,10 @@ header {
 .bronze-text {
   font-size: 15px;
   margin-left: -41px;
+} */
+
+.grade-text {
+  font-size: 15px;
 }
 
 .recommend {
@@ -511,7 +515,7 @@ header {
 }
 
 #header-bottom-logo {
-	margin-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 #header-bottom > :not(:first-child) {
@@ -979,8 +983,8 @@ img {
 }
 
 .minicart-sub-total {
-	width: 100%;
-	height: 90px;
+  width: 100%;
+  height: 90px;
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -1014,133 +1018,129 @@ img {
 }
 
 .button-wrapper {
-	display: inline-block;
-	position: relative;
-	z-index: 1;
-	width: 200px;
-	border-radius: 50px;
-	border: 3px solid;
-	background: #ecdddd;
-	/* margin: 0 auto; */
-	/* padding: 10px 0; */
-	
-	font-size: 1.2em;
-	font-weight: 600;
-	text-align: center;
-	color: #37474f;
-	cursor: pointer;
-	backface-visibility: hidden;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  width: 200px;
+  border-radius: 50px;
+  border: 3px solid;
+  background: #ecdddd;
+  /* margin: 0 auto; */
+  /* padding: 10px 0; */
+
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  color: #37474f;
+  cursor: pointer;
+  backface-visibility: hidden;
 }
 
 .button-wrapper:focus {
-	outline: none;
-  }
-
-  /* Move to Cart Page Btn Effect */
-  .button-effect-moema {
-	border-radius: 50px;
-	color: #37474F;
-	border-color: #ff8300;
-	transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .button-effect-moema::before {
-	content: '';
-	position: absolute;
-	top: -20px;
-	left: -20px;
-	bottom: -20px;
-	right: -20px;
-	background: inherit;
-	border-radius: 50px;
-	z-index: -1;
-	opacity: 0.8;
-	transform: scale3d(0.8, 0.5, 1);
-  }
-  .button-effect-moema:hover {
-	transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
-	color: #fff;
-	background-color: #ff8300;
-	animation: anim-moema-1 0.3s forwards;
-  }
-  
-  .button-effect-moema:hover::before {
-	animation: anim-moema-2 0.3s 0.3s forwards;
-  }
-  @keyframes anim-moema-1 {
-	60% {
-	  transform: scale3d(0.8, 0.8, 1);
-	}
-	85% {
-	  transform: scale3d(1.1, 1.1, 1);
-	}
-	100% {
-	  transform: scale3d(1, 1, 1);
-	}
-  }
-  @keyframes anim-moema-2 {
-	to {
-	  opacity: 0;
-	  transform: scale3d(1, 1, 1);
-	}
-  }
-  
-    /* Move to Checkout Page Btn Effect */
-	.button-effect-moema2 {
-		border-radius: 50px;
-		color: #37474F;
-		transition: background-color 0.3s, color 0.3s;
-		border-color: #f22349;
-	  }
-	  
-	  .button-effect-moema2::before {
-		content: '';
-		position: absolute;
-		top: -20px;
-		left: -20px;
-		bottom: -20px;
-		right: -20px;
-		background: inherit;
-		border-radius: 50px;
-		z-index: -1;
-		opacity: 0.8;
-		transform: scale3d(0.8, 0.5, 1);
-	  }
-	  
-	  .button-effect-moema2:hover {
-		transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
-		color: #fff;
-		background-color: #f22349;
-		animation: anim-moema-1 0.3s forwards;
-	  }
-	  
-	  .button-effect-moema2:hover::before {
-		animation: anim-moema-2 0.3s 0.3s forwards;
-	  }
-
-	  @keyframes anim-moema-1 {
-		60% {
-		  transform: scale3d(0.8, 0.8, 1);
-		}
-		85% {
-		  transform: scale3d(1.1, 1.1, 1);
-		}
-		100% {
-		  transform: scale3d(1, 1, 1);
-		}
-	  }
-
-	  @keyframes anim-moema-2 {
-		to {
-		  opacity: 0;
-		  transform: scale3d(1, 1, 1);
-		}
-	  }
-
-
-#header-bottom-logo > img {
-	object-fit: contain;
+  outline: none;
 }
 
+/* Move to Cart Page Btn Effect */
+.button-effect-moema {
+  border-radius: 50px;
+  color: #37474f;
+  border-color: #ff8300;
+  transition: background-color 0.3s, color 0.3s;
+}
 
+.button-effect-moema::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  bottom: -20px;
+  right: -20px;
+  background: inherit;
+  border-radius: 50px;
+  z-index: -1;
+  opacity: 0.8;
+  transform: scale3d(0.8, 0.5, 1);
+}
+.button-effect-moema:hover {
+  transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+  color: #fff;
+  background-color: #ff8300;
+  animation: anim-moema-1 0.3s forwards;
+}
 
+.button-effect-moema:hover::before {
+  animation: anim-moema-2 0.3s 0.3s forwards;
+}
+@keyframes anim-moema-1 {
+  60% {
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  85% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes anim-moema-2 {
+  to {
+    opacity: 0;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* Move to Checkout Page Btn Effect */
+.button-effect-moema2 {
+  border-radius: 50px;
+  color: #37474f;
+  transition: background-color 0.3s, color 0.3s;
+  border-color: #f22349;
+}
+
+.button-effect-moema2::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  bottom: -20px;
+  right: -20px;
+  background: inherit;
+  border-radius: 50px;
+  z-index: -1;
+  opacity: 0.8;
+  transform: scale3d(0.8, 0.5, 1);
+}
+
+.button-effect-moema2:hover {
+  transition: background-color 0.1s 0.3s, color 0.1s 0.3s;
+  color: #fff;
+  background-color: #f22349;
+  animation: anim-moema-1 0.3s forwards;
+}
+
+.button-effect-moema2:hover::before {
+  animation: anim-moema-2 0.3s 0.3s forwards;
+}
+
+@keyframes anim-moema-1 {
+  60% {
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  85% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes anim-moema-2 {
+  to {
+    opacity: 0;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+#header-bottom-logo > img {
+  object-fit: contain;
+}

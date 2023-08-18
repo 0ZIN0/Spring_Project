@@ -67,35 +67,40 @@
 									<c:choose>
 										<c:when test="${user.user_grade eq 'S'}">
 											<div class="profile-grade">
-												<span class="diamond-text">다이아몬드</span> <img
+												 <img
 													class="grade-image"
 													src="${member_img}/grade/diamond_icon.png" alt="다이아몬드 이미지">
+													<span class="grade-text">다이아몬드</span>
 											</div>
 										</c:when>
 										<c:when test="${user.user_grade eq 'A'}">
 											<div class="profile-grade">
-												<span class="platinum-text">플래티넘</span> <img
+												 <img
 													class="grade-image"
 													src="${member_img}/grade/platinum_icon.png" alt="플래티넘 이미지">
+													<span class="grade-text">플래티넘</span>
 											</div>
 										</c:when>
 										<c:when test="${user.user_grade eq 'B'}">
 											<div class="profile-grade">
-												<span class="gold-text">골드</span> <img class="grade-image"
+												 <img class="grade-image"
 													src="${member_img}/grade/gold_icon.png" alt="골드 이미지">
+													<span class="grade-text">골드</span>
 											</div>
 										</c:when>
 										<c:when test="${user.user_grade eq 'C'}">
 											<div class="profile-grade">
-												<span class="silver-text">실버</span> <img class="grade-image"
+												 <img class="grade-image"
 													src="${member_img}/grade/silver_icon.png" alt="실버 이미지">
+													<span class="grade-text">실버</span>
 											</div>
 										</c:when>
 										<c:when test="${user.user_grade eq 'D'}">
 											<div class="profile-grade">
-												<span class="bronze-text">브론즈</span> <img
+												 <img
 													class="grade-image"
 													src="${member_img}/grade/bronze_icon.png" alt="등급 이미지">
+													<span class="grade-text">브론즈</span>
 											</div>
 										</c:when>
 
