@@ -1,32 +1,23 @@
-var ovf, slider;
+function isElementInViewport(el) {
+  var rect = el.getBoundingClientRect();
+
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+// 사용 예제
 $(window).on("scroll", function () {
-  var contentTop = $(".content_div").offset().top;
-  var windowScrollTop = $(window).scrollTop();
-
-  if (windowScrollTop - 200 >= contentTop) {
-    slider = $(".content_div")[0];
-    winResize();
-    $(window).on("resize", winResize);
-    adjustOpacityForAll(windowScrollTop, contentTop);
-  }
+  $(".detail_text").each(function () {
+    if (isElementInViewport(this)) {
+      console.log("요소가 화면 안에 있습니다.");
+      $(this).css("opacity", 1.0);
+    } else {
+      console.log("요소가 화면 밖에 있습니다.");
+    }
+  });
 });
-
-function adjustOpacityForAll(scrollTop, contentTop) {
-  var opacityDiff = (scrollTop - contentTop) / 1000; // 1000은 원하는 값으로 조정 가능
-  var newOpacity = 1 - opacityDiff;
-
-  newOpacity = Math.max(0, Math.min(1, newOpacity));
-
-  // 모든 .overflow 요소에 대해 투명도 조절
-  $(".overflow").each(function () {
-    $(this).css("opacity", newOpacity);
-  });
-}
-
-function winResize() {
-  $(".overflow").each(function () {
-    var currentOverflow = $(this);
-    var correspondingSlider = currentOverflow.prev(".content_div");
-    currentOverflow.css("top", correspondingSlider.height() + "px");
-  });
-}

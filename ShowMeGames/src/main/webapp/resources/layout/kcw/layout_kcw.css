@@ -1,12 +1,7 @@
 @charset "UTF-8";
 
-.detail_div {
-	
-}
-
-.content_div {
-	position: sticky;
-	top: 100px;
+#game_detail_div {
+	margin-bottom: 100px;
 }
 
 .overflow {
@@ -33,10 +28,12 @@
 .detail_text {
 	position: absolute; /* Position the background text */
 	background: rgb(0, 0, 0); /* Fallback color */
-	background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+	background: rgba(0, 0, 0, 0.7); /* Black background with 0.5 opacity */
 	color: #f1f1f1; /* Grey text */
 	width: 500px;
 	padding: 20px; /* Some padding */
+	opacity : 0.0;
+	transition: all 1s;
 	
 }
 
@@ -58,4 +55,57 @@
 
 .detail_text>p {
 	font-size: 24px;
+}
+
+.detail_text> h3 {
+	font-size: 30px;
+}
+
+
+.spec {
+	position: relative;
+}
+
+.spec > img {
+	opacity: 0.7;
+	position: relative;
+}
+
+.spec > .detail_text {
+		top: 50px;
+		right: 700px;
+		background: rgba(0, 0, 0, 0.8);
+}
+
+
+#game_req_title {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#game_req_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+    margin: 32px 0;
+    background-color: rgba(255, 255, 255, 0.034);
+    border-radius: 8px;
+    height: 800px;
+    padding: 60px 50px;
+}
+
+.req_sub_title {
+    font-weight: 600;
+}
+
+.req_content {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#req_bottom_content {
+    font-size: 16px;
+    color: white;
 }

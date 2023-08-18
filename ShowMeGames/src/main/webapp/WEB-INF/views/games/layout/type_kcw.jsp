@@ -33,43 +33,89 @@
 			</div>
 			<hr />
 		<div class="detail_div">
-			<div class="content_div first">
-				<img src="${img }${game.game_id }/img0.jpg" alt="" />
+			<div class="overflow first">
+				<img src="${img }${game.game_id }/${layout.game_img_1}" alt="" />
 			</div>
 			<div class="overflow second">
-				<img src="${img }${game.game_id}/img1.jpg" alt="" />
+				<img src="${img }${game.game_id}/${layout.game_img_2}" alt="" />
 				<div class="detail_text">
-					<p>
-						・자극으로 가득한 드넓은 세계<br>
-						다채로운 시추에이션을 지닌 탁 트인 필드와 복잡하면서 입체적으로 짜인 거대한 던전이 경계선 없이 이어지는 드넓은 세계. <br>
-						탐색 끝에는 미지의 것들을 발견했다는 기쁨과 높은 성취감으로 이어지는 압도적인 위협이 플레이어를 기다립니다.
-					</p>
+					${layout.text_1 }
 				</div>
 			</div>
 			<div class="overflow third">
-				<img src="${img }${game.game_id}/img2.jpg" alt="" />
+				<img src="${img }${game.game_id}/${layout.game_img_3}" alt="" />
 				<div class="detail_text">
-					<p>
-						・나만의 캐릭터<br>
-플레이어 캐릭터는 겉모습의 커스터마이즈뿐만 아니라 지니는 무기와 방어구, 마법을 자유롭게 조합할 수 있습니다.<br>
-근력을 높여 강인한 전사가 되거나 마술의 극치에 다다르는 등, 각자의 플레이 스타일에 맞춰 캐릭터를 성장시킬 수 있습니다.
-					</p>
+					${layout.text_2 }
 				</div>
 			</div>
 			<div class="overflow forth">
-				<img src="${img }${game.game_id}/img3.jpg" alt="" />
+				<img src="${img }${game.game_id}/${layout.game_img_4}" alt="" />
 				<div class="detail_text">
-					<p>
-						・나만의 캐릭터<br>
-플레이어 캐릭터는 겉모습의 커스터마이즈뿐만 아니라 지니는 무기와 방어구, 마법을 자유롭게 조합할 수 있습니다.<br>
-근력을 높여 강인한 전사가 되거나 마술의 극치에 다다르는 등, 각자의 플레이 스타일에 맞춰 캐릭터를 성장시킬 수 있습니다.
-					</p>
+					${layout.text_3 }
+				</div>
+			</div>
+		</div>
+		<div class="spec">
+				<img src="${img }${game.game_id}/${layout.game_img_5}" alt="" />
+				<div class="detail_text">
+					<div id="game_req_title">사양</div>
+							<div id="game_req_grid">
+								<div id="game_req_min">
+									<div class="req_sub_title">최소</div>
+								</div>
+								<div id="game_req_rev">
+									<div class="req_sub_title">권장</div>
+								</div>
+								<div>
+									<div class="req_sub_title">운영체제</div>
+									<div class="req_content">${spec.min_os }</div>
+								</div>
+								<div>
+									<div class="req_sub_title">운영체제</div>
+									<div class="req_content">${spec.rec_os }</div>
+								</div>
+								<div>
+									<div class="req_sub_title">프로세서</div>
+									<div class="req_content">${spec.min_processor }</div>
+								</div>
+								<div>
+									<div class="req_sub_title">프로세서</div>
+									<div class="req_content">${spec.rec_processor }</div>
+								</div>
+								<div>
+									<div class="req_sub_title">메모리</div>
+									<div class="req_content">${spec.min_memory }</div>
+								</div>
+								<div>
+									<div class="req_sub_title">메모리</div>
+									<div class="req_content">${spec.rec_memory }</div>
+								</div>
+								<div>
+									<div class="req_sub_title">스토리지</div>
+									<div class="req_content">${spec.min_storage }</div>
+								</div>
+								<div>
+									<div class="req_sub_title">스토리지</div>
+									<div class="req_content">${spec.rec_storage }</div>
+								</div>
+								<div>
+									<div class="req_sub_title">DirectX</div>
+									<div class="req_content">${spec.min_directx }</div>
+								</div>
+								<div>
+									<div class="req_sub_title">DirectX</div>
+									<div class="req_content">${spec.rec_directx }</div>
+								</div>
+								<div>
+									<div class="req_sub_title">그래픽 카드</div>
+									<div class="req_content">${spec.min_graphics_card }</div>
+								</div>
+								<div>
+									<div class="req_sub_title">그래픽 카드</div>
+									<div class="req_content">${spec.rec_graphics_card }</div>
+								</div>
 				</div>
 			</div>		
-		</div>
-		<div>
-		hihi
-		</div>
 		</div>
 	</main>
 

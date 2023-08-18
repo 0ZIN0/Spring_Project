@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.layout.LayoutHGTDTO;
+import com.ezen.smg.dto.layout.LayoutKCWDTO;
 
 public interface LayoutMapper {
 
@@ -20,5 +21,7 @@ public interface LayoutMapper {
 	
 	int getLayoutCheck_default(@Param("id") Integer game_id);
 	int getLayoutCheck_hgt(@Param("id") Integer game_id);
+	
+	LayoutKCWDTO getLayoutKCW(@Param("id") Integer game_id);
 
 }

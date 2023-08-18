@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.layout.LayoutHGTDTO;
+import com.ezen.smg.dto.layout.LayoutKCWDTO;
 import com.ezen.smg.mapper.LayoutMapper;
 
 import lombok.extern.log4j.Log4j;
@@ -166,6 +167,12 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 			default:
 				return mapper.getLayoutCheck_default(game_id);
 		}
+	}
+
+	@Override
+	public LayoutKCWDTO getLayoutKCW(Integer game_id) {
+		
+		return mapper.getLayoutKCW(game_id);
 	}
 
 }
