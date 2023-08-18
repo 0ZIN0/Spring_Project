@@ -52,6 +52,18 @@ $('#game_req_update_btn').click(function() {
     location.href= `./admin_game_req?game_id=${game_id}`;
 });
 
-console.log("page", page);
-console.log("type", type);
-console.log("key", key);
+// 맨 위로 가는 버튼 기능 관련
+$(window).scroll(function() {
+    let height = $(document).scrollTop();
+
+    console.log(height);
+    if(height > 800) {
+        $('#upward_btn').show();
+    } else {
+        $('#upward_btn').hide();
+    }
+});
+
+$('#upward_btn').click(function() {
+    $(document).scrollTop(0);
+});

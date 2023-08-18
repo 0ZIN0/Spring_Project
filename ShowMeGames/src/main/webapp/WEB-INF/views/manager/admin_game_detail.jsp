@@ -240,6 +240,10 @@
 		</div>
 	</main>
 	
+	<button id="upward_btn" class="btn">
+		<span class="material-icons">vertical_align_top</span>
+	</button>
+	
 	<script src="${resource}/js/admin_game_detail.js"></script>
 </body>
 </html>

@@ -122,3 +122,12 @@
 .req_content {
 	font-size: 1.1em;
 }
+
+#upward_btn {
+	display: none;
+    position: fixed;
+    bottom: 70px;
+    right: 70px;
+    width: 75px;
+    height: 75px;
+}
