@@ -102,12 +102,13 @@ public class IndexController {
 		
 		List<Comments> coms = commentsMapper.getBestCommentList(game, 1, 10);
 		model.addAttribute("best_comments", coms);
+		model.addAttribute("best_com_id", commentsService.getComIdList(game, "best"));
 		model.addAttribute("best_comment_len", commentsMapper.getBestCommentList(game, 1, 10).size());
 		
 		// new 댓글
 		List<Comments> new_coms = commentsMapper.getNewCommentList(game, 1, 5);
 		model.addAttribute("new_comments", new_coms);
-		
+		model.addAttribute("new_com_id", commentsService.getComIdList(game, "new"));
 		model.addAttribute("spec", specMapper.getSpec(game));
 		
 		switch(layout != null ? layout: "NULL") {

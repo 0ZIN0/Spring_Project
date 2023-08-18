@@ -13,6 +13,7 @@ public class Comments {
 	private Date write_date;
 	private Integer good_cnt;
 	private Integer bad_cnt;
+	private Double grade;
 	
 	private String nick_name;
 	private String profile_url;
