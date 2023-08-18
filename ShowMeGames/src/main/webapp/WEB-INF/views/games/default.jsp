@@ -46,7 +46,7 @@
 					<div id="game_detail_div_list">
 						<!-- 게임정보 DIV -->
 						<div class="game_detail_divs" id="game_detail_info_div">
-							<div id="war-content">${layout.warn_content }</div>
+							<div id="war-content">${layout.warn_content}</div>
 							<div id="game-info-title-1">
 								${layout.game_info_title }
 							</div>
