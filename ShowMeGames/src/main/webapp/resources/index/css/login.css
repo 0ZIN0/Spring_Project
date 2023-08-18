@@ -1,10 +1,10 @@
-/* 파일경로바뀜 이거 안씀 @@@ */
+/* �뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@ */
 
-/* 파일경로바뀜 이거 안씀 @@@ */
-/* 파일경로바뀜 이거 안씀 @@@ */
+/* �뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@ */
+/* �뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@ */
 
-/* 파일경로바뀜 이거 안씀 @@@ */
-/* 파일경로바뀜 이거 안씀 @@@ */
+/* �뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@ */
+/* �뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@ */
 
 @charset "EUC-KR";
 
@@ -29,7 +29,7 @@
 }
 
 .title-link {
-  margin-left: 215px;
+  margin-left: 199px;
   font-size: 23px;
   font-weight: 400;
   text-decoration: none;
@@ -42,15 +42,15 @@
   outline: none;
   display: block;
   width: 100%;
-  height: 55px; /* 원하는 높이로 조정 */
-  font-size: 16px; /* 원하는 글자 크기로 조정 */
-  text-indent: 35px; /* 원하는 시작 위치로 조정 */
+  height: 55px; /* �썝�븯�뒗 �넂�씠濡� 議곗젙 */
+  font-size: 16px; /* �썝�븯�뒗 湲��옄 �겕湲곕줈 議곗젙 */
+  text-indent: 35px; /* �썝�븯�뒗 �떆�옉 �쐞移섎줈 議곗젙 */
   margin-top: 42px;
   transition: border-color 0.3s;
 }
 
 #email-input:hover {
-  border-bottom: 2px solid #015ed1; /* 호버 시 색상 변경 */
+  border-bottom: 2px solid #015ed1; /* �샇踰� �떆 �깋�긽 蹂�寃� */
 }
 
 #email i {
@@ -104,15 +104,15 @@
   outline: none;
   display: block;
   width: 100%;
-  height: 55px; /* 원하는 높이로 조정 */
-  font-size: 16px; /* 원하는 글자 크기로 조정 */
-  text-indent: 35px; /* 원하는 시작 위치로 조정 */
+  height: 55px; /* �썝�븯�뒗 �넂�씠濡� 議곗젙 */
+  font-size: 16px; /* �썝�븯�뒗 湲��옄 �겕湲곕줈 議곗젙 */
+  text-indent: 35px; /* �썝�븯�뒗 �떆�옉 �쐞移섎줈 議곗젙 */
   margin-top: 42px;
   transition: border-color 0.3s;
 }
 
 #pw-input:hover {
-  border-bottom: 2px solid #015ed1; /* 호버 시 색상 변경 */
+  border-bottom: 2px solid #015ed1; /* �샇踰� �떆 �깋�긽 蹂�寃� */
 }
 
 #pw i {
@@ -174,7 +174,7 @@
 
 #rememberCheckbox {
   transform: scale(1.5);
-  margin-right: 13px; /* 체크박스 오른쪽 여백 조정 (원하는 크기로 조정) */
+  margin-right: 13px; /* 泥댄겕諛뺤뒪 �삤瑜몄そ �뿬諛� 議곗젙 (�썝�븯�뒗 �겕湲곕줈 議곗젙) */
 }
 
 #remember-and-forget {
