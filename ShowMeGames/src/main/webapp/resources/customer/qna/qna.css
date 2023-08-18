@@ -1,4 +1,6 @@
-
+* {
+	color:#dddddd;
+}
 img {
     width: 100%;
     height: 100%;
@@ -79,19 +81,21 @@ img {
 
 #top-massage {
 	font-size: 20px;
-	border:solid 1px black;
+	border:solid 1px #dddddd;
 	padding:10px;
 }
 
 .qna-input > tr, td {
-	border: solid 1px white;
+	border: solid 1px #dddddd;
 	padding: 10px;
+	margin: -2px;
 }
 
 .qna-table {
-	border: solid 1px black;
+	border: solid 1px #dddddd;
 	width: 100%;
 	height: 900px;
+	padding:-1px;
 }
 
 
@@ -101,6 +105,7 @@ img {
 .btn > * {
 	width:100px;
 	height:50px;
+	background-color: #D80388;
 }
 .qna-text {
 	text-align: right;

@@ -322,7 +322,7 @@ $(document).on("click", function (event) {
 $(window).scroll(function () {
   var dropdownContent = document.getElementById("dropdown-content");
   var loginIcon = document.getElementById("login-icon2");
-  if (dropdownContent.style.display === "block") {
+  if (dropdownContent != null && dropdownContent.style.display === "block") {
     dropdownContent.style.display = "none";
     loginIcon.style.transition = ""; // 드랍다운이 닫힐 때 트랜지션 제거
     loginIcon.style.color = loginIconOriginalColor; // 원래 색상으로 변경
@@ -431,9 +431,7 @@ function updateMiniCart() {
                 <!--minicart-list-right Part End -->
 
               <div class="minicart-list-delete">
-                <div id="minicart-delete"  data-gameid="${
-                  game.game_id
-                }">
+                <div id="minicart-delete"  data-gameid="${game.game_id}">
                   <span class="material-symbols-outlined" data-gameid="${
                     game.game_id
                   }">delete</span>
@@ -508,8 +506,8 @@ $(document).on("click", "#minicart-delete", function (e) {
     },
     error: () => {
       console.log("MiniCart List Delete Error");
-    }
-  })
+    },
+  });
 });
 
 // Move to Cart Button
@@ -535,13 +533,11 @@ $(document).on("click", "#minicart-checkout-btn", function () {
     },
     error: () => {
       console.log("Minicart Chk Btn Error");
-    }
-  })
+    },
+  });
 });
 
 $(document).ready(function () {
   // 페이지가 로드될 때 updateMiniCart() 실행
   updateMiniCart();
-
 });
-

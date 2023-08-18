@@ -29,6 +29,7 @@ import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
 import com.ezen.smg.dto.chart.SalesDTO;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
+import com.ezen.smg.dto.layout.LayoutHGTDTO;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
@@ -193,6 +194,7 @@ public class ManagerController {
 			case "JYM":
 				return "manager/admin_layout/layout_jym";
 			case "HGT":
+				model.addAttribute("layout", layoutServ.getLayoutHGT(game_id));
 				return "manager/admin_layout/layout_hgt";
 			case "KCW":
 				return "manager/admin_layout/layout_kcw";
@@ -220,10 +222,36 @@ public class ManagerController {
 		}
 		
 		if(!img_file.isEmpty()) {
-			layoutServ.updateImg_url_Default(origin_game_id, LayoutType.DEFAULT, img_file);
+			layoutServ.updateImg_url(origin_game_id, LayoutType.DEFAULT, img_file, 0);
 		}
 			
 		return "redirect:admin_game_detail?game_id=" + origin_game_id;
+	}
+	
+	@PostMapping("/manage/layout_update_hgt")
+	String layoutDefaultHGT(Integer origin_game_id, LayoutHGTDTO dto, MultipartFile game_img_file_1,
+			MultipartFile game_img_file_2, MultipartFile game_img_file_3) {
+		
+		// insert로
+		if(dto.getGame_id() == null) {
+			dto.setGame_id(origin_game_id);
+			layoutServ.insertLayoutHGT(dto);
+		// update로
+		} else {
+			layoutServ.updateLayoutHGT(dto);
+		}
+
+		if(!game_img_file_1.isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.HGT, game_img_file_1, 1);
+		}
+		if(!game_img_file_2.isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.HGT, game_img_file_2, 2);
+		}
+		if(!game_img_file_3.isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.HGT, game_img_file_3, 3);
+		}
+		
+		return "redirect:admin_game_detail?game_id=" + origin_game_id; 
 	}
 	
 	@GetMapping("/manage/admin_game_update")

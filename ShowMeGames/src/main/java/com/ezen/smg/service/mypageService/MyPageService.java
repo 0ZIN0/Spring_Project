@@ -11,7 +11,7 @@ import com.ezen.smg.dto.MyGameListDTO;
 import com.ezen.smg.dto.SmgUsersDTO;
 
 public interface MyPageService {
-	List<Inquiries> getContent(@Param("user_num") int user_num);
+	List<Inquiries> getContent(@Param("user_num")int user_num, int currPage);
 
 	SmgUsersDTO getUserInfo(int user_num);
 	int chkUser_pw(int user_num, String user_pw);
@@ -24,6 +24,6 @@ public interface MyPageService {
 	
 	Pagination getPagination(int page, int totalSize);
 			
-	int getTotalSize(@Param("user_num") int user_num);
+	int getTotalSize(@Param("user_num")int user_num);
 
 }

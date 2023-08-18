@@ -45,12 +45,14 @@ public class MyPageServiceImp1 implements MyPageService {
 	
 	@Autowired
 	GameKeyMapper gameKeyMapper;
-	private int pageNum = 6;
+	private int pageNum = 10;
 
 	
 	@Override
-	public List<Inquiries> getContent(int user_num) {
-		return inquiriesmapper.getContent(user_num);
+	public List<Inquiries> getContent(int user_num, int currPage) {
+		int lastInquiries = currPage * pageNum;
+		int firstInquiries = lastInquiries - 9;
+		return inquiriesmapper.getContent(user_num, firstInquiries, lastInquiries);
 	}
 
 

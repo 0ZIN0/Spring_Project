@@ -8,187 +8,188 @@
 
 @charset "EUC-KR";
 
-
-
 .main-container {
-	padding: 10px;
+  margin: auto;
+  width: 480px;
+  height: auto;
+  padding: 15px;
 }
 
 .logo-container {
-	position: relative;
-	margin-right: 10px;
+  position: relative;
+  margin-right: 10px;
 }
 
 .loginAndSignUp-container {
-	margin-top: 33px;
+  margin-top: 33px;
 }
 
 #IdLoginText {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .title-link {
-	margin-left: 215px;
-	font-size: 23px;
-	font-weight: 400;
-	text-decoration: none;
-	color: inherit;
+  margin-left: 215px;
+  font-size: 23px;
+  font-weight: 400;
+  text-decoration: none;
+  color: inherit;
 }
 
 #email-input {
-	border: none;
-	border-bottom: 2px solid black;
-	outline: none;
-	display: block;
-	width: 100%;
-	height: 55px; /* 원하는 높이로 조정 */
-	font-size: 16px; /* 원하는 글자 크기로 조정 */
-	text-indent: 35px; /* 원하는 시작 위치로 조정 */
-	margin-top: 42px;
-	transition: border-color 0.3s;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  display: block;
+  width: 100%;
+  height: 55px; /* 원하는 높이로 조정 */
+  font-size: 16px; /* 원하는 글자 크기로 조정 */
+  text-indent: 35px; /* 원하는 시작 위치로 조정 */
+  margin-top: 42px;
+  transition: border-color 0.3s;
 }
 
 #email-input:hover {
-	border-bottom: 2px solid #015ed1; /* 호버 시 색상 변경 */
+  border-bottom: 2px solid #015ed1; /* 호버 시 색상 변경 */
 }
 
 #email i {
-	position: relative;
-	right: -15px;
-	top: -30px;
+  position: relative;
+  right: -15px;
+  top: -30px;
 }
 
 #email-guide {
-	padding: 6px;
-	display: none; /* Hide the email-guide by default */
+  padding: 6px;
+  display: none; /* Hide the email-guide by default */
 }
 
 #email-guideText {
-	color: #CC0011;
-	font-size: 14px;
+  color: #cc0011;
+  font-size: 14px;
 }
 
 #email-empty {
-	padding: 6px;
-	display: none;
+  padding: 6px;
+  display: none;
 }
 
 #email-emptyText {
-	color: #CC0011;
-	font-size: 14px;
+  color: #cc0011;
+  font-size: 14px;
 }
 
 .big {
-	font-size: 16px;
-	transform: translateX(0px) translateY(0px);
-	transition: font-size 0.5s, transform 0.5s;
+  font-size: 16px;
+  transform: translateX(0px) translateY(0px);
+  transition: font-size 0.5s, transform 0.5s;
 }
 
 .small {
-	font-size: 9px;
-	transform: translateX(-26px) translateY(-20px);
-	transition: font-size 0.5s, transform 0.5s;
+  font-size: 9px;
+  transform: translateX(-26px) translateY(-20px);
+  transition: font-size 0.5s, transform 0.5s;
 }
 
 #email-label {
-	position: absolute;
-	display: inline-block;
-	margin-top: 15px;
-	margin-left: 40px;
+  position: absolute;
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 40px;
 }
 
 #pw-input {
-	border: none;
-	border-bottom: 2px solid black;
-	outline: none;
-	display: block;
-	width: 100%;
-	height: 55px; /* 원하는 높이로 조정 */
-	font-size: 16px; /* 원하는 글자 크기로 조정 */
-	text-indent: 35px; /* 원하는 시작 위치로 조정 */
-	margin-top: 42px;
-	transition: border-color 0.3s;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  display: block;
+  width: 100%;
+  height: 55px; /* 원하는 높이로 조정 */
+  font-size: 16px; /* 원하는 글자 크기로 조정 */
+  text-indent: 35px; /* 원하는 시작 위치로 조정 */
+  margin-top: 42px;
+  transition: border-color 0.3s;
 }
 
 #pw-input:hover {
-	border-bottom: 2px solid #015ed1; /* 호버 시 색상 변경 */
+  border-bottom: 2px solid #015ed1; /* 호버 시 색상 변경 */
 }
 
 #pw i {
-	position: relative;
-	right: -15px;
-	top: -30px;
+  position: relative;
+  right: -15px;
+  top: -30px;
 }
 
 #pw-guide {
-	padding: 6px;
-	display: none; /* Hide the email-guide by default */
+  padding: 6px;
+  display: none; /* Hide the email-guide by default */
 }
 
 #pw-guideText {
-	color: #CC0011;
-	font-size: 14px;
+  color: #cc0011;
+  font-size: 14px;
 }
 
 #pw-empty {
-	padding: 6px;
-	display: none;
+  padding: 6px;
+  display: none;
 }
 
 #pw-emptyText {
-	color: #CC0011;
-	font-size: 14px;
+  color: #cc0011;
+  font-size: 14px;
 }
 
 .bigPw {
-	font-size: 16px;
-	transform: translateX(0px) translateY(0px);
-	transition: font-size 0.5s, transform 0.5s;
+  font-size: 16px;
+  transform: translateX(0px) translateY(0px);
+  transition: font-size 0.5s, transform 0.5s;
 }
 
 .smallPw {
-	font-size: 9px;
-	transform: translateX(-26px) translateY(-20px);
-	transition: font-size 0.5s, transform 0.5s;
+  font-size: 9px;
+  transform: translateX(-26px) translateY(-20px);
+  transition: font-size 0.5s, transform 0.5s;
 }
 
 #pw-label {
-	position: absolute;
-	display: inline-block;
-	margin-top: 15px;
-	margin-left: 40px;
+  position: absolute;
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 40px;
 }
 
 #pw-label {
-	position: absolute;
-	display: inline-block;
-	margin-top: 15px;
-	margin-left: 40px;
+  position: absolute;
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 40px;
 }
 
 #login-failedText {
-   color: #CC0011;
-   font-size: 14px;
+  color: #cc0011;
+  font-size: 14px;
 }
 
 #rememberCheckbox {
-	transform: scale(1.5);
-	margin-right: 13px; /* 체크박스 오른쪽 여백 조정 (원하는 크기로 조정) */
+  transform: scale(1.5);
+  margin-right: 13px; /* 체크박스 오른쪽 여백 조정 (원하는 크기로 조정) */
 }
 
 #remember-and-forget {
-	display: flex;
-	align-items: center;
-	margin-top: 27px;
+  display: flex;
+  align-items: center;
+  margin-top: 27px;
 }
 
 #rememberLabel {
-	margin-right: 200px;
+  margin-right: 200px;
 }
 
 #forgetBtn {
-	text-decoration: none;
-	color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 /* .checkbox-container {
     display: flex;
@@ -196,54 +197,54 @@
     margin-right: 10px; Optional: To add some space between the checkbox and the link
 } */
 #loginBtn {
-	margin-top: 38px;
-	background-color: #0077E5;
-	height: 50px;
-	color: white;
-	font-size: 18px;
-	font-weight: bold;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
+  margin-top: 38px;
+  background-color: #0077e5;
+  height: 50px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .easyLogin {
-	display: flex;
-	flex-basis: 100%;
-	align-items: center;
-	color: black;
-	font-size: 16px;
-	margin: 0px 0px;
-	margin-top: 20px;
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  color: black;
+  font-size: 16px;
+  margin: 0px 0px;
+  margin-top: 20px;
 }
 
 .easyLogin::before {
-	content: "";
-	flex-grow: 1;
-	background: #8c8c8c;
-	height: 1px;
-	font-size: 0px;
-	line-height: 0px;
-	margin-right: 16px;
+  content: "";
+  flex-grow: 1;
+  background: #8c8c8c;
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  margin-right: 16px;
 }
 
 .easyLogin::after {
-	content: "";
-	flex-grow: 1;
-	background: #8c8c8c;
-	height: 1px;
-	font-size: 0px;
-	line-height: 0px;
-	margin-left: 16px;
+  content: "";
+  flex-grow: 1;
+  background: #8c8c8c;
+  height: 1px;
+  font-size: 0px;
+  line-height: 0px;
+  margin-left: 16px;
 }
 
 .private-div {
-	margin-top: 50px;
+  margin-top: 50px;
 }
 
 #private-btn {
-	margin-left: 120px;
-	color: #006EF5;
-	text-decoration: none;
+  margin-left: 120px;
+  color: #006ef5;
+  text-decoration: none;
 }

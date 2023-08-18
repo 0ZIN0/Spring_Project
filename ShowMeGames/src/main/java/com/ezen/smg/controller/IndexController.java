@@ -87,6 +87,7 @@ public class IndexController {
 		model.addAttribute("rateds", gameDTO.getRated().split("/"));
 		model.addAttribute("images", imagesService.getNomalImages(game, 1, 5));
 		model.addAttribute("sub_banner", imagesService.getSubBanner(game));
+		model.addAttribute("layout", layoutMapper.getLayoutDefault(game));
 		if (user == null) {
 			model.addAttribute("is_use", false);
 		} else {
@@ -118,6 +119,7 @@ public class IndexController {
 		case "JYM":
 			return "games/layout/type_jym";
 		case "HGT":
+			model.addAttribute("layout", layoutMapper.getLayoutHGT(game));
 			return "games/layout/type_hgt";
 		case "KCW":
 			return "games/layout/type_kcw";

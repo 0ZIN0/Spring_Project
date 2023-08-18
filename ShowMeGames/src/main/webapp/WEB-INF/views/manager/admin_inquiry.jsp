@@ -26,8 +26,7 @@
 					<div id="public_profile" class="content_item">
 						<div class="item_title">
 							<span>문의사항 리스트</span>
-						</div>
-						
+						</div>						
 							<div id="board_content">
 								<div id="board_content_title">
 									<div>글 번호</div>

@@ -6,46 +6,79 @@
 #side_inquiry span.material-icons {
     color: #eeab0a;
 }
+
 #board_content {
-	box-sizing:border-box;
-	display:grid;
-	grid-template-columns:50px 1fr 100px;
+	display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 	
 }
 
-#board {
-	display:flex;
-	flex-wrap: wrap;
-	grid-column:1/4;
-	margin-bottom: 10px;
-	padding-top:10px;
-	border:solid 2px black;	
-	border-radius: 10px;
+#board_content_title {
+	display: grid;
+    grid-template-columns: 130px 1fr 140px;
+    text-align: center;
+}
+
+#board_content_title > * {
+	font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#board_main {
+	
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: #dddddd;
+    border-radius: 3px;
+    padding: 20px 10px;
+}
+
+.board {
+ 	flex-wrap: wrap;
+    display: flex;   
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 	cursor: pointer;
 	
+	
+}
+
+.board > * {
+	display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.board_header {
+	height:70px;
 }
 
 .board_subject {
 	width: 15%;
 	text-align: center;
-	padding-bottom:10px;
 }
 
 .board_title {
 	width: 70%;
-	padding-bottom:10px;
+	color: #F22349;
+    font-weight: 600;
 }
 
 .board_btn {
 	width: 15%;
 	text-align: center;
-	margin-bottom : 10px;
 }
 
 .board_check {
 	margin:auto;
-	width: 70%;
-	border: solid 2px black;
+	width: 70%;	
 	border-radius: 15px;
 }
 
@@ -70,6 +103,20 @@
 	padding-top: 30px;
 	padding-bottom: 30px;
 	border-top:solid 1px black;
+}
+
+.answer {
+	width:100%;
+	display:flex;
+	padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: solid 1px black;
+    background-color: #dddddd;
+}
+
+.answer > div:first-child {
+	width: 15%;
+	text-align: center;
 }
 
 .board_content > div:first-child {
@@ -109,6 +156,7 @@
 
 #pageDiv {
 	text-align: center;
+	padding-top:20px;
 }
 
 .myImg {
@@ -124,22 +172,26 @@
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 100px; /* Location of the box */
-  left: 300px;
-  top: 50px;
-  width: 100%; /* Full width */
+  left: 287px;
+  top: 0px;
+  width: 87%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
+#img01 {
+	object-fit:contain;
+}
+
 /* Modal Content (Image) */
 .modal-content {
   margin: auto;
   display: block;
-  width: 80%;
-  max-width: 700px;
-  max-height: 700px;
+  width: 100%;
+  max-width: 1000px;
+  height:95%;
 }
 
 /* Add Animation - Zoom in the Modal */
@@ -156,8 +208,8 @@
 /* The Close Button */
 .close {
   position: absolute;
-  top: 15px;
-  right: 35px;
+  top: 30px;
+  right: 70px;
   color: #f1f1f1;
   font-size: 60px;
   font-weight: bold;
@@ -173,7 +225,7 @@
 
 /* 100% Image Width on Smaller Screens */
 
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 1000px){
   .modal-content {
     width: 100%;
     height: 100%;

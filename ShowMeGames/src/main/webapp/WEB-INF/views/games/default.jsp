@@ -8,7 +8,7 @@
 	var="detail_common_css" />
 <c:url value="/resources/games/js/detail_common.js"
 	var="detail_common_js" />
-<c:url value="/resources/img/games" var="game_img" />
+<c:url value="/resources/img/games/layout/default/" var="detail_img" />
 <!-- default resources -->
 <c:url value="/resources/games/css/default.css" var="default_css" />
 <c:url value="/resources/games/js/default.js" var="default_js" />
@@ -46,24 +46,19 @@
 					<div id="game_detail_div_list">
 						<!-- 게임정보 DIV -->
 						<div class="game_detail_divs" id="game_detail_info_div">
-							<div id="war-content">※ 할인 상품은 한정 수량으로 조기 품절될 수 있습니다.</div>
+							<div id="war-content">${layout.warn_content }</div>
 							<div id="game-info-title-1">
-								달려라, 살아남아라, 지켜라. <br> 끝없는 모험을 내 마음대로.
+								${layout.game_info_title }
 							</div>
 							<div id="game-info-content-1">
-								광대한 세계를 무대로 어디로 가든, 무엇을 하든, 모험의 모든 것을 당신이 원하는 대로 할 수 있습니다. <br>
-								야생 동물을 사냥하며 지낼 것인가? 몬스터를 퇴치하러 갈 것인가? 절경 포인트를 보러 다닐 것인가? <br>달리고,
-								헤엄치고, 날고, 높은 곳을 오르고, 광활한 세계에서 본인이 마음먹은 대로 모험할 수 있습니다. <br>Nintendo
-								Switch를 통해, 자택의 TV로 느긋하게 플레이 하다가 그대로 들고 나가 외출 중에도 계속해서 모험을 즐길 수
-								있는 등, 자유로운 플레이 스타일로 즐길 수 있습니다.
+								${layout.game_info_content }
 							</div>
 							<div id="game-info-img-1">
 								<img class="game-info-img" alt="${images[0].image_name}"
-									src="${game_img}${images[0].image_url}">
+									src="${detail_img }${layout.game_info_img_url}">
 							</div>
 							<div id="game-story-1">
-								대재앙이라고 불리는 재해가 일어나 하이랄 왕국은 멸망했다……. <br> 그로부터 100년 후, 주인공
-								링크는 지하유적에서 오랜 잠으로부터 깨어나 신비한 목소리에 이끌려 대지로 발을 내딛는다.
+								${layout.game_story }
 							</div>
 						</div>
 						<!-- 리뷰 -->
@@ -430,55 +425,55 @@
 								</div>
 								<div>
 									<div class="req_sub_title">운영체제</div>
-									<div class="req_content">Windows 10</div>
+									<div class="req_content">${spec.min_os }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">운영체제</div>
-									<div class="req_content">Windows 10</div>
+									<div class="req_content">${spec.rec_os }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">프로세서</div>
-									<div class="req_content">i5 4690k</div>
+									<div class="req_content">${spec.min_processor }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">프로세서</div>
-									<div class="req_content">i5 9400F</div>
+									<div class="req_content">${spec.rec_processor }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">메모리</div>
-									<div class="req_content">8GB</div>
+									<div class="req_content">${spec.min_memory }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">메모리</div>
-									<div class="req_content">16GB</div>
+									<div class="req_content">${spec.rec_memory }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">스토리지</div>
-									<div class="req_content">12GB</div>
+									<div class="req_content">${spec.min_storage }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">스토리지</div>
-									<div class="req_content">12GB</div>
+									<div class="req_content">${spec.rec_storage }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">DirectX</div>
-									<div class="req_content">11</div>
+									<div class="req_content">${spec.min_directx }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">DirectX</div>
-									<div class="req_content">11</div>
+									<div class="req_content">${spec.rec_directx }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">그래픽 카드</div>
-									<div class="req_content">GTX 1050 Ti(4GB VRAM)</div>
+									<div class="req_content">${spec.min_graphics_card }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">그래픽 카드</div>
-									<div class="req_content">GTX 1070(8GB VRAM)</div>
+									<div class="req_content">${spec.rec_graphics_card }</div>
 								</div>
 								<div>
 									<div class="req_sub_title">로그인</div>
-									<div class="req_content">Show Me Games 계정 필요</div>
+									<div class="req_content">${spec.login_method }</div>
 								</div>
 							</div>
 							<div id="req_bottom_content">※ 시스템 요구 사항은 출시 버전을 기준으로 하며,

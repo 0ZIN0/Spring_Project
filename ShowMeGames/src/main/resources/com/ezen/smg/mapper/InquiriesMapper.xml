@@ -7,7 +7,7 @@
   			SELECT count(*) FROM inquiries WHERE user_num = #{user_num}
   		</select>
   		<select id="getContent" resultType="com.ezen.smg.dto.Inquiries">
-  			SELECT * FROM inquiries WHERE user_num = #{user_num}
+  			SELECT * FROM(SELECT * FROM (SELECT rownum AS rn, a.* FROM inquiries a order by inquiry_id desc) WHERE rn BETWEEN #{start} AND #{end}) WHERE user_num = #{user_num}
   		</select>
   		<insert id="add" parameterType="com.ezen.smg.dto.Inquiries">
   			INSERT INTO inquiries(

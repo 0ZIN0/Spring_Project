@@ -32,47 +32,68 @@
 						<div class="item_title">
 							<span>문의사항 보기</span>
 						</div>
-						<div class="content_update_wrapper">
-							<button>버튼</button>
-						</div>
 					</div>
-					<div id="board_content">
-						<c:forEach items="${myContents}" var="myContent">
-							<div id="board" class="board">
-								<div class="board_subject">${myContent.inquiry_subject}</div>
-								<div class="board_title">${myContent.inquiry_title}</div>
-								<div class="board_btn">
-									<div class="board_check">
-										검토중
-									</div>
-								</div>															
-								<div class="board_detail">
-									<div class="board_content">
-										<div>
-											내용  
+					<div id="board_main">
+						<div id="board_content_title">
+							<div>문의구분</div>
+							<div>제목</div>
+							<div>문의현황</div>
+						</div>
+						<div id="board_content">
+							<c:forEach items="${myContents}" var="myContent">
+								<div id="board" class="board">
+									<div class="board_subject board_header">${myContent.inquiry_subject}</div>
+									<div class="board_title board_header">${myContent.inquiry_title}</div>
+									<div class="board_btn board_header">
+										<c:if test="${empty myContent.inquiry_answer}">
+										<div class="board_check" style="color:#dddddd; background-color:blueviolet">
+											검토중
 										</div>
-										<div>
-											${myContent.inquiry_content}
+										</c:if>
+										<c:if test="${not empty myContent.inquiry_answer}">
+										<div class="board_check" style="color:#dddddd; background-color: #f32349">
+											답변완료
 										</div>
-									</div>
-									<div class="board_attachment">
-										<div>첨부파일</div>
-										<div class="board_img">
-											<img class="myImg" src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
+										</c:if>
+									</div>															
+									<div class="board_detail">
+										<div class="board_content">
+											<div>
+												내용  
+											</div>
+											<div>
+												${myContent.inquiry_content}
+											</div>
 										</div>
-										<div id="myModal" class="modal">
-										  <!-- The Close Button -->
-										  <span class="close">&times;</span>										
-										  <!-- Modal Content (The Image) -->
-										  <img class="modal-content" id="img01" src="${inquiries_img}${myContent.attachment}"/>										
+										<c:if test="${not empty myContent.inquiry_answer}">
+										<div class="answer">
+											<div>
+												답변
+											</div>
+											<div>
+												${myContent.inquiry_answer};
+											</div>
+										</div>	
+										</c:if>
+										<div class="board_attachment">
+											<div>첨부파일</div>
+											<div class="board_img">
+												<img class="myImg" src="${inquiries_img}${myContent.attachment}" alt="첨부파일" />
+											</div>
+											<div id="myModal" class="modal">
+											  <!-- The Close Button -->
+											  <span class="close">&times;</span>										
+											  <!-- Modal Content (The Image) -->
+											  <img class="modal-content" id="img01" src="${inquiries_img}${myContent.attachment}"/>										
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</c:forEach>
+							</c:forEach>
+						</div>
 					</div> 
 					<div id="pagingDiv" data-id="account_inquiry"></div>
-					<%@ include file="/WEB-INF/views/manager/include/paging.jsp" %>	
+						<%@ include file="/WEB-INF/views/manager/include/paging.jsp" %>		
 				</div>
 			</div>
 		</div>
