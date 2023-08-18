@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <!-- c:url settings -->
 <c:url value="/resources/img/games/rated/" var="rated_img" />
-<c:url value="/resources/img/games" var="game_img" />
+<c:url value="/resources/img/games/slider" var="game_img" />
 <div id="detail_top">
 	<div id="game_title_div">
 		<div id="game_name_div">${game.game_name}</div>

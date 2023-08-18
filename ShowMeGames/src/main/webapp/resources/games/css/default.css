@@ -140,7 +140,12 @@
     flex-wrap: wrap;
 }
 
-.profile-grade {
+.com-profile-grade {
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: center;
+    align-items: center;
+    column-gap: 5px;
     width: 40px;
     height: 40px;
     margin: 0;
