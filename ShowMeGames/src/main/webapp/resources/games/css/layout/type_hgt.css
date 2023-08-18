@@ -115,19 +115,13 @@ div#detail_story_text {
     margin-bottom: 30px;
 }
 
-#reivew_outline_wrapper {
+#review_outline_wrapper {
     width: 80%;
     margin: auto;
-}
-
-div.game_detail_divs {
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
     margin-top: 20px;
 }
 
-div.game_detail_divs > div:first-of-type {
+#review_title {
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -143,3 +137,9 @@ div.game_detail_divs > div:first-of-type {
     color: #fff;
 }
 
+div.game_detail_divs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-top: 20px;
+}
