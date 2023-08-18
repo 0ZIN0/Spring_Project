@@ -91,7 +91,7 @@ public class IndexController {
 		model.addAttribute("rateds", gameDTO.getRated().split("/"));
 		model.addAttribute("images", imagesService.getNomalImages(game, 1, 5));
 		model.addAttribute("sub_banner", imagesService.getSubBanner(game));
-		model.addAttribute("layout", layoutMapper.getLayoutDefault(game));
+		
 		if (user == null) {
 			model.addAttribute("is_use", false);
 		} else {
@@ -115,6 +115,8 @@ public class IndexController {
 		List<Comments> new_coms = commentsMapper.getNewCommentList(game, 1, 5);
 		model.addAttribute("new_comments", new_coms);
 		model.addAttribute("new_com_id", commentsService.getComIdList(game, "new"));
+		
+		// 게임 요구사양 
 		model.addAttribute("spec", specMapper.getSpec(game));
 		
 		switch(layout != null ? layout: "NULL") {
