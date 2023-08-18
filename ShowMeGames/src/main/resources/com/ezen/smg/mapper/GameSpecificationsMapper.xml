@@ -3,7 +3,65 @@
   PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.smg.mapper.GameSpecificationsMapper">
+
 	<select id="getSpec" resultType="com.ezen.smg.dto.GameSpecificationsDTO">
 		SELECT * FROM game_specifications WHERE game_id=#{id} 
 	</select>
+	
+	<update id="updateSpec" parameterType="com.ezen.smg.dto.GameSpecificationsDTO">
+		UPDATE game_specifications 
+		SET 
+			min_os=#{dto.min_os, jdbcType=VARCHAR}, 
+			min_processor=#{dto.min_processor, jdbcType=VARCHAR},  
+			min_memory=#{dto.min_memory, jdbcType=VARCHAR},  
+			min_storage=#{dto.min_storage, jdbcType=VARCHAR}, 
+			min_directx=#{dto.min_directx, jdbcType=VARCHAR}, 
+			min_graphics_card=#{dto.min_graphics_card, jdbcType=VARCHAR}, 
+			rec_os=#{dto.rec_os, jdbcType=VARCHAR},  
+			rec_processor=#{dto.rec_processor, jdbcType=VARCHAR},  
+			rec_memory=#{dto.rec_memory, jdbcType=VARCHAR},  
+			rec_storage=#{dto.rec_storage, jdbcType=VARCHAR},  
+			rec_directx=#{dto.rec_directx, jdbcType=VARCHAR},  
+			rec_graphics_card=#{dto.rec_graphics_card, jdbcType=VARCHAR},  
+			login_method=#{dto.login_method, jdbcType=VARCHAR}
+		WHERE 
+			game_id=#{dto.game_id}    
+	</update>
+	
+	<insert id="insertSpec" parameterType="com.ezen.smg.dto.GameSpecificationsDTO">
+		INSERT INTO game_specifications(
+			spec_id,     
+			min_os, 
+			min_processor,  
+			min_memory,   
+			min_storage,  
+			min_directx, 
+			min_graphics_card,  
+			rec_os,
+			rec_processor,
+			rec_memory,  
+			rec_storage, 
+			rec_directx,
+			rec_graphics_card, 
+			login_method, 
+			game_id
+		) VALUES (
+			spec_id_seq.nextval,
+			#{dto.min_os, jdbcType=VARCHAR},
+			#{dto.min_processor, jdbcType=VARCHAR},
+			#{dto.min_memory, jdbcType=VARCHAR},
+			#{dto.min_storage, jdbcType=VARCHAR},
+			#{dto.min_directx, jdbcType=VARCHAR},
+			#{dto.min_graphics_card, jdbcType=VARCHAR}, 
+			#{dto.rec_os, jdbcType=VARCHAR},
+			#{dto.rec_processor, jdbcType=VARCHAR},
+			#{dto.rec_memory, jdbcType=VARCHAR},
+			#{dto.rec_storage, jdbcType=VARCHAR},
+			#{dto.rec_directx, jdbcType=VARCHAR},
+			#{dto.rec_graphics_card, jdbcType=VARCHAR},
+			#{dto.login_method, jdbcType=VARCHAR},
+			#{dto.game_id}
+		)
+	</insert>
+	
 </mapper>

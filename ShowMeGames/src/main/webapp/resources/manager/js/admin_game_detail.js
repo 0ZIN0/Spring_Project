@@ -7,7 +7,7 @@ $('#admin_update_btn').click(function() {
 
 // 목록 버튼
 $('#admin_cancel_btn').click(function() {
-    window.history.back();
+    location.href = './admin_game';
 });
 
 $('#game_delete_btn').click(function() {
@@ -24,3 +24,7 @@ $('#game_layout_btn').click(function() {
     location.href = `./admin_game_layout?game_id=${game_id}&&layout=${layout}`;
 });
 
+// 요구사항 등록/수정 버튼
+$('#game_req_update_btn').click(function() {
+    location.href= `./admin_game_req?game_id=${game_id}`;
+});
