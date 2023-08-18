@@ -16,7 +16,7 @@
 	<!-- top_bar -->
 	<%@ include file="/WEB-INF/views/manager/include/top_bar.jsp" %>
 	
-	<main class="background_layer1" data-id="${game.game_id}">
+	<main class="background_layer1" data-id="${game.game_id}" data-prePageInfo="${prePageInfo}">
 		<div id="main_content_wrapper" class="background_layer2">
 			<!-- side_bar -->
 			<%@ include file="/WEB-INF/views/manager/include/side_bar.jsp" %>
@@ -42,7 +42,7 @@
 							<div class="content_update_wrapper">
 								<button id="game_delete_btn" class="btn">삭제</button> 
 								<button id="admin_update_btn" class="btn">수정</button>
-								<button id="admin_cancel_btn" class="btn cancel">뒤로가기</button>
+								<button id="admin_cancel_btn" class="btn cancel">목록으로</button>
 							</div>
 						</div>
 						<div id="content_container_wrapper">
@@ -144,8 +144,96 @@
 									</span>
 								</div>
 							</div>
-
 						</div>
+					</div>
+					<h2 class="content_title">게임 요구 사항</h2>
+					<div class="content_item">
+						<div class="item_title_wrapper">
+							<div class="item_title">
+								<span>${game.game_name} 요구사항</span>
+							</div>
+							<div class="content_update_wrapper">
+								<button id="game_req_update_btn" class="btn">등록/수정</button>
+							</div>
+						</div>
+						<div>
+							<c:choose>
+								<c:when test="${spec == null}">
+									<div class="item_layer_div">
+										<div class="item_div">
+											<span class="item_span_title">요구사항 등록</span>
+											<span class="item_span_content">요구사항이 등록되지 않았습니다. 요구사항을 입력해주세요.</span>
+										</div>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div id="req_layer_div">
+										<div class="item_div">
+											<span class="item_span_title">최저요구사항</span>
+											<div class="req_container_wrapper">
+												<div class="req_container">
+													<span class="req_title">운영체제</span>
+													<span class="req_content">${spec.min_os}</span>
+												</div>
+												<div class="req_container">
+													<span class="req_title">프로세서</span>
+													<span class="req_content">${spec.min_processor}</span>
+												</div>
+												<div class="req_container">
+													<span class="req_title">메모리</span>
+													<span class="req_content">${spec.min_memory}</span>
+												</div>
+												<div class="req_container">
+													<span class="req_title">스토리지</span>
+													<span class="req_content">${spec.min_storage}</span>
+												</div>
+												<div class="req_container">
+													<span class="req_title">DirectX</span>
+													<span class="req_content">${spec.min_directx}</span>
+												</div>
+												<div class="req_container">
+													<span class="req_title">그래픽카드</span>
+													<span class="req_content">${spec.min_graphics_card}</span>
+												</div>
+												<div class="req_container">
+													<span class="req_title">로그인</span>
+													<span class="req_content">${spec.login_method}</span>
+												</div>
+											</div>
+										</div>
+										<div class="item_div">
+											<span class="item_span_title">권장요구사항</span>
+											<div class="req_container_wrapper">
+												<div class="req_container">
+													<span class="req_title">운영체제</span>
+													<span class="req_content">${spec.rec_os}</span>
+												</div>
+												<div class="req_container">
+													<span class="req_title">프로세서</span>
+													<span class="req_content">${spec.rec_processor}</span>
+												</div>
+												<div class="req_container">
+													<span class="req_title">메모리</span>
+													<span class="req_content">${spec.rec_memory}</span>
+												</div>
+												<div class="req_container">
+													<span class="req_title">스토리지</span>
+													<span class="req_content">${spec.rec_storage}</span>
+												</div>
+												<div class="req_container">
+													<span class="req_title">DirectX</span>
+													<span class="req_content">${spec.rec_directx}</span>
+												</div>
+												<div class="req_container">
+													<span class="req_title">그래픽카드</span>
+													<span class="req_content">${spec.rec_graphics_card}</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</c:otherwise>
+							</c:choose>
+						</div>				
 					</div>
 				</div>
 			</div>

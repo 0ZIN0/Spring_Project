@@ -1,4 +1,23 @@
 let game_id = $('main').data('id');
+let prePageInfo = $('main').data('prepageinfo');
+
+let page;
+let type;
+let key;
+
+// 접근한 목록을 기억하게 하기 위한 함수
+let pageinfoArr;
+if(String(prePageInfo).indexOf('/') != -1) {
+    pageinfoArr = prePageInfo.split('/');
+    page = pageinfoArr[0];
+    
+    if(pageinfoArr.length > 1) {
+        type = pageinfoArr[1];
+        key = pageinfoArr[2];
+    }
+} else {
+    page = prePageInfo;
+}
 
 // 수정 버튼
 $('#admin_update_btn').click(function() {
@@ -7,7 +26,11 @@ $('#admin_update_btn').click(function() {
 
 // 목록 버튼
 $('#admin_cancel_btn').click(function() {
-    window.history.back();
+    if(type == undefined) {
+        location.href = `./admin_game?page=${page}`;
+    } else {
+        location.href = `./admin_game?page=${page}&&type=${type}&&key=${key}`;
+    }
 });
 
 $('#game_delete_btn').click(function() {
@@ -24,3 +47,11 @@ $('#game_layout_btn').click(function() {
     location.href = `./admin_game_layout?game_id=${game_id}&&layout=${layout}`;
 });
 
+// 요구사항 등록/수정 버튼
+$('#game_req_update_btn').click(function() {
+    location.href= `./admin_game_req?game_id=${game_id}`;
+});
+
+console.log("page", page);
+console.log("type", type);
+console.log("key", key);
