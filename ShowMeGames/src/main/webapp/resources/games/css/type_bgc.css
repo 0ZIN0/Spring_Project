@@ -4,18 +4,37 @@
 	box-sizing:border-box;
 	padding: 20px;
     background-color: #575261;
-    width: 70%;
+    width: 1063px;
     margin:auto;
 	border-radius: 15px;	
 }
 
+.video_img{
+	position:relative;
+	display:flex;
+	margin:auto;
+	width:100%;
+	
+}
+.video_img:hover .video {
+	opacity: 1;
+}
+
+.video {
+	position: absolute;
+	opacity: 0;
+  	transition: .5s ease; 
+  	width:100%;
+  	height:100%;
+}
 .main_contents {
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
 #main_img {
 	display:flex;
-	width:70%;
+	height:600px;
+	width:1063px;
 	margin:auto;	
 	border-radius: 15px;	
 }

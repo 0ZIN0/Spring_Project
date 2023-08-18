@@ -27,15 +27,41 @@
 			<div id="game_detail_div">
 				<%@ include file="/WEB-INF/views/games/include/detail_top.jsp"%>
 				<!-- 아래부터는 free layout -->
-				<div>
-					<video controls	width="500" height="350" poster>
-						<source src="${bgc_imgs}apex/movie480_vp9.webm" type="video/webm"></source>
-					</video>
-				</div>
-				<div class="main_contents">
-					<img id=main_img alt="" src="${img_path}apex/EA_APEX_STEAM-PDP_KO (1).jpg">
-				</div>
-				
+				<div style="display:flex; padding:30px;">
+					<div class="video_img">
+						<img id="main_img" src="${img_path}apex/apex_01.jpg" alt="image" />
+						
+							<video  class="video" loop>
+								<source src="${img_path}apex/movie480_vp1.webm" type="video/webm"></source>
+							</video>						
+					</div>
+				</div>				
+				<div style="display:flex; padding:30px;">
+					<div class="video_img">
+						<img id="main_img" src="${img_path}apex/apex_02.jpg" alt="image" />
+						
+							<video  class="video" loop>
+								<source src="${img_path}apex/movie480_vp2.webm" type="video/webm"></source>
+							</video>						
+					</div>
+				</div>				
+				<div style="display:flex; padding:30px;">
+					<div class="video_img">
+						<img id="main_img" src="${img_path}apex/apex_03.jpg" alt="image" />
+						
+							<video  class="video" loop>
+								<source src="${img_path}apex/movie480_vp3.webm" type="video/webm"></source>
+							</video>						
+					</div>
+				</div>				
+				<div style="display:flex; padding:30px;">
+					<div class="video_img">
+						<img id="main_img" src="${img_path}apex/apex_04.jpg" alt="image" />
+							
+						<iframe class="video" src="https://www.youtube.com/embed/C-WQcCqecHg?mute=1&loop=1"  width='1063px' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							
+					</div>
+				</div>				
 				<div class="specifications">
 					<div style="color:#c0c0c0; border-bottom:solid 3px #c0c0c0;"><h2>시스템 사양</h2></div>
 					<div class="specs">
