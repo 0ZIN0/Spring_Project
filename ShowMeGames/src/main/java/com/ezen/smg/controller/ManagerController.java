@@ -141,6 +141,10 @@ public class ManagerController {
 		
 		model.addAttribute("paging", serv.getPagination(page, totalSize));
 		
+		String[] pageInfoArr = {String.valueOf(page), type, key}; 
+				
+		model.addAttribute("prePageInfo", );
+		
 		return "manager/admin_game";
 	}
 
