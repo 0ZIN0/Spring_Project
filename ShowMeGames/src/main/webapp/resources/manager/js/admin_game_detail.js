@@ -55,15 +55,59 @@ $('#game_req_update_btn').click(function() {
 // 맨 위로 가는 버튼 기능 관련
 $(window).scroll(function() {
     let height = $(document).scrollTop();
-
-    console.log(height);
-    if(height > 800) {
-        $('#upward_btn').show();
-    } else {
-        $('#upward_btn').hide();
+    let btn = $('#upward_btn');
+    if(height > 900) {
+        btn.show();
+        btn.css('opacity', 1);
+    } else if(height > 600) {
+        btn.show();
+        btn.css('opacity', (height - 600) / 300);
+    }else {
+        btn.hide();
     }
 });
 
 $('#upward_btn').click(function() {
     $(document).scrollTop(0);
+});
+
+// 이미지 슬라이드 관련
+$('#admin_slide_update_btn').click(function() {
+    location.href=`./admin_game_slide?game_id=${game_id}`;
+});
+
+// slide show 
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = $(".imgSlides");
+  let dots = $(".demo");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    $(slides[i]).hide();
+  }
+  for (i = 0; i < dots.length; i++) {
+    $(dots[i]).removeClass('active');
+  }
+
+  $(slides[slideIndex-1]).show();
+  $(dots[slideIndex-1]).addClass('active');
+}
+
+$('#prev-btn').click(() => {
+    plusSlides(-1);
+});
+$('#next-btn').click(() => {
+    plusSlides(1);
 });

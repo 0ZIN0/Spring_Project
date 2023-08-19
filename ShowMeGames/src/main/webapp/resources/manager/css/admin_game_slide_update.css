@@ -1,0 +1,156 @@
+img {
+    object-fit: contain;
+}
+
+/* 사이드바 설정 */
+#side_admin_game {
+    border-left: 3px solid #eeab0a;
+    background-color: #0e151d;
+}
+#side_admin_game span.material-icons {
+    color: #eeab0a;
+}
+
+#img_container_wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 10px;
+}
+
+.img_container {
+    min-height: 300px;
+}
+
+.img_wrapper {
+    border: 1px solid beige;
+    border-radius: 5px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 250px;
+
+    margin-top: 20px;
+}
+
+.item_span_title {
+	font-size: 1.2em;
+	font-weight: 550;
+}
+
+.item_span_title::after {
+	width: 28px;
+    height: 3px;
+    content: "";
+    display: block;
+    margin-top: 3px;
+    background-color: blueviolet;
+}
+
+.input_layer_div {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    margin: 30px 0;
+}
+
+.final_btn_div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+/* input file 커스텀 */
+.filebox_wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.filebox {
+    width: 100%;
+    white-space: nowrap;
+    display: flex;
+    column-gap: 10px;
+}
+.filebox_title > span {
+    font-size: 1.1em;
+    font-weight: 550;
+}
+.filebox .upload-name {
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    color: #999999;
+    width: 60%;
+    border-radius: 8px;
+}
+.filebox label {
+    border-radius: 8px;
+    background-color: blueviolet;
+    width: 100px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 550;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.filebox label:hover {
+    filter: brightness(0.9);
+}
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+/* 슬라이드 이미지 */
+#slide_img_select_div {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+/* 서브배너 */
+#sub_banner_select_div {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 50px;
+}
+#sub_banner_select_div > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+}
+#img_select_div_inner {
+    width: 440px;
+    height: 200px;
+    border: 1px #d8d8e8 solid;
+    border-radius: 8px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#sub_banner_select_div > div:last-child {
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    width: 45%;
+}
