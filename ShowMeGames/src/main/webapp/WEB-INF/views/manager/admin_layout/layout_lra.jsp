@@ -95,7 +95,7 @@
 												</div>
 												<div class="input_content_div">
 													<textarea id="input_game_main_title_2"
-														name="game_main_title_2" class="textarea-custom">${layout.game_main_title_1}</textarea>
+														name="game_main_title_2" class="textarea-custom">${layout.game_main_title_2}</textarea>
 												</div>
 											</div>
 										</div>
@@ -106,7 +106,7 @@
 												</div>
 												<div class="input_content_div">
 													<textarea id="input_game_sub_title_2"
-														name="game_sub_title_2" class="textarea-custom">${layout.game_sub_title_1}</textarea>
+														name="game_sub_title_2" class="textarea-custom">${layout.game_sub_title_2}</textarea>
 												</div>
 											</div>
 										</div>
@@ -152,7 +152,7 @@
 												<div class="input_content_div">
 													<input type="file" id="input_game_detail_video_1"
 														name="game_video_file_1"
-														accept="video/mp4, video/mkv, video/x-m4v">
+														accept="video/mp4, video/mkv, video/x-m4v, video/webm">
 												</div>
 											</div>
 										</div>
@@ -186,7 +186,7 @@
 												<div class="input_content_div">
 													<input type="file" id="input_game_detail_video_2"
 														name="game_video_file_2"
-														accept="video/mp4, video/mkv, video/x-m4v">
+														accept="video/mp4, video/mkv, video/x-m4v, video/webm">
 												</div>
 											</div>
 										</div>
@@ -207,7 +207,7 @@
 											<div id="game_sub_title_2" class="game-info-sub_title auto-br">${layout.game_sub_title_2}</div>
 											<div id="game_img_div_2" data-img="${layout.game_img_2}">
 												<img id="game_img_2" class="img_preview_div game-info-img"
-													src="${lra_img}${layout.game_img_2}" alt="game_img_1">
+													src="${lra_img}${layout.game_img_2}" alt="game_img_2">
 											</div>
 											<div class="video-div">
 												<div id="game_detail_title_1" class="game-info-title-left auto-br">${layout.game_detail_title_1}</div>
@@ -215,7 +215,7 @@
 												<div id="game_video_div_1"
 													data-video="${layout.game_detail_video_1}">
 													<video autoplay loop muted preload playsinline id="game_detail_video_1" class="img_preview_div video_background"
-														src="${lra_img}${layout.game_detail_video_2}"
+														src="${lra_img}${layout.game_detail_video_1}"
 														alt="game_detail_video_1" >
 													</video>
 												</div>
@@ -239,7 +239,7 @@
 										class="des_span">※ 실제 레이아웃은 1920px, 1080px 환경에 최적화
 										되어있습니다.</span> <span class="des_span">※ 사용가능한 이미지 확장자는 "jpg",
 										"jpeg", "png", "gif" 입니다.</span> <span class="des_span">※
-										사용가능한 동영상 확장자는 "mp4", "mkv", "x-m4v" 입니다.</span>
+										사용가능한 동영상 확장자는 "mp4", "mkv", "x-m4v", "webm" 입니다.</span>
 								</div>
 								<div class="input_layer_div">
 									<div id="final_btn_div">

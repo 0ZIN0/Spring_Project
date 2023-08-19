@@ -92,7 +92,7 @@ function isImageFile(file) {
 
 function isVideoFile(file) {
     let ext = file.name.split(".").pop().toLowerCase(); // 파일명에서 확장자를 가져온다. 
-    return ($.inArray(ext, ["mp4", "mkv", "x-m4v"]) === -1) ? false : true;
+    return ($.inArray(ext, ["mp4", "mkv", "x-m4v", "webm"]) === -1) ? false : true;
 }
 
 function imgLenCheck(divStr, imgStr)  {

@@ -24,13 +24,13 @@ public class LayoutLRADTO {
 	public static LayoutLRADTO handleCrlfToBr(LayoutLRADTO dto) {
 		dto.setGame_main_title_1(CommonFunction.handleCrlfToBr(dto.getGame_main_title_1()));
 		dto.setGame_sub_title_1(CommonFunction.handleCrlfToBr(dto.getGame_sub_title_1()));
-		dto.setGame_main_title_1(CommonFunction.handleCrlfToBr(dto.getGame_main_title_2()));
-		dto.setGame_sub_title_1(CommonFunction.handleCrlfToBr(dto.getGame_sub_title_2()));
+		dto.setGame_main_title_2(CommonFunction.handleCrlfToBr(dto.getGame_main_title_2()));
+		dto.setGame_sub_title_2(CommonFunction.handleCrlfToBr(dto.getGame_sub_title_2()));
 		
 		dto.setGame_detail_title_1(CommonFunction.handleCrlfToBr(dto.getGame_detail_title_1()));
 		dto.setGame_detail_content_1(CommonFunction.handleCrlfToBr(dto.getGame_detail_content_1()));
-		dto.setGame_detail_title_1(CommonFunction.handleCrlfToBr(dto.getGame_detail_title_2()));
-		dto.setGame_detail_content_1(CommonFunction.handleCrlfToBr(dto.getGame_detail_content_2()));
+		dto.setGame_detail_title_2(CommonFunction.handleCrlfToBr(dto.getGame_detail_title_2()));
+		dto.setGame_detail_content_2(CommonFunction.handleCrlfToBr(dto.getGame_detail_content_2()));
 		
 		return dto;
 	}
@@ -38,13 +38,13 @@ public class LayoutLRADTO {
 	public static LayoutLRADTO handleBrToCrlf(LayoutLRADTO dto) {
 		dto.setGame_main_title_1(CommonFunction.handleBrToCrlf(dto.getGame_main_title_1()));
 		dto.setGame_sub_title_1(CommonFunction.handleBrToCrlf(dto.getGame_sub_title_1()));
-		dto.setGame_main_title_1(CommonFunction.handleBrToCrlf(dto.getGame_main_title_2()));
-		dto.setGame_sub_title_1(CommonFunction.handleBrToCrlf(dto.getGame_sub_title_2()));
+		dto.setGame_main_title_2(CommonFunction.handleBrToCrlf(dto.getGame_main_title_2()));
+		dto.setGame_sub_title_2(CommonFunction.handleBrToCrlf(dto.getGame_sub_title_2()));
 		
 		dto.setGame_detail_title_1(CommonFunction.handleBrToCrlf(dto.getGame_detail_title_1()));
 		dto.setGame_detail_content_1(CommonFunction.handleBrToCrlf(dto.getGame_detail_content_1()));
-		dto.setGame_detail_title_1(CommonFunction.handleBrToCrlf(dto.getGame_detail_title_2()));
-		dto.setGame_detail_content_1(CommonFunction.handleBrToCrlf(dto.getGame_detail_content_2()));
+		dto.setGame_detail_title_2(CommonFunction.handleBrToCrlf(dto.getGame_detail_title_2()));
+		dto.setGame_detail_content_2(CommonFunction.handleBrToCrlf(dto.getGame_detail_content_2()));
 		return dto;
 	}
 }

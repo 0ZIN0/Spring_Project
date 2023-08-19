@@ -291,6 +291,8 @@ public class ManagerController {
 	String layoutDefaultLRA(Integer origin_game_id, LayoutLRADTO dto, MultipartFile game_img_file_1,
 			MultipartFile game_img_file_2, MultipartFile game_video_file_1, MultipartFile game_video_file_2) {
 		
+		log.error("내가 쓴 카트 내용: " + dto);
+		
 		// insert로
 		if(dto.getGame_id() == null) {
 			dto.setGame_id(origin_game_id);
