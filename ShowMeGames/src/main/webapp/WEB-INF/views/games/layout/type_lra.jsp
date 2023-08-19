@@ -9,9 +9,9 @@
 <c:url value="/resources/games/js/detail_common.js"
 	var="detail_common_js" />
 <!-- lra resources -->
-<c:url value="/resources/games/css/type_lra.css" var="lra_css" />
-<c:url value="/resources/games/js/type_lra.js" var="lra_js" />
-<c:url value="/resources/games/layout/lra" var="img" />
+<c:url value="/resources/games/css/layout/type_lra.css" var="lra_css" />
+<c:url value="/resources/games/js/layout/type_lra.js" var="lra_js" />
+<c:url value="/resources/img/games/layout/lra/" var="lra_img" />
 <!--  temp  -->
 <c:url value="/resources/img/games/slider" var="game_img" />
 <!DOCTYPE html>
@@ -46,52 +46,51 @@
 					<div id="game_detail_div_list">
 						<!-- 게임정보 DIV -->
 						<div class="game_detail_divs" id="game_detail_info_div">
-							<div id="war-content">※ 무료 게임은 한정 수량으로 조기 품절이 될 수 있습니다.</div>
-							<div id="game-info-title-1" class="game-info-title">신규 모드:
-								플래그전 출시!</div>
-							<div id="game-info-sub_title-1" class="game-info-sub_title">
-								깃발을 모아 우리팀 진영으로! <br> 더 많은 포인트를 획득하여 승리하세요!
+							<div id="war-content">${layout.warn_content}</div>
+							<div id="game-main-title-1" class="game-info-title">
+								${layout.game_main_title_1}
 							</div>
-							<div id="game-info-img-1">
+							<div id="game-sub-title-1" class="game-info-sub_title">
+								${layout.game_sub_title_1}
+							</div>
+							<div id="game-img-1">
 								<img class="game-info-img" alt="게임 이미지 1"
-									src="${game_img}${images[0].image_url}">
+									src="${lra_img}${layout.game_img_1}">
 							</div>
-							<div id="game-info-title-2" class="game-info-title">게임 플레이
-								이벤트</div>
-							<div id="game-info-sub_title-2" class="game-info-sub_title">
-								여름에도 계속되는 풍성한 이벤트<br> 뜨겁게 달리고 시원하게 보상 받자!
+							<div id="game-main-title-2" class="game-info-title">
+								${layout.game_main_title_2}
 							</div>
-							<div id="game-info-img-2">
+							<div id="game-sub-title-2" class="game-info-sub_title">
+								${layout.game_sub_title_2}
+							</div>
+							<div id="game-img-2">
 								<img class="game-info-img" alt="게임 이미지 2"
-									src="${game_img}${images[3].image_url}">
+									src="${lra_img}${layout.game_img_2}">
 							</div>
 							<!-- 1 -->
 							<div id="game-detail-title-1" class="game-info-title-left">
-								취향에 맞게 즐기는 다양한 <br>게임 모드
+								${layout.game_detail_title_1}
 								<div id="game-detail-content-1" class="game-info-content-left">
-									한 번의 공격으로 승패가 바뀔 수 있는 긴장감 넘치는 아이템전<br> 짜릿한 스피드를 극대화, 드리프트
-									스킬과 부스터로 빠르기를 겨루는 스피드전<br> 혼자 또는 함께, 쉽고 재미있게 즐기는 캐주얼 레이싱
-									게임, 카트라이더: 드리프트
+									${layout.game_detail_content_1}
 								</div>
 							</div>
 							<video autoplay loop muted preload playsinline
 								class="video_background">
 								<source
-									src="https://kdgow-vod.dn.nexoncdn.co.kr/resource/02_game_intro_BG_1.mp4"
+									src="${lra_img}${layout.game_detail_video_1}"
 									type="video/mp4">
 							</video>
 							<!-- 2 -->
 							<div id="game-detail-title-2" class="game-info-title-right">
-								개성 넘치는 레이서 캐릭터
+							${layout.game_detail_title_2}
 								<div id="game-detail-content-2" class="game-info-content-right">
-									생동감 넘치는 카트라이더 캐릭터들을 만나보세요.<br> 각자의 개성이 잘 드러나는 코스튬과 이모트도
-									준비되어 있습니다. <br> 마음에 드는 캐릭터를 선택하고, 여러분의 감성을 표현해보세요.
+									${layout.game_detail_content_2}
 								</div>
 							</div>
 							<video autoplay loop muted preload playsinline
 								class="video_background">
 								<source
-									src="https://kdgow-vod.dn.nexoncdn.co.kr/resource/02_KD_Character.mp4">
+									src="${lra_img}${layout.game_detail_video_2}">
 							</video>
 							<div id="play-btn" class="game-info-sub_title">지금 바로 플레이 해보세요!</div>
 						</div>

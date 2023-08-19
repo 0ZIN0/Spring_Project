@@ -121,6 +121,7 @@ public class IndexController {
 		
 		switch(layout != null ? layout: "NULL") {
 		case "LRA":
+			model.addAttribute("layout", layoutMapper.getLayoutLRA(game));
 			return "games/layout/type_lra";
 		case "JYM":
 			return "games/layout/type_jym";
