@@ -45,3 +45,10 @@ reqBtn.click(function (e) {
         comDiv.css('display', 'none');
     }
 });
+
+$("#play-btn").on("click",function(){
+    $('html, body').animate({
+    scrollTop : 120
+    },400)
+    return false;
+});
