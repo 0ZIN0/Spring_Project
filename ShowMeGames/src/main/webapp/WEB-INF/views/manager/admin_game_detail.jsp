@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:url value="/resources/manager" var="resource"/>
 <c:url value="/resources/img/games/rated/" var="rate_img"/>
+<c:url value="/resources/img/games/slider" var="game_img" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -146,6 +147,53 @@
 							</div>
 						</div>
 					</div>
+					<h2 class="content_title">게임 이미지 슬라이드 정보</h2>
+					<div class="content_item">
+						<div class="item_title_wrapper">
+							<div class="item_title">
+								<span>${game.game_name} 슬라이드</span>
+							</div>
+							<div class="content_update_wrapper">
+								<button id="admin_slide_update_btn" class="btn">등록/수정</button>
+							</div>
+						</div>
+						<div id="img_slide_container_wrapper">
+							<div id="img_slide_container">
+								<c:forEach items="${images}" var="image" varStatus="status">
+									<div class="imgSlides">
+										<img id="game_img_selected" alt="${image.image_name}"
+											src="${game_img}${image.image_url}">
+									</div>
+								</c:forEach>
+								<div id="demo_img_list">
+									<div id="prev-btn" class="img-arrow">
+										<span class="material-icons img-arrow-btn">arrow_back_ios</span>
+									</div>
+									<c:forEach items="${images}" var="image" varStatus="status">
+										<div>
+											<img data-id="img_${image.image_id}" id="img_${image.image_id}"
+												class="demo game_img_dto" alt="${image.image_name}"
+												src="${game_img}${image.image_url}"
+												onclick="currentSlide(${status.count})">
+										</div>
+									</c:forEach>
+									<div id="next-btn" class="img-arrow">
+										<span class="material-icons img-arrow-btn">arrow_forward_ios</span>
+									</div>
+								</div>
+							</div>
+							<div id="img_slide_text_container">
+								<div id="game_detail_img_div">
+									<img id="right_img" alt="${sub_banner.image_name}"
+										src="${game_img}${sub_banner.image_url}">
+								</div>
+								<div id="img_slide_desc_container">
+									<span class="desc_text">※ 미리보기 이미지입니다.</span>
+									<span class="desc_text">※ 사진은 서브배너 제외 최대 5장까지 등록 가능합니다.</span>
+								</div>
+							</div>
+						</div>
+					</div>
 					<h2 class="content_title">게임 요구 사항</h2>
 					<div class="content_item">
 						<div class="item_title_wrapper">
@@ -239,6 +287,10 @@
 			</div>
 		</div>
 	</main>
+	
+	<button id="upward_btn" class="btn">
+		<span class="material-icons">vertical_align_top</span>
+	</button>
 	
 	<script src="${resource}/js/admin_game_detail.js"></script>
 </body>

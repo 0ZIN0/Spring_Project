@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!-- 리뷰 -->
 <input id="com_id_data" type="hidden" data-mycom="${my_com.comment_id}" data-bestcom="${best_com_id}" data-newcom="${new_com_id}"/>
 <div class="game_detail_divs" id="game_detail_comment_div"
 	data-gab="${my_gab_list}" data-status="${my_status_list}">

@@ -38,6 +38,7 @@ import com.ezen.smg.dto.layout.LayoutLRADTO;
 import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.GameSpecificationsMapper;
 import com.ezen.smg.mapper.NoticeMapper;
+import com.ezen.smg.service.ImagesService.ImagesService;
 import com.ezen.smg.service.faqService.FAQService;
 import com.ezen.smg.service.layoutService.LayoutType;
 import com.ezen.smg.service.layoutService.MNG_LayoutService;
@@ -63,6 +64,9 @@ public class ManagerController {
 	
 	@Autowired
 	MNG_LayoutService layoutServ;
+	
+	@Autowired
+	ImagesService imagesService;
 	
 	@Autowired
 	NoticeMapper noticeMapper;
@@ -174,6 +178,8 @@ public class ManagerController {
 
 		model.addAttribute("game", game);
 		model.addAttribute("rated", game.getRated().split("/"));
+		model.addAttribute("images", imagesService.getNomalImages(game_id, 1, 5));
+		model.addAttribute("sub_banner", imagesService.getSubBanner(game_id));
 		
 		model.addAttribute("spec", specMapper.getSpec(game_id));
 		
@@ -217,6 +223,42 @@ public class ManagerController {
 				return "manager/admin_layout/layout_default";
 		}
 	}
+	
+	@GetMapping("/manage/admin_game_slide")
+	String adminSetSlide(Integer game_id, Model model) {
+		
+		model.addAttribute("game_id", game_id);
+		model.addAttribute("images", imagesService.getSlideImages(game_id));
+		model.addAttribute("sub_banner", imagesService.getSubBanner(game_id));
+		
+		return "manager/admin_game_slide_update";
+	}
+	
+	@PostMapping("/manage/admin_game_slide")
+	String adminSetSlidePost(Integer game_id, MultipartFile slide_file0, MultipartFile slide_file1,
+			MultipartFile slide_file2, MultipartFile slide_file3, MultipartFile slide_file4) {
+		
+		MultipartFile[] fileArr = {slide_file0, slide_file1, slide_file2, slide_file3, slide_file4};
+		
+		for(int i = 0; i < fileArr.length; ++i) {
+			if(!fileArr[i].isEmpty()) {
+				imagesService.updateSlideImage(game_id, fileArr[i], i);
+			}
+		}
+		
+		return "redirect:admin_game_slide?game_id=" + game_id;
+	}
+	
+	@PostMapping("/manage/admin_sub_banner_set")
+	String adminSetSubBanner(Integer game_id, MultipartFile sub_img_file) {
+		
+		if(!sub_img_file.isEmpty()) {
+			imagesService.subBannerUpdate(game_id, sub_img_file);
+		}
+		
+		return "redirect:admin_game_slide?game_id=" + game_id;	
+	}
+	
 	
 	@GetMapping("/manage/admin_game_req")
 	String adminSetGameReq(Integer game_id, Model model) {

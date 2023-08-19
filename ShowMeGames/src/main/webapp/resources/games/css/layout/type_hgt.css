@@ -114,3 +114,32 @@ div#detail_story_title {
 div#detail_story_text {
     margin-bottom: 30px;
 }
+
+#review_outline_wrapper {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#review_title {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    height: 40px;
+    font-size: 1.1em;
+    font-weight: 550;
+    border-radius: 10px;
+    outline: none;
+    background-color: transparent;
+    border: #fff 1px solid;
+    color: #fff;
+}
+
+div.game_detail_divs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-top: 20px;
+}
