@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.layout.LayoutHGTDTO;
 import com.ezen.smg.dto.layout.LayoutKCWDTO;
+import com.ezen.smg.dto.layout.LayoutLRADTO;
 
 public interface MNG_LayoutService {
 
@@ -17,6 +18,9 @@ public interface MNG_LayoutService {
 	int updateLayoutHGT(LayoutHGTDTO dto);
 	
 	LayoutKCWDTO getLayoutKCW(Integer game_id);
+	LayoutLRADTO getLayoutLRA(Integer game_id);
+	int insertLayoutLRA(LayoutLRADTO dto);
+	int updateLayoutLRA(LayoutLRADTO dto);
 	
 	/**
 	 * img_file 업로드 메서드

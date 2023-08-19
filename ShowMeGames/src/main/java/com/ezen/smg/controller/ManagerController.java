@@ -28,18 +28,19 @@ import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
-import com.ezen.smg.dto.chart.SalesDTO;
-import com.ezen.smg.dto.layout.LayoutDefaultDTO;
-import com.ezen.smg.dto.layout.LayoutHGTDTO;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
+import com.ezen.smg.dto.chart.SalesDTO;
+import com.ezen.smg.dto.layout.LayoutDefaultDTO;
+import com.ezen.smg.dto.layout.LayoutHGTDTO;
+import com.ezen.smg.dto.layout.LayoutLRADTO;
 import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.GameSpecificationsMapper;
 import com.ezen.smg.mapper.NoticeMapper;
 import com.ezen.smg.service.faqService.FAQService;
-import com.ezen.smg.service.layoutService.MNG_LayoutService;
 import com.ezen.smg.service.layoutService.LayoutType;
+import com.ezen.smg.service.layoutService.MNG_LayoutService;
 import com.ezen.smg.service.managerService.ManagerService;
 
 import lombok.extern.log4j.Log4j;
@@ -198,8 +199,8 @@ public class ManagerController {
 		
 		switch(layout) {
 			case "LRA":
+				model.addAttribute("layout", layoutServ.getLayoutLRA(game_id));
 				return "manager/admin_layout/layout_lra";
-				
 			case "JYM":
 				return "manager/admin_layout/layout_jym";
 			case "HGT":
@@ -282,6 +283,36 @@ public class ManagerController {
 		if(!game_img_file_3.isEmpty()) {
 			layoutServ.updateImg_url(origin_game_id, LayoutType.HGT, game_img_file_3, 3);
 		}
+		
+		return "redirect:admin_game_detail?game_id=" + origin_game_id; 
+	}
+	
+	@PostMapping("/manage/layout_update_lra")
+	String layoutDefaultLRA(Integer origin_game_id, LayoutLRADTO dto, MultipartFile game_img_file_1,
+			MultipartFile game_img_file_2, MultipartFile game_video_file_1, MultipartFile game_video_file_2) {
+		
+		// insert로
+		if(dto.getGame_id() == null) {
+			dto.setGame_id(origin_game_id);
+			layoutServ.insertLayoutLRA(dto);
+		// update로
+		} else {
+			layoutServ.updateLayoutLRA(dto);
+		}
+
+		if(!game_img_file_1.isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.LRA, game_img_file_1, 1);
+		}
+		if(!game_img_file_2.isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.LRA, game_img_file_2, 2);
+		}
+		if(!game_video_file_1.isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.LRA, game_video_file_1, 3);
+		}
+		if(!game_video_file_2.isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.LRA, game_video_file_2, 4);
+		}
+		
 		
 		return "redirect:admin_game_detail?game_id=" + origin_game_id; 
 	}
