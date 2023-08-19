@@ -9,6 +9,11 @@
 	border-radius: 15px;	
 }
 
+.contents-wrap {
+	display:flex;
+	padding:30px 260px 30px 260px;
+}
+
 .video_img{
 	position:relative;
 	display:flex;
@@ -20,13 +25,22 @@
 	opacity: 1;
 }
 
+.video_contents {
+	position:relative; 
+	width:1063px; 
+	height:600px; 
+	margin:auto;
+}
+
 .video {
 	position: absolute;
 	opacity: 0;
   	transition: .5s ease; 
+  	top:0px;
   	width:100%;
   	height:100%;
 }
+
 .main_contents {
 	padding-top: 30px;
 	padding-bottom: 30px;
