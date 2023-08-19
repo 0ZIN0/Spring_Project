@@ -53,20 +53,22 @@
 										<div class="input_layer_div">
 											<div class="input_container_div large">
 												<div class="input_title_div">
-													<span>게임 정보 소제목</span>
+													<span>게임 정보 사진</span>
 												</div>
 												<div class="input_content_div">
-													<textarea name="game_info_title" id="input_game_info_title" class="textarea-custom">${layout.game_info_title}</textarea>
+													<input type="file" id="input_img_url" name="img_file" accept="image/jpg, image/jpeg, image/png">
 												</div>
 											</div>
 										</div>
 										<div class="input_layer_div">
 											<div class="input_container_div large">
 												<div class="input_title_div">
-													<span>게임 정보 내용</span>
+													<span>게임 영상 1번</span>
 												</div>
 												<div class="input_content_div">
-													<textarea id="input_game_info_content" name="game_info_content" class="textarea-custom">${layout.game_info_content}</textarea>
+													<input type="file" id="input_game_detail_video_1"
+														name="game_video_file_1"
+														accept="video/mp4, video/mkv, video/x-m4v, video/webm">
 												</div>
 											</div>
 										</div>
@@ -83,10 +85,56 @@
 										<div class="input_layer_div">
 											<div class="input_container_div large">
 												<div class="input_title_div">
-													<span>게임 스토리</span>
+													<span>게임 영상 2번</span>
 												</div>
 												<div class="input_content_div">
-													<textarea id="input_game_story" name="game_story" class="textarea-custom">${layout.game_story}</textarea>
+													<input type="file" id="input_game_detail_video_2"
+														name="game_video_file_2"
+														accept="video/mp4, video/mkv, video/x-m4v, video/webm">
+												</div>
+											</div>
+										</div>
+										<div class="input_layer_div">
+											<div class="input_container_div large">
+												<div class="input_title_div">
+													<span>게임 정보 사진</span>
+												</div>
+												<div class="input_content_div">
+													<input type="file" id="input_img_url" name="img_file" accept="image/jpg, image/jpeg, image/png">
+												</div>
+											</div>
+										</div>
+										<div class="input_layer_div">
+											<div class="input_container_div large">
+												<div class="input_title_div">
+													<span>게임 영상 3번</span>
+												</div>
+												<div class="input_content_div">
+													<input type="file" id="input_game_detail_video_3"
+														name="game_video_file_3"
+														accept="video/mp4, video/mkv, video/x-m4v, video/webm">
+												</div>
+											</div>
+										</div>
+										<div class="input_layer_div">
+											<div class="input_container_div large">
+												<div class="input_title_div">
+													<span>게임 정보 사진</span>
+												</div>
+												<div class="input_content_div">
+													<input type="file" id="input_img_url" name="img_file" accept="image/jpg, image/jpeg, image/png">
+												</div>
+											</div>
+										</div>
+										<div class="input_layer_div">
+											<div class="input_container_div large">
+												<div class="input_title_div">
+													<span>게임 영상 4번</span>
+												</div>
+												<div class="input_content_div">
+													<input type="file" id="input_game_detail_video_4"
+														name="game_video_file_4"
+														accept="video/mp4, video/mkv, video/x-m4v, video/webm">
 												</div>
 											</div>
 										</div>
@@ -107,6 +155,7 @@
 									</div>
 								</div>
 								<div id="des_div" class="input_layer_div">
+									<span class="des_span">※ 실제 레이아웃에서는 영상과 이미지가 겹쳐집니다.</span>
 									<span class="des_span">※ 미리보기의 배경과 글자색은 달라질 수 있습니다.</span>
 									<span class="des_span">※ 실제 레이아웃은 1920px, 1080px 환경에 최적화 되어있습니다.</span>
 								</div>
