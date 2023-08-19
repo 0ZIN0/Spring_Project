@@ -28,7 +28,7 @@ public class ImagesService_Impl implements ImagesService {
 	@Autowired
 	ServletContext servletContext;
 	
-	@Value("${spring.img.path}")
+	@Value("${spring.resources_img.path}")
 	private String absolutePath;
 	
 	@Override

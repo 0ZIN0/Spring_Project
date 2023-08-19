@@ -58,7 +58,7 @@ public class ManagerServiceImp1 implements ManagerService {
 	@Autowired
 	ServletContext servletContext;
 
-	@Value("${spring.banner_img.path}")
+	@Value("${spring.resources_img.path}")
 	private String absolutePath; 
 	
 	@Autowired
@@ -231,7 +231,7 @@ public class ManagerServiceImp1 implements ManagerService {
         String newFileName = originFileName + ext;
         
         String DBSavePath = "resources/img/banner_img/" + newFileName; 
-        String fullPath = absolutePath + "/" + newFileName;
+        String fullPath = absolutePath + "/banner_img/" + newFileName;
 
         // 업데이트를 톰캣폴더로 바로 반영해주기 위한 경로
         String realPath = servletContext.getRealPath("/resources/img/banner_img/"); 
@@ -243,7 +243,7 @@ public class ManagerServiceImp1 implements ManagerService {
         try {
 			// DB에 저장된 원래 파일 이름 추출
 			String existingFileName =  CommonFunction.getFileName(originUrl);
-			File existingFile = new File(absolutePath + "/" + existingFileName);
+			File existingFile = new File(absolutePath + "/banner_img/" + existingFileName);
 			File serverFile = new File(realPath + existingFileName); // 톰캣에 있을 임시 파일
 			
 			// 파일이 존재할 경우 삭제
@@ -291,7 +291,7 @@ public class ManagerServiceImp1 implements ManagerService {
 		
 		if(insert == 1) {
 			
-			String fullPath = absolutePath + "/" + fileName;
+			String fullPath = absolutePath + "/banner_img/" + fileName;
 			
 			// 업데이트를 톰캣폴더로 바로 반영해주기 위한 경로
 			String realPath = servletContext.getRealPath("/resources/img/banner_img/"); 
@@ -308,7 +308,7 @@ public class ManagerServiceImp1 implements ManagerService {
 					fileName = file_name + 1 + CommonFunction.extractExt(img_file.getOriginalFilename());
 					tempPath = realPath + fileName;
 					file = new File(tempPath);
-					fullPath = absolutePath + "/" + fileName;
+					fullPath = absolutePath + "/banner_img/" + fileName;
 				}
 				
 				file.createNewFile();
