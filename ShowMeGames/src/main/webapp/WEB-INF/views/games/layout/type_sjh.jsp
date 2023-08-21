@@ -10,7 +10,7 @@
 <c:url value="/resources/games/js/detail_common.js"
 	var="detail_common_js" />
 <c:url value="/resources/img/games" var="game_img" />
-
+<c:url value="/resources/games" var="resource" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +22,8 @@
 <!-- common css 각자 디테일 페이지에 추가해야함 -->
 <link rel="stylesheet" href="${detail_common_css}">
 <link rel="stylesheet" href="${sjh_css}">
+
+<link rel="stylesheet" href="${resource}/css/review.css">
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/include/header/header.jsp"%>
@@ -30,7 +32,31 @@
 			<div id="game_detail_div">
 				<%@ include file="/WEB-INF/views/games/include/detail_top.jsp"%>
 				<!-- 아래부터는 free layout -->
-				<div class="game_detail_divs" id="game_detail_spec_div">
+				<!-- <div class="game_detail_divs" id="game_detail_spec_div"> -->
+				
+				<div class="separator_div"></div>
+				
+				<div class="game_detail_divs">
+
+
+			
+			<!-- 디테일 -->
+						<%-- <div class="game_detail_divs" id="game_detail_info_div">
+							<div id="war-content">${layout.title}</div>
+							<div id="game-main-title-1" class="game-info-title">
+								${layout.content}
+							</div>		
+						</div>		 --%>
+						<div class="game_detail_title">${layout.title}</div>
+						<div class="game_detail_content">${layout.content}</div>
+				
+				
+			<div class="separator_div"></div>
+			<!-- 리뷰 -->
+						<%@ include file="/WEB-INF/views/games/include/review.jsp" %>
+				
+			<div class="separator_div"></div>	
+			<!-- 사양 -->				
 						<div id="game_spec_title">시스템 사양 정보</div>
 						<div id="game_spec_grid">
 							<div id="game_spec_min">
@@ -102,5 +128,6 @@
 	<!-- js -->
 	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp"%>
 	<script src="${detail_common_js}"></script>
+	<script src="${resource}/js/review.js"></script>
 </body>
 </html>

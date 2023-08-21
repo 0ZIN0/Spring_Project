@@ -1,38 +1,59 @@
 #game_spec_grid {
-  display: grid;
-  grid-template-columns: 541px 541px;/* Divide into 2 columns */
-   gap: 5px 10px;
+	display: grid;
+	grid-template-columns: 541px 541px; /* Divide into 2 columns */
+	gap: 5px 10px;
 }
 
-#game_spec_min .spec_sub_title,
-#game_spec_rev .spec_sub_title {
-  font-size: 29px; /* Set font size to 40px */
+.separator_div {
+	height: 1px;
+	background-color: gray;
+	margin: 90px 0; /* 원하는 여백 설정 */
 }
+
+.game_detail_title {
+	padding-top: 50px;
+	font-size: 54px;
+	text-align: center;
+	color: white;
+}
+
+.game_detail_content {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	font-size: 30px;
+	text-align: center;
+	color: white;
+}
+
+#game_spec_min .spec_sub_title, #game_spec_rev .spec_sub_title {
+	font-size: 29px; /* Set font size to 40px */
+}
+
 
 /* Style for each specification item */
-#game_spec_grid > div {
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-   color: white;
+#game_spec_grid>div {
+	padding: 14px;
+	display: flex;
+	flex-direction: column;
+	color: white;
 }
 
 /* Style for the specification title */
 #game_spec_title {
-  grid-column: span 2; /* Span both columns */
-  font-size: 32px;
-  font-weight: bold;
-  margin-top: 134px;
-  margin-bottom: 43px;
-  color: white;
+	grid-column: span 2; /* Span both columns */
+	font-size: 32px;
+	font-weight: bold;
+	margin-top: 45px;
+	margin-bottom: 43px;
+	color: white;
 }
 
 /* Style for the specification sub title */
 .spec_sub_title {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 /* Style for the specification content */
 .spec_content {
-  margin-top: 5px;
-} 
+	margin-top: 5px;
+}
