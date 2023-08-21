@@ -1,5 +1,6 @@
 // 현재 접속중인 페이지에 따라 다른 CSS 적용
 const currentPath = window.location.pathname;
+const conPath = $('header').data('conpath');
 
 if (currentPath === "/smg/") {
   $("#game-btn-underline").css("backgroundColor", "white");
@@ -479,7 +480,7 @@ function updateMiniCart() {
         <div class="empty-minicart-content minicart-common">
           <div class="empty-minicart-message minicart-common">장바구니가 비어있습니다.</div>
           <div class="empty-minicart-image minicart-common">
-            <img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
+            <img alt="Empty Minicart" src="${conPath}/resources/img/cart/SMG_EmptyMarket_img.jpg">
           </div>
           <div class="empty-minicart-buttons minicart-common" onclick="location.href='./games'">
             쇼핑하러 가기
@@ -504,7 +505,7 @@ $(document).on("click", ".moveToDetailBtn", function () {
 // cart-list delete
 $(document).on("click", "#minicart-delete", function (e) {
   $.ajax({
-    url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
+    url: `${conPath}/cart-delete?game_id=${e.target.dataset.gameid}`,
     type: "GET",
     success: () => {
       updateMiniCart();
@@ -519,11 +520,11 @@ $(document).on("click", "#minicart-delete", function (e) {
 // Move to Cart Button
 $(document).on("click", "#move-to-cart-btn", function () {
   $.ajax({
-    url: "./cart",
+    url: `${conPath}/cart`,
     type: "GET",
     success: () => {
       console.log("Move to Cart Success");
-      location.href = "./cart";
+      location.href = `${conPath}/cart`;
     },
   });
 });
@@ -531,11 +532,11 @@ $(document).on("click", "#move-to-cart-btn", function () {
 // Minicart checkout Button
 $(document).on("click", "#minicart-checkout-btn", function () {
   $.ajax({
-    url: "./cart",
+    url: `${conPath}/cart`,
     type: "GET",
     success: () => {
       console.log("Checkout Success");
-      location.href = "./cart";
+      location.href = `${conPath}/cart`;
     },
     error: () => {
       console.log("Minicart Chk Btn Error");

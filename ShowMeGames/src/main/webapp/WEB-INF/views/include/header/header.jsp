@@ -16,7 +16,7 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-<header>
+<header data-conpath="${conPath}">
 	<div id="header-top">
 		<div id="header-name">
 			<ul class="header-top-menu" id="header-top-ul">
