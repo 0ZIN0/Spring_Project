@@ -338,6 +338,7 @@ $(window).scroll(function () {
 $("#cart-btn").mouseenter(function () {
   $("#header-bottom").addClass("minicart-position");
   $("#minicart").addClass("minicart-active");
+  updateMiniCart();
 });
 $("#header-cart").mouseleave(function () {
   $("#header-bottom").removeClass("minicart-position");
