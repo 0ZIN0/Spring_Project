@@ -841,7 +841,6 @@ img {
   padding: 20px;
   row-gap: 20px;
 }
-
 .minicart-game-list {
   width: 420px;
   height: 180px;
@@ -850,6 +849,7 @@ img {
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 0px 16px 16px 0px;
   box-shadow: 9px 10px 12px -6px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
 }
 
 .minicart-list-left {

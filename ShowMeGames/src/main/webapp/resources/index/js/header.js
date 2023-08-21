@@ -365,12 +365,8 @@ function updateMiniCart() {
       var cartList = data.cart_list;
       var cartLen = data.cart_len;
       var totalPrice = data.total_price;
-      console.log(cartList);
-      console.log(cartLen);
-      console.log(totalPrice);
 
       var minicartContent = $("#minicart-content");
-      var minicartEmptyContent = $(".empty-minicart-content");
 
       // 미니카트 내용을 초기화하고 다시 추가
       minicartContent.empty();
@@ -385,12 +381,12 @@ function updateMiniCart() {
           ${cartList
             .map((game) => {
               return `
-            <div class="minicart-game-list">
-              <div class="minicart-list-left">
+            <div class="minicart-game-list" data-id="${game.game_id}" data-layout="${game.layout}">
+              <div class="minicart-list-left moveToDetailBtn">
                 <img src="${game.banner_img_url}" alt="">
               </div>
               <!--minicart-list-left Part End -->
-              <div class="minicart-list-right">
+              <div class="minicart-list-right moveToDetailBtn">
                 <div class="minicart-list-details">
                   <div class="minicart-game-name">${game.game_name}</div>
                   <div class="pricing">
@@ -495,6 +491,13 @@ function updateMiniCart() {
   });
 }
 
+// moveToDetailBtn에 동적으로 이벤트 할당
+$(document).on("click", ".moveToDetailBtn", function () {
+  let game_Id = $(this).parent().data("id");
+  let detail_Layout = $(this).parent().data("layout");
+  location.href = `./detail?game=${game_Id}&&layout=${detail_Layout}`;
+});
+
 // cart-list delete
 $(document).on("click", "#minicart-delete", function (e) {
   $.ajax({
@@ -502,7 +505,7 @@ $(document).on("click", "#minicart-delete", function (e) {
     type: "GET",
     success: () => {
       updateMiniCart();
-      location.href = "./cart";
+      // location.href = "./cart";
     },
     error: () => {
       console.log("MiniCart List Delete Error");
