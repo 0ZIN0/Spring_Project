@@ -29,8 +29,21 @@ noticeText.on('keyup', function () {
   }
 });
 
+// 이미지 확장자 검사
+function isImageFile(file) {
+  let ext = file.name.split(".").pop().toLowerCase(); // 파일명에서 확장자를 가져온다. 
+  return ($.inArray(ext, ["jpg", "jpeg", "png", "gif"]) === -1) ? false : true;
+}
+
 imgFile.on('change', function () {
-  console.log("img : " , imgFile.val());
+  let file = $(this)[0].files[0];
+
+  if (!isImageFile(file)) {
+    imgFile.val('');
+    alert('파일 확장자를 확인해주세요');
+    return;
+  }
+
   if (noticeText.val() !== '' && inputField.val() !== '') {
     console.log("img: ", imgFile.val());
     console.log('1');
