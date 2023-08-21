@@ -1,7 +1,10 @@
 let chkEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 let chkName = /^[가-힣]{2,13}$/;
-let chkPhone = /^010-\d{4}-\d{4}$/
-let chkNick = /^[가-힣a-zA-Z0-9_-]{3,15}$/
+let chkPhone = /^010-\d{4}-\d{4}$/;
+let chkNick = /^[가-힣a-zA-Z0-9_-]{3,15}$/;
+
+let chkKorean = /^.*[가-힣].*$/;
+let koreanRegex = /^[가-힣]$/;
 
 // 닉네임 변경 관련
 function cancel() {
@@ -22,6 +25,8 @@ $('#modal_close_btn').click(function() {
 });
 
 // 변경 버튼 누를 시 
+const MAX_BYTE = 20;
+let present_byte = 0;
 $('#form_nickname_update').submit(function() {
 
     if(!chkNick.test($('#username').val())) {
@@ -30,6 +35,23 @@ $('#form_nickname_update').submit(function() {
         return false;
     }
 
+    if(chkKorean.test($('#username').val())) {
+        let str = $('#username').val();
+
+        present_byte=0;
+        for(let i = 0; i < str.length; ++i) {
+            if(koreanRegex.test(str.charAt(i))) {
+                present_byte += 3;
+            } else {
+                present_byte += 1;
+            };
+        }
+
+        if(present_byte > MAX_BYTE) {
+            alert('닉네임이 너무 깁니다');
+            return false;
+        }
+    }
 });
 
 // 프로필 사진 변경 관련
