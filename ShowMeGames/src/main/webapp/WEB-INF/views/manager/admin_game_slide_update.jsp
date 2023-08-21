@@ -41,9 +41,7 @@
 										</c:choose>
 									</span>
 									<div class="img_wrapper">
-										<c:if test="${img.image_id eq 0}">
-											<span class="material-icons">image_not_supported</span>
-										</c:if>
+										<span id="none_icon${status.index}" class="material-icons none_icon" data-id="${img.image_id}">image_not_supported</span>
 										<img id="slide_img_preview${status.index}" class="slide_img" src="${game_img}${img.image_url}" alt="${game_id}_${status.index}_img" data-id="${img.image_id}" />
 									</div>
 								</div>
@@ -92,9 +90,7 @@
 						<div id="sub_banner_select_div">
 							<div>
 								<div id="img_select_div_inner">
-									<c:if test="${sub_banner eq null}">
-										<span class="material-icons">image_not_supported</span>
-									</c:if>
+									<span id="none_icon_sub_banner" class="material-icons none_icon" data-id="${sub_banner.image_id}">image_not_supported</span>
 									<img id="sub_img_preview" class="slide_img" src="${game_img}${sub_banner.image_url}" alt="프로필사진" data-id="${sub_banner.image_id}">
 								</div>
 							</div>

@@ -45,6 +45,11 @@
 					<div id="game_detail_div_list">
 						<!-- 게임정보 DIV -->
 						<div class="game_detail_divs" id="game_detail_info_div">
+							<c:if test="${layout.game_id eq null}">
+								<p id="none_layout_desc">
+									※ 상세 페이지가 아직 준비 되지 않았습니다.
+								</p>
+							</c:if>
 							<div id="war-content">${layout.warn_content}</div>
 							<div id="game-info-title-1">
 								${layout.game_info_title }
@@ -53,8 +58,10 @@
 								${layout.game_info_content }
 							</div>
 							<div id="game-info-img-1">
-								<img class="game-info-img" alt="${images[0].image_name}"
-									src="${detail_img }${layout.game_info_img_url}">
+								<c:if test="${layout.game_info_img_url ne null}">
+									<img class="game-info-img" alt="${images[0].image_name}"
+										src="${detail_img }${layout.game_info_img_url}">
+								</c:if>
 							</div>
 							<div id="game-story-1">
 								${layout.game_story }

@@ -14,6 +14,14 @@ $('.slide_img').each(function(index, el) {
     }
 });
 
+// 슬라이드 이미지가 없을 때 나타나는 아이콘 기능
+$('.none_icon').each(function(index, el) {
+    let id = $(el).data('id');
+    if(id == 0 || id == null || id == undefined) {
+        $(el).show();
+    }
+});
+
 // 이미지 확장자 검사
 function isImageFile(file) {
     let ext = file.name.split(".").pop().toLowerCase(); // 파일명에서 확장자를 가져온다. 
@@ -48,6 +56,10 @@ function imgPreivew(file_input, file_name, preview_img) {
 $('#sub_img_file').on('change', function() {
     imgPreivew($(this), $('#sub_img_file_name'), $("#sub_img_preview"));
 
+    if($('#none_icon_sub_banner').css('display') == 'block') {
+        $('#none_icon_sub_banner').hide();
+    }
+
     if($('#form_sub_banner_btn').is(':disabled') == true) {
         $('#form_sub_banner_btn').attr('disabled', false);
     }
@@ -57,6 +69,10 @@ $('#sub_img_file').on('change', function() {
 for(let i = 0; i <= 4; ++i) {
     $(`#slide_file${i}`).on('change', function() {
         imgPreivew($(this), $(`#slide_img_file_name${i}`), $(`#slide_img_preview${i}`));
+
+        if($(`#none_icon${i}`).css('display') == 'block') {
+            $(`#none_icon${i}`).hide();
+        }
 
         if($('#form_slide_btn').is(':disabled') == true) {
             $('#form_slide_btn').attr('disabled', false);

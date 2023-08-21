@@ -11,6 +11,7 @@ img {
     color: #eeab0a;
 }
 
+/* 이미지 미리보기 설정 */
 #img_container_wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -54,6 +55,10 @@ img {
     flex-direction: row;
     column-gap: 20px;
     margin: 30px 0;
+}
+
+.none_icon {
+    display: none;
 }
 
 .final_btn_div {
