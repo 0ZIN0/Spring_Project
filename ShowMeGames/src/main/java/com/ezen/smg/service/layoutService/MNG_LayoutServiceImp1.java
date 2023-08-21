@@ -113,31 +113,6 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 		
 		return mapper.updateLayoutLRA(dto);
 	}
-	
-	@Override
-	public LayoutSJHDTO getLayoutSJH(Integer game_id) {
- 		LayoutSJHDTO dto = mapper.getLayoutSJH(game_id); 
-		
- 		if(dto == null) return dto;
-		
-		return LayoutSJHDTO.handleBrToCrlf(dto);
-	}
-
-	@Override
-	public int insertLayoutSJH(LayoutSJHDTO dto) {
-		
-		dto = LayoutSJHDTO.handleCrlfToBr(dto);
-		
-		return mapper.insertLayoutSJH(dto);
-	}
-
-	@Override
-	public int updateLayoutSJH(LayoutSJHDTO dto) {
-		
-		dto = LayoutSJHDTO.handleCrlfToBr(dto);
-		
-		return mapper.updateLayoutSJH(dto);
-	}
 
 	
 	@Override
@@ -253,7 +228,7 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 			case "KCW":
 				return mapper.getLayoutCheck_kcw(game_id);
 			case "SJH":
-				return mapper.getLayoutCheck_sjh(game_id);
+				return 0;
 			case "BGC":
 				return 0;
 			default:
@@ -265,6 +240,24 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 	public LayoutKCWDTO getLayoutKCW(Integer game_id) {
 		
 		return mapper.getLayoutKCW(game_id);
+	}
+
+	@Override
+	public LayoutSJHDTO getLayoutSJH(Integer game_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int insertLayoutSJH(LayoutSJHDTO dto) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateLayoutSJH(LayoutSJHDTO dto) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

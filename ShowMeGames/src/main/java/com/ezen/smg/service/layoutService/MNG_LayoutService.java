@@ -28,11 +28,11 @@ public interface MNG_LayoutService {
 	LayoutJYMDTO getLayoutJYM(Integer game_id);
 	int insertLayoutJYM(LayoutJYMDTO dto);
 	int updateLayoutJYM(LayoutJYMDTO dto);
+	
 	LayoutSJHDTO getLayoutSJH(Integer game_id);
 	int insertLayoutSJH(LayoutSJHDTO dto);
 	int updateLayoutSJH(LayoutSJHDTO dto);
 	
-	int getLayoutCheck(Integer game_id, String layout);
 	
 	/**
 	 * img_file 업로드 메서드
@@ -43,4 +43,5 @@ public interface MNG_LayoutService {
 	 * @return 성공시 1 반환
 	 */
 	int updateImg_url(Integer game_id, LayoutType type, MultipartFile img_file, int img_num);
+	int getLayoutCheck(Integer game_id, String layout);
 }
