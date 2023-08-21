@@ -156,5 +156,7 @@
 		WHERE user_num =
 		#{dto.user_num}
 	</update>
-
+	<select id="selectUser_id" parameterType="String" resultType="com.ezen.smg.dto.SmgUsersDTO">
+		select * from smg_users where user_id=#{user_id} 
+	</select>
 </mapper>

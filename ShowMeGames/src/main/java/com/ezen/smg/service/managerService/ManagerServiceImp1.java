@@ -176,13 +176,28 @@ public class ManagerServiceImp1 implements ManagerService {
 	public List<Games> getGameListByLayout(int currPage, String layout) {
 		int lastGame = currPage * pageNum;
 		int firstGame = lastGame - 9;
+
+		String nullChk = "default";
 		
-		return gamesMapper.getGameListByLayout(firstGame, lastGame, layout);
+		if(nullChk.contains(layout.toLowerCase())) {
+			return gamesMapper.getGamesListByLayoutAndNull(firstGame, lastGame, layout);
+		} else {
+			return gamesMapper.getGameListByLayout(firstGame, lastGame, layout);
+		}
+		
 	}
 
 	@Override
 	public int getGameListByLayoutSize(String layout) {
-		return gamesMapper.getGamesByLayout(layout);
+		int result = gamesMapper.getGamesByLayout(layout); 
+		
+		String nullChk = "default";
+		
+		if(nullChk.contains(layout.toLowerCase())) {
+			result += gamesMapper.getGamesLayoutIsNull();
+		}
+		
+		return result; 
 	}
 	
 	@Override
