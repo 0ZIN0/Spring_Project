@@ -356,7 +356,7 @@ $("#minicart").mouseleave(function () {
 // minicart 내용 업데이트
 function updateMiniCart() {
   $.ajax({
-    url: `${conPath}/minicart`,
+    url: "/smg/minicart",
     type: "GET",
     dataType: "json",
 
@@ -382,9 +382,11 @@ function updateMiniCart() {
           ${cartList
             .map((game) => {
               return `
-            <div class="minicart-game-list" data-id="${game.game_id}" data-layout="${game.layout}">
+            <div class="minicart-game-list" data-id="${
+              game.game_id
+            }" data-layout="${game.layout}">
               <div class="minicart-list-left moveToDetailBtn">
-                <img src="${game.banner_img_url}" alt="">
+                <img src="/smg/${game.banner_img_url}" alt="">
               </div>
               <!--minicart-list-left Part End -->
               <div class="minicart-list-right moveToDetailBtn">
@@ -477,7 +479,7 @@ function updateMiniCart() {
         <div class="empty-minicart-content minicart-common">
           <div class="empty-minicart-message minicart-common">장바구니가 비어있습니다.</div>
           <div class="empty-minicart-image minicart-common">
-            <img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
+            <img alt="Empty Minicart" src="${conPath}/resources/img/cart/SMG_EmptyMarket_img.jpg">
           </div>
           <div class="empty-minicart-buttons minicart-common" onclick="location.href='./games'">
             쇼핑하러 가기

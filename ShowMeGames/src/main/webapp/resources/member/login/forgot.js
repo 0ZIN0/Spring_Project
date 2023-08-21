@@ -107,70 +107,42 @@ function closeWindow() {
 
 
 
+var doubleSubmitFlag = false;
+function doubleSubmitCheck(){
+      if(doubleSubmitFlag){
+          return doubleSubmitFlag;
+      }else{
+          doubleSubmitFlag = true;
+          return false;
+      }
+}
 
+console.log('도착도착도착');
 
+$('#submit-btn').click(function(e) {
+    if(doubleSubmitCheck()) return;
+    
+    const user_id = $('#email-input').val();
 
+    console.log("input: " + user_id);
 
-// Firebase 설정 객체
-        var firebaseConfig = {
-        		  apiKey: "AIzaSyA40rDPXNm993eKTGoYqPISBToH2Txyc3Q",
-        		  authDomain: "forgotpw-d6b61.firebaseapp.com",
-        		  projectId: "forgotpw-d6b61",
-        		  storageBucket: "forgotpw-d6b61.appspot.com",
-        		  messagingSenderId: "80515834348",
-        		  appId: "1:80515834348:web:7a0e69a8453e91e8c1e0c9",
-        		  measurementId: "G-YWJMHLGCNN"
-        };
-        // Firebase 초기화
-        firebase.initializeApp(firebaseConfig);
-
-        // 여기서부터 비밀번호 재설정 로직
-        var resetPasswordForm = document.getElementById('resetPasswordForm');
-        resetPasswordForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            var email = document.getElementById('email-input').value;
-            
-            // Firebase에서 해당 이메일 주소에 대한 계정 정보를 가져옵니다.
-            firebase.auth().fetchSignInMethodsForEmail(email)
-            .then(function(signInMethods) {
-                if (signInMethods.length === 0) {
-                    // 계정이 없는 경우 새로 생성하고, 비밀번호 재설정 이메일 보내기
-                    firebase.auth().createUserWithEmailAndPassword(email, "temporaryPassword")
-                    .then(function() {
-                        // 비밀번호 재설정 이메일 보내기
-                        firebase.auth().sendPasswordResetEmail(email)
-                            .then(function() {
-                            	
-                                alert('비밀번호 재설정 이메일이 전송되었습니다!');
-                            })
-                            .catch(function(error) {
-                                var errorMessage = error.message;
-                                alert('비밀번호 재설정 이메일 보내기 오류: ' + errorMessage);
-                            });
-                    })
-                    .catch(function(error) {
-                        var errorCode = error.code;
-                        var errorMessage = error.message;
-                        alert('사용자 계정 생성 오류: ' + errorMessage);
-                    });
+    if (user_id.trim() !== '') {
+        $.ajax({
+            url : './temp_pw_send',
+            type : 'POST',
+            data : user_id,
+            contentType : 'application/json;charset=utf-8',
+            dataType : 'json',
+            success : function(res) {
+                if (res == 1) {
+                    console.log('완료 후')
+                     closeWindow();
                 } else {
-                    // 이미 계정이 있는 경우 비밀번호 재설정 이메일 보내기
-                    firebase.auth().sendPasswordResetEmail(email)
-                        .then(function() {
-                            alert('비밀번호 재설정 이메일이 전송되었습니다!');
-                        })
-                        .catch(function(error) {
-                            var errorMessage = error.message;
-                            alert('비밀번호 재설정 이메일 보내기 오류: ' + errorMessage);
-                        });
+                    alert('가입되지 않은 이메일입니다.');
                 }
-            })
-            .catch(function(error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                alert('사용자 계정 조회 오류: ' + errorMessage);
-            });
+            }
         });
-
-
-
+    } else {
+        alert('이메일 주소를 입력하세요.');
+    }
+});

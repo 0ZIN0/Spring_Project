@@ -162,8 +162,7 @@ public class IndexController {
 	
 	@ResponseBody
 	@GetMapping(value="/detail/review_all_ajax")
-	public List<Comments> reviewAll(@RequestParam("game") Integer game,
-			@RequestParam("page") Integer index) {
+	public List<Comments> reviewAll(@RequestParam("game") Integer game, @RequestParam("page") Integer index) {
 		
 		log.info(game);
 		log.info(index);
