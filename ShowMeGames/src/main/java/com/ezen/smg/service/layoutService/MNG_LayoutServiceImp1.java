@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ezen.smg.common.CommonFunction;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.layout.LayoutHGTDTO;
+import com.ezen.smg.dto.layout.LayoutJYMDTO;
 import com.ezen.smg.dto.layout.LayoutKCWDTO;
 import com.ezen.smg.dto.layout.LayoutLRADTO;
 import com.ezen.smg.mapper.LayoutMapper;
@@ -112,6 +113,31 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 		return mapper.updateLayoutLRA(dto);
 	}
 
+	
+	@Override
+	public LayoutJYMDTO getLayoutJYM(Integer game_id) {
+		LayoutJYMDTO dto = mapper.getLayoutJYM(game_id); 
+		
+ 		if(dto == null) return dto;
+		
+		return LayoutJYMDTO.handleBrToCrlf(dto);
+	}
+	
+	@Override
+	public int insertLayoutJYM(LayoutJYMDTO dto) {
+
+		dto = LayoutJYMDTO.handleCrlfToBr(dto);
+		
+		return mapper.insertLayoutJYM(dto);
+	}
+	@Override
+	public int updateLayoutJYM(LayoutJYMDTO dto) {
+		dto = LayoutJYMDTO.handleCrlfToBr(dto);
+		
+		return mapper.updateLayoutJYM(dto);
+	}
+	
+	
 	@Override
 	public int updateImg_url(Integer game_id, LayoutType type, MultipartFile img_file, int img_num) {
         String filename = img_file.getOriginalFilename();
@@ -132,6 +158,11 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
         		newFileName = game_id + File.separator + game_id + "_" + img_num + ext;
         		fullPath = absolutePath + "/lra/" + newFileName;
         		realPath = servletContext.getRealPath("/resources/img/games/layout/lra/");
+        		break;
+        	case JYM:
+        		newFileName = game_id + File.separator + game_id + "_" + img_num + ext;
+        		fullPath = absolutePath + "/jym/" + newFileName;
+        		realPath = servletContext.getRealPath("/resources/img/games/layout/jym/");
         		break;
         	default:
         		newFileName = game_id + ext;
@@ -170,6 +201,8 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
         			return mapper.updateImg_url_hgt(game_id, newFileName, img_num);
         		case LRA:
         			return mapper.updateImg_url_lra(game_id, newFileName, img_num);
+        		case JYM:
+        			return mapper.updateImg_url_jym(game_id, newFileName, img_num);
     			default:
     				return mapper.updateImg_url(game_id, newFileName);
 	        }
@@ -188,7 +221,7 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 			case "LRA":
 				return mapper.getLayoutCheck_lra(game_id);
 			case "JYM":
-				return 0;
+				return mapper.getLayoutCheck_jym(game_id);
 			case "HGT":
 				return mapper.getLayoutCheck_hgt(game_id);
 			case "KCW":
