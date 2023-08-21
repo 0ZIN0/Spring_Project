@@ -1,12 +1,12 @@
 const inputField = $('#notice-title');
 const noticeText = $('#notice-text');
-const imgFile = $('#imp-file');
+const imgFile = $('#img-file');
 const submitBtn = $('#submit-btn');
 
 submitBtn.attr('disabled', 'disabled');
 
 inputField.on('keyup', function () {
-  if (noticeText.val() !== '' && inputField.val() !== '' && imgFile.val() !== '') {
+  if (noticeText.val() !== '' && inputField.val() !== '') {
     console.log("input: ", inputField.val());
     console.log('1');
     submitBtn.removeAttr("disabled");
@@ -18,7 +18,7 @@ inputField.on('keyup', function () {
 });
 
 noticeText.on('keyup', function () {
-  if (noticeText.val() !== '' && inputField.val() !== '' && imgFile.val() !== '') {
+  if (noticeText.val() !== '' && inputField.val() !== '') {
     console.log("text: ", noticeText.val());
     console.log('1');
     submitBtn.removeAttr("disabled");
@@ -29,8 +29,9 @@ noticeText.on('keyup', function () {
   }
 });
 
-imgFile.on('input', function () {
-  if (noticeText.val() !== '' && inputField.val() !== '' && imgFile.val() !== '') {
+imgFile.on('change', function () {
+  console.log("img : " , imgFile.val());
+  if (noticeText.val() !== '' && inputField.val() !== '') {
     console.log("img: ", imgFile.val());
     console.log('1');
     submitBtn.removeAttr("disabled");
