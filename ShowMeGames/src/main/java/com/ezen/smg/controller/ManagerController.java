@@ -23,21 +23,25 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.dto.GameKeyDTO;
+import com.ezen.smg.dto.GameSpecificationsDTO;
 import com.ezen.smg.dto.Games;
 import com.ezen.smg.dto.ManagersDTO;
 import com.ezen.smg.dto.NoticeDTO;
 import com.ezen.smg.dto.QnADTO;
-import com.ezen.smg.dto.chart.SalesDTO;
-import com.ezen.smg.dto.layout.LayoutDefaultDTO;
-import com.ezen.smg.dto.layout.LayoutHGTDTO;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
+import com.ezen.smg.dto.chart.SalesDTO;
+import com.ezen.smg.dto.layout.LayoutDefaultDTO;
+import com.ezen.smg.dto.layout.LayoutHGTDTO;
+import com.ezen.smg.dto.layout.LayoutLRADTO;
 import com.ezen.smg.mapper.FAQmapper;
+import com.ezen.smg.mapper.GameSpecificationsMapper;
 import com.ezen.smg.mapper.NoticeMapper;
+import com.ezen.smg.service.ImagesService.ImagesService;
 import com.ezen.smg.service.faqService.FAQService;
-import com.ezen.smg.service.layoutService.MNG_LayoutService;
 import com.ezen.smg.service.layoutService.LayoutType;
+import com.ezen.smg.service.layoutService.MNG_LayoutService;
 import com.ezen.smg.service.managerService.ManagerService;
 
 import lombok.extern.log4j.Log4j;
@@ -56,16 +60,22 @@ public class ManagerController {
 	ManagerService serv;
 
 	@Autowired
+	FAQService faqService;
+	
+	@Autowired
+	MNG_LayoutService layoutServ;
+	
+	@Autowired
+	ImagesService imagesService;
+	
+	@Autowired
 	NoticeMapper noticeMapper;
 
 	@Autowired
-	FAQService faqService;
-
-	@Autowired
 	FAQmapper faQmapper;
-
+	
 	@Autowired
-	MNG_LayoutService layoutServ;
+	GameSpecificationsMapper specMapper;
 	
 	@GetMapping("")
 	String certification(HttpServletRequest request) {
@@ -112,7 +122,6 @@ public class ManagerController {
 	@GetMapping("/manage/admin_game")
 	String adminGame(Integer page, String type, String key, Model model) {
 		if(page == null) page = 1;
-
 		
 		int totalSize;
 		
@@ -161,7 +170,7 @@ public class ManagerController {
 	}
 	
 	@GetMapping("/manage/admin_game_detail")
-	String adminGameDetail(Integer game_id, Model model) {
+	String adminGameDetail(Integer game_id, String prePageInfo, Model model) {
 
 		Games game = serv.getGameDetail(game_id);
 		
@@ -169,6 +178,12 @@ public class ManagerController {
 
 		model.addAttribute("game", game);
 		model.addAttribute("rated", game.getRated().split("/"));
+		model.addAttribute("images", imagesService.getNomalImages(game_id, 1, 5));
+		model.addAttribute("sub_banner", imagesService.getSubBanner(game_id));
+		
+		model.addAttribute("spec", specMapper.getSpec(game_id));
+		
+		model.addAttribute("prePageInfo", prePageInfo);
 
 		return "manager/admin_game_detail";
 	}
@@ -190,6 +205,7 @@ public class ManagerController {
 		
 		switch(layout) {
 			case "LRA":
+				model.addAttribute("layout", layoutServ.getLayoutLRA(game_id));
 				return "manager/admin_layout/layout_lra";
 			case "JYM":
 				return "manager/admin_layout/layout_jym";
@@ -206,7 +222,66 @@ public class ManagerController {
 				model.addAttribute("layout", layoutServ.getLayoutDefault(game_id));
 				return "manager/admin_layout/layout_default";
 		}
+	}
+	
+	@GetMapping("/manage/admin_game_slide")
+	String adminSetSlide(Integer game_id, Model model) {
 		
+		model.addAttribute("game_id", game_id);
+		model.addAttribute("images", imagesService.getSlideImages(game_id));
+		model.addAttribute("sub_banner", imagesService.getSubBanner(game_id));
+		
+		return "manager/admin_game_slide_update";
+	}
+	
+	@PostMapping("/manage/admin_game_slide")
+	String adminSetSlidePost(Integer game_id, MultipartFile slide_file0, MultipartFile slide_file1,
+			MultipartFile slide_file2, MultipartFile slide_file3, MultipartFile slide_file4) {
+		
+		MultipartFile[] fileArr = {slide_file0, slide_file1, slide_file2, slide_file3, slide_file4};
+		
+		for(int i = 0; i < fileArr.length; ++i) {
+			if(!fileArr[i].isEmpty()) {
+				imagesService.updateSlideImage(game_id, fileArr[i], i);
+			}
+		}
+		
+		return "redirect:admin_game_slide?game_id=" + game_id;
+	}
+	
+	@PostMapping("/manage/admin_sub_banner_set")
+	String adminSetSubBanner(Integer game_id, MultipartFile sub_img_file) {
+		
+		if(!sub_img_file.isEmpty()) {
+			imagesService.subBannerUpdate(game_id, sub_img_file);
+		}
+		
+		return "redirect:admin_game_slide?game_id=" + game_id;	
+	}
+	
+	
+	@GetMapping("/manage/admin_game_req")
+	String adminSetGameReq(Integer game_id, Model model) {
+		
+		model.addAttribute("game_id", game_id);
+		model.addAttribute("spec", specMapper.getSpec(game_id));
+		
+		return "manager/admin_game_req_update";
+	}
+	
+	@PostMapping("/manage/admin_game_req")
+	String adminSetGameReqPost(Integer origin_game_id, GameSpecificationsDTO dto) {
+		
+		// insert로
+		if(dto.getGame_id() == null) {
+			dto.setGame_id(origin_game_id);
+			specMapper.insertSpec(dto);
+		// update로
+		} else {
+			specMapper.updateSpec(dto);
+		}
+		
+		return "redirect:admin_game_detail?game_id=" + origin_game_id;
 	}
 	
 	@PostMapping("/manage/layout_update_default")
@@ -250,6 +325,38 @@ public class ManagerController {
 		if(!game_img_file_3.isEmpty()) {
 			layoutServ.updateImg_url(origin_game_id, LayoutType.HGT, game_img_file_3, 3);
 		}
+		
+		return "redirect:admin_game_detail?game_id=" + origin_game_id; 
+	}
+	
+	@PostMapping("/manage/layout_update_lra")
+	String layoutDefaultLRA(Integer origin_game_id, LayoutLRADTO dto, MultipartFile game_img_file_1,
+			MultipartFile game_img_file_2, MultipartFile game_video_file_1, MultipartFile game_video_file_2) {
+		
+		log.error("내가 쓴 카트 내용: " + dto);
+		
+		// insert로
+		if(dto.getGame_id() == null) {
+			dto.setGame_id(origin_game_id);
+			layoutServ.insertLayoutLRA(dto);
+		// update로
+		} else {
+			layoutServ.updateLayoutLRA(dto);
+		}
+
+		if(!game_img_file_1.isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.LRA, game_img_file_1, 1);
+		}
+		if(!game_img_file_2.isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.LRA, game_img_file_2, 2);
+		}
+		if(!game_video_file_1.isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.LRA, game_video_file_1, 3);
+		}
+		if(!game_video_file_2.isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.LRA, game_video_file_2, 4);
+		}
+		
 		
 		return "redirect:admin_game_detail?game_id=" + origin_game_id; 
 	}

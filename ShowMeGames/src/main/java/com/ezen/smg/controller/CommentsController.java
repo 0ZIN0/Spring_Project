@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.ezen.smg.dto.Comments;
 import com.ezen.smg.dto.GoodAndBadDTO;
 import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.mapper.CommentsMapper;
@@ -89,5 +90,18 @@ public class CommentsController {
 		}
 		resultArr[0] = 0;
 		return resultArr; // 로그인 필요
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/delete_my_com")
+	public int updateComment(@RequestBody Integer comment_id) {
+		commentsMapper.deleteMyCommentGAB(comment_id);
+		return commentsMapper.deleteMyComment(comment_id);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/add_my_com")
+	public int addComment(@RequestBody Comments dto) {
+		return commentsMapper.addMyComment(dto);
 	}
 }

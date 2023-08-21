@@ -86,7 +86,7 @@ img {
 #side_nav {
   width: 100%;
   position: sticky;
-  top: 50px;
+  top: 100px;
   left: 0;
   z-index: 2;
   color: #fff;

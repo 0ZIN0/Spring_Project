@@ -81,12 +81,17 @@ public class IndexController {
 		
 		Games gameDTO = gamesMapper.getGame(game);
 		gameDTO.setDiscounted_price(CommonFunction.calDiscount(gameDTO.getGame_price(), gameDTO.getDiscount()));
+		if (commentsMapper.getGameGrade(game) == null) {
+			gameDTO.setGame_grade(0.0);
+		} else {
+			gameDTO.setGame_grade(commentsMapper.getGameGrade(game));
+		}
 		
 		model.addAttribute("game", gameDTO);
 		model.addAttribute("rateds", gameDTO.getRated().split("/"));
 		model.addAttribute("images", imagesService.getNomalImages(game, 1, 5));
 		model.addAttribute("sub_banner", imagesService.getSubBanner(game));
-		model.addAttribute("layout", layoutMapper.getLayoutDefault(game));
+		
 		if (user == null) {
 			model.addAttribute("is_use", false);
 		} else {
@@ -103,16 +108,20 @@ public class IndexController {
 		
 		List<Comments> coms = commentsMapper.getBestCommentList(game, 1, 10);
 		model.addAttribute("best_comments", coms);
+		model.addAttribute("best_com_id", commentsService.getComIdList(game, "best"));
 		model.addAttribute("best_comment_len", commentsMapper.getBestCommentList(game, 1, 10).size());
 		
 		// new 댓글
 		List<Comments> new_coms = commentsMapper.getNewCommentList(game, 1, 5);
 		model.addAttribute("new_comments", new_coms);
+		model.addAttribute("new_com_id", commentsService.getComIdList(game, "new"));
 		
+		// 게임 요구사양 
 		model.addAttribute("spec", specMapper.getSpec(game));
 		
 		switch(layout != null ? layout: "NULL") {
 		case "LRA":
+			model.addAttribute("layout", layoutMapper.getLayoutLRA(game));
 			return "games/layout/type_lra";
 		case "JYM":
 			return "games/layout/type_jym";
@@ -120,6 +129,7 @@ public class IndexController {
 			model.addAttribute("layout", layoutMapper.getLayoutHGT(game));
 			return "games/layout/type_hgt";
 		case "KCW":
+			model.addAttribute("layout", layoutMapper.getLayoutKCW(game));
 			return "games/layout/type_kcw";
 		case "SJH":
 			return "games/layout/type_sjh";
