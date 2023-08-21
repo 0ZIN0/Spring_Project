@@ -37,8 +37,6 @@ public class LoginController {
          // 사용자 정보를 세션에 저장
          HttpSession session = request.getSession();
          
-         session.setAttribute("user_id", user_id);
-         session.setAttribute("user_pw", user_pw);
          session.setAttribute("isLoggedIn", true);
          session.setAttribute("user", loginService.getUser(user_id));
          
