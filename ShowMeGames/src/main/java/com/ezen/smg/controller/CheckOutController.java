@@ -50,6 +50,11 @@ public class CheckOutController {
 		
 		model.addAttribute("user_point", usersMapper.getUserInfo(user.getUser_num()).getUser_point());
 //		model.addAttribute("order", order);
-		model.addAttribute("order", orderService.getSelectOrder(order_id));
+		Orders order = orderService.getSelectOrder(order_id);
+		
+		if (order.getPay_method() == null) {
+			order.setPay_method("정보 없음");
+		}
+		model.addAttribute("order", order);
 	}
 }

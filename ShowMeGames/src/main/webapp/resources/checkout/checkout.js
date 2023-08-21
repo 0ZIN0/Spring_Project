@@ -144,4 +144,7 @@ function inputNumberOnly(el) {
     if (havePointVal < 1000) {
         el.value = el.value.replace(/./, '');
     }
+    
 }
+
+
