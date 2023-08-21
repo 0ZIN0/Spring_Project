@@ -12,7 +12,7 @@
 			order_id, user_num, order_price, order_date, pay_method, order_status, imp_uid, buyer_email, use_point, add_point, buyer_name, address, order_product
 		)
 		values(
-			#{order.order_id}, #{order.user_num}, #{order.order_price}, #{order.order_date}, #{order.pay_method}, #{order.order_status}, #{order.imp_uid}, #{order.buyer_email}, #{order.use_point}, #{order.add_point}, #{order.buyer_name}, #{order.address}, #{order.order_product}
+			#{order.order_id}, #{order.user_num}, #{order.order_price}, #{order.order_date}, #{order.pay_method, jdbcType=VARCHAR}, #{order.order_status}, #{order.imp_uid, jdbcType=VARCHAR}, #{order.buyer_email}, #{order.use_point}, #{order.add_point}, #{order.buyer_name}, #{order.address}, #{order.order_product}
 		)
 	</insert>
 	
@@ -21,6 +21,6 @@
 	</select>
 	
 	<select id="getUserOrders" resultType="com.ezen.smg.dto.Orders" parameterType="int">
-		SELECT * FROM orders WHERE user_num=#{user_num}
+		SELECT * FROM orders WHERE user_num=#{user_num} order by order_date DESC
 	</select>
 </mapper>

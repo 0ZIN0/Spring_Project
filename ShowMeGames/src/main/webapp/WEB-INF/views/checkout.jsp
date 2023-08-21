@@ -248,7 +248,12 @@
 		const totalOrder = $('#total-order');
 		let havePointVal = $('#have-unit').data('haveunit');
 		let totalPrice = totalOrder.data('totalprice');
-
+		
+		if (totalPrice == 0) {
+			allUnitBtn.attr("disabled", true);
+			usePoint.prop('readonly', true);
+		}
+		
 		usePoint.on("propertychange change keyup paste input", function() {
 			let usePointVal = $(this).val();
 			if (usePointVal == havePointVal) {
@@ -258,7 +263,7 @@
 				allUnitBtn.addClass('button-ok');
 				allUnitBtn.removeClass('button-none');
 			}
-
+			
 			if (usePointVal > havePointVal) {
 				allUnitBtn.removeClass('button-ok');
 				allUnitBtn.addClass('button-none');
@@ -317,10 +322,6 @@
 								game_name += " 외 " + (gameCnt - 1);
 							}
 
-							if (price <= 0) {
-								return;
-							}
-
 							console.log(gameCnt, user_name);
 
 							if (first_name.val() == "" || last_name.val() == ""
@@ -328,86 +329,146 @@
 									|| post_num.val() == "" || !is_post_ok) {
 								return;
 							} else {
-								IMP.init('imp10327314');
-
-								IMP
-										.request_pay(
-												{
-													pg : "html5_inicis",
-													pay_method : "card",
-													merchant_uid : order_id, // 주문번호
-													name : game_name, // 상품명
-													amount : 1, // 숫자 타입 (가격)
-													buyer_email : email, // 회원 아이디
-													buyer_name : user_name, // 회원 실제 이름
-													buyer_tel : phoneNum, // 전화번호
-													buyer_addr : address.val(),
-													buyer_postcode : post_num
-															.val()
-												},
-												function(rsp) { // callback
-													if (rsp.success) {
-														var msg = '결제가 완료되었습니다';
-														var result = {
-															"order_id" : rsp.merchant_uid,
-															"imp_uid" : rsp.imp_uid,
-															"buyer_name" : rsp.buyer_name,
-															"buyer_email" : email,
-															"order_date" : new Date()
-																	.getTime(),
-															"order_price" : rsp.paid_amount,
-															"order_status" : rsp.status,
-															"pay_method" : rsp.pay_method,
-															"use_point" : totalOrder
-																	.data('totalprice')
-																	- price,
-															"add_point" : addPoint,
-															"address" : rsp.buyer_addr,
-															"order_product" : game_name
-														}
-														console.log("결제성공 "
-																+ msg);
-														$
-																.ajax({
-																	url : './checkout-success',
-																	type : 'POST',
-																	data : JSON
-																			.stringify(
-																					result,
-																					[
-																							'order_id',
-																							'imp_uid',
-																							'buyer_email',
-																							'order_date',
-																							'order_price',
-																							'order_status',
-																							'pay_method',
-																							'use_point',
-																							'add_point',
-																							'buyer_name',
-																							'address', 
-																							'order_product' ]),
-																	contentType : 'application/json;charset=utf-8',
-																	dataType : 'json', //서버에서 보내줄 데이터 타입
-																	success : function(
-																			res) {
-																		if (res == 1) {
-																			location.href = `./orderfin?order_id=${order_id + 1}`;
-																		} else {
+								if (price <= 0) {
+									console.log("0원 결제!!!!!");
+									var result = {
+											"order_id" : order_id,
+											"buyer_name" : user_name,
+											"buyer_email" : email,
+											"imp_uid" : 'imp_000000000000',
+											"order_date" : new Date()
+													.getTime(),
+											"pay_method" : '정보 없음',
+											"order_price" : price,
+											"order_status" : 'paid',
+											"use_point" : totalOrder
+													.data('totalprice')
+													- price,
+											"add_point" : addPoint,
+											"address" : address.val(),
+											"order_product" : game_name
+									}
+									
+									$.ajax({
+                                        url: './checkout-success',
+                                        type: 'POST',
+                                        data: JSON
+                                            .stringify(
+                                                result,
+                                                [
+                                                    'order_id',
+                                                    'buyer_email',
+                                                    'imp_uid',
+                                                    'order_date',
+                                                    'order_price',
+                                                    'order_status',
+                                                    'use_point',
+                                                    'pay_method',
+                                                    'add_point',
+                                                    'buyer_name',
+                                                    'address',
+                                                    'order_product']),
+                                        contentType: 'application/json;charset=utf-8',
+                                        dataType: 'json', //서버에서 보내줄 데이터 타입
+                                        success: function (
+                                            res) {
+                                            if (res == 1) {
+                                                location.href = `./orderfin?order_id=${order_id + 1}`;
+                                            } else {
+                                                console
+                                                    .log("Insert Fail!!!");
+                                            }
+                                        },
+                                        error: function () {
+                                            console
+                                                .log("Insert ajax 통신 실패!!!");
+                                        }
+                                    }); //ajax
+									
+									
+								} else {
+									
+									IMP.init('imp10327314');
+	
+									IMP
+											.request_pay(
+													{
+														pg : "html5_inicis",
+														pay_method : "card",
+														merchant_uid : order_id, // 주문번호
+														name : game_name, // 상품명
+														amount : 1, // 숫자 타입 (가격)
+														buyer_email : email, // 회원 아이디
+														buyer_name : user_name, // 회원 실제 이름
+														buyer_tel : phoneNum, // 전화번호
+														buyer_addr : address.val(),
+														buyer_postcode : post_num
+																.val()
+													},
+													function(rsp) { // callback
+														if (rsp.success) {
+															var msg = '결제가 완료되었습니다';
+															var result = {
+																"order_id" : rsp.merchant_uid,
+																"imp_uid" : rsp.imp_uid,
+																"buyer_name" : rsp.buyer_name,
+																"buyer_email" : email,
+																"order_date" : new Date()
+																		.getTime(),
+																"order_price" : rsp.paid_amount,
+																"order_status" : rsp.status,
+																"pay_method" : rsp.pay_method,
+																"use_point" : totalOrder
+																		.data('totalprice')
+																		- price,
+																"add_point" : addPoint,
+																"address" : rsp.buyer_addr,
+																"order_product" : game_name
+															}
+															console.log("결제성공 "
+																	+ msg);
+															$
+																	.ajax({
+																		url : './checkout-success',
+																		type : 'POST',
+																		data : JSON
+																				.stringify(
+																						result,
+																						[
+																								'order_id',
+																								'imp_uid',
+																								'buyer_email',
+																								'order_date',
+																								'order_price',
+																								'order_status',
+																								'pay_method',
+																								'use_point',
+																								'add_point',
+																								'buyer_name',
+																								'address', 
+																								'order_product' ]),
+																		contentType : 'application/json;charset=utf-8',
+																		dataType : 'json', //서버에서 보내줄 데이터 타입
+																		success : function(
+																				res) {
+																			if (res == 1) {
+																				location.href = `./orderfin?order_id=${order_id + 1}`;
+																			} else {
+																				console
+																						.log("Insert Fail!!!");
+																			}
+																		},
+																		error : function() {
 																			console
-																					.log("Insert Fail!!!");
+																					.log("Insert ajax 통신 실패!!!");
 																		}
-																	},
-																	error : function() {
-																		console
-																				.log("Insert ajax 통신 실패!!!");
-																	}
-																}) //ajax
-													} else {
-														alert("결제에 실패하였습니다. 에러 내용: "
-																+ rsp.error_msg);
-													}
-												});
+																	}) //ajax
+														} else {
+															alert("결제에 실패하였습니다. 에러 내용: "
+																	+ rsp.error_msg);
+														}
+													});
+								}
 							}
 						});
 	</script>
