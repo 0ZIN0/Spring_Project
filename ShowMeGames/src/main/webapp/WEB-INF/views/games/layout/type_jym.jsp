@@ -23,7 +23,7 @@
 			<div id="game_detail_div">
 				<%@ include file="/WEB-INF/views/games/include/detail_top.jsp"%>
 				<!-- 아래부터는 free layout -->
-
+				<div></div>
 			</div>
 		</div>
 	</main>
