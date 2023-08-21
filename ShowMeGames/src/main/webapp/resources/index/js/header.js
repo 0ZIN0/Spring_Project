@@ -458,8 +458,8 @@ function updateMiniCart() {
               </div>
           </div>
           <div id="minicart-list-btns">
-            <button class="button-wrapper button-effect-moema">장바구니 보기 </button>
-            <button class="button-wrapper button-effect-moema2">결제하기 </button>
+            <button id="move-to-cart-btn" class="button-wrapper button-effect-moema">장바구니 보기 </button>
+            <button id="minicart-checkout-btn" class="button-wrapper button-effect-moema2">결제하기 </button>
           </div>
           <!-- minicart-list-btns Part End -->
         </div>
