@@ -50,7 +50,6 @@ public interface GamesMapper {
 	int getGamesByLayout(String layout);
 	
 	List<Games> getGameListForAdmin(@Param("start") int firstGame, @Param("end") int lastGame);
-	
 
 	List<Games> getGameListByGame_id(@Param("start") int firstGame, @Param("end") int lastGame, @Param("game_id") String game_id);
 	
@@ -71,5 +70,9 @@ public interface GamesMapper {
 	List<Games> getCuratorGames();
 
 	int deleteGame(@Param("game_id") int game_id);
+
+	int getGamesLayoutIsNull();
+
+	List<Games> getGamesListByLayoutAndNull(@Param("start") int firstGame, @Param("end") int lastGame, @Param("layout") String layout);
 	
 }
