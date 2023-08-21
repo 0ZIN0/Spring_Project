@@ -3,180 +3,233 @@
   PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.smg.mapper.LayoutMapper">
-	<insert id="insertLayoutHGT" parameterType="com.ezen.smg.dto.layout.LayoutHGTDTO">
+	<insert id="insertLayoutHGT"
+		parameterType="com.ezen.smg.dto.layout.LayoutHGTDTO">
 		INSERT INTO hgt_layout(
-			game_id, 
-			warn_content, 
-			game_main_title, 
-			game_main_text, 
-			game_sub_title, 
-			game_sub_text, 
-			game_story_title, 
-			game_story_text)  
-			VALUES(
-			#{dto.game_id}, 
-			#{dto.warn_content, jdbcType=VARCHAR},
-			#{dto.game_main_title, jdbcType=VARCHAR},
-			#{dto.game_main_text, jdbcType=VARCHAR},
-			#{dto.game_sub_title, jdbcType=VARCHAR},
-			#{dto.game_sub_text, jdbcType=VARCHAR},
-			#{dto.game_story_title, jdbcType=VARCHAR}, 
-			#{dto.game_story_text, jdbcType=VARCHAR})
+		game_id,
+		warn_content,
+		game_main_title,
+		game_main_text,
+		game_sub_title,
+		game_sub_text,
+		game_story_title,
+		game_story_text)
+		VALUES(
+		#{dto.game_id},
+		#{dto.warn_content, jdbcType=VARCHAR},
+		#{dto.game_main_title, jdbcType=VARCHAR},
+		#{dto.game_main_text, jdbcType=VARCHAR},
+		#{dto.game_sub_title, jdbcType=VARCHAR},
+		#{dto.game_sub_text, jdbcType=VARCHAR},
+		#{dto.game_story_title, jdbcType=VARCHAR},
+		#{dto.game_story_text, jdbcType=VARCHAR})
 	</insert>
-	<select id="getLayoutHGT" resultType="com.ezen.smg.dto.layout.LayoutHGTDTO">
+	<select id="getLayoutHGT"
+		resultType="com.ezen.smg.dto.layout.LayoutHGTDTO">
 		SELECT * FROM hgt_layout WHERE game_id=#{id}
 	</select>
-	<update id="updateLayoutHGT" parameterType="com.ezen.smg.dto.layout.LayoutHGTDTO">
-		UPDATE hgt_layout SET 
-			warn_content=#{dto.warn_content, jdbcType=VARCHAR}, 
-			game_main_title=#{dto.game_main_title, jdbcType=VARCHAR}, 
-			game_main_text=#{dto.game_main_text, jdbcType=VARCHAR}, 
-			game_sub_title=#{dto.game_sub_title, jdbcType=VARCHAR}, 
-			game_sub_text=#{dto.game_sub_text, jdbcType=VARCHAR}, 
-			game_story_title=#{dto.game_story_title, jdbcType=VARCHAR}, 
-			game_story_text=#{dto.game_story_text, jdbcType=VARCHAR} 
+	<update id="updateLayoutHGT"
+		parameterType="com.ezen.smg.dto.layout.LayoutHGTDTO">
+		UPDATE hgt_layout SET
+		warn_content=#{dto.warn_content, jdbcType=VARCHAR},
+		game_main_title=#{dto.game_main_title, jdbcType=VARCHAR},
+		game_main_text=#{dto.game_main_text, jdbcType=VARCHAR},
+		game_sub_title=#{dto.game_sub_title, jdbcType=VARCHAR},
+		game_sub_text=#{dto.game_sub_text, jdbcType=VARCHAR},
+		game_story_title=#{dto.game_story_title, jdbcType=VARCHAR},
+		game_story_text=#{dto.game_story_text, jdbcType=VARCHAR}
 		WHERE
-			game_id=#{dto.game_id}
+		game_id=#{dto.game_id}
 	</update>
-	
-	<insert id="insertLayoutDefault" parameterType="com.ezen.smg.dto.layout.LayoutDefaultDTO">
+
+	<insert id="insertLayoutDefault"
+		parameterType="com.ezen.smg.dto.layout.LayoutDefaultDTO">
 		INSERT INTO default_layout(
-			GAME_ID, 
-			WARN_CONTENT, 
-			GAME_INFO_TITLE, 
-			GAME_INFO_CONTENT, 
-			GAME_STORY) 
-			VALUES(
-			#{dto.game_id}, 
-			#{dto.warn_content, jdbcType=VARCHAR},
-			#{dto.game_info_title, jdbcType=VARCHAR},
-			#{dto.game_info_content, jdbcType=VARCHAR},
-			#{dto.game_story, jdbcType=VARCHAR})
+		GAME_ID,
+		WARN_CONTENT,
+		GAME_INFO_TITLE,
+		GAME_INFO_CONTENT,
+		GAME_STORY)
+		VALUES(
+		#{dto.game_id},
+		#{dto.warn_content, jdbcType=VARCHAR},
+		#{dto.game_info_title, jdbcType=VARCHAR},
+		#{dto.game_info_content, jdbcType=VARCHAR},
+		#{dto.game_story, jdbcType=VARCHAR})
 	</insert>
-	<select id="getLayoutDefault" resultType="com.ezen.smg.dto.layout.LayoutDefaultDTO">
+	<select id="getLayoutDefault"
+		resultType="com.ezen.smg.dto.layout.LayoutDefaultDTO">
 		SELECT * FROM default_layout WHERE game_id=#{id}
 	</select>
-	<update id="updateLayoutDefault" parameterType="com.ezen.smg.dto.layout.LayoutDefaultDTO">
+	<update id="updateLayoutDefault"
+		parameterType="com.ezen.smg.dto.layout.LayoutDefaultDTO">
 		UPDATE default_layout SET
-			warn_content=#{dto.warn_content, jdbcType=VARCHAR},
-			game_info_title=#{dto.game_info_title, jdbcType=VARCHAR},
-			game_info_content=#{dto.game_info_content, jdbcType=VARCHAR},
-			game_story=#{dto.game_story, jdbcType=VARCHAR}
+		warn_content=#{dto.warn_content, jdbcType=VARCHAR},
+		game_info_title=#{dto.game_info_title, jdbcType=VARCHAR},
+		game_info_content=#{dto.game_info_content, jdbcType=VARCHAR},
+		game_story=#{dto.game_story, jdbcType=VARCHAR}
 		WHERE
-			game_id=#{dto.game_id}
+		game_id=#{dto.game_id}
 	</update>
-	
+
 	<update id="updateImg_url">
-		UPDATE default_layout SET game_info_img_url=#{url} WHERE game_id=#{id}
+		UPDATE default_layout SET game_info_img_url=#{url}
+		WHERE game_id=#{id}
 	</update>
-	
+
 	<update id="updateImg_url_hgt">
 		UPDATE hgt_layout
-		SET 
-			<choose>
-				<when test="img_num == 1">
-					game_img_1=#{url} 
-				</when>
-				<when test="img_num == 2">
-					game_img_2=#{url}
-				</when>
-				<otherwise>
-					game_img_3=#{url}
-				</otherwise>
-			</choose>
-		WHERE game_id=#{id} 
+		SET
+		<choose>
+			<when test="img_num == 1">
+				game_img_1=#{url}
+			</when>
+			<when test="img_num == 2">
+				game_img_2=#{url}
+			</when>
+			<otherwise>
+				game_img_3=#{url}
+			</otherwise>
+		</choose>
+		WHERE game_id=#{id}
 	</update>
-	
+
+
 	<select id="getLayoutCheck_default">
-		SELECT count(*) FROM default_layout WHERE game_id=#{id}
+		SELECT count(*) FROM default_layout WHERE
+		game_id=#{id}
 	</select>
 	<select id="getLayoutCheck_hgt">
 		SELECT count(*) FROM hgt_layout WHERE game_id=#{id}
 	</select>
-	
-	<select id="getLayoutKCW" resultType="com.ezen.smg.dto.layout.LayoutKCWDTO">
+
+	<select id="getLayoutKCW"
+		resultType="com.ezen.smg.dto.layout.LayoutKCWDTO">
 		SELECT * FROM kcw_layout WHERE game_id=#{id}
 	</select>
-	
+
 	<select id="getLayoutCheck_kcw">
 		SELECT count(*) FROM kcw_layout WHERE game_id=#{id}
 	</select>
-	
+
+
 	<!-- lra layout 기능 sql -->
 	<select id="getLayoutCheck_lra">
 		SELECT count(*) FROM lra_layout WHERE game_id=#{id}
 	</select>
-	<insert id="insertLayoutLRA" parameterType="com.ezen.smg.dto.layout.LayoutLRADTO">
+	<insert id="insertLayoutLRA"
+		parameterType="com.ezen.smg.dto.layout.LayoutLRADTO">
 		INSERT INTO lra_layout(
-			game_id, 
-			warn_content, 
-			game_main_title_1, 
-			game_sub_title_1, 
-			game_img_1, 
-			game_main_title_2, 
-			game_sub_title_2, 
-			game_img_2,
-			game_detail_title_1,
-			game_detail_content_1,
-			game_detail_video_1,
-			game_detail_title_2,
-			game_detail_content_2,
-			game_detail_video_2
-			)  
-			VALUES(
-			#{dto.game_id}, 
-			#{dto.warn_content, jdbcType=VARCHAR},
-			#{dto.game_main_title_1, jdbcType=VARCHAR},
-			#{dto.game_sub_title_1, jdbcType=VARCHAR},
-			#{dto.game_img_1, jdbcType=VARCHAR},
-			#{dto.game_main_title_2, jdbcType=VARCHAR},
-			#{dto.game_sub_title_2, jdbcType=VARCHAR}, 
-			#{dto.game_img_2, jdbcType=VARCHAR},
-			#{dto.game_detail_title_1, jdbcType=VARCHAR},
-			#{dto.game_detail_content_1, jdbcType=VARCHAR},
-			#{dto.game_detail_video_1, jdbcType=VARCHAR},
-			#{dto.game_detail_title_2, jdbcType=VARCHAR},
-			#{dto.game_detail_content_2, jdbcType=VARCHAR},
-			#{dto.game_detail_video_2, jdbcType=VARCHAR})
+		game_id,
+		warn_content,
+		game_main_title_1,
+		game_sub_title_1,
+		game_img_1,
+		game_main_title_2,
+		game_sub_title_2,
+		game_img_2,
+		game_detail_title_1,
+		game_detail_content_1,
+		game_detail_video_1,
+		game_detail_title_2,
+		game_detail_content_2,
+		game_detail_video_2
+		)
+		VALUES(
+		#{dto.game_id},
+		#{dto.warn_content, jdbcType=VARCHAR},
+		#{dto.game_main_title_1, jdbcType=VARCHAR},
+		#{dto.game_sub_title_1, jdbcType=VARCHAR},
+		#{dto.game_img_1, jdbcType=VARCHAR},
+		#{dto.game_main_title_2, jdbcType=VARCHAR},
+		#{dto.game_sub_title_2, jdbcType=VARCHAR},
+		#{dto.game_img_2, jdbcType=VARCHAR},
+		#{dto.game_detail_title_1, jdbcType=VARCHAR},
+		#{dto.game_detail_content_1, jdbcType=VARCHAR},
+		#{dto.game_detail_video_1, jdbcType=VARCHAR},
+		#{dto.game_detail_title_2, jdbcType=VARCHAR},
+		#{dto.game_detail_content_2, jdbcType=VARCHAR},
+		#{dto.game_detail_video_2, jdbcType=VARCHAR})
 	</insert>
-	<update id="updateLayoutLRA" parameterType="com.ezen.smg.dto.layout.LayoutLRADTO">
-		UPDATE lra_layout SET 
-			warn_content=#{dto.warn_content, jdbcType=VARCHAR}, 
-			game_main_title_1=#{dto.game_main_title_1, jdbcType=VARCHAR}, 
-			game_sub_title_1=#{dto.game_sub_title_1, jdbcType=VARCHAR}, 
-			game_img_1=#{dto.game_img_1, jdbcType=VARCHAR}, 
-			game_main_title_2=#{dto.game_main_title_2, jdbcType=VARCHAR}, 
-			game_sub_title_2=#{dto.game_sub_title_2, jdbcType=VARCHAR}, 
-			game_img_2=#{dto.game_img_2, jdbcType=VARCHAR},
-			game_detail_title_1=#{dto.game_detail_title_1, jdbcType=VARCHAR},
-			game_detail_content_1=#{dto.game_detail_content_1, jdbcType=VARCHAR}, 
-			game_detail_video_1=#{dto.game_detail_video_1, jdbcType=VARCHAR},
-			game_detail_title_2=#{dto.game_detail_title_2, jdbcType=VARCHAR}, 
-			game_detail_content_2=#{dto.game_detail_content_2, jdbcType=VARCHAR}, 
-			game_detail_video_2=#{dto.game_detail_video_2, jdbcType=VARCHAR}
+	<update id="updateLayoutLRA"
+		parameterType="com.ezen.smg.dto.layout.LayoutLRADTO">
+		UPDATE lra_layout SET
+		warn_content=#{dto.warn_content, jdbcType=VARCHAR},
+		game_main_title_1=#{dto.game_main_title_1, jdbcType=VARCHAR},
+		game_sub_title_1=#{dto.game_sub_title_1, jdbcType=VARCHAR},
+		game_img_1=#{dto.game_img_1, jdbcType=VARCHAR},
+		game_main_title_2=#{dto.game_main_title_2, jdbcType=VARCHAR},
+		game_sub_title_2=#{dto.game_sub_title_2, jdbcType=VARCHAR},
+		game_img_2=#{dto.game_img_2, jdbcType=VARCHAR},
+		game_detail_title_1=#{dto.game_detail_title_1, jdbcType=VARCHAR},
+		game_detail_content_1=#{dto.game_detail_content_1, jdbcType=VARCHAR},
+		game_detail_video_1=#{dto.game_detail_video_1, jdbcType=VARCHAR},
+		game_detail_title_2=#{dto.game_detail_title_2, jdbcType=VARCHAR},
+		game_detail_content_2=#{dto.game_detail_content_2, jdbcType=VARCHAR},
+		game_detail_video_2=#{dto.game_detail_video_2, jdbcType=VARCHAR}
 		WHERE
-			game_id=#{dto.game_id}
+		game_id=#{dto.game_id}
 	</update>
-	<select id="getLayoutLRA" resultType="com.ezen.smg.dto.layout.LayoutLRADTO">
+	<select id="getLayoutLRA"
+		resultType="com.ezen.smg.dto.layout.LayoutLRADTO">
 		SELECT * FROM lra_layout WHERE game_id=#{id}
 	</select>
 	<update id="updateImg_url_lra">
 		UPDATE lra_layout
-		SET 
-			<choose>
-				<when test="img_num == 1">
-					game_img_1=#{url} 
-				</when>
-				<when test="img_num == 2">
-					game_img_2=#{url}
-				</when>
-				<when test="img_num == 3">
-					game_detail_video_1=#{url}
-				</when>
-				<otherwise>
-					game_detail_video_2=#{url}
-				</otherwise>
-			</choose>
-		WHERE game_id=#{id} 
+		SET
+		<choose>
+			<when test="img_num == 1">
+				game_img_1=#{url}
+			</when>
+			<when test="img_num == 2">
+				game_img_2=#{url}
+			</when>
+			<when test="img_num == 3">
+				game_detail_video_1=#{url}
+			</when>
+			<otherwise>
+				game_detail_video_2=#{url}
+			</otherwise>
+		</choose>
+		WHERE game_id=#{id}
 	</update>
+	
+	<insert id="insertLayoutSJH"
+		parameterType="com.ezen.smg.dto.layout.LayoutSJHDTO">
+		INSERT INTO sjh_layout(
+		game_id,
+		title,
+		content)
+		VALUES(
+		#{dto.game_id},
+		#{dto.title, jdbcType=VARCHAR},
+		#{dto.content, jdbcType=VARCHAR})
+	</insert>
+	
+
+	<select id="getLayoutSJH"
+		resultType="com.ezen.smg.dto.layout.LayoutSJHDTO">
+		SELECT * FROM sjh_layout WHERE game_id=#{id}
+	</select>
+
+	<update id="updateLayoutSJH"
+		parameterType="com.ezen.smg.dto.layout.LayoutSJHDTO">
+		UPDATE sjh_layout SET
+		title=#{dto.title, jdbcType=VARCHAR},
+		content=#{dto.content, jdbcType=VARCHAR}
+		WHERE
+		game_id=#{dto.game_id}
+	</update>
+
+	
+
+
+
+
+	<select id="getLayoutCheck_sjh">
+		SELECT count(*) FROM sjh_layout WHERE game_id=#{id}
+	</select>
+
+
+
 </mapper>

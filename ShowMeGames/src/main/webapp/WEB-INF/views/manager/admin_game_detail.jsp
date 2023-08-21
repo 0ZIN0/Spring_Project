@@ -161,7 +161,7 @@
 							<div id="img_slide_container">
 								<c:forEach items="${images}" var="image" varStatus="status">
 									<div class="imgSlides">
-										<img id="game_img_selected" alt="${image.image_name}"
+										<img class="game_img_selected" alt="${image.image_name}"
 											src="${game_img}${image.image_url}">
 									</div>
 								</c:forEach>

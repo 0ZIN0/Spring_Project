@@ -7,6 +7,7 @@ import com.ezen.smg.dto.layout.LayoutHGTDTO;
 import com.ezen.smg.dto.layout.LayoutJYMDTO;
 import com.ezen.smg.dto.layout.LayoutKCWDTO;
 import com.ezen.smg.dto.layout.LayoutLRADTO;
+import com.ezen.smg.dto.layout.LayoutSJHDTO;
 
 public interface LayoutMapper {
 
@@ -21,6 +22,9 @@ public interface LayoutMapper {
 	int insertLayoutJYM(@Param("dto") LayoutJYMDTO dto);
 	int updateLayoutJYM(@Param("dto") LayoutJYMDTO dto);
 	LayoutJYMDTO getLayoutJYM(@Param("id") int game_id);
+	int insertLayoutSJH(@Param("dto") LayoutSJHDTO dto);
+	int updateLayoutSJH(@Param("dto") LayoutSJHDTO dto);
+	LayoutSJHDTO getLayoutSJH(@Param("id") int game_id);
 	
 	int insertLayoutDefault(@Param("dto") LayoutDefaultDTO dto);
 	int updateLayoutDefault(@Param("dto") LayoutDefaultDTO dto);
@@ -36,8 +40,10 @@ public interface LayoutMapper {
 	
 	LayoutKCWDTO getLayoutKCW(@Param("id") int game_id);
 	int getLayoutCheck_kcw(@Param("id") Integer game_id);
-
 	int getLayoutCheck_lra(@Param("id") Integer game_id);
 	
 	int getLayoutCheck_jym(@Param("id") Integer game_id);
+	int getLayoutCheck_sjh(@Param("id") Integer game_id);
+	
+	
 }

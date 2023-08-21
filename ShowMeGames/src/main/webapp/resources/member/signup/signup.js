@@ -4,6 +4,9 @@ let chkName = /^[가-힣]{2,13}$/;
 let chkPhone = /^010-\d{4}-\d{4}$/
 let chkNick = /^[가-힣a-zA-Z0-9_-]{3,15}$/
 
+let chkKorean = /^.*[가-힣].*$/;
+let koreanRegex = /^[가-힣]$/;
+
 // 중복검사 유무
 let chkEmailValid = 0;
 
@@ -109,6 +112,9 @@ $('#reg_input_phone').blur(function() {
     $(this).closest('.reg_input_div').addClass('valid');
 });
 
+// 닉네임 변경 관련
+const MAX_BYTE = 20;
+let present_byte = 0;
 $('#reg_input_nick').blur(function() {
     if(!$(this).val()) {
         $(this).parent().prev('.reg_input_header').removeClass('focused');
@@ -123,6 +129,26 @@ $('#reg_input_nick').blur(function() {
         $(this).closest('.reg_input_div').next('.confirm_div').text('닉네임이 형식에 맞지 않습니다.');
         $(this).closest('.reg_input_div').next('.confirm_div').show();
         return;
+    }
+    
+    if(chkKorean.test($('#username').val())) {
+        let str = $('#username').val();
+
+        present_byte=0;
+        for(let i = 0; i < str.length; ++i) {
+            if(koreanRegex.test(str.charAt(i))) {
+                present_byte += 3;
+            } else {
+                present_byte += 1;
+            };
+        }
+
+        if(present_byte > MAX_BYTE) {
+            $(this).closest('.reg_input_div').addClass('unvalid');
+            $(this).closest('.reg_input_div').next('.confirm_div').text('닉네임이 너무 깁니다.');
+            $(this).closest('.reg_input_div').next('.confirm_div').show();
+            return false;
+        }
     }
 
     $(this).closest('.reg_input_div').addClass('valid');
