@@ -221,3 +221,8 @@
     width: 75px;
     height: 75px;
 }
+
+.game_img_selected {
+    max-height: 500px;
+    object-fit: contain;
+}
