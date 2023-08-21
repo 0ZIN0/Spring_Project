@@ -355,7 +355,7 @@ $("#minicart").mouseleave(function () {
 // minicart 내용 업데이트
 function updateMiniCart() {
   $.ajax({
-    url: "./minicart",
+    url: "/smg/minicart",
     type: "GET",
     dataType: "json",
 
@@ -381,9 +381,11 @@ function updateMiniCart() {
           ${cartList
             .map((game) => {
               return `
-            <div class="minicart-game-list" data-id="${game.game_id}" data-layout="${game.layout}">
+            <div class="minicart-game-list" data-id="${
+              game.game_id
+            }" data-layout="${game.layout}">
               <div class="minicart-list-left moveToDetailBtn">
-                <img src="${game.banner_img_url}" alt="">
+                <img src="/smg/${game.banner_img_url}" alt="">
               </div>
               <!--minicart-list-left Part End -->
               <div class="minicart-list-right moveToDetailBtn">
