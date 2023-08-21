@@ -22,6 +22,7 @@ public interface LayoutMapper {
 	int insertLayoutJYM(@Param("dto") LayoutJYMDTO dto);
 	int updateLayoutJYM(@Param("dto") LayoutJYMDTO dto);
 	LayoutJYMDTO getLayoutJYM(@Param("id") int game_id);
+	
 	int insertLayoutSJH(@Param("dto") LayoutSJHDTO dto);
 	int updateLayoutSJH(@Param("dto") LayoutSJHDTO dto);
 	LayoutSJHDTO getLayoutSJH(@Param("id") int game_id);
@@ -41,7 +42,6 @@ public interface LayoutMapper {
 	LayoutKCWDTO getLayoutKCW(@Param("id") int game_id);
 	int getLayoutCheck_kcw(@Param("id") Integer game_id);
 	int getLayoutCheck_lra(@Param("id") Integer game_id);
-	
 	int getLayoutCheck_jym(@Param("id") Integer game_id);
 	int getLayoutCheck_sjh(@Param("id") Integer game_id);
 	

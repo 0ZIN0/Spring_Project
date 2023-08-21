@@ -36,13 +36,14 @@
 			<div id="game_detail_div">
 				<%@ include file="/WEB-INF/views/games/include/detail_top.jsp"%>
 				<!-- 아래부터는 free layout -->
-				<div id="MainContainer">
+				<div id="mainContainer">
 
-					<ul id="Menu_tab">
-						<li class="menu"></li>
-						<li class="menu"></li>
-						<li class="menu"></li>
+					<ul id="menu_Tab">
+						<li class="menu">게임정보</li>
+						<li class="menu">게임사양</li>
+						<li class="menu">리뷰</li>
 					</ul>
+					
 					<!-- Contents Parts -->
 					<div id="contents_Box">
 						<div id="warn_text">${layout.warn_content}</div>
