@@ -35,6 +35,7 @@ import com.ezen.smg.dto.chart.SalesDTO;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.layout.LayoutHGTDTO;
 import com.ezen.smg.dto.layout.LayoutLRADTO;
+import com.ezen.smg.dto.layout.LayoutSJHDTO;
 import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.GameSpecificationsMapper;
 import com.ezen.smg.mapper.NoticeMapper;
@@ -215,6 +216,7 @@ public class ManagerController {
 			case "KCW":
 				return "manager/admin_layout/layout_kcw";
 			case "SJH":
+				model.addAttribute("layout", layoutServ.getLayoutSJH(game_id));
 				return "manager/admin_layout/layout_sjh";
 			case "BGC":
 				return "manager/admin_layout/layout_bgc";
@@ -359,6 +361,21 @@ public class ManagerController {
 		
 		
 		return "redirect:admin_game_detail?game_id=" + origin_game_id; 
+	}
+	
+	@PostMapping("/manage/layout_update_sjh")
+	String layoutDefaultSJH(Integer origin_game_id, LayoutSJHDTO dto) {
+		
+		// insert로
+		if(dto.getGame_id() == null) {
+			dto.setGame_id(origin_game_id);
+			layoutServ.insertLayoutSJH(dto);
+		// update로
+		} else {
+			layoutServ.updateLayoutSJH(dto);
+		}
+		
+		return "redirect:admin_game_detail?game_id=" + origin_game_id;
 	}
 	
 	@GetMapping("/manage/admin_game_update")
