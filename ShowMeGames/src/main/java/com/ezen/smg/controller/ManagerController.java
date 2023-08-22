@@ -32,6 +32,7 @@ import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
 import com.ezen.smg.dto.chart.SalesDTO;
+import com.ezen.smg.dto.layout.LayoutBGCDTO;
 import com.ezen.smg.dto.layout.LayoutBGCFileDTO;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.layout.LayoutHGTDTO;
@@ -381,17 +382,17 @@ public class ManagerController {
 	}
 	
 	@PostMapping("/manage/layout_update_bgc")
-	String layoutDefaultBGC(Integer origin_game_id, LayoutLRADTO dto, LayoutBGCFileDTO file) {
+	String layoutDefaultBGC(Integer origin_game_id, LayoutBGCDTO dto, LayoutBGCFileDTO file) {
 		
 		log.error("내가 쓴 카트 내용: " + dto);
-		
+		log.error(file);
 		// insert로
 		if(dto.getGame_id() == null) {
 			dto.setGame_id(origin_game_id);
-			layoutServ.insertLayoutLRA(dto);
+			layoutServ.insertLayoutBGC(dto);
 		// update로
 		} else {
-			layoutServ.updateLayoutLRA(dto);
+			layoutServ.updateLayoutBGC(dto);
 		}
 
 		if(!file.getGame_img_file_1().isEmpty()) {

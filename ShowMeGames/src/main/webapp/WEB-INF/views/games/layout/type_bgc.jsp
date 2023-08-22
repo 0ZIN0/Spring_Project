@@ -52,7 +52,7 @@
 					<div class="video_img">
 						<img id="main_img" src="${bgc_img}${layout.game_img3}" alt="image" />							
 						<video  class="video" loop>
-							<source src="${bgc_img}}${layout.game_video3}" type="video/webm"></source>
+							<source src="${bgc_img}${layout.game_video3}" type="video/webm"></source>
 						</video>								
 					</div>
 				</div>				
@@ -60,10 +60,11 @@
 					<div class="video_img">						
 						<img id="main_img" src="${bgc_img}${layout.game_img4}" alt="image" />
 						<video  class="video" loop>
-							<source src="${bgc_img}}${layout.game_video3}" type="video/webm"></source>
+							<source src="${bgc_img}${layout.game_video4}" type="video/webm"></source>
 						</video>																
 					</div>
 				</div>
+				
 				<!-- 리뷰 -->
 				<div class="contents_review">
 				<%@ include file="/WEB-INF/views/games/include/review.jsp" %>	

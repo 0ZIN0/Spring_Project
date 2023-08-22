@@ -37,7 +37,7 @@
 							</div>
 						</div>
 						<div>
-							<form id="form_layout" action="./layout_update_default" method="POST" enctype="multipart/form-data">
+							<form id="form_layout" action="./layout_update_bgc" method="POST" enctype="multipart/form-data">
 								<input type="hidden" name="origin_game_id" value="${game_id}">
 								<input type="hidden" name="game_id" value="${layout.game_id}">
 								<div id="input_container_wrapper">
@@ -58,7 +58,7 @@
 													<span>게임 사진 1번</span>
 												</div>
 												<div class="input_content_div">
-													<input type="file" id="input_game_img_1" name="img_file" accept="image/jpg, image/jpeg, image/png">
+													<input type="file" id="input_game_img_1" name="game_img_file_1" accept="image/jpg, image/jpeg, image/png">
 												</div>
 											</div>
 										</div>
@@ -80,7 +80,7 @@
 													<span>게임 사진 2번</span>
 												</div>
 												<div class="input_content_div">
-													<input type="file" id="input_img_url" name="img_file" accept="image/jpg, image/jpeg, image/png">
+													<input type="file" id="input_game_img_2" name="game_img_file_2" accept="image/jpg, image/jpeg, image/png">
 												</div>
 											</div>
 										</div>
@@ -102,7 +102,7 @@
 													<span>게임 사진 3번</span>
 												</div>
 												<div class="input_content_div">
-													<input type="file" id="input_img_url" name="img_file" accept="image/jpg, image/jpeg, image/png">
+													<input type="file" id="input_game_img_3" name="game_img_file_3" accept="image/jpg, image/jpeg, image/png">
 												</div>
 											</div>
 										</div>
@@ -124,7 +124,7 @@
 													<span>게임 사진 4번</span>
 												</div>
 												<div class="input_content_div">
-													<input type="file" id="input_img_url" name="img_file" accept="image/jpg, image/jpeg, image/png">
+													<input type="file" id="input_game_img_4" name="game_img_file_4" accept="image/jpg, image/jpeg, image/png">
 												</div>
 											</div>
 										</div>

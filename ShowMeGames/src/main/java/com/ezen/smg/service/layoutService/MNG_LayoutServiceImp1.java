@@ -160,6 +160,10 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
         		fullPath = absolutePath + "/lra/" + newFileName;
         		realPath = servletContext.getRealPath("/resources/img/games/layout/lra/");
         		break;
+        	case BGC:
+        		newFileName = game_id + File.separator + game_id + "_" + img_num + ext;
+        		fullPath = absolutePath + "/bgc/" + newFileName;
+        		realPath = servletContext.getRealPath("/resources/img/games/layout/bgc/");        		break;
         	default:
         		newFileName = game_id + ext;
         		fullPath = absolutePath + "/default/" + newFileName;

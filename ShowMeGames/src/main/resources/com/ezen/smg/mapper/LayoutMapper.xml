@@ -309,5 +309,6 @@
 		#{dto.game_video3, jdbcType=VARCHAR},
 		#{dto.game_img4, jdbcType=VARCHAR},
 		#{dto.game_video4, jdbcType=VARCHAR}
+		)
 	</insert>
 </mapper>
