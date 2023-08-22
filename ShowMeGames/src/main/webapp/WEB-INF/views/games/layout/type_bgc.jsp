@@ -32,6 +32,7 @@
 				<%@ include file="/WEB-INF/views/games/include/detail_top.jsp"%>
 				<!-- 아래부터는 free layout -->
 				<!-- 레이아웃 -->
+				<div id="warn_content">${layout.warn_content}</div>		
 				<div class='contents-wrap'>
 					<div class="video_img">
 					 	<img id="main_img" src="${bgc_img}${layout.game_img1}" alt="image" />						

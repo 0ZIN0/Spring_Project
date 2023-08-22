@@ -146,7 +146,7 @@
 											<span>미리보기</span>
 										</div>
 										<div id="preview_content">
-											<div id="war_content"></div>											
+											<div id="warn_content"></div>											
 											<div id="game_img_div_1" data-img="${layout.game_img1}">
 												<img id="game_img1" class="img_preview_div game-info-img"
 													src="${bgc_img}${layout.game_img1}" alt="">
