@@ -41,6 +41,12 @@
   	height:100%;
 }
 
+.contents_review {
+	display:flex;
+	width:80%;
+	margin:auto;
+}
+
 .main_contents {
 	padding-top: 30px;
 	padding-bottom: 30px;
