@@ -8,6 +8,7 @@
 <c:url value="/resources/games/js/detail_common.js" var="detail_common_js" />
 <c:url value="/resources/games/css/type_bgc.css" var="type_bgc_css" />
 <c:url value="/resources/games/js/type_bgc.js" var="type_bgc_js" />
+<c:url value="/resources/img/games/layout/bgc/" var="bgc_img"/>
 <c:url value="/resources/img/games/slider/gicheol/" var="img_path"/>
 <c:url value="/resources/games" var="resource" />
 <!DOCTYPE html>
@@ -33,36 +34,34 @@
 				<!-- 레이아웃 -->
 				<div class='contents-wrap'>
 					<div class="video_img">
-						<img id="main_img" src="${img_path}apex/apex_01.jpg" alt="image" />
-						
-							<video  class="video" loop>
-								<source src="${img_path}apex/movie480_vp1.webm" type="video/webm"></source>
-							</video>						
+					 	<img id="main_img" src="${bgc_img}${layout.game_img1}" alt="image" />						
+						<video  class="video" loop>
+							<source src="${bgc_img}${layout.game_video1}" type="video/webm"></source>
+						</video>						
 					</div>
 				</div>				
 				<div class='contents-wrap'>
 					<div class="video_img">
-						<img id="main_img" src="${img_path}apex/apex_02.jpg" alt="image" />
-							<video  class="video" loop>
-								<source src="${img_path}apex/movie480_vp2.webm" type="video/webm"></source>
-							</video>						
+						<img id="main_img" src="${bgc_img}${layout.game_img2}" alt="image" />
+						<video  class="video" loop>
+							<source src="${bgc_img}${layout.game_video2}" type="video/webm"></source>
+						</video>						
 					</div>
 				</div>				
 				<div class='contents-wrap'>
 					<div class="video_img">
-						<img id="main_img" src="${img_path}apex/apex_03.jpg" alt="image" />
-						
-							<video  class="video" loop>
-								<source src="${img_path}apex/movie480_vp3.webm" type="video/webm"></source>
-							</video>						
+						<img id="main_img" src="${bgc_img}${layout.game_img3}" alt="image" />							
+						<video  class="video" loop>
+							<source src="${bgc_img}}${layout.game_video3}" type="video/webm"></source>
+						</video>								
 					</div>
 				</div>				
 				<div class='contents-wrap'>
-					<div class="video_img">
-						<div class="video_contents">
-						<img id="main_img" src="${img_path}apex/apex_04.jpg" alt="image" />
-						<iframe class="video" src="https://www.youtube.com/embed/C-WQcCqecHg?mute=1&loop=1"  width='1063px' title="YouTube video player" style="border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-						</div>										
+					<div class="video_img">						
+						<img id="main_img" src="${bgc_img}${layout.game_img4}" alt="image" />
+						<video  class="video" loop>
+							<source src="${bgc_img}}${layout.game_video3}" type="video/webm"></source>
+						</video>																
 					</div>
 				</div>
 				<!-- 리뷰 -->

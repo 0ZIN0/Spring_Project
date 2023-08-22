@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.common.CommonFunction;
+import com.ezen.smg.dto.layout.LayoutBGCDTO;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.layout.LayoutHGTDTO;
 import com.ezen.smg.dto.layout.LayoutKCWDTO;
@@ -196,6 +197,8 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
         			return mapper.updateImg_url_hgt(game_id, newFileName, img_num);
         		case LRA:
         			return mapper.updateImg_url_lra(game_id, newFileName, img_num);
+        		case BGC:
+        			return mapper.updateImg_url_bgc(game_id, newFileName, img_num);
     			default:
     				return mapper.updateImg_url(game_id, newFileName);
 	        }
@@ -222,7 +225,7 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 			case "SJH":
 				return mapper.getLayoutCheck_sjh(game_id);
 			case "BGC":
-				return 0;
+				return mapper.getLayoutCheck_bgc(game_id);
 			default:
 				return mapper.getLayoutCheck_default(game_id);
 		}
@@ -233,5 +236,21 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 		
 		return mapper.getLayoutKCW(game_id);
 	}
-
+	
+	@Override
+	public LayoutBGCDTO getLayoutBGC(Integer game_id) {
+		
+		return mapper.getLayoutBGC(game_id);
+	}
+	@Override
+	public int insertLayoutBGC(LayoutBGCDTO dto) {
+		
+		return mapper.insertLayoutBGC(dto);
+	}
+	@Override
+	public int updateLayoutBGC(LayoutBGCDTO dto) {
+		
+		return mapper.updateLayoutBGC(dto);
+	}
+	
 }

@@ -2,6 +2,7 @@ package com.ezen.smg.service.layoutService;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ezen.smg.dto.layout.LayoutBGCDTO;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.layout.LayoutHGTDTO;
 import com.ezen.smg.dto.layout.LayoutKCWDTO;
@@ -28,8 +29,11 @@ public interface MNG_LayoutService {
 	int insertLayoutSJH(LayoutSJHDTO dto);
 	int updateLayoutSJH(LayoutSJHDTO dto);
 	
-	int getLayoutCheck(Integer game_id, String layout);
+	LayoutBGCDTO getLayoutBGC(Integer game_id);
+	int insertLayoutBGC(LayoutBGCDTO dto);
+	int updateLayoutBGC(LayoutBGCDTO dto);
 	
+	int getLayoutCheck(Integer game_id, String layout);
 	/**
 	 * img_file 업로드 메서드
 	 * @param game_id 관련 게임
