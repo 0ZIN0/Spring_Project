@@ -1,10 +1,12 @@
-/* �뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@ */
+/* /* �뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@ */
 
-/* �뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@ */
-/* �뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@ */
+�뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@
+�뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@
 
-/* �뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@ */
-/* �뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@ */
+�뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@
+�뙆�씪寃쎈줈諛붾�� �씠嫄� �븞�� @@@
+
+
 
 @charset "EUC-KR";
 
@@ -42,15 +44,25 @@
   outline: none;
   display: block;
   width: 100%;
-  height: 55px; /* �썝�븯�뒗 �넂�씠濡� 議곗젙 */
-  font-size: 16px; /* �썝�븯�뒗 湲��옄 �겕湲곕줈 議곗젙 */
-  text-indent: 35px; /* �썝�븯�뒗 �떆�옉 �쐞移섎줈 議곗젙 */
+<<<<<<< HEAD
+  height: 55px; /* �썝�븯�뒗 �넂�씠濡� 議곗젙
+  font-size: 16px; �썝�븯�뒗 湲��옄 �겕湲곕줈 議곗젙
+  text-indent: 35px; �썝�븯�뒗 �떆�옉 �쐞移섎줈 議곗젙
+=======
+  height: 55px; 원하는 높이로 조정
+  font-size: 16px; 원하는 글자 크기로 조정
+  text-indent: 35px; 원하는 시작 위치로 조정
+>>>>>>> e5f11a118adc4bc26cd7da16306a696d98462ffe
   margin-top: 42px;
   transition: border-color 0.3s;
 }
 
 #email-input:hover {
-  border-bottom: 2px solid #015ed1; /* �샇踰� �떆 �깋�긽 蹂�寃� */
+<<<<<<< HEAD
+  border-bottom: 2px solid #015ed1; �샇踰� �떆 �깋�긽 蹂�寃�
+=======
+  border-bottom: 2px solid #015ed1; 호버 시 색상 변경
+>>>>>>> e5f11a118adc4bc26cd7da16306a696d98462ffe
 }
 
 #email i {
@@ -61,7 +73,7 @@
 
 #email-guide {
   padding: 6px;
-  display: none; /* Hide the email-guide by default */
+  display: none; Hide the email-guide by default
 }
 
 #email-guideText {
@@ -104,15 +116,25 @@
   outline: none;
   display: block;
   width: 100%;
-  height: 55px; /* �썝�븯�뒗 �넂�씠濡� 議곗젙 */
-  font-size: 16px; /* �썝�븯�뒗 湲��옄 �겕湲곕줈 議곗젙 */
-  text-indent: 35px; /* �썝�븯�뒗 �떆�옉 �쐞移섎줈 議곗젙 */
+<<<<<<< HEAD
+  height: 55px; �썝�븯�뒗 �넂�씠濡� 議곗젙
+  font-size: 16px; �썝�븯�뒗 湲��옄 �겕湲곕줈 議곗젙
+  text-indent: 35px; �썝�븯�뒗 �떆�옉 �쐞移섎줈 議곗젙
+=======
+  height: 55px; 원하는 높이로 조정
+  font-size: 16px; 원하는 글자 크기로 조정
+  text-indent: 35px; 원하는 시작 위치로 조정
+>>>>>>> e5f11a118adc4bc26cd7da16306a696d98462ffe
   margin-top: 42px;
   transition: border-color 0.3s;
 }
 
 #pw-input:hover {
-  border-bottom: 2px solid #015ed1; /* �샇踰� �떆 �깋�긽 蹂�寃� */
+<<<<<<< HEAD
+  border-bottom: 2px solid #015ed1; �샇踰� �떆 �깋�긽 蹂�寃�
+=======
+  border-bottom: 2px solid #015ed1; 호버 시 색상 변경
+>>>>>>> e5f11a118adc4bc26cd7da16306a696d98462ffe
 }
 
 #pw i {
@@ -123,7 +145,7 @@
 
 #pw-guide {
   padding: 6px;
-  display: none; /* Hide the email-guide by default */
+  display: none; Hide the email-guide by default
 }
 
 #pw-guideText {
@@ -174,7 +196,11 @@
 
 #rememberCheckbox {
   transform: scale(1.5);
-  margin-right: 13px; /* 泥댄겕諛뺤뒪 �삤瑜몄そ �뿬諛� 議곗젙 (�썝�븯�뒗 �겕湲곕줈 議곗젙) */
+<<<<<<< HEAD
+  margin-right: 13px; 泥댄겕諛뺤뒪 �삤瑜몄そ �뿬諛� 議곗젙 (�썝�븯�뒗 �겕湲곕줈 議곗젙)
+=======
+  margin-right: 13px; 체크박스 오른쪽 여백 조정 (원하는 크기로 조정)
+>>>>>>> e5f11a118adc4bc26cd7da16306a696d98462ffe
 }
 
 #remember-and-forget {
@@ -191,11 +217,11 @@
   text-decoration: none;
   color: inherit;
 }
-/* .checkbox-container {
+.checkbox-container {
     display: flex;
     align-items: center; Optional: To align the checkbox and label horizontally
     margin-right: 10px; Optional: To add some space between the checkbox and the link
-} */
+}
 #loginBtn {
   margin-top: 38px;
   background-color: #0077e5;
@@ -248,3 +274,4 @@
   color: #006ef5;
   text-decoration: none;
 }
+ */ */

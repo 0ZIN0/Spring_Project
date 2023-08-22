@@ -41,5 +41,6 @@ public interface UsersMapper {
 	int getUsersTotalSize();
 
 	List<SmgUsersDTO> getUserListForAdmin(@Param("start") int firstUser, @Param("end") int lastUser);
-
+	
+	SmgUsersDTO selectUser_id(@Param("user_id") String user_id);
 }

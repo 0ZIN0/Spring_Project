@@ -1,6 +1,9 @@
 package com.ezen.smg.controller;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,13 +66,17 @@ public class IndexController {
 	GameSpecificationsMapper specMapper;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home(Model model, HttpServletRequest request, @SessionAttribute(name = "user", required = false) SmgUsersDTO user) {
 		
 		model.addAttribute("latestList", serv.getLatestGameList());
 		model.addAttribute("editorList", serv.getEditorRecmdList());
 		model.addAttribute("discountList", serv.getLargestDiscountList());
 		model.addAttribute("curatorList", serv.getCuratorRecmdList());
 		model.addAttribute("hotgameList", serv.getHotGameList());
+		
+		if (user != null) {
+			request.getSession().setAttribute("user", usersMapper.getUserInfo(user.getUser_num()));
+		}
 		
 		log.info("main 실행");
 		
@@ -121,6 +128,7 @@ public class IndexController {
 		
 		switch(layout != null ? layout: "NULL") {
 		case "LRA":
+			model.addAttribute("layout", layoutMapper.getLayoutLRA(game));
 			return "games/layout/type_lra";
 		case "JYM":
 			return "games/layout/type_jym";
@@ -131,8 +139,10 @@ public class IndexController {
 			model.addAttribute("layout", layoutMapper.getLayoutKCW(game));
 			return "games/layout/type_kcw";
 		case "SJH":
+			model.addAttribute("layout", layoutMapper.getLayoutSJH(game));
 			return "games/layout/type_sjh";
 		case "BGC":
+			model.addAttribute("layout", layoutMapper.getLayoutBGC(game));
 			return "games/layout/type_bgc";
 		default:
 			model.addAttribute("layout", layoutMapper.getLayoutDefault(game));
@@ -154,8 +164,7 @@ public class IndexController {
 	
 	@ResponseBody
 	@GetMapping(value="/detail/review_all_ajax")
-	public List<Comments> reviewAll(@RequestParam("game") Integer game,
-			@RequestParam("page") Integer index) {
+	public List<Comments> reviewAll(@RequestParam("game") Integer game, @RequestParam("page") Integer index) {
 		
 		log.info(game);
 		log.info(index);

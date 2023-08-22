@@ -4,10 +4,31 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.smg.mapper.ImagesMapper">
 	<select id="getImages" resultType="com.ezen.smg.dto.Images">
-		SELECT * FROM (SELECT rownum AS rn, a.* FROM images a where game_id=#{game_id} and image_url not like '%sub_banner%') WHERE rn BETWEEN #{start} AND #{end}
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM images a where game_id=#{game_id} and image_url not like '%sub_banner%' ORDER BY image_url) WHERE rn BETWEEN #{start} AND #{end}
 	</select>
 
 	<select id="getSubBanner" resultType="com.ezen.smg.dto.Images">
 		select * from images where game_id=#{game_id} and image_url like '%sub_banner%'
 	</select>
+	
+	<select id="getSpecificImg">
+		SELECT * FROM images WHERE game_id=#{game_id} AND image_url 
+		LIKE
+			<choose>
+				<when test="img_num == 0">'%img0%'</when>
+				<when test="img_num == 1">'%img1%'</when>
+				<when test="img_num == 2">'%img2%'</when>
+				<when test="img_num == 3">'%img3%'</when>
+				<otherwise>'%img4%'</otherwise>
+			</choose>
+	</select>
+	
+	<insert id="insertImage" parameterType="com.ezen.smg.dto.Images">
+		INSERT INTO images VALUES (
+			image_id_seq.nextval,
+			#{dto.game_id},
+			#{dto.image_name},
+			#{dto.image_url}
+		)
+	</insert>
 </mapper> 

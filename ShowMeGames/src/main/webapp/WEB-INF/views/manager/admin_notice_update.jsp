@@ -52,7 +52,7 @@
 									</div>
 									<div class="notice-input-grid">
 										<div class="notice-input-title">첨부파일</div>
-										<input id="img-file" type="file" name="imgFile" accept="image/jpeg image/png image/gif"/>
+										<input id="img-file" type="file" name="imgFile" accept="image/jpeg image/png image/gif" required/>
 									</div>
 									<div class="notice-input-grid">
 										<div></div>

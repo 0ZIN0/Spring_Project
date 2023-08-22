@@ -1,5 +1,6 @@
 // 현재 접속중인 페이지에 따라 다른 CSS 적용
 const currentPath = window.location.pathname;
+const conPath = $('header').data('conpath');
 
 if (currentPath === "/smg/") {
   $("#game-btn-underline").css("backgroundColor", "white");
@@ -338,6 +339,7 @@ $(window).scroll(function () {
 $("#cart-btn").mouseenter(function () {
   $("#header-bottom").addClass("minicart-position");
   $("#minicart").addClass("minicart-active");
+  updateMiniCart();
 });
 $("#header-cart").mouseleave(function () {
   $("#header-bottom").removeClass("minicart-position");
@@ -355,7 +357,7 @@ $("#minicart").mouseleave(function () {
 // minicart 내용 업데이트
 function updateMiniCart() {
   $.ajax({
-    url: "./minicart",
+    url: "/smg/minicart",
     type: "GET",
     dataType: "json",
 
@@ -365,12 +367,8 @@ function updateMiniCart() {
       var cartList = data.cart_list;
       var cartLen = data.cart_len;
       var totalPrice = data.total_price;
-      console.log(cartList);
-      console.log(cartLen);
-      console.log(totalPrice);
 
       var minicartContent = $("#minicart-content");
-      var minicartEmptyContent = $(".empty-minicart-content");
 
       // 미니카트 내용을 초기화하고 다시 추가
       minicartContent.empty();
@@ -385,12 +383,14 @@ function updateMiniCart() {
           ${cartList
             .map((game) => {
               return `
-            <div class="minicart-game-list">
-              <div class="minicart-list-left">
-                <img src="${game.banner_img_url}" alt="">
+            <div class="minicart-game-list" data-id="${
+              game.game_id
+            }" data-layout="${game.layout}">
+              <div class="minicart-list-left moveToDetailBtn">
+                <img src="/smg/${game.banner_img_url}" alt="">
               </div>
               <!--minicart-list-left Part End -->
-              <div class="minicart-list-right">
+              <div class="minicart-list-right moveToDetailBtn">
                 <div class="minicart-list-details">
                   <div class="minicart-game-name">${game.game_name}</div>
                   <div class="pricing">
@@ -462,8 +462,8 @@ function updateMiniCart() {
               </div>
           </div>
           <div id="minicart-list-btns">
-            <button class="button-wrapper button-effect-moema">장바구니 보기 </button>
-            <button class="button-wrapper button-effect-moema2">결제하기 </button>
+            <button id="move-to-cart-btn" class="button-wrapper button-effect-moema">장바구니 보기 </button>
+            <button id="minicart-checkout-btn" class="button-wrapper button-effect-moema2">결제하기 </button>
           </div>
           <!-- minicart-list-btns Part End -->
         </div>
@@ -480,7 +480,7 @@ function updateMiniCart() {
         <div class="empty-minicart-content minicart-common">
           <div class="empty-minicart-message minicart-common">장바구니가 비어있습니다.</div>
           <div class="empty-minicart-image minicart-common">
-            <img alt="Empty Minicart" src="resources/img/cart/SMG_EmptyMarket_img.jpg">
+            <img alt="Empty Minicart" src="${conPath}/resources/img/cart/SMG_EmptyMarket_img.jpg">
           </div>
           <div class="empty-minicart-buttons minicart-common" onclick="location.href='./games'">
             쇼핑하러 가기
@@ -495,14 +495,21 @@ function updateMiniCart() {
   });
 }
 
+// moveToDetailBtn에 동적으로 이벤트 할당
+$(document).on("click", ".moveToDetailBtn", function () {
+  let game_Id = $(this).parent().data("id");
+  let detail_Layout = $(this).parent().data("layout");
+  location.href = `./detail?game=${game_Id}&&layout=${detail_Layout}`;
+});
+
 // cart-list delete
 $(document).on("click", "#minicart-delete", function (e) {
   $.ajax({
-    url: `./cart-delete?game_id=${e.target.dataset.gameid}`,
+    url: `${conPath}/cart-delete?game_id=${e.target.dataset.gameid}`,
     type: "GET",
     success: () => {
       updateMiniCart();
-      location.href = "./cart";
+      // location.href = "./cart";
     },
     error: () => {
       console.log("MiniCart List Delete Error");
@@ -513,11 +520,11 @@ $(document).on("click", "#minicart-delete", function (e) {
 // Move to Cart Button
 $(document).on("click", "#move-to-cart-btn", function () {
   $.ajax({
-    url: "./cart",
+    url: `${conPath}/cart`,
     type: "GET",
     success: () => {
       console.log("Move to Cart Success");
-      location.href = "./cart";
+      location.href = `${conPath}/cart`;
     },
   });
 });
@@ -525,11 +532,11 @@ $(document).on("click", "#move-to-cart-btn", function () {
 // Minicart checkout Button
 $(document).on("click", "#minicart-checkout-btn", function () {
   $.ajax({
-    url: "./cart",
+    url: `${conPath}/cart`,
     type: "GET",
     success: () => {
       console.log("Checkout Success");
-      location.href = "./cart";
+      location.href = `${conPath}/cart`;
     },
     error: () => {
       console.log("Minicart Chk Btn Error");

@@ -31,7 +31,7 @@ import lombok.extern.log4j.Log4j;
 @Service
 public class MyPageServiceImp1 implements MyPageService {
 	
-	@Value("${spring.user_profile.path}")
+	@Value("${spring.resources_img.path}")
 	private String absolutePath; 
 	
 	@Autowired
@@ -73,7 +73,7 @@ public class MyPageServiceImp1 implements MyPageService {
         String newFileName = CommonFunction.UUIDRandomCreate() + CommonFunction.extractExt(filename); 
         
         String DBSavePath = "/resources/img/user_profile/" + newFileName; 
-        String fullPath = absolutePath + "/" + newFileName;
+        String fullPath = absolutePath + "/user_profile/" + newFileName;
 
         // 업데이트를 톰캣폴더로 바로 반영해주기 위한 경로
         String realPath = servletContext.getRealPath("/resources/img/user_profile/"); 
@@ -94,7 +94,7 @@ public class MyPageServiceImp1 implements MyPageService {
 			
 			// DB에 저장된 원래 파일 이름 추출
 			String existingFileName =  CommonFunction.getFileName(userMapper.getProfile_img_url(user_num));
-			File existingFile = new File(absolutePath + "/" + existingFileName);
+			File existingFile = new File(absolutePath + "/user_profile/" + existingFileName);
 			File serverFile = new File(realPath + existingFileName); // 톰캣에 있을 임시 파일
 			
 			// 파일이 존재할 경우 삭제
