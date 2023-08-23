@@ -9,7 +9,7 @@
 
 <!-- JYM resources -->
 <c:url value="/resources/games/css/layout/type_jym.css" var="jym_css" />
-<c:url value="/resources/games/js/layout/type_lra.js" var="jym_js" />
+<c:url value="/resources/games/js/layout/type_jym.js" var="jym_js" />
 <c:url value="/resources/img/games/layout/jym/" var="jym_img" />
 <!--  temp  -->
 <c:url value="/resources/img/games/slider" var="game_img" />
@@ -48,48 +48,54 @@
 					<div id="contents_Box">
 						<div id="warn_text">${layout.warn_content}</div>
 						<div id="top_Banner">
-							<img alt="MapleStory Top Banner Image" src="${jym_img}${layout.game_top_banner_img}"></div>
+							<img alt="MapleStory Top Banner Image" src="${jym_img}${layout.game_top_banner_img}">
+						</div>
 							<div id="Main_Contents">
-								<div id="cont_Video1">Video1</div>
-								<div id="cont_Box1">
-									<div class="cont_img1"></div>
+								<div id="cont_Video1">
+									<video class="cont_Video_effect1" src="${jym_img}${layout.game_cont_video_1}" controls></video>
+								</div>
+								<div id="cont_Box1" class="cont_Common_Effect">
+									<div class="cont_img1">
+										<img alt="MapleStory Cont Image1" src="${jym_img}${layout.game_cont_img_1}">
+									</div>
 									<div class="cont_text1">
-										<div class="main_text"></div>
-										<div class="sub_text"></div>
+										<div class="main_text">${layout.game_main_text_1}</div>
+										<div class="sub_text">${layout.game_sub_text_1}</div>
 									</div>
 								</div>
 								<div id="cont_Box2">
 									<div class="cont_Effect1"></div>
 									<div class="cont_text2">
-										<div class="main_text"></div>
-										<div class="sub_text"></div>
+										<div class="main_text">${layout.game_main_text_2}</div>
+										<div class="sub_text">${layout.game_sub_text_2}</div>
 									</div>
-									<div class="cont_img2"></div>
+									<div class="cont_img2"><img alt="MapleStory Cont Image2" src="${jym_img}${layout.game_cont_img_2}"></div>
 								</div>
-								<div id="cont_Box3">
-									<div class="cont_img3"></div>
+								<div id="cont_Box3" class="cont_Common_Effect">
+									<div class="cont_img3"><img alt="MapleStory Cont Image3" src="${jym_img}${layout.game_cont_img_3}"></div>
 									<div class="cont_text3">
-										<div class="main_text"></div>
-										<div class="sub_text"></div>
+										<div class="main_text">${layout.game_main_text_3}</div>
+										<div class="sub_text">${layout.game_sub_text_3}</div>
 									</div>
 								</div>
-								<div id="cont_Box4">
-									<div class="cont_img4"></div>
+								<div id="cont_Box4" class="cont_Common_Effect">
+									<div class="cont_img4"><img alt="MapleStory Cont Image4" src="${jym_img}${layout.game_cont_img_4}"></div>
 									<div class="cont_text4">
-										<div class="main_text"></div>
-										<div class="sub_text"></div>
+										<div class="main_text">${layout.game_main_text_4}</div>
+										<div class="sub_text">${layout.game_sub_text_4}</div>
 									</div>
 								</div>
 								<div id="cont_Box5">
 									<div class="cont_Effect1"></div>
 									<div class="cont_text5">
-										<div class="main_text"></div>
-										<div class="sub_text"></div>
+										<div class="main_text">${layout.game_main_text_5}</div>
+										<div class="sub_text">${layout.game_sub_text_5}</div>
 									</div>
-									<div class="cont_img5"></div>
+									<div class="cont_img5"><img alt="MapleStory Cont Image5" src="${jym_img}${layout.game_cont_img_5}"></div>
 								</div>
 							</div> <!-- Main_Contents Parts End -->
-						<div id="bottom_Banner">Bottom Banner</div>
+						<div id="bottom_Banner">
+							<img alt="MapleStory Bottom Banner Image" src="${jym_img}${layout.game_bottom_banner_img}"></div>
 					</div> <!-- Contents_Box Parts End -->
 				</div><!-- Main-Container Parts End -->
 			</div>

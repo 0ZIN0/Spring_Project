@@ -1,10 +1,18 @@
 @charset "UTF-8";
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 
 #mainContainer {
     display: flex;
     flex-direction: column;
     width: 1600px;
+    align-items: center;
+
 }
 
 #menu_Tab {
@@ -19,10 +27,14 @@
     width: 1600px;
     display: flex;
     flex-direction: column;
+    gap: 100px;
 }
 
 #warn_text {
-    width: 1600px;
+    display: block;
+    font-weight: 600px;
+    font-size: 1.4rem;
+    color: #ff950b;
 }
 
 #top_banner {
@@ -32,3 +44,38 @@
     cursor: pointer;
 }
 
+#cont_Video1 {
+    width: 1560px;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cont_Video_effect1 {
+    width: 1560px;
+    height: 800px;
+    background-color: black;
+}
+
+.cont_Common_Effect {
+    display: flex;
+    width: 1560px;
+    height: 430px;
+}
+
+.cont_img1 {
+    width: 760px;
+    height: 430px;
+    order: 1;
+}
+
+.cont_text1 {
+    display: flex;
+    width: 760px;
+    height: 430px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    order: 2;
+}

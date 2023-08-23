@@ -38,7 +38,6 @@ public interface MNG_LayoutService {
 	int insertLayoutBGC(LayoutBGCDTO dto);
 	int updateLayoutBGC(LayoutBGCDTO dto);
 	
-	int getLayoutCheck(Integer game_id, String layout);
 	/**
 	 * img_file 업로드 메서드
 	 * @param game_id 관련 게임

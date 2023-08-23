@@ -206,7 +206,6 @@
 		#{dto.content, jdbcType=VARCHAR})
 	</insert>
 	
-
 	<select id="getLayoutSJH"
 		resultType="com.ezen.smg.dto.layout.LayoutSJHDTO">
 		SELECT * FROM sjh_layout WHERE game_id=#{id}
@@ -220,11 +219,6 @@
 		WHERE
 		game_id=#{dto.game_id}
 	</update>
-
-	
-
-
-
 
 	<select id="getLayoutCheck_sjh">
 		SELECT count(*) FROM sjh_layout WHERE game_id=#{id}
@@ -302,4 +296,15 @@
 		#{dto.game_video4, jdbcType=VARCHAR}
 		)
 	</insert>
+	
+	<select id="getLayoutCheck_jym">
+		SELECT count(*) FROM jym_layout WHERE game_id=#{id}
+	</select>
+	
+	<select id="getLayoutJYM"
+		resultType="com.ezen.smg.dto.layout.LayoutJYMDTO">
+		SELECT * FROM jym_layout WHERE game_id=#{id}
+	</select>
+	
+	
 </mapper>
