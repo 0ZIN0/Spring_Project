@@ -167,9 +167,7 @@ public class ManagerController {
 	@PostMapping("/manage/admin_game_add")
 	String adminGameAdd_post(Games game, String file_name, MultipartFile img_file) {
 
-		log.info("dto: " + game);
-		
-//		serv.insertNewGame(game, file_name, img_file);
+		serv.insertNewGame(game, file_name, img_file);
 		
 		return "redirect:admin_game";
 	}
