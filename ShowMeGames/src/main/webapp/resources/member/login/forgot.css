@@ -1,7 +1,12 @@
 @charset "EUC-KR";
 
+
+
 .main-container {
-	padding: 10px;
+  margin: auto;
+  width: 480px;
+  height: auto;
+  padding: 15px;
 }
 
 .logo-container {
