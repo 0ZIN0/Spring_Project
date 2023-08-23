@@ -36,7 +36,6 @@ public interface LayoutMapper {
 	int updateImg_url_hgt(@Param("id") Integer game_id, @Param("url") String newFileName, @Param("img_num") int img_num);
 	int updateImg_url_lra(@Param("id") Integer game_id, @Param("url") String newFileName, @Param("img_num") int img_num);
 	int updateImg_url_bgc(@Param("id") Integer game_id, @Param("url") String newFileName, @Param("img_num") int img_num);
-	int updateImg_url_jym(@Param("id") Integer game_id, @Param("url") String newFileName, @Param("img_num") int img_num);
 	
 	int getLayoutCheck_default(@Param("id") Integer game_id);
 	int getLayoutCheck_hgt(@Param("id") Integer game_id);
