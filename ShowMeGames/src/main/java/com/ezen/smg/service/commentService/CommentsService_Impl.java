@@ -82,9 +82,9 @@ public class CommentsService_Impl implements CommentsService{
 	@Override
 	public String getMyGABList(int user_num, String column) {
 		List<GoodAndBadDTO> dtoList = commentsMapper.getMyGABList(user_num);
-		
+
 		StringBuilder sb = new StringBuilder();
-		
+
 		for (GoodAndBadDTO dto : dtoList) {
 			log.info("dto: " + dto);
 			if (column.equals("comment_id")) {
@@ -107,7 +107,7 @@ public class CommentsService_Impl implements CommentsService{
 				}
 			}
 		}
-		
+
 		return sb.toString();
 	}
 
@@ -116,6 +116,40 @@ public class CommentsService_Impl implements CommentsService{
 		int end = page * scope;
 		int begin = end - scope + 1; 
 		return commentsMapper.getNewCommentList(game_id, begin, end);
+	}
+
+	/** 
+	 * 	type: best / new
+	 * */
+	@Override
+	public String getComIdList(int game_id, String type) {
+
+		StringBuilder sb = new StringBuilder();
+
+		if (type.equals("best")) {
+			List<Comments> coms = commentsMapper.getBestCommentList(game_id, 1, 10);
+			
+			for (Comments com : coms) {
+				if (coms.size() - 1 == coms.indexOf(com)) {
+					sb.append(com.getComment_id());
+				} else {
+					sb.append(com.getComment_id() + "/");
+				}
+			}
+
+		} else if (type.equals("new")) {
+			List<Comments> coms = commentsMapper.getNewCommentList(game_id, 1, 5);
+			
+			for (Comments com : coms) {
+				if (coms.size() - 1 == coms.indexOf(com)) {
+					sb.append(com.getComment_id());
+				} else {
+					sb.append(com.getComment_id() + "/");
+				}
+			}
+		}
+		
+		return sb.toString();
 	}
 
 }

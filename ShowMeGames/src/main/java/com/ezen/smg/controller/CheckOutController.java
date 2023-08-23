@@ -1,5 +1,7 @@
 package com.ezen.smg.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,7 +38,7 @@ public class CheckOutController {
 	}
 	
 	@GetMapping(value = "/orderfin")
-	public void OrderFin(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model, Integer order_id) {
+	public void OrderFin(@SessionAttribute(name = "user", required = false) SmgUsersDTO user, Model model, Integer order_id, HttpServletRequest request) {
 //		Orders order = new Orders();
 		
 //		order.setImp_uid("imp12345");
@@ -50,6 +52,12 @@ public class CheckOutController {
 		
 		model.addAttribute("user_point", usersMapper.getUserInfo(user.getUser_num()).getUser_point());
 //		model.addAttribute("order", order);
-		model.addAttribute("order", orderService.getSelectOrder(order_id));
+		Orders order = orderService.getSelectOrder(order_id);
+		request.getSession().setAttribute("user", usersMapper.getUserInfo(user.getUser_num()));
+		
+		if (order.getPay_method() == null) {
+			order.setPay_method("정보 없음");
+		}
+		model.addAttribute("order", order);
 	}
 }

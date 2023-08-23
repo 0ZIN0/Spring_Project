@@ -6,14 +6,17 @@
 <!DOCTYPE html>
 <!-- c:url settings -->
 <c:url value="/resources/img/games/rated/" var="rated_img" />
-<c:url value="/resources/img/games" var="game_img" />
+<c:url value="/resources/img/games/slider" var="game_img" />
 <div id="detail_top">
 	<div id="game_title_div">
 		<div id="game_name_div">${game.game_name}</div>
 		<div id="game_grade_div">
-			<div class="stararea">
-				<span class="starpoint"
-					style="width: ${100 * game.game_grade / 5}%;"></span>
+			<input type="hidden" id="input_game_total_grade"
+				class="input_game_grade"
+				name="game_grade" step="0.1" max="5.0" min="0" value="${game.game_grade}"
+				required />
+			<div class="rating">
+				★★★★★ <span id="game_starpoint" class="starpoint">★★★★★</span>
 			</div>
 			<div id="game_grade_content">${game.game_grade}</div>
 		</div>
@@ -117,13 +120,14 @@
 			<div id="game_detail_btn_div" data-session="${user}"
 				data-user="${user.user_num}" data-cart="${game.game_id}">
 				<c:choose>
-				<c:when test="${is_use == true}">
-					<button id="checkoutBtn" disabled="disabled">이미 구매한 상품입니다.</button>
-				</c:when>
-				<c:otherwise>
-					<button id="checkoutBtn">지금 구매</button>
-					<button id="cartBtn">장바구니에 담기</button>
-				</c:otherwise>
+					<c:when test="${is_use == true}">
+						<button id="checkoutBtn" disabled="disabled">이미 구매한
+							상품입니다.</button>
+					</c:when>
+					<c:otherwise>
+						<button id="checkoutBtn">지금 구매</button>
+						<button id="cartBtn">장바구니에 담기</button>
+					</c:otherwise>
 				</c:choose>
 			</div>
 		</div>

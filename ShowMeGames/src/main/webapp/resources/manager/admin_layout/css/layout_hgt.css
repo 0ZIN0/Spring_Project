@@ -1,0 +1,57 @@
+.img_preview_div {
+    display: none;
+}
+
+#input_layers_wrapper {
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    row-gap: 30px;
+}
+
+#warn_content {
+    color: #f8a504;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#game_img_div_1 {
+    margin-top: 50px;
+}
+
+#game_main_title {
+    margin: 30px 0;
+    font-size: 35px;
+    font-weight: 600;
+    white-space: pre-line;
+}
+
+#game_main_text {
+    margin-bottom: 30px;
+    white-space: pre-line;
+}
+
+#game_sub_title {
+    margin: 30px 0;
+    font-size: 26px;
+    font-weight: 550;
+    white-space: pre-line;
+}
+
+#game_sub_text {
+    margin-bottom: 30px;
+    white-space: pre-line;
+}
+
+#game_story_title {
+    margin: 30px 0;
+    font-size: 26px;
+    font-weight: 550;
+    white-space: pre-line;
+}
+
+#game_story_text {
+    margin-bottom: 30px;
+    white-space: pre-line;
+}
+
+

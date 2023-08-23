@@ -1,3 +1,5 @@
+<%@page import="org.springframework.beans.factory.annotation.Autowired"%>
+<%@page import="com.ezen.smg.dto.SmgUsersDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,13 +12,11 @@
 <c:url value="/resources/img/cart" var="cart_img" />
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
 	crossorigin="anonymous"></script>
-
-
-
+	
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-<header>
+<header data-conpath="${conPath}">
 	<div id="header-top">
 		<div id="header-name">
 			<ul class="header-top-menu" id="header-top-ul">
@@ -67,35 +67,40 @@
 									<c:choose>
 										<c:when test="${user.user_grade eq 'S'}">
 											<div class="profile-grade">
-												<span class="diamond-text">다이아몬드</span> <img
+												 <img
 													class="grade-image"
 													src="${member_img}/grade/diamond_icon.png" alt="다이아몬드 이미지">
+													<span class="grade-text">다이아몬드</span>
 											</div>
 										</c:when>
 										<c:when test="${user.user_grade eq 'A'}">
 											<div class="profile-grade">
-												<span class="platinum-text">플래티넘</span> <img
+												 <img
 													class="grade-image"
 													src="${member_img}/grade/platinum_icon.png" alt="플래티넘 이미지">
+													<span class="grade-text">플래티넘</span>
 											</div>
 										</c:when>
 										<c:when test="${user.user_grade eq 'B'}">
 											<div class="profile-grade">
-												<span class="gold-text">골드</span> <img class="grade-image"
+												 <img class="grade-image"
 													src="${member_img}/grade/gold_icon.png" alt="골드 이미지">
+													<span class="grade-text">골드</span>
 											</div>
 										</c:when>
 										<c:when test="${user.user_grade eq 'C'}">
 											<div class="profile-grade">
-												<span class="silver-text">실버</span> <img class="grade-image"
+												 <img class="grade-image"
 													src="${member_img}/grade/silver_icon.png" alt="실버 이미지">
+													<span class="grade-text">실버</span>
 											</div>
 										</c:when>
 										<c:when test="${user.user_grade eq 'D'}">
 											<div class="profile-grade">
-												<span class="bronze-text">브론즈</span> <img
+												 <img
 													class="grade-image"
 													src="${member_img}/grade/bronze_icon.png" alt="등급 이미지">
+													<span class="grade-text">브론즈</span>
 											</div>
 										</c:when>
 
@@ -126,7 +131,7 @@
 							<section>
 								<ul>
 									<li><a href="${conPath}mypage/my_account">내 계정</a></li>
-									<li><a href="#">내 주문</a></li>
+									<li><a href="${conPath}mypage/orders">내 주문</a></li>
 									<li><a href="${conPath}customer/faq">고객 지원 <i
 											class="fa-solid fa-arrow-up-right-from-square"
 											style="color: #ffffff;"></i></a></li>
@@ -170,7 +175,7 @@
 
 	</div>
 	<div id="header-bottom" class="header-bottom-up">
-		<div id="header-bottom-logo">
+		<div id="header-bottom-logo" onclick="location.href='/smg/'">
 			<img src="${logo_img }/smg_subLogo.png" alt="서브로고" />
 		</div>
 		<div>

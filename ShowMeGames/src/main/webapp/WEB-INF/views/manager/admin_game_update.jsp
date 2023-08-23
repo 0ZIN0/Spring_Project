@@ -22,7 +22,7 @@
 			<!-- side_bar -->
 			<%@ include file="/WEB-INF/views/manager/include/side_bar.jsp" %>
 			<div id="main_content">
-				<div id="account_content">
+				<div>
 					<h2 class="content_title">게임 정보 수정</h2>
 					<div class="content_item">
 						<div class="item_title_wrapper">

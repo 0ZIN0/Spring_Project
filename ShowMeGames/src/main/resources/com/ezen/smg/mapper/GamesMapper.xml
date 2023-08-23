@@ -160,7 +160,7 @@
 					AND REGEXP_LIKE(game_genre, #{genre})
 				</if>
 				<if test="game_name != null and !game_name.isEmpty()">
-					AND game_name LIKE '%' || #{game_name} || '%'
+					AND LOWER(game_name) LIKE LOWER('%' || #{game_name} || '%')
 				</if>
 
 				ORDER BY ${sortBy}
@@ -203,8 +203,16 @@
 		SELECT count(*) FROM games WHERE layout LIKE '%'||#{layout}||'%'
 	</select>
 	
+	<select id="getGamesLayoutIsNull">
+		SELECT count(*) FROM games WHERE layout IS NULL
+	</select>
+	
 	<select id="getGameListByLayout" resultType="com.ezen.smg.dto.Games">
 		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a WHERE LOWER(layout) LIKE LOWER('%'||#{layout}||'%') ORDER BY game_id DESC) WHERE rn BETWEEN #{start} AND #{end} 	
+	</select>
+	
+	<select id="getGamesListByLayoutAndNull" resultType="com.ezen.smg.dto.Games">
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a WHERE LOWER(layout) LIKE LOWER('%'||#{layout}||'%') OR layout IS NULL ORDER BY game_id DESC) WHERE rn BETWEEN #{start} AND #{end} 	
 	</select>
 	
 	<select id="getLastGameNum">

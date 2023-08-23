@@ -26,8 +26,7 @@
 					<div id="public_profile" class="content_item">
 						<div class="item_title">
 							<span>문의사항 리스트</span>
-						</div>
-						
+						</div>						
 							<div id="board_content">
 								<div id="board_content_title">
 									<div>글 번호</div>
@@ -99,7 +98,12 @@
 												<div class="board_attachment">
 													<div class="detail_first">첨부파일</div>
 													<div class="board_img detail_last">
-														<img class="myImg"src="${inquiries_img}${content.attachment}" alt="첨부파일" />
+														<c:if test="${not empty content.attachment}">
+															<img class="myImg"src="${inquiries_img}${content.attachment}" alt="첨부파일이 없습니다" />
+														</c:if>
+														<c:if test="${empty content.attachment}">
+															<div class="myImg" style="color:#F22349">첨부한 파일이 없습니다.</div>
+														</c:if>
 													</div>
 													<div id="myModal" class="modal">
 													  <!-- The Close Button -->

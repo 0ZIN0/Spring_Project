@@ -87,3 +87,7 @@
 .input_content_div {
     height: 100%;
 }
+
+.input_content_div input {
+    width: 100%;
+}
