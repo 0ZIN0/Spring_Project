@@ -123,28 +123,28 @@ public class CustomerController {
 	
 	@PostMapping(value="/inquiries")
 	public String insert(@SessionAttribute(name="user", required = false) SmgUsersDTO user, Inquiries inquiries, Model model) throws IOException {
+		if(inquiries.getImgFile().isEmpty()) {
+			inquiries.setUser_num(user.getUser_num());
+			inquiries.setAttachment("");
+		} else {
+			// 이미지 뒤에 붙여줄 날짜 포맷
+			Date nowDate = new Date();				
+			SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+			String dateString = format.format(nowDate);
 			
-		// 이미지 뒤에 붙여줄 날짜 포맷
-		Date nowDate = new Date();				
-		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
-		String dateString = format.format(nowDate);
-		
-		// 파일 이름 설정. 중복방지를 위해 뒤에 날짜 입력
-		String file_name = user.getUser_num()+ dateString + inquiries.getImgFile().getOriginalFilename();
-		
-		// 파일 저장
-		File saveFile = new File(uploadFolder, file_name);
-		try {
-			inquiries.getImgFile().transferTo(saveFile);
-		} catch (Exception e) {
-			log.error(e.getMessage());
+			// 파일 이름 설정. 중복방지를 위해 뒤에 날짜 입력
+			String file_name = user.getUser_num()+ dateString + inquiries.getImgFile().getOriginalFilename();
+			
+			// 파일 저장
+			File saveFile = new File(uploadFolder, file_name);
+			try {
+				inquiries.getImgFile().transferTo(saveFile);
+			} catch (Exception e) {
+				log.error(e.getMessage());
+			}		
+			inquiries.setUser_num(user.getUser_num());
+			inquiries.setAttachment(file_name);
 		}
-		log.info(saveFile.getCanonicalPath());		
-		model.addAttribute(inquiries);		
-		inquiries.setUser_num(user.getUser_num());
-		inquiries.setAttachment(file_name);
-		log.info("업로드파일 : " + file_name);
-		log.info("파일크기 : " + inquiries.getImgFile().getSize());
 		inquiriesService.insert(inquiries);		
 		
 		return "redirect:/customer/faq";
