@@ -229,7 +229,77 @@
 	<select id="getLayoutCheck_sjh">
 		SELECT count(*) FROM sjh_layout WHERE game_id=#{id}
 	</select>
-
-
-
+	
+	<select id="getLayoutBGC"
+		resultType="com.ezen.smg.dto.layout.LayoutBGCDTO">
+		SELECT * FROM bgc_layout WHERE game_id=#{id}
+	</select>
+	<select id="getLayoutCheck_bgc">
+		SELECT count(*) FROM bgc_layout WHERE game_id=#{id}
+	</select>
+	<update id="updateLayoutBGC"
+		parameterType="com.ezen.smg.dto.layout.LayoutBGCDTO">
+		UPDATE bgc_layout SET
+		warn_content=#{dto.warn_content, jdbcType=VARCHAR}		
+		WHERE
+		game_id=#{dto.game_id}
+	</update>
+	<update id="updateImg_url_bgc">
+		UPDATE bgc_layout
+		SET
+		<choose>
+			<when test="img_num == 1">
+				game_img1=#{url}
+			</when>
+			<when test="img_num == 3">
+				game_img2=#{url}
+			</when>
+			<when test="img_num == 5">
+				game_img3=#{url}
+			</when>
+			<when test="img_num == 7">
+				game_img4=#{url}
+			</when>
+			<when test="img_num == 2">
+				game_video1=#{url}
+			</when>
+			<when test="img_num == 4">
+				game_video2=#{url}
+			</when>
+			<when test="img_num == 6">
+				game_video3=#{url}
+			</when>
+			<otherwise>
+				game_video4=#{url}
+			</otherwise>
+		</choose>
+		WHERE game_id=#{id}
+	</update>
+	<insert id="insertLayoutBGC"
+		parameterType="com.ezen.smg.dto.layout.LayoutBGCDTO">
+		INSERT INTO bgc_layout(
+		game_id,
+		warn_content,
+		game_img1,
+		game_video1,
+		game_img2,
+		game_video2,
+		game_img3,
+		game_video3,
+		game_img4,
+		game_video4
+		)
+		VALUES(
+		#{dto.game_id},
+		#{dto.warn_content, jdbcType=VARCHAR},
+		#{dto.game_img1, jdbcType=VARCHAR},
+		#{dto.game_video1, jdbcType=VARCHAR},
+		#{dto.game_img2, jdbcType=VARCHAR},
+		#{dto.game_video2, jdbcType=VARCHAR},
+		#{dto.game_img3, jdbcType=VARCHAR},
+		#{dto.game_video3, jdbcType=VARCHAR},
+		#{dto.game_img4, jdbcType=VARCHAR},
+		#{dto.game_video4, jdbcType=VARCHAR}
+		)
+	</insert>
 </mapper>

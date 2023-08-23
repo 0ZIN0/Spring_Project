@@ -1,22 +1,29 @@
- var loginPopup = null; // 전역 변수로 팝업 창을 저장하는 변수 선언
+const text = $('#textbox');
+const textarea = $('#textarea');
+const submitBtn = $('.submit-btn');
 
-function openLoginPopup() {
-    if (loginPopup && !loginPopup.closed) {
-        // 이미 팝업이 열려있으면 해당 팝업에 포커스를 줌
-        loginPopup.focus();
-    } else {
-        var screenWidth = window.screen.width;
-        var screenHeight = window.screen.height;
-        var popupWidth = 480;
-        var popupHeight = 800;
+submitBtn.attr('disabled', 'disabled');
 
-        var left = (screenWidth - popupWidth) / 2;
-        var top = (screenHeight - popupHeight) / 2;
+text.on('keyup', function () {
+  if (text.val() !== '' && textarea.val() !== '') {
+    console.log("input: ", text.val());
+    console.log('1');
+    submitBtn.removeAttr("disabled");
+  } else {
+    console.log('2');
+    console.log("input none: ", text.val());
+    submitBtn.attr('disabled', 'disabled');
+  }
+});
 
-        var popupFeatures = 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + left + ',top=' + top;
-
-        // 새로운 팝업을 열고, loginPopup 변수에 할당하여 저장
-        loginPopup = window.open('/smg/member/login', '_blank', popupFeatures);
-        
-    }
-}
+textarea.on('keyup', function () {
+  if (text.val() !== '' && textarea.val() !== '') {
+    console.log("text: ", textarea.val());
+    console.log('1');
+    submitBtn.removeAttr("disabled");
+  } else {
+    console.log('2');
+    console.log("text none: ", textarea.val());
+    submitBtn.attr('disabled', 'disabled');
+  }
+});
