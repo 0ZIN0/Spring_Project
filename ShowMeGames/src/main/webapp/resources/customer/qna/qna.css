@@ -111,6 +111,6 @@ img {
 	text-align: right;
 }
 
-.textarea {
-	
+#textbox, #textarea, #title-select {
+	background-color: transparent;
 }

@@ -13,6 +13,6 @@ function back_btn() {
 $('.btn.cancel').click(back_btn);
 
 // 폼 제출 될 때 
-$('#game_update_form').submit(function() {
+$('#form_req_update').submit(function() {
     checkUnload = false;
 });

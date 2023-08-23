@@ -1,3 +1,5 @@
+<%@page import="org.springframework.beans.factory.annotation.Autowired"%>
+<%@page import="com.ezen.smg.dto.SmgUsersDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,13 +12,11 @@
 <c:url value="/resources/img/cart" var="cart_img" />
 <script src="https://kit.fontawesome.com/c48a5ad62b.js"
 	crossorigin="anonymous"></script>
-
-
-
+	
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-<header>
+<header data-conpath="${conPath}">
 	<div id="header-top">
 		<div id="header-name">
 			<ul class="header-top-menu" id="header-top-ul">
@@ -131,7 +131,7 @@
 							<section>
 								<ul>
 									<li><a href="${conPath}mypage/my_account">내 계정</a></li>
-									<li><a href="#">내 주문</a></li>
+									<li><a href="${conPath}mypage/orders">내 주문</a></li>
 									<li><a href="${conPath}customer/faq">고객 지원 <i
 											class="fa-solid fa-arrow-up-right-from-square"
 											style="color: #ffffff;"></i></a></li>

@@ -77,7 +77,7 @@
 								</div>
 								<div id="game-detail-content-1" class="game-info-content-left">
 									${layout.game_detail_content_1}</div>
-								<video autoplay loop muted preload playsinline
+								<video autoplay loop muted preload="auto" playsinline
 									class="video_background">
 									<source
 										src="${lra_img}${layout.game_detail_video_1}"
@@ -91,7 +91,7 @@
 								</div>
 								<div id="game-detail-content-2" class="game-info-content-right">
 									${layout.game_detail_content_2}</div>
-								<video autoplay loop muted preload playsinline
+								<video autoplay loop muted preload="auto" playsinline
 									class="video_background">
 									<source
 										src="${lra_img}${layout.game_detail_video_2}">

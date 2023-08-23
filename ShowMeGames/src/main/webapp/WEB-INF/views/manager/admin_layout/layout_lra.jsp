@@ -214,7 +214,7 @@
 												<div id=game_detail_content_1 class="game-info-content-left auto-br">${layout.game_detail_content_1}</div>
 												<div id="game_video_div_1"
 													data-video="${layout.game_detail_video_1}">
-													<video autoplay loop muted preload playsinline id="game_detail_video_1" class="img_preview_div video_background"
+													<video autoplay loop muted preload="auto" playsinline id="game_detail_video_1" class="img_preview_div video_background"
 														src="${lra_img}${layout.game_detail_video_1}"
 														alt="game_detail_video_1" >
 													</video>
@@ -225,7 +225,7 @@
 												<div id="game_detail_content_2" class="game-info-content-right auto-br">${layout.game_detail_content_2}</div>
 												<div id="game_video_div_2"
 													data-video="${layout.game_detail_video_2}">
-													<video autoplay loop muted preload playsinline id="game_detail_video_2" class="img_preview_div video_background"
+													<video autoplay loop muted preload="auto" playsinline id="game_detail_video_2" class="img_preview_div video_background"
 														src="${lra_img}${layout.game_detail_video_2}"
 														alt="game_detail_video_2" >
 													</video>

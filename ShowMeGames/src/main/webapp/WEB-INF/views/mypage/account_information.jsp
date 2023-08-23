@@ -95,13 +95,13 @@
 						<div class="modal_content_title">
 							<label class="modal_label" for="username">사용자 이름</label>
 						</div>
-						<input id="username" name="username" type="text" spellcheck="false" value="${user.nick_name}" form="form_nickname_update">
+						<input id="username" name="username" type="text" spellcheck="false" value="${user.nick_name}" form="form_nickname_update" maxlength="15">
 					</div>
 					<div>
 						<div class="modal_content_title">사용자 이름 관련 규정</div>
 						<div>
 		                    <ul>	
-		                        <li>3~15자 사이로 작성해야 합니다.</li>
+		                        <li>3~15자 사이로 작성해야 합니다.(한글은 3글자로 인식합니다)</li>
 		                        <li>숫자, 영어, 한글, 대시(-), 밑줄(_)만 입력 가능합니다</li>
 		                        <li>남들에게 보여지는 이름입니다</li>
 	    	                </ul>

@@ -32,12 +32,16 @@ import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
 import com.ezen.smg.dto.chart.SalesDTO;
+import com.ezen.smg.dto.layout.LayoutBGCDTO;
+import com.ezen.smg.dto.layout.LayoutBGCFileDTO;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.layout.LayoutHGTDTO;
 import com.ezen.smg.dto.layout.LayoutLRADTO;
+import com.ezen.smg.dto.layout.LayoutSJHDTO;
 import com.ezen.smg.mapper.FAQmapper;
 import com.ezen.smg.mapper.GameSpecificationsMapper;
 import com.ezen.smg.mapper.NoticeMapper;
+import com.ezen.smg.service.ImagesService.ImagesService;
 import com.ezen.smg.service.faqService.FAQService;
 import com.ezen.smg.service.layoutService.LayoutType;
 import com.ezen.smg.service.layoutService.MNG_LayoutService;
@@ -63,6 +67,9 @@ public class ManagerController {
 	
 	@Autowired
 	MNG_LayoutService layoutServ;
+	
+	@Autowired
+	ImagesService imagesService;
 	
 	@Autowired
 	NoticeMapper noticeMapper;
@@ -174,6 +181,8 @@ public class ManagerController {
 
 		model.addAttribute("game", game);
 		model.addAttribute("rated", game.getRated().split("/"));
+		model.addAttribute("images", imagesService.getNomalImages(game_id, 1, 5));
+		model.addAttribute("sub_banner", imagesService.getSubBanner(game_id));
 		
 		model.addAttribute("spec", specMapper.getSpec(game_id));
 		
@@ -209,14 +218,52 @@ public class ManagerController {
 			case "KCW":
 				return "manager/admin_layout/layout_kcw";
 			case "SJH":
+				model.addAttribute("layout", layoutServ.getLayoutSJH(game_id));
 				return "manager/admin_layout/layout_sjh";
 			case "BGC":
+				model.addAttribute("layout", layoutServ.getLayoutBGC(game_id));
 				return "manager/admin_layout/layout_bgc";
 			default:
 				model.addAttribute("layout", layoutServ.getLayoutDefault(game_id));
 				return "manager/admin_layout/layout_default";
 		}
 	}
+	
+	@GetMapping("/manage/admin_game_slide")
+	String adminSetSlide(Integer game_id, Model model) {
+		
+		model.addAttribute("game_id", game_id);
+		model.addAttribute("images", imagesService.getSlideImages(game_id));
+		model.addAttribute("sub_banner", imagesService.getSubBanner(game_id));
+		
+		return "manager/admin_game_slide_update";
+	}
+	
+	@PostMapping("/manage/admin_game_slide")
+	String adminSetSlidePost(Integer game_id, MultipartFile slide_file0, MultipartFile slide_file1,
+			MultipartFile slide_file2, MultipartFile slide_file3, MultipartFile slide_file4) {
+		
+		MultipartFile[] fileArr = {slide_file0, slide_file1, slide_file2, slide_file3, slide_file4};
+		
+		for(int i = 0; i < fileArr.length; ++i) {
+			if(!fileArr[i].isEmpty()) {
+				imagesService.updateSlideImage(game_id, fileArr[i], i);
+			}
+		}
+		
+		return "redirect:admin_game_slide?game_id=" + game_id;
+	}
+	
+	@PostMapping("/manage/admin_sub_banner_set")
+	String adminSetSubBanner(Integer game_id, MultipartFile sub_img_file) {
+		
+		if(!sub_img_file.isEmpty()) {
+			imagesService.subBannerUpdate(game_id, sub_img_file);
+		}
+		
+		return "redirect:admin_game_slide?game_id=" + game_id;	
+	}
+	
 	
 	@GetMapping("/manage/admin_game_req")
 	String adminSetGameReq(Integer game_id, Model model) {
@@ -315,6 +362,63 @@ public class ManagerController {
 			layoutServ.updateImg_url(origin_game_id, LayoutType.LRA, game_video_file_2, 4);
 		}
 		
+		
+		return "redirect:admin_game_detail?game_id=" + origin_game_id; 
+	}
+	
+	@PostMapping("/manage/layout_update_sjh")
+	String layoutDefaultSJH(Integer origin_game_id, LayoutSJHDTO dto) {
+		
+		// insert로
+		if(dto.getGame_id() == null) {
+			dto.setGame_id(origin_game_id);
+			layoutServ.insertLayoutSJH(dto);
+		// update로
+		} else {
+			layoutServ.updateLayoutSJH(dto);
+		}
+		
+		return "redirect:admin_game_detail?game_id=" + origin_game_id;
+	}
+	
+	@PostMapping("/manage/layout_update_bgc")
+	String layoutDefaultBGC(Integer origin_game_id, LayoutBGCDTO dto, LayoutBGCFileDTO file) {
+		
+		log.error("내가 쓴 카트 내용: " + dto);
+		log.error(file);
+		// insert로
+		if(dto.getGame_id() == null) {
+			dto.setGame_id(origin_game_id);
+			layoutServ.insertLayoutBGC(dto);
+		// update로
+		} else {
+			layoutServ.updateLayoutBGC(dto);
+		}
+
+		if(!file.getGame_img_file_1().isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_img_file_1(), 1);
+		}
+		if(!file.getGame_video_file_1().isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_video_file_1(), 2);
+		}
+		if(!file.getGame_img_file_2().isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_img_file_2(), 3);
+		}
+		if(!file.getGame_video_file_2().isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_video_file_2(), 4);
+		}
+		if(!file.getGame_img_file_3().isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_img_file_3(), 5);
+		}
+		if(!file.getGame_video_file_3().isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_video_file_3(), 6);
+		}
+		if(!file.getGame_img_file_4().isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_img_file_4(), 7);
+		}
+		if(!file.getGame_video_file_4().isEmpty()) {
+			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_video_file_4(), 8);
+		}
 		
 		return "redirect:admin_game_detail?game_id=" + origin_game_id; 
 	}
