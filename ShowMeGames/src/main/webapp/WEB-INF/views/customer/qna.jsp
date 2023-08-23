@@ -24,7 +24,7 @@
 		</div>
 		<div class='qna-input'>
 			<div><h2>문의하기</h2></div>
-			<form id="form" method="POST" action="${pageContext.request.contextPath}/customer/inquiries" enctype="multipart/form-data" name="form">
+			<form method="POST" action="${pageContext.request.contextPath}/customer/inquiries" enctype="multipart/form-data">
 			<div>
 				<table class='qna-table'>
 					<tr>
@@ -47,13 +47,13 @@
 					<tr>
 						<td class='qna-text'>제목</td>
 						<td>
-							<input id="textbox" type="text" value="제목을 입력해주세요" name="inquiry_title" maxlength="100" style="width: 863px; height: 35px;"/>
+							<input type="text" value="제목을 입력해주세요" name="inquiry_title" maxlength="100" style="width: 863px; height: 35px;"/>
 						</td>					
 					</tr>
 					<tr>
 						<td class='qna-text textarea'>내용</td>
 						<td>
-							<textarea id="textarea" name="inquiry_content" cols="100" rows="28" maxlength="1000" placeholder="내용을 입력해 주세요." style="resize: none;"></textarea>
+							<textarea id="" name="inquiry_content" cols="100" rows="28" maxlength="1000" placeholder="내용을 입력해 주세요." style="resize: none;"></textarea>
 						</td>				
 					</tr>
 					<tr>
@@ -66,7 +66,7 @@
 					</tr>					
 					<tr>
 						<td class='btn' colspan='2'>
-							<button class='submit-btn' type="submit">확인</button>
+							<button class='ok' type="submit">확인</button>
 							<button class='close'>취소</button>						
 						</td>
 					</tr>	
@@ -79,6 +79,5 @@
 	</div>
 	<%@ include file="/WEB-INF/views/include/footer/footer.jsp" %>
 	<%@ include file="/WEB-INF/views/include/link/js/js_common.jsp" %>
-	<script src="${qna_js}"></script>
 </body>
 </html>

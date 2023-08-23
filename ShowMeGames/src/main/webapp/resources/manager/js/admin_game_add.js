@@ -110,17 +110,6 @@ function isImageFile(file) {
     return ($.inArray(ext, ["jpg", "jpeg", "png"]) === -1) ? false : true;
 }
 
-// checkbox 값을 모아서 배열로 만들어주는 함수
-function checkboxToArray(checkbox_arr) {
-    let arr = [];
-
-    $(checkbox_arr).each(function(index, item) {
-        arr.push($(item).val());
-    });
-
-    return arr;
-}
-
 // 변경 눌렀을 때 동작
 $('#game_add_form').submit(function() {
     if(!valid_img) {

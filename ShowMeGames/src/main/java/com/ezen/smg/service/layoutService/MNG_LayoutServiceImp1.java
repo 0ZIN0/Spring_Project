@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.smg.common.CommonFunction;
-import com.ezen.smg.dto.layout.LayoutBGCDTO;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.layout.LayoutHGTDTO;
 import com.ezen.smg.dto.layout.LayoutJYMDTO;
@@ -166,10 +165,6 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
         		fullPath = absolutePath + "/jym/" + newFileName;
         		realPath = servletContext.getRealPath("/resources/img/games/layout/jym/");
         		break;
-        	case BGC:
-        		newFileName = game_id + File.separator + game_id + "_" + img_num + ext;
-        		fullPath = absolutePath + "/bgc/" + newFileName;
-        		realPath = servletContext.getRealPath("/resources/img/games/layout/bgc/");        		break;
         	default:
         		newFileName = game_id + ext;
         		fullPath = absolutePath + "/default/" + newFileName;
@@ -209,8 +204,6 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
         			return mapper.updateImg_url_lra(game_id, newFileName, img_num);
         		case JYM:
         			return mapper.updateImg_url_jym(game_id, newFileName, img_num);
-        		case BGC:
-        			return mapper.updateImg_url_bgc(game_id, newFileName, img_num);
     			default:
     				return mapper.updateImg_url(game_id, newFileName);
 	        }
@@ -237,7 +230,7 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 			case "SJH":
 				return 0;
 			case "BGC":
-				return mapper.getLayoutCheck_bgc(game_id);
+				return 0;
 			default:
 				return mapper.getLayoutCheck_default(game_id);
 		}
@@ -267,21 +260,4 @@ public class MNG_LayoutServiceImp1 implements MNG_LayoutService {
 		return 0;
 	}
 
-	
-	@Override
-	public LayoutBGCDTO getLayoutBGC(Integer game_id) {
-		
-		return mapper.getLayoutBGC(game_id);
-	}
-	@Override
-	public int insertLayoutBGC(LayoutBGCDTO dto) {
-		
-		return mapper.insertLayoutBGC(dto);
-	}
-	@Override
-	public int updateLayoutBGC(LayoutBGCDTO dto) {
-		
-		return mapper.updateLayoutBGC(dto);
-	}
-	
 }

@@ -32,8 +32,6 @@ import com.ezen.smg.dto.SmgUsersDTO;
 import com.ezen.smg.dto.chart.GenderDTO;
 import com.ezen.smg.dto.chart.GenreDTO;
 import com.ezen.smg.dto.chart.SalesDTO;
-import com.ezen.smg.dto.layout.LayoutBGCDTO;
-import com.ezen.smg.dto.layout.LayoutBGCFileDTO;
 import com.ezen.smg.dto.layout.LayoutDefaultDTO;
 import com.ezen.smg.dto.layout.LayoutHGTDTO;
 import com.ezen.smg.dto.layout.LayoutLRADTO;
@@ -221,7 +219,6 @@ public class ManagerController {
 				model.addAttribute("layout", layoutServ.getLayoutSJH(game_id));
 				return "manager/admin_layout/layout_sjh";
 			case "BGC":
-				model.addAttribute("layout", layoutServ.getLayoutBGC(game_id));
 				return "manager/admin_layout/layout_bgc";
 			default:
 				model.addAttribute("layout", layoutServ.getLayoutDefault(game_id));
@@ -379,48 +376,6 @@ public class ManagerController {
 		}
 		
 		return "redirect:admin_game_detail?game_id=" + origin_game_id;
-	}
-	
-	@PostMapping("/manage/layout_update_bgc")
-	String layoutDefaultBGC(Integer origin_game_id, LayoutBGCDTO dto, LayoutBGCFileDTO file) {
-		
-		log.error("내가 쓴 카트 내용: " + dto);
-		log.error(file);
-		// insert로
-		if(dto.getGame_id() == null) {
-			dto.setGame_id(origin_game_id);
-			layoutServ.insertLayoutBGC(dto);
-		// update로
-		} else {
-			layoutServ.updateLayoutBGC(dto);
-		}
-
-		if(!file.getGame_img_file_1().isEmpty()) {
-			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_img_file_1(), 1);
-		}
-		if(!file.getGame_video_file_1().isEmpty()) {
-			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_video_file_1(), 2);
-		}
-		if(!file.getGame_img_file_2().isEmpty()) {
-			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_img_file_2(), 3);
-		}
-		if(!file.getGame_video_file_2().isEmpty()) {
-			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_video_file_2(), 4);
-		}
-		if(!file.getGame_img_file_3().isEmpty()) {
-			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_img_file_3(), 5);
-		}
-		if(!file.getGame_video_file_3().isEmpty()) {
-			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_video_file_3(), 6);
-		}
-		if(!file.getGame_img_file_4().isEmpty()) {
-			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_img_file_4(), 7);
-		}
-		if(!file.getGame_video_file_4().isEmpty()) {
-			layoutServ.updateImg_url(origin_game_id, LayoutType.BGC, file.getGame_video_file_4(), 8);
-		}
-		
-		return "redirect:admin_game_detail?game_id=" + origin_game_id; 
 	}
 	
 	@GetMapping("/manage/admin_game_update")

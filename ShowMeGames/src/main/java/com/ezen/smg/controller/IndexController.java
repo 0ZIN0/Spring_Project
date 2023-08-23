@@ -142,7 +142,6 @@ public class IndexController {
 			model.addAttribute("layout", layoutMapper.getLayoutSJH(game));
 			return "games/layout/type_sjh";
 		case "BGC":
-			model.addAttribute("layout", layoutMapper.getLayoutBGC(game));
 			return "games/layout/type_bgc";
 		default:
 			model.addAttribute("layout", layoutMapper.getLayoutDefault(game));
