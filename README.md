@@ -97,26 +97,16 @@
 
 ---
 
-# 📝 시작 가이드
+# 📝 프로젝트 웹 사이트 접속
 
-### 요구사항 (Requirements)
-#### To set up the environment for running the program, the following components need to be provided:
-* [jdk1.8.0_281](https://www.oracle.com/kr/java/technologies/downloads/)
-* [Eclipse 4.19](https://www.eclipse.org/downloads/packages/)
-* [database 11g](https://www.oracle.com/database/technologies/xe-prior-release-downloads.html)
-
-
-### 프로그램 사용 전 환경 설정
-* eclipse에 DB 연동 [[how]](https://coinco.tistory.com/110)
-* github에 존재하는 db 테이블을 생성 후 db 계정에 맞춰 eclipse 내 dao.OjdbcConnection 계정 설정
+<a href=""><img src="ShowMeGames/src/main/webapp/resources/img/logo/smg_loginLogo.png" width=300 height=70></a>
 ---
 
 # 🎢 기술 스택(Stacks)
-### Environment
-<img src="https://img.shields.io/badge/eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white">  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 
-### Development
-<img src="https://img.shields.io/badge/java-2A6379?style=for-the-badge&logo=java&logoColor=white">  <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white">
-
-### Design
+<img src="https://img.shields.io/badge/eclipse-2C2255?style=for-the-badge&logo=eclipse&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/java-2A6379?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white">  
 <img src="https://img.shields.io/badge/Adobe Photoshop-31A8FF?style=for-the-badge&logo=Adobe Photoshop&logoColor=white"> <img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
+<img src="https://img.shields.io/badge/mybatis-white?style=for-the-badge&logo=mybatis&logoColor=black">  
+<img src="https://img.shields.io/badge/spring-gray?style=for-the-badge&logo=spring&logoColor=green"> <img src="https://img.shields.io/badge/javascript-yellow?style=for-the-badge&logo=javascript&logoColor=gray"> <img src="https://img.shields.io/badge/jquary-white?style=for-the-badge&logo=jquary&logoColor=0080ff"> <img src="https://img.shields.io/badge/aws-orange?style=for-the-badge&logo=aws&logoColor=orange">  
+<img src="https://img.shields.io/badge/html-orange?style=for-the-badge&logo=html&logoColor=orange"> <img src="https://img.shields.io/badge/css-blue?style=for-the-badge&logo=html&logoColor=white"> 
+
