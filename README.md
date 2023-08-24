@@ -1,13 +1,13 @@
 # 🖥 Show Me Games
 
 <p align="center">
-  <img src="https://github.com/0ZIN0/StudyCafe/assets/132882290/896fae6b-3701-43e5-bdf7-98688ad7d21f" width=1000>
+  <img src="ShowMeGames/src/main/webapp/resources/img/logo/smg_loginLogo.png" width=1000>
 </p>
 
 ---
 
-# 🛠 Study Cafe Kiosk Dev
-개발 기간 : 2023.05.03 ~ 2023.08.23
+# 🛠 Dev
+개발 기간 : 2023.07.13 ~ 2023.08.23
 
 ---
 
@@ -52,7 +52,7 @@
 
 <table>
   <tr>
-    <th>안종범</th>
+    <th>홍기태</th>
     <td rowspan="3" width = 500>자기소개적는 곳</td>
   <tr>
     <td> <img src="원하는 이미지 url" width = 200></td>
@@ -74,14 +74,26 @@
   </tr>
 </table>
 
+<table>
+  <tr>
+    <th>배기철</th>
+    <td rowspan="3" width = 500>자기소개적는 곳</td>
+  <tr>
+    <td> <img src="원하는 이미지 url" width = 200></td>
+  </tr>
+  <tr>
+    <td>자신이 맡았던 역할</td>
+  </tr>
+</table>
+
 ---
 
 ## 프로젝트 동기
-
+#### 팀원들이 모두 좋아하는 취미인 게임을 기준으로 웹사이트를 찾다보니 <br>스팀이나 다이렉트 게임즈 같은 사이트를 토대로 도전해보고자 시작하게 되었습니다.
 
 ## 프로그램 소개
 
-
+#### 
 
 ---
 
