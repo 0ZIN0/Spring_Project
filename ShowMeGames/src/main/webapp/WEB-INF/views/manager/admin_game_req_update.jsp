@@ -32,7 +32,7 @@
 						</div>
 						<div>
 							<form id="form_req_update" action="./admin_game_req" method="POST">
-								<input type="hidden" name="origin_game_id" value="${game_id}${spec.game_id}"/>
+								<input type="hidden" name="origin_game_id" value="${game_id}"/>
 								<input type="hidden" name="game_id" value="${spec.game_id}"/>
 								<div id="req_layer_div">
 									<div class="item_div">

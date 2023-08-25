@@ -4,8 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:url value="/resources/member/login" var="resource" />
 <c:url value="/resources/member/login/forgot.css" var="css1" />
-<c:url value="/resources/img/index" var="img" />
-<c:url value="/resources/img/member" var="member_img" />
+<c:url value="/resources/img/logo" var="logo_img" />
 <script src="https://code.jquery.com/jquery-3.7.0.js"
 	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
 	crossorigin="anonymous"></script>
@@ -22,8 +21,7 @@
 	<div class="main-container">
 		<div class="logo-container">
 			<div id="login_logo">
-				<img src="${member_img}/login_img.png" alt="배너사진"
-					class="login-image">
+				<img src="${logo_img}/smg_loginLogo.png" alt="배너사진" class="login-image" width="480" height="96"> 
 			</div>
 		</div>
 
