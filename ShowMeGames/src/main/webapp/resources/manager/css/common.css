@@ -115,6 +115,7 @@ img {
 }
 .nav_item_wrapper > span:nth-child(2) {
   grid-column: 2 / 4;
+  white-space: nowrap;
 }
 
 main {
