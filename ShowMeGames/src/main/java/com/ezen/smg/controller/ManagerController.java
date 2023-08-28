@@ -572,17 +572,21 @@ public class ManagerController {
 		Date nowDate = new Date();				
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
 		String dateString = format.format(nowDate);
-
-
+		
+		String file_name = "";
 		// 파일 이름 설정. 중복방지를 위해 뒤에 날짜 입력
-		String file_name = dateString + dto.getImgFile().getOriginalFilename();
-
-		// 파일 저장
-		File saveFile = new File(notice_uploadFolder, file_name);
-		try {
-			dto.getImgFile().transferTo(saveFile);
-		} catch (Exception e) {
-			log.error(e.getMessage());
+		if (!dto.getImgFile().isEmpty()) {
+			file_name = dateString + dto.getImgFile().getOriginalFilename();
+			
+			// 파일 저장
+			File saveFile = new File(notice_uploadFolder, file_name);
+			try {
+				dto.getImgFile().transferTo(saveFile);
+			} catch (Exception e) {
+				log.error(e.getMessage());
+			}
+		} else {
+			file_name = noticeMapper.getContent(notice_id).getBanner_url();
 		}
 
 		dto.setBanner_url(file_name);
