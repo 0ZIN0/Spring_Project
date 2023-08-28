@@ -22,7 +22,9 @@
     </td>
   </tr>
   <tr>
-    <td>PA</td>
+    <th>
+      PA
+    </th>
   </tr>
 </table>
 
@@ -37,7 +39,9 @@
     <td> <img src="원하는 이미지 url" width = 200></td>
   </tr>
   <tr>
-    <td>PL</td>
+    <th>
+      PL
+    </th>
   </tr>
 </table>
 
@@ -52,7 +56,9 @@
     <td> <img src="./readme_img/shj.png" width = 200></td>
   </tr>
   <tr>
-    <td>PA</td>
+    <th>
+      PA
+    </th>
   </tr>
 </table>
 
@@ -94,7 +100,9 @@
     <td> <img src="./readme_img/hgt_profile_img.png" width = 200></td>
   </tr>
   <tr>
-    <td>PA</td>
+    <th>
+      PA
+    </th>
   </tr>
 </table>
 
