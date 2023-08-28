@@ -1,6 +1,6 @@
 var naverLogin = new naver.LoginWithNaverId({
   clientId: "lmZiRViUOnHbdLiKlCPj",
-  callbackUrl: "http://3.39.6.147/:8090/smg/member/naver_login",
+  callbackUrl: "http://3.39.6.147:8090/smg/member/naver_login",
   isPopup: false,
   callbackHandle: true,
 });

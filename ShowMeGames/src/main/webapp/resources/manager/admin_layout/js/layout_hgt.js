@@ -83,5 +83,4 @@ $(document).ready(function() {
     imgLenCheck('#game_img_div_1', '#game_img_1');
     imgLenCheck('#game_img_div_2', '#game_img_2');
     imgLenCheck('#game_img_div_3', '#game_img_3');
-
 });
