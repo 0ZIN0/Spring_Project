@@ -299,6 +299,12 @@ public class ManagerServiceImp1 implements ManagerService {
 
 		String fileName = file_name + CommonFunction.extractExt(img_file.getOriginalFilename());
 		String banner_url = "resources/img/banner_img/" + fileName;
+
+		// 해당 경로와 동일한 경로를 가진 게임이 있는지 검사
+		if(gamesMapper.checkBannerUrl(banner_url) == 1) {
+			fileName = file_name + 1 + CommonFunction.extractExt(img_file.getOriginalFilename());
+			banner_url = "resources/img/banner_img/" + fileName;
+		}
 		
 		game.setBanner_img_url(banner_url);
 		
@@ -317,14 +323,6 @@ public class ManagerServiceImp1 implements ManagerService {
 			
 			try {
 				File file = new File(tempPath);
-				
-				// 중복명이 있을 경우
-				if(file.exists()) {
-					fileName = file_name + 1 + CommonFunction.extractExt(img_file.getOriginalFilename());
-					tempPath = realPath + fileName;
-					file = new File(tempPath);
-					fullPath = absolutePath + "/banner_img/" + fileName;
-				}
 				
 				file.createNewFile();
 				

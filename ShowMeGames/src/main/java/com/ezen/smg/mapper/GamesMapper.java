@@ -74,5 +74,7 @@ public interface GamesMapper {
 	int getGamesLayoutIsNull();
 
 	List<Games> getGamesListByLayoutAndNull(@Param("start") int firstGame, @Param("end") int lastGame, @Param("layout") String layout);
+
+	int checkBannerUrl(@Param("url") String banner_url);
 	
 }
