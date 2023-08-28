@@ -55,7 +55,7 @@
     <th>홍기태</th>
     <td rowspan="3" width = 500>자기소개적는 곳</td>
   <tr>
-    <td> <img src="원하는 이미지 url" width = 200></td>
+    <td> <img src="./readme_img/hgt_profile_img.png" width = 200></td>
   </tr>
   <tr>
     <td>자신이 맡았던 역할</td>
@@ -92,7 +92,7 @@
 #### 팀원들이 모두 좋아하는 취미인 게임을 기준으로 웹사이트를 찾다보니 <br>'일반적인 게임 사이트가 보다는 스팀이나 다이렉트 게임즈 같은 사이트가 재밌어보인다' 라는 <br>의견에 모두가 찬성하면서 시작하게 되었습니다.
 
 ## 프로그램 소개
-<img src="readme_img/localhost_8090_smg_;jsessionid=0DCF15E879CF6B111F08DDB4BECC1C9E (3).png" width=150 height=500>
+<img src="readme_img/project_index_page.png" width=150 height=500>
 
 
 ---
