@@ -95,8 +95,8 @@
 								for="">Roa's Pick</label></li>
 							<li class="filter_item editor"><input type="checkbox" value="jaehun"/> <label
 								for="">Jaehun's Pick</label></li>
-							<li class="filter_item editor"><input type="checkbox" value="gicheul"/> <label
-								for="">Gicheul's Pick</label></li>
+							<li class="filter_item editor"><input type="checkbox" value="gicheol"/> <label
+								for="">Gicheol's Pick</label></li>
 							<li class="filter_item editor"><input type="checkbox" value="gitae"/> <label
 								for="">Gitae's Pick</label></li>
 						</ul>
