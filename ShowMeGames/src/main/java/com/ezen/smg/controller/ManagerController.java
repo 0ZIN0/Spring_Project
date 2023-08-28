@@ -216,6 +216,7 @@ public class ManagerController {
 				model.addAttribute("layout", layoutServ.getLayoutHGT(game_id));
 				return "manager/admin_layout/layout_hgt";
 			case "KCW":
+				model.addAttribute("layout", layoutServ.getLayoutKCW(game_id));
 				return "manager/admin_layout/layout_kcw";
 			case "SJH":
 				model.addAttribute("layout", layoutServ.getLayoutSJH(game_id));
