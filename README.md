@@ -15,76 +15,89 @@
 <table>
   <tr>
     <th>이로아</th>
-    <td rowspan="3" width = 500>자기소개적는 곳</td>
+    <td rowspan="3" width = 500>우리 처음 만났던 어색했던 그 표정속에<br>서로 말놓기가 어려워 망설였지만</td>
   <tr>
     <td> 
-      <img src="원하는 이미지 url" width = 200>
+      <img src="./readme_img/roa_profile.jpg" width = 200>
     </td>
   </tr>
   <tr>
-    <td>자신이 맡았던 역할</td>
+    <td>PA</td>
   </tr>
 </table>
 
 <table>
   <tr>
     <th>김찬우</th>
-    <td rowspan="3" width = 500>자기소개적는 곳</td>
+    <td rowspan="3" width = 500>
+      음악속에 묻혀 지내온 수많은 나날들이<br>
+      이젠 돌아갈 수 없는 아쉬움됐네
+    </td>
   <tr>
     <td> <img src="원하는 이미지 url" width = 200></td>
   </tr>
   <tr>
-    <td>자신이 맡았던 역할</td>
+    <td>PL</td>
   </tr>
 </table>
 
 <table>
   <tr>
     <th>손재훈</th>
-    <td rowspan="3" width = 500>자기소개적는 곳</td>
+    <td rowspan="3" width = 500>
+      이제는 우리가 서로 떠나가야할 시간<br>
+      아쉬움을 남긴채 돌아서지만
+    </td>
   <tr>
-    <td> <img src="원하는 이미지 url" width = 200></td>
+    <td> <img src="./readme_img/shj.png" width = 200></td>
   </tr>
   <tr>
-    <td>자신이 맡았던 역할</td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <th>홍기태</th>
-    <td rowspan="3" width = 500>자기소개적는 곳</td>
-  <tr>
-    <td> <img src="./readme_img/hgt_profile_img.png" width = 200></td>
-  </tr>
-  <tr>
-    <td>자신이 맡았던 역할</td>
+    <td>PA</td>
   </tr>
 </table>
 
 <table>
   <tr>
     <th>장영민</th>
-    <td rowspan="3" width = 500>자기소개적는 곳</td>
+    <td rowspan="3" width = 500>
+      시간은 우리를 다시 만나게 해 주겠지<br>
+      우리 그 때까지 아쉽지만 기다려봐요
+    </td>
   <tr>
     <td> <img src="원하는 이미지 url" width = 200></td>
   </tr>
   <tr>
-    <td>자신이 맡았던 역할</td>
+    <td>PA</td>
   </tr>
 </table>
 
 <table>
   <tr>
     <th>배기철</th>
-    <td rowspan="3" width = 500>어떻게 해서든 1인분은 하겠습니다</td>
+    <td rowspan="3" width = 500>어떻게 해서든 1인분은 하겠습니다.</td>
   <tr>
-    <td> <img src="원하는 이미지 url" width = 200></td>
+    <td> <img src="./readme_img/penguin.jpg" width = 200></td>
   </tr>
   <tr>
     <td>문의하기<br>스크롤 버튼<br>관리자-문의하기</td>
   </tr>
 </table>
+
+<table>
+  <tr>
+    <th>홍기태</th>
+    <td rowspan="3" width = 500>
+      기억속에 묻혀진 작은 노래됐지만<br>
+      우리들 맘엔 영원히
+    </td>
+  <tr>
+    <td> <img src="./readme_img/hgt_profile_img.png" width = 200></td>
+  </tr>
+  <tr>
+    <td>PA</td>
+  </tr>
+</table>
+
 
 ---
 
