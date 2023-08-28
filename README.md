@@ -70,7 +70,7 @@
       우리 그 때까지 아쉽지만 기다려봐요
     </td>
   <tr>
-    <td> <img src="원하는 이미지 url" width = 200></td>
+    <td> <img src="./readme_img/jym_profile.png" width = 200></td>
   </tr>
   <tr>
     <td>PA</td>
