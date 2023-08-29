@@ -25,9 +25,9 @@
 		key_num,
 		key_id
 		from
-		(select * from game_key join games using (game_id) where user_num = 22) g
+		(select * from game_key join games using (game_id) where user_num = #{user_num}) g
 		join
-		(select * from orders join order_detail using (order_id) where user_num = 22)
+		(select * from orders join order_detail using (order_id) where user_num = #{user_num})
 		o using (game_id)
 		ORDER BY order_date DESC
 	</select>
