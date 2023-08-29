@@ -120,7 +120,7 @@
 
 # 📝 프로젝트 웹 사이트 접속
 
-<a href=""><img src="ShowMeGames/src/main/webapp/resources/img/logo/smg_loginLogo.png" width=300 height=70></a>
+<a href="http://3.39.6.147/"><img src="ShowMeGames/src/main/webapp/resources/img/logo/smg_loginLogo.png" width=300 height=70></a>
 ---
 
 # 🎢 기술 스택(Stacks)
