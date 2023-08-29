@@ -4,57 +4,75 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.smg.mapper.GameKeyMapper">
 	<update id="updateUserNum" parameterType="int">
-		update game_key set user_num = #{user_num} where key_num =
-			(SELECT key_num FROM (
-				SELECT rownum AS rn, a.* 
-				FROM game_key a 
-				where game_id = #{game_id} and user_num is null) 
+		update game_key set
+		user_num = #{user_num} where key_num =
+		(SELECT key_num FROM (
+		SELECT rownum AS rn, a.*
+		FROM game_key a
+		where game_id = #{game_id} and user_num is null)
 		WHERE rn = 1)
 	</update>
-	
+
 	<select id="getUserGameKeyList"
-	resultType="com.ezen.smg.dto.MyGameListDTO">
-	SELECT o.order_date, u.user_num, od.game_id, g.game_name, game_price,
-	order_status, key_num, key_id FROM
-	orders o, order_detail od, games g, game_key gk, smg_users u where od.game_id
-	= g.game_id AND
-	u.user_num = gk.user_num AND o.order_id = od.order_id AND gk.game_id = g.game_id
-	AND u.user_num
-	= #{user_num}
-	ORDER BY order_date DESC
+		resultType="com.ezen.smg.dto.MyGameListDTO">
+		select
+		order_date,
+		o.user_num,
+		game_id,
+		game_name,
+		game_price,
+		order_status,
+		key_num,
+		key_id
+		from
+		(select * from game_key join games using (game_id) where user_num = 22) g
+		join
+		(select * from orders join order_detail using (order_id) where user_num = 22)
+		o using (game_id)
+		ORDER BY order_date DESC
 	</select>
 
 	<select id="getKeys" resultType="com.ezen.smg.dto.GameKeyDTO">
 		SELECT *
 		FROM (
-		SELECT ROWNUM rnum, k.*, nick_name
+		SELECT ROWNUM
+		rnum, k.*, nick_name
 		FROM game_key k
-		LEFT JOIN smg_users u ON k.user_num = u.user_num
+		LEFT JOIN smg_users u ON k.user_num
+		= u.user_num
 		)
 		WHERE rnum BETWEEN ${begin} AND ${end}
 	</select>
-	
-	<select id="getSearchResults" resultType="com.ezen.smg.dto.GameKeyDTO">
-		SELECT * FROM (select ROWNUM rnum, k.*, nick_name from game_key k left join smg_users u on (k.user_num = u.user_num)
-		where LOWER(${search_tag}) LIKE LOWER('%${search}%'))
-		WHERE rnum BETWEEN ${begin} AND ${end}
+
+	<select id="getSearchResults"
+		resultType="com.ezen.smg.dto.GameKeyDTO">
+		SELECT * FROM (select ROWNUM rnum, k.*, nick_name from
+		game_key k left join smg_users u on (k.user_num = u.user_num)
+		where
+		LOWER(${search_tag}) LIKE LOWER('%${search}%'))
+		WHERE rnum BETWEEN
+		${begin} AND ${end}
 		ORDER BY ${search_tag} ASC
 	</select>
-	
+
 	<update id="modifyKeyId">
 		update game_key set key_id = #{key_id}
-		where key_num = ${key_num}
+		where key_num =
+		${key_num}
 	</update>
-	
+
 	<update id="modifyKeyAccount">
-		update game_key 
-		set user_num = (select user_num from smg_users where nick_name = #{nick_name})  
+		update game_key
+		set user_num = (select user_num from smg_users where nick_name =
+		#{nick_name})
 		where key_num = ${key_num}
-        AND (select user_num from smg_users where nick_name = #{nick_name}) IS NOT NULL
+		AND (select user_num from smg_users where nick_name = #{nick_name}) IS
+		NOT NULL
 	</update>
-	
+
 	<select id="isUseGameKey" parameterType="int">
-		select count(*) from game_key where game_id=#{game_id} and user_num=#{user_num}
+		select count(*) from
+		game_key where game_id=#{game_id} and user_num=#{user_num}
 	</select>
-	
+
 </mapper>
