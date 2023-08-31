@@ -99,6 +99,7 @@
 								for="">Gicheol's Pick</label></li>
 							<li class="filter_item editor"><input type="checkbox" value="gitae"/> <label
 								for="">Gitae's Pick</label></li>
+								
 						</ul>
 				</div>
 			</div>
