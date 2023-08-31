@@ -1,4 +1,4 @@
-const conPath = $("#conpath").data("conpath");
+const notice_conPath = $("#conpath").data("conpath");
 
 // notice sort select css active
 var noticeSelectYear = $("#notice-year-select");
@@ -60,7 +60,7 @@ $(".selects").click(function (e) {
             }">
 						<div class="notice-banner">
 							<img class="banner-img" alt=""
-								src="${conPath}${notice.banner_url}">
+								src="${notice_conPath}${notice.banner_url}">
 							<div class="notice-detail-banner">
 								<div class="banner-date">
 									${dateFormat(detailDate)}
