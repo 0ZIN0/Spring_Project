@@ -36,7 +36,8 @@
       이젠 돌아갈 수 없는 아쉬움됐네
     </td>
   <tr>
-    <td> <img src="원하는 이미지 url" width = 200></td>
+    <td> <img src="https://github.com/0ZIN0/Spring_Project/assets/112708158/f32337aa-d361-4d1b-8012-323e36dc39ca" width = 200></td>
+
   </tr>
   <tr>
     <th>
