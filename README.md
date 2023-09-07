@@ -110,20 +110,9 @@
 
 ---
 
-## 프로젝트 동기
-#### 팀원들이 모두 좋아하는 취미인 게임을 기준으로 웹사이트를 찾다보니 <br>'일반적인 게임 사이트가 보다는 스팀이나 다이렉트 게임즈 같은 사이트가 재밌어보인다' 라는 <br>의견에 모두가 찬성하면서 시작하게 되었습니다.
-
-## 프로그램 소개
-<img src="readme_img/project_index_page.png" width=150 height=500>
-
-
+# 🌱 프로젝트 동기
+#### 웹의 다양한 기술을 사용할 수 있는 쇼핑몰 사이트를 구상하였습니다. <br> 팀원 모두가 좋아하는 게임을 주제로, 화려한 색감과 애니메이션을 사용하여 한 눈에 띄는 웹을 목표로 하였습니다.
 ---
-
-# 📝 프로젝트 웹 사이트 접속
-
-<a href="http://3.39.6.147:8090/smg/"><img src="ShowMeGames/src/main/webapp/resources/img/logo/smg_loginLogo.png" width=300 height=70></a>
----
-
 # 🎢 기술 스택(Stacks)
 
 <img src="https://img.shields.io/badge/html-orange?style=for-the-badge&logo=html&logoColor=orange"> <img src="https://img.shields.io/badge/css-blue?style=for-the-badge&logo=html&logoColor=white"> 
@@ -131,6 +120,23 @@
  <img src="https://img.shields.io/badge/spring-gray?style=for-the-badge&logo=spring&logoColor=green"> <img src="https://img.shields.io/badge/javascript-yellow?style=for-the-badge&logo=javascript&logoColor=gray"> <img src="https://img.shields.io/badge/jquary-white?style=for-the-badge&logo=jquary&logoColor=0080ff"> <img src="https://img.shields.io/badge/aws-orange?style=for-the-badge&logo=aws&logoColor=orange">  
 <img src="https://img.shields.io/badge/Adobe Photoshop-31A8FF?style=for-the-badge&logo=Adobe Photoshop&logoColor=white"> <img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
 <img src="https://img.shields.io/badge/mybatis-black?style=for-the-badge&logo=mybatis&logoColor=black">  
-<img src="https://img.shields.io/badge/visual studio code-blue?style=for-the-badge&logo=mybatis&logoColor=black">  
+<img src="https://img.shields.io/badge/visual studio code-blue?style=for-the-badge&logo=visualstudiocode&logoColor=black">  
  
+---
+
+# 📝 프로젝트 웹 사이트 접속 
+### (❌ AWS 비용 청구로 인해 폐쇄한 상태입니다.)
+
+<a href="http://3.39.6.147:8090/smg/"><img src="ShowMeGames/src/main/webapp/resources/img/logo/smg_loginLogo.png" width=300 height=70></a>
+<br>
+
+---
+
+## 프로그램 소개
+<img src="readme_img/project_index_page.png" width=150 height=500>
+
+
+
+
+
 
