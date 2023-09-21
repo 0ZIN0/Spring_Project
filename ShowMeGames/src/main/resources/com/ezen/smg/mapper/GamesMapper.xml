@@ -180,7 +180,7 @@
 	</select>
 	
 	<select id="getGameListForAdmin" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a ORDER BY game_id DESC) WHERE rn BETWEEN #{start} AND #{end}
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM (SELECT * FROM games ORDER BY game_id DESC) a) WHERE rn BETWEEN #{start} AND #{end}
 	</select>
 	
 	<select id="getGamesByIdSize">
@@ -188,7 +188,7 @@
 	</select>
 	
 	<select id="getGameListByGame_id" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a WHERE game_id LIKE '%'||#{game_id}||'%' ORDER BY game_id) WHERE rn BETWEEN #{start} AND #{end} 	
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM (SELECT * FROM games WHERE game_id LIKE '%'||#{game_id}||'%' ORDER BY game_id) a) WHERE rn BETWEEN #{start} AND #{end} 	
 	</select>
 	
 	<select id="getGamesByName">
@@ -196,7 +196,7 @@
 	</select>
 	
 	<select id="getGameListByName" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a WHERE LOWER(game_name) LIKE LOWER('%'||#{game_name}||'%') ORDER BY game_id DESC) WHERE rn BETWEEN #{start} AND #{end} 	
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM (SELECT * FROM games WHERE LOWER(game_name) LIKE LOWER('%'||#{game_name}||'%') ORDER BY game_id DESC) a) WHERE rn BETWEEN #{start} AND #{end} 	
 	</select>
 	
 	<select id="getGamesByLayout">
@@ -208,7 +208,7 @@
 	</select>
 	
 	<select id="getGameListByLayout" resultType="com.ezen.smg.dto.Games">
-		SELECT * FROM (SELECT rownum AS rn, a.* FROM games a WHERE LOWER(layout) LIKE LOWER('%'||#{layout}||'%') ORDER BY game_id DESC) WHERE rn BETWEEN #{start} AND #{end} 	
+		SELECT * FROM (SELECT rownum AS rn, a.* FROM (SELECT * FROM games WHERE LOWER(layout) LIKE LOWER('%'||#{layout}||'%') ORDER BY game_id DESC) a) WHERE rn BETWEEN #{start} AND #{end} 	
 	</select>
 	
 	<select id="getGamesListByLayoutAndNull" resultType="com.ezen.smg.dto.Games">

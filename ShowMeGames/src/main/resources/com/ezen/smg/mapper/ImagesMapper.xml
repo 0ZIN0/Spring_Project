@@ -24,7 +24,12 @@
 	</select>
 	
 	<insert id="insertImage" parameterType="com.ezen.smg.dto.Images">
-		INSERT INTO images VALUES (
+		INSERT INTO images (
+            image_id,
+            game_id,
+            image_name,
+            image_url) 
+        VALUES (
 			image_id_seq.nextval,
 			#{dto.game_id},
 			#{dto.image_name},
